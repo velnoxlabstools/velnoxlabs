@@ -1,0 +1,15 @@
+export { HeroSection } from './HeroSection';
+export { FeaturedToolsSection } from './FeaturedToolsSection';
+export { PopularCategoriesSection } from './PopularCategoriesSection';
+export { TrendingToolsSection } from './TrendingToolsSection';
+export { NewToolsSection } from './NewToolsSection';
+export { RecentlyUpdatedSection } from './RecentlyUpdatedSection';
+export { ToolCollectionsSection } from './ToolCollectionsSection';
+export { WhyChooseSection } from './WhyChooseSection';
+export { FeaturesGridSection } from './FeaturesGridSection';
+export { BenefitsSection } from './BenefitsSection';
+export { HowItWorksSection } from './HowItWorksSection';
+export { CategoriesPreviewSection } from './CategoriesPreviewSection';
+export { NewsletterSection } from './NewsletterSection';
+export { FaqPreviewSection } from './FaqPreviewSection';
+export { CtaBannerSection } from './CtaBannerSection';
