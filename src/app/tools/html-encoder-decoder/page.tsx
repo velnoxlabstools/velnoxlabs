@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 
@@ -12,7 +12,7 @@ export default function HtmlEncoderDecoderPage() {
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
 
-  const handleProcess = (text: string, currentMode: 'encode' | 'decode') => {
+  const handleProcess = useCallback((text: string, currentMode: 'encode' | 'decode' = mode) => {
     setInput(text);
     if (!text) {
       setOutput('');
@@ -36,7 +36,7 @@ export default function HtmlEncoderDecoderPage() {
         .replace(/&#039;/g, "'");
       setOutput(decoded);
     }
-  };
+  }, [mode]);
 
   const toggleMode = (newMode: 'encode' | 'decode') => {
     setMode(newMode);
@@ -48,7 +48,7 @@ export default function HtmlEncoderDecoderPage() {
     if (input) {
       handleProcess(input, mode);
     }
-  }, []);
+  }, [handleProcess, input, mode]);
 
   const handleCopy = () => {
     if (!output) return;
@@ -135,12 +135,28 @@ export default function HtmlEncoderDecoderPage() {
                 />
               </div>
               <div>
-                
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                    {mode === 'encode' ? 'Encoded Output:' : 'Decoded Output:'}
+                  </label>
+                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copied ? 'Copied!' : 'Copy'}</button>
+                </div>
+                <textarea
+                  value={output}
+                  readOnly
+                  rows={10}
+                  placeholder="Output will appear here..."
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                />
+              </div>
+            </div>
+          </div>
+
           {/* Visible SEO Content */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a HTML Encoder & Decoder?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The HTML Encoder & Decoder safely converts special characters like <, >, &, and quotes into their corresponding HTML entities, and vice versa. It prevents XSS vulnerabilities and ensures safe rendering of user-generated content.
+              {'The HTML Encoder & Decoder safely converts special characters like <, >, &, and quotes into their corresponding HTML entities, and vice versa. It prevents XSS vulnerabilities and ensures safe rendering of user-generated content.'}
             </p>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
@@ -166,23 +182,6 @@ export default function HtmlEncoderDecoderPage() {
             <div style={{ marginBottom: '16px' }}>
               <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
               <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
-            </div>
-          </div>
-
-<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
-                    {mode === 'encode' ? 'Encoded Output:' : 'Decoded Output:'}
-                  </label>
-                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copied ? 'Copied!' : 'Copy'}</button>
-                </div>
-                <textarea
-                  value={output}
-                  readOnly
-                  rows={10}
-                  placeholder="Output will appear here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
-                />
-              </div>
             </div>
           </div>
 
