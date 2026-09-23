@@ -90,12 +90,6 @@ export default function ImageResizerPage() {
     document.body.removeChild(link);
   };
 
-  const handleReset = () => {
-    setImageSrc(null);
-    setProcessedImage(null);
-    setFileName('');
-  };
-
   const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedback.trim()) return;
@@ -245,7 +239,7 @@ export default function ImageResizerPage() {
                   </label>
                 </div>
 
-                {/* Action Buttons - Now directly below controls */}
+                {/* 👇 BUTTONS AB YAHAN HAIN (SEO KE UPAR) 👇 */}
                 <div style={{ display: 'flex', gap: '12px', marginTop: '24px', flexWrap: 'wrap' }}>
                   <button
                     onClick={handleResize}
@@ -263,50 +257,52 @@ export default function ImageResizerPage() {
                     </button>
                   )}
                   <button
-                    onClick={handleReset}
+                    onClick={() => { setImageSrc(null); setProcessedImage(null); setFileName(''); }}
                     style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
                   >
                     Upload New
                   </button>
                 </div>
+                {/* 👆 BUTTONS YAHAN KHATAM 👆 */}
+
+                {/* Visible SEO Content (Ab buttons ke neeche hai) */}
+                <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Image Resizer & Compressor?</h2>
+                  <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
+                    The Image Resizer lets you resize, compress, and convert images directly in your browser without uploading them anywhere. It supports PNG, JPG, and WEBP formats and uses HTML5 Canvas for hardware-accelerated processing.
+                  </p>
+
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
+                  <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
+                    <li>Enter or paste your data into the input field above.</li>
+                    <li>The tool processes your input instantly in real-time.</li>
+                    <li>View the result in the output panel on the right.</li>
+                    <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+                  </ul>
+
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
+
+                  <div style={{ marginBottom: '16px' }}>
+                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
+                    <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs Image Resizer & Compressor is 100% free with no sign-up required.</p>
+                  </div>
+
+                  <div style={{ marginBottom: '16px' }}>
+                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
+                    <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device and is never sent to any server.</p>
+                  </div>
+
+                  <div style={{ marginBottom: '16px' }}>
+                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
+                    <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
+                  </div>
+                </div>
+
               </div>
             </div>
           )}
 
           <canvas ref={canvasRef} style={{ display: 'none' }} />
-
-          {/* Visible SEO Content - Now correctly placed BELOW the tool interface */}
-          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Image Resizer & Compressor?</h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The Image Resizer lets you resize, compress, and convert images directly in your browser without uploading them anywhere. It supports PNG, JPG, and WEBP formats and uses HTML5 Canvas for hardware-accelerated processing.
-            </p>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
-            </ul>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs Image Resizer & Compressor is 100% free with no sign-up required.</p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device and is never sent to any server.</p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
-            </div>
-          </div>
 
           {/* Single Feedback Section at the Bottom */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
