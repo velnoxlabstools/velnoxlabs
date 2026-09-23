@@ -90,6 +90,12 @@ export default function ImageResizerPage() {
     document.body.removeChild(link);
   };
 
+  const handleReset = () => {
+    setImageSrc(null);
+    setProcessedImage(null);
+    setFileName('');
+  };
+
   const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedback.trim()) return;
@@ -239,8 +245,37 @@ export default function ImageResizerPage() {
                   </label>
                 </div>
 
-                
-          {/* Visible SEO Content */}
+                {/* Action Buttons - Now directly below controls */}
+                <div style={{ display: 'flex', gap: '12px', marginTop: '24px', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={handleResize}
+                    disabled={loading}
+                    style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    {loading ? 'Processing...' : 'Resize Image'}
+                  </button>
+                  {processedImage && (
+                    <button
+                      onClick={handleDownload}
+                      style={{ backgroundColor: '#059669', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                    >
+                      Download
+                    </button>
+                  )}
+                  <button
+                    onClick={handleReset}
+                    style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    Upload New
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <canvas ref={canvasRef} style={{ display: 'none' }} />
+
+          {/* Visible SEO Content - Now correctly placed BELOW the tool interface */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Image Resizer & Compressor?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -272,35 +307,6 @@ export default function ImageResizerPage() {
               <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
             </div>
           </div>
-
-<div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
-                  <button
-                    onClick={handleResize}
-                    disabled={loading}
-                    style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
-                  >
-                    {loading ? 'Processing...' : 'Resize Image'}
-                  </button>
-                  {processedImage && (
-                    <button
-                      onClick={handleDownload}
-                      style={{ backgroundColor: '#059669', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
-                    >
-                      Download
-                    </button>
-                  )}
-                  <button
-                    onClick={() => { setImageSrc(null); setProcessedImage(null); setFileName(''); }}
-                    style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
-                  >
-                    Upload New
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          <canvas ref={canvasRef} style={{ display: 'none' }} />
 
           {/* Single Feedback Section at the Bottom */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
