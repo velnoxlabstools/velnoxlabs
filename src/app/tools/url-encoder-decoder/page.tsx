@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 
@@ -13,7 +13,7 @@ export default function UrlEncoderDecoderPage() {
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
 
-  const handleProcess = (text: string, currentMode: 'encode' | 'decode') => {
+  const handleProcess = useCallback((text: string, currentMode: 'encode' | 'decode' = mode) => {
     setInput(text);
     setError('');
     if (!text.trim()) {
@@ -31,23 +31,21 @@ export default function UrlEncoderDecoderPage() {
       setError(err.message || 'Invalid string format for processing');
       setOutput('');
     }
-  };
+  }, [mode]);
 
   const toggleMode = (newMode: 'encode' | 'decode') => {
     setMode(newMode);
     handleProcess(input, newMode);
   };
 
-
-
   // Auto-run on mount
   useEffect(() => {
     if (input) {
-      try { handleProcess(input); } catch(e) {}
+      handleProcess(input);
     }
-  }, []);
+  }, [handleProcess, input]);
 
-const handleCopy = () => {
+  const handleCopy = () => {
     if (!output) return;
     navigator.clipboard.writeText(output);
     setCopied(true);
@@ -117,13 +115,42 @@ const handleCopy = () => {
 
           <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
             
+            {/* Mode Toggle Buttons */}
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+              <button onClick={() => toggleMode('encode')} style={{ backgroundColor: mode === 'encode' ? '#2563eb' : 'transparent', color: mode === 'encode' ? '#fff' : '#94a3b8', border: '1px solid #2563eb', borderRadius: '6px', padding: '8px 16px', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 600 }}>Encode</button>
+              <button onClick={() => toggleMode('decode')} style={{ backgroundColor: mode === 'decode' ? '#2563eb' : 'transparent', color: mode === 'decode' ? '#fff' : '#94a3b8', border: '1px solid #2563eb', borderRadius: '6px', padding: '8px 16px', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 600 }}>Decode</button>
+            </div>
+
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div>
                 <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Input:</label>
-                <textarea value={input || ''} onChange={(e) => { setInput(e.target.value); try { handleProcess(e.target.value); } catch(err) {} }} rows={10} placeholder="Enter your input here..." style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} />
+                <textarea 
+                  value={input || ''} 
+                  onChange={(e) => handleProcess(e.target.value)} 
+                  rows={10} 
+                  placeholder="Enter your input here..." 
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} 
+                />
               </div>
               <div>
-                
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Output:</label>
+                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>
+                    {copied ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <textarea 
+                  value={output || ''} 
+                  readOnly 
+                  rows={10} 
+                  placeholder="Output will appear here..." 
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} 
+                />
+                {error && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '8px' }}>{error}</p>}
+              </div>
+            </div>
+          </div>
+
           {/* Visible SEO Content */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a URL Encoder & Decoder?</h2>
@@ -157,36 +184,22 @@ const handleCopy = () => {
             </div>
           </div>
 
-<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Output:</label>
-                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>Copy</button>
-                </div>
-                <textarea value={output || ''} readOnly rows={10} placeholder="Output will appear here..." style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} />
-              </div>
-            </div>
-          </div>
-
-
-          
-
-      
-
-      {/* Single Feedback Section at the Bottom */}
-      <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl">
-        <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-        <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
-        <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-          <textarea
-            rows={4} 
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            placeholder="Write your suggestions or feature requests here..." 
-            className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-          ></textarea>
-          <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
-            Submit Suggestion
-          </button>
-          </form>
+          {/* Single Feedback Section at the Bottom */}
+          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
+            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
+            <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
+            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
+              <textarea
+                rows={4} 
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="Write your suggestions or feature requests here..." 
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
+              ></textarea>
+              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
+                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
+              </button>
+            </form>
           </div>
 
         </div>
