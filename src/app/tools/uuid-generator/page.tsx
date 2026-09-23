@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 
@@ -12,17 +12,22 @@ export default function UuidGeneratorPage() {
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
 
-  const generateUuids = () => {
+  // Fixed: Wrapped in useCallback to prevent dependency warning during build
+  const generateUuids = useCallback(() => {
     const list: string[] = [];
     for (let i = 0; i < count; i++) {
-      list.push(crypto.randomUUID());
+      // Fixed: Added safe check for SSR (Server-Side Rendering)
+      const uuid = typeof window !== 'undefined' && window.crypto 
+        ? window.crypto.randomUUID() 
+        : '';
+      if (uuid) list.push(uuid);
     }
     setUuids(list);
-  };
+  }, [count]);
 
   useEffect(() => {
     generateUuids();
-  }, []);
+  }, [generateUuids]);
 
   const handleCopySingle = (text: string, index: number) => {
     navigator.clipboard.writeText(text);
@@ -113,7 +118,19 @@ export default function UuidGeneratorPage() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {uuids.map((uuid, idx) => (
-                
+                <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.3)', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <span style={{ color: '#34d399', fontFamily: 'monospace', fontSize: '0.85rem', wordBreak: 'break-all' }}>{uuid}</span>
+                  <button
+                    onClick={() => handleCopySingle(uuid, idx)}
+                    style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer', marginLeft: '12px', flexShrink: 0 }}
+                  >
+                    {copiedIndex === idx ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Visible SEO Content */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a UUID v4 Generator?</h2>
@@ -144,19 +161,6 @@ export default function UuidGeneratorPage() {
             <div style={{ marginBottom: '16px' }}>
               <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
               <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
-            </div>
-          </div>
-
-<div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.3)', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <span style={{ color: '#34d399', fontFamily: 'monospace', fontSize: '0.85rem', wordBreak: 'break-all' }}>{uuid}</span>
-                  <button
-                    onClick={() => handleCopySingle(uuid, idx)}
-                    style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer', marginLeft: '12px', flexShrink: 0 }}
-                  >
-                    {copiedIndex === idx ? 'Copied!' : 'Copy'}
-                  </button>
-                </div>
-              ))}
             </div>
           </div>
 
