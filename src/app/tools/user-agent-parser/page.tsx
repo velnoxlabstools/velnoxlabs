@@ -34,17 +34,17 @@ export default function UserAgentParserPage() {
       b = 'Internet Explorer';
     }
 
-    // OS Detection
-    if (ua.includes('Win')) {
-      o = 'Windows';
-    } else if (ua.includes('Mac')) {
-      o = 'macOS';
+    // OS & Device Detection (Order matters! iPhone/iPad checked first)
+    if (ua.includes('iPhone') || ua.includes('iPad')) {
+      o = 'iOS';
+      d = 'Mobile / Tablet';
     } else if (ua.includes('Android')) {
       o = 'Android';
       d = 'Mobile / Tablet';
-    } else if (ua.includes('iPhone') || ua.includes('iPad')) {
-      o = 'iOS';
-      d = 'Mobile / Tablet';
+    } else if (ua.includes('Win')) {
+      o = 'Windows';
+    } else if (ua.includes('Mac')) {
+      o = 'macOS';
     } else if (ua.includes('Linux')) {
       o = 'Linux';
     }
@@ -151,7 +151,7 @@ export default function UserAgentParserPage() {
             </div>
           </div>
 
-          {/* Visible SEO Content - Now correctly placed outside the grid */}
+          {/* Visible SEO Content */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a User-Agent Parser?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
