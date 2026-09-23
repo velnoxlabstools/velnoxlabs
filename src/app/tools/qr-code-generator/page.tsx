@@ -3,48 +3,12 @@
 import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import QRCode from 'react-qr-code'; // ✅ Asli QR Code Library Import ki
 
 export default function QrCodeGeneratorPage() {
   const [text, setText] = useState('https://velnoxlabs.com');
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
-
-  const generateQrMatrix = (str: string) => {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = (hash << 5) - hash + str.charCodeAt(i);
-      hash |= 0;
-    }
-    const matrixSize = 25;
-    const grid: number[][] = [];
-    for (let r = 0; r < matrixSize; r++) {
-      const row: number[] = [];
-      for (let c = 0; c < matrixSize; c++) {
-        const isFinder =
-          (r < 7 && c < 7) ||
-          (r < 7 && c >= matrixSize - 7) ||
-          (r >= matrixSize - 7 && c < 7);
-
-        if (isFinder) {
-          const innerR = r < 7 ? r : r - (matrixSize - 7);
-          const innerC = c < 7 ? c : c >= matrixSize - 7 ? c - (matrixSize - 7) : c;
-          const onBorder = innerR === 0 || innerR === 6 || innerC === 0 || innerC === 6;
-          const inCenter = innerR >= 2 && innerR <= 4 && innerC >= 2 && innerC <= 4;
-          row.push(onBorder || inCenter ? 1 : 0);
-        } else {
-          const bit = Math.abs(Math.sin(hash + r * 12.9898 + c * 78.233) * 43758.5453) % 1 > 0.5 ? 1 : 0;
-          row.push(bit);
-        }
-      }
-      grid.push(row);
-    }
-    return grid;
-  };
-
-  const qrGrid = generateQrMatrix(text);
-  const matrixSize = qrGrid.length;
-  const cellSize = 10;
-  const svgSize = matrixSize * cellSize;
 
   const downloadQR = () => {
     const svg = document.getElementById('qr-svg');
@@ -129,35 +93,29 @@ export default function QrCodeGeneratorPage() {
                   <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>QR Code Preview:</label>
                   <button
                     onClick={downloadQR}
-                    style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}
+                    disabled={text.trim() === ''} // ✅ Empty input pe download disable
+                    style={{ backgroundColor: text.trim() === '' ? 'rgba(255,255,255,0.05)' : 'rgba(59, 130, 246, 0.15)', color: text.trim() === '' ? '#64748b' : '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: text.trim() === '' ? 'not-allowed' : 'pointer' }}
                   >
                     Download SVG
                   </button>
                 </div>
                 <div style={{ backgroundColor: '#ffffff', borderRadius: '8px', padding: '16px', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
-                  <svg
-                    id="qr-svg"
-                    width={svgSize}
-                    height={svgSize}
-                    viewBox={`0 0 ${svgSize} ${svgSize}`}
-                    style={{ maxWidth: '100%', height: 'auto' }}
-                  >
-                    <rect width={svgSize} height={svgSize} fill="#ffffff" />
-                    {qrGrid.map((row, r) =>
-                      row.map((cell, c) =>
-                        cell === 1 ? (
-                          <rect
-                            key={`${r}-${c}`}
-                            x={c * cellSize}
-                            y={r * cellSize}
-                            width={cellSize}
-                            height={cellSize}
-                            fill="#000000"
-                          />
-                        ) : null
-                      )
-                    )}
-                  </svg>
+                  {/* ✅ Conditional Rendering: Empty input pe placeholder, warna asli QRCode */}
+                  {text.trim() === '' ? (
+                    <p style={{ color: '#64748b', fontSize: '0.9rem', textAlign: 'center', margin: 0 }}>
+                      Enter text or URL to generate QR code
+                    </p>
+                  ) : (
+                    <div id="qr-svg" style={{ padding: '10px', backgroundColor: '#fff' }}>
+                      <QRCode
+                        value={text}
+                        size={200}
+                        level="H" // High error correction
+                        bgColor="#ffffff"
+                        fgColor="#000000"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
