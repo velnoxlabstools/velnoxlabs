@@ -5,7 +5,8 @@ import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 
 export default function UnixTimestampPage() {
-  const [timestamp, setTimestamp] = useState(Math.floor(Date.now() / 1000));
+  // Fix: State ko number se string me badla taaki input field clear/edit ho sake
+  const [timestamp, setTimestamp] = useState<string>(String(Math.floor(Date.now() / 1000)));
   const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000));
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
@@ -16,27 +17,34 @@ export default function UnixTimestampPage() {
     return () => clearInterval(interval);
   }, []);
 
-  const date = new Date(timestamp * 1000);
-  const humanDate = date.toString();
-  const isoDate = date.toISOString();
+  // Fix: Timestamp calculation safely handle karta hai empty/invalid input ko
+  const parsedTimestamp = Number(timestamp);
+  const isValid = timestamp.trim() !== '' && !isNaN(parsedTimestamp);
+  
+  const date = isValid ? new Date(parsedTimestamp * 1000) : null;
+  const humanDate = date ? date.toString() : 'Invalid Timestamp';
+  const isoDate = date ? date.toISOString() : 'Invalid Timestamp';
 
-  const handleTimestampChange = (val) => {
-    const num = parseInt(val);
-    if (!isNaN(num)) setTimestamp(num);
+  // Fix: Ab ye function sirf string state update karta hai, koi parseInt nahi
+  const handleTimestampChange = (val: string) => {
+    setTimestamp(val);
   };
 
-  const handleDateChange = (val) => {
+  const handleDateChange = (val: string) => {
     const d = new Date(val);
-    if (!isNaN(d.getTime())) setTimestamp(Math.floor(d.getTime() / 1000));
+    if (!isNaN(d.getTime())) {
+      setTimestamp(String(Math.floor(d.getTime() / 1000)));
+    }
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(String(timestamp));
+    if (!isValid) return;
+    navigator.clipboard.writeText(timestamp);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleFeedbackSubmit = (e) => {
+  const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedback.trim()) return;
     setFeedbackSent(true);
@@ -64,13 +72,21 @@ export default function UnixTimestampPage() {
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap' }}>
               <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Current Unix Time:</span>
               <span style={{ color: '#34d399', fontFamily: 'monospace', fontSize: '1rem', fontWeight: 600 }}>{currentTime}</span>
-              <button onClick={() => setTimestamp(currentTime)} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>Use Now</button>
+              <button onClick={() => setTimestamp(String(currentTime))} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>Use Now</button>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div>
                 <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Unix Timestamp:</label>
-                <input type="number" value={timestamp} onChange={(e) => handleTimestampChange(e.target.value)} style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.9rem', outline: 'none' }} />
+                {/* Fix: type="text" aur inputMode="numeric" lagaya */}
+                <input 
+                  type="text" 
+                  inputMode="numeric"
+                  value={timestamp} 
+                  onChange={(e) => handleTimestampChange(e.target.value)} 
+                  placeholder="Enter Unix timestamp..."
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.9rem', outline: 'none' }} 
+                />
               </div>
               <div>
                 <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Pick a Date:</label>
@@ -83,16 +99,15 @@ export default function UnixTimestampPage() {
                 <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Human Readable:</label>
                 <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copied ? 'Copied!' : 'Copy Timestamp'}</button>
               </div>
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', color: '#34d399' }}>{humanDate}</div>
+              <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', color: isValid ? '#34d399' : '#ef4444' }}>{humanDate}</div>
             </div>
 
             <div style={{ marginTop: '12px' }}>
               <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>ISO 8601:</label>
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', color: '#60a5fa' }}>{isoDate}</div>
+              <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', color: isValid ? '#60a5fa' : '#ef4444' }}>{isoDate}</div>
             </div>
           </div>
 
-          
           {/* Visible SEO Content */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Unix Timestamp Converter?</h2>
@@ -126,7 +141,7 @@ export default function UnixTimestampPage() {
             </div>
           </div>
 
-<div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
+          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards.</p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">
