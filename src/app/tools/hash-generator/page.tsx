@@ -1,8 +1,9 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import CryptoJS from 'crypto-js';
 
 export default function HashGeneratorPage() {
   const [input, setInput] = useState('Hello VelnoxLabs!');
@@ -25,34 +26,22 @@ export default function HashGeneratorPage() {
       return;
     }
 
-    const encoder = new TextEncoder();
-    const data = encoder.encode(text);
-
     try {
+      // ✅ Real MD5 via crypto-js
+      setMd5Hash(CryptoJS.MD5(text).toString());
+
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
+
       const sha256Buffer = await crypto.subtle.digest('SHA-256', data);
       setSha256Hash(Array.from(new Uint8Array(sha256Buffer)).map(b => b.toString(16).padStart(2, '0')).join(''));
 
       const sha512Buffer = await crypto.subtle.digest('SHA-512', data);
       setSha512Hash(Array.from(new Uint8Array(sha512Buffer)).map(b => b.toString(16).padStart(2, '0')).join(''));
     } catch (e) {
-      setSha256Hash('Error generating SHA-256');
-      setSha512Hash('Error generating SHA-512');
+      setSha256Hash('Error generating hash');
+      setSha512Hash('Error generating hash');
     }
-
-    setMd5Hash(simpleMd5Fallback(text));
-  };
-
-  const simpleMd5Fallback = (str: string) => {
-    let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
-    for (let i = 0; i < str.length; i++) {
-      const ch = str.charCodeAt(i);
-      h1 = Math.imul(h1 ^ ch, 2654435761);
-      h2 = Math.imul(h2 ^ ch, 1597334677);
-    }
-    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-    const result = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0');
-    return result.padEnd(32, '0');
   };
 
   const handleCopy = (text: string, field: string) => {
@@ -110,6 +99,7 @@ export default function HashGeneratorPage() {
             subtitle="Generate SHA-256, SHA-512, and MD5 hashes instantly with browser-native cryptographic APIs."
           />
 
+          {/* ========== TOOL UI ========== */}
           <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
             <div style={{ marginBottom: '20px' }}>
               <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Input Text:</label>
@@ -123,6 +113,7 @@ export default function HashGeneratorPage() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {/* MD5 */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>MD5 Hash:</label>
@@ -133,6 +124,7 @@ export default function HashGeneratorPage() {
                 </div>
               </div>
 
+              {/* SHA-256 */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>SHA-256 Hash:</label>
@@ -143,13 +135,20 @@ export default function HashGeneratorPage() {
                 </div>
               </div>
 
+              {/* SHA-512 — ab sahi jagah pe, MD5 aur SHA-256 ke saath */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>SHA-512 Hash:</label>
                   <button onClick={() => handleCopy(sha512Hash, 'sha512')} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copiedField === 'sha512' ? 'Copied!' : 'Copy'}</button>
                 </div>
-                
-          {/* Visible SEO Content */}
+                <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', color: '#34d399', wordBreak: 'break-all', minHeight: '44px' }}>
+                  {sha512Hash || <span style={{ color: '#64748b', fontStyle: 'italic' }}>SHA-512 hash will appear here...</span>}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ========== SEO CONTENT (tool ke bahar, neeche) ========== */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Cryptographic Hash Generator?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -182,14 +181,7 @@ export default function HashGeneratorPage() {
             </div>
           </div>
 
-<div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', color: '#34d399', wordBreak: 'break-all', minHeight: '44px' }}>
-                  {sha512Hash || <span style={{ color: '#64748b', fontStyle: 'italic' }}>SHA-512 hash will appear here...</span>}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Single Feedback Section at the Bottom */}
+          {/* ========== FEEDBACK FORM (sabse neeche) ========== */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
