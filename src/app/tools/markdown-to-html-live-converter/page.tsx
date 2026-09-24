@@ -52,8 +52,9 @@ function markdownToHtml(md: string): string {
 
   const flushParagraph = () => {
     if (paragraphBuffer.length > 0) {
-      const joined = paragraphBuffer.join(' ').trim();
-      if (joined) output.push(`<p>${processInline(joined)}</p>`);
+      // ✅ FIX: Join lines with <br> to preserve line breaks
+      const joined = paragraphBuffer.map((l) => processInline(l.trim())).join('<br />\n');
+      if (joined) output.push(`<p>${joined}</p>`);
       paragraphBuffer = [];
     }
   };
@@ -66,8 +67,7 @@ function markdownToHtml(md: string): string {
   };
 
   for (let i = 0; i < lines.length; i++) {
-    const rawLine = lines[i];
-    const line = rawLine;
+    const line = lines[i];
 
     // Code block placeholder
     const codeMatch = line.match(/^__CODEBLOCK_(\d+)__$/);
@@ -138,7 +138,7 @@ function markdownToHtml(md: string): string {
       continue;
     }
 
-    // Normal line -> buffer as paragraph
+    // Normal line -> buffer as paragraph (preserving line breaks)
     closeList();
     paragraphBuffer.push(line);
   }
