@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 
@@ -110,6 +110,11 @@ function searchMime(query: string): Match[] {
   const q = query.trim().toLowerCase().replace(/^\./, '');
   if (!q) return [];
 
+  // ✅ NEW: If user types "mime" or "mimetype", show the entire database
+  if (q === 'mime' || q === 'mimetype' || q === 'mime type') {
+    return MIME_DB;
+  }
+
   return MIME_DB.filter((entry) => {
     const matchExt = entry.ext.some((e) => e === q || e.startsWith(q) || q.startsWith(e));
     const matchMime = entry.mime.toLowerCase().includes(q);
@@ -125,6 +130,7 @@ export default function Page() {
 
   const matches = searchMime(input);
   const isEmptyQuery = !input.trim();
+  const isBrowseMode = isEmptyQuery || matches.length === MIME_DB.length;
 
   const handleCopy = () => {
     if (!matches.length) return;
@@ -194,7 +200,7 @@ export default function Page() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="e.g., jpg, png, pdf, image/, video/, application/json"
+                placeholder="e.g., jpg, png, pdf, image/, video/, mime (show all)"
                 style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.9rem', outline: 'none' }}
               />
             </div>
@@ -202,7 +208,7 @@ export default function Page() {
             {/* Result count + Copy button */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
               <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
-                {isEmptyQuery ? (
+                {isBrowseMode ? (
                   <>Reference Table: <span style={{ color: '#34d399' }}>{MIME_DB.length} formats</span></>
                 ) : (
                   <>Results: <span style={{ color: '#34d399' }}>{matches.length} found</span></>
@@ -219,7 +225,7 @@ export default function Page() {
 
             {/* Results table */}
             <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '8px', maxHeight: '480px', overflowY: 'auto' }}>
-              {isEmptyQuery && (
+              {isBrowseMode && (
                 <p style={{ color: '#64748b', fontSize: '0.8rem', padding: '8px 12px', marginBottom: '8px', fontStyle: 'italic' }}>
                   Showing all supported formats. Type above to filter.
                 </p>
@@ -268,6 +274,7 @@ export default function Page() {
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
               <li>Type a file extension like <code style={{ color: '#60a5fa' }}>jpg</code> or <code style={{ color: '#60a5fa' }}>pdf</code> to find its MIME type.</li>
               <li>Type a MIME type like <code style={{ color: '#60a5fa' }}>image/</code> or <code style={{ color: '#60a5fa' }}>application/json</code> to find matching extensions.</li>
+              <li>Type <code style={{ color: '#60a5fa' }}>mime</code> to browse the entire reference table.</li>
               <li>The database contains <strong style={{ color: '#34d399' }}>100+ common formats</strong> across images, audio, video, documents, archives, and code.</li>
               <li>Click <strong style={{ color: '#34d399' }}>Copy Results</strong> to copy the entire table to your clipboard.</li>
             </ul>
