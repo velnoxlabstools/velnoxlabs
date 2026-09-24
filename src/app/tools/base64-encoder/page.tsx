@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
@@ -13,20 +13,17 @@ export default function Base64EncoderPage() {
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
 
-  const handleProcess = () => {
+  const process = (text: string, currentMode: 'encode' | 'decode') => {
     setError('');
-    if (!input.trim()) {
+    if (!text.trim()) {
       setOutput('');
       return;
     }
-
     try {
-      if (mode === 'encode') {
-        const encoded = btoa(unescape(encodeURIComponent(input)));
-        setOutput(encoded);
+      if (currentMode === 'encode') {
+        setOutput(btoa(unescape(encodeURIComponent(text))));
       } else {
-        const decoded = decodeURIComponent(escape(atob(input)));
-        setOutput(decoded);
+        setOutput(decodeURIComponent(escape(atob(text))));
       }
     } catch (err: any) {
       setError('Invalid input for the selected mode. Please check your data.');
@@ -34,16 +31,12 @@ export default function Base64EncoderPage() {
     }
   };
 
-
-
-  // Auto-run on mount
+  // Auto-run on input/mode change
   useEffect(() => {
-    if (input) {
-      try { handleProcess(input); } catch(e) {}
-    }
-  }, []);
+    process(input, mode);
+  }, [input, mode]);
 
-const handleCopy = () => {
+  const handleCopy = () => {
     if (!output) return;
     navigator.clipboard.writeText(output);
     setCopied(true);
@@ -81,7 +74,7 @@ const handleCopy = () => {
           {
             '@type': 'Question',
             'name': 'How to encode or decode Base64 online?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Paste your text or Base64 string into the input box, select Encode or Decode mode, and click process to instantly get your result.' }
+            'acceptedAnswer': { '@type': 'Answer', 'text': 'Paste your text or Base64 string into the input box, select Encode or Decode mode, and the result appears instantly.' }
           },
           {
             '@type': 'Question',
@@ -96,6 +89,7 @@ const handleCopy = () => {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading
@@ -103,61 +97,48 @@ const handleCopy = () => {
             subtitle="Encode text to Base64 or decode Base64 strings instantly with absolute client-side privacy."
           />
 
+          {/* ========== TOOL UI ========== */}
           <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-              <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Input:</label>
-                <textarea value={input || ''} onChange={(e) => { setInput(e.target.value); try { handleProcess(e.target.value); } catch(err) {} }} rows={10} placeholder="Enter your input here..." style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} />
-              </div>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Output:</label>
-                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>Copy</button>
-                </div>
-                <textarea value={output || ''} readOnly rows={10} placeholder="Output will appear here..." style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} />
-              </div>
-            </div>
-          </div>
 
-
-          <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+            {/* Mode tabs */}
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
               <button
-                onClick={() => { setMode('encode'); setOutput(''); setError(''); }}
-                style={{ backgroundColor: mode === 'encode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)', color: mode === 'encode' ? '#60a5fa' : '#94a3b8', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '6px 16px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
+                onClick={() => setMode('encode')}
+                style={{ backgroundColor: mode === 'encode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)', color: mode === 'encode' ? '#60a5fa' : '#94a3b8', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '8px 20px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
               >
                 Encode
               </button>
               <button
-                onClick={() => { setMode('decode'); setOutput(''); setError(''); }}
-                style={{ backgroundColor: mode === 'decode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)', color: mode === 'decode' ? '#60a5fa' : '#94a3b8', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '6px 16px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
+                onClick={() => setMode('decode')}
+                style={{ backgroundColor: mode === 'decode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)', color: mode === 'decode' ? '#60a5fa' : '#94a3b8', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '8px 20px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
               >
                 Decode
               </button>
             </div>
 
+            {/* Input / Output */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div>
-                <label style={{ color: '#ffffff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
                   {mode === 'encode' ? 'Text Input:' : 'Base64 Input:'}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  rows={8}
+                  rows={10}
                   placeholder={mode === 'encode' ? 'Enter text to encode...' : 'Paste Base64 to decode...'}
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#ffffff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }}
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
                 />
               </div>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#ffffff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
                     {mode === 'encode' ? 'Base64 Output:' : 'Decoded Output:'}
                   </label>
                   <button
                     onClick={handleCopy}
-                    style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}
+                    disabled={!output}
+                    style={{ backgroundColor: output ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.05)', color: output ? '#60a5fa' : '#64748b', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: output ? 'pointer' : 'not-allowed' }}
                   >
                     {copied ? 'Copied!' : 'Copy'}
                   </button>
@@ -165,29 +146,49 @@ const handleCopy = () => {
                 <textarea
                   value={output}
                   readOnly
-                  rows={8}
+                  rows={10}
                   placeholder="Output will appear here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }}
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
                 />
               </div>
             </div>
 
-            {error && <p style={{ color: '#f87171', fontSize: '0.85rem', marginTop: '12px' }}>{error}</p>}
+            {/* Error */}
+            {error && (
+              <div style={{ marginTop: '12px', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '12px' }}>
+                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
+              </div>
+            )}
 
-            
-          {/* Visible SEO Content */}
+            {/* Action buttons */}
+            <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
+              <button
+                onClick={() => process(input, mode)}
+                style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+              >
+                {mode === 'encode' ? 'Encode' : 'Decode'}
+              </button>
+              <button
+                onClick={handleClear}
+                style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+
+          {/* ========== SEO CONTENT ========== */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Base64 Encoder & Decoder?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The Base64 Encoder & Decoder is a browser-based utility that converts plain text into Base64 encoding and vice versa. Base64 is commonly used for encoding binary data in email attachments, JSON Web Tokens, data URLs, and API payloads. This tool helps developers quickly encode or decode Base64 strings without needing any external library.
+              The Base64 Encoder & Decoder is a browser-based utility that converts plain text into Base64 encoding and vice versa. Base64 is commonly used for encoding binary data in email attachments, JSON Web Tokens, data URLs, and API payloads.
             </p>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              <li>Choose <strong style={{ color: '#34d399' }}>Encode</strong> to convert text → Base64, or <strong style={{ color: '#34d399' }}>Decode</strong> for the reverse.</li>
+              <li>Type or paste your input in the left box — output updates in real-time.</li>
+              <li>Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy the result to your clipboard.</li>
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
@@ -208,23 +209,7 @@ const handleCopy = () => {
             </div>
           </div>
 
-<div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
-              <button
-                onClick={handleProcess}
-                style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
-              >
-                {mode === 'encode' ? 'Encode' : 'Decode'}
-              </button>
-              <button
-                onClick={handleClear}
-                style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
-              >
-                Clear
-              </button>
-            </div>
-          </div>
-
-          {/* Single Feedback Section at the Bottom */}
+          {/* ========== FEEDBACK FORM ========== */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
