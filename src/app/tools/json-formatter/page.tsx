@@ -43,7 +43,6 @@ export default function JsonFormatterPage() {
     }
   };
 
-  // Auto-run on mount
   useEffect(() => {
     if (inputJson) {
       try { handleFormat(inputJson); } catch (e) {}
@@ -105,6 +104,7 @@ export default function JsonFormatterPage() {
             subtitle="Format, validate, and beautify JSON payloads instantly in your browser with absolute client-side privacy."
           />
 
+          {/* ========== TOOL UI ========== */}
           <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div>
@@ -114,27 +114,55 @@ export default function JsonFormatterPage() {
                   onChange={(e) => { setInputJson(e.target.value); try { handleFormat(e.target.value); } catch(err) {} }}
                   rows={12}
                   placeholder="Paste JSON here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }}
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
                 />
-                {error && <span style={{ color: '#f87171', fontSize: '0.8rem' }}>{error}</span>}
               </div>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Formatted Output:</label>
-                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copied ? 'Copied!' : 'Copy'}</button>
+                  <button
+                    onClick={handleCopy}
+                    disabled={!outputJson}
+                    style={{ backgroundColor: outputJson ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.05)', color: outputJson ? '#60a5fa' : '#64748b', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: outputJson ? 'pointer' : 'not-allowed' }}
+                  >
+                    {copied ? 'Copied!' : 'Copy'}
+                  </button>
                 </div>
                 <textarea
                   value={outputJson}
                   readOnly
                   rows={12}
                   placeholder="Formatted JSON will appear here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }}
+                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
                 />
               </div>
             </div>
 
-            
-          {/* Visible SEO Content */}
+            {/* Action buttons — ab tool ke andar */}
+            <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => handleFormat()}
+                style={{ backgroundColor: '#2563eb', color: '#fff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Format / Beautify
+              </button>
+              <button
+                onClick={handleMinify}
+                style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Minify
+              </button>
+            </div>
+
+            {/* Error message */}
+            {error && (
+              <div style={{ marginTop: '12px', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '12px' }}>
+                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ Invalid JSON: {error}</p>
+              </div>
+            )}
+          </div>
+
+          {/* ========== SEO CONTENT — ab tool ke bahar/neeche ========== */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a JSON Formatter & Validator?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -143,10 +171,11 @@ export default function JsonFormatterPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
+              <li>Paste your JSON into the input box.</li>
               <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              <li>Use <strong style={{ color: '#34d399' }}>Format / Beautify</strong> to add proper indentation.</li>
+              <li>Use <strong style={{ color: '#34d399' }}>Minify</strong> to compress JSON into a single line.</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result.</li>
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
@@ -167,13 +196,7 @@ export default function JsonFormatterPage() {
             </div>
           </div>
 
-<div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
-              <button onClick={() => handleFormat()} style={{ backgroundColor: '#2563eb', color: '#fff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}>Format / Beautify</button>
-              <button onClick={handleMinify} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}>Minify</button>
-            </div>
-          </div>
-
-          {/* Single Feedback Section at the Bottom */}
+          {/* ========== FEEDBACK FORM ========== */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
