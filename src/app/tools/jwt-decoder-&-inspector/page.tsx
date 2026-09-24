@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
@@ -117,6 +117,7 @@ export default function JwtDecoderPage() {
             subtitle="Inspect JSON Web Token (JWT) headers, custom claims, expiration dates, and signatures securely."
           />
 
+          {/* ========== TOOL UI ========== */}
           <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
             <div style={{ marginBottom: '20px' }}>
               <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>JWT Token:</label>
@@ -131,6 +132,7 @@ export default function JwtDecoderPage() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {/* Header */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#60a5fa', fontSize: '0.875rem', fontWeight: 600 }}>Header:</label>
@@ -141,6 +143,7 @@ export default function JwtDecoderPage() {
                 </pre>
               </div>
 
+              {/* Payload */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#a78bfa', fontSize: '0.875rem', fontWeight: 600 }}>Payload:</label>
@@ -151,13 +154,20 @@ export default function JwtDecoderPage() {
                 </pre>
               </div>
 
+              {/* Signature — ab sahi jagah pe, seedha label ke neeche */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#fbbf24', fontSize: '0.875rem', fontWeight: 600 }}>Signature:</label>
                   <button onClick={() => handleCopy(signature, 'signature')} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copiedField === 'signature' ? 'Copied!' : 'Copy'}</button>
                 </div>
-                
-          {/* Visible SEO Content */}
+                <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.8rem', color: '#34d399', wordBreak: 'break-all', minHeight: '44px' }}>
+                  {signature || <span style={{ color: '#64748b', fontStyle: 'italic' }}>Signature will appear here...</span>}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ========== VISIBLE SEO CONTENT — ab tool ke NEECHE ========== */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a JWT Decoder & Inspector?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -190,14 +200,7 @@ export default function JwtDecoderPage() {
             </div>
           </div>
 
-<div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '12px', fontFamily: 'monospace', fontSize: '0.8rem', color: '#34d399', wordBreak: 'break-all', minHeight: '44px' }}>
-                  {signature || <span style={{ color: '#64748b', fontStyle: 'italic' }}>Signature will appear here...</span>}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Single Feedback Section at the Bottom */}
+          {/* ========== FEEDBACK FORM ========== */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
