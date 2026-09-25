@@ -32,30 +32,14 @@ function calculateAge(birthDate: Date, today: Date) {
   }
   const daysToBirthday = Math.ceil((nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
-  // Zodiac sign
-  const zodiacSigns = [
-    { sign: 'Capricorn', end: [0, 19] },
-    { sign: 'Aquarius', end: [1, 18] },
-    { sign: 'Pisces', end: [2, 20] },
-    { sign: 'Aries', end: [3, 19] },
-    { sign: 'Taurus', end: [4, 20] },
-    { sign: 'Gemini', end: [5, 20] },
-    { sign: 'Cancer', end: [6, 22] },
-    { sign: 'Leo', end: [7, 22] },
-    { sign: 'Virgo', end: [8, 22] },
-    { sign: 'Libra', end: [9, 22] },
-    { sign: 'Scorpio', end: [10, 21] },
-    { sign: 'Sagittarius', end: [11, 21] },
-  ];
+  // ============ Zodiac sign (FIXED) ============
+  // JS me months 0-indexed hote hain (Jan=0, Dec=11).
+  // Isliye `(m + 1) * 100 + d` use kar rahe hain — MMDD format me convert karne ke liye.
   const m = birthDate.getMonth();
   const d = birthDate.getDate();
+  const monthDay = (m + 1) * 100 + d; // e.g., May 7 → 507
+
   let zodiac = 'Capricorn';
-  for (const z of zodiacSigns) {
-    if (m === z.end[0] && d <= z.end[1]) { zodiac = z.sign; break; }
-    if (m === z.end[0] + 1 || (z.end[0] === 11 && m === 0)) { zodiac = z.sign; }
-  }
-  // Simplified zodiac
-  const monthDay = m * 100 + d;
   if (monthDay >= 1222 || monthDay <= 119) zodiac = 'Capricorn';
   else if (monthDay <= 218) zodiac = 'Aquarius';
   else if (monthDay <= 320) zodiac = 'Pisces';
@@ -283,7 +267,7 @@ Next birthday in: ${result.daysToBirthday} days`;
                 placeholder="Write your suggestions or feature requests here..."
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
               ></textarea>
-              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
+              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-5 py-2.5 rounded-xl transition text-sm">
                 {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
               </button>
             </form>

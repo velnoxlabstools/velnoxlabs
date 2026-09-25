@@ -10,6 +10,10 @@ function generateSlug(text: string, separator: string, caseType: string, removeS
   let slug = text
     .toLowerCase()
     .trim()
+    // ✅ FIX: Normalize Unicode and remove combining accent marks (é → e, ñ → n, ü → u)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    // Now remove remaining non-word characters
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, separator);
 
