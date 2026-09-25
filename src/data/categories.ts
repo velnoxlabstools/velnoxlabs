@@ -56,4 +56,15 @@ export const categories: Category[] = [
     popular: true,
     toolCount: 1,
   },
+  {
+    id: 'business',
+    slug: 'business',
+    name: 'Business & Finance',
+    description: 'Invoicing, billing, tax, and financial utilities for freelancers and small businesses.',
+    icon: 'Briefcase',
+    order: 6,
+    featured: true,
+    popular: true,
+    toolCount: 1,
+  },
 ];

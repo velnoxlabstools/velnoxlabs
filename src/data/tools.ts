@@ -82,7 +82,7 @@ export const tools = [
     usageCount: 0,
     createdAt: '2026-09-25T00:00:00.000Z',
     updatedAt: '2026-09-25T00:00:00.000Z',
-    icon: 'Terminal',
+    icon: 'Briefcase',
   },
   {
     id: 'tool-case-converter',
