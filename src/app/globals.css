@@ -15,3 +15,39 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
+
+/* ============================================
+   HEADER RESPONSIVE (Search Bar + Navigation)
+   ============================================ */
+
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+  .header-desktop {
+    display: flex !important;
+  }
+  .header-search {
+    display: block !important;
+  }
+  .header-cta {
+    display: inline-flex !important;
+  }
+  .header-hamburger {
+    display: none !important;
+  }
+}
+
+/* Tablet & Mobile (below 1024px) */
+@media (max-width: 1023px) {
+  .header-desktop {
+    display: none !important;
+  }
+  .header-search {
+    display: none !important;
+  }
+  .header-cta {
+    display: none !important;
+  }
+  .header-hamburger {
+    display: inline-flex !important;
+  }
+}

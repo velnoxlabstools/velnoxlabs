@@ -83,9 +83,9 @@ export const navigationConfig: NavigationConfig = {
     },
   ],
   legal: [
-    { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
-    { id: 'terms', label: 'Terms of Service', href: '/terms' },
-    { id: 'cookies', label: 'Cookie Policy', href: '/cookies' },
+    { id: 'privacy', label: 'Privacy Policy', href: '/privacy-policy' },
+    { id: 'terms', label: 'Terms of Service', href: '/terms-of-service' },
+    { id: 'cookies', label: 'Cookie Policy', href: '/cookie-policy' },
   ],
   social: [
     { id: 'twitter', label: 'X (Twitter)', href: 'https://x.com', icon: 'twitter' },

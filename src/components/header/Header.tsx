@@ -9,6 +9,7 @@ import { DesktopNav } from '@/components/navigation/DesktopNav';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { navigationConfig } from '@/data/navigation';
 import { GlobalContainer } from '@/components/layout';
+import SearchBar from '@/components/SearchBar';
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,11 +56,10 @@ export function Header() {
           >
             <Logo />
 
-            {/* Desktop nav – shown via CSS media in practice; always in DOM for a11y */}
+            {/* Desktop nav - sirf bade screen par dikhega */}
             <div
-              className="header-desktop"
+              className="hidden md:flex"
               style={{
-                display: 'flex',
                 alignItems: 'center',
                 gap: 'var(--space-2)',
                 flex: 1,
@@ -73,31 +73,19 @@ export function Header() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 'var(--space-2)',
+                gap: 'var(--space-3)',
               }}
             >
-              {/* Search placeholder architecture */}
-              <div
-                aria-hidden="true"
-                className="header-search-placeholder"
-                style={{
-                  display: 'none',
-                  width: '10rem',
-                  height: '2.25rem',
-                  borderRadius: 'var(--radius-md)',
-                  border: '1px solid var(--border)',
-                  background: 'var(--muted)',
-                }}
-              />
-
-              
+              {/* Search Bar - sirf bade screen par dikhega */}
+              <div className="hidden md:block">
+                <SearchBar />
+              </div>
 
               {navigationConfig.cta && (
                 <Link
                   href={navigationConfig.cta.href}
-                  className="header-cta"
+                  className="hidden md:inline-flex"
                   style={{
-                    display: 'none',
                     padding: 'var(--space-2) var(--space-4)',
                     background: 'var(--primary)',
                     color: 'var(--primary-foreground)',
@@ -114,7 +102,7 @@ export function Header() {
 
               <button
                 type="button"
-                className="header-hamburger"
+                className="md:hidden"
                 aria-label="Open menu"
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-nav"
