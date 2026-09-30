@@ -4,11 +4,11 @@ import { GlobalContainer } from '@/components/layout';
 export default function Home() {
   const toolsList = [
     { name: 'Name Combiner', path: '/tools/name-combiner', desc: 'Combine two names into creative blends, ship names, and brand names.', cat: 'Text & Content' },
-    { name: 'Cron Expression Generator', path: '/tools/cron-expression-generator', desc: 'Build cron expressions visually with human-readable explanations.', cat: 'Developer Tools' },
+    { name: 'Cron Expression Generator', path: '/tools/cron-expression-generator', desc: 'Build cron expressions visually with human-readable explanations.', cat: 'Developer Tools', popular: true },
     { name: 'Age Calculator', path: '/tools/age-calculator', desc: 'Calculate exact age in years, months, days, hours, and minutes.', cat: 'Utility' },
     { name: 'Slug Generator', path: '/tools/slug-generator', desc: 'Convert text into clean, SEO-friendly URL slugs instantly.', cat: 'Text & Content' },
     { name: 'Tip Calculator', path: '/tools/tip-calculator', desc: 'Calculate restaurant tips and split bills instantly between friends.', cat: 'Utility' },
-    { name: 'Word Counter', path: '/tools/word-counter', desc: 'Count words, characters, sentences, and reading time in real time.', cat: 'Text & Content' },
+    { name: 'Word Counter', path: '/tools/word-counter', desc: 'Count words, characters, sentences, and reading time in real time.', cat: 'Text & Content', popular: true },
     { name: 'Percentage Calculator', path: '/tools/percentage-calculator', desc: 'Calculate percentages, increase, decrease, and difference instantly.', cat: 'Utility' },
     { name: 'BMI Calculator', path: '/tools/bmi-calculator', desc: 'Calculate Body Mass Index in imperial or metric units with healthy weight range.', cat: 'Health' },
     { name: 'Discount Calculator', path: '/tools/discount-calculator', desc: 'Calculate sale prices, savings, and stacked discounts instantly.', cat: 'Shopping' },
@@ -17,12 +17,12 @@ export default function Home() {
     { name: 'Loan EMI Calculator', path: '/tools/loan-emi-calculator', desc: 'Calculate monthly loan payments with full amortization schedule.', cat: 'Finance' },
     { name: 'Salary to Hourly Calculator', path: '/tools/salary-to-hourly-calculator', desc: 'Convert annual salary to hourly, weekly, monthly, and biweekly pay instantly.', cat: 'Finance' },
     { name: 'Grade Calculator', path: '/tools/grade-calculator', desc: 'Calculate weighted grades, letter grade, GPA, and what you need on the final.', cat: 'Education' },
-    { name: 'Invoice Generator', path: '/tools/invoice-generator', desc: 'Create professional invoices with tax, discount, and multi-currency support. Free unlimited invoices.', cat: 'Business & Finance' },
+    { name: 'Invoice Generator', path: '/tools/invoice-generator', desc: 'Create professional invoices with tax, discount, and multi-currency support. Free unlimited invoices.', cat: 'Business & Finance', popular: true },
     { name: 'CSV to JSON Converter', path: '/tools/csv-to-json', desc: 'Convert CSV data to JSON instantly with custom delimiters and quoted fields.', cat: 'Developer Tools' },
     { name: 'cURL to Python Requests Converter', path: '/tools/curl-to-python-requests-converter', desc: 'Convert cURL commands into Python requests code.', cat: 'Developer Tools' },
     { name: 'cURL to Fetch & Axios Converter', path: '/tools/curl-to-fetch-and-axios-converter', desc: 'Translate cURL to JavaScript fetch and Axios.', cat: 'Developer Tools' },
     { name: 'HTTP Header Inspector & Parser', path: '/tools/http-header-inspector-_-parser', desc: 'Inspect and parse HTTP headers.', cat: 'Developer Tools' },
-    { name: 'JSON Formatter & Validator', path: '/tools/json-formatter', desc: 'Format and validate JSON payloads.', cat: 'Developer Tools' },
+    { name: 'JSON Formatter & Validator', path: '/tools/json-formatter', desc: 'Format and validate JSON payloads.', cat: 'Developer Tools', popular: true },
     { name: 'JSON to Go Struct Generator', path: '/tools/json-to-go-struct-generator', desc: 'Convert JSON payloads into Go struct definitions.', cat: 'Developer Tools' },
     { name: 'JSON to Pydantic & Dataclass', path: '/tools/json-to-pydantic-&-python-dataclass-generator', desc: 'Generate Pydantic models from JSON.', cat: 'Developer Tools' },
     { name: 'JSON to TypeScript Interface', path: '/tools/json-to-typescript-interface-generator', desc: 'Convert JSON into TypeScript interfaces.', cat: 'Developer Tools' },
@@ -30,7 +30,7 @@ export default function Home() {
     { name: 'JSON to YAML Converter', path: '/tools/json-yaml-converter', desc: 'Convert between JSON and YAML formats.', cat: 'Converters' },
     { name: 'URL Parser & Query Extractor', path: '/tools/url-parser-and-query-string-extractor', desc: 'Deconstruct URLs into components and query params.', cat: 'Developer Tools' },
     { name: 'URL Encoder & Decoder', path: '/tools/url-encoder-decoder', desc: 'Percent-encode and decode URI components.', cat: 'Converters' },
-    { name: 'Base64 Encoder & Decoder', path: '/tools/base64-encoder', desc: 'Encode and decode Base64 strings.', cat: 'Converters' },
+    { name: 'Base64 Encoder & Decoder', path: '/tools/base64-encoder', desc: 'Encode and decode Base64 strings.', cat: 'Converters', popular: true },
     { name: 'HTML Encoder & Decoder', path: '/tools/html-encoder-decoder', desc: 'Encode and decode HTML entities.', cat: 'Converters' },
     { name: 'MIME Type Lookup & Extension Finder', path: '/tools/mime-type-lookup-and-extension-finder', desc: 'Find MIME types and file extensions.', cat: 'Developer Tools' },
     { name: 'Systemd Service File Generator', path: '/tools/systemd-service-file-generator', desc: 'Create Linux systemd service files.', cat: 'Developer Tools' },
@@ -42,23 +42,28 @@ export default function Home() {
     { name: 'Hash Generator', path: '/tools/hash-generator', desc: 'Generate cryptographic hashes.', cat: 'Security & Privacy' },
     { name: 'HMAC Generator', path: '/tools/hmac-generator', desc: 'Generate HMAC signatures.', cat: 'Security & Privacy' },
     { name: 'JWT Decoder & Inspector', path: '/tools/jwt-decoder-&-inspector', desc: 'Decode and inspect JWT tokens.', cat: 'Security & Privacy' },
-    { name: 'CSP Header Builder & Validator', path: '/tools/csp-header-builder-and-validator', desc: 'Build Content Security Policy headers.', cat: 'Security & Privacy' },
+    { name: 'CSP Header Builder & Validator', path: '/tools/csp-header-builder-and-validator', desc: 'Build Content Security Policy headers.', cat: 'Security & Privacy', isNew: true },
     { name: 'Secure Password Generator', path: '/tools/secure-password-generator', desc: 'Generate cryptographically strong passwords.', cat: 'Security & Privacy' },
     { name: 'UUID v4 Generator', path: '/tools/uuid-generator', desc: 'Generate Version 4 UUIDs.', cat: 'Security & Privacy' },
-    { name: 'NanoID Generator', path: '/tools/nanoid-generator', desc: 'Generate compact URL-friendly IDs.', cat: 'Security & Privacy' },
-    { name: 'ULID Generator & Parser', path: '/tools/ulid-generator-and-parser', desc: 'Generate and parse ULIDs.', cat: 'Security & Privacy' },
+    { name: 'NanoID Generator', path: '/tools/nanoid-generator', desc: 'Generate compact URL-friendly IDs.', cat: 'Security & Privacy', isNew: true },
+    { name: 'ULID Generator & Parser', path: '/tools/ulid-generator-and-parser', desc: 'Generate and parse ULIDs.', cat: 'Security & Privacy', isNew: true },
     { name: 'QR Code Generator', path: '/tools/qr-code-generator', desc: 'Generate QR codes.', cat: 'Developer Tools' },
     { name: 'Unix Timestamp Converter', path: '/tools/unix-timestamp-converter', desc: 'Convert Unix timestamps to dates.', cat: 'Developer Tools' },
     { name: 'Case Converter', path: '/tools/case-converter', desc: 'Convert text between different cases.', cat: 'Text & Content' },
     { name: 'Color Converter', path: '/tools/color-converter', desc: 'Convert between color formats.', cat: 'Converters' },
-    { name: 'Image Resizer', path: '/tools/image-resizer', desc: 'Resize and compress images.', cat: 'Media' },
+    { name: 'Image Resizer', path: '/tools/image-resizer', desc: 'Resize and compress images.', cat: 'Media', popular: true },
     { name: 'User-Agent Parser', path: '/tools/user-agent', desc: 'Parse User-Agent strings.', cat: 'Developer Tools' },
-    { name: 'User-Agent Parser (Advanced)', path: '/tools/user-agent-parser', desc: 'Advanced User-Agent analysis.', cat: 'Developer Tools' }
+    { name: 'User-Agent Parser (Advanced)', path: '/tools/user-agent-parser', desc: 'Advanced User-Agent analysis.', cat: 'Developer Tools', isNew: true }
   ];
+
+  const popularTools = toolsList.filter((t) => t.popular).slice(0, 6);
+  const latestTools = toolsList.filter((t) => t.isNew).slice(0, 6);
 
   return (
     <GlobalContainer maxWidth="2xl">
       <div style={{ paddingTop: 'var(--space-12)', paddingBottom: 'var(--space-16)' }}>
+
+        {/* HERO SECTION */}
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-16)' }}>
           <span style={{ backgroundColor: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', padding: '6px 14px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 600, border: '1px solid rgba(59, 130, 246, 0.2)' }}>
             FREE ONLINE TOOLS
@@ -71,6 +76,7 @@ export default function Home() {
           </p>
         </div>
 
+        {/* STATS SECTION */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', marginBottom: 'var(--space-16)', backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', textAlign: 'center' }}>
           <div>
             <div style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '4px' }}>TOOLS</div>
@@ -86,6 +92,82 @@ export default function Home() {
           </div>
         </div>
 
+        {/* POPULAR TOOLS SECTION */}
+        {popularTools.length > 0 && (
+          <div style={{ marginBottom: 'var(--space-16)' }}>
+            <div style={{ marginBottom: 'var(--space-8)' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
+                🔥 Popular Tools
+              </h2>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
+                Most-used tools by our community.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+              {popularTools.map((tool, idx) => (
+                <div key={idx} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#60a5fa', backgroundColor: 'rgba(59, 130, 246, 0.1)', padding: '4px 10px', borderRadius: '6px' }}>
+                        {tool.cat}
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
+                      {tool.name}
+                    </h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', lineHeight: '1.5', marginBottom: '20px' }}>
+                      {tool.desc}
+                    </p>
+                  </div>
+                  <Link href={tool.path} style={{ color: '#34d399', fontSize: '0.875rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    Open tool →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* LATEST TOOLS SECTION */}
+        {latestTools.length > 0 && (
+          <div style={{ marginBottom: 'var(--space-16)' }}>
+            <div style={{ marginBottom: 'var(--space-8)' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
+                🆕 Latest Tools
+              </h2>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
+                Freshly added tools — try them out!
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+              {latestTools.map((tool, idx) => (
+                <div key={idx} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#60a5fa', backgroundColor: 'rgba(59, 130, 246, 0.1)', padding: '4px 10px', borderRadius: '6px' }}>
+                        {tool.cat}
+                      </span>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#34d399', backgroundColor: 'rgba(52, 211, 153, 0.1)', padding: '3px 8px', borderRadius: '4px' }}>
+                        NEW
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
+                      {tool.name}
+                    </h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', lineHeight: '1.5', marginBottom: '20px' }}>
+                      {tool.desc}
+                    </p>
+                  </div>
+                  <Link href={tool.path} style={{ color: '#34d399', fontSize: '0.875rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    Open tool →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ALL TOOLS SECTION */}
         <div style={{ marginBottom: 'var(--space-8)' }}>
           <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
             All Tools ({toolsList.length})
@@ -117,6 +199,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+
       </div>
     </GlobalContainer>
   );
