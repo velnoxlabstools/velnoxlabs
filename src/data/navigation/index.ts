@@ -12,17 +12,11 @@ export const navigationConfig: NavigationConfig = {
       type: 'mega',
       columns: [
         {
-          id: 'popular',
-          title: 'Popular',
+          id: 'all-tools',
+          title: 'Browse',
           items: [
-            { id: 'tool-1', label: 'Tool Placeholder', href: '/tools/placeholder', description: 'Coming soon' },
-          ],
-        },
-        {
-          id: 'categories',
-          title: 'Categories',
-          items: [
-            { id: 'cat-all', label: 'All Categories', href: '/categories' },
+            { id: 'all-tools', label: 'All Tools', href: '/tools', description: 'Browse all 51+ tools' },
+            { id: 'all-categories', label: 'All Categories', href: '/categories', description: 'Browse tools by category' },
           ],
         },
       ],
