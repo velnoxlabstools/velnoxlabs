@@ -21,26 +21,25 @@ export function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
-            gap: 'var(--space-8)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(9rem, max-content))',
+            gap: 'var(--space-12)',
             paddingTop: 'var(--space-12)',
             paddingBottom: 'var(--space-10)',
           }}
         >
-          <div style={{ gridColumn: 'span 1' }}>
+          {/* Logo + description column */}
+          <div style={{ maxWidth: '18rem' }}>
             <Logo />
             <p
               style={{
                 marginTop: 'var(--space-3)',
                 fontSize: 'var(--font-size-sm)',
                 color: 'var(--muted-foreground)',
-                maxWidth: '16rem',
                 lineHeight: 'var(--line-height-relaxed)',
               }}
             >
               Free online tools platform. Built for speed, privacy, and simplicity.
             </p>
-            {/* Social architecture */}
             <div
               aria-label="Social links"
               style={{
@@ -75,6 +74,7 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Product column */}
           {navigationConfig.footer.map((group) => (
             <div key={group.id}>
               <h2
@@ -105,43 +105,22 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </div>
 
-        {/* Footer bottom bar */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 'var(--space-4)',
-            paddingTop: 'var(--space-6)',
-            paddingBottom: 'var(--space-6)',
-            borderTop: '1px solid var(--border)',
-          }}
-        >
-          <p
-            style={{
-              margin: 0,
-              fontSize: 'var(--font-size-sm)',
-              color: 'var(--muted-foreground)',
-            }}
-          >
-            © {year} {APP_NAME}. All rights reserved.
-          </p>
-          <nav aria-label="Legal">
-            <ul
+          {/* Legal column */}
+          <div>
+            <h2
               style={{
-                listStyle: 'none',
-                margin: 0,
-                padding: 0,
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 'var(--space-4)',
+                fontSize: 'var(--font-size-sm)',
+                fontWeight: 'var(--font-weight-semibold)',
+                marginBottom: 'var(--space-3)',
+                color: 'var(--foreground)',
               }}
             >
+              Legal
+            </h2>
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {navigationConfig.legal.map((link) => (
-                <li key={link.id}>
+                <li key={link.id} style={{ marginBottom: 'var(--space-2)' }}>
                   <Link
                     href={link.href}
                     style={{
@@ -155,7 +134,27 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </nav>
+          </div>
+        </div>
+
+        {/* Bottom bar - only copyright */}
+        <div
+          style={{
+            paddingTop: 'var(--space-6)',
+            paddingBottom: 'var(--space-6)',
+            borderTop: '1px solid var(--border)',
+            textAlign: 'center',
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              fontSize: 'var(--font-size-sm)',
+              color: 'var(--muted-foreground)',
+            }}
+          >
+            © {year} {APP_NAME}. All rights reserved.
+          </p>
         </div>
       </GlobalContainer>
     </footer>

@@ -22,23 +22,6 @@ export const navigationConfig: NavigationConfig = {
       ],
     },
     {
-      id: 'categories',
-      label: 'Categories',
-      href: '/categories',
-      items: [
-        { id: 'cat-all', label: 'All Categories', href: '/categories' },
-      ],
-    },
-    {
-      id: 'resources',
-      label: 'Resources',
-      href: '/resources',
-      items: [
-        { id: 'blog', label: 'Blog', href: '/blog' },
-        { id: 'docs', label: 'Documentation', href: '/docs' },
-      ],
-    },
-    {
       id: 'about',
       label: 'About',
       href: '/about',
@@ -56,15 +39,6 @@ export const navigationConfig: NavigationConfig = {
         { id: 'f-tools', label: 'Tools', href: '/tools' },
         { id: 'f-categories', label: 'Categories', href: '/categories' },
         { id: 'f-pricing', label: 'Pricing', href: '/pricing' },
-      ],
-    },
-    {
-      id: 'resources',
-      title: 'Resources',
-      links: [
-        { id: 'f-blog', label: 'Blog', href: '/blog' },
-        { id: 'f-docs', label: 'Documentation', href: '/docs' },
-        { id: 'f-guides', label: 'Guides', href: '/guides' },
       ],
     },
     {
