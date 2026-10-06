@@ -1,0 +1,38 @@
+{
+  "HomePage": {
+    "badge": "FREE ONLINE TOOLS",
+    "heroTitle": "Powerful tools for everyday work",
+    "heroSubtitle": "VelnoxLabs gives you fast, private, browser-based utilities. No sign-up required.",
+    "statsTools": "TOOLS",
+    "statsCategories": "CATEGORIES",
+    "statsPrivacy": "PRIVACY",
+    "popularTitle": "🔥 Popular Tools",
+    "popularSubtitle": "Most-used tools by our community.",
+    "latestTitle": "🆕 Latest Tools",
+    "latestSubtitle": "Freshly added tools — try them out!",
+    "allToolsTitle": "All Tools",
+    "allToolsSubtitle": "Explore all fully implemented developer tools ready for immediate use.",
+    "openTool": "Open tool →"
+  },
+  "Header": {
+    "tools": "Tools",
+    "about": "About",
+    "searchPlaceholder": "Search tools...",
+    "getStarted": "Get Started"
+  },
+  "Footer": {
+    "tagline": "Free online tools platform. Built for speed, privacy, and simplicity.",
+    "productTitle": "Product",
+    "companyTitle": "Company",
+    "legalTitle": "Legal",
+    "tools": "Tools",
+    "categories": "Categories",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "copyright": "© 2026 VelnoxLabs. All rights reserved."
+  }
+}
