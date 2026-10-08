@@ -11,6 +11,7 @@ import { MobileNav } from '@/components/navigation/MobileNav';
 import { navigationConfig } from '@/data/navigation';
 import { GlobalContainer } from '@/components/layout';
 import SearchBar from '@/components/SearchBar';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export function Header() {
   const t = useTranslations('Header');
@@ -58,7 +59,6 @@ export function Header() {
           >
             <Logo />
 
-            {/* Desktop nav - sirf bade screen par dikhega */}
             <div
               className="hidden md:flex"
               style={{
@@ -78,9 +78,12 @@ export function Header() {
                 gap: 'var(--space-3)',
               }}
             >
-              {/* Search Bar - sirf bade screen par dikhega */}
               <div className="hidden md:block">
                 <SearchBar />
+              </div>
+
+              <div className="hidden md:block">
+                <LanguageSwitcher />
               </div>
 
               {navigationConfig.cta && (
