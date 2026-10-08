@@ -18,7 +18,144 @@
     "tools": "Tools",
     "about": "About",
     "searchPlaceholder": "Search tools...",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "navTools": "Tools",
+    "navAbout": "About",
+    "navBrowse": "BROWSE",
+    "allTools": "All Tools",
+    "allCategories": "All Categories",
+    "allToolsDesc": "Browse all 51+ tools",
+    "allCategoriesDesc": "Browse tools by category",
+    "noToolsFound": "No tools found for"
+  },
+  "Categories": {
+    "badge": "BROWSE BY CATEGORY",
+    "title": "All Categories",
+    "subtitle": "Explore {count} tools organized across {categoryCount} categories.",
+    "openTool": "Open tool →",
+    "categories": {
+      "dev": { "name": "Developer Tools", "description": "Formatters, converters, and utilities for daily coding." },
+      "security": { "name": "Security & Privacy", "description": "Hashing, encoding, and privacy-first tools." },
+      "text": { "name": "Text & Content", "description": "Text manipulation, counting, and generation tools." },
+      "converters": { "name": "Converters", "description": "Format and unit conversion utilities." },
+      "image": { "name": "Media", "description": "Image and media processing tools." },
+      "utility": { "name": "Utility", "description": "Everyday calculators and helpers." },
+      "finance": { "name": "Finance", "description": "Loans, interest, and salary calculators." },
+      "education": { "name": "Education", "description": "Grade and GPA calculators." },
+      "business": { "name": "Business & Finance", "description": "Invoicing and business utilities." },
+      "health": { "name": "Health", "description": "Health and fitness calculators." },
+      "shopping": { "name": "Shopping", "description": "Discount and price calculators." }
+    }
+  },
+  "ToolsPage": {
+    "badge": "ALL TOOLS",
+    "title": "Browse All Tools",
+    "subtitle": "Explore {count} free, browser-based tools — sorted A to Z.",
+    "openTool": "Open tool →",
+    "categories": {
+      "dev": "Developer Tools",
+      "security": "Security & Privacy",
+      "text": "Text & Content",
+      "converters": "Converters",
+      "image": "Media",
+      "utility": "Utility",
+      "finance": "Finance",
+      "education": "Education",
+      "business": "Business & Finance",
+      "health": "Health",
+      "shopping": "Shopping"
+    }
+  },
+  "AboutPage": {
+    "metaTitle": "About VelnoxLabs - 51+ Free Browser-Based Tools",
+    "metaDescription": "Learn more about VelnoxLabs. 51+ free, fast, and private browser-based tools for developers and everyday work. No sign-up. 100% privacy.",
+    "title": "About VelnoxLabs",
+    "heroText": "VelnoxLabs is a collection of 51+ free, browser-based tools designed for developers and everyday work. No sign-up. No tracking. No hidden charges. Just fast, private utilities that run 100% in your browser.",
+    "features": {
+      "privateTitle": "🔒 Private by Default",
+      "privateDesc": "All tools execute purely client-side. Your data never leaves your device, and we never upload or store your payloads on any server.",
+      "frictionTitle": "⚡ Zero Friction",
+      "frictionDesc": "No account creation, sign-up forms, or paywalls. Open the tool you need and complete your task instantly.",
+      "devTitle": "🛠️ Built for Developers",
+      "devDesc": "From JSON formatting to cURL conversion and Cron generation, our tools streamline your daily workflow.",
+      "freeTitle": "🌍 Free Forever",
+      "freeDesc": "We believe essential utilities should be accessible to everyone. All 51+ tools are 100% free to use."
+    },
+    "storyTitle": "Why I Built VelnoxLabs",
+    "storyText": "I was tired of slow, ad-filled tool websites that upload your data to their servers just to format a simple JSON file or resize an image. So I built VelnoxLabs — a place where you can use everyday developer and utility tools without any friction. Everything runs in your browser, so your privacy is always protected.",
+    "contactTitle": "Get in Touch",
+    "contactText": "Have feedback, a tool suggestion, or just want to say hi? Feel free to reach out.",
+    "ctaButton": "Browse All 51+ Tools"
+  },
+  "ContactPage": {
+    "metaTitle": "Contact VelnoxLabs - Get in Touch",
+    "metaDescription": "Have a question, feedback, or a tool suggestion? Contact the VelnoxLabs team. We reply within 24 hours.",
+    "title": "Contact Us",
+    "subtitle": "Have a question, feedback, or a tool suggestion? We'd love to hear from you.",
+    "emailTitle": "📧 Email Us",
+    "replyTime": "We typically reply within 24 hours.",
+    "suggestionNote": "For tool suggestions, please mention the tool name and what it should do."
+  },
+  "BlogPage": {
+    "metaTitle": "Blog - VelnoxLabs",
+    "metaDescription": "Tutorials, guides, and updates from VelnoxLabs. Coming soon.",
+    "title": "Blog",
+    "subtitle": "Tutorials, developer tips, and product updates are coming soon.",
+    "comingSoon": "🚧 Coming Soon",
+    "comingSoonText": "We're working on helpful content for developers and everyday users. Stay tuned!"
+  },
+  "PricingPage": {
+    "metaTitle": "Pricing - VelnoxLabs",
+    "metaDescription": "All VelnoxLabs tools are 100% free. No sign-up required.",
+    "title": "Pricing",
+    "subtitle": "All VelnoxLabs tools are 100% free. No sign-up, no hidden charges, no paywalls.",
+    "freeForever": "✨ Free Forever",
+    "freeForeverText": "Enjoy unlimited access to all 51+ tools, forever.",
+    "belief": "We believe essential utilities should be accessible to everyone."
+  },
+  "PrivacyPage": {
+    "metaTitle": "Privacy Policy - VelnoxLabs",
+    "metaDescription": "Learn how VelnoxLabs protects your privacy. All tools run 100% in your browser. No data is uploaded, stored, or shared.",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: September 2026",
+    "section1Title": "1. 100% Browser-Based Processing",
+    "section1Text": "All VelnoxLabs tools run entirely in your browser. Your data (JSON, text, images, etc.) never leaves your device. We do not upload, store, or share your data with any server.",
+    "section2Title": "2. No Sign-up Required",
+    "section2Text": "We do not require you to create an account or provide any personal information to use our tools. You can open any tool and use it instantly.",
+    "section3Title": "3. Cookies & Tracking",
+    "section3Text": "We do not use cookies to track you, and we do not sell your data to third parties. Any analytics we use are anonymized and only help us understand which tools are most useful.",
+    "section4Title": "4. Contact Us",
+    "section4Text": "If you have any questions about this Privacy Policy, please contact us at"
+  },
+  "TermsPage": {
+    "metaTitle": "Terms of Service - VelnoxLabs",
+    "metaDescription": "VelnoxLabs terms of service. Read our usage guidelines and limitations.",
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: September 2026",
+    "section1Title": "1. Acceptance of Terms",
+    "section1Text": "By using VelnoxLabs, you agree to these Terms of Service. If you do not agree, please do not use the website or its tools.",
+    "section2Title": "2. Use of Tools",
+    "section2Text": "Our tools are provided \"as is\" for personal and commercial use. You are responsible for how you use the output of these tools. We are not liable for any decisions made based on the results.",
+    "section3Title": "3. Intellectual Property",
+    "section3Text": "The VelnoxLabs name, logo, website design, and underlying code are our property. You may not copy, reproduce, or redistribute them without permission.",
+    "section4Title": "4. Limitation of Liability",
+    "section4Text": "VelnoxLabs is not liable for any damages, data loss, or issues arising from the use of our tools. Use them at your own risk.",
+    "section5Title": "5. Contact",
+    "section5Text": "For any questions regarding these Terms, contact us at"
+  },
+  "CookiePage": {
+    "metaTitle": "Cookie Policy - VelnoxLabs",
+    "metaDescription": "Cookie Policy for VelnoxLabs. We do not use tracking cookies.",
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: September 2026",
+    "section1Title": "1. No Tracking Cookies",
+    "section1Text": "VelnoxLabs does not use cookies to track you, your activity, or your data. All tools run entirely in your browser.",
+    "section2Title": "2. Essential Cookies",
+    "section2Text": "We may use minimal, essential cookies strictly for website functionality (such as remembering your theme preference). These are never used for tracking.",
+    "section3Title": "3. Third-Party Services",
+    "section3Text": "We do not share your data with third-party advertising or tracking services.",
+    "section4Title": "4. Contact",
+    "section4Text": "For questions about this Cookie Policy, contact us at"
   },
   "Footer": {
     "tagline": "Free online tools platform. Built for speed, privacy, and simplicity.",
@@ -33,6 +170,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "cookies": "Cookie Policy",
-    "copyright": "© 2026 VelnoxLabs. All rights reserved."
+    "copyright": "© {year} VelnoxLabs. All rights reserved."
   }
 }

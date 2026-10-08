@@ -7,10 +7,8 @@ import { buildSecurityHeaders } from '@/security/headers';
 const intlMiddleware = createMiddleware(routing);
 
 export function middleware(request: NextRequest) {
-  // Run i18n middleware first
   const response = intlMiddleware(request);
 
-  // Add security headers on top
   const headers = buildSecurityHeaders({
     isProduction: process.env.NODE_ENV === 'production',
   });

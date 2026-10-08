@@ -1,5 +1,6 @@
 interface SectionHeadingProps {
   title: string;
+  subtitle?: string;
   description?: string;
   align?: 'left' | 'center';
   as?: 'h1' | 'h2' | 'h3';
@@ -8,11 +9,14 @@ interface SectionHeadingProps {
 
 export function SectionHeading({
   title,
+  subtitle,
   description,
   align = 'center',
   as: Tag = 'h2',
   id,
 }: SectionHeadingProps) {
+  const subText = subtitle || description;
+
   return (
     <div
       style={{
@@ -36,7 +40,7 @@ export function SectionHeading({
       >
         {title}
       </Tag>
-      {description && (
+      {subText && (
         <p
           style={{
             marginTop: 'var(--space-3)',
@@ -46,7 +50,7 @@ export function SectionHeading({
             color: 'var(--muted-foreground)',
           }}
         >
-          {description}
+          {subText}
         </p>
       )}
     </div>

@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { tools } from '@/data';
 
 export default function SearchBar() {
+  const t = useTranslations('Header');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +47,7 @@ export default function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query.length >= 2 && setIsOpen(true)}
-          placeholder="Search tools..."
+          placeholder={t('searchPlaceholder')}
           className="w-full px-4 py-2 pl-10 bg-slate-900/50 border border-slate-800 rounded-lg text-slate-200 text-sm placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
         />
         <svg
@@ -87,7 +89,7 @@ export default function SearchBar() {
       {isOpen && query.length >= 2 && results.length === 0 && (
         <div className="absolute top-full mt-2 w-full bg-slate-900 border border-slate-800 rounded-lg shadow-xl z-50">
           <div className="px-4 py-3 text-sm text-slate-400">
-            No tools found for "{query}"
+            {t('noToolsFound')} "{query}"
           </div>
         </div>
       )}

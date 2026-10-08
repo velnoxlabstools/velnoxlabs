@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Logo } from './Logo';
 import { SkipToContent } from './SkipToContent';
 import { ThemeToggle } from './ThemeToggle';
@@ -12,6 +13,7 @@ import { GlobalContainer } from '@/components/layout';
 import SearchBar from '@/components/SearchBar';
 
 export function Header() {
+  const t = useTranslations('Header');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -96,14 +98,14 @@ export function Header() {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  {navigationConfig.cta.label}
+                  {t('getStarted')}
                 </Link>
               )}
 
               <button
                 type="button"
                 className="md:hidden"
-                aria-label="Open menu"
+                aria-label={t('tools')}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-nav"
                 onClick={() => setMobileOpen(true)}

@@ -1,11 +1,28 @@
 import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
 import { navigationConfig } from '@/data/navigation';
 import { GlobalContainer } from '@/components/layout';
 import { Logo } from '@/components/header/Logo';
-import { APP_NAME } from '@/constants';
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations('Footer');
   const year = new Date().getFullYear();
+
+  const groupTitleKeys: Record<string, string> = {
+    product: 'productTitle',
+    company: 'companyTitle',
+  };
+
+  const linkLabelKeys: Record<string, string> = {
+    'f-tools': 'tools',
+    'f-categories': 'categories',
+    'f-pricing': 'pricing',
+    'f-about': 'about',
+    'f-contact': 'contact',
+    privacy: 'privacy',
+    terms: 'terms',
+    cookies: 'cookies',
+  };
 
   return (
     <footer
@@ -38,7 +55,7 @@ export function Footer() {
                 lineHeight: 'var(--line-height-relaxed)',
               }}
             >
-              Free online tools platform. Built for speed, privacy, and simplicity.
+              {t('tagline')}
             </p>
             <div
               aria-label="Social links"
@@ -74,7 +91,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Product column */}
+          {/* Product & Company columns */}
           {navigationConfig.footer.map((group) => (
             <div key={group.id}>
               <h2
@@ -85,7 +102,7 @@ export function Footer() {
                   color: 'var(--foreground)',
                 }}
               >
-                {group.title}
+                {t(groupTitleKeys[group.id] || group.title)}
               </h2>
               <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                 {group.links.map((link) => (
@@ -98,7 +115,7 @@ export function Footer() {
                         textDecoration: 'none',
                       }}
                     >
-                      {link.label}
+                      {t(linkLabelKeys[link.id] || link.label)}
                     </Link>
                   </li>
                 ))}
@@ -116,7 +133,7 @@ export function Footer() {
                 color: 'var(--foreground)',
               }}
             >
-              Legal
+              {t('legalTitle')}
             </h2>
             <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {navigationConfig.legal.map((link) => (
@@ -129,7 +146,7 @@ export function Footer() {
                       textDecoration: 'none',
                     }}
                   >
-                    {link.label}
+                    {t(linkLabelKeys[link.id] || link.label)}
                   </Link>
                 </li>
               ))}
@@ -137,7 +154,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar - only copyright */}
+        {/* Bottom bar */}
         <div
           style={{
             paddingTop: 'var(--space-6)',
@@ -153,7 +170,7 @@ export function Footer() {
               color: 'var(--muted-foreground)',
             }}
           >
-            © {year} {APP_NAME}. All rights reserved.
+            {t('copyright', { year })}
           </p>
         </div>
       </GlobalContainer>

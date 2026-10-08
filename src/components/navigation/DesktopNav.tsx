@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import type { PrimaryNavItem, MegaMenuItem, NavGroup, NavLink } from '@/types/navigation';
 import { NavLinkItem } from './NavLink';
 import { navigationConfig } from '@/data/navigation';
@@ -18,7 +19,27 @@ function isLink(item: PrimaryNavItem): item is NavLink {
   return 'href' in item && !('items' in item) && !isMega(item);
 }
 
+const itemLabelKeys: Record<string, string> = {
+  tools: 'navTools',
+  about: 'navAbout',
+};
+
+const colTitleKeys: Record<string, string> = {
+  'all-tools': 'navBrowse',
+};
+
+const linkLabelKeys: Record<string, string> = {
+  'all-tools': 'allTools',
+  'all-categories': 'allCategories',
+};
+
+const linkDescKeys: Record<string, string> = {
+  'all-tools': 'allToolsDesc',
+  'all-categories': 'allCategoriesDesc',
+};
+
 export function DesktopNav() {
+  const t = useTranslations('Header');
   const [openId, setOpenId] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
@@ -39,6 +60,27 @@ export function DesktopNav() {
     };
   }, []);
 
+  const translateItem = (item: { id: string; label: string }) => {
+    const key = itemLabelKeys[item.id];
+    return key ? t(key) : item.label;
+  };
+
+  const translateLinkLabel = (link: { id: string; label: string }) => {
+    const key = linkLabelKeys[link.id];
+    return key ? t(key) : link.label;
+  };
+
+  const translateLinkDesc = (link: { id: string; description?: string }) => {
+    if (!link.description) return undefined;
+    const key = linkDescKeys[link.id];
+    return key ? t(key) : link.description;
+  };
+
+  const translateColTitle = (col: { id: string; title: string }) => {
+    const key = colTitleKeys[col.id];
+    return key ? t(key) : col.title;
+  };
+
   return (
     <nav
       ref={navRef}
@@ -52,7 +94,8 @@ export function DesktopNav() {
     >
       {navigationConfig.primary.map((item) => {
         if (isLink(item)) {
-          return <NavLinkItem key={item.id} item={item} />;
+          const translatedItem = { ...item, label: translateItem(item) };
+          return <NavLinkItem key={item.id} item={translatedItem} />;
         }
 
         if (isGroup(item) || isMega(item)) {
@@ -84,7 +127,7 @@ export function DesktopNav() {
                   cursor: 'pointer',
                 }}
               >
-                {item.label}
+                {translateItem(item)}
                 <span aria-hidden="true" style={{ fontSize: '0.65em' }}>
                   ▾
                 </span>
@@ -127,7 +170,7 @@ export function DesktopNav() {
                             letterSpacing: 'var(--letter-spacing-wide)',
                           }}
                         >
-                          {col.title}
+                          {translateColTitle(col)}
                         </div>
                         <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                           {col.items.map((link) => (
@@ -145,7 +188,7 @@ export function DesktopNav() {
                                   fontSize: 'var(--font-size-sm)',
                                 }}
                               >
-                                {link.label}
+                                {translateLinkLabel(link)}
                                 {link.description && (
                                   <span
                                     style={{
@@ -154,7 +197,7 @@ export function DesktopNav() {
                                       color: 'var(--muted-foreground)',
                                     }}
                                   >
-                                    {link.description}
+                                    {translateLinkDesc(link)}
                                   </span>
                                 )}
                               </Link>
@@ -165,13 +208,19 @@ export function DesktopNav() {
                     ))}
 
                   {isGroup(item) &&
-                    item.items.map((link) => (
-                      <NavLinkItem
-                        key={link.id}
-                        item={link}
-                        onNavigate={() => setOpenId(null)}
-                      />
-                    ))}
+                    item.items.map((link) => {
+                      const translatedLink = {
+                        ...link,
+                        label: translateLinkLabel(link),
+                      };
+                      return (
+                        <NavLinkItem
+                          key={link.id}
+                          item={translatedLink}
+                          onNavigate={() => setOpenId(null)}
+                        />
+                      );
+                    })}
                 </div>
               )}
             </div>
