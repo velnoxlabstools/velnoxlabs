@@ -1,9 +1,4 @@
-export {
-  loadHomepageData,
-  clearHomepageCache,
-  getEnabledSections,
-  formatStatValue,
-} from './home';
+export { loadHomepageData, clearHomepageCache, getEnabledSections, formatStatValue } from './home';
 export * from './categories';
 export {
   toolEngineConfig,
@@ -26,8 +21,6 @@ export {
   findToolBySlug,
   findToolById,
   getToolRegistry,
-  registerTool,
-  unregisterTool,
 } from './tools';
 export * from './search';
 export * from './routing';

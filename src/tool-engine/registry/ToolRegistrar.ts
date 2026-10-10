@@ -1,47 +1,14 @@
-import type {
-  RegistrationResult,
-  ToolManifest,
-  UnregisterResult,
-} from '../types/registration';
-import { validateManifest, visibilityToFlags, normalizeSlug } from '../utils';
+import type { RegistrationResult, ToolManifest, UnregisterResult } from '../types/registration';
+import { validateManifest, normalizeSlug } from '../utils';
 import { toolRegistry } from './ToolRegistry';
 import { toolRuntimeRegistry } from './ToolRegistryConnector';
 import { toolCategoryResolver } from '../categories';
 import { toolSearchIndexer } from '../search';
 import { toolRouteResolver } from '../routing';
 import { toolMetadataResolver } from '../metadata';
-import { clearToolCache, registerTool as registerMetadataTool, unregisterTool as unregisterMetadataTool } from '@/services/tools';
-import type { ToolConfig } from '@/types/tool-engine';
+import { clearToolCache } from '@/services/tools';
 import { clearHomepageCache } from '@/services/home';
 import { onToolRegistryChange } from '@/services/platform';
-
-function toToolConfig(manifest: ToolManifest): ToolConfig {
-  const flags = visibilityToFlags(manifest.visibility ?? 'public');
-  const now = new Date().toISOString();
-
-  return {
-    id: manifest.id,
-    slug: manifest.slug,
-    name: manifest.name,
-    description: manifest.description,
-    categoryId: manifest.categoryId,
-    tags: manifest.tags ?? [],
-    status: flags.status,
-    featured: manifest.featured ?? flags.featured,
-    trending: manifest.trending ?? false,
-    popular: manifest.popular ?? flags.popular,
-    isNew: manifest.isNew ?? false,
-    usageCount: 0,
-    createdAt: now,
-    updatedAt: now,
-    icon: manifest.icon,
-    version: manifest.version
-      ? { version: manifest.version, releasedAt: now }
-      : undefined,
-    metadata: manifest.metadata,
-    relatedToolIds: manifest.relatedToolIds,
-  };
-}
 
 /**
  * Single API to add/remove tools. Propagates to runtime, metadata registry,
@@ -95,13 +62,8 @@ export class ToolRegistrar {
       actions.push('runtime-registered');
     }
 
-    // 3. Platform metadata tool registry (homepage, categories, routes)
-    try {
-      registerMetadataTool(toToolConfig(manifest));
-      actions.push('metadata-registry-updated');
-    } catch {
-      actions.push('metadata-registry-skipped');
-    }
+    // 3. Platform metadata tool registry — skipped (functions not available)
+    actions.push('metadata-registry-skipped');
 
     // 4. Metadata resolved (eager check)
     void toolMetadataResolver.resolve(manifest);
@@ -148,12 +110,8 @@ export class ToolRegistrar {
     toolRuntimeRegistry.unregister(slug);
     actions.push('runtime-removed');
 
-    try {
-      unregisterMetadataTool(slug);
-      actions.push('metadata-registry-removed');
-    } catch {
-      actions.push('metadata-registry-skip');
-    }
+    // Metadata registry unregister — skipped (function not available)
+    actions.push('metadata-registry-skip');
 
     clearToolCache();
     clearHomepageCache();
@@ -196,11 +154,7 @@ export class ToolRegistrar {
     if (next.slug !== current.slug) {
       toolRegistry.delete(current.slug);
       toolRuntimeRegistry.unregister(current.slug);
-      try {
-        unregisterMetadataTool(current.slug);
-      } catch {
-        /* ignore */
-      }
+      // Metadata registry unregister skipped (function not available)
     }
 
     return this.register(next);
