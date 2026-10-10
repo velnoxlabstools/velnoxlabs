@@ -12,11 +12,9 @@ export default function UuidGeneratorPage() {
   const [feedback, setFeedback] = useState('');
   const [feedbackSent, setFeedbackSent] = useState(false);
 
-  // Fixed: Wrapped in useCallback to prevent dependency warning during build
   const generateUuids = useCallback(() => {
     const list: string[] = [];
     for (let i = 0; i < count; i++) {
-      // Fixed: Added safe check for SSR (Server-Side Rendering)
       const uuid = typeof window !== 'undefined' && window.crypto 
         ? window.crypto.randomUUID() 
         : '';
@@ -140,10 +138,11 @@ export default function UuidGeneratorPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Enter how many UUIDs you need (1-100).</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Generate UUIDs</strong> button to create them.</li>
+              <li>Click <strong style={{ color: '#34d399' }}>Copy All</strong> or the individual <strong style={{ color: '#34d399' }}>Copy</strong> button next to each UUID.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>

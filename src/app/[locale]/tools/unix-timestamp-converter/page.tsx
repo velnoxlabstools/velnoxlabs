@@ -5,7 +5,6 @@ import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 
 export default function UnixTimestampPage() {
-  // Fix: State ko number se string me badla taaki input field clear/edit ho sake
   const [timestamp, setTimestamp] = useState<string>(String(Math.floor(Date.now() / 1000)));
   const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000));
   const [feedback, setFeedback] = useState('');
@@ -17,7 +16,6 @@ export default function UnixTimestampPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Fix: Timestamp calculation safely handle karta hai empty/invalid input ko
   const parsedTimestamp = Number(timestamp);
   const isValid = timestamp.trim() !== '' && !isNaN(parsedTimestamp);
   
@@ -25,7 +23,6 @@ export default function UnixTimestampPage() {
   const humanDate = date ? date.toString() : 'Invalid Timestamp';
   const isoDate = date ? date.toISOString() : 'Invalid Timestamp';
 
-  // Fix: Ab ye function sirf string state update karta hai, koi parseInt nahi
   const handleTimestampChange = (val: string) => {
     setTimestamp(val);
   };
@@ -78,7 +75,6 @@ export default function UnixTimestampPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div>
                 <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Unix Timestamp:</label>
-                {/* Fix: type="text" aur inputMode="numeric" lagaya */}
                 <input 
                   type="text" 
                   inputMode="numeric"
@@ -117,10 +113,11 @@ export default function UnixTimestampPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Enter a Unix timestamp or pick a date from the calendar.</li>
+              <li>The human-readable date and ISO 8601 format update automatically.</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy Timestamp</strong> button to save the converted time.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>

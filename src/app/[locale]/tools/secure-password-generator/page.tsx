@@ -52,7 +52,7 @@ export default function SecurePasswordGeneratorPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleFeedbackSubmit = (e) => {
+  const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedback.trim()) return;
     setFeedbackSent(true);
@@ -111,10 +111,11 @@ export default function SecurePasswordGeneratorPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Adjust the length slider and select character sets (Uppercase, Lowercase, Numbers, Symbols).</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Generate New Password</strong> button to create a new password.</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to save your strong password.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
@@ -135,7 +136,7 @@ export default function SecurePasswordGeneratorPage() {
             </div>
           </div>
 
-<div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
+          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards.</p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">

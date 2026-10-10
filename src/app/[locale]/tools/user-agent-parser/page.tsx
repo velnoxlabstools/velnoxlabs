@@ -160,10 +160,11 @@ export default function UserAgentParserPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your User-Agent string into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the parsed result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Paste any User-Agent string into the input field, or use your browser's current UA (auto-loaded on page load).</li>
+              <li>The tool parses it instantly and displays the browser name, operating system, and device type.</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to save the parsed result.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>

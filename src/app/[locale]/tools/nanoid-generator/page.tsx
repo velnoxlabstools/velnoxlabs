@@ -17,23 +17,21 @@ export default function Page() {
     setError('');
     if (!val.trim()) { setOutput(''); return; }
     try {
-      const fn = function nanoidGen(val) {
-  const size = Math.min(64, Math.max(1, parseInt(val) || 21));
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
-  const array = new Uint32Array(size);
-  crypto.getRandomValues(array);
-  let result = '';
-  for (let i = 0; i < size; i++) result += chars[array[i] % chars.length];
-  return result;
-};
+      const fn = function nanoidGen(val: string) {
+        const size = Math.min(64, Math.max(1, parseInt(val) || 21));
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
+        const array = new Uint32Array(size);
+        crypto.getRandomValues(array);
+        let result = '';
+        for (let i = 0; i < size; i++) result += chars[array[i] % chars.length];
+        return result;
+      };
       setOutput(fn(val));
     } catch (e: any) {
       setError(e.message);
       setOutput('');
     }
   };
-
-
 
   // Auto-run on mount
   useEffect(() => {
@@ -42,7 +40,7 @@ export default function Page() {
     }
   }, []);
 
-const handleCopy = () => {
+  const handleCopy = () => {
     if (!output) return;
     navigator.clipboard.writeText(output);
     setCopied(true);
@@ -98,10 +96,11 @@ const handleCopy = () => {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Enter your desired length for the NanoID in the input field (default is 21).</li>
+              <li>The tool generates a unique ID in real-time based on your input.</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to save the generated NanoID to your clipboard.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
@@ -122,7 +121,7 @@ const handleCopy = () => {
             </div>
           </div>
 
-<div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
+          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards.</p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">

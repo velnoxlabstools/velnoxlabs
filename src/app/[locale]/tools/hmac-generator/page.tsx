@@ -156,10 +156,11 @@ export default function HmacGeneratorPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Enter your secret key and the message you want to sign.</li>
+              <li>Select the hashing algorithm (e.g., SHA-256, SHA-384, or SHA-512).</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the generated HMAC signature.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
@@ -180,7 +181,7 @@ export default function HmacGeneratorPage() {
             </div>
           </div>
 
-<div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
+          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">

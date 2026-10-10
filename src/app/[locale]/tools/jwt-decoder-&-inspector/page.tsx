@@ -154,7 +154,7 @@ export default function JwtDecoderPage() {
                 </pre>
               </div>
 
-              {/* Signature — ab sahi jagah pe, seedha label ke neeche */}
+              {/* Signature */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label style={{ color: '#fbbf24', fontSize: '0.875rem', fontWeight: 600 }}>Signature:</label>
@@ -167,7 +167,7 @@ export default function JwtDecoderPage() {
             </div>
           </div>
 
-          {/* ========== VISIBLE SEO CONTENT — ab tool ke NEECHE ========== */}
+          {/* ========== VISIBLE SEO CONTENT ========== */}
           <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a JWT Decoder & Inspector?</h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -176,10 +176,11 @@ export default function JwtDecoderPage() {
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
             <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter or paste your data into the input field above.</li>
-              <li>The tool processes your input instantly in real-time.</li>
-              <li>View the result in the output panel on the right.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
+              {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
+              <li>Paste your JWT token into the input field.</li>
+              <li>The header, payload, and signature will be decoded automatically.</li>
+              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button next to the section you need.</li>
+              {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
