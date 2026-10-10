@@ -138,6 +138,7 @@ export default function ImageResizerPage() {
             subtitle="Resize, compress, and convert your images instantly in your browser with absolute client-side privacy."
           />
 
+          {/* ===== TOOL UI ===== */}
           {!imageSrc ? (
             <div
               onClick={() => fileInputRef.current?.click()}
@@ -166,145 +167,146 @@ export default function ImageResizerPage() {
               />
             </div>
           ) : (
-            <div style={{ marginTop: 'var(--space-6)' }}>
-              <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-                  <div>
-                    <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Original Image:</label>
-                    <img src={imageSrc} alt="Original" style={{ width: '100%', maxHeight: '300px', objectFit: 'contain', borderRadius: '8px', backgroundColor: 'rgba(0,0,0,0.3)' }} />
-                    <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '8px' }}>{originalWidth} × {originalHeight} px</p>
-                  </div>
-                  <div>
-                    <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Resized Image:</label>
-                    {processedImage ? (
-                      <img src={processedImage} alt="Resized" style={{ width: '100%', maxHeight: '300px', objectFit: 'contain', borderRadius: '8px', backgroundColor: 'rgba(0,0,0,0.3)' }} />
-                    ) : (
-                      <div style={{ width: '100%', height: '200px', backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontSize: '0.85rem' }}>
-                        Click "Resize Image" to process
-                      </div>
-                    )}
-                  </div>
+            <div style={{ marginTop: 'var(--space-6)', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+                <div>
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Original Image:</label>
+                  <img src={imageSrc} alt="Original" style={{ width: '100%', maxHeight: '300px', objectFit: 'contain', borderRadius: '8px', backgroundColor: 'rgba(0,0,0,0.3)' }} />
+                  <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '8px' }}>{originalWidth} × {originalHeight} px</p>
                 </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginTop: '24px' }}>
-                  <div>
-                    <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Width (px):</label>
-                    <input
-                      type="number"
-                      value={width}
-                      onChange={(e) => handleWidthChange(Number(e.target.value))}
-                      style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
-                    />
-                  </div>
-                  <div>
-                    <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Height (px):</label>
-                    <input
-                      type="number"
-                      value={height}
-                      onChange={(e) => handleHeightChange(Number(e.target.value))}
-                      style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
-                    />
-                  </div>
-                  <div>
-                    <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Format:</label>
-                    <select
-                      value={outputFormat}
-                      onChange={(e) => setOutputFormat(e.target.value)}
-                      style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
-                    >
-                      <option value="image/jpeg">JPEG</option>
-                      <option value="image/png">PNG</option>
-                      <option value="image/webp">WEBP</option>
-                    </select>
-                  </div>
+                <div>
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Resized Image:</label>
+                  {processedImage ? (
+                    <img src={processedImage} alt="Resized" style={{ width: '100%', maxHeight: '300px', objectFit: 'contain', borderRadius: '8px', backgroundColor: 'rgba(0,0,0,0.3)' }} />
+                  ) : (
+                    <div style={{ width: '100%', height: '200px', backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontSize: '0.85rem' }}>
+                      Click "Resize Image" to process
+                    </div>
+                  )}
                 </div>
+              </div>
 
-                <div style={{ marginTop: '16px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Quality: {Math.round(quality * 100)}%</label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginTop: '24px' }}>
+                <div>
+                  <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Width (px):</label>
                   <input
-                    type="range"
-                    min="0.1"
-                    max="1"
-                    step="0.05"
-                    value={quality}
-                    onChange={(e) => setQuality(Number(e.target.value))}
-                    style={{ width: '100%' }}
+                    type="number"
+                    value={width}
+                    onChange={(e) => handleWidthChange(Number(e.target.value))}
+                    style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
                   />
                 </div>
-
-                <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
-                  <label style={{ color: '#94a3b8', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                    <input type="checkbox" checked={maintainAspect} onChange={(e) => setMaintainAspect(e.target.checked)} />
-                    Maintain Aspect Ratio
-                  </label>
+                <div>
+                  <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Height (px):</label>
+                  <input
+                    type="number"
+                    value={height}
+                    onChange={(e) => handleHeightChange(Number(e.target.value))}
+                    style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
+                  />
                 </div>
-
-                {/* 👇 BUTTONS AB YAHAN HAIN (SEO KE UPAR) 👇 */}
-                <div style={{ display: 'flex', gap: '12px', marginTop: '24px', flexWrap: 'wrap' }}>
-                  <button
-                    onClick={handleResize}
-                    disabled={loading}
-                    style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                <div>
+                  <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Format:</label>
+                  <select
+                    value={outputFormat}
+                    onChange={(e) => setOutputFormat(e.target.value)}
+                    style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
                   >
-                    {loading ? 'Processing...' : 'Resize Image'}
-                  </button>
-                  {processedImage && (
-                    <button
-                      onClick={handleDownload}
-                      style={{ backgroundColor: '#059669', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
-                    >
-                      Download
-                    </button>
-                  )}
+                    <option value="image/jpeg">JPEG</option>
+                    <option value="image/png">PNG</option>
+                    <option value="image/webp">WEBP</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '16px' }}>
+                <label style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Quality: {Math.round(quality * 100)}%</label>
+                <input
+                  type="range"
+                  min="0.1"
+                  max="1"
+                  step="0.05"
+                  value={quality}
+                  onChange={(e) => setQuality(Number(e.target.value))}
+                  style={{ width: '100%' }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
+                <label style={{ color: '#94a3b8', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                  <input type="checkbox" checked={maintainAspect} onChange={(e) => setMaintainAspect(e.target.checked)} />
+                  Maintain Aspect Ratio
+                </label>
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', marginTop: '24px', flexWrap: 'wrap' }}>
+                <button
+                  onClick={handleResize}
+                  disabled={loading}
+                  style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                >
+                  {loading ? 'Processing...' : 'Resize Image'}
+                </button>
+                {processedImage && (
                   <button
-                    onClick={() => { setImageSrc(null); setProcessedImage(null); setFileName(''); }}
-                    style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                    onClick={handleDownload}
+                    style={{ backgroundColor: '#059669', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
                   >
-                    Upload New
+                    Download
                   </button>
-                </div>
-                {/* 👆 BUTTONS YAHAN KHATAM 👆 */}
-
-                {/* Visible SEO Content (Ab buttons ke neeche hai) */}
-                <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-                  <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Image Resizer & Compressor?</h2>
-                  <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-                    The Image Resizer lets you resize, compress, and convert images directly in your browser without uploading them anywhere. It supports PNG, JPG, and WEBP formats and uses HTML5 Canvas for hardware-accelerated processing.
-                  </p>
-
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-                  <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-                    <li>Enter or paste your data into the input field above.</li>
-                    <li>The tool processes your input instantly in real-time.</li>
-                    <li>View the result in the output panel on the right.</li>
-                    <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to copy the result to your clipboard.</li>
-                  </ul>
-
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
-
-                  <div style={{ marginBottom: '16px' }}>
-                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
-                    <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs Image Resizer & Compressor is 100% free with no sign-up required.</p>
-                  </div>
-
-                  <div style={{ marginBottom: '16px' }}>
-                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-                    <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device and is never sent to any server.</p>
-                  </div>
-
-                  <div style={{ marginBottom: '16px' }}>
-                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
-                    <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
-                  </div>
-                </div>
-
+                )}
+                <button
+                  onClick={() => { setImageSrc(null); setProcessedImage(null); setFileName(''); }}
+                  style={{ backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                >
+                  Upload New
+                </button>
               </div>
             </div>
           )}
 
+          {/* ===== SEO CONTENT (Always Visible) ===== */}
+          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is an Image Resizer & Compressor?</h2>
+            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
+              The Image Resizer lets you resize, compress, and convert images directly in your browser without uploading them anywhere. It supports PNG, JPG, and WEBP formats and uses HTML5 Canvas for hardware-accelerated processing.
+            </p>
+
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
+            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
+              <li>Click the upload area to select an image (PNG, JPG, or WEBP).</li>
+              <li>Adjust the width, height, output format, and quality as needed.</li>
+              <li>Keep "Maintain Aspect Ratio" checked to avoid distortion.</li>
+              <li>Click <strong style={{ color: '#34d399' }}>Resize Image</strong> to process your image.</li>
+              <li>Click <strong style={{ color: '#34d399' }}>Download</strong> to save the resized image to your device.</li>
+            </ul>
+
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
+
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs Image Resizer & Compressor is 100% free with no sign-up required.</p>
+            </div>
+
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Are my images uploaded to a server?</h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>No. All processing happens entirely in your browser using HTML5 Canvas. Your images never leave your device and are never sent to any server.</p>
+            </div>
+
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>What formats are supported?</h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>You can upload PNG, JPG, and WEBP images. Output can be saved as JPEG, PNG, or WEBP with custom quality settings.</p>
+            </div>
+
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
+            </div>
+          </div>
+
           <canvas ref={canvasRef} style={{ display: 'none' }} />
 
-          {/* Single Feedback Section at the Bottom */}
+          {/* Feedback Section */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
             <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
