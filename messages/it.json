@@ -26,7 +26,9 @@
     "allCategories": "Tutte le Categorie",
     "allToolsDesc": "Sfoglia tutti i 51+ strumenti",
     "allCategoriesDesc": "Sfoglia per categoria",
-    "noToolsFound": "Nessuno strumento trovato per"
+    "noToolsFound": "Nessuno strumento trovato per",
+    "pricing": "Prezzi",
+    "contact": "Contatti"
   },
   "Categories": {
     "badge": "SFOGLIA PER CATEGORIA",

@@ -26,7 +26,9 @@
     "allCategories": "Toutes les Catégories",
     "allToolsDesc": "Parcourir les 51+ outils",
     "allCategoriesDesc": "Parcourir par catégorie",
-    "noToolsFound": "Aucun outil trouvé pour"
+    "noToolsFound": "Aucun outil trouvé pour",
+    "pricing": "Tarifs",
+    "contact": "Contact"
   },
   "Categories": {
     "badge": "PARCOURIR PAR CATÉGORIE",

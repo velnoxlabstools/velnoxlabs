@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { navigationConfig } from '@/data/navigation';
 import { NavLinkItem } from './NavLink';
 import type { PrimaryNavItem, MegaMenuItem, NavGroup, NavLink } from '@/types/navigation';
@@ -22,6 +23,29 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
+  const t = useTranslations('Header');
+
+  // Map nav id → translation key in Header section
+  const translateLabel = (id: string, fallback: string): string => {
+    const map: Record<string, string> = {
+      tools: 'tools',
+      about: 'about',
+      'all-tools': 'allTools',
+      'all-categories': 'allCategories',
+      pricing: 'pricing',
+      contact: 'contact',
+      'cta-get-started': 'getStarted',
+    };
+    const key = map[id];
+    if (!key) return fallback;
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return t(key as any);
+    } catch {
+      return fallback;
+    }
+  };
+
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -96,12 +120,24 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         </div>
 
         <nav aria-label="Mobile primary">
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
+          <ul
+            style={{
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--space-1)',
+            }}
+          >
             {navigationConfig.primary.map((item) => {
               if (isLink(item)) {
                 return (
                   <li key={item.id}>
-                    <NavLinkItem item={item} onNavigate={onClose} />
+                    <NavLinkItem
+                      item={{ ...item, label: translateLabel(item.id, item.label) }}
+                      onNavigate={onClose}
+                    />
                   </li>
                 );
               }
@@ -120,12 +156,15 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                         textTransform: 'uppercase',
                       }}
                     >
-                      {item.label}
+                      {translateLabel(item.id, item.label)}
                     </div>
                     <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                       {links.map((link) => (
                         <li key={link.id}>
-                          <NavLinkItem item={link} onNavigate={onClose} />
+                          <NavLinkItem
+                            item={{ ...link, label: translateLabel(link.id, link.label) }}
+                            onNavigate={onClose}
+                          />
                         </li>
                       ))}
                     </ul>
@@ -148,7 +187,11 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           }}
         >
           {navigationConfig.secondary.map((item) => (
-            <NavLinkItem key={item.id} item={item} onNavigate={onClose} />
+            <NavLinkItem
+              key={item.id}
+              item={{ ...item, label: translateLabel(item.id, item.label) }}
+              onNavigate={onClose}
+            />
           ))}
           {navigationConfig.cta && (
             <Link
@@ -166,7 +209,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 fontSize: 'var(--font-size-sm)',
               }}
             >
-              {navigationConfig.cta.label}
+              {translateLabel(navigationConfig.cta.id, navigationConfig.cta.label)}
             </Link>
           )}
         </div>

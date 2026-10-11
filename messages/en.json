@@ -26,7 +26,9 @@
     "allCategories": "All Categories",
     "allToolsDesc": "Browse all 51+ tools",
     "allCategoriesDesc": "Browse tools by category",
-    "noToolsFound": "No tools found for"
+    "noToolsFound": "No tools found for",
+    "pricing": "Pricing",
+    "contact": "Contact"
   },
   "Categories": {
     "badge": "BROWSE BY CATEGORY",
