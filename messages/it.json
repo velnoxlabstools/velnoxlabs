@@ -34,15 +34,30 @@
     "subtitle": "Esplora {count} strumenti organizzati in {categoryCount} categorie.",
     "openTool": "Apri strumento →",
     "categories": {
-      "dev": { "name": "Strumenti per Sviluppatori", "description": "Formattatori, convertitori e utilità per la programmazione quotidiana." },
-      "security": { "name": "Sicurezza e Privacy", "description": "Strumenti di hashing, codifica e privacy." },
-      "text": { "name": "Testo e Contenuto", "description": "Manipolazione, conteggio e generazione di testo." },
+      "dev": {
+        "name": "Strumenti per Sviluppatori",
+        "description": "Formattatori, convertitori e utilità per la programmazione quotidiana."
+      },
+      "security": {
+        "name": "Sicurezza e Privacy",
+        "description": "Strumenti di hashing, codifica e privacy."
+      },
+      "text": {
+        "name": "Testo e Contenuto",
+        "description": "Manipolazione, conteggio e generazione di testo."
+      },
       "converters": { "name": "Convertitori", "description": "Conversioni di formato e unità." },
       "image": { "name": "Media", "description": "Elaborazione di immagini e media." },
       "utility": { "name": "Utilità", "description": "Calcolatrici e aiutanti quotidiani." },
-      "finance": { "name": "Finanza", "description": "Calcolatrici di prestiti, interessi e stipendi." },
+      "finance": {
+        "name": "Finanza",
+        "description": "Calcolatrici di prestiti, interessi e stipendi."
+      },
       "education": { "name": "Istruzione", "description": "Calcolatrici di voti e GPA." },
-      "business": { "name": "Affari e Finanza", "description": "Fatturazione e utilità aziendali." },
+      "business": {
+        "name": "Affari e Finanza",
+        "description": "Fatturazione e utilità aziendali."
+      },
       "health": { "name": "Salute", "description": "Calcolatrici di salute e fitness." },
       "shopping": { "name": "Acquisti", "description": "Calcolatrici di sconti e prezzi." }
     }
@@ -171,5 +186,199 @@
     "terms": "Termini di Servizio",
     "cookies": "Informativa sui Cookie",
     "copyright": "© {year} VelnoxLabs. Tutti i diritti riservati."
+  },
+  "Tools": {
+    "user-agent-parser": {
+      "name": "Parser User-Agent (Avanzato)",
+      "description": "Analisi avanzata di User-Agent."
+    },
+    "ulid-generator-and-parser": {
+      "name": "Generatore e Parser ULID",
+      "description": "Genera e analizza ULID."
+    },
+    "nanoid-generator": {
+      "name": "Generatore NanoID",
+      "description": "Genera ID compatti compatibili con URL."
+    },
+    "csp-header-builder-and-validator": {
+      "name": "Costruttore e Validatore Header CSP",
+      "description": "Costruisce header Content Security Policy."
+    },
+    "json-formatter": {
+      "name": "Formattatore e Validatore JSON",
+      "description": "Formatta e valida payload JSON."
+    },
+    "image-resizer": {
+      "name": "Ridimensionatore di Immagini",
+      "description": "Ridimensiona e comprime immagini nel browser senza upload."
+    },
+    "invoice-generator": {
+      "name": "Generatore di Fatture",
+      "description": "Crea fatture professionali con tasse, sconti e supporto multi-valuta."
+    },
+    "base64-encoder": {
+      "name": "Encoder e Decoder Base64",
+      "description": "Codifica e decodifica stringhe Base64."
+    },
+    "cron-expression-generator": {
+      "name": "Generatore di Espressioni Cron",
+      "description": "Costruisce espressioni cron visivamente con spiegazioni leggibili."
+    },
+    "word-counter": {
+      "name": "Contatore di Parole",
+      "description": "Conta parole, caratteri, frasi e tempo di lettura."
+    },
+    "csv-to-json": {
+      "name": "Convertitore CSV in JSON",
+      "description": "Converte istantaneamente dati CSV in JSON con delimitatori personalizzati."
+    },
+    "curl-to-python-requests-converter": {
+      "name": "Convertitore cURL in Python Requests",
+      "description": "Converte comandi cURL in codice Python requests."
+    },
+    "curl-to-fetch-and-axios-converter": {
+      "name": "Convertitore cURL in Fetch e Axios",
+      "description": "Traduce cURL in JavaScript fetch e Axios."
+    },
+    "http-header-inspector-_-parser": {
+      "name": "Ispettore e Parser Header HTTP",
+      "description": "Ispeziona e analizza header HTTP."
+    },
+    "json-to-go-struct-generator": {
+      "name": "Generatore JSON in Struct Go",
+      "description": "Converte payload JSON in definizioni di struct Go."
+    },
+    "json-to-pydantic-&-python-dataclass-generator": {
+      "name": "JSON in Pydantic e Dataclass",
+      "description": "Genera modelli Pydantic da JSON."
+    },
+    "json-to-typescript-interface-generator": {
+      "name": "JSON in Interfaccia TypeScript",
+      "description": "Converte JSON in interfacce TypeScript."
+    },
+    "json-to-zod-schema-generator": {
+      "name": "Generatore di Schema Zod da JSON",
+      "description": "Genera schemi di validazione Zod da JSON."
+    },
+    "json-yaml-converter": {
+      "name": "Convertitore JSON in YAML",
+      "description": "Converte tra formati JSON e YAML."
+    },
+    "url-parser-and-query-string-extractor": {
+      "name": "Parser URL ed Estrattore Query",
+      "description": "Scompone URL in componenti e parametri di query."
+    },
+    "mime-type-lookup-and-extension-finder": {
+      "name": "Ricerca Tipi MIME ed Estensioni",
+      "description": "Trova tipi MIME ed estensioni di file."
+    },
+    "systemd-service-file-generator": {
+      "name": "Generatore di File di Servizio Systemd",
+      "description": "Crea file di servizio systemd Linux."
+    },
+    "regex-tester": {
+      "name": "Tester RegEx",
+      "description": "Testa espressioni regolari su testo."
+    },
+    "qr-code-generator": { "name": "Generatore di Codici QR", "description": "Genera codici QR." },
+    "user-agent": { "name": "Parser User-Agent", "description": "Analizza stringhe User-Agent." },
+    "unix-timestamp-converter": {
+      "name": "Convertitore Timestamp Unix",
+      "description": "Converte timestamp Unix in date."
+    },
+    "markdown-to-html-live-converter": {
+      "name": "Convertitore Markdown in HTML",
+      "description": "Converte Markdown in HTML in tempo reale."
+    },
+    "url-encoder-decoder": {
+      "name": "Encoder e Decoder URL",
+      "description": "Codifica e decodifica componenti URI."
+    },
+    "uuid-generator": { "name": "Generatore UUID v4", "description": "Genera UUID Versione 4." },
+    "hash-generator": {
+      "name": "Generatore di Hash",
+      "description": "Genera hash SHA-256, SHA-512, SHA-384, SHA-1."
+    },
+    "secure-password-generator": {
+      "name": "Generatore di Password Sicure",
+      "description": "Genera password crittograficamente forti."
+    },
+    "checksum-calculator": {
+      "name": "Calcolatore di Checksum",
+      "description": "Calcola hash (SHA-256, SHA-512, SHA-1)."
+    },
+    "hmac-generator": { "name": "Generatore HMAC", "description": "Genera firme HMAC." },
+    "jwt-decoder-&-inspector": {
+      "name": "Decoder e Ispettore JWT",
+      "description": "Decodifica e ispeziona token JWT."
+    },
+    "html-encoder-decoder": {
+      "name": "Encoder e Decoder HTML",
+      "description": "Codifica e decodifica entità HTML."
+    },
+    "color-converter": {
+      "name": "Convertitore di Colori",
+      "description": "Converte tra HEX, RGB e HSL."
+    },
+    "case-converter": {
+      "name": "Convertitore di Maiuscole",
+      "description": "Converte testo tra camel, snake e kebab case."
+    },
+    "lorem-ipsum": {
+      "name": "Generatore Lorem Ipsum",
+      "description": "Genera testo segnaposto per design e mockup."
+    },
+    "text-diff-checker": {
+      "name": "Comparatore di Differenze Testo",
+      "description": "Confronta due blocchi di testo."
+    },
+    "name-combiner": {
+      "name": "Combinatore di Nomi",
+      "description": "Combina due nomi in miscugli creativi, nomi di navi e marchi."
+    },
+    "slug-generator": {
+      "name": "Generatore di Slug",
+      "description": "Converte testo in slug URL puliti e ottimizzati per SEO."
+    },
+    "age-calculator": {
+      "name": "Calcolatore di Età",
+      "description": "Calcola l'età esatta in anni, mesi, giorni, ore."
+    },
+    "tip-calculator": {
+      "name": "Calcolatore di Mancia",
+      "description": "Calcola mance al ristorante e divide il conto."
+    },
+    "percentage-calculator": {
+      "name": "Calcolatore di Percentuali",
+      "description": "Calcola percentuali, aumenti, diminuzioni e differenze."
+    },
+    "random-number-generator": {
+      "name": "Generatore di Numeri Casuali",
+      "description": "Genera numeri casuali con opzioni uniche e di ordinamento."
+    },
+    "bmi-calculator": {
+      "name": "Calcolatore di BMI",
+      "description": "Calcola l'Indice di Massa Corporea in unità imperiali o metriche."
+    },
+    "discount-calculator": {
+      "name": "Calcolatore di Sconti",
+      "description": "Calcola prezzi di vendita, risparmi e sconti cumulati."
+    },
+    "compound-interest-calculator": {
+      "name": "Calcolatore di Interesse Composto",
+      "description": "Calcola la crescita composta con contributi mensili."
+    },
+    "loan-emi-calculator": {
+      "name": "Calcolatore EMI di Prestito",
+      "description": "Calcola rate mensili di prestito con piano di ammortamento completo."
+    },
+    "salary-to-hourly-calculator": {
+      "name": "Calcolatore Stipendio in Orario",
+      "description": "Converte stipendio annuale in paga oraria, settimanale, mensile e bisettimanale."
+    },
+    "grade-calculator": {
+      "name": "Calcolatore di Voti",
+      "description": "Calcola voti ponderati, voto in lettere e GPA."
+    }
   }
 }
