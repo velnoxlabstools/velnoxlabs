@@ -57,7 +57,7 @@ function convertToCSV(records: ParsedUA[]): string {
     'Raw User-Agent',
   ];
 
-  const escapeCSV = (str: any) => {
+  const escapeCSV = (str: unknown) => {
     if (str === null || str === undefined) return '""';
     const s = String(str).replace(/"/g, '""');
     return `"${s}"`;

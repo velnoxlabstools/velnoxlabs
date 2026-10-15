@@ -2,15 +2,24 @@ import type { DataFormat } from '../types';
 import { safeJsonParse, asText } from '../utils';
 
 export class ParserManager {
-  parse(input: string, format: DataFormat = 'text'): { ok: boolean; data?: unknown; error?: string } {
+  parse(
+    input: string,
+    format: DataFormat = 'text'
+  ): { ok: boolean; data?: unknown; error?: string } {
     const text = asText(input);
     if (format === 'json') {
       const r = safeJsonParse(text);
-      return r.ok ? { ok: true, data: r.data } : { ok: false, error: (r as any).error };
+      if (!r.ok && 'error' in r) {
+        return { ok: false, error: r.error };
+      }
+      return { ok: true, data: 'data' in r ? r.data : undefined };
     }
     if (format === 'csv' || format === 'tsv') {
       const sep = format === 'tsv' ? '\t' : ',';
-      const rows = text.split(/\r?\n/).filter(Boolean).map((line) => line.split(sep));
+      const rows = text
+        .split(/\r?\n/)
+        .filter(Boolean)
+        .map((line) => line.split(sep));
       return { ok: true, data: rows };
     }
     if (format === 'url') {

@@ -8,7 +8,10 @@ export class ValidatorManager {
 
     if (format === 'json') {
       const r = safeJsonParse(text);
-      return r.ok ? null : ((r as any).error ?? 'Invalid JSON');
+      if (!r.ok) {
+        return 'error' in r ? (r.error ?? 'Invalid JSON') : 'Invalid JSON';
+      }
+      return null;
     }
     if (format === 'base64') {
       try {

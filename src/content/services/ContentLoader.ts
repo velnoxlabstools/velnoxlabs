@@ -1,4 +1,4 @@
-import { contentManager } from './ContentManager';
+﻿import { contentManager } from './ContentManager';
 import type { ToolContentDocument } from '../types';
 
 export class ContentLoader {

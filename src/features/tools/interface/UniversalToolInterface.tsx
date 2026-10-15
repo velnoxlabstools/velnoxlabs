@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import NextImage from 'next/image';
 import type { ToolInterfaceSchema, ToolFieldValues } from '@/types/tool-interface';
 import { useTool } from '../ToolProvider';
 import { uuidSchema } from './defaultSchema';
@@ -15,11 +16,31 @@ function detectBot(ua: string) {
 
   const aiBots = [
     { pattern: /GPTBot\/([\d.]+)/i, name: 'GPTBot', vendor: 'OpenAI', category: 'AI Scraper' },
-    { pattern: /ChatGPT-User\/([\d.]+)/i, name: 'ChatGPT-User', vendor: 'OpenAI', category: 'AI Scraper' },
-    { pattern: /ClaudeBot\/([\d.]+)/i, name: 'ClaudeBot', vendor: 'Anthropic', category: 'AI Scraper' },
-    { pattern: /PerplexityBot\/([\d.]+)/i, name: 'PerplexityBot', vendor: 'Perplexity AI', category: 'AI Scraper' },
+    {
+      pattern: /ChatGPT-User\/([\d.]+)/i,
+      name: 'ChatGPT-User',
+      vendor: 'OpenAI',
+      category: 'AI Scraper',
+    },
+    {
+      pattern: /ClaudeBot\/([\d.]+)/i,
+      name: 'ClaudeBot',
+      vendor: 'Anthropic',
+      category: 'AI Scraper',
+    },
+    {
+      pattern: /PerplexityBot\/([\d.]+)/i,
+      name: 'PerplexityBot',
+      vendor: 'Perplexity AI',
+      category: 'AI Scraper',
+    },
     { pattern: /Bytespider/i, name: 'Bytespider', vendor: 'ByteDance', category: 'AI Scraper' },
-    { pattern: /Google-Extended/i, name: 'Google-Extended', vendor: 'Google', category: 'AI Scraper' },
+    {
+      pattern: /Google-Extended/i,
+      name: 'Google-Extended',
+      vendor: 'Google',
+      category: 'AI Scraper',
+    },
     { pattern: /Cohere-AI/i, name: 'Cohere-AI', vendor: 'Cohere', category: 'AI Scraper' },
   ];
 
@@ -38,16 +59,66 @@ function detectBot(ua: string) {
   }
 
   const standardBots = [
-    { pattern: /Googlebot\/([\d.]+)/i, name: 'Googlebot', vendor: 'Google', category: 'Search Engine' },
-    { pattern: /bingbot\/([\d.]+)/i, name: 'Bingbot', vendor: 'Microsoft', category: 'Search Engine' },
-    { pattern: /YandexBot\/([\d.]+)/i, name: 'YandexBot', vendor: 'Yandex', category: 'Search Engine' },
-    { pattern: /DuckDuckBot\/([\d.]+)/i, name: 'DuckDuckBot', vendor: 'DuckDuckGo', category: 'Search Engine' },
-    { pattern: /Applebot\/([\d.]+)/i, name: 'Applebot', vendor: 'Apple', category: 'Search Engine' },
-    { pattern: /Twitterbot\/([\d.]+)/i, name: 'Twitterbot', vendor: 'X / Twitter', category: 'Social Media' },
-    { pattern: /facebookexternalhit\/([\d.]+)/i, name: 'Facebook Crawler', vendor: 'Meta', category: 'Social Media' },
-    { pattern: /curl\/([\d.]+)/i, name: 'cURL Command Line', vendor: 'Open Source', category: 'Generic Crawler' },
-    { pattern: /Wget\/([\d.]+)/i, name: 'Wget Utility', vendor: 'GNU', category: 'Generic Crawler' },
-    { pattern: /bot|crawler|spider/i, name: 'Generic Crawler', vendor: 'Unknown Bot', category: 'Generic Crawler' },
+    {
+      pattern: /Googlebot\/([\d.]+)/i,
+      name: 'Googlebot',
+      vendor: 'Google',
+      category: 'Search Engine',
+    },
+    {
+      pattern: /bingbot\/([\d.]+)/i,
+      name: 'Bingbot',
+      vendor: 'Microsoft',
+      category: 'Search Engine',
+    },
+    {
+      pattern: /YandexBot\/([\d.]+)/i,
+      name: 'YandexBot',
+      vendor: 'Yandex',
+      category: 'Search Engine',
+    },
+    {
+      pattern: /DuckDuckBot\/([\d.]+)/i,
+      name: 'DuckDuckBot',
+      vendor: 'DuckDuckGo',
+      category: 'Search Engine',
+    },
+    {
+      pattern: /Applebot\/([\d.]+)/i,
+      name: 'Applebot',
+      vendor: 'Apple',
+      category: 'Search Engine',
+    },
+    {
+      pattern: /Twitterbot\/([\d.]+)/i,
+      name: 'Twitterbot',
+      vendor: 'X / Twitter',
+      category: 'Social Media',
+    },
+    {
+      pattern: /facebookexternalhit\/([\d.]+)/i,
+      name: 'Facebook Crawler',
+      vendor: 'Meta',
+      category: 'Social Media',
+    },
+    {
+      pattern: /curl\/([\d.]+)/i,
+      name: 'cURL Command Line',
+      vendor: 'Open Source',
+      category: 'Generic Crawler',
+    },
+    {
+      pattern: /Wget\/([\d.]+)/i,
+      name: 'Wget Utility',
+      vendor: 'GNU',
+      category: 'Generic Crawler',
+    },
+    {
+      pattern: /bot|crawler|spider/i,
+      name: 'Generic Crawler',
+      vendor: 'Unknown Bot',
+      category: 'Generic Crawler',
+    },
   ];
 
   for (const bot of standardBots) {
@@ -126,8 +197,18 @@ function parseUserAgentReport(ua: string): string {
   const browser = detectBrowser(cleanUA, bot.isBot, bot.botName);
   const os = detectOS(cleanUA);
   const engine = detectEngine(cleanUA);
-  const deviceType = bot.isBot ? 'Bot' : /Mobile/i.test(cleanUA) ? 'Mobile' : /Tablet|iPad/i.test(cleanUA) ? 'Tablet' : 'Desktop';
-  const cpuArch = /arm64|aarch64|Apple Silicon/i.test(cleanUA) ? 'ARM64' : /x86_64|Win64|WOW64|x64/i.test(cleanUA) ? 'x86_64 (64-bit)' : '32-bit / Unknown';
+  const deviceType = bot.isBot
+    ? 'Bot'
+    : /Mobile/i.test(cleanUA)
+      ? 'Mobile'
+      : /Tablet|iPad/i.test(cleanUA)
+        ? 'Tablet'
+        : 'Desktop';
+  const cpuArch = /arm64|aarch64|Apple Silicon/i.test(cleanUA)
+    ? 'ARM64'
+    : /x86_64|Win64|WOW64|x64/i.test(cleanUA)
+      ? 'x86_64 (64-bit)'
+      : '32-bit / Unknown';
 
   return [
     `========================================`,
@@ -151,8 +232,12 @@ function parseUserAgentReport(ua: string): string {
     `----------------------------------------`,
     `Is Automated Bot   : ${bot.isBot ? 'YES' : 'NO'}`,
     `Is AI Scraper      : ${bot.isAIBot ? 'YES' : 'NO'}`,
-    bot.isBot ? `Bot Identifier     : ${bot.botName}` : `Traffic Type       : Human Browser Traffic`,
-    bot.botVendor ? `Provider / Vendor  : ${bot.botVendor}` : `Security Status    : Clean / Verified`,
+    bot.isBot
+      ? `Bot Identifier     : ${bot.botName}`
+      : `Traffic Type       : Human Browser Traffic`,
+    bot.botVendor
+      ? `Provider / Vendor  : ${bot.botVendor}`
+      : `Security Status    : Clean / Verified`,
     `RFC Compliant      : ${cleanUA.startsWith('Mozilla/') ? 'YES' : 'NON-STANDARD'}`,
     `========================================`,
   ].join('\n');
@@ -160,14 +245,68 @@ function parseUserAgentReport(ua: string): string {
 
 // ================= LOREM IPSUM =================
 const LOREM_WORDS = [
-  'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
-  'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
-  'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud',
-  'exercitation', 'ullamco', 'laboris', 'nisi', 'aliquip', 'ex', 'ea', 'commodo',
-  'consequat', 'duis', 'aute', 'irure', 'in', 'reprehenderit', 'voluptate',
-  'velit', 'esse', 'cillum', 'fugiat', 'nulla', 'pariatur', 'excepteur', 'sint',
-  'occaecat', 'cupidatat', 'non', 'proident', 'sunt', 'culpa', 'qui', 'officia',
-  'deserunt', 'mollit', 'anim', 'id', 'est', 'laborum',
+  'lorem',
+  'ipsum',
+  'dolor',
+  'sit',
+  'amet',
+  'consectetur',
+  'adipiscing',
+  'elit',
+  'sed',
+  'do',
+  'eiusmod',
+  'tempor',
+  'incididunt',
+  'ut',
+  'labore',
+  'et',
+  'dolore',
+  'magna',
+  'aliqua',
+  'enim',
+  'ad',
+  'minim',
+  'veniam',
+  'quis',
+  'nostrud',
+  'exercitation',
+  'ullamco',
+  'laboris',
+  'nisi',
+  'aliquip',
+  'ex',
+  'ea',
+  'commodo',
+  'consequat',
+  'duis',
+  'aute',
+  'irure',
+  'in',
+  'reprehenderit',
+  'voluptate',
+  'velit',
+  'esse',
+  'cillum',
+  'fugiat',
+  'nulla',
+  'pariatur',
+  'excepteur',
+  'sint',
+  'occaecat',
+  'cupidatat',
+  'non',
+  'proident',
+  'sunt',
+  'culpa',
+  'qui',
+  'officia',
+  'deserunt',
+  'mollit',
+  'anim',
+  'id',
+  'est',
+  'laborum',
 ];
 
 function generateSentence(startWithLorem = false, wordCount = 12): string {
@@ -193,7 +332,12 @@ function generateParagraph(startWithLorem = false): string {
   return sentences.join(' ');
 }
 
-function generateLoremText(type: string, count: number, startWithLorem: boolean, asHtml: boolean): string {
+function generateLoremText(
+  type: string,
+  count: number,
+  startWithLorem: boolean,
+  asHtml: boolean
+): string {
   const safeCount = Math.min(Math.max(count || 1, 1), 50);
 
   if (type === 'words') {
@@ -233,7 +377,10 @@ function parseColor(input: string): { r: number; g: number; b: number } | null {
   if (str.startsWith('#')) {
     let hex = str.slice(1);
     if (hex.length === 3) {
-      hex = hex.split('').map((c) => c + c).join('');
+      hex = hex
+        .split('')
+        .map((c) => c + c)
+        .join('');
     }
     if (/^[0-9a-f]{6}$/i.test(hex)) {
       return {
@@ -409,7 +556,9 @@ function convertCase(text: string, targetCase: string): string {
     switch (targetCase) {
       case 'camelCase':
         return words
-          .map((w, idx) => (idx === 0 ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()))
+          .map((w, idx) =>
+            idx === 0 ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
+          )
           .join('');
       case 'pascalCase':
         return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
@@ -515,14 +664,22 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
 
   // Auto-fill navigator.userAgent on mount for user-agent-parser
   useEffect(() => {
-    if (tool.slug === 'user-agent-parser' && typeof window !== 'undefined' && navigator?.userAgent) {
+    if (
+      tool.slug === 'user-agent-parser' &&
+      typeof window !== 'undefined' &&
+      navigator?.userAgent
+    ) {
       if (!inputs.ua) {
         setInputs((prev) => ({ ...prev, ua: navigator.userAgent }));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- pre-fill UA once, adding inputs.ua would overwrite manual clearing
   }, [tool.slug]);
 
-  const handleInputChange = (id: string, value: string | number | boolean | File | File[] | null) => {
+  const handleInputChange = (
+    id: string,
+    value: string | number | boolean | File | File[] | null
+  ) => {
     setInputs((prev) => ({ ...prev, [id]: value }));
   };
 
@@ -545,7 +702,12 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
   const handleExecute = async () => {
     // 1. User-Agent Parser Engine
     if (tool.slug === 'user-agent-parser') {
-      const uaString = typeof inputs.ua === 'string' ? inputs.ua : (typeof navigator !== 'undefined' ? navigator.userAgent : '');
+      const uaString =
+        typeof inputs.ua === 'string'
+          ? inputs.ua
+          : typeof navigator !== 'undefined'
+            ? navigator.userAgent
+            : '';
       setOutput(parseUserAgentReport(uaString));
       return;
     }
@@ -585,20 +747,22 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           const ext = format === 'image/jpeg' ? 'jpg' : format === 'image/png' ? 'png' : 'webp';
           const sizeEstimate = Math.round((dataUrl.length * 3) / 4 / 1024);
 
-          setOutput([
-            `========================================`,
-            `VELNOXLABS IMAGE RESIZE SUCCESSFUL`,
-            `========================================`,
-            `Source File         : ${selectedFile.name}`,
-            `Original Dimensions : ${img.width} x ${img.height} px`,
-            `Output Dimensions   : ${targetWidth} x ${targetHeight} px`,
-            `Target Format       : ${format.toUpperCase()} (.${ext})`,
-            `Quality Level       : ${(quality * 100).toFixed(0)}%`,
-            `Approx Output Size  : ~${sizeEstimate} KB`,
-            ``,
-            `Ready to save! Click 'Save Image' above or check your download.`,
-            `========================================`,
-          ].join('\n'));
+          setOutput(
+            [
+              `========================================`,
+              `VELNOXLABS IMAGE RESIZE SUCCESSFUL`,
+              `========================================`,
+              `Source File         : ${selectedFile.name}`,
+              `Original Dimensions : ${img.width} x ${img.height} px`,
+              `Output Dimensions   : ${targetWidth} x ${targetHeight} px`,
+              `Target Format       : ${format.toUpperCase()} (.${ext})`,
+              `Quality Level       : ${(quality * 100).toFixed(0)}%`,
+              `Approx Output Size  : ~${sizeEstimate} KB`,
+              ``,
+              `Ready to save! Click 'Save Image' above or check your download.`,
+              `========================================`,
+            ].join('\n')
+          );
 
           const link = document.createElement('a');
           link.download = `resized_${selectedFile.name.replace(/\.[^/.]+$/, '')}.${ext}`;
@@ -645,8 +809,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           const spaces = indentMode === '4' ? 4 : 2;
           setOutput(JSON.stringify(parsed, null, spaces));
         }
-      } catch (err: any) {
-        setOutput(`Invalid JSON Syntax Error:\n\n${err?.message || 'Failed to parse JSON string'}`);
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setOutput(`Invalid JSON Syntax Error:\n\n${msg || 'Failed to parse JSON string'}`);
       }
       return;
     }
@@ -717,8 +882,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
         const hashArray = Array.from(new Uint8Array(hashBuffer));
         const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
         setOutput(hashHex);
-      } catch (err: any) {
-        setOutput(`Hashing Error: ${err?.message || 'Unsupported algorithm'}`);
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setOutput(`Hashing Error: ${msg || 'Unsupported algorithm'}`);
       }
       return;
     }
@@ -747,8 +913,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           const bytes = Uint8Array.from(binString, (m) => m.charCodeAt(0));
           setOutput(new TextDecoder().decode(bytes));
         }
-      } catch (err: any) {
-        setOutput(`Error: ${err?.message || 'Invalid format for conversion'}`);
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setOutput(`Error: ${msg || 'Invalid format for conversion'}`);
       }
       return;
     }
@@ -790,7 +957,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
     const isJson = tool.slug === 'json-formatter';
     const isHtml = tool.slug === 'lorem-ipsum' && Boolean(inputs.asHtml);
     const ext = isJson ? 'json' : isHtml ? 'html' : 'txt';
-    const blob = new Blob([output], { type: isJson ? 'application/json' : 'text/plain;charset=utf-8' });
+    const blob = new Blob([output], {
+      type: isJson ? 'application/json' : 'text/plain;charset=utf-8',
+    });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -816,24 +985,24 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
     tool.slug === 'user-agent-parser'
       ? 'Parse User-Agent'
       : tool.slug === 'image-resizer'
-      ? 'Process & Download Image'
-      : tool.slug === 'lorem-ipsum'
-      ? 'Generate Lorem Ipsum'
-      : tool.slug === 'color-converter'
-      ? 'Convert Color'
-      : tool.slug === 'json-formatter'
-      ? 'Format & Validate'
-      : tool.slug === 'word-counter'
-      ? 'Analyze Text'
-      : tool.slug === 'case-converter'
-      ? 'Convert Case'
-      : tool.slug === 'base64-encoder'
-      ? 'Convert'
-      : tool.slug === 'hash-generator'
-      ? 'Generate Hash'
-      : tool.slug === 'password-generator'
-      ? 'Generate Passwords'
-      : 'Generate';
+        ? 'Process & Download Image'
+        : tool.slug === 'lorem-ipsum'
+          ? 'Generate Lorem Ipsum'
+          : tool.slug === 'color-converter'
+            ? 'Convert Color'
+            : tool.slug === 'json-formatter'
+              ? 'Format & Validate'
+              : tool.slug === 'word-counter'
+                ? 'Analyze Text'
+                : tool.slug === 'case-converter'
+                  ? 'Convert Case'
+                  : tool.slug === 'base64-encoder'
+                    ? 'Convert'
+                    : tool.slug === 'hash-generator'
+                      ? 'Generate Hash'
+                      : tool.slug === 'password-generator'
+                        ? 'Generate Passwords'
+                        : 'Generate';
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
@@ -940,12 +1109,16 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
             border: '1px solid #1e293b',
           }}
         >
-          <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: '#64748b' }}>
+          <span
+            style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: '#64748b' }}
+          >
             INPUT & SETTINGS
           </span>
 
           {tool.slug === 'image-resizer' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '8px' }}>
+            <div
+              style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '8px' }}
+            >
               <label style={{ fontSize: '13px', fontWeight: 600, color: '#38bdf8' }}>
                 Select Image File (Client-Side)
               </label>
@@ -1037,7 +1210,15 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
               )}
 
               {field.type === 'checkbox' && (
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', margin: '4px 0' }}>
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    cursor: 'pointer',
+                    margin: '4px 0',
+                  }}
+                >
                   <input
                     type="checkbox"
                     checked={inputs[field.id] === true}
@@ -1062,15 +1243,20 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
             border: '1px solid #1e293b',
           }}
         >
-          <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: '#64748b' }}>
+          <span
+            style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: '#64748b' }}
+          >
             OUTPUT & ANALYSIS
           </span>
 
           {resizedImageUrl && (
             <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-              <img
+              <NextImage
                 src={resizedImageUrl}
                 alt="Resized Preview"
+                width={300}
+                height={180}
+                unoptimized
                 style={{
                   maxWidth: '100%',
                   maxHeight: '180px',

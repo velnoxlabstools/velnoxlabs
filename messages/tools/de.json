@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "Feedback oder Funktionswünsche?",
+    "feedbackSubtitle": "Helfen Sie uns, die Entwickler-Standards von VelnoxLabs zu verbessern. Teilen Sie unten Ihr Feedback mit!",
+    "feedbackPlaceholder": "Schreiben Sie hier Ihre Vorschläge oder Funktionswünsche...",
+    "feedbackSubmit": "Vorschlag Senden",
+    "feedbackSent": "Gesendet!"
+  },
+  "ToolSeoDefaults": {
+    "about": "Über {name}",
+    "keyFeatures": "Hauptmerkmale",
+    "feature1": "Läuft in Ihrem Browser",
+    "feature2": "Kein Konto erforderlich",
+    "feature3": "Kostenlos nutzbar",
+    "howToUse": "So wird's verwendet",
+    "step1Title": "Tool öffnen",
+    "step1Body": "Sie befinden sich auf der Tool-Seite.",
+    "step2Title": "Eingabe eingeben",
+    "step2Body": "Füllen Sie die Felder im Arbeitsbereich aus.",
+    "step3Title": "Ausführen",
+    "step3Body": "Klicken Sie auf Ausführen, um zu verarbeiten und Ergebnisse anzuzeigen.",
+    "faqTitle": "FAQ",
+    "faq1Q": "Ist dieses Tool kostenlos?",
+    "faq1A": "Ja. Die Kern-Tools von VelnoxLabs sind kostenlos nutzbar."
+  },
+  "ToolInfo": {
+    "aboutThisTool": "Über dieses Tool",
+    "category": "Kategorie",
+    "status": "Status",
+    "updated": "Aktualisiert",
+    "version": "Version"
+  },
+  "ToolFaq": {
+    "heading": "Häufig Gestellte Fragen",
+    "generic": {
+      "q1": "Ist dieses Tool kostenlos?",
+      "a1": "Ja, alle VelnoxLabs-Utilities sind völlig kostenlos, clientseitig und offen."
+    },
+    "userAgentParser": {
+      "q1": "Welche Informationen enthält ein User-Agent-String?",
+      "a1": "Ein User-Agent-String liefert Details zur Client-Browser-Anwendung, Rendering-Engine, Betriebssystemplattform, CPU-Architektur und Geräteformfaktor.",
+      "q2": "Kann dieser Parser menschliche Browser von Bots und KI-Scrapern unterscheiden?",
+      "a2": "Ja. Der Parser pflegt Signaturmuster für Suchmaschinen-Bots (Googlebot, Bingbot), Social Crawler und KI-Scraping-Agenten (OpenAI GPTBot, ClaudeBot, PerplexityBot, ByteDance ByteSpider).",
+      "q3": "Wird mein User-Agent-String an einen externen Server gesendet?",
+      "a3": "Nein. Die Parsing-Engine läuft zu 100% lokal im Speicher Ihres Browsers, ohne Daten an externe APIs zu senden.",
+      "q4": "Was bedeutet RFC-konform für einen User-Agent?",
+      "a4": "RFC 7231 legt fest, dass HTTP-User-Agents mit Produktidentifikations-Tokens (wie Mozilla/5.0) beginnen und ein sauberes Token-Format ohne illegale Zeichen beibehalten sollten."
+    }
+  }
+}

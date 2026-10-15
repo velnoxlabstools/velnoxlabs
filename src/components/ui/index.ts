@@ -27,3 +27,4 @@ export { LinkButton } from './LinkButton';
 export type { LinkButtonProps } from './LinkButton';
 export { VisuallyHidden } from './VisuallyHidden';
 export type { VisuallyHiddenProps } from './VisuallyHidden';
+export { FeedbackForm } from './FeedbackForm';

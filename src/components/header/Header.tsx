@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Logo } from './Logo';
 import { SkipToContent } from './SkipToContent';
-import { ThemeToggle } from './ThemeToggle';
 import { DesktopNav } from '@/components/navigation/DesktopNav';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { navigationConfig } from '@/data/navigation';

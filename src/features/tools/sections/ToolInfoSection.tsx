@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import type { ToolConfig } from '@/types/tool-engine';
 import type { Category } from '@/types/tools';
 
@@ -7,13 +10,13 @@ interface ToolInfoSectionProps {
 }
 
 export function ToolInfoSection({ tool, category }: ToolInfoSectionProps) {
+  const t = useTranslations('ToolInfo');
+
   const rows = [
-    { label: 'Category', value: category?.name ?? '—' },
-    { label: 'Status', value: tool.status },
-    { label: 'Updated', value: new Date(tool.updatedAt).toLocaleDateString() },
-    ...(tool.version
-      ? [{ label: 'Version', value: tool.version.version }]
-      : []),
+    { label: t('category'), value: category?.name ?? '—' },
+    { label: t('status'), value: tool.status },
+    { label: t('updated'), value: new Date(tool.updatedAt).toLocaleDateString() },
+    ...(tool.version ? [{ label: t('version'), value: tool.version.version }] : []),
   ];
 
   return (
@@ -26,7 +29,7 @@ export function ToolInfoSection({ tool, category }: ToolInfoSectionProps) {
           fontWeight: 'var(--font-weight-semibold)',
         }}
       >
-        About this tool
+        {t('aboutThisTool')}
       </h2>
       <dl
         style={{

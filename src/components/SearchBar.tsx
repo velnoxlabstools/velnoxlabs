@@ -4,11 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { tools } from '@/data';
+import type { Tool } from '@/types/tools';
 
 export default function SearchBar() {
   const t = useTranslations('Header');
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<Tool[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -18,7 +19,7 @@ export default function SearchBar() {
       setIsOpen(false);
       return;
     }
-    const filtered = (tools as any[])
+    const filtered = tools
       .filter(
         (tool) =>
           tool.name?.toLowerCase().includes(query.toLowerCase()) ||
@@ -78,9 +79,7 @@ export default function SearchBar() {
               className="block px-4 py-3 hover:bg-slate-800 transition-colors border-b border-slate-800/50 last:border-0"
             >
               <div className="text-sm font-medium text-white">{tool.name}</div>
-              <div className="text-xs text-slate-500 mt-0.5">
-                {tool.tags?.join(', ') || 'Tool'}
-              </div>
+              <div className="text-xs text-slate-500 mt-0.5">{tool.tags?.join(', ') || 'Tool'}</div>
             </Link>
           ))}
         </div>
@@ -89,7 +88,7 @@ export default function SearchBar() {
       {isOpen && query.length >= 2 && results.length === 0 && (
         <div className="absolute top-full mt-2 w-full bg-slate-900 border border-slate-800 rounded-lg shadow-xl z-50">
           <div className="px-4 py-3 text-sm text-slate-400">
-            {t('noToolsFound')} "{query}"
+            {t('noToolsFound')} &quot;{query}&quot;
           </div>
         </div>
       )}

@@ -125,11 +125,16 @@ function parseCurl(str: string): ParsedCurl {
 
     // Known boolean flags
     if (
-      tok === '-s' || tok === '--silent' ||
-      tok === '-L' || tok === '--location' ||
-      tok === '-k' || tok === '--insecure' ||
-      tok === '--compressed' || tok === '-v' ||
-      tok === '--verbose' || tok === '-i' ||
+      tok === '-s' ||
+      tok === '--silent' ||
+      tok === '-L' ||
+      tok === '--location' ||
+      tok === '-k' ||
+      tok === '--insecure' ||
+      tok === '--compressed' ||
+      tok === '-v' ||
+      tok === '--verbose' ||
+      tok === '-i' ||
       tok === '--include'
     ) {
       i += 1;
@@ -169,7 +174,7 @@ function generatePython(parsed: ParsedCurl): string {
   }
 
   // Try to parse body as JSON
-  let bodyObj: any = null;
+  let bodyObj: Record<string, unknown> | null = null;
   if (body) {
     try {
       bodyObj = JSON.parse(body);
@@ -247,8 +252,9 @@ export default function CurlToPythonPage() {
         return;
       }
       setPythonOutput(generatePython(parsed));
-    } catch (err: any) {
-      setError(err.message || 'Failed to parse cURL command');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(msg || 'Failed to parse cURL command');
       setPythonOutput('');
     }
   };
@@ -277,33 +283,43 @@ export default function CurlToPythonPage() {
     '@graph': [
       {
         '@type': 'SoftwareApplication',
-        'name': 'VelnoxLabs cURL to Python Requests Converter',
-        'operatingSystem': 'All',
-        'applicationCategory': 'DeveloperApplication',
-        'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD' },
-        'description': 'Convert cURL commands into clean Python requests library code instantly inside your browser with full support for headers, JSON bodies, and multi-line commands.'
+        name: 'VelnoxLabs cURL to Python Requests Converter',
+        operatingSystem: 'All',
+        applicationCategory: 'DeveloperApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        description:
+          'Convert cURL commands into clean Python requests library code instantly inside your browser with full support for headers, JSON bodies, and multi-line commands.',
       },
       {
         '@type': 'FAQPage',
-        'mainEntity': [
+        mainEntity: [
           {
             '@type': 'Question',
-            'name': 'How to convert cURL to Python requests online?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Paste your cURL command into the input box to instantly generate corresponding Python requests code.' }
+            name: 'How to convert cURL to Python requests online?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Paste your cURL command into the input box to instantly generate corresponding Python requests code.',
+            },
           },
           {
             '@type': 'Question',
-            'name': 'Is command translation secure?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes, all parsing runs entirely client-side with zero data logging.' }
-          }
-        ]
-      }
-    ]
+            name: 'Is command translation secure?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, all parsing runs entirely client-side with zero data logging.',
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
@@ -313,25 +329,80 @@ export default function CurlToPythonPage() {
           />
 
           {/* ========== TOOL UI ========== */}
-          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '24px',
+              marginTop: 'var(--space-6)',
+            }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '20px',
+              }}
+            >
               <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>cURL Command:</label>
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  cURL Command:
+                </label>
                 <textarea
                   value={curlInput}
                   onChange={(e) => setCurlInput(e.target.value)}
                   rows={14}
                   placeholder="Paste cURL command..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#fff',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
                 />
               </div>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Python Requests Code:</label>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                    Python Requests Code:
+                  </label>
                   <button
                     onClick={handleCopy}
                     disabled={!pythonOutput}
-                    style={{ backgroundColor: pythonOutput ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.05)', color: pythonOutput ? '#60a5fa' : '#64748b', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: pythonOutput ? 'pointer' : 'not-allowed' }}
+                    style={{
+                      backgroundColor: pythonOutput
+                        ? 'rgba(59, 130, 246, 0.15)'
+                        : 'rgba(255,255,255,0.05)',
+                      color: pythonOutput ? '#60a5fa' : '#64748b',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '6px',
+                      padding: '4px 12px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: pythonOutput ? 'pointer' : 'not-allowed',
+                    }}
                   >
                     {copied ? 'Copied!' : 'Copy Code'}
                   </button>
@@ -341,64 +412,188 @@ export default function CurlToPythonPage() {
                   readOnly
                   rows={14}
                   placeholder="Generated Python code will appear here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#34d399',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
                 />
               </div>
             </div>
 
             {error && (
-              <div style={{ marginTop: '12px', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '12px' }}>
+              <div
+                style={{
+                  marginTop: '12px',
+                  backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  borderRadius: '8px',
+                  padding: '12px',
+                }}
+              >
                 <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
               </div>
             )}
           </div>
 
           {/* ========== SEO CONTENT ========== */}
-          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a cURL to Python Requests Converter?</h2>
+          <div
+            style={{
+              marginTop: '48px',
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '32px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+              }}
+            >
+              What is a cURL to Python Requests Converter?
+            </h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              This tool converts cURL commands into clean Python code using the requests library. It extracts URLs, headers, HTTP methods, and request bodies automatically so developers can quickly integrate APIs into Python scripts. It fully supports multi-line commands, quoted bodies with JSON, custom headers, and authentication.
+              This tool converts cURL commands into clean Python code using the requests library. It
+              extracts URLs, headers, HTTP methods, and request bodies automatically so developers
+              can quickly integrate APIs into Python scripts. It fully supports multi-line commands,
+              quoted bodies with JSON, custom headers, and authentication.
             </p>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '12px',
+                marginTop: '24px',
+              }}
+            >
+              How to Use This Tool
+            </h3>
+            <ul
+              style={{
+                color: '#94a3b8',
+                lineHeight: 1.9,
+                paddingLeft: '20px',
+                marginBottom: '24px',
+              }}
+            >
               <li>Paste your cURL command into the input box.</li>
               <li>The tool instantly parses method, URL, headers, and body.</li>
               <li>Clean Python code is generated with the requests library.</li>
-              <li>Click <strong style={{ color: '#34d399' }}>Copy Code</strong> to copy the result.</li>
+              <li>
+                Click <strong style={{ color: '#34d399' }}>Copy Code</strong> to copy the result.
+              </li>
             </ul>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>Supported cURL Flags</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li><code style={{ color: '#60a5fa' }}>-X</code> / <code style={{ color: '#60a5fa' }}>--request</code> — HTTP method</li>
-              <li><code style={{ color: '#60a5fa' }}>-H</code> / <code style={{ color: '#60a5fa' }}>--header</code> — custom headers</li>
-              <li><code style={{ color: '#60a5fa' }}>-d</code> / <code style={{ color: '#60a5fa' }}>--data</code> — request body (JSON supported)</li>
-              <li><code style={{ color: '#60a5fa' }}>-u</code> / <code style={{ color: '#60a5fa' }}>--user</code> — basic authentication</li>
-              <li>Multi-line commands with <code style={{ color: '#60a5fa' }}>\</code> continuation</li>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '12px',
+                marginTop: '24px',
+              }}
+            >
+              Supported cURL Flags
+            </h3>
+            <ul
+              style={{
+                color: '#94a3b8',
+                lineHeight: 1.9,
+                paddingLeft: '20px',
+                marginBottom: '24px',
+              }}
+            >
+              <li>
+                <code style={{ color: '#60a5fa' }}>-X</code> /{' '}
+                <code style={{ color: '#60a5fa' }}>--request</code> — HTTP method
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>-H</code> /{' '}
+                <code style={{ color: '#60a5fa' }}>--header</code> — custom headers
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>-d</code> /{' '}
+                <code style={{ color: '#60a5fa' }}>--data</code> — request body (JSON supported)
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>-u</code> /{' '}
+                <code style={{ color: '#60a5fa' }}>--user</code> — basic authentication
+              </li>
+              <li>
+                Multi-line commands with <code style={{ color: '#60a5fa' }}>\</code> continuation
+              </li>
             </ul>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+                marginTop: '24px',
+              }}
+            >
+              Frequently Asked Questions
+            </h3>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it support JSON bodies?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, JSON bodies are automatically parsed and formatted as Python dictionaries (with <code style={{ color: '#60a5fa' }}>True</code>, <code style={{ color: '#60a5fa' }}>False</code>, <code style={{ color: '#60a5fa' }}>None</code>).</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Does it support JSON bodies?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, JSON bodies are automatically parsed and formatted as Python dictionaries (with{' '}
+                <code style={{ color: '#60a5fa' }}>True</code>,{' '}
+                <code style={{ color: '#60a5fa' }}>False</code>,{' '}
+                <code style={{ color: '#60a5fa' }}>None</code>).
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs cURL to Python Requests Converter is 100% free with no sign-up required.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is this tool free to use?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, VelnoxLabs cURL to Python Requests Converter is 100% free with no sign-up
+                required.
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is my data secure?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Absolutely. All processing happens entirely in your browser using client-side
+                JavaScript. Your data never leaves your device.
+              </p>
             </div>
           </div>
 
           {/* ========== FEEDBACK FORM ========== */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
+            <p className="text-slate-400 mb-6 text-sm">
+              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
+            </p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">
               <textarea
                 rows={4}
@@ -407,12 +602,14 @@ export default function CurlToPythonPage() {
                 placeholder="Write your suggestions or feature requests here..."
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
               ></textarea>
-              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
+              <button
+                type="submit"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
+              >
                 {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
               </button>
             </form>
           </div>
-
         </div>
       </GlobalContainer>
     </>

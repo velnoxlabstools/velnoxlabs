@@ -6,7 +6,7 @@ import { SectionHeading } from '@/components/ui';
 
 // Determine Python type
 function getPyType(
-  value: any,
+  value: unknown,
   models: Record<string, string>,
   nameHint: string,
   imports: Set<string>
@@ -24,13 +24,15 @@ function getPyType(
       return 'List[Any]';
     }
     // Get unique item types
-    const types = Array.from(new Set(value.map((v) => getPyType(v, models, nameHint + 'Item', imports))));
+    const types = Array.from(
+      new Set(value.map((v) => getPyType(v, models, nameHint + 'Item', imports)))
+    );
     if (types.length === 1) return `List[${types[0]}]`;
     imports.add('Union');
     return `List[Union[${types.join(', ')}]]`;
   }
 
-  if (typeof value === 'object') {
+  if (typeof value === 'object' && value !== null) {
     const className = capitalize(nameHint);
     // Build the model
     const lines: string[] = [];
@@ -51,7 +53,7 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function generatePydantic(json: any): string {
+function generatePydantic(json: Record<string, unknown> | unknown[]): string {
   const models: Record<string, string> = {};
   const imports = new Set<string>(['BaseModel']);
 
@@ -82,7 +84,9 @@ function generatePydantic(json: any): string {
   const importLines: string[] = [];
   importLines.push(`from pydantic import BaseModel`);
 
-  const typingImports = Array.from(imports).filter((i) => i !== 'BaseModel').sort();
+  const typingImports = Array.from(imports)
+    .filter((i) => i !== 'BaseModel')
+    .sort();
   if (typingImports.length > 0) {
     importLines.push(`from typing import ${typingImports.join(', ')}`);
   }
@@ -113,8 +117,9 @@ export default function JsonToPyPage() {
     try {
       const parsed = JSON.parse(val);
       setPyOutput(generatePydantic(parsed));
-    } catch (err: any) {
-      setError('Invalid JSON syntax: ' + err.message);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setError('Invalid JSON syntax: ' + msg);
       setPyOutput('');
     }
   };
@@ -143,33 +148,43 @@ export default function JsonToPyPage() {
     '@graph': [
       {
         '@type': 'SoftwareApplication',
-        'name': 'VelnoxLabs JSON to Pydantic Generator',
-        'operatingSystem': 'All',
-        'applicationCategory': 'DeveloperApplication',
-        'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD' },
-        'description': 'Convert JSON objects into Python Pydantic BaseModel classes instantly with full support for nested objects, arrays, nulls, and unions.'
+        name: 'VelnoxLabs JSON to Pydantic Generator',
+        operatingSystem: 'All',
+        applicationCategory: 'DeveloperApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        description:
+          'Convert JSON objects into Python Pydantic BaseModel classes instantly with full support for nested objects, arrays, nulls, and unions.',
       },
       {
         '@type': 'FAQPage',
-        'mainEntity': [
+        mainEntity: [
           {
             '@type': 'Question',
-            'name': 'How to generate Pydantic model from JSON?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Paste your JSON and the tool instantly generates Python Pydantic BaseModel classes with proper typing for nested objects and arrays.' }
+            name: 'How to generate Pydantic model from JSON?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Paste your JSON and the tool instantly generates Python Pydantic BaseModel classes with proper typing for nested objects and arrays.',
+            },
           },
           {
             '@type': 'Question',
-            'name': 'Does it support nested objects and arrays?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes, the generator recursively handles nested objects (creating separate BaseModel classes), arrays of primitives, arrays of objects, and mixed-type unions.' }
-          }
-        ]
-      }
-    ]
+            name: 'Does it support nested objects and arrays?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, the generator recursively handles nested objects (creating separate BaseModel classes), arrays of primitives, arrays of objects, and mixed-type unions.',
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
@@ -179,25 +194,80 @@ export default function JsonToPyPage() {
           />
 
           {/* ========== TOOL UI ========== */}
-          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '24px',
+              marginTop: 'var(--space-6)',
+            }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '20px',
+              }}
+            >
               <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>JSON Input:</label>
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  JSON Input:
+                </label>
                 <textarea
                   value={jsonInput}
                   onChange={(e) => setJsonInput(e.target.value)}
                   rows={14}
                   placeholder="Paste JSON here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#fff',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
                 />
               </div>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Pydantic Model Output:</label>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                    Pydantic Model Output:
+                  </label>
                   <button
                     onClick={handleCopy}
                     disabled={!pyOutput}
-                    style={{ backgroundColor: pyOutput ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.05)', color: pyOutput ? '#60a5fa' : '#64748b', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: pyOutput ? 'pointer' : 'not-allowed' }}
+                    style={{
+                      backgroundColor: pyOutput
+                        ? 'rgba(59, 130, 246, 0.15)'
+                        : 'rgba(255,255,255,0.05)',
+                      color: pyOutput ? '#60a5fa' : '#64748b',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '6px',
+                      padding: '4px 12px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: pyOutput ? 'pointer' : 'not-allowed',
+                    }}
                   >
                     {copied ? 'Copied!' : 'Copy Code'}
                   </button>
@@ -207,13 +277,32 @@ export default function JsonToPyPage() {
                   readOnly
                   rows={14}
                   placeholder="Pydantic model will appear here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#34d399',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
                 />
               </div>
             </div>
 
             {error && (
-              <div style={{ marginTop: '12px', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '12px' }}>
+              <div
+                style={{
+                  marginTop: '12px',
+                  backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  borderRadius: '8px',
+                  padding: '12px',
+                }}
+              >
                 <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
               </div>
             )}
@@ -222,74 +311,203 @@ export default function JsonToPyPage() {
           {/* ========== FEATURES ========== */}
           <div className="w-full max-w-7xl mx-auto px-4 py-12 mt-12 border-t border-slate-800">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">Enterprise-Grade JSON to Pydantic Standards</h2>
-              <p className="text-slate-400 max-w-3xl">Streamlining developer workflows efficiently with high performance, strict client-side privacy, and production-ready outputs.</p>
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Enterprise-Grade JSON to Pydantic Standards
+              </h2>
+              <p className="text-slate-400 max-w-3xl">
+                Streamlining developer workflows efficiently with high performance, strict
+                client-side privacy, and production-ready outputs.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-xl">
-                <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">⚡ Instant Processing</div>
-                <p className="text-slate-400 text-sm">Processes parameters and payloads in real-time with zero latency.</p>
+                <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
+                  ⚡ Instant Processing
+                </div>
+                <p className="text-slate-400 text-sm">
+                  Processes parameters and payloads in real-time with zero latency.
+                </p>
               </div>
               <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-xl">
-                <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">🔒 Complete Privacy</div>
-                <p className="text-slate-400 text-sm">All parsing happens completely client-side without logging sensitive parameters.</p>
+                <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
+                  🔒 Complete Privacy
+                </div>
+                <p className="text-slate-400 text-sm">
+                  All parsing happens completely client-side without logging sensitive parameters.
+                </p>
               </div>
               <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-xl">
-                <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">🛠️ Production Ready</div>
-                <p className="text-slate-400 text-sm">Outputs clean, standardized formats built to integrate directly into your workflow.</p>
+                <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
+                  🛠️ Production Ready
+                </div>
+                <p className="text-slate-400 text-sm">
+                  Outputs clean, standardized formats built to integrate directly into your
+                  workflow.
+                </p>
               </div>
             </div>
           </div>
 
           {/* ========== SEO CONTENT ========== */}
-          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a JSON to Pydantic Generator?</h2>
+          <div
+            style={{
+              marginTop: '48px',
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '32px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+              }}
+            >
+              What is a JSON to Pydantic Generator?
+            </h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The JSON to Pydantic & Dataclass Generator converts JSON objects into Python Pydantic BaseModel classes. It is used for FastAPI development, data validation, and typed API integrations. It supports deeply nested objects, arrays of primitives, arrays of objects, null values, and mixed-type unions.
+              The JSON to Pydantic & Dataclass Generator converts JSON objects into Python Pydantic
+              BaseModel classes. It is used for FastAPI development, data validation, and typed API
+              integrations. It supports deeply nested objects, arrays of primitives, arrays of
+              objects, null values, and mixed-type unions.
             </p>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '12px',
+                marginTop: '24px',
+              }}
+            >
+              How to Use This Tool
+            </h3>
+            <ul
+              style={{
+                color: '#94a3b8',
+                lineHeight: 1.9,
+                paddingLeft: '20px',
+                marginBottom: '24px',
+              }}
+            >
               <li>Paste your JSON into the input box.</li>
               <li>The Pydantic model is generated instantly with proper types.</li>
               <li>Nested objects generate separate named BaseModel classes.</li>
-              <li>Click <strong style={{ color: '#34d399' }}>Copy Code</strong> to copy the model to your clipboard.</li>
+              <li>
+                Click <strong style={{ color: '#34d399' }}>Copy Code</strong> to copy the model to
+                your clipboard.
+              </li>
             </ul>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>Type Mappings</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li><code style={{ color: '#60a5fa' }}>string</code> → <code style={{ color: '#34d399' }}>str</code></li>
-              <li><code style={{ color: '#60a5fa' }}>integer</code> → <code style={{ color: '#34d399' }}>int</code></li>
-              <li><code style={{ color: '#60a5fa' }}>float</code> → <code style={{ color: '#34d399' }}>float</code></li>
-              <li><code style={{ color: '#60a5fa' }}>boolean</code> → <code style={{ color: '#34d399' }}>bool</code></li>
-              <li><code style={{ color: '#60a5fa' }}>null</code> → <code style={{ color: '#34d399' }}>Optional[Any]</code></li>
-              <li><code style={{ color: '#60a5fa' }}>array</code> → <code style={{ color: '#34d399' }}>List[Type]</code></li>
-              <li><code style={{ color: '#60a5fa' }}>nested object</code> → separate <code style={{ color: '#34d399' }}>BaseModel</code> class</li>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '12px',
+                marginTop: '24px',
+              }}
+            >
+              Type Mappings
+            </h3>
+            <ul
+              style={{
+                color: '#94a3b8',
+                lineHeight: 1.9,
+                paddingLeft: '20px',
+                marginBottom: '24px',
+              }}
+            >
+              <li>
+                <code style={{ color: '#60a5fa' }}>string</code> →{' '}
+                <code style={{ color: '#34d399' }}>str</code>
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>integer</code> →{' '}
+                <code style={{ color: '#34d399' }}>int</code>
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>float</code> →{' '}
+                <code style={{ color: '#34d399' }}>float</code>
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>boolean</code> →{' '}
+                <code style={{ color: '#34d399' }}>bool</code>
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>null</code> →{' '}
+                <code style={{ color: '#34d399' }}>Optional[Any]</code>
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>array</code> →{' '}
+                <code style={{ color: '#34d399' }}>List[Type]</code>
+              </li>
+              <li>
+                <code style={{ color: '#60a5fa' }}>nested object</code> → separate{' '}
+                <code style={{ color: '#34d399' }}>BaseModel</code> class
+              </li>
             </ul>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+                marginTop: '24px',
+              }}
+            >
+              Frequently Asked Questions
+            </h3>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it support nested objects and arrays?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, the generator recursively handles deeply nested objects (creating separate BaseModel classes) and arrays of primitives, arrays of objects, and mixed-type unions.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Does it support nested objects and arrays?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, the generator recursively handles deeply nested objects (creating separate
+                BaseModel classes) and arrays of primitives, arrays of objects, and mixed-type
+                unions.
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs JSON to Pydantic Generator is 100% free with no sign-up required.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is this tool free to use?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, VelnoxLabs JSON to Pydantic Generator is 100% free with no sign-up required.
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is my data secure?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Absolutely. All processing happens entirely in your browser using client-side
+                JavaScript. Your data never leaves your device.
+              </p>
             </div>
           </div>
 
           {/* ========== FEEDBACK FORM ========== */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
+            <p className="text-slate-400 mb-6 text-sm">
+              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
+            </p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">
               <textarea
                 rows={4}
@@ -298,12 +516,14 @@ export default function JsonToPyPage() {
                 placeholder="Write your suggestions or feature requests here..."
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
               ></textarea>
-              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
+              <button
+                type="submit"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
+              >
                 {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
               </button>
             </form>
           </div>
-
         </div>
       </GlobalContainer>
     </>

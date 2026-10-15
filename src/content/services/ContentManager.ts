@@ -1,4 +1,4 @@
-import type { ToolContentDocument, ContentBlock } from '../types';
+﻿import type { ToolContentDocument, ContentBlock } from '../types';
 import { contentRegistry } from '../registry';
 import { documentationProvider } from '../documentation';
 import { createDefaultToolContent } from '../templates';
@@ -9,9 +9,15 @@ export class ContentManager {
     documentationProvider.register(doc);
   }
 
-  ensureDefault(toolId: string, slug: string, name: string, description: string): ToolContentDocument {
+  ensureDefault(
+    toolId: string,
+    slug: string,
+    name: string,
+    description: string
+  ): ToolContentDocument {
     const existing = contentRegistry.get(toolId) ?? contentRegistry.get(slug);
     if (existing) return existing;
+
     const doc = createDefaultToolContent(toolId, slug, name, description);
     this.register(doc);
     return doc;
@@ -24,6 +30,7 @@ export class ContentManager {
   updateBlocks(idOrSlug: string, blocks: ContentBlock[]): ToolContentDocument | null {
     const current = contentRegistry.get(idOrSlug);
     if (!current) return null;
+
     const next = { ...current, blocks: sortBlocks(blocks) };
     contentRegistry.set(next);
     return next;

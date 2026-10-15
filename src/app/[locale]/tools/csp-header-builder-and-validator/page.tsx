@@ -6,20 +6,48 @@ import { SectionHeading } from '@/components/ui';
 
 // List of valid CSP directives
 const VALID_DIRECTIVES = new Set([
-  'default-src', 'script-src', 'style-src', 'img-src', 'font-src',
-  'connect-src', 'media-src', 'object-src', 'frame-src', 'child-src',
-  'worker-src', 'manifest-src', 'prefetch-src', 'frame-ancestors',
-  'base-uri', 'form-action', 'sandbox', 'report-uri', 'report-to',
-  'upgrade-insecure-requests', 'block-all-mixed-content', 'require-sri-for',
-  'navigate-to', 'plugin-types'
+  'default-src',
+  'script-src',
+  'style-src',
+  'img-src',
+  'font-src',
+  'connect-src',
+  'media-src',
+  'object-src',
+  'frame-src',
+  'child-src',
+  'worker-src',
+  'manifest-src',
+  'prefetch-src',
+  'frame-ancestors',
+  'base-uri',
+  'form-action',
+  'sandbox',
+  'report-uri',
+  'report-to',
+  'upgrade-insecure-requests',
+  'block-all-mixed-content',
+  'require-sri-for',
+  'navigate-to',
+  'plugin-types',
 ]);
 
 // Keywords that are valid as sources
 const VALID_KEYWORDS = new Set([
-  "'self'", "'none'", "'unsafe-inline'", "'unsafe-eval'",
-  "'strict-dynamic'", "'unsafe-hashes'", "'report-sample'",
-  "'wasm-unsafe-eval'", "'inline-speculation-rules'",
-  '*', 'data:', 'blob:', 'filesystem:', 'mediastream:'
+  "'self'",
+  "'none'",
+  "'unsafe-inline'",
+  "'unsafe-eval'",
+  "'strict-dynamic'",
+  "'unsafe-hashes'",
+  "'report-sample'",
+  "'wasm-unsafe-eval'",
+  "'inline-speculation-rules'",
+  '*',
+  'data:',
+  'blob:',
+  'filesystem:',
+  'mediastream:',
 ]);
 
 export default function CspHeaderBuilderPage() {
@@ -57,7 +85,7 @@ export default function CspHeaderBuilderPage() {
     }
 
     // Step 1: If input already contains "Content-Security-Policy:", strip it
-    let cleaned = raw.replace(/Content-Security-Policy:\s*/i, '').trim();
+    const cleaned = raw.replace(/Content-Security-Policy:\s*/i, '').trim();
 
     // Step 2: Split by both newlines AND semicolons
     const parts = cleaned
@@ -92,7 +120,10 @@ export default function CspHeaderBuilderPage() {
       }
 
       // Step 5: Validate sources (skip for special directives that don't take sources)
-      if (directiveValue && !['upgrade-insecure-requests', 'block-all-mixed-content'].includes(directiveName)) {
+      if (
+        directiveValue &&
+        !['upgrade-insecure-requests', 'block-all-mixed-content'].includes(directiveName)
+      ) {
         // Extract sources — split by spaces but keep quoted tokens together
         const sourceTokens = directiveValue.match(/'[^']*'|[^\s]+/g) || [];
         sourceTokens.forEach((src) => {
@@ -136,6 +167,7 @@ export default function CspHeaderBuilderPage() {
 
   useEffect(() => {
     buildCsp(input);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount-only initial CSP build for default template
   }, []);
 
   const handleCopy = () => {
@@ -158,33 +190,43 @@ export default function CspHeaderBuilderPage() {
     '@graph': [
       {
         '@type': 'SoftwareApplication',
-        'name': 'VelnoxLabs CSP Header Builder & Validator',
-        'operatingSystem': 'All',
-        'applicationCategory': 'DeveloperApplication',
-        'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD' },
-        'description': 'Build and validate Content Security Policy headers securely with real-time directive and source validation.'
+        name: 'VelnoxLabs CSP Header Builder & Validator',
+        operatingSystem: 'All',
+        applicationCategory: 'DeveloperApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        description:
+          'Build and validate Content Security Policy headers securely with real-time directive and source validation.',
       },
       {
         '@type': 'FAQPage',
-        'mainEntity': [
+        mainEntity: [
           {
             '@type': 'Question',
-            'name': 'How to build a CSP header online?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Paste your directives in any format (newline or semicolon-separated) and the tool instantly generates a valid Content-Security-Policy header.' }
+            name: 'How to build a CSP header online?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Paste your directives in any format (newline or semicolon-separated) and the tool instantly generates a valid Content-Security-Policy header.',
+            },
           },
           {
             '@type': 'Question',
-            'name': 'Is CSP header building secure?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes, 100% client-side processing. Your policy is never uploaded to any server.' }
-          }
-        ]
-      }
-    ]
+            name: 'Is CSP header building secure?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, 100% client-side processing. Your policy is never uploaded to any server.',
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
@@ -193,46 +235,145 @@ export default function CspHeaderBuilderPage() {
             subtitle="Build, validate, and format Content Security Policy headers with real-time directive checking."
           />
 
-          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '24px',
+              marginTop: 'var(--space-6)',
+            }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '20px',
+              }}
+            >
               <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Directives (newline or semicolon separated):</label>
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Directives (newline or semicolon separated):
+                </label>
                 <textarea
                   value={input}
                   onChange={(e) => handleProcess(e.target.value)}
                   rows={12}
                   placeholder="default-src 'self'; script-src 'self' https://cdn.example.com"
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#fff',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
                 />
 
                 {/* Errors */}
                 {errors.length > 0 && (
-                  <div style={{ marginTop: '12px', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '12px' }}>
-                    <p style={{ color: '#f87171', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>❌ Errors:</p>
+                  <div
+                    style={{
+                      marginTop: '12px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid rgba(239, 68, 68, 0.3)',
+                      borderRadius: '8px',
+                      padding: '12px',
+                    }}
+                  >
+                    <p
+                      style={{
+                        color: '#f87171',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        marginBottom: '6px',
+                      }}
+                    >
+                      ❌ Errors:
+                    </p>
                     {errors.map((err, i) => (
-                      <p key={i} style={{ color: '#fca5a5', fontSize: '0.75rem', marginBottom: '4px' }}>• {err}</p>
+                      <p
+                        key={i}
+                        style={{ color: '#fca5a5', fontSize: '0.75rem', marginBottom: '4px' }}
+                      >
+                        • {err}
+                      </p>
                     ))}
                   </div>
                 )}
 
                 {/* Warnings */}
                 {warnings.length > 0 && errors.length === 0 && (
-                  <div style={{ marginTop: '12px', backgroundColor: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '8px', padding: '12px' }}>
-                    <p style={{ color: '#fbbf24', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>⚠️ Warnings:</p>
+                  <div
+                    style={{
+                      marginTop: '12px',
+                      backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                      border: '1px solid rgba(245, 158, 11, 0.3)',
+                      borderRadius: '8px',
+                      padding: '12px',
+                    }}
+                  >
+                    <p
+                      style={{
+                        color: '#fbbf24',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        marginBottom: '6px',
+                      }}
+                    >
+                      ⚠️ Warnings:
+                    </p>
                     {warnings.map((w, i) => (
-                      <p key={i} style={{ color: '#fcd34d', fontSize: '0.75rem', marginBottom: '4px' }}>• {w}</p>
+                      <p
+                        key={i}
+                        style={{ color: '#fcd34d', fontSize: '0.75rem', marginBottom: '4px' }}
+                      >
+                        • {w}
+                      </p>
                     ))}
                   </div>
                 )}
               </div>
 
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>CSP Header:</label>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                    CSP Header:
+                  </label>
                   <button
                     onClick={handleCopy}
                     disabled={!output}
-                    style={{ backgroundColor: output ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.05)', color: output ? '#60a5fa' : '#64748b', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: output ? 'pointer' : 'not-allowed' }}
+                    style={{
+                      backgroundColor: output
+                        ? 'rgba(59, 130, 246, 0.15)'
+                        : 'rgba(255,255,255,0.05)',
+                      color: output ? '#60a5fa' : '#64748b',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '6px',
+                      padding: '4px 12px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: output ? 'pointer' : 'not-allowed',
+                    }}
                   >
                     {copied ? 'Copied!' : 'Copy'}
                   </button>
@@ -242,49 +383,131 @@ export default function CspHeaderBuilderPage() {
                   readOnly
                   rows={12}
                   placeholder="Valid CSP header will appear here..."
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#34d399',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    resize: 'vertical',
+                  }}
                 />
               </div>
             </div>
           </div>
 
           {/* SEO Content */}
-          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a CSP Header Builder?</h2>
+          <div
+            style={{
+              marginTop: '48px',
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '32px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+              }}
+            >
+              What is a CSP Header Builder?
+            </h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The CSP Header Builder & Validator helps developers construct Content Security Policy headers to prevent XSS attacks, clickjacking, and code injection. It validates your directives and sources in real-time and outputs a production-ready header string.
+              The CSP Header Builder & Validator helps developers construct Content Security Policy
+              headers to prevent XSS attacks, clickjacking, and code injection. It validates your
+              directives and sources in real-time and outputs a production-ready header string.
             </p>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '12px',
+                marginTop: '24px',
+              }}
+            >
+              How to Use This Tool
+            </h3>
+            <ul
+              style={{
+                color: '#94a3b8',
+                lineHeight: 1.9,
+                paddingLeft: '20px',
+                marginBottom: '24px',
+              }}
+            >
               <li>Enter or paste your CSP directives (newline or semicolon separated).</li>
               <li>The tool validates each directive and source in real-time.</li>
               <li>Errors and security warnings appear below the input.</li>
-              <li>Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy the final CSP header.</li>
+              <li>
+                Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy the final CSP
+                header.
+              </li>
             </ul>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+                marginTop: '24px',
+              }}
+            >
+              Frequently Asked Questions
+            </h3>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>What formats are supported?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Both newline-separated and semicolon-separated directives are supported. You can also use '=' or space between directive name and value.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                What formats are supported?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Both newline-separated and semicolon-separated directives are supported. You can
+                also use &apos;=&apos; or space between directive name and value.
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>What does validation check?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>It checks directive names against the official CSP spec and validates sources (URLs, keywords, nonces, hashes).</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                What does validation check?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                It checks directive names against the official CSP spec and validates sources (URLs,
+                keywords, nonces, hashes).
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, all processing is 100% client-side. Your policy is never sent to any server.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is my data secure?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, all processing is 100% client-side. Your policy is never sent to any server.
+              </p>
             </div>
           </div>
 
           {/* Feedback Form */}
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
+            <p className="text-slate-400 mb-6 text-sm">
+              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
+            </p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">
               <textarea
                 rows={4}
@@ -293,12 +516,14 @@ export default function CspHeaderBuilderPage() {
                 placeholder="Write your suggestions or feature requests here..."
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
               ></textarea>
-              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
+              <button
+                type="submit"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
+              >
                 {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
               </button>
             </form>
           </div>
-
         </div>
       </GlobalContainer>
     </>

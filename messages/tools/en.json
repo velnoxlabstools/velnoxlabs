@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "Got Feedback or Feature Requests?",
+    "feedbackSubtitle": "Help us enhance VelnoxLabs developer utility standards. Share your feedback below!",
+    "feedbackPlaceholder": "Write your suggestions or feature requests here...",
+    "feedbackSubmit": "Submit Suggestion",
+    "feedbackSent": "Sent!"
+  },
+  "ToolSeoDefaults": {
+    "about": "About {name}",
+    "keyFeatures": "Key features",
+    "feature1": "Runs in your browser",
+    "feature2": "No account required",
+    "feature3": "Free to use",
+    "howToUse": "How to use",
+    "step1Title": "Open the tool",
+    "step1Body": "You are on the tool page.",
+    "step2Title": "Enter input",
+    "step2Body": "Fill in the fields in the workspace.",
+    "step3Title": "Run",
+    "step3Body": "Click Run to process and view results.",
+    "faqTitle": "FAQ",
+    "faq1Q": "Is this tool free?",
+    "faq1A": "Yes. Core VelnoxLabs tools are free to use."
+  },
+  "ToolInfo": {
+    "aboutThisTool": "About this tool",
+    "category": "Category",
+    "status": "Status",
+    "updated": "Updated",
+    "version": "Version"
+  },
+  "ToolFaq": {
+    "heading": "Frequently Asked Questions",
+    "generic": {
+      "q1": "Is this utility free to use?",
+      "a1": "Yes, all VelnoxLabs utility tools are completely free, client-side, and open."
+    },
+    "userAgentParser": {
+      "q1": "What information does a User-Agent string contain?",
+      "a1": "A User-Agent string provides details regarding the client browser application, rendering engine, operating system platform, CPU architecture, and device form factor.",
+      "q2": "Can this parser differentiate human browsers from bots and AI scrapers?",
+      "a2": "Yes. The parser maintains signature patterns for search engine bots (Googlebot, Bingbot), social crawlers, and AI scraping agents (OpenAI GPTBot, ClaudeBot, PerplexityBot, ByteDance ByteSpider).",
+      "q3": "Is my User-Agent string sent to any external server?",
+      "a3": "No. The parsing engine executes 100% locally inside your browser memory without sending data to external APIs.",
+      "q4": "What does RFC compliant mean for a User-Agent?",
+      "a4": "RFC 7231 specifies that HTTP user agents should begin with product identifier tokens (like Mozilla/5.0) and maintain clean token formatting without illegal characters."
+    }
+  }
+}

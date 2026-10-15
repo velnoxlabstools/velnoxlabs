@@ -1,7 +1,7 @@
-import type { RestoreResult } from "../types";
-import { snapshotManager } from "../snapshots";
-import { recoveryValidator } from "../verification";
-import { safeJsonParse } from "../utils";
+import type { RestoreResult } from '../types';
+import { snapshotManager } from '../snapshots';
+import { recoveryValidator } from '../verification';
+import { safeJsonParse } from '../utils';
 
 export type RestoreHandler = (data: unknown) => void | Promise<void>;
 
@@ -14,17 +14,22 @@ export class RestoreManager {
 
   async restore(snapshotId: string): Promise<RestoreResult> {
     const gate = recoveryValidator.canRestore(snapshotId);
-    if (!gate.ok) return { ok: false, error: (gate as any).error ?? "Cannot restore", snapshotId };
+    if (!gate.ok) return { ok: false, error: gate.error ?? 'Cannot restore', snapshotId };
 
     const snap = snapshotManager.get(snapshotId);
-    if (!snap) return { ok: false, error: "Snapshot missing", snapshotId };
+    if (!snap) return { ok: false, error: 'Snapshot missing', snapshotId };
 
     const parsed = safeJsonParse(snap.payload);
-    if (!parsed.ok) return { ok: false, error: (parsed as any).error ?? "Failed to parse snapshot", snapshotId };
+    if (!parsed.ok)
+      return {
+        ok: false,
+        error: ('error' in parsed ? parsed.error : undefined) ?? 'Failed to parse snapshot',
+        snapshotId,
+      };
 
     const restoredKeys: string[] = [];
     try {
-      if (snap.kind === "full" && parsed.data && typeof parsed.data === "object") {
+      if (snap.kind === 'full' && parsed.data && typeof parsed.data === 'object') {
         for (const [key, value] of Object.entries(parsed.data as Record<string, unknown>)) {
           const handler = handlers.get(key);
           if (handler) {
@@ -38,7 +43,7 @@ export class RestoreManager {
           await handler(parsed.data);
           restoredKeys.push(snap.kind);
         } else {
-          restoredKeys.push(snap.kind + ":dry-run");
+          restoredKeys.push(snap.kind + ':dry-run');
         }
       }
       return recoveryValidator.finalize({ ok: true, snapshotId, restoredKeys });
@@ -46,7 +51,7 @@ export class RestoreManager {
       return {
         ok: false,
         snapshotId,
-        error: e instanceof Error ? e.message : "Restore failed",
+        error: e instanceof Error ? e.message : 'Restore failed',
       };
     }
   }

@@ -1,5 +1,6 @@
+import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ThemeProvider } from '@/theme';
@@ -8,13 +9,37 @@ import { SearchProvider } from '@/features/search';
 import { SecurityProvider } from '@/security';
 import { PerformanceProvider } from '@/performance';
 import { PreferenceProvider } from '@/preferences';
+import { siteConfig } from '@/config';
 import '@/styles/globals.css';
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('HomePage');
+  const title = `${siteConfig.name} | ${t('heroTitle')}`;
+  const description = t('heroSubtitle');
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: title,
+      template: `%s | ${siteConfig.name}`,
+    },
+    description,
+    keywords: [...siteConfig.keywords],
+    openGraph: {
+      type: 'website',
+      siteName: siteConfig.name,
+      title,
+      description,
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+    },
+  };
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
   const messages = await getMessages();
 

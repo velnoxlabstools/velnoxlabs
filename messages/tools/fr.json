@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "Des Commentaires ou des Demandes de Fonctionnalités ?",
+    "feedbackSubtitle": "Aidez-nous à améliorer les standards des outils pour développeurs de VelnoxLabs. Partagez vos commentaires ci-dessous !",
+    "feedbackPlaceholder": "Écrivez vos suggestions ou demandes de fonctionnalités ici...",
+    "feedbackSubmit": "Envoyer une Suggestion",
+    "feedbackSent": "Envoyé !"
+  },
+  "ToolSeoDefaults": {
+    "about": "À propos de {name}",
+    "keyFeatures": "Fonctionnalités clés",
+    "feature1": "Fonctionne dans votre navigateur",
+    "feature2": "Aucun compte requis",
+    "feature3": "Gratuit à utiliser",
+    "howToUse": "Comment utiliser",
+    "step1Title": "Ouvrir l'outil",
+    "step1Body": "Vous êtes sur la page de l'outil.",
+    "step2Title": "Saisir les données",
+    "step2Body": "Remplissez les champs dans l'espace de travail.",
+    "step3Title": "Exécuter",
+    "step3Body": "Cliquez sur Exécuter pour traiter et voir les résultats.",
+    "faqTitle": "FAQ",
+    "faq1Q": "Cet outil est-il gratuit ?",
+    "faq1A": "Oui. Les outils principaux de VelnoxLabs sont gratuits à utiliser."
+  },
+  "ToolInfo": {
+    "aboutThisTool": "À propos de cet outil",
+    "category": "Catégorie",
+    "status": "Statut",
+    "updated": "Mis à jour",
+    "version": "Version"
+  },
+  "ToolFaq": {
+    "heading": "Questions Fréquemment Posées",
+    "generic": {
+      "q1": "Cet utilitaire est-il gratuit ?",
+      "a1": "Oui, tous les utilitaires VelnoxLabs sont entièrement gratuits, côté client et ouverts."
+    },
+    "userAgentParser": {
+      "q1": "Quelles informations contient une chaîne User-Agent ?",
+      "a1": "Une chaîne User-Agent fournit des détails sur l'application du navigateur client, le moteur de rendu, la plateforme du système d'exploitation, l'architecture du processeur et le facteur de forme de l'appareil.",
+      "q2": "Ce parseur peut-il différencier les navigateurs humains des bots et des scrapers IA ?",
+      "a2": "Oui. Le parseur maintient des modèles de signature pour les bots des moteurs de recherche (Googlebot, Bingbot), les robots d'exploration sociaux et les agents de scraping IA (OpenAI GPTBot, ClaudeBot, PerplexityBot, ByteDance ByteSpider).",
+      "q3": "Ma chaîne User-Agent est-elle envoyée à un serveur externe ?",
+      "a3": "Non. Le moteur d'analyse s'exécute à 100% localement dans la mémoire de votre navigateur sans envoyer de données à des API externes.",
+      "q4": "Que signifie conforme RFC pour un User-Agent ?",
+      "a4": "La RFC 7231 spécifie que les agents utilisateurs HTTP doivent commencer par des jetons d'identification de produit (comme Mozilla/5.0) et maintenir un format de jeton propre sans caractères illégaux."
+    }
+  }
+}

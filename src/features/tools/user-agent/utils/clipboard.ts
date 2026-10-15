@@ -1,3 +1,5 @@
+import { ParsedUA } from '../types/useragent';
+
 export async function copyToClipboard(text: string): Promise<boolean> {
   if (!text) return false;
   try {
@@ -27,7 +29,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
   }
 }
 
-export function formatAsTextReport(parsed: any): string {
+export function formatAsTextReport(parsed: ParsedUA | null | undefined): string {
   if (!parsed) return '';
   return `==================================================
 VELNOX LABS - USER-AGENT PARSER REPORT (#23)
@@ -74,7 +76,7 @@ ${parsed.validation.warnings.length > 0 ? `- Warnings: ${parsed.validation.warni
 ==================================================`;
 }
 
-export function formatAsMarkdownTable(parsed: any): string {
+export function formatAsMarkdownTable(parsed: ParsedUA | null | undefined): string {
   if (!parsed) return '';
   return `### User-Agent Analysis Report
 

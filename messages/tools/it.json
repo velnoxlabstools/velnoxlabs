@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "Feedback o Richieste di Funzionalità?",
+    "feedbackSubtitle": "Aiutaci a migliorare gli standard degli strumenti per sviluppatori di VelnoxLabs. Condividi il tuo feedback qui sotto!",
+    "feedbackPlaceholder": "Scrivi i tuoi suggerimenti o richieste di funzionalità qui...",
+    "feedbackSubmit": "Invia Suggerimento",
+    "feedbackSent": "Inviato!"
+  },
+  "ToolSeoDefaults": {
+    "about": "Informazioni su {name}",
+    "keyFeatures": "Caratteristiche principali",
+    "feature1": "Funziona nel tuo browser",
+    "feature2": "Nessun account richiesto",
+    "feature3": "Gratuito da usare",
+    "howToUse": "Come usare",
+    "step1Title": "Apri lo strumento",
+    "step1Body": "Sei sulla pagina dello strumento.",
+    "step2Title": "Inserisci i dati",
+    "step2Body": "Compila i campi nell'area di lavoro.",
+    "step3Title": "Esegui",
+    "step3Body": "Fai clic su Esegui per elaborare e visualizzare i risultati.",
+    "faqTitle": "FAQ",
+    "faq1Q": "Questo strumento è gratuito?",
+    "faq1A": "Sì. Gli strumenti principali di VelnoxLabs sono gratuiti da usare."
+  },
+  "ToolInfo": {
+    "aboutThisTool": "Informazioni su questo strumento",
+    "category": "Categoria",
+    "status": "Stato",
+    "updated": "Aggiornato",
+    "version": "Versione"
+  },
+  "ToolFaq": {
+    "heading": "Domande Frequenti",
+    "generic": {
+      "q1": "Questa utility è gratuita?",
+      "a1": "Sì, tutte le utility di VelnoxLabs sono completamente gratuite, lato client e aperte."
+    },
+    "userAgentParser": {
+      "q1": "Quali informazioni contiene una stringa User-Agent?",
+      "a1": "Una stringa User-Agent fornisce dettagli sull'applicazione del browser client, il motore di rendering, la piattaforma del sistema operativo, l'architettura della CPU e il fattore di forma del dispositivo.",
+      "q2": "Questo parser può distinguere i browser umani da bot e scraper IA?",
+      "a2": "Sì. Il parser mantiene pattern di firma per bot dei motori di ricerca (Googlebot, Bingbot), crawler social e agenti di scraping IA (OpenAI GPTBot, ClaudeBot, PerplexityBot, ByteDance ByteSpider).",
+      "q3": "La mia stringa User-Agent viene inviata a qualche server esterno?",
+      "a3": "No. Il motore di analisi viene eseguito al 100% localmente nella memoria del tuo browser senza inviare dati ad API esterne.",
+      "q4": "Cosa significa conforme a RFC per un User-Agent?",
+      "a4": "La RFC 7231 specifica che gli agenti utente HTTP dovrebbero iniziare con token identificativi di prodotto (come Mozilla/5.0) e mantenere una formattazione del token pulita senza caratteri illegali."
+    }
+  }
+}

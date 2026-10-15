@@ -6,8 +6,17 @@ import { SectionHeading } from '@/components/ui';
 
 const CHARS = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
+interface UlidParseResult {
+  valid: boolean;
+  timestamp: number;
+  date: string;
+  isoDate: string;
+  randomness: string;
+  timestampPart: string;
+}
+
 export default function Page() {
-  const [input, setInput] = useState("5");
+  const [input, setInput] = useState('5');
   const [output, setOutput] = useState('');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
@@ -16,14 +25,17 @@ export default function Page() {
 
   // Parser state
   const [parseInput, setParseInput] = useState('');
-  const [parseResult, setParseResult] = useState<any>(null);
+  const [parseResult, setParseResult] = useState<UlidParseResult | null>(null);
   const [parseError, setParseError] = useState('');
 
   // Generator logic
   const handleProcess = (val: string) => {
     setInput(val);
     setError('');
-    if (!val.trim()) { setOutput(''); return; }
+    if (!val.trim()) {
+      setOutput('');
+      return;
+    }
     try {
       const fn = function ulidGen(val: string) {
         const count = Math.min(20, Math.max(1, parseInt(val) || 5));
@@ -44,8 +56,9 @@ export default function Page() {
         return result.join('\n');
       };
       setOutput(fn(val));
-    } catch (e: any) {
-      setError(e.message);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(msg);
       setOutput('');
     }
   };
@@ -66,7 +79,9 @@ export default function Page() {
     }
 
     if (!/^[0-9A-HJKMNP-TV-Z]{26}$/.test(clean)) {
-      setParseError('Invalid ULID characters. Only Crockford Base32 allowed (excludes I, L, O, U).');
+      setParseError(
+        'Invalid ULID characters. Only Crockford Base32 allowed (excludes I, L, O, U).'
+      );
       return;
     }
 
@@ -90,8 +105,11 @@ export default function Page() {
 
   useEffect(() => {
     if (input) {
-      try { handleProcess(input); } catch(e) {}
+      try {
+        handleProcess(input);
+      } catch {}
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount-only generation, handleProcess sets input internally
   }, []);
 
   const handleCopy = () => {
@@ -111,70 +129,227 @@ export default function Page() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "VelnoxLabs ULID Generator & Parser",
-        "operatingSystem": "All",
-        "applicationCategory": "DeveloperApplication",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "description": "Generate and parse ULIDs instantly."
-      }) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'VelnoxLabs ULID Generator & Parser',
+            operatingSystem: 'All',
+            applicationCategory: 'DeveloperApplication',
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+            description: 'Generate and parse ULIDs instantly.',
+          }),
+        }}
+      />
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading title="ULID Generator & Parser" subtitle="Generate Universally Unique Lexicographically Sortable Identifiers." />
+          <SectionHeading
+            title="ULID Generator & Parser"
+            subtitle="Generate Universally Unique Lexicographically Sortable Identifiers."
+          />
 
           {/* ========== GENERATOR SECTION ========== */}
-          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '16px' }}>🔄 Generate ULIDs</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '24px',
+              marginTop: 'var(--space-6)',
+            }}
+          >
+            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '16px' }}>
+              🔄 Generate ULIDs
+            </h3>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '20px',
+              }}
+            >
               <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Count:</label>
-                <textarea value={input} onChange={(e) => handleProcess(e.target.value)} rows={8} placeholder="How many ULIDs? (1-20)" style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} />
-                {error && <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '8px' }}>{error}</p>}
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Count:
+                </label>
+                <textarea
+                  value={input}
+                  onChange={(e) => handleProcess(e.target.value)}
+                  rows={8}
+                  placeholder="How many ULIDs? (1-20)"
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#fff',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                  }}
+                />
+                {error && (
+                  <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '8px' }}>{error}</p>
+                )}
               </div>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>Generated ULIDs:</label>
-                  <button onClick={handleCopy} style={{ backgroundColor: 'rgba(59,130,246,0.15)', color: '#60a5fa', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '6px', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>{copied ? 'Copied!' : 'Copy'}</button>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                    Generated ULIDs:
+                  </label>
+                  <button
+                    onClick={handleCopy}
+                    style={{
+                      backgroundColor: 'rgba(59,130,246,0.15)',
+                      color: '#60a5fa',
+                      border: '1px solid rgba(59,130,246,0.3)',
+                      borderRadius: '6px',
+                      padding: '4px 12px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {copied ? 'Copied!' : 'Copy'}
+                  </button>
                 </div>
-                <textarea value={output} readOnly rows={8} placeholder="Output will appear here..." style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }} />
+                <textarea
+                  value={output}
+                  readOnly
+                  rows={8}
+                  placeholder="Output will appear here..."
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#34d399',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                  }}
+                />
               </div>
             </div>
           </div>
 
           {/* ========== PARSER SECTION ========== */}
-          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: '20px' }}>
-            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '16px' }}>🔍 Parse ULID</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '24px',
+              marginTop: '20px',
+            }}
+          >
+            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '16px' }}>
+              🔍 Parse ULID
+            </h3>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '20px',
+              }}
+            >
               <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Paste ULID to Parse:</label>
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Paste ULID to Parse:
+                </label>
                 <textarea
                   value={parseInput}
                   onChange={(e) => handleParse(e.target.value)}
                   rows={8}
                   placeholder="e.g., 01M38YQ455NA9Z760PC16G3E9D"
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#fff',
+                    padding: '12px',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                  }}
                 />
-                {parseError && <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '8px' }}>{parseError}</p>}
+                {parseError && (
+                  <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '8px' }}>
+                    {parseError}
+                  </p>
+                )}
               </div>
               <div>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Parsed Result:</label>
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Parsed Result:
+                </label>
                 {parseResult ? (
-                  <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '8px', padding: '16px', fontSize: '0.85rem' }}>
-                    <p style={{ color: '#34d399', fontWeight: 600, marginBottom: '12px' }}>✅ Valid ULID</p>
+                  <div
+                    style={{
+                      backgroundColor: 'rgba(0,0,0,0.3)',
+                      border: '1px solid rgba(59,130,246,0.3)',
+                      borderRadius: '8px',
+                      padding: '16px',
+                      fontSize: '0.85rem',
+                    }}
+                  >
+                    <p style={{ color: '#34d399', fontWeight: 600, marginBottom: '12px' }}>
+                      ✅ Valid ULID
+                    </p>
                     <div style={{ marginBottom: '10px' }}>
                       <span style={{ color: '#94a3b8' }}>Timestamp Part: </span>
-                      <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>{parseResult.timestampPart}</span>
+                      <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
+                        {parseResult.timestampPart}
+                      </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
                       <span style={{ color: '#94a3b8' }}>Randomness Part: </span>
-                      <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>{parseResult.randomness}</span>
+                      <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
+                        {parseResult.randomness}
+                      </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
                       <span style={{ color: '#94a3b8' }}>Unix Timestamp: </span>
-                      <span style={{ color: '#fff', fontFamily: 'monospace' }}>{parseResult.timestamp}</span>
+                      <span style={{ color: '#fff', fontFamily: 'monospace' }}>
+                        {parseResult.timestamp}
+                      </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
                       <span style={{ color: '#94a3b8' }}>Generated On: </span>
@@ -182,11 +357,23 @@ export default function Page() {
                     </div>
                     <div>
                       <span style={{ color: '#94a3b8' }}>ISO 8601: </span>
-                      <span style={{ color: '#fff', fontFamily: 'monospace' }}>{parseResult.isoDate}</span>
+                      <span style={{ color: '#fff', fontFamily: 'monospace' }}>
+                        {parseResult.isoDate}
+                      </span>
                     </div>
                   </div>
                 ) : (
-                  <div style={{ backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '16px', color: '#64748b', fontSize: '0.85rem', textAlign: 'center' }}>
+                  <div
+                    style={{
+                      backgroundColor: 'rgba(0,0,0,0.3)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      borderRadius: '8px',
+                      padding: '16px',
+                      color: '#64748b',
+                      fontSize: '0.85rem',
+                      textAlign: 'center',
+                    }}
+                  >
                     Paste a ULID to see its details
                   </div>
                 )}
@@ -195,46 +382,134 @@ export default function Page() {
           </div>
 
           {/* Visible SEO Content */}
-          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a ULID Generator & Parser?</h2>
+          <div
+            style={{
+              marginTop: '48px',
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '32px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+              }}
+            >
+              What is a ULID Generator & Parser?
+            </h2>
             <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The ULID Generator & Parser produces Universally Unique Lexicographically Sortable Identifiers and parses existing ones. ULIDs are ideal for databases where sortable IDs matter.
+              The ULID Generator & Parser produces Universally Unique Lexicographically Sortable
+              Identifiers and parses existing ones. ULIDs are ideal for databases where sortable IDs
+              matter.
             </p>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '12px',
+                marginTop: '24px',
+              }}
+            >
+              How to Use This Tool
+            </h3>
+            <ul
+              style={{
+                color: '#94a3b8',
+                lineHeight: 1.9,
+                paddingLeft: '20px',
+                marginBottom: '24px',
+              }}
+            >
               {/* 👇 YAHAN CHANGE KIYA HAI 👇 */}
-              <li>Enter how many ULIDs you want (1-20) in the "Count" field to auto-generate them.</li>
-              <li>Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to grab the generated ULIDs.</li>
-              <li>To parse a ULID, paste any existing 26-character ULID into the "Parse ULID" box.</li>
+              <li>
+                Enter how many ULIDs you want (1-20) in the &quot;Count&quot; field to auto-generate
+                them.
+              </li>
+              <li>
+                Click the <strong style={{ color: '#34d399' }}>Copy</strong> button to grab the
+                generated ULIDs.
+              </li>
+              <li>
+                To parse a ULID, paste any existing 26-character ULID into the &quot;Parse
+                ULID&quot; box.
+              </li>
               <li>View its timestamp, randomness, and ISO 8601 date instantly.</li>
               {/* 👆 YAHAN CHANGE KIYA HAI 👆 */}
             </ul>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
+            <h3
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '16px',
+                marginTop: '24px',
+              }}
+            >
+              Frequently Asked Questions
+            </h3>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs ULID Generator & Parser is 100% free with no sign-up required.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is this tool free to use?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, VelnoxLabs ULID Generator & Parser is 100% free with no sign-up required.
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device and is never sent to any server.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Is my data secure?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Absolutely. All processing happens entirely in your browser using client-side
+                JavaScript. Your data never leaves your device and is never sent to any server.
+              </p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
+              <h4
+                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
+              >
+                Does it work on mobile devices?
+              </h4>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
+                Yes, this tool is fully responsive and works on desktop, tablet, and mobile
+                browsers.
+              </p>
             </div>
           </div>
 
           <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
             <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards.</p>
+            <p className="text-slate-400 mb-6 text-sm">
+              Help us enhance VelnoxLabs developer utility standards.
+            </p>
             <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea rows={4} value={feedback} onChange={(e) => setFeedback(e.target.value)} placeholder="Write your suggestions..." className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 text-sm resize-none"></textarea>
-              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl text-sm">{feedbackSent ? 'Sent!' : 'Submit Suggestion'}</button>
+              <textarea
+                rows={4}
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="Write your suggestions..."
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 text-sm resize-none"
+              ></textarea>
+              <button
+                type="submit"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl text-sm"
+              >
+                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
+              </button>
             </form>
           </div>
         </div>

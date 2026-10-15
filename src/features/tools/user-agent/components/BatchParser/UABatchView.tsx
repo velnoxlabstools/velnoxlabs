@@ -2,15 +2,7 @@
 
 import React from 'react';
 import { useUAParser } from '../../context/UAParserContext';
-import {
-  Layers,
-  Play,
-  Trash2,
-  Download,
-  CheckCircle2,
-  AlertTriangle,
-  FileText,
-} from 'lucide-react';
+import { Layers, Play, Trash2, Download, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 export const UABatchView: React.FC = () => {
   const {
@@ -71,7 +63,9 @@ export const UABatchView: React.FC = () => {
         />
 
         <div className="flex items-center justify-between text-[11px] text-slate-500 mt-2 font-mono">
-          <span>Total Lines: {batchInput.split('\n').filter((l) => l.trim().length > 0).length}</span>
+          <span>
+            Total Lines: {batchInput.split('\n').filter((l) => l.trim().length > 0).length}
+          </span>
           <span>Processed Results: {batchItems.length}</span>
         </div>
       </div>
@@ -80,7 +74,9 @@ export const UABatchView: React.FC = () => {
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Batch Processing Results</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+                Batch Processing Results
+              </span>
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">
                 Processed Records ({batchItems.length})
               </h4>
@@ -114,15 +110,20 @@ export const UABatchView: React.FC = () => {
                     <tr key={item.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-2.5 px-3 text-slate-500 font-mono">{index + 1}</td>
                       <td className="py-2.5 px-3">
-                        <div className="font-semibold text-cyan-300">{p.browser.name} {p.browser.version}</div>
+                        <div className="font-semibold text-cyan-300">
+                          {p.browser.name} {p.browser.version}
+                        </div>
                         <div className="text-[10px] text-slate-500">{p.engine.name}</div>
                       </td>
                       <td className="py-2.5 px-3">
-                        <div className="font-medium text-slate-800 dark:text-slate-200">{p.os.name} {p.os.version}</div>
+                        <div className="font-medium text-slate-800 dark:text-slate-200">
+                          {p.os.name} {p.os.version}
+                        </div>
                         <div className="text-[10px] text-slate-500">{p.cpu.architecture}</div>
                       </td>
                       <td className="py-2.5 px-3 text-slate-700 dark:text-slate-300">
-                        {p.device.vendor !== 'Generic' ? `${p.device.vendor} ` : ''}{p.device.model || p.device.type}
+                        {p.device.vendor !== 'Generic' ? `${p.device.vendor} ` : ''}
+                        {p.device.model || p.device.type}
                       </td>
                       <td className="py-2.5 px-3">
                         {p.bot.isBot ? (
@@ -130,7 +131,9 @@ export const UABatchView: React.FC = () => {
                             {p.bot.botName || 'Bot'}
                           </span>
                         ) : (
-                          <span className="text-[10px] text-slate-600 dark:text-slate-400">Human</span>
+                          <span className="text-[10px] text-slate-600 dark:text-slate-400">
+                            Human
+                          </span>
                         )}
                       </td>
                       <td className="py-2.5 px-3 text-center">
