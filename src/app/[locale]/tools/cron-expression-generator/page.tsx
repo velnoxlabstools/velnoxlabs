@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 function explainCron(minute: string, hour: string, day: string, month: string, weekday: string) {
   const parts: string[] = [];
@@ -65,9 +66,6 @@ export default function CronExpressionGeneratorPage() {
   const [month, setMonth] = useState('*');
   const [weekday, setWeekday] = useState('*');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   const cronExpression = `${minute} ${hour} ${day} ${month} ${weekday}`;
   const explanation = explainCron(minute, hour, day, month, weekday);
 
@@ -94,14 +92,6 @@ export default function CronExpressionGeneratorPage() {
     navigator.clipboard.writeText(cronExpression);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -513,136 +503,10 @@ export default function CronExpressionGeneratorPage() {
             </div>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Cron Expression?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A cron expression is a string of five fields separated by spaces that defines when a
-              scheduled task should run. It&apos;s the standard scheduling format used in Linux
-              crontab, Kubernetes CronJobs, AWS EventBridge, GitHub Actions, and many CI/CD
-              pipelines. The five fields represent minute, hour, day of month, month, and day of
-              week — allowing you to schedule anything from &quot;every minute&quot; to &quot;the
-              first Monday of every month at 8 AM.&quot;
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>Click any preset button to start with a common schedule.</li>
-              <li>Or edit each field manually (minute, hour, day, month, weekday).</li>
-              <li>View the generated cron expression in real-time.</li>
-              <li>Read the human explanation below to confirm the schedule.</li>
-              <li>
-                Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy the expression.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What are common cron expression examples?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                <code style={{ color: '#34d399' }}>0 9 * * *</code> — Every day at 9 AM ·{' '}
-                <code style={{ color: '#34d399' }}>*/15 * * * *</code> — Every 15 minutes ·{' '}
-                <code style={{ color: '#34d399' }}>0 0 1 * *</code> — First day of every month at
-                midnight
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Does cron support seconds?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Standard Unix cron uses 5 fields (no seconds). Some systems like Quartz Scheduler
-                use 6 or 7 fields to include seconds and years.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this cron generator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Cron Expression Generator is 100% free with no sign-up. Everything
-                runs in your browser.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent
+            toolSlug="cron-expression-generator"
+            toolName="Cron Expression Generator"
+          />
         </div>
       </GlobalContainer>
     </>

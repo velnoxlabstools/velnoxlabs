@@ -3,8 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
-const WORDS = 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum'.split(' ');
+const WORDS =
+  'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum'.split(
+    ' '
+  );
 
 function generateLorem(paragraphs: number) {
   const result = [];
@@ -30,9 +34,6 @@ export default function LoremIpsumPage() {
   const [count, setCount] = useState(3);
   const [output, setOutput] = useState('');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   // Auto-generate on count change
   useEffect(() => {
     setOutput(generateLorem(count));
@@ -58,46 +59,48 @@ export default function LoremIpsumPage() {
     }
   };
 
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
-  };
-
   const schemaData = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'SoftwareApplication',
-        'name': 'VelnoxLabs Lorem Ipsum Generator',
-        'operatingSystem': 'All',
-        'applicationCategory': 'DeveloperApplication',
-        'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD' },
-        'description': 'Generate placeholder lorem ipsum text instantly for designs, mockups, and layouts.'
+        name: 'VelnoxLabs Lorem Ipsum Generator',
+        operatingSystem: 'All',
+        applicationCategory: 'DeveloperApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        description:
+          'Generate placeholder lorem ipsum text instantly for designs, mockups, and layouts.',
       },
       {
         '@type': 'FAQPage',
-        'mainEntity': [
+        mainEntity: [
           {
             '@type': 'Question',
-            'name': 'How to generate Lorem Ipsum text online?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Enter the number of paragraphs (1-20) and the tool instantly generates placeholder text.' }
+            name: 'How to generate Lorem Ipsum text online?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Enter the number of paragraphs (1-20) and the tool instantly generates placeholder text.',
+            },
           },
           {
             '@type': 'Question',
-            'name': 'Is the Lorem Ipsum generator free?',
-            'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes, 100% free with client-side generation and no tracking.' }
-          }
-        ]
-      }
-    ]
+            name: 'Is the Lorem Ipsum generator free?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, 100% free with client-side generation and no tracking.',
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
@@ -107,30 +110,82 @@ export default function LoremIpsumPage() {
           />
 
           {/* ========== TOOL UI ========== */}
-          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '24px', marginTop: 'var(--space-6)' }}>
-
+          <div
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '24px',
+              marginTop: 'var(--space-6)',
+            }}
+          >
             {/* Controls Row */}
-            <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap', marginBottom: '20px' }}>
+            <div
+              style={{
+                display: 'flex',
+                gap: '16px',
+                alignItems: 'flex-end',
+                flexWrap: 'wrap',
+                marginBottom: '20px',
+              }}
+            >
               <div style={{ flex: '1', minWidth: '150px' }}>
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Paragraphs (1-20):</label>
+                <label
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Paragraphs (1-20):
+                </label>
                 <input
                   type="number"
                   min="1"
                   max="20"
                   value={count}
                   onChange={(e) => handleCountChange(e.target.value)}
-                  style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', padding: '10px', fontSize: '0.9rem', outline: 'none' }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    color: '#fff',
+                    padding: '10px',
+                    fontSize: '0.9rem',
+                    outline: 'none',
+                  }}
                 />
               </div>
               <button
                 onClick={handleGenerate}
-                style={{ backgroundColor: '#2563eb', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                style={{
+                  backgroundColor: '#2563eb',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  padding: '10px 24px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
               >
                 Regenerate
               </button>
               <button
                 onClick={handleCopy}
-                style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', padding: '10px 24px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                style={{
+                  backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                  color: '#60a5fa',
+                  border: '1px solid rgba(59, 130, 246, 0.3)',
+                  borderRadius: '8px',
+                  padding: '10px 24px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
               >
                 {copied ? 'Copied!' : 'Copy'}
               </button>
@@ -142,61 +197,22 @@ export default function LoremIpsumPage() {
               readOnly
               rows={14}
               placeholder="Generated Lorem Ipsum will appear here..."
-              style={{ width: '100%', backgroundColor: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#34d399', padding: '12px', fontFamily: 'monospace', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+              style={{
+                width: '100%',
+                backgroundColor: 'rgba(0,0,0,0.3)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '8px',
+                color: '#34d399',
+                padding: '12px',
+                fontFamily: 'monospace',
+                fontSize: '0.85rem',
+                outline: 'none',
+                resize: 'vertical',
+              }}
             />
           </div>
 
-          {/* ========== SEO CONTENT ========== */}
-          <div style={{ marginTop: '48px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>What is a Lorem Ipsum Generator?</h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              The Lorem Ipsum Generator produces placeholder text for designs, mockups, and layout testing. Designers use it to fill space with realistic-looking content before real copy is available.
-            </p>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px', marginTop: '24px' }}>How to Use This Tool</h3>
-            <ul style={{ color: '#94a3b8', lineHeight: 1.9, paddingLeft: '20px', marginBottom: '24px' }}>
-              <li>Enter the number of paragraphs (between 1 and 20) in the input field.</li>
-              <li>The Lorem Ipsum text is generated automatically as you change the count.</li>
-              <li>Click <strong style={{ color: '#34d399' }}>Regenerate</strong> to get a fresh random variation.</li>
-              <li>Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy the text to your clipboard.</li>
-            </ul>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px', marginTop: '24px' }}>Frequently Asked Questions</h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is this tool free to use?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, VelnoxLabs Lorem Ipsum Generator is 100% free with no sign-up required.</p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Is my data secure?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Absolutely. All processing happens entirely in your browser using client-side JavaScript. Your data never leaves your device and is never sent to any server.</p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}>Does it work on mobile devices?</h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers.</p>
-            </div>
-          </div>
-
-          {/* ========== FEEDBACK FORM ========== */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">Help us enhance VelnoxLabs developer utility standards. Share your feedback below!</p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm">
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
-
+          <ToolSeoContent toolSlug="lorem-ipsum" toolName="Lorem Ipsum Generator" />
         </div>
       </GlobalContainer>
     </>

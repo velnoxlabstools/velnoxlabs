@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function TipCalculatorPage() {
   const [bill, setBill] = useState('50.00');
@@ -10,9 +11,6 @@ export default function TipCalculatorPage() {
   const [people, setPeople] = useState(1);
   const [roundUp, setRoundUp] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   const billNum = parseFloat(bill) || 0;
   let tipAmount = (billNum * tipPercent) / 100;
   let totalAmount = billNum + tipAmount;
@@ -37,14 +35,6 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
   };
 
   const tipOptions = [10, 15, 18, 20, 25];
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
-  };
 
   const schemaData = {
     '@context': 'https://schema.org',
@@ -469,150 +459,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
             </button>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Tip Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Tip Calculator is a free online tool that helps you quickly figure out how much to
-              tip at restaurants, cafes, bars, and delivery services. It also splits the bill
-              between multiple people so everyone knows exactly what they owe. Whether you&apos;re
-              dining out with friends, ordering takeout, or traveling in the United States where
-              tipping is customary, this tool makes the math effortless — no calculator app needed.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>Enter the bill amount in dollars.</li>
-              <li>Select a tip percentage (10%, 15%, 18%, 20%, 25%) or enter a custom amount.</li>
-              <li>Choose how many people are splitting the bill.</li>
-              <li>Optionally round up the total to the nearest dollar.</li>
-              <li>See the tip, total, and per-person amount instantly.</li>
-              <li>
-                Click <strong style={{ color: '#34d399' }}>Copy Full Breakdown</strong> to share the
-                results.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How much should I tip at a restaurant?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                In the United States, the standard tip is 15% to 20% for good service. 18% is the
-                average, 20% is considered good, and 25% is excellent. For takeout, 10% is common.
-                For buffets, 10% is typical.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Do I tip on the pre-tax or post-tax amount?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Traditionally, you tip on the pre-tax amount of the bill. However, many people
-                simply tip on the total (post-tax) amount for simplicity. This calculator uses the
-                amount you enter, so you can decide.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I split the bill and tip?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Enter the total bill, select your tip percentage, then set the number of people. The
-                calculator divides the total (bill + tip) evenly. If someone ordered more, you can
-                adjust manually.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this tip calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Tip Calculator is 100% free with no sign-up required. All
-                calculations happen in your browser — your bill amount is never sent to any server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="tip-calculator" toolName="Tip Calculator" />
         </div>
       </GlobalContainer>
     </>

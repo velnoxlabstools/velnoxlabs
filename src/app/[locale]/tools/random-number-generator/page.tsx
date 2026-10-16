@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 function generateNumbers(min: number, max: number, count: number, unique: boolean, sort: string) {
   const range = max - min + 1;
@@ -42,9 +43,6 @@ export default function RandomNumberGeneratorPage() {
   const [numbers, setNumbers] = useState<number[]>([]);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   const handleGenerate = () => {
     const minNum = parseInt(min) || 0;
     const maxNum = parseInt(max) || 100;
@@ -71,14 +69,6 @@ export default function RandomNumberGeneratorPage() {
     navigator.clipboard.writeText(numbers.join(', '));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -435,156 +425,7 @@ export default function RandomNumberGeneratorPage() {
             )}
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Random Number Generator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Random Number Generator (RNG) is a free online tool that produces unpredictable
-              numbers within a range you specify. It&apos;s commonly used for giveaways, raffles,
-              dice rolls, lottery simulations, random sampling, picking a random name from a list,
-              or any situation where you need a fair, unbiased number. This tool supports bulk
-              generation (up to 1000 numbers at once), unique-only mode (no duplicates), and sorting
-              options — all instantly in your browser.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Enter the <strong>minimum</strong> and <strong>maximum</strong> range.
-              </li>
-              <li>Choose how many numbers to generate (1 to 1000).</li>
-              <li>
-                Optionally enable <strong>Unique numbers only</strong> to avoid duplicates.
-              </li>
-              <li>Choose sort order (ascending, descending, or random).</li>
-              <li>
-                Click <strong>Generate</strong> — your numbers appear instantly.
-              </li>
-              <li>
-                Click <strong>Copy All Numbers</strong> to save or share them.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I generate random numbers?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Enter your minimum and maximum range, choose how many numbers you want, and click
-                Generate. Enable unique-only mode to avoid duplicates.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Are these numbers truly random?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes. This tool uses the browser&apos;s built-in{' '}
-                <code style={{ color: '#34d399' }}>Math.random()</code>, which is a pseudo-random
-                number generator. For most everyday purposes (games, drawings, raffles, decisions)
-                it is sufficiently random and unbiased.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Can I generate unique random numbers?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes. Enable <strong>Unique numbers only</strong> and the generator will make sure no
-                number repeats. This is perfect for lottery simulations, raffle drawings, or picking
-                distinct winners.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this Random Number Generator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Random Number Generator is 100% free with no sign-up required. All
-                generation happens in your browser — no data is sent to any server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="random-number-generator" toolName="Random Number Generator" />
         </div>
       </GlobalContainer>
     </>

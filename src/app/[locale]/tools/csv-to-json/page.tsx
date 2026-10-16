@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 // ========== CSV → JSON ==========
 function parseCSV(csv: string, delimiter: string, hasHeader: boolean) {
@@ -123,9 +124,6 @@ export default function CsvJsonConverterPage() {
   const [output, setOutput] = useState('');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   // Switch mode → reset input to appropriate example
   const switchMode = (newMode: 'csv2json' | 'json2csv') => {
     setMode(newMode);
@@ -171,14 +169,6 @@ export default function CsvJsonConverterPage() {
     link.download = fileName;
     link.click();
     URL.revokeObjectURL(url);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -487,154 +477,7 @@ export default function CsvJsonConverterPage() {
             )}
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a CSV ↔ JSON Converter?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A CSV ↔ JSON Converter is a bidirectional developer tool that transforms data between
-              two popular formats: <strong style={{ color: '#60a5fa' }}>CSV</strong>{' '}
-              (Comma-Separated Values) and <strong style={{ color: '#60a5fa' }}>JSON</strong>{' '}
-              (JavaScript Object Notation). CSV is a simple tabular format used in Excel, Google
-              Sheets, and databases. JSON is a structured format used in APIs, web apps, and modern
-              databases. This converter handles quoted fields, escaped commas, custom delimiters
-              (semicolon, tab, pipe), and automatic header detection — making it easy to move data
-              between spreadsheets and code.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Select the direction: <strong style={{ color: '#34d399' }}>CSV → JSON</strong> or{' '}
-                <strong style={{ color: '#34d399' }}>JSON → CSV</strong>.
-              </li>
-              <li>Paste your data into the input box.</li>
-              <li>Choose your delimiter (comma, semicolon, tab, pipe).</li>
-              <li>
-                Toggle <strong>First row is header</strong> (only for CSV → JSON).
-              </li>
-              <li>
-                Click <strong>Copy</strong> or <strong>Download</strong> to save the result.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I convert CSV to JSON?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Select CSV → JSON mode, paste your CSV data, and the JSON appears instantly.
-                Supports custom delimiters and quoted fields.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I convert JSON to CSV?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Select JSON → CSV mode, paste your JSON array of objects, and download the CSV.
-                Nested objects and arrays are automatically stringified.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Does it handle quoted CSV fields?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes! Both directions properly handle quoted fields, escaped quotes (
-                <code style={{ color: '#34d399' }}>&quot;&quot;</code>), and delimiters inside
-                quoted values.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is my data secure?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Absolutely. All conversion happens entirely in your browser using client-side
-                JavaScript. Your data is never sent to any server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="csv-to-json" toolName="CSV to JSON Converter" />
         </div>
       </GlobalContainer>
     </>

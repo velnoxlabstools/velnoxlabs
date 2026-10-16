@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 type Mode = 'salaryToHourly' | 'hourlyToSalary';
 
@@ -13,9 +14,6 @@ export default function SalaryToHourlyCalculatorPage() {
   const [hoursPerWeek, setHoursPerWeek] = useState('40');
   const [weeksPerYear, setWeeksPerYear] = useState('52');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   const [result, setResult] = useState({
     hourly: 0,
     daily: 0,
@@ -71,14 +69,6 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -598,155 +588,10 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
             </button>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Salary to Hourly Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Salary to Hourly Calculator is a free online tool that converts your annual salary
-              into hourly, daily, weekly, biweekly, and monthly pay. It&apos;s essential when
-              comparing job offers — a $60,000 salaried job and a $30/hour contract role aren&apos;t
-              always equal once you account for unpaid time off, benefits, and working hours. This
-              calculator also works in reverse: enter your hourly rate to see what it equals as an
-              annual salary.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Choose a mode: <strong>Salary → Hourly</strong> or <strong>Hourly → Salary</strong>.
-              </li>
-              <li>Enter your salary or hourly rate.</li>
-              <li>
-                Adjust <strong>hours per week</strong> (default 40) and{' '}
-                <strong>weeks per year</strong> (default 52) if needed.
-              </li>
-              <li>See your pay broken down by hour, day, week, biweek, month, and year.</li>
-              <li>
-                Click <strong>Copy Full Breakdown</strong> to save or share.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I convert salary to hourly?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Divide your annual salary by the total hours you work per year. For a standard
-                40-hour workweek, that&apos;s 2,080 hours (40 × 52). Example: $60,000 ÷ 2,080 =
-                $28.85/hour.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How many work hours are in a year?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                A standard full-time year is <strong>2,080 hours</strong> (40 hrs/week × 52 weeks).
-                If you take 2 weeks unpaid vacation, it&apos;s 2,000 hours. Many contractors use
-                2,000 or 2,080 hours as a baseline.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is a salaried job better than hourly?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                It depends. Salaried jobs usually offer benefits, paid vacation, and stability.
-                Hourly jobs pay for every hour worked (including overtime) but may lack benefits.
-                Use this calculator to compare equivalent hourly rates when evaluating job offers.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this Salary to Hourly Calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Salary to Hourly Calculator is 100% free with no sign-up required.
-                All calculations happen in your browser — your financial data is never sent to any
-                server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent
+            toolSlug="salary-to-hourly-calculator"
+            toolName="Salary to Hourly Calculator"
+          />
         </div>
       </GlobalContainer>
     </>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 type Mode = 'discount' | 'original' | 'stack';
 
@@ -13,9 +14,6 @@ export default function DiscountCalculatorPage() {
   const [salePrice, setSalePrice] = useState('75');
   const [discount2, setDiscount2] = useState('10');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   let finalPrice = 0;
   let savings = 0;
   let effectiveDiscount = 0;
@@ -67,14 +65,6 @@ You Save: $${savings.toFixed(2)}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -677,149 +667,7 @@ You Save: $${savings.toFixed(2)}`;
             </div>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Discount Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Discount Calculator is a free online tool that helps shoppers instantly see the
-              final price after a discount, the amount saved, and the effective discount percentage.
-              Whether you&apos;re shopping online, in a retail store, or dealing with Black Friday
-              deals, this calculator eliminates the mental math. It also supports stacked discounts
-              (like &quot;25% off + extra 10% off&quot;) and reverse calculations — figuring out the
-              original price when you only know the sale price.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Choose a mode: <strong>Find Sale Price</strong>,{' '}
-                <strong>Find Original Price</strong>, or <strong>Stacked Discounts</strong>.
-              </li>
-              <li>Enter the price and discount percentage.</li>
-              <li>See your final price, savings, and effective discount instantly.</li>
-              <li>
-                Click <strong>Copy Breakdown</strong> to save or share.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I calculate a discount?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Multiply the original price by the discount percentage, then divide by 100 to get
-                the savings. Example: 25% off $100 = $25 saved, so you pay $75.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do stacked discounts work?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Stacked discounts apply one after the other. 20% off + extra 10% off is NOT 30% off
-                — it&apos;s 28% effective. Example: $100 → $80 after 20% off → $72 after another 10%
-                off.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I find the original price from a sale price?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Divide the sale price by (1 − discount/100). Example: if sale price is $75 at 25%
-                off, original = $75 ÷ 0.75 = $100.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this Discount Calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Discount Calculator is 100% free with no sign-up required. All
-                calculations happen in your browser.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="discount-calculator" toolName="Discount Calculator" />
         </div>
       </GlobalContainer>
     </>

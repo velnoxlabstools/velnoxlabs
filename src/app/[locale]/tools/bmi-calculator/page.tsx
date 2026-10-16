@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 type Unit = 'metric' | 'imperial';
 
@@ -45,9 +46,6 @@ export default function BmiCalculatorPage() {
   const [heightIn, setHeightIn] = useState('9');
   const [bmi, setBmi] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   useEffect(() => {
     let weightInKg = 0;
     let heightInM = 0;
@@ -92,14 +90,6 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -545,152 +535,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
             )}
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a BMI Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A BMI Calculator (Body Mass Index Calculator) is a free online tool that measures body
-              fat based on your height and weight. BMI is the most widely used screening tool by
-              doctors, nutritionists, and health organizations to determine if an adult is
-              underweight, at a healthy weight, overweight, or obese. This calculator supports both
-              imperial (pounds and feet/inches) and metric (kilograms and centimeters) units, so you
-              can use it regardless of where you live.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Select <strong>Imperial</strong> (USA) or <strong>Metric</strong> units.
-              </li>
-              <li>Enter your weight and height.</li>
-              <li>
-                Your BMI and category (underweight, normal, overweight, obese) appear instantly.
-              </li>
-              <li>See the healthy weight range for your height.</li>
-              <li>
-                Click <strong>Copy Result</strong> to save or share.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What is a healthy BMI?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                For most adults, a healthy BMI range is{' '}
-                <strong style={{ color: '#34d399' }}>18.5 to 24.9</strong>. Below 18.5 is
-                underweight, 25–29.9 is overweight, and 30+ is considered obese.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How is BMI calculated?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                BMI = weight (kg) ÷ height (m)². In imperial units, BMI = 703 × weight (lbs) ÷
-                height (in)².
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is BMI accurate for athletes and muscular people?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                No. BMI doesn&apos;t distinguish between muscle and fat, so athletes with high
-                muscle mass may have a high BMI but still be healthy. BMI is a general screening
-                tool — not a diagnostic test.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this BMI Calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs BMI Calculator is 100% free with no sign-up required. All
-                calculations happen in your browser — your data is never sent to any server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="bmi-calculator" toolName="BMI Calculator" />
         </div>
       </GlobalContainer>
     </>

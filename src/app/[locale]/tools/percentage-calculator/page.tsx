@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 type Mode = 'of' | 'isWhatPercent' | 'increase' | 'decrease' | 'difference';
 
@@ -12,9 +13,6 @@ export default function PercentageCalculatorPage() {
   const [b, setB] = useState('200');
   const [result, setResult] = useState('');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   const calculate = (currentMode: Mode, aVal: string, bVal: string) => {
     const numA = parseFloat(aVal);
     const numB = parseFloat(bVal);
@@ -81,14 +79,6 @@ export default function PercentageCalculatorPage() {
     navigator.clipboard.writeText(result);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -365,147 +355,7 @@ export default function PercentageCalculatorPage() {
             </div>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Percentage Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Percentage Calculator is a free online tool that solves common percentage problems
-              instantly. Whether you need to find what 15% of 200 is, calculate a discount at a
-              store, figure out a tip, or compute how much a value increased or decreased, this tool
-              gives you the answer in seconds. It&apos;s used daily by students, shoppers, business
-              professionals, and anyone dealing with numbers — no math skills required.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>Choose a calculation mode from the tabs at the top.</li>
-              <li>Enter the two values in the input fields.</li>
-              <li>The result appears instantly below the inputs.</li>
-              <li>
-                Click <strong style={{ color: '#34d399' }}>Copy Result</strong> to save or share the
-                answer.
-              </li>
-              <li>Try the quick examples for the most common calculations.</li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I calculate a percentage?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                To find X% of Y, multiply Y by X and divide by 100. Example: 15% of 200 = (15 × 200)
-                / 100 = 30.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I calculate percentage increase or decrease?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Percentage increase = ((New − Original) / Original) × 100. Example: from $100 to
-                $125 = 25% increase. Decrease uses the same formula with reversed values.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What is percentage difference vs percentage change?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Percentage change compares an old value to a new value (increase/decrease).
-                Percentage difference compares two values without implying direction — useful when
-                neither is a &quot;starting point.&quot;
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Percentage Calculator is 100% free with no sign-up required. All
-                calculations happen in your browser.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="percentage-calculator" toolName="Percentage Calculator" />
         </div>
       </GlobalContainer>
     </>

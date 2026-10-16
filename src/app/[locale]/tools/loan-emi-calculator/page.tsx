@@ -3,14 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function LoanEmiCalculatorPage() {
   const [loanAmount, setLoanAmount] = useState('250000');
   const [rate, setRate] = useState('6.5');
   const [years, setYears] = useState('30');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
   const [results, setResults] = useState({
     monthlyPayment: 0,
     totalPayment: 0,
@@ -101,14 +100,6 @@ Payoff Date: ${results.payoffDate}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -585,158 +576,7 @@ Payoff Date: ${results.payoffDate}`;
             </button>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Loan EMI Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Loan EMI Calculator is a free online tool that computes your Equated Monthly
-              Installment (EMI) for any loan — home mortgage, car loan, personal loan, or student
-              loan. EMI is the fixed amount you pay each month to repay both the principal amount
-              you borrowed and the interest charged by the lender. This calculator also generates a
-              full amortization schedule showing how much goes toward principal vs interest each
-              year, so you can see exactly how your loan gets paid off over time.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Enter the <strong>loan amount</strong> you want to borrow.
-              </li>
-              <li>
-                Enter the <strong>annual interest rate</strong> (APR) offered by your lender.
-              </li>
-              <li>
-                Enter the <strong>loan term in years</strong> (e.g., 15 or 30 for mortgages).
-              </li>
-              <li>See your monthly EMI, total interest, and total amount paid.</li>
-              <li>Scroll the amortization table to see the year-by-year breakdown.</li>
-              <li>
-                Click <strong>Copy Loan Summary</strong> to save or share.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What is EMI?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                EMI stands for Equated Monthly Installment. It&apos;s the fixed payment you make
-                each month to repay a loan. Each EMI consists of two parts: principal repayment and
-                interest payment. Early on, most of your EMI goes toward interest; later, most goes
-                toward principal.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How is EMI calculated?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                The formula is: EMI = P × r × (1 + r)^n / ((1 + r)^n − 1), where P is principal, r
-                is monthly interest rate (annual rate ÷ 12 ÷ 100), and n is number of monthly
-                payments. For example, a $250,000 mortgage at 6.5% for 30 years = $1,580.17/month.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Should I choose a 15-year or 30-year mortgage?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                A 15-year mortgage has higher monthly payments but saves enormous interest — often
-                $100,000+. A 30-year mortgage has lower monthly payments but you pay much more
-                interest overall. This calculator lets you compare both instantly.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this Loan EMI Calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Loan EMI Calculator is 100% free with no sign-up required. All
-                calculations happen in your browser — your financial data is never sent to any
-                server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="loan-emi-calculator" toolName="Loan EMI Calculator" />
         </div>
       </GlobalContainer>
     </>

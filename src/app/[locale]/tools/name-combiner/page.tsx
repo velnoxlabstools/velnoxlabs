@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 function combineNames(a: string, b: string) {
   const A = a.trim();
@@ -73,9 +74,6 @@ export default function NameCombinerPage() {
   const [results, setResults] = useState<{ label: string; value: string }[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   useEffect(() => {
     setResults(combineNames(nameA, nameB));
   }, [nameA, nameB]);
@@ -128,14 +126,6 @@ export default function NameCombinerPage() {
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(value + ' — made with @VelnoxLabs')}`,
       '_blank'
     );
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -492,147 +482,7 @@ export default function NameCombinerPage() {
             )}
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Name Combiner?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Name Combiner is a free online tool that blends two names into multiple unique
-              variations. It&apos;s widely used for creating couple ship names, baby name ideas,
-              brand names, character names for stories, team names, and social media handles. This
-              tool generates up to 12 different combinations using blending techniques like
-              first-half merging, initials, camelCase, and interleaving — all instantly in your
-              browser with zero data collection.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>Enter the first name in the left input field.</li>
-              <li>Enter the second name in the right input field.</li>
-              <li>All combined variations appear instantly as you type.</li>
-              <li>
-                Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy,{' '}
-                <strong style={{ color: '#f87171' }}>🤍</strong> to favorite, or{' '}
-                <strong style={{ color: '#60a5fa' }}>Share</strong> to send.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What can I use Name Combiner for?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                You can use it for couple ship names, baby name brainstorming, brand names,
-                character names in stories, team names, and social media handles.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Does it work with any language?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes! The Name Combiner works with names from any language or origin — English,
-                Spanish, French, German, Italian, and more.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is my data secure?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Absolutely. All combining happens entirely in your browser. Your names are never
-                sent to any server.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How many variations does it generate?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                The tool generates up to 12 different combinations including blended names,
-                initials, camelCase, PascalCase, hyphenated, underscored, and interleaved versions.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="name-combiner" toolName="Name Combiner" />
         </div>
       </GlobalContainer>
     </>

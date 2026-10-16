@@ -8,3 +8,4 @@ export { RelatedToolsSection } from './RelatedToolsSection';
 export { RelatedCategoriesSection } from './RelatedCategoriesSection';
 export { ToolFaqSection } from './ToolFaqSection';
 export { ToolWorkspace } from './ToolWorkspace';
+export { ToolSeoContent } from './ToolSeoContent';

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 type Assignment = { id: number; name: string; grade: string; weight: string };
 
@@ -31,8 +32,6 @@ export default function GradeCalculatorPage() {
   ]);
   const [desiredGrade, setDesiredGrade] = useState('90');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
   const [currentGrade, setCurrentGrade] = useState(0);
   const [totalWeight, setTotalWeight] = useState(0);
 
@@ -78,14 +77,6 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -481,151 +472,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
             {copied ? '✓ Copied!' : '📋 Copy Grade Summary'}
           </button>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Grade Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Grade Calculator is a free online tool that helps students calculate their current
-              grade in a course based on assignment scores and weights. Whether you&apos;re tracking
-              homework, quizzes, midterms, or final exams, this tool gives you an instant weighted
-              average, converts it to a letter grade (A, B, C, etc.) and a 4.0 GPA scale, and even
-              shows what you need to score on the final exam to hit your target grade. Essential for
-              high school and college students managing their GPA.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>Enter each assignment name, your grade (as a %), and its weight (as a %).</li>
-              <li>The total weight should equal 100% for a complete picture.</li>
-              <li>See your current weighted grade, letter grade, and GPA instantly.</li>
-              <li>
-                Use the <strong>What-If Calculator</strong> to find out what you need on the final.
-              </li>
-              <li>
-                Click <strong>Copy Grade Summary</strong> to save or share.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I calculate my weighted grade?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Multiply each assignment grade by its weight, sum the results, and divide by the
-                total weight. Example: Homework 92% (20%), Midterm 85% (30%), Final 88% (50%) =
-                (92×20 + 85×30 + 88×50) / 100 = 88.9%.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How do I figure out what I need on the final exam?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Formula: (Desired Grade − Current Weighted Score × Current Weight) / Final Weight.
-                Example: If you have 85% from 80% of the course and want a 90%, with 20% final: (90
-                − 85×0.8) / 0.2 = 100%.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How are letter grades and GPA calculated?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Most US schools use: A = 90-100% (4.0), B = 80-89% (3.0), C = 70-79% (2.0), D =
-                60-69% (1.0), F = below 60% (0.0). This calculator uses the standard +/− scale (A+,
-                A, A-, B+, etc.) with corresponding GPAs.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this Grade Calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Grade Calculator is 100% free with no sign-up required. All
-                calculations happen in your browser.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="grade-calculator" toolName="Grade Calculator" />
         </div>
       </GlobalContainer>
     </>

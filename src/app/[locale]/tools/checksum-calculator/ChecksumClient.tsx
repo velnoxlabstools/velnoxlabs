@@ -1,16 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function ChecksumClient() {
   const [text, setText] = useState('Hello VelnoxLabs!');
   const [algorithm, setAlgorithm] = useState('sha-256');
   const [hash, setHash] = useState('');
   const [copied, setCopied] = useState(false);
-
-  const [feedback, setFeedback] = useState('');
-  const [_feedbackEmail, setFeedbackEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
   const calculateHash = async (input: string, algo: string) => {
     setText(input);
     if (!input) {
@@ -46,17 +42,6 @@ export default function ChecksumClient() {
     navigator.clipboard.writeText(hash);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFeedback('');
-      setFeedbackEmail('');
-    }, 3000);
   };
 
   return (
@@ -261,235 +246,7 @@ export default function ChecksumClient() {
             </div>
           </div>
 
-          <div
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
-              padding: '32px',
-              marginBottom: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#fff',
-                marginBottom: '16px',
-                paddingBottom: '12px',
-                borderBottom: '1px solid rgba(255,255,255,0.08)',
-              }}
-            >
-              What is a Checksum Calculator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '20px' }}>
-              A Checksum Calculator is an essential cryptographic utility designed to generate
-              unique hash strings for any given text or data string. By applying standard hashing
-              algorithms, it converts input data into a fixed-size cryptographic signature to ensure
-              data integrity, verification, and secure transmission across networks.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#fff',
-                marginTop: '24px',
-                marginBottom: '16px',
-              }}
-            >
-              Supported Hashing Algorithms
-            </h3>
-            <ul
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '16px',
-                listStyle: 'none',
-                padding: 0,
-              }}
-            >
-              <li
-                style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  color: '#94a3b8',
-                }}
-              >
-                <strong style={{ color: '#fff', display: 'block', marginBottom: '6px' }}>
-                  SHA-256:
-                </strong>{' '}
-                Part of the SHA-2 family, producing a 256-bit (32-byte) hash value. Widely used in
-                blockchain technology and digital signatures.
-              </li>
-              <li
-                style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  color: '#94a3b8',
-                }}
-              >
-                <strong style={{ color: '#fff', display: 'block', marginBottom: '6px' }}>
-                  SHA-512:
-                </strong>{' '}
-                A robust cryptographic hash function generating a 512-bit output for enhanced
-                security requirements.
-              </li>
-              <li
-                style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  color: '#94a3b8',
-                }}
-              >
-                <strong style={{ color: '#fff', display: 'block', marginBottom: '6px' }}>
-                  SHA-1:
-                </strong>{' '}
-                A legacy 160-bit hash function commonly utilized in version control systems and
-                historical data validation.
-              </li>
-              <li
-                style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  color: '#94a3b8',
-                }}
-              >
-                <strong style={{ color: '#fff', display: 'block', marginBottom: '6px' }}>
-                  Simple Checksum:
-                </strong>{' '}
-                A fast, lightweight custom numerical checksum algorithm useful for basic error
-                detection.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#fff',
-                marginTop: '32px',
-                marginBottom: '12px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Select your desired hashing algorithm (SHA-256, SHA-512, SHA-1, or Simple Checksum)
-                from the dropdown.
-              </li>
-              <li>Type or paste your text into the input field above.</li>
-              <li>The hash is calculated instantly in real-time as you type.</li>
-              <li>
-                Click the <strong style={{ color: '#60a5fa' }}>Copy</strong> button to copy the
-                generated hash to your clipboard.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#fff',
-                marginTop: '24px',
-                marginBottom: '12px',
-              }}
-            >
-              Why Use Our Online Checksum Tool?
-            </h3>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7 }}>
-              Our tool executes all cryptographic computations entirely client-side using the native
-              Web Crypto API. This guarantees absolute privacy, lightning-fast execution speed, and
-              zero server-side data exposure.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#fff',
-                marginTop: '32px',
-                marginBottom: '16px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this tool free to use?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Checksum Calculator is 100% free with no sign-up required.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is my data secure?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Absolutely. All hashing happens entirely in your browser using the Web Crypto API.
-                Your data never leaves your device and is never sent to any server.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What is the difference between a checksum and a cryptographic hash?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                A checksum is a simple error-detection value typically used to verify data integrity
-                during transmission. A cryptographic hash (SHA-256, SHA-512) is a stronger one-way
-                function designed to be collision-resistant and suitable for security-sensitive
-                applications.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {submitted ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="checksum-calculator" toolName="Checksum Calculator" />
         </div>
       </div>
     </>

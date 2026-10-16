@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 const FREQUENCIES = [
   { value: 1, label: 'Annually (1×/year)' },
@@ -19,8 +20,6 @@ export default function CompoundInterestCalculatorPage() {
   const [frequency, setFrequency] = useState(12);
   const [monthlyContribution, setMonthlyContribution] = useState('0');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
   const [results, setResults] = useState({
     finalAmount: 0,
     totalInterest: 0,
@@ -82,14 +81,6 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -595,158 +586,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
             </button>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is Compound Interest?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              Compound interest is the interest you earn on both your original principal and on the
-              interest you have already accumulated. Unlike simple interest (which only earns on
-              principal), compound interest creates a snowball effect — your money grows
-              exponentially over time. Albert Einstein famously called compound interest &quot;the
-              eighth wonder of the world,&quot; and it&apos;s the foundation of long-term investing,
-              retirement accounts, and savings growth. This calculator shows you exactly how your
-              money grows year by year.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>
-                Enter your <strong>initial principal</strong> (starting amount).
-              </li>
-              <li>
-                Enter the <strong>annual interest rate</strong> (e.g., 7% for stock market average).
-              </li>
-              <li>
-                Enter the number of <strong>years</strong> you plan to invest.
-              </li>
-              <li>
-                Optionally add a <strong>monthly contribution</strong> amount.
-              </li>
-              <li>
-                Choose your <strong>compounding frequency</strong> (daily, monthly, annually, etc.).
-              </li>
-              <li>See your final balance, total interest earned, and year-by-year growth.</li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What is the compound interest formula?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                A = P(1 + r/n)^(nt). A = final amount, P = principal, r = annual rate (decimal), n =
-                compounding frequency per year, t = years. For example, $10,000 at 7% compounded
-                monthly for 10 years = $20,096.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Does compounding frequency matter?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes! The more often interest is compounded, the more you earn. Daily compounding
-                gives the highest returns, followed by monthly, quarterly, and annually.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How does compound interest compare to simple interest?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Simple interest only earns on principal. Compound interest earns on principal plus
-                previously earned interest. Over 30 years, $10,000 at 7%: simple = $31,000, compound
-                = $76,123 — a $45,000 difference.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is this Compound Interest Calculator free?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Yes, VelnoxLabs Compound Interest Calculator is 100% free with no sign-up required.
-                All calculations happen in your browser.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent
+            toolSlug="compound-interest-calculator"
+            toolName="Compound Interest Calculator"
+          />
         </div>
       </GlobalContainer>
     </>

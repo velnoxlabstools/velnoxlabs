@@ -1,14 +1,22 @@
-const DEFAULT_STEPS = [
-  { title: 'Open the tool', body: 'You are already on the tool page.' },
-  { title: 'Provide input', body: 'Use the input area below when available.' },
-  { title: 'Get results', body: 'Copy or download the output as needed.' },
-];
+'use client';
+
+import { useTranslations } from 'next-intl';
 
 interface ToolStepsSectionProps {
   steps?: { title: string; body: string }[];
 }
 
-export function ToolStepsSection({ steps = DEFAULT_STEPS }: ToolStepsSectionProps) {
+export function ToolStepsSection({ steps }: ToolStepsSectionProps) {
+  const t = useTranslations('ToolSeoDefaults');
+
+  const defaultSteps = [
+    { title: t('step1Title'), body: t('step1Body') },
+    { title: t('step2Title'), body: t('step2Body') },
+    { title: t('step3Title'), body: t('step3Body') },
+  ];
+
+  const currentSteps = steps ?? defaultSteps;
+
   return (
     <section aria-labelledby="tool-steps-heading">
       <h2
@@ -19,7 +27,7 @@ export function ToolStepsSection({ steps = DEFAULT_STEPS }: ToolStepsSectionProp
           fontWeight: 'var(--font-weight-semibold)',
         }}
       >
-        How to use
+        {t('howToUse')}
       </h2>
       <ol
         style={{
@@ -31,7 +39,7 @@ export function ToolStepsSection({ steps = DEFAULT_STEPS }: ToolStepsSectionProp
           gap: 'var(--space-4)',
         }}
       >
-        {steps.map((s, i) => (
+        {currentSteps.map((s, i) => (
           <li key={s.title} style={{ display: 'flex', gap: 'var(--space-3)' }}>
             <span
               aria-hidden="true"
@@ -52,7 +60,12 @@ export function ToolStepsSection({ steps = DEFAULT_STEPS }: ToolStepsSectionProp
               {i + 1}
             </span>
             <div>
-              <div style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-sm)' }}>
+              <div
+                style={{
+                  fontWeight: 'var(--font-weight-semibold)',
+                  fontSize: 'var(--font-size-sm)',
+                }}
+              >
                 {s.title}
               </div>
               <p

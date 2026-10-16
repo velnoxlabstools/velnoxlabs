@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 const STOP_WORDS = [
   'a',
@@ -77,9 +78,6 @@ export default function SlugGeneratorPage() {
   const [removeNumbers, setRemoveNumbers] = useState(false);
   const [slug, setSlug] = useState('');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
-
   useEffect(() => {
     setSlug(generateSlug(text, separator, caseType, removeStopWords, removeNumbers));
   }, [text, separator, caseType, removeStopWords, removeNumbers]);
@@ -97,14 +95,6 @@ export default function SlugGeneratorPage() {
     'How to Build a Website from Scratch',
     'The Ultimate Guide to SEO in 2024',
   ];
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
-  };
 
   const schemaData = {
     '@context': 'https://schema.org',
@@ -439,150 +429,7 @@ export default function SlugGeneratorPage() {
             </div>
           </div>
 
-          {/* Visible SEO Content */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-              }}
-            >
-              What is a Slug Generator?
-            </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
-              A Slug Generator is a tool that converts any text — like a blog title, product name,
-              or heading — into a clean, URL-friendly format called a &quot;slug.&quot; Slugs use
-              lowercase letters, hyphens or underscores instead of spaces, and remove special
-              characters. For example, &quot;Top 10 Best Coffee Shops in New York&quot; becomes{' '}
-              <code style={{ color: '#34d399' }}>top-10-best-coffee-shops-in-new-york</code>. Slugs
-              are essential for SEO, readable URLs, and professional-looking websites.
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              How to Use This Tool
-            </h3>
-            <ul
-              style={{
-                color: '#94a3b8',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>Enter or paste your text into the input field.</li>
-              <li>Choose your separator: hyphen (-), underscore (_), or dot (.).</li>
-              <li>Select case: lowercase, UPPERCASE, or Title Case.</li>
-              <li>
-                Optionally enable &quot;Remove stop words&quot; or &quot;Remove numbers&quot;.
-              </li>
-              <li>
-                Click <strong style={{ color: '#34d399' }}>Copy</strong> to copy the slug.
-              </li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                What is a slug used for?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Slugs are used in URLs to identify specific pages. For example, a blog post titled
-                &quot;How to Bake Bread&quot; would have the slug &quot;how-to-bake-bread&quot; and
-                appear as example.com/blog/how-to-bake-bread.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Hyphen or underscore — which is better for SEO?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Hyphens (-) are recommended by Google for SEO because search engines treat them as
-                word separators. Underscores (_) are treated as joining words, which can hurt
-                readability in search results.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                How long should a slug be?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                Keep slugs short — ideally 3 to 5 words (under 60 characters). Short slugs are
-                easier to read, share, and remember.
-              </p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                Is my text stored anywhere?
-              </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>
-                No. All slug generation happens entirely in your browser. Your text is never sent to
-                any server.
-              </p>
-            </div>
-          </div>
-
-          {/* Feedback Form */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">Got Feedback or Feature Requests?</h3>
-            <p className="text-slate-400 mb-6 text-sm">
-              Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
-            </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
-            </form>
-          </div>
+          <ToolSeoContent toolSlug="slug-generator" toolName="Slug Generator" />
         </div>
       </GlobalContainer>
     </>
