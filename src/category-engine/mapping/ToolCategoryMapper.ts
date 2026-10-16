@@ -24,7 +24,9 @@ export class ToolCategoryMapper {
   }
 
   assign(toolId: string, categoryId: string): boolean {
-    const cat = categoryRegistry.get(categoryId);
+    const cat =
+      categoryRegistry.get(categoryId) ??
+      categoryRegistry.get(categoryId.startsWith('cat-') ? categoryId : `cat-${categoryId}`);
     if (!cat) return false;
 
     // Remove from other categories (single primary category model; multi ready via toolIds lists)
@@ -56,7 +58,10 @@ export class ToolCategoryMapper {
   }
 
   getTools(categoryId: string): string[] {
-    return categoryRegistry.get(categoryId)?.toolIds ?? [];
+    const cat =
+      categoryRegistry.get(categoryId) ??
+      categoryRegistry.get(categoryId.startsWith('cat-') ? categoryId : `cat-${categoryId}`);
+    return cat?.toolIds ?? [];
   }
 
   getCategoryForTool(toolId: string): CategoryNode | null {

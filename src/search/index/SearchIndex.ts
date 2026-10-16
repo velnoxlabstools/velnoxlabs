@@ -63,7 +63,7 @@ function build(): SearchIndexDocument[] {
 
   for (const c of seedCategories) {
     docs.push({
-      id: `cat-${c.id}`,
+      id: c.id.startsWith('cat-') ? c.id : `cat-${c.id}`,
       type: 'category',
       title: c.name,
       description: c.description,
