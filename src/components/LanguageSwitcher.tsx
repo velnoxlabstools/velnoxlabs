@@ -12,6 +12,7 @@ const languageNames: Record<string, { name: string; flag: string }> = {
   de: { name: 'Deutsch', flag: '🇩🇪' },
   fr: { name: 'Français', flag: '🇫🇷' },
   it: { name: 'Italiano', flag: '🇮🇹' },
+  zh: { name: '中文', flag: '🇨🇳' },
 };
 
 export default function LanguageSwitcher() {
@@ -49,7 +50,9 @@ export default function LanguageSwitcher() {
       >
         <span aria-hidden="true">{current.flag}</span>
         <span className="uppercase font-semibold">{locale}</span>
-        <span aria-hidden="true" style={{ fontSize: '0.65em' }}>▾</span>
+        <span aria-hidden="true" style={{ fontSize: '0.65em' }}>
+          ▾
+        </span>
       </button>
 
       {isOpen && (
@@ -68,7 +71,9 @@ export default function LanguageSwitcher() {
                     : 'text-slate-300 hover:bg-slate-800/60'
                 }`}
               >
-                <span aria-hidden="true" className="text-base">{lang.flag}</span>
+                <span aria-hidden="true" className="text-base">
+                  {lang.flag}
+                </span>
                 <span className="flex-1">{lang.name}</span>
                 {isActive && <span className="text-emerald-400 text-xs">✓</span>}
               </button>

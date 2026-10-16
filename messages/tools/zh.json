@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "意见反馈与功能建议",
+    "feedbackSubtitle": "帮助我们完善 VelnoxLabs 开发者工具标准，欢迎在下方分享您的宝贵建议！",
+    "feedbackPlaceholder": "在此输入您的建议或功能需求...",
+    "feedbackSubmit": "提交建议",
+    "feedbackSent": "已发送！"
+  },
+  "ToolSeoDefaults": {
+    "about": "关于 {name}",
+    "keyFeatures": "核心特性",
+    "feature1": "纯浏览器端运行",
+    "feature2": "无需注册登录",
+    "feature3": "完全免费使用",
+    "howToUse": "使用指南",
+    "step1Title": "打开工具",
+    "step1Body": "进入工具操作页面。",
+    "step2Title": "输入数据",
+    "step2Body": "在工作区相应字段中填入或粘贴内容。",
+    "step3Title": "执行处理",
+    "step3Body": "点击执行或转换，实时查看生成结果。",
+    "faqTitle": "常见问题",
+    "faq1Q": "此工具是否免费？",
+    "faq1A": "是的，VelnoxLabs 的核心工具均完全免费开放。"
+  },
+  "ToolInfo": {
+    "aboutThisTool": "关于此工具",
+    "category": "分类",
+    "status": "状态",
+    "updated": "更新时间",
+    "version": "版本"
+  },
+  "ToolFaq": {
+    "heading": "常见问题解答",
+    "generic": {
+      "q1": "此工具是否完全免费？",
+      "a1": "是的，所有 VelnoxLabs 工具均完全免费、纯客户端运行且开源透明。"
+    },
+    "userAgentParser": {
+      "q1": "User-Agent（用户代理）字符串包含哪些信息？",
+      "a1": "User-Agent 字符串包含了客户端浏览器应用、渲染引擎、操作系统平台、CPU 架构以及设备类型等详细信息。",
+      "q2": "此解析器能否区分真实用户与网络爬虫或 AI 抓取器？",
+      "a2": "可以。解析器内置了主流搜索引擎爬虫（Googlebot、Bingbot）、社交媒体爬虫以及 AI 数据抓取机器人（如 OpenAI GPTBot、ClaudeBot、PerplexityBot、字节跳动 ByteSpider）的特征签名库。",
+      "q3": "我的 User-Agent 字符串会被上传到外部服务器吗？",
+      "a3": "不会。解析引擎 100% 在您的浏览器内存中本地运行，绝不会将数据发送至任何外部 API 或服务器。",
+      "q4": "User-Agent 符合 RFC 规范是什么意思？",
+      "a4": "RFC 7231 规范明确规定 HTTP 用户代理标头应以产品标识符（如 Mozilla/5.0）开头，并保持规范的 Token 格式，不含非法字符。"
+    }
+  }
+}

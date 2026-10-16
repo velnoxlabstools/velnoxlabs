@@ -1,0 +1,505 @@
+{
+  "HomePage": {
+    "badge": "免费在线开发工具",
+    "heroTitle": "高效利落的日常开发利器",
+    "heroSubtitle": "VelnoxLabs 为您提供极速、私密、纯浏览器端运行的实用工具，无需注册，开箱即用。",
+    "statsTools": "实用工具",
+    "statsCategories": "工具分类",
+    "statsPrivacy": "隐私保障",
+    "popularTitle": "🔥 热门工具",
+    "popularSubtitle": "社区开发者最常使用的工具。",
+    "latestTitle": "🆕 最新上线",
+    "latestSubtitle": "新加入的实用工具，欢迎体验！",
+    "allToolsTitle": "全部工具",
+    "allToolsSubtitle": "浏览所有已完整实现、即刻可用的开发者工具。",
+    "openTool": "立即使用 →"
+  },
+  "Header": {
+    "tools": "工具",
+    "about": "关于",
+    "searchPlaceholder": "搜索工具...",
+    "getStarted": "立即开始",
+    "navTools": "工具",
+    "navAbout": "关于",
+    "navBrowse": "浏览",
+    "allTools": "全部工具",
+    "allCategories": "全部分类",
+    "allToolsDesc": "浏览全部 51+ 款实用工具",
+    "allCategoriesDesc": "按分类筛选工具",
+    "noToolsFound": "未找到匹配工具：",
+    "pricing": "价格",
+    "contact": "联系我们"
+  },
+  "Categories": {
+    "badge": "分类浏览",
+    "title": "全部分类",
+    "subtitle": "探索涵盖 {categoryCount} 个分类的 {count} 款实用工具。",
+    "openTool": "立即使用 →",
+    "categories": {
+      "dev": {
+        "name": "开发工具",
+        "description": "日常编程必备的代码格式化、转换及调试工具。"
+      },
+      "security": {
+        "name": "安全与隐私",
+        "description": "哈希计算、编解码及隐私优先的安全工具。"
+      },
+      "text": {
+        "name": "文本与内容",
+        "description": "文本处理、字数统计及内容生成工具。"
+      },
+      "converters": {
+        "name": "格式转换",
+        "description": "数据格式与常用单位转换工具。"
+      },
+      "image": {
+        "name": "多媒体工具",
+        "description": "图像处理与媒体优化工具。"
+      },
+      "utility": {
+        "name": "实用工具",
+        "description": "日常计算与高频辅助工具。"
+      },
+      "finance": {
+        "name": "金融理财",
+        "description": "贷款利率、复利计算与薪资换算工具。"
+      },
+      "education": {
+        "name": "教育学习",
+        "description": "成绩评定与 GPA 计算工具。"
+      },
+      "business": {
+        "name": "商业与财务",
+        "description": "发票生成与商业管理实用工具。"
+      },
+      "health": {
+        "name": "健康与健身",
+        "description": "身体质量指数 (BMI) 及健康计算工具。"
+      },
+      "shopping": {
+        "name": "购物计算",
+        "description": "折扣特惠与省钱比价计算工具。"
+      }
+    }
+  },
+  "ToolsPage": {
+    "badge": "全部工具",
+    "title": "浏览全部工具",
+    "subtitle": "探索 {count} 款免费、纯浏览器运行的工具 —— 按名称首字母排序。",
+    "openTool": "立即使用 →",
+    "categories": {
+      "dev": "开发工具",
+      "security": "安全与隐私",
+      "text": "文本与内容",
+      "converters": "格式转换",
+      "image": "多媒体工具",
+      "utility": "实用工具",
+      "finance": "金融理财",
+      "education": "教育学习",
+      "business": "商业与财务",
+      "health": "健康与健身",
+      "shopping": "购物计算"
+    }
+  },
+  "AboutPage": {
+    "metaTitle": "关于 VelnoxLabs - 51+ 免费浏览器端开发工具",
+    "metaDescription": "了解 VelnoxLabs。提供 51+ 款免费、极速、私密的纯前端开发者与日常工具，无需注册，100% 保护隐私。",
+    "title": "关于 VelnoxLabs",
+    "heroText": "VelnoxLabs 是一个专为开发者和日常工作打造的在线工具合集，汇集了 51+ 款免费工具。无需注册、无跟踪埋点、无隐藏费用，所有运算 100% 在您的本地浏览器中完成。",
+    "features": {
+      "privateTitle": "🔒 原生隐私优先",
+      "privateDesc": "所有工具均完全在客户端执行。您的数据绝不会离开本机设备，我们绝不会将您的输入内容上传或存储至任何服务器。",
+      "frictionTitle": "⚡ 零门槛即用",
+      "frictionDesc": "无需创建账号、无需填写繁琐表单，更没有付费阻碍。打开即用，秒级完成您的任务。",
+      "devTitle": "🛠️ 专为开发者打造",
+      "devDesc": "从 JSON 格式化到 cURL 命令转换、Cron 表达式生成，全方位助力加速您的日常开发流程。",
+      "freeTitle": "🌍 永久免费开放",
+      "freeDesc": "我们坚信基础生产力工具应当人人唾手可得。全部 51+ 款工具均 100% 免费供您使用。"
+    },
+    "storyTitle": "为什么创建 VelnoxLabs",
+    "storyText": "我们深感市面上许多在线工具站点充斥着烦人的广告、加载缓慢，甚至仅为了格式化一段简单的 JSON 或调整图片大小就把用户数据上传到远程服务器。因此我们打造了 VelnoxLabs —— 一个清爽纯粹、无缝高效的工具平台。所有计算均在本地浏览器中运行，让您的数据隐私始终坚不可摧。",
+    "contactTitle": "与我们联系",
+    "contactText": "有任何使用反馈、新工具建议，或者想与我们交流？欢迎随时联系。",
+    "ctaButton": "浏览全部 51+ 款工具"
+  },
+  "ContactPage": {
+    "metaTitle": "联系 VelnoxLabs - 获取支持与交流",
+    "metaDescription": "有问题、建议或新功能想法？随时联系 VelnoxLabs 团队，我们通常在 24 小时内回复。",
+    "title": "联系我们",
+    "subtitle": "有任何疑问、功能反馈或工具需求？我们期待听到您的声音。",
+    "emailTitle": "📧 发送邮件",
+    "replyTime": "我们通常会在 24 小时内给予答复。",
+    "suggestionNote": "如果是新工具建议，请注明工具名称及其期望实现的功能。"
+  },
+  "BlogPage": {
+    "metaTitle": "博客 - VelnoxLabs",
+    "metaDescription": "来自 VelnoxLabs 的技术教程、开发指南和产品动态。即将推出。",
+    "title": "官方博客",
+    "subtitle": "实用教程、开发者技术技巧与产品更新动态即将上线。",
+    "comingSoon": "🚧 敬请期待",
+    "comingSoonText": "我们正在精心准备面向开发者与广大用户的实用技术内容，敬请关注！"
+  },
+  "PricingPage": {
+    "metaTitle": "价格方案 - VelnoxLabs",
+    "metaDescription": "VelnoxLabs 所有工具 100% 永久免费，无需注册。",
+    "title": "价格方案",
+    "subtitle": "VelnoxLabs 全部工具 100% 永久免费。无套路、无隐藏收费、无功能锁。",
+    "freeForever": "✨ 永久免费",
+    "freeForeverText": "无限制畅享平台内全部 51+ 款工具，永久免费。",
+    "belief": "我们坚信核心工具应当惠及每一位创造者。"
+  },
+  "PrivacyPage": {
+    "metaTitle": "隐私政策 - VelnoxLabs",
+    "metaDescription": "了解 VelnoxLabs 如何守护您的数据隐私。所有工具 100% 纯本地运行，不上传、不存储、不分享任何数据。",
+    "title": "隐私政策",
+    "lastUpdated": "最后更新时间：2026 年 9 月",
+    "section1Title": "1. 100% 浏览器本地处理",
+    "section1Text": "VelnoxLabs 提供的所有工具均完全在您的浏览器端本地运算。您的任何数据（JSON、文本、图片等）绝不会脱离您的设备，我们绝不对外上传、存储或共享您的数据。",
+    "section2Title": "2. 无需注册登录",
+    "section2Text": "使用我们的工具无需注册账户，也无需提供任何个人身份信息。随时访问，即刻开始使用。",
+    "section3Title": "3. Cookie 与数据追踪",
+    "section3Text": "我们绝不使用 Cookie 追踪您的个人行为，也绝不向任何第三方出售数据。所采用的极简统计分析均为完全匿名化数据，仅用于帮助我们了解哪些工具最受用户欢迎以持续改进体验。",
+    "section4Title": "4. 联系方式",
+    "section4Text": "若您对本隐私政策有任何疑问，请通过以下方式与我们联系："
+  },
+  "TermsPage": {
+    "metaTitle": "服务条款 - VelnoxLabs",
+    "metaDescription": "VelnoxLabs 服务条款。请查阅我们的使用规范与免责声明。",
+    "title": "服务条款",
+    "lastUpdated": "最后更新时间：2026 年 9 月",
+    "section1Title": "1. 条款接受",
+    "section1Text": "访问或使用 VelnoxLabs 即表示您同意受本服务条款的约束。若您不同意其中的任何条款，请勿访问或使用本网站及其工具。",
+    "section2Title": "2. 工具使用许可",
+    "section2Text": "我们的工具按“现状（AS-IS）”提供，可免费用于个人或商业用途。您须对使用这些工具生成的结果自行承担全部责任。我们不对基于本工具运算结果做出的任何决策承担法律责任。",
+    "section3Title": "3. 知识产权声明",
+    "section3Text": "VelnoxLabs 的名称、标识、UI 设计风格及底层原创代码均为我们的知识产权。未经书面授权许可，不得随意复制、转载或进行二次分发。",
+    "section4Title": "4. 责任限制",
+    "section4Text": "对于因使用或无法使用本站工具而导致的任何直接、间接损失、数据丢失或业务中断，VelnoxLabs 均不承担赔偿责任。风险由用户自行承担。",
+    "section5Title": "5. 联系我们",
+    "section5Text": "如对本条款有任何问题，请联系我们："
+  },
+  "CookiePage": {
+    "metaTitle": "Cookie 政策 - VelnoxLabs",
+    "metaDescription": "VelnoxLabs Cookie 使用政策。我们绝不使用侵犯隐私的追踪 Cookie。",
+    "title": "Cookie 政策",
+    "lastUpdated": "最后更新时间：2026 年 9 月",
+    "section1Title": "1. 无追踪 Cookie",
+    "section1Text": "VelnoxLabs 不使用任何用于追踪用户个人身份或跨站行为的 Cookie。所有工具逻辑均在本地浏览器内完成。",
+    "section2Title": "2. 核心功能必要 Cookie",
+    "section2Text": "我们可能仅使用最少量的必要 Cookie 来支撑站点基础功能（如记住您的深色模式偏好设置等）。此类 Cookie 绝不用于任何商业追踪。",
+    "section3Title": "3. 第三方服务",
+    "section3Text": "我们不会将您的个人或使用数据提供给任何第三方广告追踪网络。",
+    "section4Title": "4. 联系我们",
+    "section4Text": "有关本 Cookie 政策的任何疑问，请联系："
+  },
+  "Footer": {
+    "tagline": "免费在线开发工具平台，追求极速、安全私密与简洁体验。",
+    "productTitle": "产品",
+    "companyTitle": "关于",
+    "legalTitle": "法律条款",
+    "tools": "工具",
+    "categories": "分类",
+    "pricing": "价格方案",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "cookies": "Cookie 政策",
+    "copyright": "© {year} VelnoxLabs. 保留所有权利。"
+  },
+  "Tools": {
+    "user-agent-parser": {
+      "name": "User-Agent 解析工具 (高级版)",
+      "description": "深度解析客户端 User-Agent 字符串特征与设备属性。"
+    },
+    "ulid-generator-and-parser": {
+      "name": "ULID 生成与解析工具",
+      "description": "快速生成并解析按时间排序的唯一标识符 (ULID)。"
+    },
+    "nanoid-generator": {
+      "name": "NanoID 生成器",
+      "description": "生成轻量、紧凑且 URL 友好的高强度唯一 ID。"
+    },
+    "csp-header-builder-and-validator": {
+      "name": "CSP 安全标头构建与验证工具",
+      "description": "在线配置与验证内容安全策略 (Content Security Policy) 响应头。"
+    },
+    "json-formatter": {
+      "name": "JSON 格式化与校验工具",
+      "description": "在线校验、高亮美化与压缩 JSON 数据。",
+      "title": "JSON 格式化与校验工具",
+      "subtitle": "纯浏览器端即时格式化、校验并美化 JSON 数据，绝对保护本地数据隐私。",
+      "inputLabel": "JSON 输入：",
+      "outputLabel": "格式化输出：",
+      "formatBtn": "格式化 / 美化",
+      "minifyBtn": "压缩",
+      "copyBtn": "复制",
+      "whatIsHeading": "什么是 JSON 格式化与校验工具？",
+      "whatIsText": "JSON 格式化与校验工具可美化未排版或紧凑的原始 JSON 数据，并提供精准的语法错误定位反馈。开发者每日广泛使用它来调试 API 响应并整理配置文件。",
+      "howToHeading": "使用指南",
+      "howTo1": "将您的 JSON 内容粘贴至输入框中。",
+      "howTo2": "工具将实时即刻解析并处理输入内容。",
+      "howTo3": "使用“格式化 / 美化”添加清晰规范的代码缩进。",
+      "howTo4": "使用“压缩”将 JSON 压缩为紧凑的单行文本。",
+      "howTo5": "点击“复制”按钮快速复制处理结果。",
+      "faqHeading": "常见问题解答",
+      "faq1Q": "此工具是否免费使用？",
+      "faq1A": "是的，VelnoxLabs JSON 格式化与校验工具 100% 免费，无需注册账号。",
+      "faq2Q": "我的数据是否安全？",
+      "faq2A": "绝对安全。所有解析和处理完全在您的浏览器本地 JavaScript 环境中执行，数据绝不会离开您的设备，也不会上传至任何服务器。",
+      "faq3Q": "是否支持移动设备访问？",
+      "faq3A": "是的，本工具采用全面自适应设计，完美兼容桌面端、平板及手机浏览器。"
+    },
+    "image-resizer": {
+      "name": "图片尺寸调整工具",
+      "description": "纯浏览器端本地调整图片尺寸与画质压缩，免上传保私密。"
+    },
+    "invoice-generator": {
+      "name": "在线发票生成器",
+      "description": "支持税率、折扣及多币种的高颜值专业发票生成工具。"
+    },
+    "base64-encoder": {
+      "name": "Base64 编码与解码工具",
+      "description": "快速进行文本与二进制数据的 Base64 双向编解码。"
+    },
+    "cron-expression-generator": {
+      "name": "Cron 表达式生成器",
+      "description": "可视化配置与人类可读中文释义的 Cron 定时任务表达式生成工具。"
+    },
+    "word-counter": {
+      "name": "在线字数统计工具",
+      "description": "精确统计中文字数、英文单词、字符量、段落数及预估阅读时长。"
+    },
+    "csv-to-json": {
+      "name": "CSV 转 JSON 工具",
+      "description": "支持自定义分隔符，秒级将 CSV 表格数据转换为标准 JSON 格式。"
+    },
+    "curl-to-python-requests-converter": {
+      "name": "cURL 转 Python Requests 工具",
+      "description": "自动将 cURL 命令行请求转换为标准的 Python requests 代码。"
+    },
+    "curl-to-fetch-and-axios-converter": {
+      "name": "cURL 转 Fetch & Axios 工具",
+      "description": "一键将 cURL 请求转化为 JavaScript Fetch 与 Axios 代码。"
+    },
+    "http-header-inspector-_-parser": {
+      "name": "HTTP 响应标头分析工具",
+      "description": "解析并深度检测 HTTP Headers 配置及安全性。"
+    },
+    "json-to-go-struct-generator": {
+      "name": "JSON 转 Go Struct 结构体工具",
+      "description": "根据 JSON 数据自动生成带 Tag 标注的 Go 结构体定义代码。"
+    },
+    "json-to-pydantic-&-python-dataclass-generator": {
+      "name": "JSON 转 Pydantic 与 Dataclass 工具",
+      "description": "自动为 JSON 生成 Python Pydantic 数据模型及 Dataclass 类。"
+    },
+    "json-to-typescript-interface-generator": {
+      "name": "JSON 转 TypeScript Interface 工具",
+      "description": "从 JSON 结构一键推导生成严格的 TypeScript 接口类型定义。"
+    },
+    "json-to-zod-schema-generator": {
+      "name": "JSON 转 Zod Schema 校验器工具",
+      "description": "由 JSON 自动推导并生成用于 TypeScript 运行时校验的 Zod Schema。"
+    },
+    "json-yaml-converter": {
+      "name": "JSON 与 YAML 互转工具",
+      "description": "支持双向无缝转换 JSON 与 YAML 配置文件格式。"
+    },
+    "url-parser-and-query-string-extractor": {
+      "name": "URL 解析与查询参数提取工具",
+      "description": "拆解 URL 组成部分，自动提取与解码 Query 查询参数。"
+    },
+    "mime-type-lookup-and-extension-finder": {
+      "name": "MIME 类型与文件扩展名查询工具",
+      "description": "便捷检索文件扩展名与对应的标准 MIME 媒体类型。"
+    },
+    "systemd-service-file-generator": {
+      "name": "Systemd 服务配置文件生成器",
+      "description": "快速生成标准的 Linux systemd 守护进程服务配置文件。"
+    },
+    "regex-tester": {
+      "name": "正则表达式测试工具",
+      "description": "实时测试与调试 Regex 正则表达式匹配及捕获组。"
+    },
+    "qr-code-generator": {
+      "name": "二维码生成器",
+      "description": "快速将文本或网址生成自定义二维码并支持导出高清图片。"
+    },
+    "user-agent": {
+      "name": "User-Agent 解析工具",
+      "description": "快速提取并分析浏览器 User-Agent 信息。"
+    },
+    "unix-timestamp-converter": {
+      "name": "Unix 时间戳转换工具",
+      "description": "支持秒与毫秒级时间戳与北京时间/UTC 日期的实时互转。"
+    },
+    "markdown-to-html-live-converter": {
+      "name": "Markdown 转 HTML 实时转换工具",
+      "description": "即时将 Markdown 语法渲染并转换为干净的 HTML 标记。"
+    },
+    "url-encoder-decoder": {
+      "name": "URL 编码与解码工具",
+      "description": "一键完成 URI 与 URL 参数的百分比编码与解码。"
+    },
+    "uuid-generator": {
+      "name": "UUID v4 生成器",
+      "description": "批量生成符合 RFC 规范的加密级 UUID v4 唯一识别码。"
+    },
+    "hash-generator": {
+      "name": "哈希散列生成工具",
+      "description": "快速计算文本数据的 SHA-256、SHA-512、SHA-384、SHA-1 哈希值。"
+    },
+    "secure-password-generator": {
+      "name": "强密码生成器",
+      "description": "生成包含大小写、数字及特殊符号的高安全度密码。"
+    },
+    "checksum-calculator": {
+      "name": "校验和计算器 (Checksum)",
+      "description": "快速计算并核对数据的 SHA-256、SHA-512、SHA-1 校验和。"
+    },
+    "hmac-generator": {
+      "name": "HMAC 签名生成器",
+      "description": "基于密钥与主流哈希算法生成安全的 HMAC 签名散列。"
+    },
+    "jwt-decoder-&-inspector": {
+      "name": "JWT 解码与分析工具",
+      "description": "免密钥快速解析并检查 JSON Web Token (JWT) 的 Header 与 Payload。"
+    },
+    "html-encoder-decoder": {
+      "name": "HTML 实体编码与解码工具",
+      "description": "双向转义与反转义 HTML 特殊字符实体。"
+    },
+    "color-converter": {
+      "name": "颜色格式转换工具",
+      "description": "支持 HEX、RGB、HSL 颜色数值之间的精确双向转换。"
+    },
+    "case-converter": {
+      "name": "命名风格与大小写转换工具",
+      "description": "支持驼峰命名 (camelCase)、蛇形 (snake_case)、短横线 (kebab-case) 等命名风格互转。"
+    },
+    "lorem-ipsum": {
+      "name": "Lorem Ipsum 假文生成器",
+      "description": "为排版设计与原型快速生成占位假文段落。"
+    },
+    "text-diff-checker": {
+      "name": "文本差异比对工具",
+      "description": "高亮比对两段文本或代码的内容差异与变动行。"
+    },
+    "name-combiner": {
+      "name": "名称创意组合器",
+      "description": "将两个名字巧妙融合为创意昵称、CP 名或品牌商标名。"
+    },
+    "slug-generator": {
+      "name": "URL Slug 别名生成器",
+      "description": "将标题或文本转换为符合 SEO 友好规范的 URL 短链别名。"
+    },
+    "age-calculator": {
+      "name": "精确年龄计算器",
+      "description": "精确计算您的实际周岁、月数、天数及小时数。",
+      "pageSubtitle": "精确计算您的实际周岁、月数、天数、小时及分钟 —— 附带下个生日倒计时与星座查询。",
+      "seoHeading": "什么是年龄计算器？",
+      "seoDescription": "年龄计算器是一款免费的在线工具，可根据您的出生日期精确计算实际年龄。与简单的年份相减不同，它能精细拆解出具体的年数、月数、天数、小时、分钟以及总周数，同时显示您的出生星期、所属星座以及距离下一个生日的倒计时天数。非常适合用于填写表单、法律签证申请或满足日常好奇心。",
+      "howToHeading": "使用指南",
+      "howToStep1": "使用日期选择器选定您的出生日期。",
+      "howToStep2": "系统将即刻呈现您按年、月、天拆解的精确年龄。",
+      "howToStep3": "查看您至今度过的总月数、总周数、总天数、小时及分钟统计。",
+      "howToStep4": "了解您的出生星期几、所属星座以及下一次生日倒计时。",
+      "howToStep5": "点击“复制完整报告”可直接复制并分享计算结果。",
+      "faqHeading": "常见问题解答",
+      "faq1Question": "年龄是如何计算的？",
+      "faq1Answer": "年龄是通过精确比对当前日期与您的出生日期计算得出的。本工具已完整考虑闰年与不同月份天数差异，从而提供严谨准确的年月日分解。",
+      "faq2Question": "时间年龄与生理年龄有何区别？",
+      "faq2Answer": "时间年龄是指自您出生以来实际流逝的时间，这也是本计算器所测算的。而生理年龄则反映根据各项身体健康指标评估的机体衰老程度，二者可能有所出入。",
+      "faq3Question": "我的出生日期会被保存吗？",
+      "faq3Answer": "不会。所有计算完全在您的本地浏览器内运行，您的生日信息绝不会发送或保存在任何服务器上。",
+      "faq4Question": "此计算结果能否用于官方表格填写？",
+      "faq4Answer": "本工具提供精确的数学年龄计算结果，有助于您在填写签证申请、入学表单、医疗登记等需求时参考。请务必遵循相关机构的具体规范要求。",
+      "dateOfBirth": "出生日期：",
+      "birthDateFutureError": "出生日期不能晚于当前时间。",
+      "yourExactAge": "您的精确年龄",
+      "year": "岁",
+      "years": "岁",
+      "month": "个月",
+      "months": "个月",
+      "day": "天",
+      "days": "天",
+      "copyFullReport": "复制完整报告",
+      "totalMonths": "总月数",
+      "totalWeeks": "总周数",
+      "totalDays": "总天数",
+      "totalHours": "总小时数",
+      "totalMinutes": "总分钟数",
+      "daysToBirthday": "距离下个生日",
+      "bornOn": "出生星期",
+      "zodiacSign": "所属星座",
+      "nextBirthday": "下个生日倒计时",
+      "nextBirthdaySingular": "还有 {days} 天",
+      "nextBirthdayPlural": "还有 {days} 天",
+      "reportTitle": "年龄分析报告：",
+      "exactAgeReport": "精确年龄：{years} {yearsUnit} {months} {monthsUnit} {days} {daysUnit}",
+      "bornOnReport": "出生于：{day}",
+      "zodiacReport": "所属星座：{sign}",
+      "nextBirthdayReportSingular": "下个生日：还有 {days} 天",
+      "nextBirthdayReportPlural": "下个生日：还有 {days} 天",
+      "totalMonthsReport": "累计月数：{value}",
+      "totalWeeksReport": "累计周数：{value}",
+      "totalDaysReport": "累计天数：{value}",
+      "reportCopied": "报告已成功复制到剪贴板！",
+      "feedbackHeading": "意见反馈与功能建议",
+      "feedbackDescription": "帮助我们完善 VelnoxLabs 开发者工具标准，欢迎在下方分享您的宝贵建议！",
+      "feedbackPlaceholder": "在此输入您的建议或功能需求...",
+      "submitSuggestion": "提交建议",
+      "zodiacCapricorn": "摩羯座",
+      "zodiacAquarius": "水瓶座",
+      "zodiacPisces": "双鱼座",
+      "zodiacAries": "白羊座",
+      "zodiacTaurus": "金牛座",
+      "zodiacGemini": "双子座",
+      "zodiacCancer": "巨蟹座",
+      "zodiacLeo": "狮子座",
+      "zodiacVirgo": "处女座",
+      "zodiacLibra": "天秤座",
+      "zodiacScorpio": "天蝎座",
+      "zodiacSagittarius": "射手座",
+      "suggestedToolsHeading": "推荐实用工具",
+      "suggestedToolsDescription": "探索更多免费且实用的日常与开发辅助工具。"
+    },
+    "tip-calculator": {
+      "name": "小费计算与分账工具",
+      "description": "快速计算餐厅小费比例并支持好友聚餐 AA 制分摊账单。"
+    },
+    "percentage-calculator": {
+      "name": "百分比计算器",
+      "description": "轻松计算百分比增长、降幅、占比与数值差异。"
+    },
+    "random-number-generator": {
+      "name": "随机数生成器",
+      "description": "支持区间设定、去重以及排序的高随机度数字生成工具。"
+    },
+    "bmi-calculator": {
+      "name": "BMI 身体质量指数计算器",
+      "description": "支持公制与英制单位，快速评估成人身体质量指数健康区间。"
+    },
+    "discount-calculator": {
+      "name": "折扣打折计算器",
+      "description": "计算促销售价、节省金额及叠加优惠券后的最终折后价。"
+    },
+    "compound-interest-calculator": {
+      "name": "复利投资收益计算器",
+      "description": "模拟定期定额定投在复利增值下的长期收益回报曲线。"
+    },
+    "loan-emi-calculator": {
+      "name": "贷款等额本息计算器",
+      "description": "精确计算房贷车贷每月还款额 (EMI) 并附完整还款本息计划表。"
+    },
+    "salary-to-hourly-calculator": {
+      "name": "年薪与时薪换算计算器",
+      "description": "自由在年薪、月薪、双周薪、周薪及每小时工资之间换算。"
+    },
+    "grade-calculator": {
+      "name": "成绩与加权 GPA 计算器",
+      "description": "支持加权课程分数、字母等级判定与最终综合 GPA 绩点换算。"
+    }
+  }
+}
