@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { Logo } from './Logo';
 import { SkipToContent } from './SkipToContent';
@@ -11,6 +11,7 @@ import { navigationConfig } from '@/data/navigation';
 import { GlobalContainer } from '@/components/layout';
 import SearchBar from '@/components/SearchBar';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   const t = useTranslations('Header');
@@ -83,6 +84,10 @@ export function Header() {
 
               <div className="hidden md:block">
                 <LanguageSwitcher />
+              </div>
+
+              <div className="hidden md:block">
+                <ThemeToggle />
               </div>
 
               {navigationConfig.cta && (

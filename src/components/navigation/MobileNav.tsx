@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { navigationConfig } from '@/data/navigation';
 import { NavLinkItem } from './NavLink';
@@ -24,6 +24,7 @@ interface MobileNavProps {
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
   const t = useTranslations('Header');
+  const tCommon = useTranslations('Common');
 
   // Map nav id → translation key in Header section
   const translateLabel = (id: string, fallback: string): string => {
@@ -77,7 +78,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       <aside
         role="dialog"
         aria-modal="true"
-        aria-label="Mobile navigation"
+        aria-label={tCommon('mobileNavigation')}
         style={{
           position: 'fixed',
           top: 0,
@@ -104,7 +105,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close menu"
+            aria-label={tCommon('closeMenu')}
             style={{
               width: 'var(--icon-xl)',
               height: 'var(--icon-xl)',
@@ -119,7 +120,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           </button>
         </div>
 
-        <nav aria-label="Mobile primary">
+        <nav aria-label={tCommon('mobilePrimary')}>
           <ul
             style={{
               listStyle: 'none',

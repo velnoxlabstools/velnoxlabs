@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "피드백 및 기능 요청",
+    "feedbackSubtitle": "VelnoxLabs 개발자 유틸리티 개선을 도와주세요. 아래에 소중한 의견을 남겨주세요!",
+    "feedbackPlaceholder": "제안 사항이나 기능 요청을 입력해 주세요...",
+    "feedbackSubmit": "제안 제출",
+    "feedbackSent": "전송 완료!"
+  },
+  "ToolSeoDefaults": {
+    "about": "{name} 소개",
+    "keyFeatures": "주요 기능",
+    "feature1": "브라우저에서 직접 실행",
+    "feature2": "회원가입 불필요",
+    "feature3": "완전 무료 사용",
+    "howToUse": "사용 방법",
+    "step1Title": "도구 열기",
+    "step1Body": "도구 페이지에 접속합니다.",
+    "step2Title": "데이터 입력",
+    "step2Body": "작업 영역의 입력란에 값을 입력하거나 붙여넣습니다.",
+    "step3Title": "실행",
+    "step3Body": "실행 버튼을 클릭하여 결과를 확인합니다.",
+    "faqTitle": "자주 묻는 질문",
+    "faq1Q": "이 도구는 무료인가요?",
+    "faq1A": "네. VelnoxLabs의 모든 핵심 도구는 완전 무료입니다."
+  },
+  "ToolInfo": {
+    "aboutThisTool": "이 도구에 대하여",
+    "category": "카테고리",
+    "status": "상태",
+    "updated": "업데이트",
+    "version": "버전"
+  },
+  "ToolFaq": {
+    "heading": "자주 묻는 질문",
+    "generic": {
+      "q1": "이 유틸리티는 무료로 사용할 수 있나요?",
+      "a1": "네, VelnoxLabs의 모든 유틸리티 도구는 완전 무료이며 클라이언트 측에서 안전하게 실행됩니다."
+    },
+    "userAgentParser": {
+      "q1": "User-Agent 문자열에는 어떤 정보가 포함되어 있나요?",
+      "a1": "User-Agent 문자열에는 클라이언트 브라우저 애플리케이션, 렌더링 엔진, 운영체제 플랫폼, CPU 아키텍처 및 기기 유형에 대한 세부 정보가 포함됩니다.",
+      "q2": "이 파서는 일반 사용자와 봇 및 AI 크롤러를 구분할 수 있나요?",
+      "a2": "네. 검색 엔진 봇(Googlebot, Bingbot), 소셜 크롤러 및 AI 스크래핑 에이전트(OpenAI GPTBot, ClaudeBot, PerplexityBot, ByteDance ByteSpider 등)의 시그니처 패턴을 구분합니다.",
+      "q3": "내 User-Agent 문자열이 외부 서버로 전송되나요?",
+      "a3": "아닙니다. 파싱 엔진은 외부 API로 데이터를 전송하지 않고 브라우저 메모리 내에서 100% 로컬로 실행됩니다.",
+      "q4": "User-Agent가 RFC 규격을 준수한다는 것은 무엇을 의미하나요?",
+      "a4": "RFC 7231은 HTTP 사용자 에이전트가 제품 식별자 토큰(예: Mozilla/5.0)으로 시작하고 잘못된 문자 없이 깔끔한 토큰 서식을 유지하도록 규정하고 있습니다."
+    }
+  }
+}

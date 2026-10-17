@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { Category } from '@/types/tools';
 import { CategoryIcon } from './CategoryIcon';
 import { EmptyState } from '@/components/ui';
@@ -9,13 +9,20 @@ interface CategoryListProps {
 
 export function CategoryList({ categories }: CategoryListProps) {
   if (categories.length === 0) {
-    return (
-      <EmptyState title="No categories" description="No categories match your criteria." />
-    );
+    return <EmptyState title="No categories" description="No categories match your criteria." />;
   }
 
   return (
-    <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+    <ul
+      style={{
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--space-2)',
+      }}
+    >
       {categories.map((cat) => (
         <li key={cat.id}>
           <Link

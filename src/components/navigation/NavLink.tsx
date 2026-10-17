@@ -1,7 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import type { NavLink as NavLinkType } from '@/types/navigation';
 import { cx } from '@/helpers/layout';
 
@@ -13,9 +12,7 @@ interface NavLinkProps {
 
 export function NavLinkItem({ item, className, onNavigate }: NavLinkProps) {
   const pathname = usePathname();
-  const isActive =
-    pathname === item.href ||
-    (item.href !== '/' && pathname.startsWith(item.href));
+  const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 
   if (item.disabled) {
     return (
@@ -47,11 +44,10 @@ export function NavLinkItem({ item, className, onNavigate }: NavLinkProps) {
         borderRadius: 'var(--radius-md)',
         textDecoration: 'none',
         color: isActive ? 'var(--primary)' : 'var(--foreground)',
-        fontWeight: isActive
-          ? 'var(--font-weight-semibold)'
-          : 'var(--font-weight-medium)',
+        fontWeight: isActive ? 'var(--font-weight-semibold)' : 'var(--font-weight-medium)',
         fontSize: 'var(--font-size-sm)',
-        transition: 'color var(--duration-fast) var(--ease-in-out), background-color var(--duration-fast) var(--ease-in-out)',
+        transition:
+          'color var(--duration-fast) var(--ease-in-out), background-color var(--duration-fast) var(--ease-in-out)',
         backgroundColor: isActive ? 'var(--accent)' : 'transparent',
       }}
     >

@@ -1,0 +1,534 @@
+{
+  "HomePage": {
+    "badge": "無料オンライン開発ツール",
+    "heroTitle": "日々の開発を加速する高機能ツール群",
+    "heroSubtitle": "VelnoxLabs は高速・安全・完全ブラウザ完結の便利ツールを提供します。登録不要ですぐに使えます。",
+    "statsTools": "ツール数",
+    "statsCategories": "カテゴリ",
+    "statsPrivacy": "プライバシー",
+    "popularTitle": "🔥 人気のツール",
+    "popularSubtitle": "コミュニティで最も利用されているツール。",
+    "latestTitle": "🆕 新着ツール",
+    "latestSubtitle": "新しく追加されたツールをお試しください！",
+    "allToolsTitle": "すべてのツール",
+    "allToolsSubtitle": "即座に使用可能なすべての開発者向けツールをご覧ください。",
+    "openTool": "ツールを開く →"
+  },
+  "Header": {
+    "tools": "ツール",
+    "about": "概要",
+    "searchPlaceholder": "ツールを検索...",
+    "getStarted": "今すぐ始める",
+    "navTools": "ツール",
+    "navAbout": "概要",
+    "navBrowse": "ブラウズ",
+    "allTools": "すべてのツール",
+    "allCategories": "すべてのカテゴリ",
+    "allToolsDesc": "全51種以上のツールを閲覧",
+    "allCategoriesDesc": "カテゴリ別にツールを探す",
+    "noToolsFound": "該当するツールが見つかりません：",
+    "pricing": "料金プラン",
+    "contact": "お問い合わせ"
+  },
+  "Categories": {
+    "badge": "カテゴリ別に探す",
+    "title": "すべてのカテゴリ",
+    "subtitle": "{categoryCount} カテゴリに分類された {count} 種類のツールをご覧ください。",
+    "openTool": "ツールを開く →",
+    "categories": {
+      "dev": {
+        "name": "開発者ツール",
+        "description": "日々のコーディングに役立つフォーマッタ、コンバータ、ユーティリティ。"
+      },
+      "security": {
+        "name": "セキュリティ & プライバシー",
+        "description": "ハッシュ計算、暗号化・復号、プライバシー保護ツール。"
+      },
+      "text": {
+        "name": "テキスト & コンテンツ",
+        "description": "テキスト加工、文字数カウント、テキスト生成ツール。"
+      },
+      "converters": {
+        "name": "変換ツール",
+        "description": "データ形式や単位の相互変換ユーティリティ。"
+      },
+      "image": {
+        "name": "メディア & 画像",
+        "description": "ブラウザ上で完結する画像加工およびメディア処理ツール。"
+      },
+      "utility": {
+        "name": "ユーティリティ",
+        "description": "日々の計算や作業を効率化する便利ツール。"
+      },
+      "finance": {
+        "name": "ファイナンス",
+        "description": "ローン返済、複利計算、給与換算シミュレータ。"
+      },
+      "education": {
+        "name": "教育 & 学習",
+        "description": "成績判定および GPA 計算ツール。"
+      },
+      "business": {
+        "name": "ビジネス & 経理",
+        "description": "請求書作成やビジネス向けユーティリティ。"
+      },
+      "health": {
+        "name": "健康 & フィットネス",
+        "description": "BMI 計算や健康管理のための計算ツール。"
+      },
+      "shopping": {
+        "name": "ショッピング",
+        "description": "割引額やセール価格のお得度計算ツール。"
+      }
+    }
+  },
+  "ToolsPage": {
+    "badge": "全ツール一覧",
+    "title": "すべてのツールを見る",
+    "subtitle": "ブラウザ上で動作する {count} 種類の無料ツール（アルファベット順）。",
+    "openTool": "ツールを開く →",
+    "categories": {
+      "dev": "開発者ツール",
+      "security": "セキュリティ & プライバシー",
+      "text": "テキスト & コンテンツ",
+      "converters": "変換ツール",
+      "image": "メディア & 画像",
+      "utility": "ユーティリティ",
+      "finance": "ファイナンス",
+      "education": "教育 & 学習",
+      "business": "ビジネス & 経理",
+      "health": "健康 & フィットネス",
+      "shopping": "ショッピング"
+    }
+  },
+  "AboutPage": {
+    "metaTitle": "VelnoxLabs について - 51種以上の無料ブラウザ完結ツール",
+    "metaDescription": "VelnoxLabs のご紹介。登録不要、100%プライバシー保護の高速・安全なブラウザ完結型開発者向けツールを提供します。",
+    "title": "VelnoxLabs について",
+    "heroText": "VelnoxLabs は、開発者や日常業務のために設計された 51 種類以上の無料ブラウザ完結型ツールのコレクションです。会員登録不要、トラッキングなし、隠れた費用も一切ありません。すべての処理がブラウザ内で安全・高速に実行されます。",
+    "features": {
+      "privateTitle": "🔒 完全プライバシー設計",
+      "privateDesc": "すべてのツールはクライアントサイド（ブラウザ内）で動作します。データが端末外に送信されることはなく、サーバーへの保存も行いません。",
+      "frictionTitle": "⚡ 手間ゼロですぐに使える",
+      "frictionDesc": "アカウント登録やフォーム入力、有料プランの壁はありません。必要なツールを開いて即座にタスクを完了できます。",
+      "devTitle": "🛠️ 開発者のための実用設計",
+      "devDesc": "JSON 整形から cURL コマンド変換、Cron 表現生成まで、日常の開発ワークフローを強力にサポートします。",
+      "freeTitle": "🌍 永久に無料",
+      "freeDesc": "基本的で便利なユーティリティは誰もが自由に使えるべきだと信じています。全 51 種類以上のツールを完全無料でご利用いただけます。"
+    },
+    "storyTitle": "VelnoxLabs を作った理由",
+    "storyText": "簡単な JSON の整形や画像のサイズ変更のためだけに、データをサーバーにアップロードさせたり、広告だらけで読み込みが遅いツールサイトに不満を感じていました。そこで、何のストレスもなく日々の開発・作業ツールを使える場所として VelnoxLabs を開発しました。すべてがブラウザ内で完結するため、常にデータプライバシーが守られます。",
+    "contactTitle": "お問い合わせ",
+    "contactText": "フィードバック、新しいツールのリクエスト、その他ご質問など、いつでもお気軽にご連絡ください。",
+    "ctaButton": "すべてのツール（51種以上）を見る"
+  },
+  "ContactPage": {
+    "metaTitle": "お問い合わせ - VelnoxLabs",
+    "metaDescription": "ご質問、ご意見、ツールのリクエストなど、VelnoxLabs チームにお気軽にお問い合わせください。通常24時間以内に返信いたします。",
+    "title": "お問い合わせ",
+    "subtitle": "ご質問、フィードバック、新機能のリクエストなど、皆様からのメッセージをお待ちしております。",
+    "emailTitle": "📧 メールでのお問い合わせ",
+    "replyTime": "通常24時間以内にご返信いたします。",
+    "suggestionNote": "新しいツールのリクエストの場合は、ツール名と想定される機能の詳細をご記入ください。"
+  },
+  "BlogPage": {
+    "metaTitle": "ブログ - VelnoxLabs",
+    "metaDescription": "VelnoxLabs からのチュートリアル、開発ガイド、最新情報をお届けします（近日公開）。",
+    "title": "ブログ",
+    "subtitle": "チュートリアル、開発者向けの役立つ Tips、製品アップデート情報を近日公開予定です。",
+    "comingSoon": "🚧 近日公開",
+    "comingSoonText": "開発者の皆様に役立つコンテンツを準備中です。公開まで今しばらくお待ちください！"
+  },
+  "PricingPage": {
+    "metaTitle": "料金プラン - VelnoxLabs",
+    "metaDescription": "VelnoxLabs のツールはすべて完全無料です。登録も不要です。",
+    "title": "料金プラン",
+    "subtitle": "VelnoxLabs のツールはすべて完全無料です。登録不要、隠れた費用や有料制限は一切ありません。",
+    "freeForever": "✨ 永久に無料",
+    "freeForeverText": "51種類以上のすべてのツールをいつでも無制限でご利用いただけます。",
+    "belief": "私たちは、不可欠な実用ツールは誰もが自由にアクセスできるべきだと考えています。"
+  },
+  "PrivacyPage": {
+    "metaTitle": "プライバシーポリシー - VelnoxLabs",
+    "metaDescription": "VelnoxLabs のプライバシー保護方針。すべてのツールはブラウザ内でローカルに実行され、データの送信や保存は一切行われません。",
+    "title": "プライバシーポリシー",
+    "lastUpdated": "最終更新日: 2026年9月",
+    "section1Title": "1. 100% ブラウザ完結処理",
+    "section1Text": "VelnoxLabs のすべてのツールは、お客様のブラウザ内で完全に処理されます。入力されたデータ（JSON、テキスト、画像など）がお使いの端末の外に出ることは一切ありません。外部サーバーへの送信、保存、共有は行いません。",
+    "section2Title": "2. 会員登録不要",
+    "section2Text": "当サイトのツールを利用するにあたり、アカウントの作成や個人情報の入力は一切不要です。いつでもアクセスしてすぐにご利用いただけます。",
+    "section3Title": "3. Cookie とトラッキング",
+    "section3Text": "行動追跡を目的とした Cookie の使用や、第三者への個人データの販売は行いません。アクセス解析を行う場合も完全に匿名化されており、人気の高いツールの改善にのみ活用されます。",
+    "section4Title": "4. お問い合わせ",
+    "section4Text": "本プライバシーポリシーに関してご不明な点がございましたら、下記までご連絡ください："
+  },
+  "TermsPage": {
+    "metaTitle": "利用規約 - VelnoxLabs",
+    "metaDescription": "VelnoxLabs 利用規約。利用ガイドラインおよび免責事項をご確認ください。",
+    "title": "利用規約",
+    "lastUpdated": "最終更新日: 2026年9月",
+    "section1Title": "1. 規約への同意",
+    "section1Text": "VelnoxLabs を利用することにより、本利用規約に同意したものとみなされます。同意いただけない場合は、当サイトおよびツールの利用をご遠慮ください。",
+    "section2Title": "2. ツールの利用",
+    "section2Text": "当サイトのツールは「現状有姿（AS-IS）」で提供され、個人利用および商用利用が可能です。生成された出力結果の取り扱いは利用者自身の責任となります。結果に基づいて下されたいかなる判断や損害についても、当サイトは責任を負いません。",
+    "section3Title": "3. 知的財産権",
+    "section3Text": "VelnoxLabs の名称、ロゴ、サイトデザイン、および独自ソースコードは当サイトに帰属します。事前の承諾なく複製、転載、再配布することを禁じます。",
+    "section4Title": "4. 免責事項",
+    "section4Text": "ツールの利用または利用不能により生じたいかなる損害、データ損失、トラブルについても、VelnoxLabs は一切の責任を負いません。ご自身の責任においてご利用ください。",
+    "section5Title": "5. お問い合わせ",
+    "section5Text": "本利用規約に関するお問い合わせは、下記までお願いいたします："
+  },
+  "CookiePage": {
+    "metaTitle": "Cookie ポリシー - VelnoxLabs",
+    "metaDescription": "VelnoxLabs の Cookie ポリシー。トラッキング目的の Cookie は使用していません。",
+    "title": "Cookie ポリシー",
+    "lastUpdated": "最終更新日: 2026年9月",
+    "section1Title": "1. トラッキング用 Cookie の不使用",
+    "section1Text": "VelnoxLabs は、ユーザーの個人情報や行動履歴を追跡するための Cookie を使用していません。すべてのツール処理はお客様のブラウザ内で完結します。",
+    "section2Title": "2. 必須 Cookie について",
+    "section2Text": "テーマ設定（ダークモードの保持など）など、サイトの基本機能に必要な最小限の技術的 Cookie を使用する場合があります。これらが追跡目的に利用されることはありません。",
+    "section3Title": "3. サードパーティへの提供",
+    "section3Text": "第三者の広告配信ネットワークや行動追跡サービスにお客様のデータを提供することはありません。",
+    "section4Title": "4. お問い合わせ",
+    "section4Text": "本 Cookie ポリシーに関するご質問は、下記までお問い合わせください："
+  },
+  "Footer": {
+    "tagline": "高速、安全、シンプルさを追求した無料オンライン開発ツールプラットフォーム。",
+    "productTitle": "プロダクト",
+    "companyTitle": "企業情報",
+    "legalTitle": "法的情報",
+    "tools": "ツール",
+    "categories": "カテゴリ",
+    "pricing": "料金プラン",
+    "about": "会社概要",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "cookies": "Cookie ポリシー",
+    "copyright": "© {year} VelnoxLabs. All rights reserved."
+  },
+  "Tools": {
+    "user-agent-parser": {
+      "name": "User-Agent 解析ツール (高度版)",
+      "description": "ブラウザやデバイスの User-Agent 情報を詳細に分析します。"
+    },
+    "ulid-generator-and-parser": {
+      "name": "ULID 生成 & 解析ツール",
+      "description": "ミリ秒単位でソート可能な一意識別子 (ULID) の生成とパースを行います。"
+    },
+    "nanoid-generator": {
+      "name": "NanoID 生成ツール",
+      "description": "コンパクトで URL セーフなセキュア一意 ID を生成します。"
+    },
+    "csp-header-builder-and-validator": {
+      "name": "CSP ヘッダービルダー & バリデータ",
+      "description": "Content Security Policy (CSP) ヘッダーの作成と安全性の検証を行います。"
+    },
+    "json-formatter": {
+      "name": "JSON フォーマッタ & バリデータ",
+      "description": "JSON データの整形、構文チェック、圧縮をブラウザ上で行います。",
+      "title": "JSON フォーマッタ & バリデータ",
+      "subtitle": "ブラウザ内でプライベートかつ安全に、JSON データを瞬時に整形・検証・圧縮します。",
+      "inputLabel": "JSON 入力:",
+      "outputLabel": "整形結果:",
+      "formatBtn": "整形 / 美化",
+      "minifyBtn": "圧縮 (Minify)",
+      "copyBtn": "コピー",
+      "whatIsHeading": "JSON フォーマッタ & バリデータとは？",
+      "whatIsText": "未整形の生データや圧縮された JSON を見やすくインデントし、構文エラーを正確に検出するツールです。API レスポンスのデバッグや設定ファイルの整理に日常的に役立ちます。",
+      "howToHeading": "使い方",
+      "howTo1": "入力ボックスに JSON を貼り付けます。",
+      "howTo2": "リアルタイムで構文チェックと解析が実行されます。",
+      "howTo3": "「整形 / 美化」をクリックして見やすいインデントを追加します。",
+      "howTo4": "「圧縮」をクリックして1行のコンパクトな JSON に変換します。",
+      "howTo5": "「コピー」ボタンをクリックして結果をクリップボードに保存します。",
+      "faqHeading": "よくある質問",
+      "faq1Q": "このツールは無料で使えますか？",
+      "faq1A": "はい、VelnoxLabs の JSON フォーマッタは登録不要で完全無料です。",
+      "faq2Q": "データは安全に保護されますか？",
+      "faq2A": "はい。すべての処理はお使いのブラウザ上の JavaScript で実行されます。データが外部サーバーに送信されることは一切ありません。",
+      "faq3Q": "スマートフォンやタブレットでも動作しますか？",
+      "faq3A": "はい、完全レスポンシブ対応しており、PC・タブレット・モバイルの各ブラウザで快適に動作します。"
+    },
+    "image-resizer": {
+      "name": "画像リサイズツール",
+      "description": "サーバーにアップロードすることなく、ブラウザ内で画像のサイズ変更と圧縮を行います。"
+    },
+    "invoice-generator": {
+      "name": "オンライン請求書作成ツール",
+      "description": "税率、割引、複数通貨に対応したプロ仕様の請求書を素早く作成できます。"
+    },
+    "base64-encoder": {
+      "name": "Base64 エンコーダ & デコーダ",
+      "description": "テキストやデータを Base64 形式にエンコード／デコードします。"
+    },
+    "cron-expression-generator": {
+      "name": "Cron 表現生成ツール",
+      "description": "わかりやすい説明とともに、Cron スケジュール表現を視覚的に生成します。"
+    },
+    "word-counter": {
+      "name": "文字数 & 単語数カウントツール",
+      "description": "文字数、単語数、行数、読了目安時間を正確にカウントします。"
+    },
+    "csv-to-json": {
+      "name": "CSV から JSON 変換ツール",
+      "description": "CSV データをカスタム区切り文字指定で即座に JSON 形式へ変換します。"
+    },
+    "curl-to-python-requests-converter": {
+      "name": "cURL から Python Requests 変換ツール",
+      "description": "cURL コマンドを Python requests の実行コードに自動変換します。"
+    },
+    "curl-to-fetch-and-axios-converter": {
+      "name": "cURL から Fetch & Axios 変換ツール",
+      "description": "cURL コマンドを JavaScript の Fetch API および Axios コードに変換します。"
+    },
+    "http-header-inspector-_-parser": {
+      "name": "HTTP ヘッダー検査 & 解析ツール",
+      "description": "HTTP レスポンスヘッダーの内容とセキュリティ設定を詳しく解析します。"
+    },
+    "json-to-go-struct-generator": {
+      "name": "JSON から Go Struct 変換ツール",
+      "description": "JSON データから Go 言語の構造体 (struct) 定義を自動生成します。"
+    },
+    "json-to-pydantic-&-python-dataclass-generator": {
+      "name": "JSON から Pydantic & Dataclass 変換ツール",
+      "description": "JSON から Python の Pydantic モデルおよび Dataclass を生成します。"
+    },
+    "json-to-typescript-interface-generator": {
+      "name": "JSON から TypeScript 型定義変換ツール",
+      "description": "JSON データから TypeScript の interface 型定義を即時生成します。"
+    },
+    "json-to-zod-schema-generator": {
+      "name": "JSON から Zod スキーマ変換ツール",
+      "description": "JSON をもとに TypeScript の実行時バリデーション用 Zod スキーマを生成します。"
+    },
+    "json-yaml-converter": {
+      "name": "JSON と YAML 相互変換ツール",
+      "description": "JSON 形式と YAML 形式の間で双方向に素早く変換します。"
+    },
+    "url-parser-and-query-string-extractor": {
+      "name": "URL 解析 & クエリパラメータ抽出ツール",
+      "description": "URL の構成要素を分解し、クエリパラメータを一覧化・抽出します。"
+    },
+    "mime-type-lookup-and-extension-finder": {
+      "name": "MIME タイプ & 拡張子検索ツール",
+      "description": "ファイル拡張子に対応する標準的な MIME タイプを検索できます。"
+    },
+    "systemd-service-file-generator": {
+      "name": "Systemd サービス設定ファイル生成ツール",
+      "description": "Linux systemd のユニット設定ファイルをウィザード形式で生成します。"
+    },
+    "regex-tester": {
+      "name": "正規表現テスター",
+      "description": "テキストに対する正規表現のパターンマッチングをリアルタイムでテストします。"
+    },
+    "qr-code-generator": {
+      "name": "QRコード生成ツール",
+      "description": "URL やテキストから高解像度の QR コードを即座に作成・ダウンロードできます。"
+    },
+    "user-agent": {
+      "name": "User-Agent 解析ツール",
+      "description": "ブラウザの User-Agent 文字列を簡単に解析します。"
+    },
+    "unix-timestamp-converter": {
+      "name": "Unix タイムスタンプ変換ツール",
+      "description": "秒・ミリ秒単位の Unix エポック秒と通常の日時を相互に変換します。"
+    },
+    "markdown-to-html-live-converter": {
+      "name": "Markdown から HTML リアルタイム変換ツール",
+      "description": "Markdown 記法をクリーンな HTML コードにリアルタイム変換します。"
+    },
+    "url-encoder-decoder": {
+      "name": "URL エンコーダ & デコーダ",
+      "description": "URL 文字列やクエリパラメータのパーセントエンコード・デコードを行います。"
+    },
+    "uuid-generator": {
+      "name": "UUID v4 生成ツール",
+      "description": "RFC 準拠の暗号学的に安全な Version 4 UUID を一括生成します。"
+    },
+    "hash-generator": {
+      "name": "ハッシュ生成ツール",
+      "description": "テキストから SHA-256、SHA-512、SHA-384、SHA-1 ハッシュ値を計算します。"
+    },
+    "secure-password-generator": {
+      "name": "強力パスワード生成ツール",
+      "description": "安全性の高いランダムなパスワードを条件指定で生成します。"
+    },
+    "checksum-calculator": {
+      "name": "チェックサム計算ツール",
+      "description": "SHA-256、SHA-512、SHA-1 などのデータ整合性チェックサムを計算します。"
+    },
+    "hmac-generator": {
+      "name": "HMAC 署名生成ツール",
+      "description": "秘密鍵とハッシュアルゴリズムを使用して安全な HMAC 署名を生成します。"
+    },
+    "jwt-decoder-&-inspector": {
+      "name": "JWT デコーダ & インスペクタ",
+      "description": "JSON Web Token (JWT) のヘッダーとペイロードを署名検証なしで安全に確認できます。"
+    },
+    "html-encoder-decoder": {
+      "name": "HTML エンティティ変換ツール",
+      "description": "特殊文字と HTML エンティティの相互エスケープ処理を行います。"
+    },
+    "color-converter": {
+      "name": "カラーコード変換ツール",
+      "description": "HEX、RGB、HSL などの色コード形式を相互に高精度変換します。"
+    },
+    "case-converter": {
+      "name": "テキスト大文字・小文字変換ツール",
+      "description": "camelCase、snake_case、kebab-case などの命名規則にテキストを変換します。"
+    },
+    "lorem-ipsum": {
+      "name": "Lorem Ipsum ダミーテキスト生成ツール",
+      "description": "デザインやモックアップ作成に役立つダミーテキストを生成します。"
+    },
+    "text-diff-checker": {
+      "name": "テキスト差分チェッカー",
+      "description": "2つのテキストを並べて変更点や差異を行単位・文字単位で比較します。"
+    },
+    "name-combiner": {
+      "name": "ネームコンバイナー",
+      "description": "2つの名前を組み合わせてユニークなブランド名やニックネームを作成します。"
+    },
+    "slug-generator": {
+      "name": "URL スラッグ生成ツール",
+      "description": "タイトルや見出しを SEO に適した URL スラッグに変換します。"
+    },
+    "age-calculator": {
+      "name": "年齢計算ツール",
+      "description": "生年月日から現在の正確な年齢（年、月、日、時間）を計算します。",
+      "pageSubtitle": "生年月日から現在の正確な満年齢（年・月・日・時間・分）と、次の誕生日までの日数を計算します。",
+      "seoHeading": "年齢計算ツールとは？",
+      "seoDescription": "年齢計算ツールは、生年月日から現在の正確な年齢を瞬時に割り出す無料のオンラインツールです。単なる年の引き算ではなく、うるう年や月ごとの日数の違いを正確に考慮し、年・月・日・時間・総週数まで詳細に分解して算出します。生まれた日の曜日や星座、次の誕生日までのカウントダウンも確認できます。",
+      "howToHeading": "使い方",
+      "howToStep1": "日付選択カレンダーから生年月日を選択します。",
+      "howToStep2": "年・月・日単位で正確な年齢が即座に表示されます。",
+      "howToStep3": "通算の月数、週数、日数、時間、分の詳細記録を確認できます。",
+      "howToStep4": "生まれた曜日、星座、次の誕生日までの日数を確認できます。",
+      "howToStep5": "「完全レポートをコピー」をクリックして結果を簡単に保存・共有できます。",
+      "faqHeading": "よくある質問",
+      "faq1Question": "年齢はどのように計算されますか？",
+      "faq1Answer": "現在の日時と入力された生年月日の差分を精密に計算します。うるう年や大小の月の日数差を正確に考慮して年・月・日を導き出します。",
+      "faq2Question": "実年齢と生物学的年齢の違いは何ですか？",
+      "faq2Answer": "実年齢は生まれてから経過した実際の暦上の時間を指し、本ツールが計算する対象です。生物学的年齢は健康状態やバイオマーカーに基づく身体の老化度合いを反映するものです。",
+      "faq3Question": "入力した生年月日が保存されることはありますか？",
+      "faq3Answer": "いいえ。すべての計算はお客様のブラウザ内で完結します。生年月日がサーバーに送信されたり記録されたりすることは一切ありません。",
+      "faq4Question": "公式な書類作成の参考にできますか？",
+      "faq4Answer": "本ツールは厳密な数学的計算に基づく結果を提供し、ビザ申請、入学手続き、医療機関等の書類記入時の参考として役立ちます。提出先の規定に沿ってご利用ください。",
+      "dateOfBirth": "生年月日:",
+      "birthDateFutureError": "生年月日に未来の日付を指定することはできません。",
+      "yourExactAge": "あなたの正確な年齢",
+      "year": "歳",
+      "years": "歳",
+      "month": "ヶ月",
+      "months": "ヶ月",
+      "day": "日",
+      "days": "日",
+      "copyFullReport": "完全レポートをコピー",
+      "totalMonths": "通算月数",
+      "totalWeeks": "通算週数",
+      "totalDays": "通算日数",
+      "totalHours": "通算時間",
+      "totalMinutes": "通算分",
+      "daysToBirthday": "次の誕生日まで",
+      "bornOn": "生まれた曜日",
+      "zodiacSign": "星座",
+      "nextBirthday": "次の誕生日",
+      "nextBirthdaySingular": "あと {days} 日",
+      "nextBirthdayPlural": "あと {days} 日",
+      "reportTitle": "年齢レポート:",
+      "exactAgeReport": "正確な年齢: {years} {yearsUnit} {months} {monthsUnit} {days} {daysUnit}",
+      "bornOnReport": "生まれた曜日: {day}",
+      "zodiacReport": "星座: {sign}",
+      "nextBirthdayReportSingular": "次の誕生日: あと {days} 日",
+      "nextBirthdayReportPlural": "次の誕生日: あと {days} 日",
+      "totalMonthsReport": "通算月数: {value}",
+      "totalWeeksReport": "通算週数: {value}",
+      "totalDaysReport": "通算日数: {value}",
+      "reportCopied": "レポートをクリップボードにコピーしました！",
+      "feedbackHeading": "ご意見・機能リクエスト",
+      "feedbackDescription": "VelnoxLabs のツール品質向上にご協力ください。ご意見をお気軽にお寄せください！",
+      "feedbackPlaceholder": "ご提案やご要望をここに入力してください...",
+      "submitSuggestion": "提案を送信",
+      "zodiacCapricorn": "山羊座 (やぎ座)",
+      "zodiacAquarius": "水瓶座 (みずがめ座)",
+      "zodiacPisces": "魚座 (うお座)",
+      "zodiacAries": "牡羊座 (おひつじ座)",
+      "zodiacTaurus": "牡牛座 (おうし座)",
+      "zodiacGemini": "双子座 (ふたご座)",
+      "zodiacCancer": "蟹座 (かに座)",
+      "zodiacLeo": "獅子座 (しし座)",
+      "zodiacVirgo": "乙女座 (おとめ座)",
+      "zodiacLibra": "天秤座 (てんびん座)",
+      "zodiacScorpio": "蠍座 (さそり座)",
+      "zodiacSagittarius": "射手座 (いて座)",
+      "suggestedToolsHeading": "おすすめの関連ツール",
+      "suggestedToolsDescription": "日常作業に便利な他の無料オンラインツールもぜひお試しください。"
+    },
+    "tip-calculator": {
+      "name": "チップ & 割り勘計算ツール",
+      "description": "飲食店のチップや友人との会計割り勘をスムーズに計算します。"
+    },
+    "percentage-calculator": {
+      "name": "パーセント計算ツール",
+      "description": "割合、増減率、値引き率などのパーセンテージ計算を素早く行えます。"
+    },
+    "random-number-generator": {
+      "name": "乱数生成ツール",
+      "description": "重複なし・ソート指定など柔軟な設定が可能なランダム数値ジェネレータです。"
+    },
+    "bmi-calculator": {
+      "name": "BMI 計算ツール",
+      "description": "身長と体重から肥満度判定の基準となる BMI 値を計算します。"
+    },
+    "discount-calculator": {
+      "name": "割引計算ツール",
+      "description": "定価と割引率から値引き後のセール価格とお得額を即時計算します。"
+    },
+    "compound-interest-calculator": {
+      "name": "複利運用シミュレータ",
+      "description": "定期積立と複利運用による将来の資産推移を試算します。"
+    },
+    "loan-emi-calculator": {
+      "name": "ローン返済額 (EMI) 計算ツール",
+      "description": "住宅ローンや自動車ローンの毎月返済額と元利均等返済予定表を作成します。"
+    },
+    "salary-to-hourly-calculator": {
+      "name": "給与・時給換算ツール",
+      "description": "年収、月給、週給、時給を相互にすばやく換算シミュレーションします。"
+    },
+    "grade-calculator": {
+      "name": "成績 & GPA 計算ツール",
+      "description": "科目ごとの配点ウェイトを加味した評点および GPA 績点を算出します。"
+    }
+  },
+  "DocsPage": {
+    "metaTitle": "ドキュメント - VelnoxLabs",
+    "metaDescription": "VelnoxLabsツールのドキュメント。近日公開予定。",
+    "title": "ドキュメント",
+    "subtitle": "すべてのツールの詳細なドキュメントを近日公開予定です。",
+    "comingSoon": "🚧 近日公開予定",
+    "comingSoonText": "現在このページを準備中です。しばらくお待ちください。"
+  },
+  "GuidesPage": {
+    "metaTitle": "ガイド - VelnoxLabs",
+    "metaDescription": "VelnoxLabsツールの使い方ガイド。近日公開予定。",
+    "title": "ガイド",
+    "subtitle": "ステップバイステップのチュートリアルとガイドを近日公開予定です。",
+    "comingSoon": "🚧 近日公開予定",
+    "comingSoonText": "現在このページを準備中です。しばらくお待ちください。"
+  },
+  "Common": {
+    "toggleTheme": "テーマの切り替え",
+    "lightMode": "ライトモード",
+    "darkMode": "ダークモード",
+    "changeLanguage": "言語の変更",
+    "mobileNavigation": "モバイルナビゲーション",
+    "closeMenu": "メニューを閉じる",
+    "mobilePrimary": "モバイルメインナビゲーション",
+    "socialLinks": "ソーシャルリンク",
+    "tool": "ツール",
+    "formActions": "フォーム操作",
+    "primaryNavigation": "メインナビゲーション"
+  }
+}

@@ -52,16 +52,34 @@
         "name": "Converters",
         "description": "Format and unit conversion utilities."
       },
-      "image": { "name": "Media", "description": "Image and media processing tools." },
-      "utility": { "name": "Utility", "description": "Everyday calculators and helpers." },
-      "finance": { "name": "Finance", "description": "Loans, interest, and salary calculators." },
-      "education": { "name": "Education", "description": "Grade and GPA calculators." },
+      "image": {
+        "name": "Media",
+        "description": "Image and media processing tools."
+      },
+      "utility": {
+        "name": "Utility",
+        "description": "Everyday calculators and helpers."
+      },
+      "finance": {
+        "name": "Finance",
+        "description": "Loans, interest, and salary calculators."
+      },
+      "education": {
+        "name": "Education",
+        "description": "Grade and GPA calculators."
+      },
       "business": {
         "name": "Business & Finance",
         "description": "Invoicing and business utilities."
       },
-      "health": { "name": "Health", "description": "Health and fitness calculators." },
-      "shopping": { "name": "Shopping", "description": "Discount and price calculators." }
+      "health": {
+        "name": "Health",
+        "description": "Health and fitness calculators."
+      },
+      "shopping": {
+        "name": "Shopping",
+        "description": "Discount and price calculators."
+      }
     }
   },
   "ToolsPage": {
@@ -304,8 +322,14 @@
       "name": "RegEx Tester",
       "description": "Test regular expressions against text."
     },
-    "qr-code-generator": { "name": "QR Code Generator", "description": "Generate QR codes." },
-    "user-agent": { "name": "User-Agent Parser", "description": "Parse User-Agent strings." },
+    "qr-code-generator": {
+      "name": "QR Code Generator",
+      "description": "Generate QR codes."
+    },
+    "user-agent": {
+      "name": "User-Agent Parser",
+      "description": "Parse User-Agent strings."
+    },
     "unix-timestamp-converter": {
       "name": "Unix Timestamp Converter",
       "description": "Convert Unix timestamps to dates."
@@ -318,7 +342,10 @@
       "name": "URL Encoder & Decoder",
       "description": "Percent-encode and decode URI components."
     },
-    "uuid-generator": { "name": "UUID v4 Generator", "description": "Generate Version 4 UUIDs." },
+    "uuid-generator": {
+      "name": "UUID v4 Generator",
+      "description": "Generate Version 4 UUIDs."
+    },
     "hash-generator": {
       "name": "Hash Generator",
       "description": "Generate SHA-256, SHA-512, SHA-384, SHA-1 hashes."
@@ -331,7 +358,10 @@
       "name": "Checksum Calculator",
       "description": "Calculate hashes (SHA-256, SHA-512, SHA-1)."
     },
-    "hmac-generator": { "name": "HMAC Generator", "description": "Generate HMAC signatures." },
+    "hmac-generator": {
+      "name": "HMAC Generator",
+      "description": "Generate HMAC signatures."
+    },
     "jwt-decoder-&-inspector": {
       "name": "JWT Decoder & Inspector",
       "description": "Decode and inspect JWT tokens."
@@ -378,7 +408,7 @@
       "howToStep5": "Click Copy Full Report to save or share your results.",
       "faqHeading": "Frequently Asked Questions",
       "faq1Question": "How is age calculated?",
-      "faq1Answer": "Age is calculated by finding the difference between today\u0027s date and your date of birth. The tool accounts for leap years and varying month lengths to provide an exact breakdown in years, months, and days.",
+      "faq1Answer": "Age is calculated by finding the difference between today's date and your date of birth. The tool accounts for leap years and varying month lengths to provide an exact breakdown in years, months, and days.",
       "faq2Question": "What is the difference between chronological and biological age?",
       "faq2Answer": "Chronological age is the actual time elapsed since you were born, which is what this calculator measures. Biological age reflects how old your body appears based on health markers and can differ from chronological age.",
       "faq3Question": "Is my birthdate stored anywhere?",
@@ -471,5 +501,34 @@
       "name": "Grade Calculator",
       "description": "Calculate weighted grades, letter grade, GPA."
     }
+  },
+  "DocsPage": {
+    "metaTitle": "Documentation - VelnoxLabs",
+    "metaDescription": "Documentation for VelnoxLabs tools. Coming soon.",
+    "title": "Documentation",
+    "subtitle": "Detailed documentation for all our tools is coming soon.",
+    "comingSoon": "🚧 Coming Soon",
+    "comingSoonText": "We are working on this page. Please check back later."
+  },
+  "GuidesPage": {
+    "metaTitle": "Guides - VelnoxLabs",
+    "metaDescription": "Step-by-step guides for using VelnoxLabs tools. Coming soon.",
+    "title": "Guides",
+    "subtitle": "Step-by-step tutorials and guides are coming soon.",
+    "comingSoon": "🚧 Coming Soon",
+    "comingSoonText": "We are working on this page. Please check back later."
+  },
+  "Common": {
+    "toggleTheme": "Toggle theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "changeLanguage": "Change language",
+    "mobileNavigation": "Mobile navigation",
+    "closeMenu": "Close menu",
+    "mobilePrimary": "Mobile primary",
+    "socialLinks": "Social links",
+    "tool": "Tool",
+    "formActions": "Form actions",
+    "primaryNavigation": "Primary"
   }
 }

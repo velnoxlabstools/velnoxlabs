@@ -1,6 +1,6 @@
 import type { Tool } from '@/types/tools';
 import { EmptyState } from '@/components/ui';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface CategoryToolsPlaceholderProps {
   tools: Tool[];
@@ -44,7 +44,9 @@ export function CategoryToolsPlaceholder({ tools }: CategoryToolsPlaceholderProp
               color: 'var(--foreground)',
             }}
           >
-            <span style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-sm)' }}>
+            <span
+              style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-sm)' }}
+            >
               {tool.name}
             </span>
             <span

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { Category } from '@/types/tools';
 
 interface CategoryCardProps {
@@ -50,7 +50,13 @@ export function CategoryCard({ category }: CategoryCardProps) {
           {category.description}
         </p>
       ) : null}
-      <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--muted-foreground)', marginTop: 'var(--space-2)' }}>
+      <span
+        style={{
+          fontSize: 'var(--font-size-xs)',
+          color: 'var(--muted-foreground)',
+          marginTop: 'var(--space-2)',
+        }}
+      >
         {category.toolCount ?? 0} tools
       </span>
     </Link>

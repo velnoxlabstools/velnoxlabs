@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { Tool } from '@/types/tools';
 import { Badge } from '@/components/ui/Badge';
 
@@ -26,7 +26,14 @@ export function ToolCard({ tool }: ToolCardProps) {
         minHeight: '9rem',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 'var(--space-2)' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          gap: 'var(--space-2)',
+        }}
+      >
         <h3
           style={{
             margin: 0,

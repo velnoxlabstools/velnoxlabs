@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { SearchHit, SearchResult } from '@/types/search';
 import { EmptyState, LoadingState, ErrorState } from '@/components/ui';
 
@@ -63,7 +63,9 @@ export function SearchResults({ result, loading, error }: SearchResultsProps) {
   if (error) return <ErrorState title="Search failed" description="Please try again." />;
   if (!result) return null;
   if (!result.query) {
-    return <EmptyState title="Search VelnoxLabs" description="Find tools, categories, and pages." />;
+    return (
+      <EmptyState title="Search VelnoxLabs" description="Find tools, categories, and pages." />
+    );
   }
   if (result.total === 0) {
     return (

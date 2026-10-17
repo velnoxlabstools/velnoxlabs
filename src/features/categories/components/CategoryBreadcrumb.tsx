@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface Crumb {
   label: string;
@@ -25,10 +25,16 @@ export function CategoryBreadcrumb({ items }: CategoryBreadcrumbProps) {
         }}
       >
         {items.map((item, i) => (
-          <li key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+          <li
+            key={item.label}
+            style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}
+          >
             {i > 0 && <span aria-hidden="true">/</span>}
             {item.href ? (
-              <Link href={item.href} style={{ color: 'var(--muted-foreground)', textDecoration: 'none' }}>
+              <Link
+                href={item.href}
+                style={{ color: 'var(--muted-foreground)', textDecoration: 'none' }}
+              >
                 {item.label}
               </Link>
             ) : (

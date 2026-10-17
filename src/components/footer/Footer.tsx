@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { navigationConfig } from '@/data/navigation';
 import { GlobalContainer } from '@/components/layout';
@@ -6,6 +6,7 @@ import { Logo } from '@/components/header/Logo';
 
 export async function Footer() {
   const t = await getTranslations('Footer');
+  const tCommon = await getTranslations('Common');
   const year = new Date().getFullYear();
 
   const groupTitleKeys: Record<string, string> = {
@@ -58,7 +59,7 @@ export async function Footer() {
               {t('tagline')}
             </p>
             <div
-              aria-label="Social links"
+              aria-label={tCommon('socialLinks')}
               style={{
                 display: 'flex',
                 gap: 'var(--space-3)',

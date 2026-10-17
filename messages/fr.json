@@ -52,19 +52,34 @@
         "name": "Convertisseurs",
         "description": "Conversion de formats et d'unités."
       },
-      "image": { "name": "Médias", "description": "Traitement d'images et de médias." },
-      "utility": { "name": "Utilitaires", "description": "Calculatrices et aides du quotidien." },
+      "image": {
+        "name": "Médias",
+        "description": "Traitement d'images et de médias."
+      },
+      "utility": {
+        "name": "Utilitaires",
+        "description": "Calculatrices et aides du quotidien."
+      },
       "finance": {
         "name": "Finance",
         "description": "Calculatrices de prêts, d'intérêts et de salaires."
       },
-      "education": { "name": "Éducation", "description": "Calculatrices de notes et de GPA." },
+      "education": {
+        "name": "Éducation",
+        "description": "Calculatrices de notes et de GPA."
+      },
       "business": {
         "name": "Affaires et Finance",
         "description": "Facturation et utilitaires commerciaux."
       },
-      "health": { "name": "Santé", "description": "Calculatrices de santé et de fitness." },
-      "shopping": { "name": "Achats", "description": "Calculatrices de remises et de prix." }
+      "health": {
+        "name": "Santé",
+        "description": "Calculatrices de santé et de fitness."
+      },
+      "shopping": {
+        "name": "Achats",
+        "description": "Calculatrices de remises et de prix."
+      }
     }
   },
   "ToolsPage": {
@@ -350,7 +365,10 @@
       "name": "Calculateur de Checksum",
       "description": "Calcule des hachages (SHA-256, SHA-512, SHA-1)."
     },
-    "hmac-generator": { "name": "Générateur HMAC", "description": "Génère des signatures HMAC." },
+    "hmac-generator": {
+      "name": "Générateur HMAC",
+      "description": "Génère des signatures HMAC."
+    },
     "jwt-decoder-&-inspector": {
       "name": "Décodeur et Inspecteur JWT",
       "description": "Décode et inspecte les jetons JWT."
@@ -384,26 +402,26 @@
       "description": "Convertit le texte en slugs d'URL propres et adaptés au SEO."
     },
     "age-calculator": {
-      "name": "Calculatrice d\u0027Âge",
-      "description": "Calcule l\u0027âge exact en années, mois, jours, heures.",
-      "pageSubtitle": "Calculez votre âge exact en années, mois, jours, heures et minutes, avec le compte à rebours jusqu\u0027à votre prochain anniversaire et votre signe astrologique.",
-      "seoHeading": "Qu\u0027est-ce qu\u0027un calculateur d\u0027âge ?",
-      "seoDescription": "Un calculateur d\u0027âge est un outil en ligne gratuit qui calcule votre âge exact à partir de votre date de naissance. Au lieu d\u0027une simple soustraction des années, il fournit un calcul précis en années, mois, jours, heures, minutes et semaines au total. Il indique également le jour de la semaine de votre naissance, votre signe astrologique et le nombre de jours avant votre prochain anniversaire. Il est utile pour remplir des formulaires, des documents juridiques, des demandes de visa ou simplement par curiosité.",
+      "name": "Calculatrice d'Âge",
+      "description": "Calcule l'âge exact en années, mois, jours, heures.",
+      "pageSubtitle": "Calculez votre âge exact en années, mois, jours, heures et minutes, avec le compte à rebours jusqu'à votre prochain anniversaire et votre signe astrologique.",
+      "seoHeading": "Qu'est-ce qu'un calculateur d'âge ?",
+      "seoDescription": "Un calculateur d'âge est un outil en ligne gratuit qui calcule votre âge exact à partir de votre date de naissance. Au lieu d'une simple soustraction des années, il fournit un calcul précis en années, mois, jours, heures, minutes et semaines au total. Il indique également le jour de la semaine de votre naissance, votre signe astrologique et le nombre de jours avant votre prochain anniversaire. Il est utile pour remplir des formulaires, des documents juridiques, des demandes de visa ou simplement par curiosité.",
       "howToHeading": "Comment utiliser cet outil",
-      "howToStep1": "Sélectionnez votre date de naissance à l\u0027aide du sélecteur de date.",
-      "howToStep2": "Votre âge exact s\u0027affiche immédiatement en années, mois et jours.",
+      "howToStep1": "Sélectionnez votre date de naissance à l'aide du sélecteur de date.",
+      "howToStep2": "Votre âge exact s'affiche immédiatement en années, mois et jours.",
       "howToStep3": "Consultez le temps total écoulé en mois, semaines, jours, heures et minutes.",
-      "howToStep4": "Découvrez votre signe astrologique, le jour de la semaine de votre naissance et le compte à rebours jusqu\u0027à votre prochain anniversaire.",
+      "howToStep4": "Découvrez votre signe astrologique, le jour de la semaine de votre naissance et le compte à rebours jusqu'à votre prochain anniversaire.",
       "howToStep5": "Cliquez sur Copier le rapport complet pour enregistrer ou partager vos résultats.",
       "faqHeading": "Questions fréquentes",
-      "faq1Question": "Comment l\u0027âge est-il calculé ?",
-      "faq1Answer": "L\u0027âge est calculé en déterminant la différence entre la date du jour et votre date de naissance. L\u0027outil tient compte des années bissextiles et de la durée variable des mois pour fournir un calcul précis en années, mois et jours.",
-      "faq2Question": "Quelle est la différence entre l\u0027âge chronologique et l\u0027âge biologique ?",
-      "faq2Answer": "L\u0027âge chronologique correspond au temps réellement écoulé depuis votre naissance : c\u0027est celui que calcule cet outil. L\u0027âge biologique reflète le vieillissement apparent du corps selon certains indicateurs de santé et peut être différent.",
+      "faq1Question": "Comment l'âge est-il calculé ?",
+      "faq1Answer": "L'âge est calculé en déterminant la différence entre la date du jour et votre date de naissance. L'outil tient compte des années bissextiles et de la durée variable des mois pour fournir un calcul précis en années, mois et jours.",
+      "faq2Question": "Quelle est la différence entre l'âge chronologique et l'âge biologique ?",
+      "faq2Answer": "L'âge chronologique correspond au temps réellement écoulé depuis votre naissance : c'est celui que calcule cet outil. L'âge biologique reflète le vieillissement apparent du corps selon certains indicateurs de santé et peut être différent.",
       "faq3Question": "Ma date de naissance est-elle enregistrée quelque part ?",
-      "faq3Answer": "Non. Tous les calculs sont effectués directement dans votre navigateur. Ce calculateur n\u0027envoie pas votre date de naissance à un serveur et ne l\u0027enregistre pas.",
+      "faq3Answer": "Non. Tous les calculs sont effectués directement dans votre navigateur. Ce calculateur n'envoie pas votre date de naissance à un serveur et ne l'enregistre pas.",
       "faq4Question": "Puis-je utiliser ce résultat pour des documents officiels ?",
-      "faq4Answer": "Le résultat fournit un calcul mathématique de votre âge et peut vous aider à remplir des demandes de visa, des formulaires scolaires, des documents médicaux et d\u0027autres dossiers nécessitant votre âge. Respectez toujours les exigences précises de l\u0027autorité concernée.",
+      "faq4Answer": "Le résultat fournit un calcul mathématique de votre âge et peut vous aider à remplir des demandes de visa, des formulaires scolaires, des documents médicaux et d'autres dossiers nécessitant votre âge. Respectez toujours les exigences précises de l'autorité concernée.",
       "dateOfBirth": "Date de naissance :",
       "birthDateFutureError": "La date de naissance ne peut pas être dans le futur.",
       "yourExactAge": "Votre âge exact",
@@ -417,15 +435,15 @@
       "totalMonths": "Nombre total de mois",
       "totalWeeks": "Nombre total de semaines",
       "totalDays": "Nombre total de jours",
-      "totalHours": "Nombre total d\u0027heures",
+      "totalHours": "Nombre total d'heures",
       "totalMinutes": "Nombre total de minutes",
-      "daysToBirthday": "Jours avant l\u0027anniversaire",
+      "daysToBirthday": "Jours avant l'anniversaire",
       "bornOn": "NÉ(E) LE",
       "zodiacSign": "SIGNE ASTROLOGIQUE",
       "nextBirthday": "PROCHAIN ANNIVERSAIRE",
       "nextBirthdaySingular": "Dans {days} jour",
       "nextBirthdayPlural": "Dans {days} jours",
-      "reportTitle": "Rapport d\u0027âge :",
+      "reportTitle": "Rapport d'âge :",
       "exactAgeReport": "Âge exact : {years} {yearsUnit}, {months} {monthsUnit}, {days} {daysUnit}",
       "bornOnReport": "Né(e) le : {day}",
       "zodiacReport": "Signe astrologique : {sign}",
@@ -490,5 +508,34 @@
       "name": "Calculatrice de Notes",
       "description": "Calcule les notes pondérées, lettres et GPA."
     }
+  },
+  "DocsPage": {
+    "metaTitle": "Documentation - VelnoxLabs",
+    "metaDescription": "Documentation pour les outils VelnoxLabs. Bientôt disponible.",
+    "title": "Documentation",
+    "subtitle": "Une documentation détaillée pour tous nos outils sera bientôt disponible.",
+    "comingSoon": "🚧 Bientôt disponible",
+    "comingSoonText": "Nous travaillons sur cette page. Merci de revenir ultérieurement."
+  },
+  "GuidesPage": {
+    "metaTitle": "Guides - VelnoxLabs",
+    "metaDescription": "Guides étape par étape pour utiliser les outils VelnoxLabs. Bientôt disponible.",
+    "title": "Guides",
+    "subtitle": "Des tutoriels et guides étape par étape seront bientôt disponibles.",
+    "comingSoon": "🚧 Bientôt disponible",
+    "comingSoonText": "Nous travaillons sur cette page. Merci de revenir ultérieurement."
+  },
+  "Common": {
+    "toggleTheme": "Changer de thème",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "changeLanguage": "Changer de langue",
+    "mobileNavigation": "Navigation mobile",
+    "closeMenu": "Fermer le menu",
+    "mobilePrimary": "Navigation mobile principale",
+    "socialLinks": "Réseaux sociaux",
+    "tool": "Outil",
+    "formActions": "Actions du formulaire",
+    "primaryNavigation": "Principale"
   }
 }

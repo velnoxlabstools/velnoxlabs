@@ -48,17 +48,38 @@
         "name": "Text & Inhalt",
         "description": "Textbearbeitung, Zählung und Generierung."
       },
-      "converters": { "name": "Konverter", "description": "Format- und Einheitenumrechnung." },
-      "image": { "name": "Medien", "description": "Bild- und Medienverarbeitung." },
-      "utility": { "name": "Dienstprogramme", "description": "Alltägliche Rechner und Helfer." },
-      "finance": { "name": "Finanzen", "description": "Kredit-, Zins- und Gehaltsrechner." },
-      "education": { "name": "Bildung", "description": "Noten- und GPA-Rechner." },
+      "converters": {
+        "name": "Konverter",
+        "description": "Format- und Einheitenumrechnung."
+      },
+      "image": {
+        "name": "Medien",
+        "description": "Bild- und Medienverarbeitung."
+      },
+      "utility": {
+        "name": "Dienstprogramme",
+        "description": "Alltägliche Rechner und Helfer."
+      },
+      "finance": {
+        "name": "Finanzen",
+        "description": "Kredit-, Zins- und Gehaltsrechner."
+      },
+      "education": {
+        "name": "Bildung",
+        "description": "Noten- und GPA-Rechner."
+      },
       "business": {
         "name": "Business & Finanzen",
         "description": "Rechnungsstellung und Geschäftstools."
       },
-      "health": { "name": "Gesundheit", "description": "Gesundheits- und Fitness-Rechner." },
-      "shopping": { "name": "Einkaufen", "description": "Rabatt- und Preisrechner." }
+      "health": {
+        "name": "Gesundheit",
+        "description": "Gesundheits- und Fitness-Rechner."
+      },
+      "shopping": {
+        "name": "Einkaufen",
+        "description": "Rabatt- und Preisrechner."
+      }
     }
   },
   "ToolsPage": {
@@ -308,8 +329,14 @@
       "name": "RegEx-Tester",
       "description": "Testet reguläre Ausdrücke gegen Text."
     },
-    "qr-code-generator": { "name": "QR-Code-Generator", "description": "Generiert QR-Codes." },
-    "user-agent": { "name": "User-Agent-Parser", "description": "Analysiert User-Agent-Strings." },
+    "qr-code-generator": {
+      "name": "QR-Code-Generator",
+      "description": "Generiert QR-Codes."
+    },
+    "user-agent": {
+      "name": "User-Agent-Parser",
+      "description": "Analysiert User-Agent-Strings."
+    },
     "unix-timestamp-converter": {
       "name": "Unix-Zeitstempel-Konverter",
       "description": "Konvertiert Unix-Zeitstempel in Daten."
@@ -322,7 +349,10 @@
       "name": "URL-Encoder & Decoder",
       "description": "Kodiert und dekodiert URI-Komponenten."
     },
-    "uuid-generator": { "name": "UUID-v4-Generator", "description": "Generiert Version-4-UUIDs." },
+    "uuid-generator": {
+      "name": "UUID-v4-Generator",
+      "description": "Generiert Version-4-UUIDs."
+    },
     "hash-generator": {
       "name": "Hash-Generator",
       "description": "Generiert SHA-256-, SHA-512-, SHA-384-, SHA-1-Hashes."
@@ -335,7 +365,10 @@
       "name": "Prüfsummen-Rechner",
       "description": "Berechnet Hashes (SHA-256, SHA-512, SHA-1)."
     },
-    "hmac-generator": { "name": "HMAC-Generator", "description": "Generiert HMAC-Signaturen." },
+    "hmac-generator": {
+      "name": "HMAC-Generator",
+      "description": "Generiert HMAC-Signaturen."
+    },
     "jwt-decoder-&-inspector": {
       "name": "JWT-Decoder & Inspektor",
       "description": "Dekodiert und inspiziert JWT-Token."
@@ -475,5 +508,34 @@
       "name": "Notenrechner",
       "description": "Berechnet gewichtete Noten, Buchstabennote und GPA."
     }
+  },
+  "DocsPage": {
+    "metaTitle": "Dokumentation - VelnoxLabs",
+    "metaDescription": "Dokumentation für VelnoxLabs-Tools. Demnächst verfügbar.",
+    "title": "Dokumentation",
+    "subtitle": "Ausführliche Dokumentation für alle unsere Tools ist in Kürze verfügbar.",
+    "comingSoon": "🚧 Demnächst verfügbar",
+    "comingSoonText": "Wir arbeiten an dieser Seite. Bitte schauen Sie später wieder vorbei."
+  },
+  "GuidesPage": {
+    "metaTitle": "Anleitungen - VelnoxLabs",
+    "metaDescription": "Schritt-für-Schritt-Anleitungen zur Nutzung der VelnoxLabs-Tools. Demnächst.",
+    "title": "Anleitungen",
+    "subtitle": "Schritt-für-Schritt-Anleitungen und Tutorials erscheinen in Kürze.",
+    "comingSoon": "🚧 Demnächst verfügbar",
+    "comingSoonText": "Wir arbeiten an dieser Seite. Bitte schauen Sie später wieder vorbei."
+  },
+  "Common": {
+    "toggleTheme": "Design umschalten",
+    "lightMode": "Heller Modus",
+    "darkMode": "Dunkler Modus",
+    "changeLanguage": "Sprache wechseln",
+    "mobileNavigation": "Mobile Navigation",
+    "closeMenu": "Menü schließen",
+    "mobilePrimary": "Mobile Hauptnavigation",
+    "socialLinks": "Soziale Netzwerke",
+    "tool": "Tool",
+    "formActions": "Formularaktionen",
+    "primaryNavigation": "Hauptnavigation"
   }
 }

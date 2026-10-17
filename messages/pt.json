@@ -56,18 +56,30 @@
         "name": "Mídia",
         "description": "Ferramentas de processamento de imagens e mídia."
       },
-      "utility": { "name": "Utilidades", "description": "Calculadoras e ajudantes do dia a dia." },
+      "utility": {
+        "name": "Utilidades",
+        "description": "Calculadoras e ajudantes do dia a dia."
+      },
       "finance": {
         "name": "Finanças",
         "description": "Calculadoras de empréstimos, juros e salários."
       },
-      "education": { "name": "Educação", "description": "Calculadoras de notas e GPA." },
+      "education": {
+        "name": "Educação",
+        "description": "Calculadoras de notas e GPA."
+      },
       "business": {
         "name": "Negócios e Finanças",
         "description": "Faturamento e utilitários empresariais."
       },
-      "health": { "name": "Saúde", "description": "Calculadoras de saúde e fitness." },
-      "shopping": { "name": "Compras", "description": "Calculadoras de descontos e preços." }
+      "health": {
+        "name": "Saúde",
+        "description": "Calculadoras de saúde e fitness."
+      },
+      "shopping": {
+        "name": "Compras",
+        "description": "Calculadoras de descontos e preços."
+      }
     }
   },
   "ToolsPage": {
@@ -317,7 +329,10 @@
       "name": "Testador RegEx",
       "description": "Testa expressões regulares contra texto."
     },
-    "qr-code-generator": { "name": "Gerador de Códigos QR", "description": "Gera códigos QR." },
+    "qr-code-generator": {
+      "name": "Gerador de Códigos QR",
+      "description": "Gera códigos QR."
+    },
     "user-agent": {
       "name": "Analisador de User-Agent",
       "description": "Analisa strings User-Agent."
@@ -334,7 +349,10 @@
       "name": "Codificador e Decodificador de URL",
       "description": "Codifica e decodifica componentes URI."
     },
-    "uuid-generator": { "name": "Gerador UUID v4", "description": "Gera UUIDs de Versão 4." },
+    "uuid-generator": {
+      "name": "Gerador UUID v4",
+      "description": "Gera UUIDs de Versão 4."
+    },
     "hash-generator": {
       "name": "Gerador de Hash",
       "description": "Gera hashes SHA-256, SHA-512, SHA-384, SHA-1."
@@ -347,7 +365,10 @@
       "name": "Calculadora de Checksum",
       "description": "Calcula hashes (SHA-256, SHA-512, SHA-1)."
     },
-    "hmac-generator": { "name": "Gerador HMAC", "description": "Gera assinaturas HMAC." },
+    "hmac-generator": {
+      "name": "Gerador HMAC",
+      "description": "Gera assinaturas HMAC."
+    },
     "jwt-decoder-&-inspector": {
       "name": "Decodificador e Inspetor JWT",
       "description": "Decodifica e inspeciona tokens JWT."
@@ -487,5 +508,34 @@
       "name": "Calculadora de Notas",
       "description": "Calcula notas ponderadas, nota em letra e GPA."
     }
+  },
+  "DocsPage": {
+    "metaTitle": "Documentação - VelnoxLabs",
+    "metaDescription": "Documentação para as ferramentas VelnoxLabs. Em breve.",
+    "title": "Documentação",
+    "subtitle": "Documentação detalhada para todas as nossas ferramentas em breve.",
+    "comingSoon": "🚧 Em Breve",
+    "comingSoonText": "Estamos trabalhando nesta página. Por favor, volte mais tarde."
+  },
+  "GuidesPage": {
+    "metaTitle": "Guias - VelnoxLabs",
+    "metaDescription": "Guias passo a passo para usar as ferramentas VelnoxLabs. Em breve.",
+    "title": "Guias",
+    "subtitle": "Tutoriais e guias passo a passo estarão disponíveis em breve.",
+    "comingSoon": "🚧 Em Breve",
+    "comingSoonText": "Estamos trabalhando nesta página. Por favor, volte mais tarde."
+  },
+  "Common": {
+    "toggleTheme": "Alternar tema",
+    "lightMode": "Modo claro",
+    "darkMode": "Modo escuro",
+    "changeLanguage": "Mudar idioma",
+    "mobileNavigation": "Navegação móvel",
+    "closeMenu": "Fechar menu",
+    "mobilePrimary": "Navegação principal móvel",
+    "socialLinks": "Redes sociais",
+    "tool": "Ferramenta",
+    "formActions": "Ações do formulário",
+    "primaryNavigation": "Principal"
   }
 }

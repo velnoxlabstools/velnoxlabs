@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { Category } from '@/types/tools';
 import { CategoryIcon } from './CategoryIcon';
 
@@ -25,7 +25,9 @@ export function CategoryCard({ category }: CategoryCardProps) {
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
         <CategoryIcon icon={category.icon} name={category.name} />
-        <span style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-base)' }}>
+        <span
+          style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-base)' }}
+        >
           {category.name}
         </span>
       </div>

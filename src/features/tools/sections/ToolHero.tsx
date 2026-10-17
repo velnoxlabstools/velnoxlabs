@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { ToolConfig } from '@/types/tool-engine';
 import type { Category } from '@/types/tools';
 import { ToolBreadcrumb } from '../components/ToolBreadcrumb';

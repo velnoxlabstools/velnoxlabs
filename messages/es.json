@@ -56,18 +56,30 @@
         "name": "Multimedia",
         "description": "Herramientas de procesamiento de imágenes y multimedia."
       },
-      "utility": { "name": "Utilidades", "description": "Calculadoras y ayudantes cotidianos." },
+      "utility": {
+        "name": "Utilidades",
+        "description": "Calculadoras y ayudantes cotidianos."
+      },
       "finance": {
         "name": "Finanzas",
         "description": "Calculadoras de préstamos, intereses y salarios."
       },
-      "education": { "name": "Educación", "description": "Calculadoras de calificaciones y GPA." },
+      "education": {
+        "name": "Educación",
+        "description": "Calculadoras de calificaciones y GPA."
+      },
       "business": {
         "name": "Negocios y Finanzas",
         "description": "Facturación y utilidades empresariales."
       },
-      "health": { "name": "Salud", "description": "Calculadoras de salud y fitness." },
-      "shopping": { "name": "Compras", "description": "Calculadoras de descuentos y precios." }
+      "health": {
+        "name": "Salud",
+        "description": "Calculadoras de salud y fitness."
+      },
+      "shopping": {
+        "name": "Compras",
+        "description": "Calculadoras de descuentos y precios."
+      }
     }
   },
   "ToolsPage": {
@@ -317,7 +329,10 @@
       "name": "Probador de RegEx",
       "description": "Prueba expresiones regulares contra texto."
     },
-    "qr-code-generator": { "name": "Generador de Códigos QR", "description": "Genera códigos QR." },
+    "qr-code-generator": {
+      "name": "Generador de Códigos QR",
+      "description": "Genera códigos QR."
+    },
     "user-agent": {
       "name": "Analizador de User-Agent",
       "description": "Analiza cadenas de User-Agent."
@@ -350,7 +365,10 @@
       "name": "Calculadora de Checksum",
       "description": "Calcula hashes (SHA-256, SHA-512, SHA-1)."
     },
-    "hmac-generator": { "name": "Generador de HMAC", "description": "Genera firmas HMAC." },
+    "hmac-generator": {
+      "name": "Generador de HMAC",
+      "description": "Genera firmas HMAC."
+    },
     "jwt-decoder-&-inspector": {
       "name": "Decodificador e Inspector de JWT",
       "description": "Decodifica e inspecciona tokens JWT."
@@ -490,5 +508,34 @@
       "name": "Calculadora de Calificaciones",
       "description": "Calcula calificaciones ponderadas, letra y GPA."
     }
+  },
+  "DocsPage": {
+    "metaTitle": "Documentación - VelnoxLabs",
+    "metaDescription": "Documentación para las herramientas de VelnoxLabs. Próximamente.",
+    "title": "Documentación",
+    "subtitle": "Próximamente dispondremos de documentación detallada para todas nuestras herramientas.",
+    "comingSoon": "🚧 Próximamente",
+    "comingSoonText": "Estamos trabajando en esta página. Por favor, vuelve a consultar más tarde."
+  },
+  "GuidesPage": {
+    "metaTitle": "Guías - VelnoxLabs",
+    "metaDescription": "Guías paso a paso para utilizar las herramientas de VelnoxLabs. Próximamente.",
+    "title": "Guías",
+    "subtitle": "Tutoriales y guías paso a paso estarán disponibles muy pronto.",
+    "comingSoon": "🚧 Próximamente",
+    "comingSoonText": "Estamos trabajando en esta página. Por favor, vuelve a consultar más tarde."
+  },
+  "Common": {
+    "toggleTheme": "Cambiar tema",
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro",
+    "changeLanguage": "Cambiar idioma",
+    "mobileNavigation": "Navegación móvil",
+    "closeMenu": "Cerrar menú",
+    "mobilePrimary": "Navegación principal móvil",
+    "socialLinks": "Redes sociales",
+    "tool": "Herramienta",
+    "formActions": "Acciones del formulario",
+    "primaryNavigation": "Principal"
   }
 }

@@ -8,6 +8,7 @@ import type { Tool } from '@/types/tools';
 
 export default function SearchBar() {
   const t = useTranslations('Header');
+  const tCommon = useTranslations('Common');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Tool[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -79,7 +80,9 @@ export default function SearchBar() {
               className="block px-4 py-3 hover:bg-slate-800 transition-colors border-b border-slate-800/50 last:border-0"
             >
               <div className="text-sm font-medium text-white">{tool.name}</div>
-              <div className="text-xs text-slate-500 mt-0.5">{tool.tags?.join(', ') || 'Tool'}</div>
+              <div className="text-xs text-slate-500 mt-0.5">
+                {tool.tags?.join(', ') || tCommon('tool')}
+              </div>
             </Link>
           ))}
         </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import type { FormButtonConfig, FormStatus } from './types';
 
 interface FormActionsProps {
@@ -10,24 +11,41 @@ interface FormActionsProps {
 
 function styleFor(variant: FormButtonConfig['variant'] = 'secondary'): React.CSSProperties {
   if (variant === 'primary') {
-    return { background: 'var(--primary)', color: 'var(--primary-foreground)', border: '1px solid var(--primary)' };
+    return {
+      background: 'var(--primary)',
+      color: 'var(--primary-foreground)',
+      border: '1px solid var(--primary)',
+    };
   }
   if (variant === 'danger') {
-    return { background: 'var(--destructive)', color: 'var(--destructive-foreground)', border: '1px solid var(--destructive)' };
+    return {
+      background: 'var(--destructive)',
+      color: 'var(--destructive-foreground)',
+      border: '1px solid var(--destructive)',
+    };
   }
   if (variant === 'ghost') {
-    return { background: 'transparent', color: 'var(--foreground)', border: '1px solid transparent' };
+    return {
+      background: 'transparent',
+      color: 'var(--foreground)',
+      border: '1px solid transparent',
+    };
   }
-  return { background: 'var(--background)', color: 'var(--foreground)', border: '1px solid var(--border)' };
+  return {
+    background: 'var(--background)',
+    color: 'var(--foreground)',
+    border: '1px solid var(--border)',
+  };
 }
 
 export function FormActions({ actions, status, onAction }: FormActionsProps) {
+  const tCommon = useTranslations('Common');
   const busy = status === 'submitting' || status === 'loading' || status === 'disabled';
 
   return (
     <div
       role="group"
-      aria-label="Form actions"
+      aria-label={tCommon('formActions')}
       style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}
     >
       {actions.map((action) => (

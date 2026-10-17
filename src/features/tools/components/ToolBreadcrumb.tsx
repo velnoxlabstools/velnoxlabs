@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { ToolConfig } from '@/types/tool-engine';
 import type { Category } from '@/types/tools';
 
@@ -11,9 +11,7 @@ export function ToolBreadcrumb({ tool, category }: ToolBreadcrumbProps) {
   const items = [
     { label: 'Home', href: '/' },
     { label: 'Tools', href: '/tools' },
-    ...(category
-      ? [{ label: category.name, href: `/categories/${category.slug}` }]
-      : []),
+    ...(category ? [{ label: category.name, href: `/categories/${category.slug}` }] : []),
     { label: tool.name },
   ];
 
@@ -38,7 +36,10 @@ export function ToolBreadcrumb({ tool, category }: ToolBreadcrumbProps) {
           >
             {i > 0 && <span aria-hidden="true">/</span>}
             {'href' in item && item.href ? (
-              <Link href={item.href} style={{ color: 'var(--muted-foreground)', textDecoration: 'none' }}>
+              <Link
+                href={item.href}
+                style={{ color: 'var(--muted-foreground)', textDecoration: 'none' }}
+              >
                 {item.label}
               </Link>
             ) : (

@@ -48,20 +48,38 @@
         "name": "Testo e Contenuto",
         "description": "Manipolazione, conteggio e generazione di testo."
       },
-      "converters": { "name": "Convertitori", "description": "Conversioni di formato e unità." },
-      "image": { "name": "Media", "description": "Elaborazione di immagini e media." },
-      "utility": { "name": "Utilità", "description": "Calcolatrici e aiutanti quotidiani." },
+      "converters": {
+        "name": "Convertitori",
+        "description": "Conversioni di formato e unità."
+      },
+      "image": {
+        "name": "Media",
+        "description": "Elaborazione di immagini e media."
+      },
+      "utility": {
+        "name": "Utilità",
+        "description": "Calcolatrici e aiutanti quotidiani."
+      },
       "finance": {
         "name": "Finanza",
         "description": "Calcolatrici di prestiti, interessi e stipendi."
       },
-      "education": { "name": "Istruzione", "description": "Calcolatrici di voti e GPA." },
+      "education": {
+        "name": "Istruzione",
+        "description": "Calcolatrici di voti e GPA."
+      },
       "business": {
         "name": "Affari e Finanza",
         "description": "Fatturazione e utilità aziendali."
       },
-      "health": { "name": "Salute", "description": "Calcolatrici di salute e fitness." },
-      "shopping": { "name": "Acquisti", "description": "Calcolatrici di sconti e prezzi." }
+      "health": {
+        "name": "Salute",
+        "description": "Calcolatrici di salute e fitness."
+      },
+      "shopping": {
+        "name": "Acquisti",
+        "description": "Calcolatrici di sconti e prezzi."
+      }
     }
   },
   "ToolsPage": {
@@ -311,8 +329,14 @@
       "name": "Tester RegEx",
       "description": "Testa espressioni regolari su testo."
     },
-    "qr-code-generator": { "name": "Generatore di Codici QR", "description": "Genera codici QR." },
-    "user-agent": { "name": "Parser User-Agent", "description": "Analizza stringhe User-Agent." },
+    "qr-code-generator": {
+      "name": "Generatore di Codici QR",
+      "description": "Genera codici QR."
+    },
+    "user-agent": {
+      "name": "Parser User-Agent",
+      "description": "Analizza stringhe User-Agent."
+    },
     "unix-timestamp-converter": {
       "name": "Convertitore Timestamp Unix",
       "description": "Converte timestamp Unix in date."
@@ -325,7 +349,10 @@
       "name": "Encoder e Decoder URL",
       "description": "Codifica e decodifica componenti URI."
     },
-    "uuid-generator": { "name": "Generatore UUID v4", "description": "Genera UUID Versione 4." },
+    "uuid-generator": {
+      "name": "Generatore UUID v4",
+      "description": "Genera UUID Versione 4."
+    },
     "hash-generator": {
       "name": "Generatore di Hash",
       "description": "Genera hash SHA-256, SHA-512, SHA-384, SHA-1."
@@ -338,7 +365,10 @@
       "name": "Calcolatore di Checksum",
       "description": "Calcola hash (SHA-256, SHA-512, SHA-1)."
     },
-    "hmac-generator": { "name": "Generatore HMAC", "description": "Genera firme HMAC." },
+    "hmac-generator": {
+      "name": "Generatore HMAC",
+      "description": "Genera firme HMAC."
+    },
     "jwt-decoder-&-inspector": {
       "name": "Decoder e Ispettore JWT",
       "description": "Decodifica e ispeziona token JWT."
@@ -373,9 +403,9 @@
     },
     "age-calculator": {
       "name": "Calcolatore di Età",
-      "description": "Calcola l\u0027età esatta in anni, mesi, giorni, ore.",
+      "description": "Calcola l'età esatta in anni, mesi, giorni, ore.",
       "pageSubtitle": "Calcola la tua età esatta in anni, mesi, giorni, ore e minuti, con il conto alla rovescia per il prossimo compleanno e il tuo segno zodiacale.",
-      "seoHeading": "Che cos\u0027è un calcolatore di età?",
+      "seoHeading": "Che cos'è un calcolatore di età?",
       "seoDescription": "Un calcolatore di età è uno strumento online gratuito che calcola la tua età esatta a partire dalla data di nascita. Invece di limitarsi a sottrarre gli anni, fornisce un calcolo preciso in anni, mesi, giorni, ore, minuti e settimane totali. Mostra anche il giorno della settimana in cui sei nato, il tuo segno zodiacale e quanti giorni mancano al prossimo compleanno. È utile per compilare moduli, documenti legali, richieste di visto o semplicemente per curiosità.",
       "howToHeading": "Come usare questo strumento",
       "howToStep1": "Seleziona la tua data di nascita usando il selettore della data.",
@@ -384,14 +414,14 @@
       "howToStep4": "Scopri il tuo segno zodiacale, il giorno della settimana in cui sei nato e il conto alla rovescia per il prossimo compleanno.",
       "howToStep5": "Fai clic su Copia rapporto completo per salvare o condividere i risultati.",
       "faqHeading": "Domande frequenti",
-      "faq1Question": "Come viene calcolata l\u0027età?",
-      "faq1Answer": "L\u0027età viene calcolata determinando la differenza tra la data di oggi e la tua data di nascita. Lo strumento tiene conto degli anni bisestili e della diversa durata dei mesi per fornire un risultato preciso in anni, mesi e giorni.",
+      "faq1Question": "Come viene calcolata l'età?",
+      "faq1Answer": "L'età viene calcolata determinando la differenza tra la data di oggi e la tua data di nascita. Lo strumento tiene conto degli anni bisestili e della diversa durata dei mesi per fornire un risultato preciso in anni, mesi e giorni.",
       "faq2Question": "Qual è la differenza tra età cronologica ed età biologica?",
-      "faq2Answer": "L\u0027età cronologica è il tempo effettivamente trascorso dalla nascita ed è quella calcolata da questo strumento. L\u0027età biologica riflette l\u0027invecchiamento del corpo in base a determinati indicatori di salute e può essere diversa.",
+      "faq2Answer": "L'età cronologica è il tempo effettivamente trascorso dalla nascita ed è quella calcolata da questo strumento. L'età biologica riflette l'invecchiamento del corpo in base a determinati indicatori di salute e può essere diversa.",
       "faq3Question": "La mia data di nascita viene salvata da qualche parte?",
       "faq3Answer": "No. Tutti i calcoli avvengono direttamente nel tuo browser. Questo calcolatore non invia la tua data di nascita a un server e non la memorizza.",
       "faq4Question": "Posso usare il risultato per documenti ufficiali?",
-      "faq4Answer": "Il risultato fornisce un calcolo matematico dell\u0027età e può aiutarti a compilare richieste di visto, moduli scolastici, documenti medici e altri documenti che richiedono la tua età. Segui sempre i requisiti specifici dell\u0027autorità competente.",
+      "faq4Answer": "Il risultato fornisce un calcolo matematico dell'età e può aiutarti a compilare richieste di visto, moduli scolastici, documenti medici e altri documenti che richiedono la tua età. Segui sempre i requisiti specifici dell'autorità competente.",
       "dateOfBirth": "Data di nascita:",
       "birthDateFutureError": "La data di nascita non può essere nel futuro.",
       "yourExactAge": "La tua età esatta",
@@ -413,7 +443,7 @@
       "nextBirthday": "PROSSIMO COMPLEANNO",
       "nextBirthdaySingular": "Tra {days} giorno",
       "nextBirthdayPlural": "Tra {days} giorni",
-      "reportTitle": "Rapporto sull\u0027età:",
+      "reportTitle": "Rapporto sull'età:",
       "exactAgeReport": "Età esatta: {years} {yearsUnit}, {months} {monthsUnit}, {days} {daysUnit}",
       "bornOnReport": "Nato/a il: {day}",
       "zodiacReport": "Segno zodiacale: {sign}",
@@ -478,5 +508,34 @@
       "name": "Calcolatore di Voti",
       "description": "Calcola voti ponderati, voto in lettere e GPA."
     }
+  },
+  "DocsPage": {
+    "metaTitle": "Documentazione - VelnoxLabs",
+    "metaDescription": "Documentazione per gli strumenti di VelnoxLabs. Prossimamente.",
+    "title": "Documentazione",
+    "subtitle": "La documentazione dettagliata per tutti i nostri strumenti sarà presto disponibile.",
+    "comingSoon": "🚧 Prossimamente",
+    "comingSoonText": "Stiamo lavorando a questa pagina. Ti invitiamo a ricontrollare più tardi."
+  },
+  "GuidesPage": {
+    "metaTitle": "Guide - VelnoxLabs",
+    "metaDescription": "Guide dettagliate per l'utilizzo degli strumenti VelnoxLabs. Prossimamente.",
+    "title": "Guide",
+    "subtitle": "Tutorial e guide passo dopo passo saranno disponibili a breve.",
+    "comingSoon": "🚧 Prossimamente",
+    "comingSoonText": "Stiamo lavorando a questa pagina. Ti invitiamo a ricontrollare più tardi."
+  },
+  "Common": {
+    "toggleTheme": "Cambia tema",
+    "lightMode": "Modalità chiara",
+    "darkMode": "Modalità scura",
+    "changeLanguage": "Cambia lingua",
+    "mobileNavigation": "Navigazione mobile",
+    "closeMenu": "Chiudi menu",
+    "mobilePrimary": "Navigazione principale mobile",
+    "socialLinks": "Social network",
+    "tool": "Strumento",
+    "formActions": "Azioni del modulo",
+    "primaryNavigation": "Principale"
   }
 }

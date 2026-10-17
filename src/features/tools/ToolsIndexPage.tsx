@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { GlobalContainer } from '@/components/layout';
 import { listTools } from '@/services/tools';
 import { SectionHeading, EmptyState } from '@/components/ui';
@@ -10,12 +10,7 @@ export function ToolsIndexPage() {
   return (
     <GlobalContainer maxWidth="2xl">
       <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-        <CategoryBreadcrumb
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Tools' },
-          ]}
-        />
+        <CategoryBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Tools' }]} />
         <div style={{ marginTop: 'var(--space-6)' }}>
           <SectionHeading
             align="left"

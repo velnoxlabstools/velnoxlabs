@@ -501,5 +501,34 @@
       "name": "成绩与加权 GPA 计算器",
       "description": "支持加权课程分数、字母等级判定与最终综合 GPA 绩点换算。"
     }
+  },
+  "DocsPage": {
+    "metaTitle": "文档 - VelnoxLabs",
+    "metaDescription": "VelnoxLabs 工具文档，即将推出。",
+    "title": "文档",
+    "subtitle": "我们所有工具的详细技术文档即将上线。",
+    "comingSoon": "🚧 即将推出",
+    "comingSoonText": "该页面正在建设中，请稍后再来查看。"
+  },
+  "GuidesPage": {
+    "metaTitle": "指南 - VelnoxLabs",
+    "metaDescription": "VelnoxLabs 工具使用指南与分步教程，即将推出。",
+    "title": "指南",
+    "subtitle": "分步使用教程与实践指南即将推出。",
+    "comingSoon": "🚧 即将推出",
+    "comingSoonText": "该页面正在建设中，请稍后再来查看。"
+  },
+  "Common": {
+    "toggleTheme": "切换主题",
+    "lightMode": "浅色模式",
+    "darkMode": "深色模式",
+    "changeLanguage": "切换语言",
+    "mobileNavigation": "移动导航",
+    "closeMenu": "关闭菜单",
+    "mobilePrimary": "移动主导航",
+    "socialLinks": "社交链接",
+    "tool": "工具",
+    "formActions": "表单操作",
+    "primaryNavigation": "主导航"
   }
 }

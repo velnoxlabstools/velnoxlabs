@@ -40,6 +40,7 @@ const linkDescKeys: Record<string, string> = {
 
 export function DesktopNav() {
   const t = useTranslations('Header');
+  const tCommon = useTranslations('Common');
   const [openId, setOpenId] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
@@ -84,7 +85,7 @@ export function DesktopNav() {
   return (
     <nav
       ref={navRef}
-      aria-label="Primary"
+      aria-label={tCommon('primaryNavigation')}
       style={{
         display: 'none',
         alignItems: 'center',

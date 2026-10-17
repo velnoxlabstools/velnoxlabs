@@ -1,0 +1,50 @@
+{
+  "ToolCommon": {
+    "feedbackTitle": "ご意見・機能リクエスト",
+    "feedbackSubtitle": "VelnoxLabs のツール品質向上にご協力ください。ご意見をお気軽にお寄せください！",
+    "feedbackPlaceholder": "ご提案やご要望をここに入力してください...",
+    "feedbackSubmit": "提案を送信",
+    "feedbackSent": "送信完了！"
+  },
+  "ToolSeoDefaults": {
+    "about": "{name} について",
+    "keyFeatures": "主な機能",
+    "feature1": "ブラウザ内で完結",
+    "feature2": "アカウント登録不要",
+    "feature3": "完全無料で使用可能",
+    "howToUse": "使い方",
+    "step1Title": "ツールを開く",
+    "step1Body": "ツールページにアクセスします。",
+    "step2Title": "データを入力",
+    "step2Body": "ワークスペースの入力欄に必要な値を入力または貼り付けます。",
+    "step3Title": "実行",
+    "step3Body": "実行をクリックして結果を確認します。",
+    "faqTitle": "よくある質問",
+    "faq1Q": "このツールは無料ですか？",
+    "faq1A": "はい。VelnoxLabs の基本ツールはすべて無料でご利用いただけます。"
+  },
+  "ToolInfo": {
+    "aboutThisTool": "このツールについて",
+    "category": "カテゴリ",
+    "status": "ステータス",
+    "updated": "更新日",
+    "version": "バージョン"
+  },
+  "ToolFaq": {
+    "heading": "よくある質問 (FAQ)",
+    "generic": {
+      "q1": "このツールは無料で利用できますか？",
+      "a1": "はい、VelnoxLabs のユーティリティツールはすべて完全無料、クライアントサイド実行、オープンです。"
+    },
+    "userAgentParser": {
+      "q1": "User-Agent（ユーザーエージェント）文字列にはどのような情報が含まれていますか？",
+      "a1": "User-Agent 文字列には、ブラウザの種類、レンダリングエンジン、OS プラットフォーム、CPU アーキテクチャ、デバイス種別などの詳細情報が含まれます。",
+      "q2": "このパーサーは人間とボットや AI クローラーを識別できますか？",
+      "a2": "はい。主要検索エンジンのボット（Googlebot、Bingbot）、ソーシャルクローラー、AI スクレイピングエージェント（OpenAI GPTBot、ClaudeBot、PerplexityBot、ByteDance ByteSpider など）のシグネチャを判別可能です。",
+      "q3": "入力した User-Agent 文字列が外部サーバーに送信されることはありますか？",
+      "a3": "いいえ。解析エンジンはブラウザ内のメモリ上で 100% ローカルに実行され、外部 API やサーバーに送信されることはありません。",
+      "q4": "User-Agent が RFC 準拠であるとはどういう意味ですか？",
+      "a4": "RFC 7231 では、HTTP ユーザーエージェントは製品識別子（Mozilla/5.0 など）で始まり、不正な文字を含まない適切なトークン形式を維持することが規定されています。"
+    }
+  }
+}
