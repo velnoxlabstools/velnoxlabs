@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -48,6 +48,7 @@ function addDays(iso: string, days: number) {
 
 export default function InvoiceGeneratorPage() {
   const locale = useLocale();
+  const tUI = useTranslations('ToolUI.invoiceGenerator');
   // ============ State ============
   const [currency, setCurrency] = useState(() => getCurrencyCode(locale));
   const formatCurrency = (amount: number, code: string) =>
@@ -134,10 +135,7 @@ export default function InvoiceGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Free Invoice Generator"
-            subtitle="Create professional invoices in seconds — download as PDF, no sign-up, no limits."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* Launch Offer Banner */}
           <div
@@ -168,10 +166,10 @@ export default function InvoiceGeneratorPage() {
                   textTransform: 'uppercase',
                 }}
               >
-                🎉 Launch Offer
+                {tUI('launchOffer')}
               </span>
               <span style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 600 }}>
-                Free for a limited time{' '}
+                {tUI('freeForLimitedTime')}{' '}
                 <span
                   style={{
                     color: 'var(--text-muted)',
@@ -180,12 +178,12 @@ export default function InvoiceGeneratorPage() {
                     marginLeft: '8px',
                   }}
                 >
-                  Normally $19/month
+                  {tUI('normallyPerMonth')}
                 </span>
               </span>
             </div>
             <span style={{ color: '#34d399', fontSize: '0.8rem', fontWeight: 600 }}>
-              ✓ No credit card required
+              {tUI('noCreditCard')}
             </span>
           </div>
 
@@ -228,14 +226,14 @@ export default function InvoiceGeneratorPage() {
                     marginBottom: '12px',
                   }}
                 >
-                  From (Your Business)
+                  {tUI('fromBusiness')}
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <input
                     type="text"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    placeholder="Business Name"
+                    placeholder={tUI('businessNamePlaceholder')}
                     style={{
                       width: '100%',
                       backgroundColor: 'var(--bg-page)',
@@ -251,7 +249,7 @@ export default function InvoiceGeneratorPage() {
                     type="email"
                     value={businessEmail}
                     onChange={(e) => setBusinessEmail(e.target.value)}
-                    placeholder="Email"
+                    placeholder={tUI('businessEmailPlaceholder')}
                     style={{
                       width: '100%',
                       backgroundColor: 'var(--bg-page)',
@@ -267,7 +265,7 @@ export default function InvoiceGeneratorPage() {
                     type="tel"
                     value={businessPhone}
                     onChange={(e) => setBusinessPhone(e.target.value)}
-                    placeholder="Phone"
+                    placeholder={tUI('businessPhonePlaceholder')}
                     style={{
                       width: '100%',
                       backgroundColor: 'var(--bg-page)',
@@ -282,7 +280,7 @@ export default function InvoiceGeneratorPage() {
                   <textarea
                     value={businessAddress}
                     onChange={(e) => setBusinessAddress(e.target.value)}
-                    placeholder="Address"
+                    placeholder={tUI('businessAddressPlaceholder')}
                     rows={3}
                     style={{
                       width: '100%',
@@ -318,14 +316,14 @@ export default function InvoiceGeneratorPage() {
                     marginBottom: '12px',
                   }}
                 >
-                  Bill To (Client)
+                  {tUI('billToClient')}
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <input
                     type="text"
                     value={clientName}
                     onChange={(e) => setClientName(e.target.value)}
-                    placeholder="Client Name"
+                    placeholder={tUI('clientNamePlaceholder')}
                     style={{
                       width: '100%',
                       backgroundColor: 'var(--bg-page)',
@@ -341,7 +339,7 @@ export default function InvoiceGeneratorPage() {
                     type="email"
                     value={clientEmail}
                     onChange={(e) => setClientEmail(e.target.value)}
-                    placeholder="Client Email"
+                    placeholder={tUI('clientEmailPlaceholder')}
                     style={{
                       width: '100%',
                       backgroundColor: 'var(--bg-page)',
@@ -356,7 +354,7 @@ export default function InvoiceGeneratorPage() {
                   <textarea
                     value={clientAddress}
                     onChange={(e) => setClientAddress(e.target.value)}
-                    placeholder="Client Address"
+                    placeholder={tUI('clientAddressPlaceholder')}
                     rows={3}
                     style={{
                       width: '100%',
@@ -392,14 +390,14 @@ export default function InvoiceGeneratorPage() {
                     marginBottom: '12px',
                   }}
                 >
-                  Invoice Details
+                  {tUI('invoiceDetails')}
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <input
                     type="text"
                     value={invoiceNumber}
                     onChange={(e) => setInvoiceNumber(e.target.value)}
-                    placeholder="Invoice Number"
+                    placeholder={tUI('invoiceNumberPlaceholder')}
                     style={{
                       width: '100%',
                       backgroundColor: 'var(--bg-page)',
@@ -420,7 +418,7 @@ export default function InvoiceGeneratorPage() {
                         marginBottom: '4px',
                       }}
                     >
-                      Invoice Date
+                      {tUI('invoiceDate')}
                     </label>
                     <input
                       type="date"
@@ -447,7 +445,7 @@ export default function InvoiceGeneratorPage() {
                         marginBottom: '4px',
                       }}
                     >
-                      Due Date
+                      {tUI('dueDate')}
                     </label>
                     <input
                       type="date"
@@ -474,7 +472,7 @@ export default function InvoiceGeneratorPage() {
                         marginBottom: '4px',
                       }}
                     >
-                      Currency
+                      {tUI('currency')}
                     </label>
                     <select
                       value={currency}
@@ -515,7 +513,7 @@ export default function InvoiceGeneratorPage() {
                 }}
               >
                 <h3 style={{ color: 'var(--text-main)', fontSize: '0.95rem', fontWeight: 700 }}>
-                  Line Items
+                  {tUI('lineItems')}
                 </h3>
                 <button
                   onClick={addItem}
@@ -530,7 +528,7 @@ export default function InvoiceGeneratorPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  + Add Item
+                  {tUI('addItem')}
                 </button>
               </div>
 
@@ -562,7 +560,7 @@ export default function InvoiceGeneratorPage() {
                       letterSpacing: '0.05em',
                     }}
                   >
-                    Description
+                    {tUI('description')}
                   </span>
                   <span
                     style={{
@@ -573,7 +571,7 @@ export default function InvoiceGeneratorPage() {
                       letterSpacing: '0.05em',
                     }}
                   >
-                    Qty
+                    {tUI('qty')}
                   </span>
                   <span
                     style={{
@@ -584,7 +582,7 @@ export default function InvoiceGeneratorPage() {
                       letterSpacing: '0.05em',
                     }}
                   >
-                    Rate
+                    {tUI('rate')}
                   </span>
                   <span
                     style={{
@@ -596,7 +594,7 @@ export default function InvoiceGeneratorPage() {
                       textAlign: 'right',
                     }}
                   >
-                    Amount
+                    {tUI('amount')}
                   </span>
                   <span></span>
                 </div>
@@ -617,7 +615,7 @@ export default function InvoiceGeneratorPage() {
                       type="text"
                       value={item.description}
                       onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                      placeholder="Item description"
+                      placeholder={tUI('itemDescriptionPlaceholder')}
                       style={{
                         width: '100%',
                         backgroundColor: 'var(--bg-page)',
@@ -716,7 +714,7 @@ export default function InvoiceGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Tax Rate (%)
+                  {tUI('taxRate')}
                 </label>
                 <input
                   type="number"
@@ -747,7 +745,7 @@ export default function InvoiceGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Discount (%)
+                  {tUI('discount')}
                 </label>
                 <input
                   type="number"
@@ -780,7 +778,7 @@ export default function InvoiceGeneratorPage() {
                   marginBottom: '6px',
                 }}
               >
-                Notes / Payment Terms
+                {tUI('notesTerms')}
               </label>
               <textarea
                 value={notes}
@@ -814,7 +812,9 @@ export default function InvoiceGeneratorPage() {
                 <div
                   style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}
                 >
-                  <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Subtotal</span>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                    {tUI('subtotal')}
+                  </span>
                   <span
                     style={{
                       color: 'var(--text-main)',
@@ -834,7 +834,7 @@ export default function InvoiceGeneratorPage() {
                     }}
                   >
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                      Discount ({discountRate}%)
+                      {tUI('discountWithRate', { rate: discountRate })}
                     </span>
                     <span style={{ color: '#f87171', fontFamily: 'monospace', fontSize: '0.9rem' }}>
                       -{formatCurrency(totals.discountAmount, currency)}
@@ -850,7 +850,7 @@ export default function InvoiceGeneratorPage() {
                     }}
                   >
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                      Tax ({taxRate}%)
+                      {tUI('taxWithRate', { rate: taxRate })}
                     </span>
                     <span
                       style={{
@@ -873,7 +873,7 @@ export default function InvoiceGeneratorPage() {
                   }}
                 >
                   <span style={{ color: 'var(--text-main)', fontSize: '1rem', fontWeight: 700 }}>
-                    Total Due
+                    {tUI('totalDue')}
                   </span>
                   <span
                     style={{
@@ -907,11 +907,11 @@ export default function InvoiceGeneratorPage() {
                   gap: '8px',
                 }}
               >
-                🖨️ Download PDF / Print
+                {tUI('downloadPdf')}
               </button>
               <button
                 onClick={() => {
-                  if (confirm('Reset invoice to default values?')) window.location.reload();
+                  if (confirm(tUI('resetConfirm'))) window.location.reload();
                 }}
                 style={{
                   backgroundColor: 'var(--bg-card)',
@@ -924,14 +924,12 @@ export default function InvoiceGeneratorPage() {
                   cursor: 'pointer',
                 }}
               >
-                Reset
+                {tUI('reset')}
               </button>
             </div>
 
             <p style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '12px' }}>
-              💡 Click &quot;Download PDF / Print&quot; → in the dialog, choose{' '}
-              <strong style={{ color: 'var(--text-muted)' }}>&quot;Save as PDF&quot;</strong> as
-              destination.
+              {tUI('printHint')}
             </p>
           </div>
 
@@ -959,7 +957,7 @@ export default function InvoiceGeneratorPage() {
               >
                 <div>
                   <h1 style={{ fontSize: '32px', fontWeight: 800, margin: 0, color: '#000' }}>
-                    INVOICE
+                    {tUI('invoiceTitle')}
                   </h1>
                   <p style={{ fontSize: '14px', color: '#555', margin: '4px 0 0 0' }}>
                     #{invoiceNumber}
@@ -1001,7 +999,7 @@ export default function InvoiceGeneratorPage() {
                       marginBottom: '6px',
                     }}
                   >
-                    Bill To
+                    {tUI('billTo')}
                   </div>
                   <div style={{ fontSize: '14px', fontWeight: 700, color: '#000' }}>
                     {clientName}
@@ -1031,7 +1029,7 @@ export default function InvoiceGeneratorPage() {
                         letterSpacing: '1px',
                       }}
                     >
-                      Invoice Date
+                      {tUI('invoiceDate')}
                     </div>
                     <div style={{ fontSize: '13px', color: '#000' }}>{invoiceDate}</div>
                   </div>
@@ -1045,7 +1043,7 @@ export default function InvoiceGeneratorPage() {
                         letterSpacing: '1px',
                       }}
                     >
-                      Due Date
+                      {tUI('dueDate')}
                     </div>
                     <div style={{ fontSize: '13px', color: '#000' }}>{dueDate}</div>
                   </div>
@@ -1068,7 +1066,7 @@ export default function InvoiceGeneratorPage() {
                         borderBottom: '2px solid #000',
                       }}
                     >
-                      Description
+                      {tUI('description')}
                     </th>
                     <th
                       style={{
@@ -1083,7 +1081,7 @@ export default function InvoiceGeneratorPage() {
                         width: '70px',
                       }}
                     >
-                      Qty
+                      {tUI('qty')}
                     </th>
                     <th
                       style={{
@@ -1098,7 +1096,7 @@ export default function InvoiceGeneratorPage() {
                         width: '110px',
                       }}
                     >
-                      Rate
+                      {tUI('rate')}
                     </th>
                     <th
                       style={{
@@ -1113,7 +1111,7 @@ export default function InvoiceGeneratorPage() {
                         width: '120px',
                       }}
                     >
-                      Amount
+                      {tUI('amount')}
                     </th>
                   </tr>
                 </thead>
@@ -1182,7 +1180,7 @@ export default function InvoiceGeneratorPage() {
                       color: '#333',
                     }}
                   >
-                    <span>Subtotal</span>
+                    <span>{tUI('subtotal')}</span>
                     <span style={{ fontFamily: 'monospace' }}>
                       {formatCurrency(totals.subtotal, currency)}
                     </span>
@@ -1197,7 +1195,7 @@ export default function InvoiceGeneratorPage() {
                         color: '#333',
                       }}
                     >
-                      <span>Discount ({discountRate}%)</span>
+                      <span>{tUI('discountWithRate', { rate: discountRate })}</span>
                       <span style={{ fontFamily: 'monospace' }}>
                         -{formatCurrency(totals.discountAmount, currency)}
                       </span>
@@ -1213,7 +1211,7 @@ export default function InvoiceGeneratorPage() {
                         color: '#333',
                       }}
                     >
-                      <span>Tax ({taxRate}%)</span>
+                      <span>{tUI('taxWithRate', { rate: taxRate })}</span>
                       <span style={{ fontFamily: 'monospace' }}>
                         {formatCurrency(totals.taxAmount, currency)}
                       </span>
@@ -1231,7 +1229,7 @@ export default function InvoiceGeneratorPage() {
                       color: '#000',
                     }}
                   >
-                    <span>Total Due</span>
+                    <span>{tUI('totalDue')}</span>
                     <span style={{ fontFamily: 'monospace' }}>
                       {formatCurrency(totals.total, currency)}
                     </span>
@@ -1252,7 +1250,7 @@ export default function InvoiceGeneratorPage() {
                       marginBottom: '6px',
                     }}
                   >
-                    Notes
+                    {tUI('notes')}
                   </div>
                   <div
                     style={{
@@ -1271,12 +1269,12 @@ export default function InvoiceGeneratorPage() {
               <div
                 style={{ marginTop: '40px', textAlign: 'center', fontSize: '11px', color: '#888' }}
               >
-                Generated with VelnoxLabs Invoice Generator — velnoxlabs.vercel.app
+                {tUI('footerText')}
               </div>
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="invoice-generator" toolName="Invoice Generator" />
+          <ToolSeoContent toolSlug="invoice-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

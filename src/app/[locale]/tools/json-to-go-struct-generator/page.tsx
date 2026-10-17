@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -84,14 +85,15 @@ function generateGoStruct(json: Record<string, unknown> | unknown[]): string {
 }
 
 export default function JsonToGoPage() {
+  const tUI = useTranslations('ToolUI.jsonToGoStruct');
   const [jsonInput, setJsonInput] = useState(
     '{\n  "id": 101,\n  "name": "VelnoxLabs",\n  "active": true,\n  "tags": ["dev", "tools"]\n}'
   );
   const [goOutput, setGoOutput] = useState('');
   const [copied, setCopied] = useState(false);
-  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const handleConvert = (val: string) => {
-    setError('');
+    setErrorMsg('');
     if (!val.trim()) {
       setGoOutput('');
       return;
@@ -101,7 +103,7 @@ export default function JsonToGoPage() {
       setGoOutput(generateGoStruct(parsed));
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError('Invalid JSON syntax: ' + msg);
+      setErrorMsg(msg);
       setGoOutput('');
     }
   };
@@ -162,10 +164,7 @@ export default function JsonToGoPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="JSON to Go Struct Generator"
-            subtitle="Convert JSON payloads into Go struct definitions instantly — nested objects and arrays supported."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -194,13 +193,13 @@ export default function JsonToGoPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  JSON Input:
+                  {tUI('jsonInput')}
                 </label>
                 <textarea
                   value={jsonInput}
                   onChange={(e) => setJsonInput(e.target.value)}
                   rows={14}
-                  placeholder="Paste JSON here..."
+                  placeholder={tUI('jsonPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -227,7 +226,7 @@ export default function JsonToGoPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Go Struct Output:
+                    {tUI('goOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -245,14 +244,14 @@ export default function JsonToGoPage() {
                       cursor: goOutput ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy Go'}
+                    {copied ? tUI('copied') : tUI('copyGo')}
                   </button>
                 </div>
                 <textarea
                   value={goOutput}
                   readOnly
                   rows={14}
-                  placeholder="Go struct will appear here..."
+                  placeholder={tUI('goPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -269,7 +268,7 @@ export default function JsonToGoPage() {
               </div>
             </div>
 
-            {error && (
+            {errorMsg && (
               <div
                 style={{
                   marginTop: '12px',
@@ -279,15 +278,14 @@ export default function JsonToGoPage() {
                   padding: '12px',
                 }}
               >
-                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
+                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
+                  ❌ {tUI('invalidJson', { message: errorMsg })}
+                </p>
               </div>
             )}
           </div>
 
-          <ToolSeoContent
-            toolSlug="json-to-go-struct-generator"
-            toolName="JSON to Go Struct Generator"
-          />
+          <ToolSeoContent toolSlug="json-to-go-struct-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

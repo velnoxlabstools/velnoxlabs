@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -100,14 +101,15 @@ function generatePydantic(json: Record<string, unknown> | unknown[]): string {
 }
 
 export default function JsonToPyPage() {
+  const tUI = useTranslations('ToolUI.jsonToPydantic');
   const [jsonInput, setJsonInput] = useState(
     '{\n  "title": "VelnoxLabs",\n  "views": 5000,\n  "published": true\n}'
   );
   const [pyOutput, setPyOutput] = useState('');
   const [copied, setCopied] = useState(false);
-  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const handleConvert = (val: string) => {
-    setError('');
+    setErrorMsg('');
     if (!val.trim()) {
       setPyOutput('');
       return;
@@ -117,7 +119,7 @@ export default function JsonToPyPage() {
       setPyOutput(generatePydantic(parsed));
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError('Invalid JSON syntax: ' + msg);
+      setErrorMsg(msg);
       setPyOutput('');
     }
   };
@@ -178,10 +180,7 @@ export default function JsonToPyPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="JSON to Pydantic & Dataclass"
-            subtitle="Generate Python Pydantic models from JSON instantly — nested objects, arrays, and nulls supported."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -210,13 +209,13 @@ export default function JsonToPyPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  JSON Input:
+                  {tUI('jsonInput')}
                 </label>
                 <textarea
                   value={jsonInput}
                   onChange={(e) => setJsonInput(e.target.value)}
                   rows={14}
-                  placeholder="Paste JSON here..."
+                  placeholder={tUI('jsonPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -243,7 +242,7 @@ export default function JsonToPyPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Pydantic Model Output:
+                    {tUI('pyOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -261,14 +260,14 @@ export default function JsonToPyPage() {
                       cursor: pyOutput ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy Code'}
+                    {copied ? tUI('copied') : tUI('copyCode')}
                   </button>
                 </div>
                 <textarea
                   value={pyOutput}
                   readOnly
                   rows={14}
-                  placeholder="Pydantic model will appear here..."
+                  placeholder={tUI('pyPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -285,7 +284,7 @@ export default function JsonToPyPage() {
               </div>
             </div>
 
-            {error && (
+            {errorMsg && (
               <div
                 style={{
                   marginTop: '12px',
@@ -295,7 +294,9 @@ export default function JsonToPyPage() {
                   padding: '12px',
                 }}
               >
-                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
+                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
+                  ❌ {tUI('invalidJson', { message: errorMsg })}
+                </p>
               </div>
             )}
           </div>
@@ -304,11 +305,10 @@ export default function JsonToPyPage() {
           <div className="w-full max-w-7xl mx-auto px-4 py-12 mt-12 border-t border-slate-800">
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-main)' }}>
-                Enterprise-Grade JSON to Pydantic Standards
+                {tUI('featuresTitle')}
               </h2>
               <p className="max-w-3xl" style={{ color: 'var(--text-muted)' }}>
-                Streamlining developer workflows efficiently with high performance, strict
-                client-side privacy, and production-ready outputs.
+                {tUI('featuresSubtitle')}
               </p>
             </div>
 
@@ -321,10 +321,10 @@ export default function JsonToPyPage() {
                 }}
               >
                 <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
-                  ⚡ Instant Processing
+                  {tUI('instantProcessingTitle')}
                 </div>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Processes parameters and payloads in real-time with zero latency.
+                  {tUI('instantProcessingDesc')}
                 </p>
               </div>
               <div
@@ -335,10 +335,10 @@ export default function JsonToPyPage() {
                 }}
               >
                 <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
-                  🔒 Complete Privacy
+                  {tUI('privacyTitle')}
                 </div>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  All parsing happens completely client-side without logging sensitive parameters.
+                  {tUI('privacyDesc')}
                 </p>
               </div>
               <div
@@ -349,11 +349,10 @@ export default function JsonToPyPage() {
                 }}
               >
                 <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
-                  🛠️ Production Ready
+                  {tUI('productionReadyTitle')}
                 </div>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Outputs clean, standardized formats built to integrate directly into your
-                  workflow.
+                  {tUI('productionReadyDesc')}
                 </p>
               </div>
             </div>
@@ -361,7 +360,7 @@ export default function JsonToPyPage() {
 
           <ToolSeoContent
             toolSlug="json-to-pydantic-&-python-dataclass-generator"
-            toolName="JSON to Pydantic & Dataclass"
+            toolName={tUI('title')}
           />
         </div>
       </GlobalContainer>

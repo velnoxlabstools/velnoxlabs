@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -9,6 +9,7 @@ import { formatCurrency as formatCurrencyUtil, getCurrencySymbol } from '@/lib/f
 
 export default function LoanEmiCalculatorPage() {
   const locale = useLocale();
+  const tUI = useTranslations('ToolUI.loanEmiCalculator');
   const [loanAmount, setLoanAmount] = useState('250000');
   const [rate, setRate] = useState('6.5');
   const [years, setYears] = useState('30');
@@ -92,14 +93,14 @@ export default function LoanEmiCalculatorPage() {
   };
 
   const handleCopy = () => {
-    const text = `Loan Amount: ${formatCurrency(parseFloat(loanAmount) || 0)}
-Interest Rate: ${rate}% APR
-Term: ${years} years
+    const text = `${tUI('copyLoanAmount', { amount: formatCurrency(parseFloat(loanAmount) || 0) })}
+${tUI('copyInterestRate', { rate })}
+${tUI('copyTerm', { years })}
 
-Monthly Payment: ${formatCurrency(results.monthlyPayment)}
-Total Interest: ${formatCurrency(results.totalInterest)}
-Total Paid: ${formatCurrency(results.totalPayment)}
-Payoff Date: ${results.payoffDate}`;
+${tUI('copyMonthlyPayment', { amount: formatCurrency(results.monthlyPayment) })}
+${tUI('copyTotalInterest', { amount: formatCurrency(results.totalInterest) })}
+${tUI('copyTotalPaid', { amount: formatCurrency(results.totalPayment) })}
+${tUI('copyPayoffDate', { date: results.payoffDate })}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -158,10 +159,7 @@ Payoff Date: ${results.payoffDate}`;
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Loan EMI Calculator"
-            subtitle="Calculate your monthly loan payment (EMI) for mortgages, car loans, and personal loans — with a full amortization schedule."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -191,7 +189,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Loan Amount
+                  {tUI('loanAmount')}
                 </label>
                 <div style={{ position: 'relative' }}>
                   <span
@@ -239,7 +237,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Annual Interest Rate (%):
+                  {tUI('annualInterestRate')}
                 </label>
                 <input
                   type="number"
@@ -271,7 +269,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Loan Term (years):
+                  {tUI('loanTerm')}
                 </label>
                 <input
                   type="number"
@@ -315,7 +313,7 @@ Payoff Date: ${results.payoffDate}`;
                   marginBottom: '8px',
                 }}
               >
-                Monthly Payment (EMI)
+                {tUI('monthlyPayment')}
               </div>
               <div
                 style={{
@@ -330,7 +328,7 @@ Payoff Date: ${results.payoffDate}`;
                 {formatCurrency(results.monthlyPayment)}
               </div>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                Payoff by {results.payoffDate}
+                {tUI('payoffBy', { date: results.payoffDate })}
               </div>
             </div>
 
@@ -362,7 +360,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '6px',
                   }}
                 >
-                  Total Principal
+                  {tUI('totalPrincipal')}
                 </div>
                 <div
                   style={{
@@ -394,7 +392,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '6px',
                   }}
                 >
-                  Total Interest
+                  {tUI('totalInterest')}
                 </div>
                 <div
                   style={{
@@ -426,7 +424,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '6px',
                   }}
                 >
-                  Total Paid
+                  {tUI('totalPaid')}
                 </div>
                 <div
                   style={{
@@ -451,7 +449,7 @@ Payoff Date: ${results.payoffDate}`;
                   marginBottom: '8px',
                 }}
               >
-                Principal vs Interest:
+                {tUI('principalVsInterest')}
               </div>
               <div
                 style={{
@@ -504,10 +502,10 @@ Payoff Date: ${results.payoffDate}`;
                 }}
               >
                 <span>
-                  <span style={{ color: '#3b82f6' }}>■</span> Principal
+                  <span style={{ color: '#3b82f6' }}>■</span> {tUI('principal')}
                 </span>
                 <span>
-                  <span style={{ color: '#a855f7' }}>■</span> Interest
+                  <span style={{ color: '#a855f7' }}>■</span> {tUI('interest')}
                 </span>
               </div>
             </div>
@@ -523,7 +521,7 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '10px',
                   }}
                 >
-                  📊 Yearly Amortization Schedule
+                  {tUI('yearlySchedule')}
                 </div>
                 <div
                   style={{
@@ -546,10 +544,10 @@ Payoff Date: ${results.payoffDate}`;
                       textTransform: 'uppercase',
                     }}
                   >
-                    <div>Year</div>
-                    <div style={{ textAlign: 'right' }}>Principal</div>
-                    <div style={{ textAlign: 'right' }}>Interest</div>
-                    <div style={{ textAlign: 'right' }}>Balance</div>
+                    <div>{tUI('year')}</div>
+                    <div style={{ textAlign: 'right' }}>{tUI('principal')}</div>
+                    <div style={{ textAlign: 'right' }}>{tUI('interest')}</div>
+                    <div style={{ textAlign: 'right' }}>{tUI('balance')}</div>
                   </div>
                   <div style={{ maxHeight: '320px', overflowY: 'auto' }}>
                     {results.schedule.map((row, i) => (
@@ -601,11 +599,11 @@ Payoff Date: ${results.payoffDate}`;
                 transition: 'all 0.2s',
               }}
             >
-              {copied ? '✓ Copied!' : '📋 Copy Loan Summary'}
+              {copied ? tUI('copied') : tUI('copySummary')}
             </button>
           </div>
 
-          <ToolSeoContent toolSlug="loan-emi-calculator" toolName="Loan EMI Calculator" />
+          <ToolSeoContent toolSlug="loan-emi-calculator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

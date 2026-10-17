@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function HttpHeaderInspectorPage() {
+  const tUI = useTranslations('ToolUI.httpHeaderInspector');
   const [rawHeaders, setRawHeaders] = useState(
     `content-type: application/json; charset=utf-8
 cache-control: no-cache, no-store, must-revalidate
@@ -68,10 +70,7 @@ server: nginx/1.18.0`
       />
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="HTTP Header Inspector & Parser"
-            subtitle="Deconstruct raw HTTP request or response headers into structured key-value maps."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* TOOL UI */}
           <div
@@ -92,7 +91,7 @@ server: nginx/1.18.0`
               }}
             >
               <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
-                Raw HTTP Headers Input:
+                {tUI('rawHeaders')}
               </label>
               <button
                 onClick={handleCopy}
@@ -107,14 +106,14 @@ server: nginx/1.18.0`
                   cursor: 'pointer',
                 }}
               >
-                {copied ? 'Copied!' : 'Copy Raw'}
+                {copied ? tUI('copied') : tUI('copyRaw')}
               </button>
             </div>
 
             <textarea
               value={rawHeaders}
               onChange={(e) => setRawHeaders(e.target.value)}
-              placeholder="Paste raw headers here..."
+              placeholder={tUI('placeholder')}
               rows={6}
               style={{
                 width: '100%',
@@ -139,7 +138,7 @@ server: nginx/1.18.0`
                 marginBottom: '12px',
               }}
             >
-              Parsed Structure ({parsedList.length} headers)
+              {tUI('parsedStructure', { count: parsedList.length })}
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {parsedList.map((item, idx) => (
@@ -182,10 +181,7 @@ server: nginx/1.18.0`
             </div>
           </div>
 
-          <ToolSeoContent
-            toolSlug="http-header-inspector-_-parser"
-            toolName="HTTP Header Inspector & Parser"
-          />
+          <ToolSeoContent toolSlug="http-header-inspector-_-parser" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

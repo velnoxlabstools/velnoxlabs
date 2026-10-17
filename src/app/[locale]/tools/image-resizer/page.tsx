@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import NextImage from 'next/image';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -16,6 +17,7 @@ interface ImageItem {
 }
 
 export default function ImageResizerPage() {
+  const tUI = useTranslations('ToolUI.imageResizer');
   const [images, setImages] = useState<ImageItem[]>([]);
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(600);
@@ -24,7 +26,30 @@ export default function ImageResizerPage() {
   const [quality, setQuality] = useState(0.9);
   const [loading, setLoading] = useState(false);
   const [zipping, setZipping] = useState(false);
+  const [formatOpen, setFormatOpen] = useState(false);
+  const [qualityOpen, setQualityOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const formatRef = useRef<HTMLDivElement>(null);
+  const qualityRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (formatRef.current && !formatRef.current.contains(e.target as Node)) {
+        setFormatOpen(false);
+      }
+      if (qualityRef.current && !qualityRef.current.contains(e.target as Node)) {
+        setQualityOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const getFormatShortName = (fmt: string) => {
+    if (fmt === 'image/webp') return 'WEBP';
+    if (fmt === 'image/png') return 'PNG';
+    return 'JPEG';
+  };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -165,7 +190,7 @@ export default function ImageResizerPage() {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch {
-      alert('ZIP banane mein error aaya. Kya aapne "npm install jszip" chalaya hai?');
+      alert(tUI('zipError'));
     }
     setZipping(false);
   };
@@ -241,10 +266,7 @@ export default function ImageResizerPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Online Image Resizer & Compressor"
-            subtitle="Resize, compress, and convert multiple images at once — JPG, PNG, WEBP. Download individually or as ZIP."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ===== UPLOAD AREA (when no images) ===== */}
           {images.length === 0 ? (
@@ -268,10 +290,10 @@ export default function ImageResizerPage() {
                   fontWeight: 500,
                 }}
               >
-                Click to upload images (Multiple allowed)
+                {tUI('uploadPrompt')}
               </p>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                PNG, JPG, WEBP supported — select as many as you want
+                {tUI('uploadFormats')}
               </p>
               <input
                 ref={fileInputRef}
@@ -284,116 +306,411 @@ export default function ImageResizerPage() {
             </div>
           ) : (
             <>
-              {/* ===== TOP TOOLBAR ===== */}
+              {/* ===== STICKY HORIZONTAL TOOLBAR (TOP OF PAGE) ===== */}
               <div
                 style={{
-                  marginTop: 'var(--space-6)',
+                  position: 'sticky',
+                  top: '16px',
+                  zIndex: 40,
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  padding: '12px 18px',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
+                  backdropFilter: 'blur(16px)',
                   display: 'flex',
-                  justifyContent: 'space-between',
                   alignItems: 'center',
                   flexWrap: 'wrap',
                   gap: '12px',
+                  marginTop: 'var(--space-6)',
+                  marginBottom: '24px',
                 }}
               >
-                <p
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.9rem',
-                    fontWeight: 600,
-                    margin: 0,
-                  }}
-                >
-                  {images.length} image{images.length > 1 ? 's' : ''} selected
-                  {processedCount > 0 && ` • ${processedCount} processed`}
-                </p>
-                <div style={{ display: 'flex', gap: '8px' }}>
+                {/* 1. [Format: WEBP ▼] dropdown */}
+                <div ref={formatRef} style={{ position: 'relative' }}>
                   <button
-                    onClick={() => fileInputRef.current?.click()}
+                    type="button"
+                    onClick={() => setFormatOpen(!formatOpen)}
                     style={{
-                      backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                      color: '#60a5fa',
-                      border: '1px solid rgba(59, 130, 246, 0.3)',
-                      borderRadius: '6px',
-                      padding: '6px 14px',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      padding: '8px 12px',
+                      fontSize: '0.85rem',
+                      color: 'var(--text-main)',
                       cursor: 'pointer',
+                      fontWeight: 500,
+                      whiteSpace: 'nowrap',
                     }}
                   >
-                    + Add More
+                    <span style={{ color: 'var(--text-muted)' }}>{tUI('formatLabel')}:</span>
+                    <span style={{ color: '#60a5fa', fontWeight: 700 }}>
+                      {getFormatShortName(outputFormat)}
+                    </span>
+                    <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>▼</span>
                   </button>
-                  <button
-                    onClick={handleClearAll}
-                    style={{
-                      backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                      color: '#f87171',
-                      border: '1px solid rgba(239, 68, 68, 0.3)',
-                      borderRadius: '6px',
-                      padding: '6px 14px',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                    }}
+                  {formatOpen && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: 'calc(100% + 6px)',
+                        left: 0,
+                        backgroundColor: 'var(--bg-card)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        boxShadow: '0 12px 28px rgba(0,0,0,0.6)',
+                        padding: '6px',
+                        zIndex: 100,
+                        minWidth: '150px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '4px',
+                      }}
+                    >
+                      {[
+                        { label: 'WEBP', val: 'image/webp' },
+                        { label: 'JPEG (JPG)', val: 'image/jpeg' },
+                        { label: 'PNG', val: 'image/png' },
+                      ].map((fmt) => (
+                        <button
+                          key={fmt.val}
+                          type="button"
+                          onClick={() => {
+                            setOutputFormat(fmt.val);
+                            setFormatOpen(false);
+                          }}
+                          style={{
+                            textAlign: 'left',
+                            padding: '8px 12px',
+                            fontSize: '0.825rem',
+                            borderRadius: '6px',
+                            border: 'none',
+                            backgroundColor:
+                              outputFormat === fmt.val ? 'rgba(59, 130, 246, 0.2)' : 'transparent',
+                            color: outputFormat === fmt.val ? '#60a5fa' : 'var(--text-main)',
+                            fontWeight: outputFormat === fmt.val ? 600 : 400,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {fmt.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* 2. [Width: 1920] input field */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <label
+                    style={{ fontSize: '0.825rem', color: 'var(--text-muted)', fontWeight: 600 }}
                   >
-                    Clear All
-                  </button>
+                    {tUI('widthLabel')}:
+                  </label>
                   <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={handleImageUpload}
-                    style={{ display: 'none' }}
+                    type="number"
+                    value={width}
+                    onChange={(e) => handleWidthChange(Number(e.target.value))}
+                    style={{
+                      width: '84px',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '7px 8px',
+                      fontSize: '0.85rem',
+                      outline: 'none',
+                      textAlign: 'center',
+                      fontWeight: 600,
+                    }}
                   />
                 </div>
+
+                {/* 3. Maintain Aspect Ratio Toggle */}
+                <button
+                  type="button"
+                  onClick={() => setMaintainAspect(!maintainAspect)}
+                  title={tUI('maintainAspectRatio')}
+                  style={{
+                    backgroundColor: maintainAspect ? 'rgba(59, 130, 246, 0.2)' : 'var(--bg-page)',
+                    border: maintainAspect ? '1px solid #3b82f6' : '1px solid var(--border-color)',
+                    borderRadius: '8px',
+                    color: maintainAspect ? '#60a5fa' : 'var(--text-muted)',
+                    padding: '7px 10px',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  <span>{maintainAspect ? '🔗' : '🔓'}</span>
+                  <span style={{ fontSize: '0.75rem' }}>{tUI('lockRatio')}</span>
+                </button>
+
+                {/* 4. [Height: 1080] input field */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <label
+                    style={{ fontSize: '0.825rem', color: 'var(--text-muted)', fontWeight: 600 }}
+                  >
+                    {tUI('heightLabel')}:
+                  </label>
+                  <input
+                    type="number"
+                    value={height}
+                    onChange={(e) => handleHeightChange(Number(e.target.value))}
+                    style={{
+                      width: '84px',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '7px 8px',
+                      fontSize: '0.85rem',
+                      outline: 'none',
+                      textAlign: 'center',
+                      fontWeight: 600,
+                    }}
+                  />
+                </div>
+
+                {/* 5. [Quality: 90% ▼] dropdown */}
+                <div ref={qualityRef} style={{ position: 'relative' }}>
+                  <button
+                    type="button"
+                    onClick={() => setQualityOpen(!qualityOpen)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      padding: '8px 12px',
+                      fontSize: '0.85rem',
+                      color: 'var(--text-main)',
+                      cursor: 'pointer',
+                      fontWeight: 500,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    <span style={{ color: 'var(--text-muted)' }}>{tUI('qualityLabel')}:</span>
+                    <span style={{ color: '#34d399', fontWeight: 700 }}>
+                      {Math.round(quality * 100)}%
+                    </span>
+                    <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>▼</span>
+                  </button>
+                  {qualityOpen && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: 'calc(100% + 6px)',
+                        left: 0,
+                        backgroundColor: 'var(--bg-card)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        boxShadow: '0 12px 28px rgba(0,0,0,0.6)',
+                        padding: '16px',
+                        zIndex: 100,
+                        minWidth: '220px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '12px',
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: '0.825rem',
+                            color: 'var(--text-main)',
+                            fontWeight: 600,
+                          }}
+                        >
+                          {tUI('quality', { percent: Math.round(quality * 100) })}
+                        </span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0.1"
+                        max="1"
+                        step="0.05"
+                        value={quality}
+                        onChange={(e) => setQuality(Number(e.target.value))}
+                        style={{ width: '100%', accentColor: '#3b82f6', cursor: 'pointer' }}
+                      />
+                      <div style={{ display: 'flex', gap: '6px', justifyContent: 'space-between' }}>
+                        {[0.5, 0.7, 0.8, 0.9, 1.0].map((q) => (
+                          <button
+                            key={q}
+                            type="button"
+                            onClick={() => {
+                              setQuality(q);
+                              setQualityOpen(false);
+                            }}
+                            style={{
+                              flex: 1,
+                              padding: '4px 6px',
+                              fontSize: '0.7rem',
+                              borderRadius: '4px',
+                              border: '1px solid var(--border-color)',
+                              backgroundColor:
+                                Math.abs(quality - q) < 0.01
+                                  ? 'rgba(59, 130, 246, 0.25)'
+                                  : 'var(--bg-page)',
+                              color: Math.abs(quality - q) < 0.01 ? '#60a5fa' : 'var(--text-muted)',
+                              cursor: 'pointer',
+                              fontWeight: 600,
+                            }}
+                          >
+                            {Math.round(q * 100)}%
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* 6. [Resize All] button */}
+                <button
+                  type="button"
+                  onClick={handleResizeAll}
+                  disabled={loading}
+                  style={{
+                    backgroundColor: '#2563eb',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '8px 20px',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                    opacity: loading ? 0.7 : 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0 2px 10px rgba(37, 99, 235, 0.4)',
+                    marginLeft: 'auto',
+                  }}
+                >
+                  {loading ? tUI('processing') : tUI('resizeAll', { count: images.length })}
+                </button>
               </div>
 
-              {/* ===== TWO COLUMN LAYOUT: LEFT = INPUT, RIGHT = OUTPUT ===== */}
+              {/* ===== SIDE-BY-SIDE RESPONSIVE GRID (BEFORE / AFTER) ===== */}
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                  gap: '20px',
-                  marginTop: '20px',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+                  gap: '24px',
+                  alignItems: 'start',
                 }}
               >
-                {/* LEFT COLUMN: Original Images */}
+                {/* ================= LEFT COLUMN: INPUT (ORIGINAL IMAGES) ================= */}
                 <div
                   style={{
                     backgroundColor: 'var(--bg-card)',
                     border: '1px solid var(--border-color)',
                     borderRadius: '12px',
                     padding: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
                   }}
                 >
+                  {/* Title & Action Buttons on the right in the same line */}
                   <div
                     style={{
                       display: 'flex',
+                      justifyContent: 'space-between',
                       alignItems: 'center',
-                      gap: '8px',
                       marginBottom: '16px',
+                      flexWrap: 'wrap',
+                      gap: '8px',
+                      minHeight: '34px',
                     }}
                   >
-                    <span style={{ fontSize: '1.1rem' }}>📁</span>
-                    <h3
-                      style={{
-                        color: 'var(--text-main)',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                        margin: 0,
-                      }}
-                    >
-                      Original Images ({images.length})
-                    </h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontSize: '1.1rem' }}>📁</span>
+                      <h3
+                        style={{
+                          color: 'var(--text-main)',
+                          fontSize: '1rem',
+                          fontWeight: 700,
+                          margin: 0,
+                        }}
+                      >
+                        {tUI('originalImages', { count: images.length })}
+                      </h3>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        style={{
+                          backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                          color: '#60a5fa',
+                          border: '1px solid rgba(59, 130, 246, 0.3)',
+                          borderRadius: '6px',
+                          padding: '6px 12px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {tUI('addMoreImages')}
+                      </button>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={handleImageUpload}
+                        style={{ display: 'none' }}
+                      />
+                      <button
+                        type="button"
+                        onClick={handleClearAll}
+                        style={{
+                          backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                          color: '#f87171',
+                          border: '1px solid rgba(239, 68, 68, 0.3)',
+                          borderRadius: '6px',
+                          padding: '6px 12px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {tUI('clearAll')}
+                      </button>
+                    </div>
                   </div>
 
+                  {/* Vertical list of original images */}
                   <div
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '10px',
-                      maxHeight: '600px',
+                      maxHeight: '680px',
                       overflowY: 'auto',
+                      paddingRight: '4px',
                     }}
                   >
                     {images.map((item) => (
@@ -403,7 +720,7 @@ export default function ImageResizerPage() {
                           backgroundColor: 'var(--bg-page)',
                           border: '1px solid var(--border-color)',
                           borderRadius: '8px',
-                          padding: '10px',
+                          padding: '10px 12px',
                           display: 'flex',
                           gap: '12px',
                           alignItems: 'center',
@@ -412,12 +729,12 @@ export default function ImageResizerPage() {
                         <NextImage
                           src={item.src}
                           alt={item.file.name}
-                          width={70}
-                          height={70}
+                          width={60}
+                          height={60}
                           unoptimized
                           style={{
-                            width: '70px',
-                            height: '70px',
+                            width: '60px',
+                            height: '60px',
                             objectFit: 'contain',
                             borderRadius: '6px',
                             backgroundColor: 'var(--bg-page)',
@@ -428,20 +745,23 @@ export default function ImageResizerPage() {
                           <p
                             style={{
                               color: '#e2e8f0',
-                              fontSize: '0.8rem',
+                              fontSize: '0.85rem',
                               margin: '0 0 4px',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
                               whiteSpace: 'nowrap',
+                              fontWeight: 500,
                             }}
+                            title={item.file.name}
                           >
                             {item.file.name}
                           </p>
-                          <p style={{ color: '#64748b', fontSize: '0.7rem', margin: 0 }}>
+                          <p style={{ color: '#64748b', fontSize: '0.75rem', margin: 0 }}>
                             {item.originalWidth} × {item.originalHeight} px
                           </p>
                         </div>
                         <button
+                          type="button"
                           onClick={() => handleRemoveImage(item.id)}
                           style={{
                             backgroundColor: 'rgba(239, 68, 68, 0.15)',
@@ -458,7 +778,7 @@ export default function ImageResizerPage() {
                             justifyContent: 'center',
                             flexShrink: 0,
                           }}
-                          title="Remove"
+                          title={tUI('remove')}
                         >
                           ×
                         </button>
@@ -467,36 +787,73 @@ export default function ImageResizerPage() {
                   </div>
                 </div>
 
-                {/* RIGHT COLUMN: Processed Output */}
+                {/* ================= RIGHT COLUMN: OUTPUT (PROCESSED IMAGES) ================= */}
                 <div
                   style={{
                     backgroundColor: 'rgba(52, 211, 153, 0.03)',
-                    border: '1px solid rgba(52, 211, 153, 0.15)',
+                    border: '1px solid rgba(52, 211, 153, 0.2)',
                     borderRadius: '12px',
                     padding: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
                   }}
                 >
+                  {/* Title & Download All as ZIP on the right */}
                   <div
                     style={{
                       display: 'flex',
+                      justifyContent: 'space-between',
                       alignItems: 'center',
-                      gap: '8px',
                       marginBottom: '16px',
+                      flexWrap: 'wrap',
+                      gap: '8px',
+                      minHeight: '34px',
                     }}
                   >
-                    <span style={{ fontSize: '1.1rem' }}>✨</span>
-                    <h3
-                      style={{
-                        color: 'var(--text-main)',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                        margin: 0,
-                      }}
-                    >
-                      Output Images ({processedCount})
-                    </h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontSize: '1.1rem' }}>✨</span>
+                      <h3
+                        style={{
+                          color: 'var(--text-main)',
+                          fontSize: '1rem',
+                          fontWeight: 700,
+                          margin: 0,
+                        }}
+                      >
+                        {tUI('outputImages', { count: processedCount })}
+                      </h3>
+                    </div>
+
+                    {processedCount > 0 && (
+                      <button
+                        type="button"
+                        onClick={handleDownloadAllZip}
+                        disabled={zipping}
+                        style={{
+                          backgroundColor: '#059669',
+                          color: '#ffffff',
+                          border: 'none',
+                          borderRadius: '6px',
+                          padding: '6px 14px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          cursor: zipping ? 'not-allowed' : 'pointer',
+                          opacity: zipping ? 0.7 : 1,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          whiteSpace: 'nowrap',
+                          boxShadow: '0 2px 8px rgba(5, 150, 105, 0.3)',
+                        }}
+                      >
+                        {zipping
+                          ? tUI('zipping')
+                          : tUI('downloadAllZip', { count: processedCount })}
+                      </button>
+                    )}
                   </div>
 
+                  {/* Vertical list of output images */}
                   {processedCount === 0 ? (
                     <div
                       style={{
@@ -504,15 +861,37 @@ export default function ImageResizerPage() {
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        padding: '40px 20px',
+                        padding: '48px 20px',
                         color: '#64748b',
                         fontSize: '0.85rem',
                         textAlign: 'center',
+                        border: '1px dashed rgba(52, 211, 153, 0.25)',
+                        borderRadius: '8px',
+                        minHeight: '200px',
                       }}
                     >
-                      <p style={{ margin: 0 }}>
-                        Click &quot;Resize All&quot; to see processed images here
+                      <p style={{ margin: '0 0 14px', color: 'var(--text-muted)' }}>
+                        {tUI('clickResizePrompt')}
                       </p>
+                      <button
+                        type="button"
+                        onClick={handleResizeAll}
+                        disabled={loading}
+                        style={{
+                          backgroundColor: '#2563eb',
+                          color: '#ffffff',
+                          border: 'none',
+                          borderRadius: '8px',
+                          padding: '8px 18px',
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          cursor: loading ? 'not-allowed' : 'pointer',
+                          opacity: loading ? 0.7 : 1,
+                          boxShadow: '0 2px 8px rgba(37, 99, 235, 0.35)',
+                        }}
+                      >
+                        {loading ? tUI('processing') : tUI('resizeAll', { count: images.length })}
+                      </button>
                     </div>
                   ) : (
                     <div
@@ -520,8 +899,9 @@ export default function ImageResizerPage() {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '10px',
-                        maxHeight: '600px',
+                        maxHeight: '680px',
                         overflowY: 'auto',
+                        paddingRight: '4px',
                       }}
                     >
                       {images
@@ -531,9 +911,9 @@ export default function ImageResizerPage() {
                             key={`out-${item.id}`}
                             style={{
                               backgroundColor: 'var(--bg-page)',
-                              border: '1px solid rgba(52, 211, 153, 0.2)',
+                              border: '1px solid rgba(52, 211, 153, 0.25)',
                               borderRadius: '8px',
-                              padding: '10px',
+                              padding: '10px 12px',
                               display: 'flex',
                               gap: '12px',
                               alignItems: 'center',
@@ -542,12 +922,12 @@ export default function ImageResizerPage() {
                             <NextImage
                               src={item.processedImage || ''}
                               alt={item.file.name}
-                              width={70}
-                              height={70}
+                              width={60}
+                              height={60}
                               unoptimized
                               style={{
-                                width: '70px',
-                                height: '70px',
+                                width: '60px',
+                                height: '60px',
                                 objectFit: 'contain',
                                 borderRadius: '6px',
                                 backgroundColor: 'var(--bg-page)',
@@ -558,26 +938,46 @@ export default function ImageResizerPage() {
                               <p
                                 style={{
                                   color: '#e2e8f0',
-                                  fontSize: '0.8rem',
+                                  fontSize: '0.85rem',
                                   margin: '0 0 4px',
                                   overflow: 'hidden',
                                   textOverflow: 'ellipsis',
                                   whiteSpace: 'nowrap',
+                                  fontWeight: 500,
                                 }}
+                                title={getOutputFileName(item)}
                               >
                                 {getOutputFileName(item)}
                               </p>
-                              <p style={{ color: '#34d399', fontSize: '0.7rem', margin: 0 }}>
-                                {width} × {height} px
-                              </p>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <span
+                                  style={{ color: '#34d399', fontSize: '0.75rem', fontWeight: 600 }}
+                                >
+                                  {width} × {height} px
+                                </span>
+                                <span
+                                  style={{
+                                    backgroundColor: 'rgba(52, 211, 153, 0.15)',
+                                    color: '#34d399',
+                                    borderRadius: '4px',
+                                    padding: '1px 6px',
+                                    fontSize: '0.65rem',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                  }}
+                                >
+                                  {getFormatShortName(outputFormat)}
+                                </span>
+                              </div>
                             </div>
                             <button
+                              type="button"
                               onClick={() => handleDownloadSingle(item)}
                               style={{
                                 backgroundColor: 'rgba(52, 211, 153, 0.15)',
                                 color: '#34d399',
                                 border: '1px solid rgba(52, 211, 153, 0.4)',
-                                borderRadius: '6px',
+                                borderRadius: '8px',
                                 width: '34px',
                                 height: '34px',
                                 cursor: 'pointer',
@@ -587,7 +987,7 @@ export default function ImageResizerPage() {
                                 justifyContent: 'center',
                                 flexShrink: 0,
                               }}
-                              title="Download this image"
+                              title={tUI('downloadTooltip')}
                             >
                               ⬇
                             </button>
@@ -597,210 +997,10 @@ export default function ImageResizerPage() {
                   )}
                 </div>
               </div>
-
-              {/* ===== SETTINGS PANEL ===== */}
-              <div
-                style={{
-                  marginTop: '24px',
-                  backgroundColor: 'var(--bg-card)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '12px',
-                  padding: '24px',
-                }}
-              >
-                <h3
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
-                    marginBottom: '16px',
-                  }}
-                >
-                  ⚙️ Conversion Settings
-                </h3>
-
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                    gap: '16px',
-                  }}
-                >
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--text-main)',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        display: 'block',
-                        marginBottom: '6px',
-                      }}
-                    >
-                      Width (px):
-                    </label>
-                    <input
-                      type="number"
-                      value={width}
-                      onChange={(e) => handleWidthChange(Number(e.target.value))}
-                      style={{
-                        width: '100%',
-                        backgroundColor: 'var(--bg-page)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '8px',
-                        color: 'var(--text-main)',
-                        padding: '10px',
-                        fontSize: '0.9rem',
-                        outline: 'none',
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--text-main)',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        display: 'block',
-                        marginBottom: '6px',
-                      }}
-                    >
-                      Height (px):
-                    </label>
-                    <input
-                      type="number"
-                      value={height}
-                      onChange={(e) => handleHeightChange(Number(e.target.value))}
-                      style={{
-                        width: '100%',
-                        backgroundColor: 'var(--bg-page)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '8px',
-                        color: 'var(--text-main)',
-                        padding: '10px',
-                        fontSize: '0.9rem',
-                        outline: 'none',
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--text-main)',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        display: 'block',
-                        marginBottom: '6px',
-                      }}
-                    >
-                      Output Format:
-                    </label>
-                    <select
-                      value={outputFormat}
-                      onChange={(e) => setOutputFormat(e.target.value)}
-                      style={{
-                        width: '100%',
-                        backgroundColor: 'var(--bg-page)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '8px',
-                        color: 'var(--text-main)',
-                        padding: '10px',
-                        fontSize: '0.9rem',
-                        outline: 'none',
-                      }}
-                    >
-                      <option value="image/jpeg">JPEG (JPG)</option>
-                      <option value="image/png">PNG</option>
-                      <option value="image/webp">WEBP</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div style={{ marginTop: '16px' }}>
-                  <label
-                    style={{
-                      color: 'var(--text-main)',
-                      fontSize: '0.85rem',
-                      fontWeight: 600,
-                      display: 'block',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    Quality: {Math.round(quality * 100)}%
-                  </label>
-                  <input
-                    type="range"
-                    min="0.1"
-                    max="1"
-                    step="0.05"
-                    value={quality}
-                    onChange={(e) => setQuality(Number(e.target.value))}
-                    style={{ width: '100%' }}
-                  />
-                </div>
-
-                <div style={{ display: 'flex', gap: '12px', marginTop: '16px', flexWrap: 'wrap' }}>
-                  <label
-                    style={{
-                      color: 'var(--text-muted)',
-                      fontSize: '0.85rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={maintainAspect}
-                      onChange={(e) => setMaintainAspect(e.target.checked)}
-                    />
-                    Maintain Aspect Ratio
-                  </label>
-                </div>
-
-                <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
-                  <button
-                    onClick={handleResizeAll}
-                    disabled={loading}
-                    style={{
-                      backgroundColor: '#2563eb',
-                      color: '#ffffff',
-                      border: 'none',
-                      borderRadius: '8px',
-                      padding: '10px 24px',
-                      fontSize: '0.9rem',
-                      fontWeight: 600,
-                      cursor: loading ? 'not-allowed' : 'pointer',
-                      opacity: loading ? 0.7 : 1,
-                    }}
-                  >
-                    {loading ? 'Processing...' : `🚀 Resize All (${images.length})`}
-                  </button>
-                  {processedCount > 0 && (
-                    <button
-                      onClick={handleDownloadAllZip}
-                      disabled={zipping}
-                      style={{
-                        backgroundColor: '#059669',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '10px 24px',
-                        fontSize: '0.9rem',
-                        fontWeight: 600,
-                        cursor: zipping ? 'not-allowed' : 'pointer',
-                        opacity: zipping ? 0.7 : 1,
-                      }}
-                    >
-                      {zipping ? 'Zipping...' : `📦 Download All as ZIP (${processedCount})`}
-                    </button>
-                  )}
-                </div>
-              </div>
             </>
           )}
 
-          <ToolSeoContent toolSlug="image-resizer" toolName="Image Resizer" />
+          <ToolSeoContent toolSlug="image-resizer" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>
