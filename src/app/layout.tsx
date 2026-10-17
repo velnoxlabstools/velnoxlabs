@@ -46,14 +46,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={locale} suppressHydrationWarning className="dark">
       <body className="bg-white text-slate-900 dark:bg-[#030712] dark:text-slate-100 transition-colors">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
           <ThemeProvider>
             <PreferenceProvider>
               <SecurityProvider>
                 <PerformanceProvider>
                   <LayoutProvider>
                     <SearchProvider>
-                      <div className="min-h-screen flex flex-col">
+                      <div key={locale} className="min-h-screen flex flex-col">
                         <Header />
                         <main className="flex-1">{children}</main>
                         <Footer />
