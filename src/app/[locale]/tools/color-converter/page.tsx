@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function ColorConverterPage() {
+  const tUI = useTranslations('ToolUI.colorConverter');
   const [hex, setHex] = useState('#3b82f6');
   const [rgb, setRgb] = useState('rgb(59, 130, 246)');
   const [hsl, setHsl] = useState('hsl(217, 91%, 60%)');
@@ -87,7 +89,7 @@ export default function ColorConverterPage() {
         setRgb(`rgb(${r}, ${g}, ${b})`);
         setHsl(rgbToHsl(r, g, b));
       } else {
-        setError('Invalid HEX code');
+        setError(tUI('errorInvalidHex'));
       }
     }
   };
@@ -104,7 +106,7 @@ export default function ColorConverterPage() {
       setHex(rgbToHex(r, g, b));
       setHsl(rgbToHsl(r, g, b));
     } else if (value.trim() !== '') {
-      setError('Invalid RGB format. Use rgb(r, g, b)');
+      setError(tUI('errorInvalidRgb'));
     }
   };
 
@@ -121,7 +123,7 @@ export default function ColorConverterPage() {
       setHex(rgbToHex(r, g, b));
       setRgb(`rgb(${r}, ${g}, ${b})`);
     } else if (value.trim() !== '') {
-      setError('Invalid HSL format. Use hsl(h, s%, l%)');
+      setError(tUI('errorInvalidHsl'));
     }
   };
 
@@ -177,10 +179,7 @@ export default function ColorConverterPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Color Converter (HEX, RGB, HSL)"
-            subtitle="Convert color formats instantly for web development and UI design with absolute client-side speed."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -202,7 +201,7 @@ export default function ColorConverterPage() {
                   marginBottom: '8px',
                 }}
               >
-                Color Preview:
+                {tUI('colorPreview')}
               </label>
               <div
                 style={{
@@ -235,7 +234,7 @@ export default function ColorConverterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    HEX:
+                    {tUI('hexLabel')}
                   </label>
                   <button
                     onClick={() => handleCopy(hex, 'hex')}
@@ -250,7 +249,7 @@ export default function ColorConverterPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'hex' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'hex' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <input
@@ -285,7 +284,7 @@ export default function ColorConverterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    RGB:
+                    {tUI('rgbLabel')}
                   </label>
                   <button
                     onClick={() => handleCopy(rgb, 'rgb')}
@@ -300,7 +299,7 @@ export default function ColorConverterPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'rgb' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'rgb' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <input
@@ -335,7 +334,7 @@ export default function ColorConverterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    HSL:
+                    {tUI('hslLabel')}
                   </label>
                   <button
                     onClick={() => handleCopy(hsl, 'hsl')}
@@ -350,7 +349,7 @@ export default function ColorConverterPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'hsl' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'hsl' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <input

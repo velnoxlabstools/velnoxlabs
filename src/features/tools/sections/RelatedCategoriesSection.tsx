@@ -16,6 +16,7 @@ export function RelatedCategoriesSection({ categories }: RelatedCategoriesSectio
           margin: '0 0 var(--space-4)',
           fontSize: 'var(--font-size-lg)',
           fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--text-main)',
         }}
       >
         Related categories
@@ -38,9 +39,10 @@ export function RelatedCategoriesSection({ categories }: RelatedCategoriesSectio
                 display: 'inline-flex',
                 padding: 'var(--space-2) var(--space-3)',
                 borderRadius: 'var(--radius-full)',
-                border: '1px solid var(--border)',
+                border: '1px solid var(--border-color)',
+                background: 'var(--bg-card)',
                 textDecoration: 'none',
-                color: 'var(--foreground)',
+                color: 'var(--text-main)',
                 fontSize: 'var(--font-size-sm)',
               }}
             >

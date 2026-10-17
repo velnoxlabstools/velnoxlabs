@@ -18,6 +18,7 @@ export function RelatedToolsSection({ tools }: RelatedToolsSectionProps) {
           margin: '0 0 var(--space-4)',
           fontSize: 'var(--font-size-lg)',
           fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--text-main)',
         }}
       >
         Related tools
@@ -40,10 +41,10 @@ export function RelatedToolsSection({ tools }: RelatedToolsSectionProps) {
                 display: 'block',
                 padding: 'var(--space-4)',
                 borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border)',
-                background: 'var(--card)',
+                border: '1px solid var(--border-color)',
+                background: 'var(--bg-card)',
                 textDecoration: 'none',
-                color: 'var(--foreground)',
+                color: 'var(--text-main)',
                 fontSize: 'var(--font-size-sm)',
                 fontWeight: 'var(--font-weight-medium)',
               }}

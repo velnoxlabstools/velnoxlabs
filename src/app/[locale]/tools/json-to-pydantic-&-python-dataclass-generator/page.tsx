@@ -303,37 +303,55 @@ export default function JsonToPyPage() {
           {/* ========== FEATURES ========== */}
           <div className="w-full max-w-7xl mx-auto px-4 py-12 mt-12 border-t border-slate-800">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">
+              <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-main)' }}>
                 Enterprise-Grade JSON to Pydantic Standards
               </h2>
-              <p className="text-slate-400 max-w-3xl">
+              <p className="max-w-3xl" style={{ color: 'var(--text-muted)' }}>
                 Streamlining developer workflows efficiently with high performance, strict
                 client-side privacy, and production-ready outputs.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-xl">
+              <div
+                className="p-6 rounded-xl"
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                }}
+              >
                 <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
                   ⚡ Instant Processing
                 </div>
-                <p className="text-slate-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
                   Processes parameters and payloads in real-time with zero latency.
                 </p>
               </div>
-              <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-xl">
+              <div
+                className="p-6 rounded-xl"
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                }}
+              >
                 <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
                   🔒 Complete Privacy
                 </div>
-                <p className="text-slate-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
                   All parsing happens completely client-side without logging sensitive parameters.
                 </p>
               </div>
-              <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-xl">
+              <div
+                className="p-6 rounded-xl"
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                }}
+              >
                 <div className="text-orange-400 font-semibold mb-2 flex items-center gap-2">
                   🛠️ Production Ready
                 </div>
-                <p className="text-slate-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
                   Outputs clean, standardized formats built to integrate directly into your
                   workflow.
                 </p>

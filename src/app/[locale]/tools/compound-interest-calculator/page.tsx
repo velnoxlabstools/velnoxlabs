@@ -1,19 +1,21 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 const FREQUENCIES = [
-  { value: 1, label: 'Annually (1×/year)' },
-  { value: 2, label: 'Semi-annually (2×/year)' },
-  { value: 4, label: 'Quarterly (4×/year)' },
-  { value: 12, label: 'Monthly (12×/year)' },
-  { value: 365, label: 'Daily (365×/year)' },
+  { value: 1, key: 'annually' as const },
+  { value: 2, key: 'semiannually' as const },
+  { value: 4, key: 'quarterly' as const },
+  { value: 12, key: 'monthly' as const },
+  { value: 365, key: 'daily' as const },
 ];
 
 export default function CompoundInterestCalculatorPage() {
+  const tUI = useTranslations('ToolUI.compoundInterestCalculator');
   const [principal, setPrincipal] = useState('10000');
   const [rate, setRate] = useState('7');
   const [years, setYears] = useState('10');
@@ -70,14 +72,15 @@ export default function CompoundInterestCalculatorPage() {
   };
 
   const handleCopy = () => {
-    const text = `Principal: ${formatCurrency(parseFloat(principal) || 0)}
-Rate: ${rate}% for ${years} years
-Compound: ${FREQUENCIES.find((f) => f.value === frequency)?.label}
-Monthly Contribution: ${formatCurrency(parseFloat(monthlyContribution) || 0)}
+    const freqKey = FREQUENCIES.find((f) => f.value === frequency)?.key || 'monthly';
+    const text = `${tUI('initialPrincipal')} ${formatCurrency(parseFloat(principal) || 0)}
+${tUI('annualRate')} ${rate}% (${years} ${tUI('yearsLabel')})
+${tUI('compoundingFrequency')} ${tUI(freqKey)}
+${tUI('monthlyContribution')} ${formatCurrency(parseFloat(monthlyContribution) || 0)}
 
-Final Balance: ${formatCurrency(results.finalAmount)}
-Total Interest Earned: ${formatCurrency(results.totalInterest)}
-Total Contributed: ${formatCurrency(results.totalContributions)}`;
+${tUI('finalBalance')}: ${formatCurrency(results.finalAmount)}
+${tUI('interestEarned')}: ${formatCurrency(results.totalInterest)}
+${tUI('totalContributions')}: ${formatCurrency(results.totalContributions)}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -136,10 +139,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Compound Interest Calculator"
-            subtitle="See how your investment grows with the power of compounding — including monthly contributions and detailed yearly breakdown."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -169,7 +169,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Initial Principal ($):
+                  {tUI('initialPrincipal')}
                 </label>
                 <input
                   type="number"
@@ -200,7 +200,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Annual Interest Rate (%):
+                  {tUI('annualRate')}
                 </label>
                 <input
                   type="number"
@@ -232,7 +232,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Years:
+                  {tUI('yearsLabel')}
                 </label>
                 <input
                   type="number"
@@ -263,7 +263,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Monthly Contribution ($):
+                  {tUI('monthlyContribution')}
                 </label>
                 <input
                   type="number"
@@ -297,7 +297,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                   marginBottom: '8px',
                 }}
               >
-                Compounding Frequency:
+                {tUI('compoundingFrequency')}
               </label>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {FREQUENCIES.map((f) => (
@@ -320,7 +320,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                       transition: 'all 0.2s',
                     }}
                   >
-                    {f.label}
+                    {tUI(f.key)}
                   </button>
                 ))}
               </div>
@@ -354,7 +354,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '6px',
                   }}
                 >
-                  Final Balance
+                  {tUI('finalBalance')}
                 </div>
                 <div
                   style={{
@@ -386,7 +386,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '6px',
                   }}
                 >
-                  Total Contributions
+                  {tUI('totalContributions')}
                 </div>
                 <div
                   style={{
@@ -418,7 +418,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '6px',
                   }}
                 >
-                  Interest Earned
+                  {tUI('interestEarned')}
                 </div>
                 <div
                   style={{
@@ -443,7 +443,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                   marginBottom: '8px',
                 }}
               >
-                Breakdown:
+                {tUI('breakdown')}
               </div>
               <div
                 style={{
@@ -496,10 +496,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                 }}
               >
                 <span>
-                  <span style={{ color: '#3b82f6' }}>■</span> Contributions
+                  <span style={{ color: '#3b82f6' }}>■</span> {tUI('contributions')}
                 </span>
                 <span>
-                  <span style={{ color: '#10b981' }}>■</span> Interest
+                  <span style={{ color: '#10b981' }}>■</span> {tUI('interest')}
                 </span>
               </div>
             </div>
@@ -515,7 +515,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     marginBottom: '10px',
                   }}
                 >
-                  📈 Year-by-Year Growth
+                  {tUI('yearByYearGrowth')}
                 </div>
                 <div
                   style={{
@@ -538,10 +538,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                       textTransform: 'uppercase',
                     }}
                   >
-                    <div>Year</div>
-                    <div style={{ textAlign: 'right' }}>Contributed</div>
-                    <div style={{ textAlign: 'right' }}>Interest</div>
-                    <div style={{ textAlign: 'right' }}>Balance</div>
+                    <div>{tUI('year')}</div>
+                    <div style={{ textAlign: 'right' }}>{tUI('contributed')}</div>
+                    <div style={{ textAlign: 'right' }}>{tUI('interest')}</div>
+                    <div style={{ textAlign: 'right' }}>{tUI('balance')}</div>
                   </div>
                   <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
                     {results.schedule.map((row, i) => (
@@ -591,7 +591,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                 transition: 'all 0.2s',
               }}
             >
-              {copied ? '✓ Copied!' : '📋 Copy Breakdown'}
+              {copied ? tUI('copied') : tUI('copyBreakdown')}
             </button>
           </div>
 

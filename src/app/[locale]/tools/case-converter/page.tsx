@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function CaseConverterPage() {
+  const tUI = useTranslations('ToolUI.caseConverter');
   const [input, setInput] = useState('hello world from velnoxlabs');
   const [output, setOutput] = useState('');
   const [copied, setCopied] = useState(false);
@@ -87,10 +89,7 @@ export default function CaseConverterPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Case Converter"
-            subtitle="Transform text formats seamlessly between UPPERCASE, lowercase, camelCase, snake_case, and more."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -118,13 +117,13 @@ export default function CaseConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Input:
+                  {tUI('inputLabel')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={10}
-                  placeholder="Enter your text here..."
+                  placeholder={tUI('inputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -150,7 +149,7 @@ export default function CaseConverterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Output:
+                    {tUI('outputLabel')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -165,14 +164,14 @@ export default function CaseConverterPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={10}
-                  placeholder="Click a case button below to see the result..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -203,7 +202,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                UPPERCASE
+                {tUI('uppercase')}
               </button>
               <button
                 onClick={handleLower}
@@ -218,7 +217,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                lowercase
+                {tUI('lowercase')}
               </button>
               <button
                 onClick={handleTitle}
@@ -233,7 +232,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                Title Case
+                {tUI('titleCase')}
               </button>
               <button
                 onClick={handleCamel}
@@ -248,7 +247,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                camelCase
+                {tUI('camelCase')}
               </button>
               <button
                 onClick={handleSnake}
@@ -263,7 +262,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                snake_case
+                {tUI('snakeCase')}
               </button>
               <button
                 onClick={handleKebab}
@@ -278,7 +277,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                kebab-case
+                {tUI('kebabCase')}
               </button>
               <button
                 onClick={handleClear}
@@ -293,7 +292,7 @@ export default function CaseConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                Clear
+                {tUI('clear')}
               </button>
             </div>
             {/* 👆 BUTTONS YAHAN KHATAM 👆 */}

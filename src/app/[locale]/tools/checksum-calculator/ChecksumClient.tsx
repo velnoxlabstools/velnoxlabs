@@ -1,8 +1,10 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function ChecksumClient() {
+  const tUI = useTranslations('ToolUI.checksumCalculator');
   const [text, setText] = useState('Hello VelnoxLabs!');
   const [algorithm, setAlgorithm] = useState('sha-256');
   const [hash, setHash] = useState('');
@@ -98,7 +100,7 @@ export default function ChecksumClient() {
                 marginBottom: '12px',
               }}
             >
-              Checksum Calculator
+              {tUI('title')}
             </h1>
             <p
               style={{
@@ -108,8 +110,7 @@ export default function ChecksumClient() {
                 margin: '0 auto',
               }}
             >
-              Calculate instant cryptographic and simple hashes securely in your browser with
-              absolute privacy.
+              {tUI('subtitle')}
             </p>
           </div>
 
@@ -141,7 +142,7 @@ export default function ChecksumClient() {
                   letterSpacing: '0.05em',
                 }}
               >
-                Select Algorithm
+                {tUI('selectAlgorithm')}
               </label>
               <select
                 value={algorithm}
@@ -164,7 +165,7 @@ export default function ChecksumClient() {
                 <option value="sha-256">SHA-256</option>
                 <option value="sha-512">SHA-512</option>
                 <option value="sha-1">SHA-1</option>
-                <option value="simple">Simple Checksum</option>
+                <option value="simple">{tUI('simpleChecksum')}</option>
               </select>
             </div>
 
@@ -178,11 +179,11 @@ export default function ChecksumClient() {
                   marginBottom: '8px',
                 }}
               >
-                Input Text
+                {tUI('inputText')}
               </label>
               <textarea
                 rows={5}
-                placeholder="Type or paste your text here..."
+                placeholder={tUI('inputPlaceholder')}
                 value={text}
                 onChange={(e) => calculateHash(e.target.value, algorithm)}
                 style={{
@@ -210,7 +211,7 @@ export default function ChecksumClient() {
                   marginBottom: '8px',
                 }}
               >
-                Generated Hash Output
+                {tUI('hashOutput')}
               </label>
               <div
                 style={{
@@ -229,8 +230,8 @@ export default function ChecksumClient() {
                 }}
               >
                 {hash || (
-                  <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                    Hash output will appear here...
+                  <span style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>
+                    {tUI('hashPlaceholder')}
                   </span>
                 )}
                 {hash && (
@@ -251,7 +252,7 @@ export default function ChecksumClient() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 )}
               </div>

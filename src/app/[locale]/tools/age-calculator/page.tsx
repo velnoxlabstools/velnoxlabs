@@ -40,6 +40,7 @@ interface AgeResult {
 
 export default function AgeCalculatorPage() {
   const t = useTranslations('Tools.age-calculator');
+  const tUI = useTranslations('ToolUI.ageCalculator');
   const locale = useLocale();
   const toolsT = useTranslations('Tools');
   const [birthDate, setBirthDate] = useState('');
@@ -103,7 +104,7 @@ export default function AgeCalculatorPage() {
     const today = new Date();
 
     if (dob > today) {
-      setError(t('birthDateFutureError'));
+      setError(tUI('birthDateFutureError'));
       setResult(null);
       return;
     }
@@ -153,14 +154,14 @@ export default function AgeCalculatorPage() {
       zodiac: getZodiacSign(dob.getMonth() + 1, dob.getDate()),
       daysToBirthday,
     });
-  }, [birthDate, locale, t]);
+  }, [birthDate, locale, t, tUI]);
 
   const copyReport = () => {
     if (!result) return;
 
-    const yearUnit = result.years === 1 ? t('year') : t('years');
-    const monthUnit = result.months === 1 ? t('month') : t('months');
-    const dayUnit = result.days === 1 ? t('day') : t('days');
+    const yearUnit = result.years === 1 ? tUI('year') : tUI('years');
+    const monthUnit = result.months === 1 ? tUI('month') : tUI('months');
+    const dayUnit = result.days === 1 ? tUI('day') : tUI('days');
 
     const birthdayReport =
       result.daysToBirthday === 1
@@ -188,7 +189,7 @@ export default function AgeCalculatorPage() {
     ].join('\n');
 
     navigator.clipboard.writeText(text);
-    alert(t('reportCopied'));
+    alert(tUI('reportCopied'));
   };
 
   return (
@@ -198,25 +199,65 @@ export default function AgeCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      <div className="min-h-screen bg-slate-950 text-slate-300 py-12 px-4 sm:px-6 lg:px-8">
+      <div
+        style={{
+          minHeight: '100vh',
+          backgroundColor: 'var(--bg-page)',
+          color: 'var(--text-main)',
+          padding: '48px 16px',
+        }}
+      >
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('name')}</h1>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">{t('pageSubtitle')}</p>
+            <h1
+              className="text-4xl md:text-5xl font-bold mb-4"
+              style={{ color: 'var(--text-main)' }}
+            >
+              {t('name')}
+            </h1>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+              {t('pageSubtitle')}
+            </p>
           </div>
 
           {/* Input Section */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 mb-8 shadow-xl">
-            <label htmlFor="dob" className="block text-sm font-semibold text-slate-300 mb-2">
-              {t('dateOfBirth')}
+          <div
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '16px',
+              padding: '24px',
+              marginBottom: '32px',
+            }}
+          >
+            <label
+              htmlFor="dob"
+              style={{
+                display: 'block',
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: 'var(--text-main)',
+                marginBottom: '8px',
+              }}
+            >
+              {tUI('dateOfBirth')}
             </label>
             <input
               type="date"
               id="dob"
               value={birthDate}
               onChange={(e) => setBirthDate(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg p-4 text-white text-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors [color-scheme:dark]"
+              style={{
+                width: '100%',
+                backgroundColor: 'var(--bg-page)',
+                border: '1px solid var(--border-color)',
+                borderRadius: '8px',
+                padding: '16px',
+                color: 'var(--text-main)',
+                fontSize: '1.125rem',
+                outline: 'none',
+              }}
             />
             {error && <p className="text-red-400 mt-2 text-sm">{error}</p>}
           </div>
@@ -225,73 +266,178 @@ export default function AgeCalculatorPage() {
           {result && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Exact Age Card */}
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center shadow-xl relative overflow-hidden">
-                <h2 className="text-sm uppercase tracking-widest font-bold text-emerald-400 mb-4">
-                  {t('yourExactAge')}
+              <div
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '16px',
+                  padding: '32px',
+                  textAlign: 'center',
+                }}
+              >
+                <h2 className="text-sm uppercase tracking-widest font-bold text-emerald-500 mb-4">
+                  {tUI('yourExactAge')}
                 </h2>
-                <div className="flex flex-wrap justify-center items-baseline gap-2 md:gap-4 text-white">
-                  <span className="text-6xl md:text-7xl font-extrabold">{result.years}</span>
-                  <span className="text-xl md:text-2xl text-slate-400 font-medium">
-                    {result.years === 1 ? t('year') : t('years')}
+                <div className="flex flex-wrap justify-center items-baseline gap-2 md:gap-4">
+                  <span
+                    className="text-6xl md:text-7xl font-extrabold"
+                    style={{ color: 'var(--text-main)' }}
+                  >
+                    {result.years}
                   </span>
-                  <span className="text-6xl md:text-7xl font-extrabold">{result.months}</span>
-                  <span className="text-xl md:text-2xl text-slate-400 font-medium">
-                    {result.months === 1 ? t('month') : t('months')}
+                  <span
+                    className="text-xl md:text-2xl font-medium"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    {result.years === 1 ? tUI('year') : tUI('years')}
                   </span>
-                  <span className="text-6xl md:text-7xl font-extrabold">{result.days}</span>
-                  <span className="text-xl md:text-2xl text-slate-400 font-medium">
-                    {result.days === 1 ? t('day') : t('days')}
+                  <span
+                    className="text-6xl md:text-7xl font-extrabold"
+                    style={{ color: 'var(--text-main)' }}
+                  >
+                    {result.months}
+                  </span>
+                  <span
+                    className="text-xl md:text-2xl font-medium"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    {result.months === 1 ? tUI('month') : tUI('months')}
+                  </span>
+                  <span
+                    className="text-6xl md:text-7xl font-extrabold"
+                    style={{ color: 'var(--text-main)' }}
+                  >
+                    {result.days}
+                  </span>
+                  <span
+                    className="text-xl md:text-2xl font-medium"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    {result.days === 1 ? tUI('day') : tUI('days')}
                   </span>
                 </div>
                 <button
                   onClick={copyReport}
-                  className="mt-8 bg-slate-800 hover:bg-slate-700 text-blue-400 font-medium py-3 px-6 rounded-lg transition-colors border border-slate-700"
+                  style={{
+                    marginTop: '32px',
+                    backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                    color: '#60a5fa',
+                    border: '1px solid rgba(59, 130, 246, 0.3)',
+                    fontWeight: 600,
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                  }}
                 >
-                  {t('copyFullReport')}
+                  {tUI('copyFullReport')}
                 </button>
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {[
-                  { label: t('totalMonths'), value: result.totalMonths.toLocaleString(locale) },
-                  { label: t('totalWeeks'), value: result.totalWeeks.toLocaleString(locale) },
-                  { label: t('totalDays'), value: result.totalDays.toLocaleString(locale) },
-                  { label: t('totalHours'), value: result.totalHours.toLocaleString(locale) },
-                  { label: t('totalMinutes'), value: result.totalMinutes.toLocaleString(locale) },
+                  { label: tUI('totalMonths'), value: result.totalMonths.toLocaleString(locale) },
+                  { label: tUI('totalWeeks'), value: result.totalWeeks.toLocaleString(locale) },
+                  { label: tUI('totalDays'), value: result.totalDays.toLocaleString(locale) },
+                  { label: tUI('totalHours'), value: result.totalHours.toLocaleString(locale) },
+                  { label: tUI('totalMinutes'), value: result.totalMinutes.toLocaleString(locale) },
                   {
-                    label: t('daysToBirthday'),
+                    label: tUI('daysToBirthday'),
                     value: result.daysToBirthday.toLocaleString(locale),
                   },
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center"
+                    style={{
+                      backgroundColor: 'var(--bg-card)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      padding: '16px',
+                      textAlign: 'center',
+                    }}
                   >
-                    <p className="text-xs text-slate-500 uppercase font-semibold mb-1">
+                    <p
+                      style={{
+                        fontSize: '0.75rem',
+                        color: 'var(--text-muted)',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                        marginBottom: '4px',
+                      }}
+                    >
                       {stat.label}
                     </p>
-                    <p className="text-xl font-bold text-emerald-400">{stat.value}</p>
+                    <p className="text-xl font-bold text-emerald-500">{stat.value}</p>
                   </div>
                 ))}
               </div>
 
               {/* Secondary Info Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 text-center">
-                  <p className="text-sm text-slate-400 mb-1">🎂 {t('bornOn')}</p>
-                  <p className="text-2xl font-bold text-white">{result.dayOfWeek}</p>
+                <div
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    padding: '24px',
+                    textAlign: 'center',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: '0.875rem',
+                      color: 'var(--text-muted)',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    🎂 {tUI('bornOn')}
+                  </p>
+                  <p className="text-2xl font-bold" style={{ color: 'var(--text-main)' }}>
+                    {result.dayOfWeek}
+                  </p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 text-center">
-                  <p className="text-sm text-slate-400 mb-1">♊ {t('zodiacSign')}</p>
-                  <p className="text-2xl font-bold text-white">
+                <div
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    padding: '24px',
+                    textAlign: 'center',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: '0.875rem',
+                      color: 'var(--text-muted)',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    ♊ {tUI('zodiacSign')}
+                  </p>
+                  <p className="text-2xl font-bold" style={{ color: 'var(--text-main)' }}>
                     {zodiacTranslations[result.zodiac] ?? result.zodiac}
                   </p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 text-center">
-                  <p className="text-sm text-slate-400 mb-1">📅 {t('nextBirthday')}</p>
-                  <p className="text-2xl font-bold text-white">
-                    {t(
+                <div
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    padding: '24px',
+                    textAlign: 'center',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: '0.875rem',
+                      color: 'var(--text-muted)',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    📅 {tUI('nextBirthday')}
+                  </p>
+                  <p className="text-2xl font-bold" style={{ color: 'var(--text-main)' }}>
+                    {tUI(
                       result.daysToBirthday === 1 ? 'nextBirthdaySingular' : 'nextBirthdayPlural',
                       { days: result.daysToBirthday.toLocaleString(locale) }
                     )}
@@ -304,13 +450,19 @@ export default function AgeCalculatorPage() {
           {/* SEO & Info Section */}
           <div className="mt-16 space-y-10">
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">{t('seoHeading')}</h2>
-              <p className="text-slate-400 leading-relaxed">{t('seoDescription')}</p>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-main)' }}>
+                {t('seoHeading')}
+              </h2>
+              <p className="leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                {t('seoDescription')}
+              </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">{t('howToHeading')}</h2>
-              <ol className="list-decimal pl-6 text-slate-400 space-y-2">
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-main)' }}>
+                {t('howToHeading')}
+              </h2>
+              <ol className="list-decimal pl-6 space-y-2" style={{ color: 'var(--text-muted)' }}>
                 <li>{t('howToStep1')}</li>
                 <li>{t('howToStep2')}</li>
                 <li>{t('howToStep3')}</li>
@@ -320,12 +472,22 @@ export default function AgeCalculatorPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-6">{t('faqHeading')}</h2>
+              <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--text-main)' }}>
+                {t('faqHeading')}
+              </h2>
               <div className="space-y-6">
                 {faqItems.map((faq, index) => (
-                  <div key={index} className="border-b border-slate-800 pb-4">
-                    <h3 className="text-lg font-semibold text-blue-400 mb-2">{faq.name}</h3>
-                    <p className="text-slate-400 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                  <div
+                    key={index}
+                    style={{
+                      borderBottom: '1px solid var(--border-color)',
+                      paddingBottom: '16px',
+                    }}
+                  >
+                    <h3 className="text-lg font-semibold text-blue-500 mb-2">{faq.name}</h3>
+                    <p className="leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                      {faq.acceptedAnswer.text}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -334,57 +496,79 @@ export default function AgeCalculatorPage() {
             {/* Suggested Tools */}
             <section aria-labelledby="suggested-tools-heading" className="space-y-6">
               <div>
-                <h2 id="suggested-tools-heading" className="text-2xl font-bold text-white mb-3">
+                <h2
+                  id="suggested-tools-heading"
+                  className="text-2xl font-bold mb-3"
+                  style={{ color: 'var(--text-main)' }}
+                >
                   {t('suggestedToolsHeading')}
                 </h2>
-                <p className="text-slate-400 leading-relaxed">{t('suggestedToolsDescription')}</p>
+                <p className="leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  {t('suggestedToolsDescription')}
+                </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Link
                   href="/tools/bmi-calculator"
-                  className="block bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-blue-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="block rounded-xl p-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                  }}
                 >
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-main)' }}>
                     {toolsT('bmi-calculator.name')}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {toolsT('bmi-calculator.description')}
                   </p>
                 </Link>
 
                 <Link
                   href="/tools/percentage-calculator"
-                  className="block bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-blue-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="block rounded-xl p-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                  }}
                 >
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-main)' }}>
                     {toolsT('percentage-calculator.name')}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {toolsT('percentage-calculator.description')}
                   </p>
                 </Link>
 
                 <Link
                   href="/tools/discount-calculator"
-                  className="block bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-blue-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="block rounded-xl p-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                  }}
                 >
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-main)' }}>
                     {toolsT('discount-calculator.name')}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {toolsT('discount-calculator.description')}
                   </p>
                 </Link>
 
                 <Link
                   href="/tools/loan-emi-calculator"
-                  className="block bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-blue-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="block rounded-xl p-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  style={{
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
+                  }}
                 >
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-main)' }}>
                     {toolsT('loan-emi-calculator.name')}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {toolsT('loan-emi-calculator.description')}
                   </p>
                 </Link>
