@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -24,11 +25,12 @@ function getLetterGrade(percentage: number) {
 }
 
 export default function GradeCalculatorPage() {
-  const [assignments, setAssignments] = useState<Assignment[]>([
-    { id: 1, name: 'Homework', grade: '92', weight: '20' },
-    { id: 2, name: 'Midterm Exam', grade: '85', weight: '30' },
-    { id: 3, name: 'Final Project', grade: '88', weight: '25' },
-    { id: 4, name: 'Final Exam', grade: '90', weight: '25' },
+  const tUI = useTranslations('ToolUI.gradeCalculator');
+  const [assignments, setAssignments] = useState<Assignment[]>(() => [
+    { id: 1, name: tUI('defaultHomework'), grade: '92', weight: '20' },
+    { id: 2, name: tUI('defaultMidterm'), grade: '85', weight: '30' },
+    { id: 3, name: tUI('defaultFinalProject'), grade: '88', weight: '25' },
+    { id: 4, name: tUI('defaultFinalExam'), grade: '90', weight: '25' },
   ]);
   const [desiredGrade, setDesiredGrade] = useState('90');
   const [copied, setCopied] = useState(false);
@@ -71,9 +73,9 @@ export default function GradeCalculatorPage() {
       : 0;
 
   const handleCopy = () => {
-    const text = `Current Grade: ${currentGrade.toFixed(2)}% (${gradeInfo.letter}, ${gradeInfo.gpa} GPA)
-Total Weight Entered: ${totalWeight}%
-${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remainingWeight}% to get ${desired}%` : 'All weight accounted for'}`;
+    const text = `${tUI('summaryCurrentGrade', { grade: currentGrade.toFixed(2), letter: gradeInfo.letter, gpa: gradeInfo.gpa.toFixed(1) })}
+${tUI('summaryTotalWeight', { weight: totalWeight })}
+${remainingWeight > 0 ? tUI('summaryNeedFinal', { needed: neededOnFinal.toFixed(2), remaining: remainingWeight, desired }) : tUI('summaryAllAccounted')}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -135,6 +137,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
           <SectionHeading
             title="Grade Calculator"
             subtitle="Calculate your weighted grade, letter grade, GPA — and find out what you need on the final exam."
+            toolSlug="grade-calculator"
           />
 
           {/* Main Result Card */}
@@ -159,7 +162,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                 marginBottom: '8px',
               }}
             >
-              Your Current Grade
+              {tUI('yourCurrentGrade')}
             </div>
             <div
               style={{
@@ -198,7 +201,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   fontWeight: 600,
                 }}
               >
-                {gradeInfo.gpa.toFixed(1)} GPA
+                {tUI('gpa', { gpa: gradeInfo.gpa.toFixed(1) })}
               </span>
             </div>
           </div>
@@ -222,18 +225,10 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
               }}
             >
               <h3 style={{ color: 'var(--text-main)', fontSize: '1rem', fontWeight: 700 }}>
-                📋 Assignments
+                {tUI('assignments')}
               </h3>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-                Total weight:{' '}
-                <strong
-                  style={{
-                    color:
-                      totalWeight === 100 ? '#34d399' : totalWeight > 100 ? '#f87171' : '#fbbf24',
-                  }}
-                >
-                  {totalWeight}%
-                </strong>
+                {tUI('totalWeight', { weight: totalWeight })}
               </span>
             </div>
 
@@ -249,9 +244,9 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                 textTransform: 'uppercase',
               }}
             >
-              <div>Assignment</div>
-              <div style={{ textAlign: 'center' }}>Grade %</div>
-              <div style={{ textAlign: 'center' }}>Weight %</div>
+              <div>{tUI('colAssignment')}</div>
+              <div style={{ textAlign: 'center' }}>{tUI('colGrade')}</div>
+              <div style={{ textAlign: 'center' }}>{tUI('colWeight')}</div>
               <div></div>
             </div>
 
@@ -269,7 +264,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   type="text"
                   value={a.name}
                   onChange={(e) => updateAssignment(a.id, 'name', e.target.value)}
-                  placeholder="Assignment name"
+                  placeholder={tUI('assignmentPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -349,7 +344,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                 marginTop: '8px',
               }}
             >
-              + Add Assignment
+              {tUI('addAssignment')}
             </button>
           </div>
 
@@ -372,11 +367,10 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   marginBottom: '14px',
                 }}
               >
-                🎯 What-If Calculator
+                {tUI('whatIfTitle')}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '14px' }}>
-                You have <strong style={{ color: 'var(--text-main)' }}>{remainingWeight}%</strong>{' '}
-                remaining. What do you need to hit your target?
+                {tUI('whatIfDesc', { remaining: remainingWeight })}
               </p>
               <div
                 style={{
@@ -396,7 +390,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                       marginBottom: '6px',
                     }}
                   >
-                    Desired Final Grade (%):
+                    {tUI('desiredFinalGrade')}
                   </label>
                   <input
                     type="number"
@@ -427,7 +421,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                       marginBottom: '6px',
                     }}
                   >
-                    You Need:
+                    {tUI('youNeed')}
                   </label>
                   <div
                     style={{
@@ -444,9 +438,9 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                     }}
                   >
                     {neededOnFinal > 100
-                      ? `${neededOnFinal.toFixed(1)}% (not possible)`
+                      ? tUI('notPossible', { needed: neededOnFinal.toFixed(1) })
                       : neededOnFinal < 0
-                        ? 'Already secured!'
+                        ? tUI('alreadySecured')
                         : `${neededOnFinal.toFixed(1)}%`}
                   </div>
                 </div>
@@ -471,7 +465,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
               marginBottom: '20px',
             }}
           >
-            {copied ? '✓ Copied!' : '📋 Copy Grade Summary'}
+            {copied ? tUI('copied') : tUI('copySummary')}
           </button>
 
           <ToolSeoContent toolSlug="grade-calculator" toolName="Grade Calculator" />

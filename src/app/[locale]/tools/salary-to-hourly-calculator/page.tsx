@@ -1,14 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
+import { formatCurrency as formatCurrencyUtil, getCurrencySymbol } from '@/lib/format';
 
 type Mode = 'salaryToHourly' | 'hourlyToSalary';
 
 export default function SalaryToHourlyCalculatorPage() {
+  const locale = useLocale();
   const tTools = useTranslations('Tools');
   const [mode, setMode] = useState<Mode>('salaryToHourly');
   const [annualSalary, setAnnualSalary] = useState('60000');
@@ -56,7 +58,7 @@ export default function SalaryToHourlyCalculatorPage() {
   }, [mode, annualSalary, hourlyRate, hoursPerWeek, weeksPerYear]);
 
   const formatCurrency = (n: number) => {
-    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return formatCurrencyUtil(n, locale);
   };
 
   const handleCopy = () => {
@@ -171,29 +173,39 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               {mode === 'salaryToHourly' ? (
                 <div>
                   <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
-                    Annual Salary ($):
+                    Annual Salary
                   </label>
-                  <input
-                    type="number"
-                    value={annualSalary}
-                    onChange={(e) => setAnnualSalary(e.target.value)}
-                    placeholder="60000"
-                    className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
-                  />
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] font-mono font-bold text-base pointer-events-none">
+                      {getCurrencySymbol(locale)}
+                    </span>
+                    <input
+                      type="number"
+                      value={annualSalary}
+                      onChange={(e) => setAnnualSalary(e.target.value)}
+                      placeholder="60000"
+                      className="w-full pl-9 pr-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
+                    />
+                  </div>
                 </div>
               ) : (
                 <div>
                   <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
-                    Hourly Rate ($):
+                    Hourly Rate
                   </label>
-                  <input
-                    type="number"
-                    value={hourlyRate}
-                    onChange={(e) => setHourlyRate(e.target.value)}
-                    placeholder="28.85"
-                    step="0.01"
-                    className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
-                  />
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] font-mono font-bold text-base pointer-events-none">
+                      {getCurrencySymbol(locale)}
+                    </span>
+                    <input
+                      type="number"
+                      value={hourlyRate}
+                      onChange={(e) => setHourlyRate(e.target.value)}
+                      placeholder="28.85"
+                      step="0.01"
+                      className="w-full pl-9 pr-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
+                    />
+                  </div>
                 </div>
               )}
               <div>

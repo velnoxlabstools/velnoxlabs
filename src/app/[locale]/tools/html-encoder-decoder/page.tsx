@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function HtmlEncoderDecoderPage() {
+  const tUI = useTranslations('ToolUI.htmlEncoderDecoder');
   const [input, setInput] = useState('<div class="container">Hello VelnoxLabs!</div>');
   const [output, setOutput] = useState('');
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
@@ -106,6 +108,7 @@ export default function HtmlEncoderDecoderPage() {
           <SectionHeading
             title="HTML Encoder & Decoder"
             subtitle="Safely convert special characters into HTML entities or decode entities back into readable strings."
+            toolSlug="html-encoder-decoder"
           />
 
           <div
@@ -132,7 +135,7 @@ export default function HtmlEncoderDecoderPage() {
                   cursor: 'pointer',
                 }}
               >
-                Encode
+                {tUI('encode')}
               </button>
               <button
                 onClick={() => toggleMode('decode')}
@@ -148,7 +151,7 @@ export default function HtmlEncoderDecoderPage() {
                   cursor: 'pointer',
                 }}
               >
-                Decode
+                {tUI('decode')}
               </button>
             </div>
 
@@ -169,16 +172,14 @@ export default function HtmlEncoderDecoderPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  {mode === 'encode' ? 'Raw HTML/Text Input:' : 'Encoded HTML Entities Input:'}
+                  {mode === 'encode' ? tUI('rawInput') : tUI('encodedInput')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => handleProcess(e.target.value, mode)}
                   rows={10}
                   placeholder={
-                    mode === 'encode'
-                      ? 'Enter text with special characters...'
-                      : 'Paste encoded HTML entities...'
+                    mode === 'encode' ? tUI('rawPlaceholder') : tUI('encodedPlaceholder')
                   }
                   style={{
                     width: '100%',
@@ -206,7 +207,7 @@ export default function HtmlEncoderDecoderPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    {mode === 'encode' ? 'Encoded Output:' : 'Decoded Output:'}
+                    {mode === 'encode' ? tUI('encodedOutput') : tUI('decodedOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -221,14 +222,14 @@ export default function HtmlEncoderDecoderPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={10}
-                  placeholder="Output will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',

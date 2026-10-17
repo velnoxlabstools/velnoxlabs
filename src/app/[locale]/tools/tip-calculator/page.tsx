@@ -1,11 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLocale } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
+import { formatCurrency, getCurrencySymbol } from '@/lib/format';
 
 export default function TipCalculatorPage() {
+  const locale = useLocale();
   const [bill, setBill] = useState('50.00');
   const [tipPercent, setTipPercent] = useState(18);
   const [people, setPeople] = useState(1);
@@ -25,10 +28,10 @@ export default function TipCalculatorPage() {
   const perPersonTip = tipAmount / (people || 1);
 
   const handleCopy = () => {
-    const text = `Bill: $${billNum.toFixed(2)}
-Tip (${tipPercent}%): $${tipAmount.toFixed(2)}
-Total: $${totalAmount.toFixed(2)}
-Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFixed(2)} each`;
+    const text = `Bill: ${formatCurrency(billNum, locale)}
+Tip (${tipPercent}%): ${formatCurrency(tipAmount, locale)}
+Total: ${formatCurrency(totalAmount, locale)}
+Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(perPerson, locale)} each`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -114,28 +117,45 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                   marginBottom: '8px',
                 }}
               >
-                Bill Amount ($):
+                Bill Amount
               </label>
-              <input
-                type="number"
-                value={bill}
-                onChange={(e) => setBill(e.target.value)}
-                placeholder="0.00"
-                step="0.01"
-                min="0"
-                style={{
-                  width: '100%',
-                  backgroundColor: 'var(--bg-page)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '8px',
-                  color: 'var(--text-main)',
-                  padding: '14px',
-                  fontSize: '1.2rem',
-                  fontWeight: 700,
-                  outline: 'none',
-                  fontFamily: 'monospace',
-                }}
-              />
+              <div style={{ position: 'relative' }}>
+                <span
+                  style={{
+                    position: 'absolute',
+                    left: '14px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: 'var(--text-muted)',
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    fontFamily: 'monospace',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {getCurrencySymbol(locale)}
+                </span>
+                <input
+                  type="number"
+                  value={bill}
+                  onChange={(e) => setBill(e.target.value)}
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '8px',
+                    color: 'var(--text-main)',
+                    padding: '14px 14px 14px 34px',
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    outline: 'none',
+                    fontFamily: 'monospace',
+                  }}
+                />
+              </div>
             </div>
 
             {/* Tip Percentage */}
@@ -329,7 +349,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                     fontFamily: 'monospace',
                   }}
                 >
-                  ${tipAmount.toFixed(2)}
+                  {formatCurrency(tipAmount, locale)}
                 </div>
               </div>
               <div
@@ -361,7 +381,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                     fontFamily: 'monospace',
                   }}
                 >
-                  ${totalAmount.toFixed(2)}
+                  {formatCurrency(totalAmount, locale)}
                 </div>
               </div>
               <div
@@ -393,7 +413,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                     fontFamily: 'monospace',
                   }}
                 >
-                  ${perPerson.toFixed(2)}
+                  {formatCurrency(perPerson, locale)}
                 </div>
               </div>
             </div>
@@ -420,7 +440,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 >
                   <span>Bill share per person:</span>
                   <strong style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
-                    ${(billNum / people).toFixed(2)}
+                    {formatCurrency(billNum / people, locale)}
                   </strong>
                 </div>
                 <div
@@ -433,7 +453,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 >
                   <span>Tip per person:</span>
                   <strong style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
-                    ${perPersonTip.toFixed(2)}
+                    {formatCurrency(perPersonTip, locale)}
                   </strong>
                 </div>
               </div>

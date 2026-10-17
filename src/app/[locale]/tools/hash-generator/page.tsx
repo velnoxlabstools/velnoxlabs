@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import CryptoJS from 'crypto-js';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function HashGeneratorPage() {
+  const tUI = useTranslations('ToolUI.hashGenerator');
   const [input, setInput] = useState('Hello VelnoxLabs!');
   const [md5Hash, setMd5Hash] = useState('');
   const [sha256Hash, setSha256Hash] = useState('');
@@ -45,8 +47,8 @@ export default function HashGeneratorPage() {
           .join('')
       );
     } catch {
-      setSha256Hash('Error generating hash');
-      setSha512Hash('Error generating hash');
+      setSha256Hash(tUI('errGenerateHash'));
+      setSha512Hash(tUI('errGenerateHash'));
     }
   };
 
@@ -105,6 +107,7 @@ export default function HashGeneratorPage() {
           <SectionHeading
             title="Cryptographic Hash Generator"
             subtitle="Generate SHA-256, SHA-512, and MD5 hashes instantly with browser-native cryptographic APIs."
+            toolSlug="hash-generator"
           />
 
           {/* ========== TOOL UI ========== */}
@@ -127,13 +130,13 @@ export default function HashGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Input Text:
+                {tUI('inputText')}
               </label>
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 rows={5}
-                placeholder="Enter text to hash..."
+                placeholder={tUI('inputPlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -163,7 +166,7 @@ export default function HashGeneratorPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    MD5 Hash:
+                    {tUI('md5Hash')}
                   </label>
                   <button
                     onClick={() => handleCopy(md5Hash, 'md5')}
@@ -178,7 +181,7 @@ export default function HashGeneratorPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'md5' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'md5' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <div
@@ -196,7 +199,7 @@ export default function HashGeneratorPage() {
                 >
                   {md5Hash || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      MD5 hash will appear here...
+                      {tUI('md5Placeholder')}
                     </span>
                   )}
                 </div>
@@ -215,7 +218,7 @@ export default function HashGeneratorPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    SHA-256 Hash:
+                    {tUI('sha256Hash')}
                   </label>
                   <button
                     onClick={() => handleCopy(sha256Hash, 'sha256')}
@@ -230,7 +233,7 @@ export default function HashGeneratorPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'sha256' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'sha256' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <div
@@ -248,7 +251,7 @@ export default function HashGeneratorPage() {
                 >
                   {sha256Hash || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      SHA-256 hash will appear here...
+                      {tUI('sha256Placeholder')}
                     </span>
                   )}
                 </div>
@@ -267,7 +270,7 @@ export default function HashGeneratorPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    SHA-512 Hash:
+                    {tUI('sha512Hash')}
                   </label>
                   <button
                     onClick={() => handleCopy(sha512Hash, 'sha512')}
@@ -282,7 +285,7 @@ export default function HashGeneratorPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'sha512' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'sha512' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <div
@@ -300,7 +303,7 @@ export default function HashGeneratorPage() {
                 >
                   {sha512Hash || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      SHA-512 hash will appear here...
+                      {tUI('sha512Placeholder')}
                     </span>
                   )}
                 </div>

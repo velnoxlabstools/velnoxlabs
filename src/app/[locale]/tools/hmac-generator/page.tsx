@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function HmacGeneratorPage() {
+  const tUI = useTranslations('ToolUI.hmacGenerator');
   const [message, setMessage] = useState('Hello VelnoxLabs!');
   const [secret, setSecret] = useState('my-secret-key');
   const [algorithm, setAlgorithm] = useState('SHA-256');
@@ -34,7 +36,7 @@ export default function HmacGeneratorPage() {
       const hashArray = Array.from(new Uint8Array(signature));
       setHmacOutput(hashArray.map((b) => b.toString(16).padStart(2, '0')).join(''));
     } catch {
-      setHmacOutput('Error generating HMAC signature');
+      setHmacOutput(tUI('errGenerateHmac'));
     }
   }, [message, secret, algorithm]);
 
@@ -97,6 +99,7 @@ export default function HmacGeneratorPage() {
           <SectionHeading
             title="HMAC Signature Generator"
             subtitle="Generate secure Hash-based Message Authentication Codes (HMAC) using native browser cryptographic APIs."
+            toolSlug="hmac-generator"
           />
 
           <div
@@ -118,13 +121,13 @@ export default function HmacGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Secret Key:
+                {tUI('secretKey')}
               </label>
               <input
                 type="text"
                 value={secret}
                 onChange={(e) => setSecret(e.target.value)}
-                placeholder="Enter your secret key..."
+                placeholder={tUI('secretPlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -150,7 +153,7 @@ export default function HmacGeneratorPage() {
               }}
             >
               <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
-                Algorithm:
+                {tUI('algorithm')}
               </label>
               <select
                 value={algorithm}
@@ -183,13 +186,13 @@ export default function HmacGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Message:
+                {tUI('message')}
               </label>
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={5}
-                placeholder="Enter message to sign..."
+                placeholder={tUI('messagePlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -215,7 +218,7 @@ export default function HmacGeneratorPage() {
                 }}
               >
                 <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
-                  HMAC Signature:
+                  {tUI('hmacSignature')}
                 </label>
                 <button
                   onClick={handleCopy}
@@ -230,7 +233,7 @@ export default function HmacGeneratorPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  {copied ? 'Copied!' : 'Copy'}
+                  {copied ? tUI('copied') : tUI('copy')}
                 </button>
               </div>
               <div
@@ -248,7 +251,7 @@ export default function HmacGeneratorPage() {
               >
                 {hmacOutput || (
                   <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                    HMAC signature will appear here...
+                    {tUI('signaturePlaceholder')}
                   </span>
                 )}
               </div>

@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
+import { formatCurrency as formatCurrencyUtil, getCurrencySymbol } from '@/lib/format';
 
 const FREQUENCIES = [
   { value: 1, key: 'annually' as const },
@@ -15,6 +16,7 @@ const FREQUENCIES = [
 ];
 
 export default function CompoundInterestCalculatorPage() {
+  const locale = useLocale();
   const tUI = useTranslations('ToolUI.compoundInterestCalculator');
   const [principal, setPrincipal] = useState('10000');
   const [rate, setRate] = useState('7');
@@ -68,7 +70,7 @@ export default function CompoundInterestCalculatorPage() {
   }, [principal, rate, years, frequency, monthlyContribution]);
 
   const formatCurrency = (n: number) => {
-    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return formatCurrencyUtil(n, locale);
   };
 
   const handleCopy = () => {
@@ -171,24 +173,41 @@ ${tUI('totalContributions')}: ${formatCurrency(results.totalContributions)}`;
                 >
                   {tUI('initialPrincipal')}
                 </label>
-                <input
-                  type="number"
-                  value={principal}
-                  onChange={(e) => setPrincipal(e.target.value)}
-                  placeholder="10000"
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
+                <div style={{ position: 'relative' }}>
+                  <span
+                    style={{
+                      position: 'absolute',
+                      left: '14px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      color: 'var(--text-muted)',
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      fontFamily: 'monospace',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {getCurrencySymbol(locale)}
+                  </span>
+                  <input
+                    type="number"
+                    value={principal}
+                    onChange={(e) => setPrincipal(e.target.value)}
+                    placeholder="10000"
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '14px 14px 14px 34px',
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                    }}
+                  />
+                </div>
               </div>
               <div>
                 <label
@@ -265,24 +284,41 @@ ${tUI('totalContributions')}: ${formatCurrency(results.totalContributions)}`;
                 >
                   {tUI('monthlyContribution')}
                 </label>
-                <input
-                  type="number"
-                  value={monthlyContribution}
-                  onChange={(e) => setMonthlyContribution(e.target.value)}
-                  placeholder="0"
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
+                <div style={{ position: 'relative' }}>
+                  <span
+                    style={{
+                      position: 'absolute',
+                      left: '14px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      color: 'var(--text-muted)',
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      fontFamily: 'monospace',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {getCurrencySymbol(locale)}
+                  </span>
+                  <input
+                    type="number"
+                    value={monthlyContribution}
+                    onChange={(e) => setMonthlyContribution(e.target.value)}
+                    placeholder="0"
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '14px 14px 14px 34px',
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                    }}
+                  />
+                </div>
               </div>
             </div>
 

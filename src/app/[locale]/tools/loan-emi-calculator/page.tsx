@@ -1,11 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useLocale } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
+import { formatCurrency as formatCurrencyUtil, getCurrencySymbol } from '@/lib/format';
 
 export default function LoanEmiCalculatorPage() {
+  const locale = useLocale();
   const [loanAmount, setLoanAmount] = useState('250000');
   const [rate, setRate] = useState('6.5');
   const [years, setYears] = useState('30');
@@ -73,7 +76,7 @@ export default function LoanEmiCalculatorPage() {
     // Payoff date
     const payoff = new Date();
     payoff.setMonth(payoff.getMonth() + n);
-    const payoffDate = payoff.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const payoffDate = payoff.toLocaleDateString(locale, { month: 'long', year: 'numeric' });
 
     setResults({
       monthlyPayment,
@@ -82,10 +85,10 @@ export default function LoanEmiCalculatorPage() {
       payoffDate,
       schedule,
     });
-  }, [loanAmount, rate, years]);
+  }, [loanAmount, rate, years, locale]);
 
   const formatCurrency = (n: number) => {
-    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return formatCurrencyUtil(n, locale);
   };
 
   const handleCopy = () => {
@@ -188,26 +191,43 @@ Payoff Date: ${results.payoffDate}`;
                     marginBottom: '8px',
                   }}
                 >
-                  Loan Amount ($):
+                  Loan Amount
                 </label>
-                <input
-                  type="number"
-                  value={loanAmount}
-                  onChange={(e) => setLoanAmount(e.target.value)}
-                  placeholder="250000"
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
+                <div style={{ position: 'relative' }}>
+                  <span
+                    style={{
+                      position: 'absolute',
+                      left: '14px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      color: 'var(--text-muted)',
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      fontFamily: 'monospace',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {getCurrencySymbol(locale)}
+                  </span>
+                  <input
+                    type="number"
+                    value={loanAmount}
+                    onChange={(e) => setLoanAmount(e.target.value)}
+                    placeholder="250000"
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '14px 14px 14px 34px',
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                    }}
+                  />
+                </div>
               </div>
               <div>
                 <label

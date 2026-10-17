@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import { useLocale } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
+import { getCurrencyCode } from '@/lib/format';
 
 interface LineItem {
   id: string;
@@ -15,17 +17,22 @@ interface LineItem {
 const CURRENCIES = [
   { code: 'USD', label: 'USD ($)' },
   { code: 'EUR', label: 'EUR (€)' },
+  { code: 'CNY', label: 'CNY (¥)' },
+  { code: 'JPY', label: 'JPY (¥)' },
+  { code: 'KRW', label: 'KRW (₩)' },
   { code: 'GBP', label: 'GBP (£)' },
+  { code: 'BRL', label: 'BRL (R$)' },
+  { code: 'RUB', label: 'RUB (₽)' },
   { code: 'INR', label: 'INR (₹)' },
   { code: 'CAD', label: 'CAD (C$)' },
   { code: 'AUD', label: 'AUD (A$)' },
 ];
 
-function formatCurrency(amount: number, code: string) {
+function formatCurrencyWithLocale(amount: number, code: string, locale: string = 'en') {
   try {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: code }).format(amount);
+    return new Intl.NumberFormat(locale, { style: 'currency', currency: code }).format(amount);
   } catch {
-    return amount.toFixed(2);
+    return `${code} ${amount.toFixed(2)}`;
   }
 }
 
@@ -40,8 +47,11 @@ function addDays(iso: string, days: number) {
 }
 
 export default function InvoiceGeneratorPage() {
+  const locale = useLocale();
   // ============ State ============
-  const [currency, setCurrency] = useState('USD');
+  const [currency, setCurrency] = useState(() => getCurrencyCode(locale));
+  const formatCurrency = (amount: number, code: string) =>
+    formatCurrencyWithLocale(amount, code, locale);
   const [businessName, setBusinessName] = useState('VelnoxLabs Inc.');
   const [businessEmail, setBusinessEmail] = useState('billing@velnoxlabs.com');
   const [businessAddress, setBusinessAddress] = useState(

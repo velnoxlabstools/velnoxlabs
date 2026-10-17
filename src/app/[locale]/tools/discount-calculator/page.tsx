@@ -1,13 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
+import { formatCurrency, getCurrencySymbol } from '@/lib/format';
 
 type Mode = 'discount' | 'original' | 'stack';
 
 export default function DiscountCalculatorPage() {
+  const locale = useLocale();
+  const tUI = useTranslations('ToolUI.discountCalculator');
   const [mode, setMode] = useState<Mode>('discount');
   const [price, setPrice] = useState('100');
   const [discount, setDiscount] = useState('25');
@@ -45,22 +49,22 @@ export default function DiscountCalculatorPage() {
   const handleCopy = () => {
     let text = '';
     if (mode === 'discount') {
-      text = `Original Price: $${priceNum.toFixed(2)}
-Discount: ${discountNum}%
-You Save: $${savings.toFixed(2)}
-Final Price: $${finalPrice.toFixed(2)}`;
+      text = `${tUI('originalPriceLabel')}: ${formatCurrency(priceNum, locale)}
+${tUI('discount')}: ${discountNum}%
+${tUI('youSave')}: ${formatCurrency(savings, locale)}
+${tUI('finalPrice')}: ${formatCurrency(finalPrice, locale)}`;
     } else if (mode === 'original') {
-      text = `Sale Price: $${salePriceNum.toFixed(2)}
-Discount: ${discountNum}%
-Original Price Was: $${originalPrice.toFixed(2)}
-You Save: $${savings.toFixed(2)}`;
+      text = `${tUI('salePrice')}: ${formatCurrency(salePriceNum, locale)}
+${tUI('discount')}: ${discountNum}%
+${tUI('originalPriceLabel')}: ${formatCurrency(originalPrice, locale)}
+${tUI('youSave')}: ${formatCurrency(savings, locale)}`;
     } else {
-      text = `Original Price: $${priceNum.toFixed(2)}
-First Discount: ${discountNum}%
-Second Discount: ${discount2Num}%
-Effective Discount: ${effectiveDiscount.toFixed(2)}%
-Final Price: $${finalPrice.toFixed(2)}
-You Save: $${savings.toFixed(2)}`;
+      text = `${tUI('originalPriceLabel')}: ${formatCurrency(priceNum, locale)}
+${tUI('firstDiscount')}: ${discountNum}%
+${tUI('secondDiscount')}: ${discount2Num}%
+${tUI('effectiveDiscount')}: ${effectiveDiscount.toFixed(2)}%
+${tUI('finalPrice')}: ${formatCurrency(finalPrice, locale)}
+${tUI('youSave')}: ${formatCurrency(savings, locale)}`;
     }
     navigator.clipboard.writeText(text);
     setCopied(true);
@@ -123,6 +127,7 @@ You Save: $${savings.toFixed(2)}`;
           <SectionHeading
             title="Discount Calculator"
             subtitle="Calculate sale prices, savings, stacked discounts, and reverse-engineer original prices from sale tags."
+            toolSlug="discount-calculator"
           />
 
           <div
@@ -137,9 +142,9 @@ You Save: $${savings.toFixed(2)}`;
             {/* Mode Tabs */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
               {[
-                { key: 'discount', label: '💵 Find Sale Price' },
-                { key: 'original', label: '🔙 Find Original Price' },
-                { key: 'stack', label: '🎁 Stacked Discounts' },
+                { key: 'discount', label: tUI('findSalePrice') },
+                { key: 'original', label: tUI('findOriginalPrice') },
+                { key: 'stack', label: tUI('stackedDiscounts') },
               ].map((m) => (
                 <button
                   key={m.key}
@@ -184,26 +189,43 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    Original Price ($):
+                    {tUI('originalPrice')}
                   </label>
-                  <input
-                    type="number"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    placeholder="100"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '8px',
-                      color: 'var(--text-main)',
-                      padding: '14px',
-                      fontSize: '1.1rem',
-                      fontWeight: 700,
-                      outline: 'none',
-                      fontFamily: 'monospace',
-                    }}
-                  />
+                  <div style={{ position: 'relative' }}>
+                    <span
+                      style={{
+                        position: 'absolute',
+                        left: '14px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'var(--text-muted)',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        fontFamily: 'monospace',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      {getCurrencySymbol(locale)}
+                    </span>
+                    <input
+                      type="number"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      placeholder="100"
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        color: 'var(--text-main)',
+                        padding: '14px 14px 14px 34px',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        outline: 'none',
+                        fontFamily: 'monospace',
+                      }}
+                    />
+                  </div>
                 </div>
                 <div>
                   <label
@@ -215,7 +237,7 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    Discount (%):
+                    {tUI('discount')}
                   </label>
                   <input
                     type="number"
@@ -258,26 +280,43 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    Sale Price ($):
+                    {tUI('salePrice')}
                   </label>
-                  <input
-                    type="number"
-                    value={salePrice}
-                    onChange={(e) => setSalePrice(e.target.value)}
-                    placeholder="75"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '8px',
-                      color: 'var(--text-main)',
-                      padding: '14px',
-                      fontSize: '1.1rem',
-                      fontWeight: 700,
-                      outline: 'none',
-                      fontFamily: 'monospace',
-                    }}
-                  />
+                  <div style={{ position: 'relative' }}>
+                    <span
+                      style={{
+                        position: 'absolute',
+                        left: '14px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'var(--text-muted)',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        fontFamily: 'monospace',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      {getCurrencySymbol(locale)}
+                    </span>
+                    <input
+                      type="number"
+                      value={salePrice}
+                      onChange={(e) => setSalePrice(e.target.value)}
+                      placeholder="75"
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        color: 'var(--text-main)',
+                        padding: '14px 14px 14px 34px',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        outline: 'none',
+                        fontFamily: 'monospace',
+                      }}
+                    />
+                  </div>
                 </div>
                 <div>
                   <label
@@ -289,7 +328,7 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    Discount (%):
+                    {tUI('discount')}
                   </label>
                   <input
                     type="number"
@@ -332,26 +371,43 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    Original Price ($):
+                    {tUI('originalPrice')}
                   </label>
-                  <input
-                    type="number"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    placeholder="100"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '8px',
-                      color: 'var(--text-main)',
-                      padding: '14px',
-                      fontSize: '1.1rem',
-                      fontWeight: 700,
-                      outline: 'none',
-                      fontFamily: 'monospace',
-                    }}
-                  />
+                  <div style={{ position: 'relative' }}>
+                    <span
+                      style={{
+                        position: 'absolute',
+                        left: '14px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'var(--text-muted)',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        fontFamily: 'monospace',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      {getCurrencySymbol(locale)}
+                    </span>
+                    <input
+                      type="number"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      placeholder="100"
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        color: 'var(--text-main)',
+                        padding: '14px 14px 14px 34px',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        outline: 'none',
+                        fontFamily: 'monospace',
+                      }}
+                    />
+                  </div>
                 </div>
                 <div>
                   <label
@@ -363,7 +419,7 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    First Discount (%):
+                    {tUI('firstDiscount')}
                   </label>
                   <input
                     type="number"
@@ -394,7 +450,7 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    Second Discount (%):
+                    {tUI('secondDiscount')}
                   </label>
                   <input
                     type="number"
@@ -446,7 +502,7 @@ You Save: $${savings.toFixed(2)}`;
                     marginBottom: '6px',
                   }}
                 >
-                  {mode === 'original' ? 'Original Price' : 'Final Price'}
+                  {mode === 'original' ? tUI('originalPriceLabel') : tUI('finalPrice')}
                 </div>
                 <div
                   style={{
@@ -456,7 +512,9 @@ You Save: $${savings.toFixed(2)}`;
                     fontFamily: 'monospace',
                   }}
                 >
-                  ${mode === 'original' ? originalPrice.toFixed(2) : finalPrice.toFixed(2)}
+                  {mode === 'original'
+                    ? formatCurrency(originalPrice, locale)
+                    : formatCurrency(finalPrice, locale)}
                 </div>
               </div>
               <div
@@ -478,7 +536,7 @@ You Save: $${savings.toFixed(2)}`;
                     marginBottom: '6px',
                   }}
                 >
-                  You Save
+                  {tUI('youSave')}
                 </div>
                 <div
                   style={{
@@ -488,7 +546,7 @@ You Save: $${savings.toFixed(2)}`;
                     fontFamily: 'monospace',
                   }}
                 >
-                  ${savings.toFixed(2)}
+                  {formatCurrency(savings, locale)}
                 </div>
               </div>
               {mode === 'stack' && (
@@ -511,7 +569,7 @@ You Save: $${savings.toFixed(2)}`;
                       marginBottom: '6px',
                     }}
                   >
-                    Effective Discount
+                    {tUI('effectiveDiscount')}
                   </div>
                   <div
                     style={{
@@ -546,9 +604,9 @@ You Save: $${savings.toFixed(2)}`;
                     marginBottom: '6px',
                   }}
                 >
-                  <span>You pay:</span>
+                  <span>{tUI('youPay')}</span>
                   <strong style={{ color: '#34d399', fontFamily: 'monospace' }}>
-                    ${finalPrice.toFixed(2)}
+                    {formatCurrency(finalPrice, locale)}
                   </strong>
                 </div>
                 <div
@@ -559,9 +617,9 @@ You Save: $${savings.toFixed(2)}`;
                     justifyContent: 'space-between',
                   }}
                 >
-                  <span>You save:</span>
+                  <span>{tUI('youSaveLabel')}</span>
                   <strong style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
-                    ${savings.toFixed(2)} ({discountNum}% off)
+                    {formatCurrency(savings, locale)} ({discountNum}% {tUI('off')})
                   </strong>
                 </div>
               </div>
@@ -585,14 +643,15 @@ You Save: $${savings.toFixed(2)}`;
                     marginBottom: '4px',
                   }}
                 >
-                  ⚠️ How Stacked Discounts Work
+                  {tUI('stackedWarningTitle')}
                 </div>
                 <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', lineHeight: 1.6 }}>
-                  {discountNum}% + {discount2Num}% ≠ {discountNum + discount2Num}%. Stacked
-                  discounts apply to the discounted price, not the original. Effective:{' '}
-                  <strong style={{ color: 'var(--text-main)' }}>
-                    {effectiveDiscount.toFixed(2)}%
-                  </strong>
+                  {tUI('stackedWarningText', {
+                    discount1: discountNum,
+                    discount2: discount2Num,
+                    sum: discountNum + discount2Num,
+                    effective: effectiveDiscount.toFixed(2),
+                  })}
                 </div>
               </div>
             )}
@@ -613,7 +672,7 @@ You Save: $${savings.toFixed(2)}`;
                 transition: 'all 0.2s',
               }}
             >
-              {copied ? '✓ Copied!' : '📋 Copy Breakdown'}
+              {copied ? tUI('copied') : tUI('copyBreakdown')}
             </button>
 
             {/* Quick Examples */}
@@ -634,14 +693,14 @@ You Save: $${savings.toFixed(2)}`;
                   marginBottom: '10px',
                 }}
               >
-                💡 Common Scenarios:
+                {tUI('commonScenarios')}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {[
-                  { label: '25% off $100', price: '100', disc: '25' },
-                  { label: '50% off $60', price: '60', disc: '50' },
-                  { label: '30% off $200', price: '200', disc: '30' },
-                  { label: '15% off $40', price: '40', disc: '15' },
+                  { price: '100', disc: '25' },
+                  { price: '60', disc: '50' },
+                  { price: '200', disc: '30' },
+                  { price: '40', disc: '15' },
                 ].map((ex, i) => (
                   <button
                     key={i}
@@ -661,7 +720,10 @@ You Save: $${savings.toFixed(2)}`;
                       cursor: 'pointer',
                     }}
                   >
-                    {ex.label}
+                    {tUI('offPattern', {
+                      discount: ex.disc,
+                      price: formatCurrency(parseFloat(ex.price) || 0, locale),
+                    })}
                   </button>
                 ))}
               </div>
