@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -252,6 +253,7 @@ function generateCode(parsed: ParsedCurl): string {
 }
 
 export default function CurlConverterPage() {
+  const tUI = useTranslations('ToolUI.curlToFetch');
   const [input, setInput] = useState(
     'curl -X POST https://api.velnoxlabs.com/users -H \'Content-Type: application/json\' -d \'{"name":"Rohit","age":25}\''
   );
@@ -267,14 +269,14 @@ export default function CurlConverterPage() {
     try {
       const parsed = parseCurl(val);
       if (!parsed.url) {
-        setError('Could not find a URL in the cURL command.');
+        setError(tUI('errNoUrl'));
         setOutput('');
         return;
       }
       setOutput(generateCode(parsed));
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError(msg || 'Failed to parse cURL command');
+      setError(msg || tUI('errParseFailed'));
       setOutput('');
     }
   };
@@ -338,6 +340,7 @@ export default function CurlConverterPage() {
           <SectionHeading
             title="cURL to Fetch & Axios Converter"
             subtitle="Translate cURL commands into JavaScript fetch() and Axios code instantly."
+            toolSlug="curl-to-fetch-and-axios-converter"
           />
 
           {/* ========== TOOL UI ========== */}
@@ -367,13 +370,13 @@ export default function CurlConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  cURL Command:
+                  {tUI('curlCommand')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={14}
-                  placeholder="Paste cURL command..."
+                  placeholder={tUI('curlPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -400,7 +403,7 @@ export default function CurlConverterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    JavaScript Code:
+                    {tUI('jsCode')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -418,14 +421,14 @@ export default function CurlConverterPage() {
                       cursor: output ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={14}
-                  placeholder="Generated JavaScript code will appear here..."
+                  placeholder={tUI('jsPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',

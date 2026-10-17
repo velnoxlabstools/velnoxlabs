@@ -29,6 +29,7 @@
     "release:validate": "node scripts/release/validate-release.mjs && node scripts/release/deployment-validator.mjs"
   },
   "dependencies": {
+    "cronstrue": "^3.32.0",
     "crypto-js": "^4.2.0",
     "jszip": "^3.10.2",
     "lucide-react": "^1.47.0",

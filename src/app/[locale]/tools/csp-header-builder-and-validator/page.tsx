@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -52,6 +53,7 @@ const VALID_KEYWORDS = new Set([
 ]);
 
 export default function CspHeaderBuilderPage() {
+  const tUI = useTranslations('ToolUI.cspHeaderBuilder');
   const [input, setInput] = useState(
     "default-src 'self';\nscript-src 'self' https://cdn.example.com;\nstyle-src 'self' 'unsafe-inline'"
   );
@@ -67,7 +69,7 @@ export default function CspHeaderBuilderPage() {
     if (/^(\*\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i.test(source)) return null;
     // Allow nonce/hash
     if (/^'(nonce|sha256|sha384|sha512)-[A-Za-z0-9+/=]+'$/.test(source)) return null;
-    return `Invalid source: "${source}"`;
+    return tUI('errInvalidSource', { source });
   };
 
   const buildCsp = (raw: string) => {
@@ -113,7 +115,7 @@ export default function CspHeaderBuilderPage() {
 
       // Step 4: Validate directive name
       if (!VALID_DIRECTIVES.has(directiveName)) {
-        errs.push(`Invalid directive: "${directiveName}"`);
+        errs.push(tUI('errInvalidDirective', { directive: directiveName }));
         return;
       }
 
@@ -136,15 +138,15 @@ export default function CspHeaderBuilderPage() {
     // Step 6: Warn if default-src is missing
     const hasDefaultSrc = directives.some((d) => d.startsWith('default-src'));
     if (!hasDefaultSrc && directives.length > 0) {
-      warns.push("Best practice: Add 'default-src' as a fallback directive.");
+      warns.push(tUI('warnDefaultSrc'));
     }
 
     // Step 7: Warn if unsafe-inline/unsafe-eval is present
     if (directives.join(' ').includes("'unsafe-inline'")) {
-      warns.push("Security warning: 'unsafe-inline' reduces XSS protection.");
+      warns.push(tUI('warnUnsafeInline'));
     }
     if (directives.join(' ').includes("'unsafe-eval'")) {
-      warns.push("Security warning: 'unsafe-eval' allows dangerous code execution.");
+      warns.push(tUI('warnUnsafeEval'));
     }
 
     setErrors(errs);
@@ -223,6 +225,7 @@ export default function CspHeaderBuilderPage() {
           <SectionHeading
             title="CSP Header Builder & Validator"
             subtitle="Build, validate, and format Content Security Policy headers with real-time directive checking."
+            toolSlug="csp-header-builder-and-validator"
           />
 
           <div
@@ -251,13 +254,13 @@ export default function CspHeaderBuilderPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Directives (newline or semicolon separated):
+                  {tUI('directivesLabel')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => handleProcess(e.target.value)}
                   rows={12}
-                  placeholder="default-src 'self'; script-src 'self' https://cdn.example.com"
+                  placeholder={tUI('directivesPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -291,7 +294,7 @@ export default function CspHeaderBuilderPage() {
                         marginBottom: '6px',
                       }}
                     >
-                      ❌ Errors:
+                      {tUI('errorsHeading')}
                     </p>
                     {errors.map((err, i) => (
                       <p
@@ -323,7 +326,7 @@ export default function CspHeaderBuilderPage() {
                         marginBottom: '6px',
                       }}
                     >
-                      ⚠️ Warnings:
+                      {tUI('warningsHeading')}
                     </p>
                     {warnings.map((w, i) => (
                       <p
@@ -349,7 +352,7 @@ export default function CspHeaderBuilderPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    CSP Header:
+                    {tUI('cspHeaderLabel')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -367,14 +370,14 @@ export default function CspHeaderBuilderPage() {
                       cursor: output ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder="Valid CSP header will appear here..."
+                  placeholder={tUI('cspHeaderPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',

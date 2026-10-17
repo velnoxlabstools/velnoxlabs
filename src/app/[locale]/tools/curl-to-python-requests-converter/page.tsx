@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -230,6 +231,7 @@ function generatePython(parsed: ParsedCurl): string {
 }
 
 export default function CurlToPythonPage() {
+  const tUI = useTranslations('ToolUI.curlToPython');
   const [curlInput, setCurlInput] = useState(
     `curl -X POST https://api.velnoxlabs.com/v1/analyze -H 'Authorization: Bearer token_abc123' -d '{"status":"active"}'`
   );
@@ -245,14 +247,14 @@ export default function CurlToPythonPage() {
     try {
       const parsed = parseCurl(cmd);
       if (!parsed.url) {
-        setError('Could not find a URL in the cURL command.');
+        setError(tUI('errNoUrl'));
         setPythonOutput('');
         return;
       }
       setPythonOutput(generatePython(parsed));
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError(msg || 'Failed to parse cURL command');
+      setError(msg || tUI('errParseFailed'));
       setPythonOutput('');
     }
   };
@@ -316,6 +318,7 @@ export default function CurlToPythonPage() {
           <SectionHeading
             title="cURL to Python Requests Converter"
             subtitle="Transform cURL terminal commands into idiomatic Python requests code instantly."
+            toolSlug="curl-to-python-requests-converter"
           />
 
           {/* ========== TOOL UI ========== */}
@@ -345,13 +348,13 @@ export default function CurlToPythonPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  cURL Command:
+                  {tUI('curlCommand')}
                 </label>
                 <textarea
                   value={curlInput}
                   onChange={(e) => setCurlInput(e.target.value)}
                   rows={14}
-                  placeholder="Paste cURL command..."
+                  placeholder={tUI('curlPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -378,7 +381,7 @@ export default function CurlToPythonPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Python Requests Code:
+                    {tUI('pythonCode')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -396,14 +399,14 @@ export default function CurlToPythonPage() {
                       cursor: pythonOutput ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy Code'}
+                    {copied ? tUI('copied') : tUI('copyCode')}
                   </button>
                 </div>
                 <textarea
                   value={pythonOutput}
                   readOnly
                   rows={14}
-                  placeholder="Generated Python code will appear here..."
+                  placeholder={tUI('pythonPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',

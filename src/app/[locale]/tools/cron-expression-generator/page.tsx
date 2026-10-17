@@ -1,65 +1,28 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import cronstrue from 'cronstrue/i18n';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
-function explainCron(minute: string, hour: string, day: string, month: string, weekday: string) {
-  const parts: string[] = [];
-
-  // Minute explanation
-  if (minute === '*') parts.push('every minute');
-  else if (minute.startsWith('*/')) parts.push(`every ${minute.slice(2)} minutes`);
-  else parts.push(`at minute ${minute}`);
-
-  // Hour explanation
-  if (hour === '*') parts.push('of every hour');
-  else if (hour.startsWith('*/')) parts.push(`every ${hour.slice(2)} hours`);
-  else if (hour.includes(',')) parts.push(`at hours ${hour}`);
-  else parts.push(`at ${hour.padStart(2, '0')}:00`);
-
-  // Day of month
-  if (day !== '*') parts.push(`on day ${day} of the month`);
-
-  // Month
-  if (month !== '*') {
-    const monthNames = [
-      '',
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const monthList = month
-      .split(',')
-      .map((m) => monthNames[parseInt(m)] || m)
-      .join(', ');
-    parts.push(`in ${monthList}`);
-  }
-
-  // Weekday
-  if (weekday !== '*') {
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dayList = weekday
-      .split(',')
-      .map((d) => days[parseInt(d)] || d)
-      .join(', ');
-    parts.push(`on ${dayList}`);
-  }
-
-  return parts.join(' ');
-}
+const CRONSTRUE_LOCALE_MAP: Record<string, string> = {
+  en: 'en',
+  zh: 'zh_CN',
+  es: 'es',
+  pt: 'pt_BR',
+  de: 'de',
+  fr: 'fr',
+  it: 'it',
+  ja: 'ja',
+  ru: 'ru',
+  ko: 'ko',
+};
 
 export default function CronExpressionGeneratorPage() {
+  const locale = useLocale();
+  const tUI = useTranslations('ToolUI.cronExpressionGenerator');
   const [minute, setMinute] = useState('0');
   const [hour, setHour] = useState('9');
   const [day, setDay] = useState('*');
@@ -67,17 +30,25 @@ export default function CronExpressionGeneratorPage() {
   const [weekday, setWeekday] = useState('*');
   const [copied, setCopied] = useState(false);
   const cronExpression = `${minute} ${hour} ${day} ${month} ${weekday}`;
-  const explanation = explainCron(minute, hour, day, month, weekday);
+
+  const explanation = useMemo(() => {
+    try {
+      const cronLocale = CRONSTRUE_LOCALE_MAP[locale] || 'en';
+      return cronstrue.toString(cronExpression, { locale: cronLocale });
+    } catch {
+      return cronExpression;
+    }
+  }, [cronExpression, locale]);
 
   const presets = [
-    { label: '⏰ Every Minute', value: ['*', '*', '*', '*', '*'] },
-    { label: '🕐 Every Hour', value: ['0', '*', '*', '*', '*'] },
-    { label: '🌅 Daily at 9 AM', value: ['0', '9', '*', '*', '*'] },
-    { label: '🌙 Daily at Midnight', value: ['0', '0', '*', '*', '*'] },
-    { label: '📅 Every Monday', value: ['0', '9', '*', '*', '1'] },
-    { label: '📆 First of Month', value: ['0', '0', '1', '*', '*'] },
-    { label: '🎉 Every 15 Minutes', value: ['*/15', '*', '*', '*', '*'] },
-    { label: '📊 Weekdays at 8 AM', value: ['0', '8', '*', '*', '1-5'] },
+    { label: tUI('presetEveryMinute'), value: ['*', '*', '*', '*', '*'] },
+    { label: tUI('presetEveryHour'), value: ['0', '*', '*', '*', '*'] },
+    { label: tUI('presetDaily9AM'), value: ['0', '9', '*', '*', '*'] },
+    { label: tUI('presetDailyMidnight'), value: ['0', '0', '*', '*', '*'] },
+    { label: tUI('presetEveryMonday'), value: ['0', '9', '*', '*', '1'] },
+    { label: tUI('presetFirstOfMonth'), value: ['0', '0', '1', '*', '*'] },
+    { label: tUI('presetEvery15Minutes'), value: ['*/15', '*', '*', '*', '*'] },
+    { label: tUI('presetWeekdays8AM'), value: ['0', '8', '*', '*', '1-5'] },
   ];
 
   const applyPreset = (preset: string[]) => {
@@ -150,6 +121,7 @@ export default function CronExpressionGeneratorPage() {
           <SectionHeading
             title="Cron Expression Generator"
             subtitle="Build cron expressions visually with human-readable explanations and common presets."
+            toolSlug="cron-expression-generator"
           />
 
           {/* Presets */}
@@ -209,13 +181,13 @@ export default function CronExpressionGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Minute
+                  {tUI('minute')}
                 </label>
                 <input
                   type="text"
                   value={minute}
                   onChange={(e) => setMinute(e.target.value)}
-                  placeholder="0-59, *, */5"
+                  placeholder={tUI('minutePlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -239,13 +211,13 @@ export default function CronExpressionGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Hour
+                  {tUI('hour')}
                 </label>
                 <input
                   type="text"
                   value={hour}
                   onChange={(e) => setHour(e.target.value)}
-                  placeholder="0-23, *, */2"
+                  placeholder={tUI('hourPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -269,13 +241,13 @@ export default function CronExpressionGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Day (Month)
+                  {tUI('dayMonth')}
                 </label>
                 <input
                   type="text"
                   value={day}
                   onChange={(e) => setDay(e.target.value)}
-                  placeholder="1-31, *"
+                  placeholder={tUI('dayPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -299,13 +271,13 @@ export default function CronExpressionGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Month
+                  {tUI('month')}
                 </label>
                 <input
                   type="text"
                   value={month}
                   onChange={(e) => setMonth(e.target.value)}
-                  placeholder="1-12, *"
+                  placeholder={tUI('monthPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -329,13 +301,13 @@ export default function CronExpressionGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Weekday
+                  {tUI('weekday')}
                 </label>
                 <input
                   type="text"
                   value={weekday}
                   onChange={(e) => setWeekday(e.target.value)}
-                  placeholder="0-6 (Sun-Sat), *"
+                  placeholder={tUI('weekdayPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -362,7 +334,7 @@ export default function CronExpressionGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Cron Expression:
+                {tUI('cronExpression')}
               </label>
               <div
                 style={{
@@ -407,7 +379,7 @@ export default function CronExpressionGeneratorPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  {copied ? '✓ Copied' : 'Copy'}
+                  {copied ? tUI('copied') : tUI('copy')}
                 </button>
               </div>
             </div>
@@ -423,7 +395,7 @@ export default function CronExpressionGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                📖 Human-Readable:
+                {tUI('humanReadable')}
               </label>
               <div
                 style={{
@@ -436,7 +408,7 @@ export default function CronExpressionGeneratorPage() {
                   fontWeight: 500,
                 }}
               >
-                Runs <strong style={{ color: '#60a5fa' }}>{explanation}</strong>
+                <strong style={{ color: '#60a5fa' }}>{tUI('runs', { explanation })}</strong>
               </div>
             </div>
           </div>
@@ -459,7 +431,7 @@ export default function CronExpressionGeneratorPage() {
                 marginBottom: '12px',
               }}
             >
-              Cron Format Reference
+              {tUI('formatReference')}
             </h3>
             <div
               style={{
@@ -469,11 +441,11 @@ export default function CronExpressionGeneratorPage() {
               }}
             >
               {[
-                { field: 'Minute', range: '0-59', special: '* , - /' },
-                { field: 'Hour', range: '0-23', special: '* , - /' },
-                { field: 'Day (Month)', range: '1-31', special: '* , - /' },
-                { field: 'Month', range: '1-12', special: '* , - /' },
-                { field: 'Weekday', range: '0-6 (Sun-Sat)', special: '* , - /' },
+                { field: tUI('minute'), range: '0-59', special: '* , - /' },
+                { field: tUI('hour'), range: '0-23', special: '* , - /' },
+                { field: tUI('dayMonth'), range: '1-31', special: '* , - /' },
+                { field: tUI('month'), range: '1-12', special: '* , - /' },
+                { field: tUI('weekday'), range: tUI('rangeSunSat'), special: '* , - /' },
               ].map((row, i) => (
                 <div
                   key={i}
@@ -495,7 +467,7 @@ export default function CronExpressionGeneratorPage() {
                     {row.field}
                   </div>
                   <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-                    Range: {row.range}
+                    {tUI('range', { range: row.range })}
                   </div>
                   <div
                     style={{

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -115,6 +116,7 @@ function convertJSONToCSV(jsonStr: string, delimiter: string) {
 }
 
 export default function CsvJsonConverterPage() {
+  const tUI = useTranslations('ToolUI.csvToJson');
   const [mode, setMode] = useState<'csv2json' | 'json2csv'>('csv2json');
   const [input, setInput] = useState(
     'name,age,city\nJohn,30,New York\nSarah,25,Los Angeles\nMike,35,Chicago'
@@ -227,6 +229,7 @@ export default function CsvJsonConverterPage() {
           <SectionHeading
             title="CSV ↔ JSON Converter"
             subtitle="Convert CSV to JSON and JSON to CSV instantly — bidirectional with custom delimiters and quoted field support."
+            toolSlug="csv-to-json"
           />
 
           <div
@@ -254,7 +257,7 @@ export default function CsvJsonConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                📄 CSV → JSON
+                {tUI('modeCsvToJson')}
               </button>
               <button
                 onClick={() => switchMode('json2csv')}
@@ -270,7 +273,7 @@ export default function CsvJsonConverterPage() {
                   cursor: 'pointer',
                 }}
               >
-                📊 JSON → CSV
+                {tUI('modeJsonToCsv')}
               </button>
             </div>
 
@@ -293,7 +296,7 @@ export default function CsvJsonConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  {mode === 'csv2json' ? 'CSV Delimiter:' : 'CSV Output Delimiter:'}
+                  {mode === 'csv2json' ? tUI('csvDelimiter') : tUI('csvOutputDelimiter')}
                 </label>
                 <select
                   value={delimiter}
@@ -310,10 +313,10 @@ export default function CsvJsonConverterPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  <option value=",">Comma (,)</option>
-                  <option value=";">Semicolon (;)</option>
-                  <option value={'\t'}>Tab (\t)</option>
-                  <option value="|">Pipe (|)</option>
+                  <option value=",">{tUI('delimiterComma')}</option>
+                  <option value=";">{tUI('delimiterSemicolon')}</option>
+                  <option value={'\t'}>{tUI('delimiterTab')}</option>
+                  <option value="|">{tUI('delimiterPipe')}</option>
                 </select>
               </div>
               {mode === 'csv2json' && (
@@ -339,7 +342,7 @@ export default function CsvJsonConverterPage() {
                         accentColor: '#3b82f6',
                       }}
                     />
-                    First row is header
+                    {tUI('firstRowHeader')}
                   </label>
                 </div>
               )}
@@ -364,15 +367,13 @@ export default function CsvJsonConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  {mode === 'csv2json' ? 'CSV Input:' : 'JSON Input:'}
+                  {mode === 'csv2json' ? tUI('csvInput') : tUI('jsonInput')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={14}
-                  placeholder={
-                    mode === 'csv2json' ? 'Paste CSV data here...' : 'Paste JSON array here...'
-                  }
+                  placeholder={mode === 'csv2json' ? tUI('csvPlaceholder') : tUI('jsonPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -399,7 +400,7 @@ export default function CsvJsonConverterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    {mode === 'csv2json' ? 'JSON Output:' : 'CSV Output:'}
+                    {mode === 'csv2json' ? tUI('jsonOutput') : tUI('csvOutput')}
                   </label>
                   <div style={{ display: 'flex', gap: '6px' }}>
                     <button
@@ -418,7 +419,7 @@ export default function CsvJsonConverterPage() {
                         cursor: output ? 'pointer' : 'not-allowed',
                       }}
                     >
-                      ⬇ Download {mode === 'csv2json' ? 'JSON' : 'CSV'}
+                      {mode === 'csv2json' ? tUI('downloadJson') : tUI('downloadCsv')}
                     </button>
                     <button
                       onClick={handleCopy}
@@ -438,7 +439,7 @@ export default function CsvJsonConverterPage() {
                         cursor: output ? 'pointer' : 'not-allowed',
                       }}
                     >
-                      {copied ? '✓ Copied' : 'Copy'}
+                      {copied ? tUI('copied') : tUI('copy')}
                     </button>
                   </div>
                 </div>
@@ -446,7 +447,9 @@ export default function CsvJsonConverterPage() {
                   value={output}
                   readOnly
                   rows={14}
-                  placeholder={`${mode === 'csv2json' ? 'JSON' : 'CSV'} will appear here...`}
+                  placeholder={tUI('outputPlaceholder', {
+                    type: mode === 'csv2json' ? 'JSON' : 'CSV',
+                  })}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',

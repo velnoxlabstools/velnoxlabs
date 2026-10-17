@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      cronstrue:
+        specifier: ^3.32.0
+        version: 3.32.0
       crypto-js:
         specifier: ^4.2.0
         version: 4.2.0
@@ -2496,6 +2499,13 @@ packages:
       {
         integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==,
       }
+
+  cronstrue@3.32.0:
+    resolution:
+      {
+        integrity: sha512-OHTec7+5nosN4UsitwgBDQ0bofGZF3H4pLqgqa93NR3nExNlhtVHcO2JY3jRognrFH8Bl9oAooT0hyCjSyOU+Q==,
+      }
+    hasBin: true
 
   cross-spawn@7.0.6:
     resolution:
@@ -6687,6 +6697,8 @@ snapshots:
   content-type@2.1.0: {}
 
   core-util-is@1.0.3: {}
+
+  cronstrue@3.32.0: {}
 
   cross-spawn@7.0.6:
     dependencies:

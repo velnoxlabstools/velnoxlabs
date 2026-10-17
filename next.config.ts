@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: isProd ? 60 * 60 * 24 * 30 : 60,
   },
+  serverExternalPackages: ['cronstrue'],
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
