@@ -66,8 +66,8 @@ export default function UnixTimestampPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -82,7 +82,9 @@ export default function UnixTimestampPage() {
                 flexWrap: 'wrap',
               }}
             >
-              <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Current Unix Time:</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                Current Unix Time:
+              </span>
               <span
                 style={{
                   color: '#34d399',
@@ -120,7 +122,7 @@ export default function UnixTimestampPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -137,10 +139,10 @@ export default function UnixTimestampPage() {
                   placeholder="Enter Unix timestamp..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.9rem',
@@ -151,7 +153,7 @@ export default function UnixTimestampPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -165,10 +167,10 @@ export default function UnixTimestampPage() {
                   onChange={(e) => handleDateChange(e.target.value)}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.9rem',
@@ -187,7 +189,7 @@ export default function UnixTimestampPage() {
                   marginBottom: '8px',
                 }}
               >
-                <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
                   Human Readable:
                 </label>
                 <button
@@ -208,8 +210,8 @@ export default function UnixTimestampPage() {
               </div>
               <div
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '12px',
                   fontFamily: 'monospace',
@@ -224,7 +226,7 @@ export default function UnixTimestampPage() {
             <div style={{ marginTop: '12px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -235,8 +237,8 @@ export default function UnixTimestampPage() {
               </label>
               <div
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '12px',
                   fontFamily: 'monospace',

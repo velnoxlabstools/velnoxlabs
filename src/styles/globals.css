@@ -1,8 +1,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @import 'tailwindcss';
-@source '../features';
+@config '../../tailwind.config.ts';
+@source '../app';
 @source '../components';
-
+@source '../features';
+@source '../theme';
+@source '..';
 
 /* ============================================
    VelnoxLabs Design System - Global Styles
@@ -64,8 +67,11 @@
   --color-info-700: #1d4ed8;
 
   /* Typography */
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
   --font-display: var(--font-sans);
 
   --font-size-xs: 0.75rem;
@@ -252,57 +258,71 @@
   --breakpoint-2xl: 1536px;
 }
 
-/* ---------- Light Theme (default) ---------- */
+/* ---------- Light Theme (Premium White) ---------- */
 :root,
 .light,
-[data-theme="light"] {
-  --background: var(--color-neutral-0);
-  --foreground: var(--color-neutral-900);
-  --muted: var(--color-neutral-100);
-  --muted-foreground: var(--color-neutral-500);
-  --card: var(--color-neutral-0);
-  --card-foreground: var(--color-neutral-900);
-  --popover: var(--color-neutral-0);
-  --popover-foreground: var(--color-neutral-900);
+[data-theme='light'] {
+  --bg-page: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --border-color: #e5e7eb;
+
+  --background: var(--bg-page);
+  --foreground: var(--text-main);
+  --muted: #f1f5f9;
+  --muted-foreground: var(--text-muted);
+  --card: var(--bg-card);
+  --card-foreground: var(--text-main);
+  --popover: var(--bg-card);
+  --popover-foreground: var(--text-main);
   --primary: var(--color-brand-600);
-  --primary-foreground: var(--color-neutral-0);
-  --secondary: var(--color-neutral-100);
-  --secondary-foreground: var(--color-neutral-900);
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: var(--text-main);
   --accent: var(--color-brand-50);
   --accent-foreground: var(--color-brand-700);
   --destructive: var(--color-error-600);
-  --destructive-foreground: var(--color-neutral-0);
-  --border: var(--color-neutral-200);
-  --input: var(--color-neutral-200);
+  --destructive-foreground: #ffffff;
+  --border: var(--border-color);
+  --input: var(--border-color);
   --ring: var(--color-brand-500);
+  --color-text-muted: var(--text-muted);
   --success: var(--color-success-600);
   --warning: var(--color-warning-600);
   --error: var(--color-error-600);
   --info: var(--color-info-600);
 }
 
-/* ---------- Dark Theme Architecture (prepared) ---------- */
+/* ---------- Dark Theme (Refined Dark) ---------- */
 .dark,
-[data-theme="dark"] {
-  --background: var(--color-neutral-950);
-  --foreground: var(--color-neutral-50);
-  --muted: var(--color-neutral-900);
-  --muted-foreground: var(--color-neutral-400);
-  --card: var(--color-neutral-900);
-  --card-foreground: var(--color-neutral-50);
-  --popover: var(--color-neutral-900);
-  --popover-foreground: var(--color-neutral-50);
+[data-theme='dark'] {
+  --bg-page: #090d16;
+  --bg-card: #111827;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
+
+  --background: var(--bg-page);
+  --foreground: var(--text-main);
+  --muted: #111827;
+  --muted-foreground: var(--text-muted);
+  --card: var(--bg-card);
+  --card-foreground: var(--text-main);
+  --popover: var(--bg-card);
+  --popover-foreground: var(--text-main);
   --primary: var(--color-brand-500);
-  --primary-foreground: var(--color-neutral-950);
-  --secondary: var(--color-neutral-800);
-  --secondary-foreground: var(--color-neutral-50);
-  --accent: var(--color-neutral-800);
+  --primary-foreground: var(--bg-page);
+  --secondary: var(--border-color);
+  --secondary-foreground: var(--text-main);
+  --accent: var(--border-color);
   --accent-foreground: var(--color-brand-300);
   --destructive: var(--color-error-500);
-  --destructive-foreground: var(--color-neutral-50);
-  --border: var(--color-neutral-800);
-  --input: var(--color-neutral-800);
+  --destructive-foreground: var(--text-main);
+  --border: var(--border-color);
+  --input: var(--border-color);
   --ring: var(--color-brand-400);
+  --color-text-muted: var(--text-muted);
   --success: var(--color-success-500);
   --warning: var(--color-warning-500);
   --error: var(--color-error-500);
@@ -329,13 +349,20 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg-page);
+  color: var(--text-main);
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
 }
 
 /* ---------- Utility Classes (token-based only) ---------- */
@@ -392,7 +419,8 @@ body {
   }
 }
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
@@ -403,7 +431,8 @@ body {
   }
 }
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
@@ -459,9 +488,10 @@ button:focus-visible {
 }
 
 @keyframes velnox-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 /* ---------- Phase 2 UI polish utilities ---------- */
 :focus-visible {
@@ -479,7 +509,10 @@ select:focus-visible {
 }
 
 .ui-card {
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
 }
 .ui-card:hover {
   border-color: var(--color-neutral-300);
@@ -492,7 +525,11 @@ select:focus-visible {
 }
 
 .ui-btn {
-  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
 }
 .ui-btn:hover:not(:disabled) {
   filter: brightness(1.05);
@@ -512,7 +549,9 @@ select:focus-visible {
 }
 
 @keyframes velnox-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

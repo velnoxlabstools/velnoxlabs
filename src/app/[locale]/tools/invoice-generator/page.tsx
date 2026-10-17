@@ -160,11 +160,11 @@ export default function InvoiceGeneratorPage() {
               >
                 🎉 Launch Offer
               </span>
-              <span style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 600 }}>
+              <span style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 600 }}>
                 Free for a limited time{' '}
                 <span
                   style={{
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontWeight: 400,
                     textDecoration: 'line-through',
                     marginLeft: '8px',
@@ -183,8 +183,8 @@ export default function InvoiceGeneratorPage() {
           <div
             className="no-print"
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: '20px',
@@ -203,7 +203,7 @@ export default function InvoiceGeneratorPage() {
               <div
                 style={{
                   backgroundColor: 'rgba(0,0,0,0.25)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '10px',
                   padding: '16px',
                 }}
@@ -228,10 +228,10 @@ export default function InvoiceGeneratorPage() {
                     placeholder="Business Name"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -244,10 +244,10 @@ export default function InvoiceGeneratorPage() {
                     placeholder="Email"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -260,10 +260,10 @@ export default function InvoiceGeneratorPage() {
                     placeholder="Phone"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -276,10 +276,10 @@ export default function InvoiceGeneratorPage() {
                     rows={3}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -293,7 +293,7 @@ export default function InvoiceGeneratorPage() {
               <div
                 style={{
                   backgroundColor: 'rgba(0,0,0,0.25)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '10px',
                   padding: '16px',
                 }}
@@ -318,10 +318,10 @@ export default function InvoiceGeneratorPage() {
                     placeholder="Client Name"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -334,10 +334,10 @@ export default function InvoiceGeneratorPage() {
                     placeholder="Client Email"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -350,10 +350,10 @@ export default function InvoiceGeneratorPage() {
                     rows={3}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -367,7 +367,7 @@ export default function InvoiceGeneratorPage() {
               <div
                 style={{
                   backgroundColor: 'rgba(0,0,0,0.25)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '10px',
                   padding: '16px',
                 }}
@@ -392,10 +392,10 @@ export default function InvoiceGeneratorPage() {
                     placeholder="Invoice Number"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '6px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '8px 10px',
                       fontSize: '0.85rem',
                       outline: 'none',
@@ -418,10 +418,10 @@ export default function InvoiceGeneratorPage() {
                       onChange={(e) => setInvoiceDate(e.target.value)}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '8px 10px',
                         fontSize: '0.85rem',
                         outline: 'none',
@@ -445,10 +445,10 @@ export default function InvoiceGeneratorPage() {
                       onChange={(e) => setDueDate(e.target.value)}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '8px 10px',
                         fontSize: '0.85rem',
                         outline: 'none',
@@ -471,10 +471,10 @@ export default function InvoiceGeneratorPage() {
                       onChange={(e) => setCurrency(e.target.value)}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '8px 10px',
                         fontSize: '0.85rem',
                         outline: 'none',
@@ -504,7 +504,9 @@ export default function InvoiceGeneratorPage() {
                   gap: '8px',
                 }}
               >
-                <h3 style={{ color: '#fff', fontSize: '0.95rem', fontWeight: 700 }}>Line Items</h3>
+                <h3 style={{ color: 'var(--text-main)', fontSize: '0.95rem', fontWeight: 700 }}>
+                  Line Items
+                </h3>
                 <button
                   onClick={addItem}
                   style={{
@@ -527,7 +529,7 @@ export default function InvoiceGeneratorPage() {
                   backgroundColor: 'rgba(0,0,0,0.25)',
                   borderRadius: '10px',
                   padding: '12px',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid var(--border-color)',
                 }}
               >
                 {/* Header */}
@@ -608,10 +610,10 @@ export default function InvoiceGeneratorPage() {
                       placeholder="Item description"
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '8px 10px',
                         fontSize: '0.85rem',
                         outline: 'none',
@@ -625,10 +627,10 @@ export default function InvoiceGeneratorPage() {
                       onChange={(e) => updateItem(item.id, 'quantity', Number(e.target.value))}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '8px 10px',
                         fontSize: '0.85rem',
                         outline: 'none',
@@ -642,10 +644,10 @@ export default function InvoiceGeneratorPage() {
                       onChange={(e) => updateItem(item.id, 'rate', Number(e.target.value))}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '8px 10px',
                         fontSize: '0.85rem',
                         outline: 'none',
@@ -697,7 +699,7 @@ export default function InvoiceGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.85rem',
                     fontWeight: 600,
                     display: 'block',
@@ -715,10 +717,10 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) => setTaxRate(Number(e.target.value))}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -728,7 +730,7 @@ export default function InvoiceGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.85rem',
                     fontWeight: 600,
                     display: 'block',
@@ -746,10 +748,10 @@ export default function InvoiceGeneratorPage() {
                   onChange={(e) => setDiscountRate(Number(e.target.value))}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -761,7 +763,7 @@ export default function InvoiceGeneratorPage() {
             <div style={{ marginBottom: '20px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.85rem',
                   fontWeight: 600,
                   display: 'block',
@@ -776,10 +778,10 @@ export default function InvoiceGeneratorPage() {
                 rows={3}
                 style={{
                   width: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '6px',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   padding: '10px',
                   fontSize: '0.85rem',
                   outline: 'none',
@@ -794,7 +796,7 @@ export default function InvoiceGeneratorPage() {
                 style={{
                   minWidth: '280px',
                   backgroundColor: 'rgba(0,0,0,0.25)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '10px',
                   padding: '16px',
                 }}
@@ -802,8 +804,14 @@ export default function InvoiceGeneratorPage() {
                 <div
                   style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}
                 >
-                  <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Subtotal</span>
-                  <span style={{ color: '#fff', fontFamily: 'monospace', fontSize: '0.9rem' }}>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Subtotal</span>
+                  <span
+                    style={{
+                      color: 'var(--text-main)',
+                      fontFamily: 'monospace',
+                      fontSize: '0.9rem',
+                    }}
+                  >
                     {formatCurrency(totals.subtotal, currency)}
                   </span>
                 </div>
@@ -815,7 +823,7 @@ export default function InvoiceGeneratorPage() {
                       marginBottom: '8px',
                     }}
                   >
-                    <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
                       Discount ({discountRate}%)
                     </span>
                     <span style={{ color: '#f87171', fontFamily: 'monospace', fontSize: '0.9rem' }}>
@@ -831,8 +839,16 @@ export default function InvoiceGeneratorPage() {
                       marginBottom: '8px',
                     }}
                   >
-                    <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Tax ({taxRate}%)</span>
-                    <span style={{ color: '#fff', fontFamily: 'monospace', fontSize: '0.9rem' }}>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                      Tax ({taxRate}%)
+                    </span>
+                    <span
+                      style={{
+                        color: 'var(--text-main)',
+                        fontFamily: 'monospace',
+                        fontSize: '0.9rem',
+                      }}
+                    >
                       {formatCurrency(totals.taxAmount, currency)}
                     </span>
                   </div>
@@ -846,7 +862,7 @@ export default function InvoiceGeneratorPage() {
                     marginTop: '4px',
                   }}
                 >
-                  <span style={{ color: '#fff', fontSize: '1rem', fontWeight: 700 }}>
+                  <span style={{ color: 'var(--text-main)', fontSize: '1rem', fontWeight: 700 }}>
                     Total Due
                   </span>
                   <span
@@ -888,9 +904,9 @@ export default function InvoiceGeneratorPage() {
                   if (confirm('Reset invoice to default values?')) window.location.reload();
                 }}
                 style={{
-                  backgroundColor: 'rgba(255,255,255,0.05)',
-                  color: '#94a3b8',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-muted)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '12px 24px',
                   fontSize: '0.9rem',
@@ -904,7 +920,8 @@ export default function InvoiceGeneratorPage() {
 
             <p style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '12px' }}>
               💡 Click &quot;Download PDF / Print&quot; → in the dialog, choose{' '}
-              <strong style={{ color: '#94a3b8' }}>&quot;Save as PDF&quot;</strong> as destination.
+              <strong style={{ color: 'var(--text-muted)' }}>&quot;Save as PDF&quot;</strong> as
+              destination.
             </p>
           </div>
 

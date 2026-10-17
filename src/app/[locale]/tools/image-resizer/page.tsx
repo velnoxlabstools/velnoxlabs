@@ -252,17 +252,17 @@ export default function ImageResizerPage() {
               onClick={() => fileInputRef.current?.click()}
               style={{
                 marginTop: 'var(--space-6)',
-                border: '2px dashed rgba(255, 255, 255, 0.15)',
+                border: '2px dashed var(--border-color)',
                 borderRadius: '12px',
                 padding: '60px 40px',
                 textAlign: 'center',
-                backgroundColor: 'rgba(255, 255, 255, 0.01)',
+                backgroundColor: 'var(--bg-card)',
                 cursor: 'pointer',
               }}
             >
               <p
                 style={{
-                  color: '#ffffff',
+                  color: 'var(--text-main)',
                   fontSize: '1.1rem',
                   marginBottom: '12px',
                   fontWeight: 500,
@@ -270,7 +270,7 @@ export default function ImageResizerPage() {
               >
                 Click to upload images (Multiple allowed)
               </p>
-              <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                 PNG, JPG, WEBP supported — select as many as you want
               </p>
               <input
@@ -295,7 +295,14 @@ export default function ImageResizerPage() {
                   gap: '12px',
                 }}
               >
-                <p style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 600, margin: 0 }}>
+                <p
+                  style={{
+                    color: 'var(--text-main)',
+                    fontSize: '0.9rem',
+                    fontWeight: 600,
+                    margin: 0,
+                  }}
+                >
                   {images.length} image{images.length > 1 ? 's' : ''} selected
                   {processedCount > 0 && ` • ${processedCount} processed`}
                 </p>
@@ -353,8 +360,8 @@ export default function ImageResizerPage() {
                 {/* LEFT COLUMN: Original Images */}
                 <div
                   style={{
-                    backgroundColor: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    backgroundColor: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '12px',
                     padding: '20px',
                   }}
@@ -368,7 +375,14 @@ export default function ImageResizerPage() {
                     }}
                   >
                     <span style={{ fontSize: '1.1rem' }}>📁</span>
-                    <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, margin: 0 }}>
+                    <h3
+                      style={{
+                        color: 'var(--text-main)',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        margin: 0,
+                      }}
+                    >
                       Original Images ({images.length})
                     </h3>
                   </div>
@@ -386,8 +400,8 @@ export default function ImageResizerPage() {
                       <div
                         key={item.id}
                         style={{
-                          backgroundColor: 'rgba(0,0,0,0.3)',
-                          border: '1px solid rgba(255,255,255,0.08)',
+                          backgroundColor: 'var(--bg-page)',
+                          border: '1px solid var(--border-color)',
                           borderRadius: '8px',
                           padding: '10px',
                           display: 'flex',
@@ -406,7 +420,7 @@ export default function ImageResizerPage() {
                             height: '70px',
                             objectFit: 'contain',
                             borderRadius: '6px',
-                            backgroundColor: 'rgba(0,0,0,0.4)',
+                            backgroundColor: 'var(--bg-page)',
                             flexShrink: 0,
                           }}
                         />
@@ -471,7 +485,14 @@ export default function ImageResizerPage() {
                     }}
                   >
                     <span style={{ fontSize: '1.1rem' }}>✨</span>
-                    <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, margin: 0 }}>
+                    <h3
+                      style={{
+                        color: 'var(--text-main)',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        margin: 0,
+                      }}
+                    >
                       Output Images ({processedCount})
                     </h3>
                   </div>
@@ -509,7 +530,7 @@ export default function ImageResizerPage() {
                           <div
                             key={`out-${item.id}`}
                             style={{
-                              backgroundColor: 'rgba(0,0,0,0.3)',
+                              backgroundColor: 'var(--bg-page)',
                               border: '1px solid rgba(52, 211, 153, 0.2)',
                               borderRadius: '8px',
                               padding: '10px',
@@ -529,7 +550,7 @@ export default function ImageResizerPage() {
                                 height: '70px',
                                 objectFit: 'contain',
                                 borderRadius: '6px',
-                                backgroundColor: 'rgba(0,0,0,0.4)',
+                                backgroundColor: 'var(--bg-page)',
                                 flexShrink: 0,
                               }}
                             />
@@ -581,15 +602,15 @@ export default function ImageResizerPage() {
               <div
                 style={{
                   marginTop: '24px',
-                  backgroundColor: 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '12px',
                   padding: '24px',
                 }}
               >
                 <h3
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.95rem',
                     fontWeight: 700,
                     marginBottom: '16px',
@@ -608,7 +629,7 @@ export default function ImageResizerPage() {
                   <div>
                     <label
                       style={{
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         fontSize: '0.85rem',
                         fontWeight: 600,
                         display: 'block',
@@ -623,10 +644,10 @@ export default function ImageResizerPage() {
                       onChange={(e) => handleWidthChange(Number(e.target.value))}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '8px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '10px',
                         fontSize: '0.9rem',
                         outline: 'none',
@@ -636,7 +657,7 @@ export default function ImageResizerPage() {
                   <div>
                     <label
                       style={{
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         fontSize: '0.85rem',
                         fontWeight: 600,
                         display: 'block',
@@ -651,10 +672,10 @@ export default function ImageResizerPage() {
                       onChange={(e) => handleHeightChange(Number(e.target.value))}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '8px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '10px',
                         fontSize: '0.9rem',
                         outline: 'none',
@@ -664,7 +685,7 @@ export default function ImageResizerPage() {
                   <div>
                     <label
                       style={{
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         fontSize: '0.85rem',
                         fontWeight: 600,
                         display: 'block',
@@ -678,10 +699,10 @@ export default function ImageResizerPage() {
                       onChange={(e) => setOutputFormat(e.target.value)}
                       style={{
                         width: '100%',
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '8px',
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         padding: '10px',
                         fontSize: '0.9rem',
                         outline: 'none',
@@ -697,7 +718,7 @@ export default function ImageResizerPage() {
                 <div style={{ marginTop: '16px' }}>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.85rem',
                       fontWeight: 600,
                       display: 'block',
@@ -720,7 +741,7 @@ export default function ImageResizerPage() {
                 <div style={{ display: 'flex', gap: '12px', marginTop: '16px', flexWrap: 'wrap' }}>
                   <label
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.85rem',
                       display: 'flex',
                       alignItems: 'center',

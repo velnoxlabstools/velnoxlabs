@@ -87,8 +87,8 @@ export default function UuidGeneratorPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -106,7 +106,7 @@ export default function UuidGeneratorPage() {
               <div style={{ flex: '1', minWidth: '150px' }}>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -123,10 +123,10 @@ export default function UuidGeneratorPage() {
                   onChange={(e) => setCount(Math.min(100, Math.max(1, Number(e.target.value))))}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -173,10 +173,10 @@ export default function UuidGeneratorPage() {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    backgroundColor: 'var(--bg-page)',
                     padding: '12px 16px',
                     borderRadius: '8px',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid var(--border-color)',
                   }}
                 >
                   <span

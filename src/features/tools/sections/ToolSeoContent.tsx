@@ -28,9 +28,28 @@ export function ToolSeoContent({
 }: ToolSeoContentProps) {
   const t = useTranslations('ToolSeoDefaults');
   const tFaq = useTranslations('ToolFaq');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let tTools: any = null;
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    tTools = useTranslations('Tools');
+  } catch {
+    // outside provider
+  }
 
   const slug = propSlug || tool?.slug || '';
-  const name = propName || tool?.name || slug;
+  let name = propName || tool?.name || slug;
+  if (tTools && slug) {
+    try {
+      if (tTools.has(`${slug}.name`)) {
+        name = tTools(`${slug}.name`);
+      } else if (tTools.has(`${slug}.title`)) {
+        name = tTools(`${slug}.title`);
+      }
+    } catch {
+      // fallback to name
+    }
+  }
 
   const isUserAgent = slug === 'user-agent-parser';
 
@@ -49,8 +68,8 @@ export function ToolSeoContent({
       <div
         style={{
           marginTop: '48px',
-          backgroundColor: 'rgba(255,255,255,0.02)',
-          border: '1px solid rgba(255,255,255,0.08)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: '12px',
           padding: '32px',
         }}
@@ -60,13 +79,13 @@ export function ToolSeoContent({
           style={{
             fontSize: '1.5rem',
             fontWeight: 700,
-            color: '#ffffff',
+            color: 'var(--text-main)',
             marginBottom: '16px',
           }}
         >
           {t('about', { name })}
         </h2>
-        <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
+        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '24px' }}>
           {t('about', { name })}
         </p>
 
@@ -75,7 +94,7 @@ export function ToolSeoContent({
           style={{
             fontSize: '1.2rem',
             fontWeight: 700,
-            color: '#ffffff',
+            color: 'var(--text-main)',
             marginBottom: '12px',
             marginTop: '24px',
           }}
@@ -84,7 +103,7 @@ export function ToolSeoContent({
         </h3>
         <ul
           style={{
-            color: '#94a3b8',
+            color: 'var(--text-muted)',
             lineHeight: 1.9,
             paddingLeft: '20px',
             marginBottom: '24px',
@@ -100,7 +119,7 @@ export function ToolSeoContent({
           style={{
             fontSize: '1.2rem',
             fontWeight: 700,
-            color: '#ffffff',
+            color: 'var(--text-main)',
             marginBottom: '12px',
             marginTop: '24px',
           }}
@@ -109,20 +128,23 @@ export function ToolSeoContent({
         </h3>
         <ul
           style={{
-            color: '#94a3b8',
+            color: 'var(--text-muted)',
             lineHeight: 1.9,
             paddingLeft: '20px',
             marginBottom: '24px',
           }}
         >
           <li>
-            <strong style={{ color: '#ffffff' }}>{t('step1Title')}:</strong> {t('step1Body')}
+            <strong style={{ color: 'var(--text-main)' }}>{t('step1Title')}:</strong>{' '}
+            {t('step1Body')}
           </li>
           <li>
-            <strong style={{ color: '#ffffff' }}>{t('step2Title')}:</strong> {t('step2Body')}
+            <strong style={{ color: 'var(--text-main)' }}>{t('step2Title')}:</strong>{' '}
+            {t('step2Body')}
           </li>
           <li>
-            <strong style={{ color: '#ffffff' }}>{t('step3Title')}:</strong> {t('step3Body')}
+            <strong style={{ color: 'var(--text-main)' }}>{t('step3Title')}:</strong>{' '}
+            {t('step3Body')}
           </li>
         </ul>
 
@@ -131,7 +153,7 @@ export function ToolSeoContent({
           style={{
             fontSize: '1.2rem',
             fontWeight: 700,
-            color: '#ffffff',
+            color: 'var(--text-main)',
             marginBottom: '16px',
             marginTop: '24px',
           }}
@@ -145,13 +167,13 @@ export function ToolSeoContent({
               style={{
                 fontSize: '1rem',
                 fontWeight: 600,
-                color: '#60a5fa',
+                color: '#2563eb',
                 marginBottom: '6px',
               }}
             >
               {faq.q}
             </h4>
-            <p style={{ color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>{faq.a}</p>
+            <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>{faq.a}</p>
           </div>
         ))}
       </div>

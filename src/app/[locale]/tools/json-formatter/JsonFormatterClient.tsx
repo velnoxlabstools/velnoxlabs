@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
-import { SectionHeading } from '@/components/ui';
+import { SectionHeading, FeedbackForm } from '@/components/ui';
 
 export default function JsonFormatterPage() {
   const t = useTranslations('Tools.json-formatter');
-  const tCommon = useTranslations('ToolCommon');
+  const tUI = useTranslations('ToolUI.jsonFormatter');
 
   const [inputJson, setInputJson] = useState(
     '{\n  "name": "VelnoxLabs",\n  "version": "1.0.0",\n  "active": true,\n  "features": ["tools", "api"]\n}'
@@ -15,8 +15,6 @@ export default function JsonFormatterPage() {
   const [outputJson, setOutputJson] = useState('');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [feedbackSent, setFeedbackSent] = useState(false);
 
   const handleFormat = (val?: string) => {
     const data = val !== undefined ? val : inputJson;
@@ -65,14 +63,6 @@ export default function JsonFormatterPage() {
     navigator.clipboard.writeText(outputJson);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!feedback.trim()) return;
-    setFeedbackSent(true);
-    setFeedback('');
-    setTimeout(() => setFeedbackSent(false), 3000);
   };
 
   const schemaData = {
@@ -125,8 +115,8 @@ export default function JsonFormatterPage() {
           {/* ========== TOOL UI ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -142,7 +132,7 @@ export default function JsonFormatterPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -160,13 +150,13 @@ export default function JsonFormatterPage() {
                     } catch {}
                   }}
                   rows={12}
-                  placeholder="Paste JSON here..."
+                  placeholder={tUI('inputPlaceholder')}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -184,7 +174,9 @@ export default function JsonFormatterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     {t('outputLabel')}
                   </label>
                   <button
@@ -203,18 +195,18 @@ export default function JsonFormatterPage() {
                       cursor: outputJson ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : t('copyBtn')}
+                    {copied ? tUI('copied') : t('copyBtn')}
                   </button>
                 </div>
                 <textarea
                   value={outputJson}
                   readOnly
                   rows={12}
-                  placeholder="Formatted JSON will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',
@@ -273,7 +265,7 @@ export default function JsonFormatterPage() {
                 }}
               >
                 <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
-                  ❌ Invalid JSON: {error}
+                  ❌ {tUI('invalidJson', { error })}
                 </p>
               </div>
             )}
@@ -283,8 +275,8 @@ export default function JsonFormatterPage() {
           <div
             style={{
               marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '32px',
             }}
@@ -293,13 +285,13 @@ export default function JsonFormatterPage() {
               style={{
                 fontSize: '1.5rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '16px',
               }}
             >
               {t('whatIsHeading')}
             </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '24px' }}>
               {t('whatIsText')}
             </p>
 
@@ -307,7 +299,7 @@ export default function JsonFormatterPage() {
               style={{
                 fontSize: '1.2rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '12px',
                 marginTop: '24px',
               }}
@@ -316,7 +308,7 @@ export default function JsonFormatterPage() {
             </h3>
             <ul
               style={{
-                color: '#94a3b8',
+                color: 'var(--text-muted)',
                 lineHeight: 1.9,
                 paddingLeft: '20px',
                 marginBottom: '24px',
@@ -333,7 +325,7 @@ export default function JsonFormatterPage() {
               style={{
                 fontSize: '1.2rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '16px',
                 marginTop: '24px',
               }}
@@ -347,7 +339,7 @@ export default function JsonFormatterPage() {
               >
                 {t('faq1Q')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{t('faq1A')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('faq1A')}</p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
@@ -356,7 +348,7 @@ export default function JsonFormatterPage() {
               >
                 {t('faq2Q')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{t('faq2A')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('faq2A')}</p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
@@ -365,30 +357,12 @@ export default function JsonFormatterPage() {
               >
                 {t('faq3Q')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{t('faq3A')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('faq3A')}</p>
             </div>
           </div>
 
           {/* ========== FEEDBACK FORM ========== */}
-          <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-            <h3 className="text-xl font-bold text-white mb-2">{tCommon('feedbackTitle')}</h3>
-            <p className="text-slate-400 mb-6 text-sm">{tCommon('feedbackSubtitle')}</p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder={tCommon('feedbackPlaceholder')}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? tCommon('feedbackSent') : tCommon('feedbackSubmit')}
-              </button>
-            </form>
-          </div>
+          <FeedbackForm />
         </div>
       </GlobalContainer>
     </>

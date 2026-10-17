@@ -51,7 +51,7 @@ export default function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={tCommon('changeLanguage')}
         aria-expanded={isOpen}
-        className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-800 bg-slate-900/50 text-slate-200 text-sm hover:bg-slate-800/50 transition-colors"
+        className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-main)] text-sm hover:bg-[var(--bg-page)] transition-colors"
       >
         <span aria-hidden="true">{current.flag}</span>
         <span className="uppercase font-semibold">{locale}</span>
@@ -61,7 +61,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-48 bg-slate-900 border border-slate-800 rounded-lg shadow-xl overflow-hidden z-50">
+        <div className="absolute top-full right-0 mt-2 w-48 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg shadow-xl overflow-hidden z-50">
           {routing.locales.map((loc) => {
             const lang = languageNames[loc] || { name: loc, flag: '🌐' };
             const isActive = loc === locale;
@@ -72,15 +72,15 @@ export default function LanguageSwitcher() {
                 onClick={() => handleLanguageChange(loc)}
                 className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm transition-colors ${
                   isActive
-                    ? 'bg-slate-800 text-white font-semibold'
-                    : 'text-slate-300 hover:bg-slate-800/60'
+                    ? 'bg-[var(--bg-page)] text-[var(--text-main)] font-semibold'
+                    : 'text-[var(--text-muted)] hover:bg-[var(--bg-page)]'
                 }`}
               >
                 <span aria-hidden="true" className="text-base">
                   {lang.flag}
                 </span>
                 <span className="flex-1">{lang.name}</span>
-                {isActive && <span className="text-emerald-400 text-xs">✓</span>}
+                {isActive && <span className="text-emerald-500 text-xs">✓</span>}
               </button>
             );
           })}

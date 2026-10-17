@@ -46,5 +46,63 @@
       "q4": "User-Agent が RFC 準拠であるとはどういう意味ですか？",
       "a4": "RFC 7231 では、HTTP ユーザーエージェントは製品識別子（Mozilla/5.0 など）で始まり、不正な文字を含まない適切なトークン形式を維持することが規定されています。"
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 ヤード・ポンド法 (ポンド, フィート)",
+      "metric": "🌍 メートル法 (キログラム, センチ)",
+      "weightLbs": "体重 (ポンド):",
+      "placeholderWeightLbs": "例: 154",
+      "heightFeet": "身長 (フィート):",
+      "placeholderHeightFeet": "例: 5",
+      "heightInches": "身長 (インチ):",
+      "placeholderHeightInches": "例: 9",
+      "weightKg": "体重 (kg):",
+      "placeholderWeightKg": "例: 70",
+      "heightCm": "身長 (cm):",
+      "placeholderHeightCm": "例: 175",
+      "yourBmi": "あなたの BMI",
+      "underweight": "低体重 (痩せ型)",
+      "normalWeight": "普通体重",
+      "overweight": "肥満 (1度)",
+      "obese": "肥満 (2度以上)",
+      "bmiScale": "BMI 判定基準:",
+      "under18": "18.5 未満",
+      "rangeNormal": "18.5 - 24.9",
+      "rangeOver": "25 - 29.9",
+      "rangeObese": "30 以上",
+      "healthyWeightRange": "💚 あなたの身長に対する適正体重の目安",
+      "copyResult": "📋 結果をコピー",
+      "copied": "✓ コピーしました！",
+      "bmiLabel": "BMI",
+      "categoryLabel": "判定区分",
+      "healthyRangeLabel": "適正体重の目安"
+    },
+    "base64Encoder": {
+      "encode": "エンコード",
+      "decode": "デコード",
+      "textInput": "テキスト入力:",
+      "base64Input": "Base64 入力:",
+      "enterTextPlaceholder": "エンコードするテキストを入力...",
+      "pasteBase64Placeholder": "デコードする Base64 文字列を貼り付け...",
+      "base64Output": "Base64 出力:",
+      "decodedOutput": "デコード結果:",
+      "outputPlaceholder": "出力結果がここに表示されます...",
+      "copy": "コピー",
+      "copied": "コピーしました！",
+      "clear": "クリア",
+      "invalidInput": "選択したモードに対する入力形式が無効です。データをご確認ください。"
+    },
+    "jsonFormatter": {
+      "inputLabel": "JSON 入力:",
+      "outputLabel": "整形済み出力:",
+      "inputPlaceholder": "ここに JSON を貼り付け...",
+      "outputPlaceholder": "整形された JSON がここに表示されます...",
+      "formatBtn": "整形 / 美化",
+      "minifyBtn": "圧縮 (1行化)",
+      "copyBtn": "コピー",
+      "copied": "コピーしました！",
+      "invalidJson": "無効な JSON: {error}"
+    }
   }
 }

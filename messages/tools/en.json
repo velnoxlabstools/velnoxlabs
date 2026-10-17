@@ -46,5 +46,63 @@
       "q4": "What does RFC compliant mean for a User-Agent?",
       "a4": "RFC 7231 specifies that HTTP user agents should begin with product identifier tokens (like Mozilla/5.0) and maintain clean token formatting without illegal characters."
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 Imperial (lbs, ft)",
+      "metric": "🌍 Metric (kg, cm)",
+      "weightLbs": "Weight (lbs):",
+      "placeholderWeightLbs": "e.g. 154",
+      "heightFeet": "Height (feet):",
+      "placeholderHeightFeet": "e.g. 5",
+      "heightInches": "Height (inches):",
+      "placeholderHeightInches": "e.g. 9",
+      "weightKg": "Weight (kg):",
+      "placeholderWeightKg": "e.g. 70",
+      "heightCm": "Height (cm):",
+      "placeholderHeightCm": "e.g. 175",
+      "yourBmi": "Your BMI",
+      "underweight": "Underweight",
+      "normalWeight": "Normal Weight",
+      "overweight": "Overweight",
+      "obese": "Obese",
+      "bmiScale": "BMI Scale:",
+      "under18": "Under 18.5",
+      "rangeNormal": "18.5-24.9",
+      "rangeOver": "25-29.9",
+      "rangeObese": "30+",
+      "healthyWeightRange": "💚 Healthy Weight Range for Your Height",
+      "copyResult": "📋 Copy Result",
+      "copied": "✓ Copied!",
+      "bmiLabel": "BMI",
+      "categoryLabel": "Category",
+      "healthyRangeLabel": "Healthy weight range"
+    },
+    "base64Encoder": {
+      "encode": "Encode",
+      "decode": "Decode",
+      "textInput": "Text Input:",
+      "base64Input": "Base64 Input:",
+      "enterTextPlaceholder": "Enter text to encode...",
+      "pasteBase64Placeholder": "Paste Base64 to decode...",
+      "base64Output": "Base64 Output:",
+      "decodedOutput": "Decoded Output:",
+      "outputPlaceholder": "Output will appear here...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "clear": "Clear",
+      "invalidInput": "Invalid input for the selected mode. Please check your data."
+    },
+    "jsonFormatter": {
+      "inputLabel": "JSON Input:",
+      "outputLabel": "Formatted Output:",
+      "inputPlaceholder": "Paste JSON here...",
+      "outputPlaceholder": "Formatted JSON will appear here...",
+      "formatBtn": "Format / Beautify",
+      "minifyBtn": "Minify",
+      "copyBtn": "Copy",
+      "copied": "Copied!",
+      "invalidJson": "Invalid JSON: {error}"
+    }
   }
 }

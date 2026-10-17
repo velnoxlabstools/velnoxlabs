@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -8,6 +9,7 @@ import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 type Mode = 'salaryToHourly' | 'hourlyToSalary';
 
 export default function SalaryToHourlyCalculatorPage() {
+  const tTools = useTranslations('Tools');
   const [mode, setMode] = useState<Mode>('salaryToHourly');
   const [annualSalary, setAnnualSalary] = useState('60000');
   const [hourlyRate, setHourlyRate] = useState('28.85');
@@ -125,85 +127,50 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading
-            title="Salary to Hourly Calculator"
-            subtitle="Convert between annual salary and hourly rate — see your pay broken down by hour, day, week, month, and year."
+            title={
+              tTools.has('salary-to-hourly-calculator.name')
+                ? tTools('salary-to-hourly-calculator.name')
+                : 'Salary to Hourly Calculator'
+            }
+            subtitle={
+              tTools.has('salary-to-hourly-calculator.description')
+                ? tTools('salary-to-hourly-calculator.description')
+                : 'Convert between annual salary and hourly rate — see your pay broken down by hour, day, week, month, and year.'
+            }
           />
 
-          <div
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '24px',
-              marginTop: 'var(--space-6)',
-            }}
-          >
+          <div className="p-6 md:p-8 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] mt-6 shadow-sm">
             {/* Mode Toggle */}
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+            <div className="flex gap-2 mb-6">
               <button
+                type="button"
                 onClick={() => setMode('salaryToHourly')}
-                style={{
-                  flex: 1,
-                  backgroundColor:
-                    mode === 'salaryToHourly' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
-                  color: mode === 'salaryToHourly' ? '#60a5fa' : '#94a3b8',
-                  border:
-                    mode === 'salaryToHourly'
-                      ? '1px solid rgba(59, 130, 246, 0.5)'
-                      : '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '8px',
-                  padding: '12px',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
+                className={`flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all cursor-pointer border ${
+                  mode === 'salaryToHourly'
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                    : 'bg-[var(--bg-page)] text-[var(--text-muted)] border-[var(--border-color)] hover:text-[var(--text-main)]'
+                }`}
               >
                 💼 Salary → Hourly
               </button>
               <button
+                type="button"
                 onClick={() => setMode('hourlyToSalary')}
-                style={{
-                  flex: 1,
-                  backgroundColor:
-                    mode === 'hourlyToSalary' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
-                  color: mode === 'hourlyToSalary' ? '#60a5fa' : '#94a3b8',
-                  border:
-                    mode === 'hourlyToSalary'
-                      ? '1px solid rgba(59, 130, 246, 0.5)'
-                      : '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '8px',
-                  padding: '12px',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
+                className={`flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all cursor-pointer border ${
+                  mode === 'hourlyToSalary'
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                    : 'bg-[var(--bg-page)] text-[var(--text-muted)] border-[var(--border-color)] hover:text-[var(--text-main)]'
+                }`}
               >
                 ⏰ Hourly → Salary
               </button>
             </div>
 
             {/* Inputs */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                gap: '16px',
-                marginBottom: '20px',
-              }}
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
               {mode === 'salaryToHourly' ? (
                 <div>
-                  <label
-                    style={{
-                      color: '#fff',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      display: 'block',
-                      marginBottom: '8px',
-                    }}
-                  >
+                  <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
                     Annual Salary ($):
                   </label>
                   <input
@@ -211,31 +178,12 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                     value={annualSalary}
                     onChange={(e) => setAnnualSalary(e.target.value)}
                     placeholder="60000"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      borderRadius: '8px',
-                      color: '#fff',
-                      padding: '14px',
-                      fontSize: '1.05rem',
-                      fontWeight: 700,
-                      outline: 'none',
-                      fontFamily: 'monospace',
-                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
                   />
                 </div>
               ) : (
                 <div>
-                  <label
-                    style={{
-                      color: '#fff',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      display: 'block',
-                      marginBottom: '8px',
-                    }}
-                  >
+                  <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
                     Hourly Rate ($):
                   </label>
                   <input
@@ -244,31 +192,12 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                     onChange={(e) => setHourlyRate(e.target.value)}
                     placeholder="28.85"
                     step="0.01"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      borderRadius: '8px',
-                      color: '#fff',
-                      padding: '14px',
-                      fontSize: '1.05rem',
-                      fontWeight: 700,
-                      outline: 'none',
-                      fontFamily: 'monospace',
-                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
                   />
                 </div>
               )}
               <div>
-                <label
-                  style={{
-                    color: '#fff',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
+                <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
                   Hours per Week:
                 </label>
                 <input
@@ -276,30 +205,11 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                   value={hoursPerWeek}
                   onChange={(e) => setHoursPerWeek(e.target.value)}
                   placeholder="40"
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: '8px',
-                    color: '#fff',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
+                  className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
                 />
               </div>
               <div>
-                <label
-                  style={{
-                    color: '#fff',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
+                <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
                   Weeks per Year:
                 </label>
                 <input
@@ -307,262 +217,74 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                   value={weeksPerYear}
                   onChange={(e) => setWeeksPerYear(e.target.value)}
                   placeholder="52"
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: '8px',
-                    color: '#fff',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
+                  className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-[var(--text-main)] font-mono text-base font-bold outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-colors"
                 />
               </div>
             </div>
 
             {/* Main Result */}
-            <div
-              style={{
-                backgroundColor: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.3)',
-                borderRadius: '16px',
-                padding: '32px',
-                textAlign: 'center',
-                marginBottom: '20px',
-              }}
-            >
-              <div
-                style={{
-                  color: '#6ee7b7',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  marginBottom: '8px',
-                }}
-              >
+            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-500/15 p-8 text-center mb-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">
                 {mode === 'salaryToHourly' ? 'Your Hourly Rate' : 'Your Annual Salary'}
               </div>
-              <div
-                style={{
-                  color: '#fff',
-                  fontSize: '3rem',
-                  fontWeight: 800,
-                  fontFamily: 'monospace',
-                  lineHeight: 1,
-                }}
-              >
+              <div className="text-4xl md:text-5xl font-extrabold font-mono text-[var(--text-main)] leading-none my-2">
                 {mode === 'salaryToHourly'
                   ? formatCurrency(result.hourly)
                   : formatCurrency(result.annual)}
               </div>
-              <div style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '8px' }}>
+              <div className="text-xs text-[var(--text-muted)] mt-2">
                 Based on {hoursPerWeek} hrs/week × {weeksPerYear} weeks (
                 {parseFloat(hoursPerWeek) * parseFloat(weeksPerYear)} hrs/year)
               </div>
             </div>
 
             {/* Full Breakdown Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                gap: '12px',
-                marginBottom: '24px',
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: 'rgba(59, 130, 246, 0.08)',
-                  border: '1px solid rgba(59, 130, 246, 0.25)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#93c5fd',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '6px',
-                  }}
-                >
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+              <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
+                <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1.5">
                   Hourly
                 </div>
-                <div
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.2rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                  }}
-                >
+                <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.hourly)}
                 </div>
               </div>
-              <div
-                style={{
-                  backgroundColor: 'rgba(59, 130, 246, 0.08)',
-                  border: '1px solid rgba(59, 130, 246, 0.25)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#93c5fd',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '6px',
-                  }}
-                >
+              <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
+                <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1.5">
                   Daily
                 </div>
-                <div
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.2rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                  }}
-                >
+                <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.daily)}
                 </div>
               </div>
-              <div
-                style={{
-                  backgroundColor: 'rgba(168, 85, 247, 0.08)',
-                  border: '1px solid rgba(168, 85, 247, 0.25)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#c4b5fd',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '6px',
-                  }}
-                >
+              <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
+                <div className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-1.5">
                   Weekly
                 </div>
-                <div
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.2rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                  }}
-                >
+                <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.weekly)}
                 </div>
               </div>
-              <div
-                style={{
-                  backgroundColor: 'rgba(168, 85, 247, 0.08)',
-                  border: '1px solid rgba(168, 85, 247, 0.25)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#c4b5fd',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '6px',
-                  }}
-                >
+              <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
+                <div className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-1.5">
                   Biweekly
                 </div>
-                <div
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.2rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                  }}
-                >
+                <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.biweekly)}
                 </div>
               </div>
-              <div
-                style={{
-                  backgroundColor: 'rgba(251, 191, 36, 0.08)',
-                  border: '1px solid rgba(251, 191, 36, 0.25)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#fcd34d',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '6px',
-                  }}
-                >
+              <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
+                <div className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-1.5">
                   Monthly
                 </div>
-                <div
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.2rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                  }}
-                >
+                <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.monthly)}
                 </div>
               </div>
-              <div
-                style={{
-                  backgroundColor: 'rgba(16, 185, 129, 0.08)',
-                  border: '1px solid rgba(16, 185, 129, 0.25)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#6ee7b7',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '6px',
-                  }}
-                >
+              <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
+                <div className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1.5">
                   Annual
                 </div>
-                <div
-                  style={{
-                    color: '#fff',
-                    fontSize: '1.2rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                  }}
-                >
+                <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.annual)}
                 </div>
               </div>
@@ -570,19 +292,13 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
 
             {/* Copy Button */}
             <button
+              type="button"
               onClick={handleCopy}
-              style={{
-                width: '100%',
-                backgroundColor: copied ? 'rgba(16, 185, 129, 0.3)' : 'rgba(59, 130, 246, 0.15)',
-                color: copied ? '#34d399' : '#60a5fa',
-                border: '1px solid rgba(59, 130, 246, 0.3)',
-                borderRadius: '8px',
-                padding: '12px',
-                fontSize: '0.9rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
+              className={`w-full py-3 px-4 rounded-xl text-sm font-bold transition-all cursor-pointer border ${
+                copied
+                  ? 'bg-emerald-600 text-white border-emerald-600'
+                  : 'bg-blue-600 hover:bg-blue-500 text-white border-blue-600 shadow-sm'
+              }`}
             >
               {copied ? '✓ Copied!' : '📋 Copy Full Breakdown'}
             </button>
@@ -590,7 +306,11 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
 
           <ToolSeoContent
             toolSlug="salary-to-hourly-calculator"
-            toolName="Salary to Hourly Calculator"
+            toolName={
+              tTools.has('salary-to-hourly-calculator.name')
+                ? tTools('salary-to-hourly-calculator.name')
+                : 'Salary to Hourly Calculator'
+            }
           />
         </div>
       </GlobalContainer>

@@ -15,8 +15,8 @@ export function CategoryCard({ category }: CategoryCardProps) {
         flexDirection: 'column',
         gap: 'var(--space-2)',
         padding: 'var(--space-5)',
-        background: 'var(--card, var(--color-neutral-0))',
-        border: '1px solid var(--border, var(--color-neutral-200))',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
         borderRadius: 'var(--radius-xl)',
         textDecoration: 'none',
         color: 'inherit',
@@ -29,7 +29,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
           fontSize: 'var(--font-size-base)',
           fontWeight: 600,
           letterSpacing: '-0.01em',
-          color: 'var(--foreground)',
+          color: 'var(--text-main)',
         }}
       >
         {category.name}
@@ -40,7 +40,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
             margin: 0,
             fontSize: 'var(--font-size-sm)',
             lineHeight: 1.5,
-            color: 'var(--muted-foreground)',
+            color: 'var(--text-muted)',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
@@ -53,7 +53,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
       <span
         style={{
           fontSize: 'var(--font-size-xs)',
-          color: 'var(--muted-foreground)',
+          color: 'var(--text-muted)',
           marginTop: 'var(--space-2)',
         }}
       >

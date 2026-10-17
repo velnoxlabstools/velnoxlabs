@@ -17,23 +17,75 @@ export function FeedbackForm() {
   };
 
   return (
-    <div className="bg-slate-900/40 border border-slate-800 p-8 rounded-2xl mt-12">
-      <h3 className="text-xl font-bold text-white mb-2">{t('feedbackTitle')}</h3>
-      <p className="text-slate-400 mb-6 text-sm">{t('feedbackSubtitle')}</p>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div
+      style={{
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
+        borderRadius: '16px',
+        padding: '32px',
+        marginTop: '48px',
+      }}
+    >
+      <h3
+        style={{
+          fontSize: '1.25rem',
+          fontWeight: 700,
+          color: 'var(--text-main)',
+          marginBottom: '8px',
+        }}
+      >
+        {t('feedbackTitle')}
+      </h3>
+      <p
+        style={{
+          color: 'var(--text-muted)',
+          marginBottom: '24px',
+          fontSize: '0.875rem',
+        }}
+      >
+        {t('feedbackSubtitle')}
+      </p>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+      >
         <textarea
           rows={4}
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}
           placeholder={t('feedbackPlaceholder')}
-          className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:border-slate-600 text-sm resize-none"
+          style={{
+            width: '100%',
+            backgroundColor: 'var(--bg-page)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '12px',
+            padding: '16px',
+            color: 'var(--text-main)',
+            fontSize: '0.875rem',
+            resize: 'none',
+            outline: 'none',
+          }}
+          className="focus:border-emerald-500 placeholder:text-[var(--text-muted)]"
         />
-        <button
-          type="submit"
-          className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-        >
-          {feedbackSent ? t('feedbackSent') : t('feedbackSubmit')}
-        </button>
+        <div>
+          <button
+            type="submit"
+            style={{
+              backgroundColor: '#059669',
+              color: '#ffffff',
+              fontWeight: 600,
+              padding: '10px 24px',
+              borderRadius: '12px',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              transition: 'all 0.2s ease',
+            }}
+            className="hover:opacity-90 active:scale-95"
+          >
+            {feedbackSent ? t('feedbackSent') : t('feedbackSubmit')}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { GlobalContainer } from '@/components/layout';
@@ -75,8 +75,8 @@ export default function QrCodeGeneratorPage() {
           {/* TOOL UI */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -92,7 +92,7 @@ export default function QrCodeGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -108,10 +108,10 @@ export default function QrCodeGeneratorPage() {
                   placeholder="Enter URL or text..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -132,7 +132,9 @@ export default function QrCodeGeneratorPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     QR Code Preview:
                   </label>
                   <button
@@ -155,7 +157,8 @@ export default function QrCodeGeneratorPage() {
                 </div>
                 <div
                   style={{
-                    backgroundColor: '#ffffff',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     padding: '16px',
                     display: 'flex',
@@ -168,7 +171,7 @@ export default function QrCodeGeneratorPage() {
                   {text.trim() === '' ? (
                     <p
                       style={{
-                        color: '#64748b',
+                        color: 'var(--text-muted)',
                         fontSize: '0.9rem',
                         textAlign: 'center',
                         margin: 0,
@@ -177,7 +180,10 @@ export default function QrCodeGeneratorPage() {
                       Enter text or URL to generate QR code
                     </p>
                   ) : (
-                    <div id="qr-svg" style={{ padding: '10px', backgroundColor: '#fff' }}>
+                    <div
+                      id="qr-svg"
+                      style={{ padding: '10px', backgroundColor: '#ffffff', borderRadius: '8px' }}
+                    >
                       <QRCode
                         value={text}
                         size={200}

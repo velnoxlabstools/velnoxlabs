@@ -221,8 +221,8 @@ export default function NameCombinerPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
             }}
@@ -239,7 +239,7 @@ export default function NameCombinerPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -255,10 +255,10 @@ export default function NameCombinerPage() {
                   placeholder="e.g. John"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontSize: '0.95rem',
                     outline: 'none',
@@ -284,7 +284,7 @@ export default function NameCombinerPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -300,10 +300,10 @@ export default function NameCombinerPage() {
                   placeholder="e.g. Emma"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontSize: '0.95rem',
                     outline: 'none',
@@ -313,7 +313,12 @@ export default function NameCombinerPage() {
             </div>
 
             <h3
-              style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 700, marginBottom: '12px' }}
+              style={{
+                color: 'var(--text-main)',
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                marginBottom: '12px',
+              }}
             >
               Combined Variations ({results.length})
             </h3>
@@ -330,7 +335,7 @@ export default function NameCombinerPage() {
                   key={idx}
                   style={{
                     backgroundColor:
-                      copiedIndex === idx ? 'rgba(16, 185, 129, 0.15)' : 'rgba(0,0,0,0.3)',
+                      copiedIndex === idx ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-page)',
                     border:
                       copiedIndex === idx
                         ? '1px solid rgba(16, 185, 129, 0.5)'
@@ -378,7 +383,7 @@ export default function NameCombinerPage() {
                           ? 'rgba(239, 68, 68, 0.2)'
                           : 'rgba(255,255,255,0.05)',
                         color: favorites.includes(r.value) ? '#f87171' : '#94a3b8',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '6px',
                         padding: '4px 8px',
                         fontSize: '0.8rem',

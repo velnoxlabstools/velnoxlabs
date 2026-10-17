@@ -45,7 +45,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang={locale} suppressHydrationWarning className="dark">
-      <body className="bg-white text-slate-900 dark:bg-[#030712] dark:text-slate-100 transition-colors">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme')||localStorage.getItem('velnox-theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.classList.add('dark');document.documentElement.classList.remove('light');document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})()`,
+          }}
+        />
+      </head>
+      <body className="bg-[var(--bg-page)] text-[var(--text-main)] transition-colors duration-200">
         <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
           <ThemeProvider>
             <PreferenceProvider>
@@ -53,9 +60,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <PerformanceProvider>
                   <LayoutProvider>
                     <SearchProvider>
-                      <div key={locale} className="min-h-screen flex flex-col">
+                      <div
+                        key={locale}
+                        className="min-h-screen flex flex-col bg-[var(--bg-page)] text-[var(--text-main)]"
+                      >
                         <Header />
-                        <main className="flex-1">{children}</main>
+                        <main className="flex-1 bg-[var(--bg-page)] text-[var(--text-main)]">
+                          {children}
+                        </main>
                         <Footer />
                       </div>
                     </SearchProvider>

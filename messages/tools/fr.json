@@ -46,5 +46,63 @@
       "q4": "Que signifie conforme RFC pour un User-Agent ?",
       "a4": "La RFC 7231 spécifie que les agents utilisateurs HTTP doivent commencer par des jetons d'identification de produit (comme Mozilla/5.0) et maintenir un format de jeton propre sans caractères illégaux."
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 Impérial (lbs, ft)",
+      "metric": "🌍 Métrique (kg, cm)",
+      "weightLbs": "Poids (lbs) :",
+      "placeholderWeightLbs": "ex. 154",
+      "heightFeet": "Taille (pieds) :",
+      "placeholderHeightFeet": "ex. 5",
+      "heightInches": "Taille (pouces) :",
+      "placeholderHeightInches": "ex. 9",
+      "weightKg": "Poids (kg) :",
+      "placeholderWeightKg": "ex. 70",
+      "heightCm": "Taille (cm) :",
+      "placeholderHeightCm": "ex. 175",
+      "yourBmi": "Votre IMC",
+      "underweight": "Insuffisance pondérale",
+      "normalWeight": "Poids normal",
+      "overweight": "Surpoids",
+      "obese": "Obésité",
+      "bmiScale": "Échelle d'IMC :",
+      "under18": "Moins de 18,5",
+      "rangeNormal": "18,5-24,9",
+      "rangeOver": "25-29,9",
+      "rangeObese": "30 et plus",
+      "healthyWeightRange": "💚 Poids santé recommandé pour votre taille",
+      "copyResult": "📋 Copier le résultat",
+      "copied": "✓ Copié !",
+      "bmiLabel": "IMC",
+      "categoryLabel": "Catégorie",
+      "healthyRangeLabel": "Poids santé recommandé"
+    },
+    "base64Encoder": {
+      "encode": "Encoder",
+      "decode": "Décoder",
+      "textInput": "Texte en entrée :",
+      "base64Input": "Entrée Base64 :",
+      "enterTextPlaceholder": "Entrez le texte à encoder...",
+      "pasteBase64Placeholder": "Collez la chaîne Base64 à décoder...",
+      "base64Output": "Sortie Base64 :",
+      "decodedOutput": "Sortie décodée :",
+      "outputPlaceholder": "Le résultat apparaîtra ici...",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "clear": "Effacer",
+      "invalidInput": "Entrée invalide pour le mode sélectionné. Veuillez vérifier vos données."
+    },
+    "jsonFormatter": {
+      "inputLabel": "Entrée JSON :",
+      "outputLabel": "Sortie formatée :",
+      "inputPlaceholder": "Collez le JSON ici...",
+      "outputPlaceholder": "Le JSON formaté apparaîtra ici...",
+      "formatBtn": "Formater / Embellir",
+      "minifyBtn": "Minifier",
+      "copyBtn": "Copier",
+      "copied": "Copié !",
+      "invalidJson": "JSON invalide : {error}"
+    }
   }
 }

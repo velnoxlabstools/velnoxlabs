@@ -143,8 +143,8 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -162,7 +162,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -178,10 +178,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                   placeholder="10000"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -193,7 +193,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -210,10 +210,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                   step="0.1"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -225,7 +225,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -241,10 +241,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                   placeholder="10"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -256,7 +256,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -272,10 +272,10 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                   placeholder="0"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -290,7 +290,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
             <div style={{ marginBottom: '24px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -306,7 +306,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     onClick={() => setFrequency(f.value)}
                     style={{
                       backgroundColor:
-                        frequency === f.value ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                        frequency === f.value ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                       color: frequency === f.value ? '#60a5fa' : '#94a3b8',
                       border:
                         frequency === f.value
@@ -358,7 +358,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.6rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -390,7 +390,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.6rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -422,7 +422,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.6rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -437,7 +437,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
             <div style={{ marginBottom: '24px' }}>
               <div
                 style={{
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   marginBottom: '8px',
@@ -463,7 +463,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     justifyContent: 'center',
                     fontSize: '0.7rem',
                     fontWeight: 700,
-                    color: '#fff',
+                    color: 'var(--text-main)',
                   }}
                 >
                   {results.totalContributions > 0
@@ -479,7 +479,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     justifyContent: 'center',
                     fontSize: '0.7rem',
                     fontWeight: 700,
-                    color: '#fff',
+                    color: 'var(--text-main)',
                   }}
                 >
                   {results.totalInterest > 0
@@ -487,7 +487,14 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                     : ''}
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '16px', fontSize: '0.75rem', color: '#94a3b8' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '16px',
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                }}
+              >
                 <span>
                   <span style={{ color: '#3b82f6' }}>■</span> Contributions
                 </span>
@@ -502,7 +509,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
               <div style={{ marginBottom: '20px' }}>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.9rem',
                     fontWeight: 700,
                     marginBottom: '10px',
@@ -512,8 +519,8 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                 </div>
                 <div
                   style={{
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     overflow: 'hidden',
                   }}
@@ -547,7 +554,7 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                           padding: '8px 14px',
                           borderTop: '1px solid rgba(255,255,255,0.04)',
                           fontSize: '0.8rem',
-                          color: '#94a3b8',
+                          color: 'var(--text-muted)',
                           fontFamily: 'monospace',
                         }}
                       >
@@ -556,7 +563,9 @@ Total Contributed: ${formatCurrency(results.totalContributions)}`;
                         <div style={{ textAlign: 'right', color: '#34d399' }}>
                           {formatCurrency(row.interest)}
                         </div>
-                        <div style={{ textAlign: 'right', color: '#fff', fontWeight: 700 }}>
+                        <div
+                          style={{ textAlign: 'right', color: 'var(--text-main)', fontWeight: 700 }}
+                        >
                           {formatCurrency(row.balance)}
                         </div>
                       </div>

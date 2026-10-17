@@ -16,9 +16,9 @@ export function CategoryCard({ category }: CategoryCardProps) {
         gap: 'var(--space-3)',
         padding: 'var(--space-5)',
         borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--border)',
-        background: 'var(--card)',
-        color: 'var(--card-foreground)',
+        border: '1px solid var(--border-color)',
+        background: 'var(--bg-card)',
+        color: 'var(--text-main)',
         textDecoration: 'none',
         height: '100%',
       }}
@@ -35,14 +35,14 @@ export function CategoryCard({ category }: CategoryCardProps) {
         style={{
           margin: 0,
           fontSize: 'var(--font-size-sm)',
-          color: 'var(--muted-foreground)',
+          color: 'var(--text-muted)',
           lineHeight: 'var(--line-height-relaxed)',
           flex: 1,
         }}
       >
         {category.description}
       </p>
-      <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--muted-foreground)' }}>
+      <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-muted)' }}>
         {category.toolCount} {category.toolCount === 1 ? 'tool' : 'tools'}
       </span>
     </Link>

@@ -391,17 +391,60 @@ export default function AgeCalculatorPage() {
               </div>
             </section>
             {/* Feedback Section */}
-            <section className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
-              <h2 className="text-2xl font-bold text-white mb-2">{t('feedbackHeading')}</h2>
-              <p className="text-slate-400 mb-6">{t('feedbackDescription')}</p>
+            <section
+              style={{
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
+                borderRadius: '16px',
+                padding: '32px',
+                marginTop: '48px',
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  color: 'var(--text-main)',
+                  marginBottom: '8px',
+                }}
+              >
+                {t('feedbackHeading')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.875rem' }}>
+                {t('feedbackDescription')}
+              </p>
               <textarea
                 rows={4}
                 placeholder={t('feedbackPlaceholder')}
-                className="w-full bg-slate-950 border border-slate-700 rounded-lg p-4 text-white placeholder-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors mb-4 resize-y"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  padding: '16px',
+                  color: 'var(--text-main)',
+                  fontSize: '0.875rem',
+                  resize: 'none',
+                  outline: 'none',
+                  marginBottom: '16px',
+                }}
               ></textarea>
-              <button className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
-                {t('submitSuggestion')}
-              </button>
+              <div>
+                <button
+                  style={{
+                    backgroundColor: '#059669',
+                    color: '#ffffff',
+                    fontWeight: 600,
+                    padding: '10px 24px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  {t('submitSuggestion')}
+                </button>
+              </div>
             </section>
           </div>
         </div>

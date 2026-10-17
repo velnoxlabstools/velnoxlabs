@@ -42,18 +42,35 @@ export default function SearchBar() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative w-full max-w-xs">
-      <div className="relative">
+    <div
+      ref={wrapperRef}
+      className="relative w-full max-w-xs"
+      style={{ width: '16rem', maxWidth: '100%' }}
+    >
+      <div className="relative flex items-center">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query.length >= 2 && setIsOpen(true)}
           placeholder={t('searchPlaceholder')}
-          className="w-full px-4 py-2 pl-10 bg-slate-900/50 border border-slate-800 rounded-lg text-slate-200 text-sm placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+          className="w-full px-3 py-1.5 pl-9 bg-[var(--bg-page)] border border-[var(--border-color)] rounded-lg text-[var(--text-main)] text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:border-cyan-500 transition-colors"
+          style={{
+            backgroundColor: 'var(--bg-page)',
+            borderColor: 'var(--border-color)',
+            color: 'var(--text-main)',
+          }}
         />
         <svg
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"
+          width={16}
+          height={16}
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)] pointer-events-none"
+          style={{
+            width: '1rem',
+            height: '1rem',
+            color: 'var(--text-muted)',
+            flexShrink: 0,
+          }}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -68,7 +85,13 @@ export default function SearchBar() {
       </div>
 
       {isOpen && results.length > 0 && (
-        <div className="absolute top-full mt-2 w-full bg-slate-900 border border-slate-800 rounded-lg shadow-xl overflow-hidden z-50 max-h-96 overflow-y-auto">
+        <div
+          className="absolute top-full mt-2 w-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg shadow-xl overflow-hidden z-50 max-h-96 overflow-y-auto"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            borderColor: 'var(--border-color)',
+          }}
+        >
           {results.map((tool) => (
             <Link
               key={tool.slug}
@@ -77,10 +100,13 @@ export default function SearchBar() {
                 setQuery('');
                 setIsOpen(false);
               }}
-              className="block px-4 py-3 hover:bg-slate-800 transition-colors border-b border-slate-800/50 last:border-0"
+              className="block px-4 py-3 hover:bg-[var(--bg-page)] transition-colors border-b border-[var(--border-color)] last:border-0"
+              style={{
+                borderBottomColor: 'var(--border-color)',
+              }}
             >
-              <div className="text-sm font-medium text-white">{tool.name}</div>
-              <div className="text-xs text-slate-500 mt-0.5">
+              <div className="text-sm font-medium text-[var(--text-main)]">{tool.name}</div>
+              <div className="text-xs text-[var(--text-muted)] mt-0.5">
                 {tool.tags?.join(', ') || tCommon('tool')}
               </div>
             </Link>
@@ -89,8 +115,14 @@ export default function SearchBar() {
       )}
 
       {isOpen && query.length >= 2 && results.length === 0 && (
-        <div className="absolute top-full mt-2 w-full bg-slate-900 border border-slate-800 rounded-lg shadow-xl z-50">
-          <div className="px-4 py-3 text-sm text-slate-400">
+        <div
+          className="absolute top-full mt-2 w-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg shadow-xl z-50"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            borderColor: 'var(--border-color)',
+          }}
+        >
+          <div className="px-4 py-3 text-sm text-[var(--text-muted)]">
             {t('noToolsFound')} &quot;{query}&quot;
           </div>
         </div>

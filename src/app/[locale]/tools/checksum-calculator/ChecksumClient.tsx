@@ -91,11 +91,23 @@ export default function ChecksumClient() {
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <h1
-              style={{ fontSize: '2.5rem', fontWeight: 800, color: '#fff', marginBottom: '12px' }}
+              style={{
+                fontSize: '2.5rem',
+                fontWeight: 800,
+                color: 'var(--text-main)',
+                marginBottom: '12px',
+              }}
             >
               Checksum Calculator
             </h1>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+            <p
+              style={{
+                color: 'var(--text-muted)',
+                fontSize: '1rem',
+                maxWidth: '600px',
+                margin: '0 auto',
+              }}
+            >
               Calculate instant cryptographic and simple hashes securely in your browser with
               absolute privacy.
             </p>
@@ -103,8 +115,8 @@ export default function ChecksumClient() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '16px',
               padding: '32px',
               marginBottom: '32px',
@@ -122,7 +134,7 @@ export default function ChecksumClient() {
             >
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.85rem',
                   fontWeight: 700,
                   textTransform: 'uppercase',
@@ -138,9 +150,9 @@ export default function ChecksumClient() {
                   calculateHash(text, e.target.value);
                 }}
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.4)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: '#fff',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
+                  color: 'var(--text-main)',
                   borderRadius: '8px',
                   padding: '12px 20px',
                   fontSize: '0.9rem',
@@ -159,7 +171,7 @@ export default function ChecksumClient() {
             <div style={{ marginBottom: '24px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.85rem',
                   fontWeight: 600,
                   display: 'block',
@@ -175,10 +187,10 @@ export default function ChecksumClient() {
                 onChange={(e) => calculateHash(e.target.value, algorithm)}
                 style={{
                   width: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   padding: '16px',
                   fontSize: '0.95rem',
                   outline: 'none',
@@ -191,7 +203,7 @@ export default function ChecksumClient() {
             <div>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.85rem',
                   fontWeight: 600,
                   display: 'block',
@@ -203,8 +215,8 @@ export default function ChecksumClient() {
               <div
                 style={{
                   position: 'relative',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '16px',
                   fontFamily: 'monospace',

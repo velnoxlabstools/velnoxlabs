@@ -277,8 +277,8 @@ export default function JsonYamlPage() {
           {/* ========== TOOL UI ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -289,7 +289,7 @@ export default function JsonYamlPage() {
                 onClick={() => setMode('json2yaml')}
                 style={{
                   backgroundColor:
-                    mode === 'json2yaml' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'json2yaml' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'json2yaml' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '6px',
@@ -305,7 +305,7 @@ export default function JsonYamlPage() {
                 onClick={() => setMode('yaml2json')}
                 style={{
                   backgroundColor:
-                    mode === 'yaml2json' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'yaml2json' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'yaml2json' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '6px',
@@ -329,7 +329,7 @@ export default function JsonYamlPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -345,10 +345,10 @@ export default function JsonYamlPage() {
                   placeholder={mode === 'json2yaml' ? 'Paste JSON here...' : 'Paste YAML here...'}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -366,7 +366,9 @@ export default function JsonYamlPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     {mode === 'json2yaml' ? 'YAML Output:' : 'JSON Output:'}
                   </label>
                   <button
@@ -395,8 +397,8 @@ export default function JsonYamlPage() {
                   placeholder="Output will appear here..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',

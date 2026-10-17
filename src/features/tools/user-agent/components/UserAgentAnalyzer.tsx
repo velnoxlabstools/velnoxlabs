@@ -216,27 +216,66 @@ const MainToolContent: React.FC = () => {
           </div>
 
           {/* Feedback Form */}
-          <div className="mt-8 bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+          <div
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '16px',
+              padding: '32px',
+              marginTop: '48px',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '8px',
+              }}
+            >
               Got Feedback or Feature Requests?
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
+            <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.875rem' }}>
               Help us enhance VelnoxLabs developer utility standards. Share your feedback below!
             </p>
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
+            <form
+              onSubmit={handleFeedbackSubmit}
+              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+            >
               <textarea
                 rows={4}
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
                 placeholder="Write your suggestions or feature requests here..."
-                className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl p-4 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-cyan-500 text-sm resize-none"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  padding: '16px',
+                  color: 'var(--text-main)',
+                  fontSize: '0.875rem',
+                  resize: 'none',
+                  outline: 'none',
+                }}
               ></textarea>
-              <button
-                type="submit"
-                className="bg-cyan-600 hover:bg-cyan-500 text-white font-medium px-6 py-2.5 rounded-xl transition text-sm"
-              >
-                {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
-              </button>
+              <div>
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: '#059669',
+                    color: '#ffffff',
+                    fontWeight: 600,
+                    padding: '10px 24px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  {feedbackSent ? 'Sent!' : 'Submit Suggestion'}
+                </button>
+              </div>
             </form>
           </div>
         </main>

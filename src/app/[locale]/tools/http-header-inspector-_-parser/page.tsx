@@ -76,8 +76,8 @@ server: nginx/1.18.0`
           {/* TOOL UI */}
           <div
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.02)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -91,7 +91,7 @@ server: nginx/1.18.0`
                 marginBottom: '8px',
               }}
             >
-              <label style={{ color: '#ffffff', fontSize: '0.875rem', fontWeight: 600 }}>
+              <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
                 Raw HTTP Headers Input:
               </label>
               <button
@@ -118,10 +118,10 @@ server: nginx/1.18.0`
               rows={6}
               style={{
                 width: '100%',
-                backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backgroundColor: 'var(--bg-page)',
+                border: '1px solid var(--border-color)',
                 borderRadius: '8px',
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 padding: '12px',
                 fontFamily: 'monospace',
                 fontSize: '0.85rem',
@@ -135,7 +135,7 @@ server: nginx/1.18.0`
               style={{
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '12px',
               }}
             >
@@ -146,10 +146,10 @@ server: nginx/1.18.0`
                 <div
                   key={idx}
                   style={{
-                    backgroundColor: 'rgba(0,0,0,0.3)',
+                    backgroundColor: 'var(--bg-page)',
                     padding: '10px 14px',
                     borderRadius: '6px',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid var(--border-color)',
                     display: 'grid',
                     gridTemplateColumns: '220px 1fr',
                     gap: '12px',

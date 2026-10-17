@@ -144,14 +144,21 @@ export default function Page() {
           {/* ========== GENERATOR SECTION ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
             }}
           >
-            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '16px' }}>
+            <h3
+              style={{
+                color: 'var(--text-main)',
+                fontSize: '1rem',
+                fontWeight: 700,
+                marginBottom: '16px',
+              }}
+            >
               🔄 Generate ULIDs
             </h3>
             <div
@@ -164,7 +171,7 @@ export default function Page() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -180,10 +187,10 @@ export default function Page() {
                   placeholder="How many ULIDs? (1-20)"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -203,7 +210,9 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     Generated ULIDs:
                   </label>
                   <button
@@ -229,8 +238,8 @@ export default function Page() {
                   placeholder="Output will appear here..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',
@@ -246,14 +255,21 @@ export default function Page() {
           {/* ========== PARSER SECTION ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: '20px',
             }}
           >
-            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '16px' }}>
+            <h3
+              style={{
+                color: 'var(--text-main)',
+                fontSize: '1rem',
+                fontWeight: 700,
+                marginBottom: '16px',
+              }}
+            >
               🔍 Parse ULID
             </h3>
             <div
@@ -266,7 +282,7 @@ export default function Page() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -282,10 +298,10 @@ export default function Page() {
                   placeholder="e.g., 01M38YQ455NA9Z760PC16G3E9D"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -301,7 +317,7 @@ export default function Page() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -313,7 +329,7 @@ export default function Page() {
                 {parseResult ? (
                   <div
                     style={{
-                      backgroundColor: 'rgba(0,0,0,0.3)',
+                      backgroundColor: 'var(--bg-page)',
                       border: '1px solid rgba(59,130,246,0.3)',
                       borderRadius: '8px',
                       padding: '16px',
@@ -324,30 +340,30 @@ export default function Page() {
                       ✅ Valid ULID
                     </p>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: '#94a3b8' }}>Timestamp Part: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>Timestamp Part: </span>
                       <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
                         {parseResult.timestampPart}
                       </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: '#94a3b8' }}>Randomness Part: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>Randomness Part: </span>
                       <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
                         {parseResult.randomness}
                       </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: '#94a3b8' }}>Unix Timestamp: </span>
-                      <span style={{ color: '#fff', fontFamily: 'monospace' }}>
+                      <span style={{ color: 'var(--text-muted)' }}>Unix Timestamp: </span>
+                      <span style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                         {parseResult.timestamp}
                       </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: '#94a3b8' }}>Generated On: </span>
-                      <span style={{ color: '#fff' }}>{parseResult.date}</span>
+                      <span style={{ color: 'var(--text-muted)' }}>Generated On: </span>
+                      <span style={{ color: 'var(--text-main)' }}>{parseResult.date}</span>
                     </div>
                     <div>
-                      <span style={{ color: '#94a3b8' }}>ISO 8601: </span>
-                      <span style={{ color: '#fff', fontFamily: 'monospace' }}>
+                      <span style={{ color: 'var(--text-muted)' }}>ISO 8601: </span>
+                      <span style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                         {parseResult.isoDate}
                       </span>
                     </div>
@@ -355,8 +371,8 @@ export default function Page() {
                 ) : (
                   <div
                     style={{
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
                       padding: '16px',
                       color: '#64748b',

@@ -46,5 +46,63 @@
       "q4": "Что означает соответствие User-Agent стандарту RFC?",
       "a4": "RFC 7231 определяет, что HTTP User-Agent должен начинаться с идентификаторов продуктов (например, Mozilla/5.0) и иметь корректный формат токенов без недопустимых символов."
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 Имперская (фунты, футы)",
+      "metric": "🌍 Метрическая (кг, см)",
+      "weightLbs": "Вес (фунты):",
+      "placeholderWeightLbs": "напр. 154",
+      "heightFeet": "Рост (футы):",
+      "placeholderHeightFeet": "напр. 5",
+      "heightInches": "Рост (дюймы):",
+      "placeholderHeightInches": "напр. 9",
+      "weightKg": "Вес (кг):",
+      "placeholderWeightKg": "напр. 70",
+      "heightCm": "Рост (см):",
+      "placeholderHeightCm": "напр. 175",
+      "yourBmi": "Ваш ИМТ",
+      "underweight": "Дефицит веса",
+      "normalWeight": "Нормальный вес",
+      "overweight": "Избыточный вес",
+      "obese": "Ожирение",
+      "bmiScale": "Шкала ИМТ:",
+      "under18": "Менее 18.5",
+      "rangeNormal": "18.5-24.9",
+      "rangeOver": "25-29.9",
+      "rangeObese": "30+",
+      "healthyWeightRange": "💚 Диапазон здорового веса для вашего роста",
+      "copyResult": "📋 Скопировать результат",
+      "copied": "✓ Скопировано!",
+      "bmiLabel": "ИМТ",
+      "categoryLabel": "Категория",
+      "healthyRangeLabel": "Здоровый диапазон веса"
+    },
+    "base64Encoder": {
+      "encode": "Кодировать",
+      "decode": "Декодировать",
+      "textInput": "Ввод текста:",
+      "base64Input": "Ввод Base64:",
+      "enterTextPlaceholder": "Введите текст для кодирования...",
+      "pasteBase64Placeholder": "Вставьте Base64 для декодирования...",
+      "base64Output": "Вывод Base64:",
+      "decodedOutput": "Декодированный результат:",
+      "outputPlaceholder": "Результат появится здесь...",
+      "copy": "Копировать",
+      "copied": "Скопировано!",
+      "clear": "Очистить",
+      "invalidInput": "Неверные входные данные для выбранного режима. Пожалуйста, проверьте данные."
+    },
+    "jsonFormatter": {
+      "inputLabel": "Входной JSON:",
+      "outputLabel": "Форматированный вывод:",
+      "inputPlaceholder": "Вставьте JSON сюда...",
+      "outputPlaceholder": "Отформатированный JSON появится здесь...",
+      "formatBtn": "Форматировать",
+      "minifyBtn": "Сжать",
+      "copyBtn": "Копировать",
+      "copied": "Скопировано!",
+      "invalidJson": "Некорректный JSON: {error}"
+    }
   }
 }

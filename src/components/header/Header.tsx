@@ -38,10 +38,10 @@ export function Header() {
           zIndex: 'var(--z-sticky)',
           width: '100%',
           background: scrolled
-            ? 'color-mix(in srgb, var(--background) 90%, transparent)'
-            : 'var(--background)',
-          backdropFilter: scrolled ? 'blur(var(--blur-md))' : undefined,
-          borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+            ? 'color-mix(in srgb, var(--bg-card) 85%, transparent)'
+            : 'var(--bg-card)',
+          backdropFilter: 'blur(var(--blur-md))',
+          borderBottom: '1px solid var(--border-color)',
           transition:
             'background var(--duration-normal) var(--ease-in-out), border-color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out)',
           boxShadow: scrolled ? 'var(--shadow-sm)' : 'none',
@@ -122,9 +122,10 @@ export function Header() {
                   justifyContent: 'center',
                   width: 'var(--icon-xl)',
                   height: 'var(--icon-xl)',
-                  border: '1px solid var(--border)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: 'var(--radius-md)',
-                  background: 'var(--background)',
+                  background: 'var(--bg-card)',
+                  color: 'var(--text-main)',
                   cursor: 'pointer',
                   fontSize: 'var(--font-size-lg)',
                 }}

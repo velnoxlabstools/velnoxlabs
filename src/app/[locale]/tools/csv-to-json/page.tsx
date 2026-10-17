@@ -231,8 +231,8 @@ export default function CsvJsonConverterPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -244,7 +244,7 @@ export default function CsvJsonConverterPage() {
                 onClick={() => switchMode('csv2json')}
                 style={{
                   backgroundColor:
-                    mode === 'csv2json' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'csv2json' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'csv2json' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '8px',
@@ -260,7 +260,7 @@ export default function CsvJsonConverterPage() {
                 onClick={() => switchMode('json2csv')}
                 style={{
                   backgroundColor:
-                    mode === 'json2csv' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'json2csv' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'json2csv' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '8px',
@@ -286,7 +286,7 @@ export default function CsvJsonConverterPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -300,10 +300,10 @@ export default function CsvJsonConverterPage() {
                   onChange={(e) => setDelimiter(e.target.value)}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -323,7 +323,7 @@ export default function CsvJsonConverterPage() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '10px',
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.9rem',
                       cursor: 'pointer',
                     }}
@@ -357,7 +357,7 @@ export default function CsvJsonConverterPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -375,10 +375,10 @@ export default function CsvJsonConverterPage() {
                   }
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -396,7 +396,9 @@ export default function CsvJsonConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     {mode === 'csv2json' ? 'JSON Output:' : 'CSV Output:'}
                   </label>
                   <div style={{ display: 'flex', gap: '6px' }}>
@@ -447,8 +449,8 @@ export default function CsvJsonConverterPage() {
                   placeholder={`${mode === 'csv2json' ? 'JSON' : 'CSV'} will appear here...`}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',

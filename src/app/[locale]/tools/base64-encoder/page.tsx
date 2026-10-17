@@ -1,39 +1,44 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function Base64EncoderPage() {
+  const t = useTranslations('ToolUI.base64Encoder');
   const [input, setInput] = useState('Hello VelnoxLabs!');
   const [output, setOutput] = useState('');
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  const process = (text: string, currentMode: 'encode' | 'decode') => {
-    setError('');
-    if (!text.trim()) {
-      setOutput('');
-      return;
-    }
-    try {
-      if (currentMode === 'encode') {
-        setOutput(btoa(unescape(encodeURIComponent(text))));
-      } else {
-        setOutput(decodeURIComponent(escape(atob(text))));
+  const process = React.useCallback(
+    (text: string, currentMode: 'encode' | 'decode') => {
+      setError('');
+      if (!text.trim()) {
+        setOutput('');
+        return;
       }
-    } catch {
-      setError('Invalid input for the selected mode. Please check your data.');
-      setOutput('');
-    }
-  };
+      try {
+        if (currentMode === 'encode') {
+          setOutput(btoa(unescape(encodeURIComponent(text))));
+        } else {
+          setOutput(decodeURIComponent(escape(atob(text))));
+        }
+      } catch {
+        setError(t('invalidInput'));
+        setOutput('');
+      }
+    },
+    [t]
+  );
 
   // Auto-run on input/mode change
   useEffect(() => {
     process(input, mode);
-  }, [input, mode]);
+  }, [input, mode, process]);
 
   const handleCopy = () => {
     if (!output) return;
@@ -101,8 +106,8 @@ export default function Base64EncoderPage() {
           {/* ========== TOOL UI ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -114,7 +119,7 @@ export default function Base64EncoderPage() {
                 onClick={() => setMode('encode')}
                 style={{
                   backgroundColor:
-                    mode === 'encode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'encode' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'encode' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '6px',
@@ -124,13 +129,13 @@ export default function Base64EncoderPage() {
                   cursor: 'pointer',
                 }}
               >
-                Encode
+                {t('encode')}
               </button>
               <button
                 onClick={() => setMode('decode')}
                 style={{
                   backgroundColor:
-                    mode === 'decode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'decode' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'decode' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '6px',
@@ -140,7 +145,7 @@ export default function Base64EncoderPage() {
                   cursor: 'pointer',
                 }}
               >
-                Decode
+                {t('decode')}
               </button>
             </div>
 
@@ -155,28 +160,28 @@ export default function Base64EncoderPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
                     marginBottom: '8px',
                   }}
                 >
-                  {mode === 'encode' ? 'Text Input:' : 'Base64 Input:'}
+                  {mode === 'encode' ? t('textInput') : t('base64Input')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={10}
                   placeholder={
-                    mode === 'encode' ? 'Enter text to encode...' : 'Paste Base64 to decode...'
+                    mode === 'encode' ? t('enterTextPlaceholder') : t('pasteBase64Placeholder')
                   }
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -194,16 +199,16 @@ export default function Base64EncoderPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
-                    {mode === 'encode' ? 'Base64 Output:' : 'Decoded Output:'}
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
+                    {mode === 'encode' ? t('base64Output') : t('decodedOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
                     disabled={!output}
                     style={{
-                      backgroundColor: output
-                        ? 'rgba(59, 130, 246, 0.15)'
-                        : 'rgba(255,255,255,0.05)',
+                      backgroundColor: output ? 'rgba(59, 130, 246, 0.15)' : 'var(--bg-card)',
                       color: output ? '#60a5fa' : '#64748b',
                       border: '1px solid rgba(59, 130, 246, 0.3)',
                       borderRadius: '6px',
@@ -213,18 +218,18 @@ export default function Base64EncoderPage() {
                       cursor: output ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? t('copied') : t('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={10}
-                  placeholder="Output will appear here..."
+                  placeholder={t('outputPlaceholder')}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',
@@ -267,14 +272,14 @@ export default function Base64EncoderPage() {
                   cursor: 'pointer',
                 }}
               >
-                {mode === 'encode' ? 'Encode' : 'Decode'}
+                {mode === 'encode' ? t('encode') : t('decode')}
               </button>
               <button
                 onClick={handleClear}
                 style={{
-                  backgroundColor: 'rgba(255,255,255,0.05)',
-                  color: '#94a3b8',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-muted)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '10px 24px',
                   fontSize: '0.9rem',
@@ -282,7 +287,7 @@ export default function Base64EncoderPage() {
                   cursor: 'pointer',
                 }}
               >
-                Clear
+                {t('clear')}
               </button>
             </div>
           </div>

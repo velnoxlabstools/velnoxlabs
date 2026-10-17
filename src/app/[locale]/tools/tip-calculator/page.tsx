@@ -96,8 +96,8 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -107,7 +107,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
             <div style={{ marginBottom: '24px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -125,10 +125,10 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 min="0"
                 style={{
                   width: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   padding: '14px',
                   fontSize: '1.2rem',
                   fontWeight: 700,
@@ -142,7 +142,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
             <div style={{ marginBottom: '24px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -159,7 +159,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                     style={{
                       flex: '1 1 60px',
                       backgroundColor:
-                        tipPercent === p ? 'rgba(16, 185, 129, 0.25)' : 'rgba(0,0,0,0.3)',
+                        tipPercent === p ? 'rgba(16, 185, 129, 0.25)' : 'var(--bg-page)',
                       color: tipPercent === p ? '#34d399' : '#94a3b8',
                       border:
                         tipPercent === p
@@ -186,10 +186,10 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 max="100"
                 style={{
                   width: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   padding: '10px',
                   fontSize: '0.9rem',
                   outline: 'none',
@@ -202,7 +202,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
             <div style={{ marginBottom: '24px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -234,10 +234,10 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                   min="1"
                   style={{
                     flex: 1,
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontSize: '1.1rem',
                     fontWeight: 700,
@@ -271,7 +271,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                   display: 'flex',
                   alignItems: 'center',
                   gap: '10px',
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.9rem',
                   cursor: 'pointer',
                 }}
@@ -323,7 +323,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.8rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -355,7 +355,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.8rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -387,7 +387,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.8rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -402,8 +402,8 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
             {people > 1 && (
               <div
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '16px',
                   marginBottom: '16px',
@@ -411,7 +411,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
               >
                 <div
                   style={{
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.85rem',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -419,20 +419,20 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: $${perPerson.toFi
                   }}
                 >
                   <span>Bill share per person:</span>
-                  <strong style={{ color: '#fff', fontFamily: 'monospace' }}>
+                  <strong style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                     ${(billNum / people).toFixed(2)}
                   </strong>
                 </div>
                 <div
                   style={{
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.85rem',
                     display: 'flex',
                     justifyContent: 'space-between',
                   }}
                 >
                   <span>Tip per person:</span>
-                  <strong style={{ color: '#fff', fontFamily: 'monospace' }}>
+                  <strong style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                     ${perPersonTip.toFixed(2)}
                   </strong>
                 </div>

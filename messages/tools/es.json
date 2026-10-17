@@ -46,5 +46,63 @@
       "q4": "¿Qué significa compatible con RFC para un User-Agent?",
       "a4": "RFC 7231 especifica que los agentes de usuario HTTP deben comenzar con tokens identificadores de producto (como Mozilla/5.0) y mantener un formato de token limpio sin caracteres ilegales."
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 Imperial (lbs, pies)",
+      "metric": "🌍 Métrico (kg, cm)",
+      "weightLbs": "Peso (lbs):",
+      "placeholderWeightLbs": "ej. 154",
+      "heightFeet": "Altura (pies):",
+      "placeholderHeightFeet": "ej. 5",
+      "heightInches": "Altura (pulgadas):",
+      "placeholderHeightInches": "ej. 9",
+      "weightKg": "Peso (kg):",
+      "placeholderWeightKg": "ej. 70",
+      "heightCm": "Altura (cm):",
+      "placeholderHeightCm": "ej. 175",
+      "yourBmi": "Tu IMC",
+      "underweight": "Bajo peso",
+      "normalWeight": "Peso normal",
+      "overweight": "Sobrepeso",
+      "obese": "Obesidad",
+      "bmiScale": "Escala de IMC:",
+      "under18": "Menor a 18.5",
+      "rangeNormal": "18.5-24.9",
+      "rangeOver": "25-29.9",
+      "rangeObese": "30 o más",
+      "healthyWeightRange": "💚 Rango de peso saludable para tu altura",
+      "copyResult": "📋 Copiar resultado",
+      "copied": "✓ ¡Copiado!",
+      "bmiLabel": "IMC",
+      "categoryLabel": "Categoría",
+      "healthyRangeLabel": "Rango de peso saludable"
+    },
+    "base64Encoder": {
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "textInput": "Entrada de texto:",
+      "base64Input": "Entrada Base64:",
+      "enterTextPlaceholder": "Ingresa texto para codificar...",
+      "pasteBase64Placeholder": "Pega Base64 para decodificar...",
+      "base64Output": "Salida Base64:",
+      "decodedOutput": "Salida decodificada:",
+      "outputPlaceholder": "El resultado aparecerá aquí...",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "clear": "Limpiar",
+      "invalidInput": "Entrada no válida para el modo seleccionado. Por favor revisa tus datos."
+    },
+    "jsonFormatter": {
+      "inputLabel": "Entrada JSON:",
+      "outputLabel": "Salida formateada:",
+      "inputPlaceholder": "Pega el JSON aquí...",
+      "outputPlaceholder": "El JSON formateado aparecerá aquí...",
+      "formatBtn": "Formatear / Embellecer",
+      "minifyBtn": "Minimizar",
+      "copyBtn": "Copiar",
+      "copied": "¡Copiado!",
+      "invalidJson": "JSON no válido: {error}"
+    }
   }
 }

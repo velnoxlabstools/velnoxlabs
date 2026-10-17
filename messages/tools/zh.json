@@ -46,5 +46,63 @@
       "q4": "User-Agent 符合 RFC 规范是什么意思？",
       "a4": "RFC 7231 规范明确规定 HTTP 用户代理标头应以产品标识符（如 Mozilla/5.0）开头，并保持规范的 Token 格式，不含非法字符。"
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 英制 (磅, 英尺)",
+      "metric": "🌍 公制 (公斤, 厘米)",
+      "weightLbs": "体重 (磅)：",
+      "placeholderWeightLbs": "例如 154",
+      "heightFeet": "身高 (英尺)：",
+      "placeholderHeightFeet": "例如 5",
+      "heightInches": "身高 (英寸)：",
+      "placeholderHeightInches": "例如 9",
+      "weightKg": "体重 (公斤)：",
+      "placeholderWeightKg": "例如 70",
+      "heightCm": "身高 (厘米)：",
+      "placeholderHeightCm": "例如 175",
+      "yourBmi": "您的 BMI",
+      "underweight": "体重偏轻",
+      "normalWeight": "正常体重",
+      "overweight": "超重",
+      "obese": "肥胖",
+      "bmiScale": "BMI 等级范围：",
+      "under18": "18.5 以下",
+      "rangeNormal": "18.5-24.9",
+      "rangeOver": "25-29.9",
+      "rangeObese": "30 以上",
+      "healthyWeightRange": "💚 适合您身高的健康体重范围",
+      "copyResult": "📋 复制计算结果",
+      "copied": "✓ 已复制！",
+      "bmiLabel": "BMI 指数",
+      "categoryLabel": "分类",
+      "healthyRangeLabel": "健康体重范围"
+    },
+    "base64Encoder": {
+      "encode": "编码",
+      "decode": "解码",
+      "textInput": "文本输入：",
+      "base64Input": "Base64 输入：",
+      "enterTextPlaceholder": "输入待编码的文本...",
+      "pasteBase64Placeholder": "粘贴待解码的 Base64 字符串...",
+      "base64Output": "Base64 输出：",
+      "decodedOutput": "解码输出：",
+      "outputPlaceholder": "结果将显示在此处...",
+      "copy": "复制",
+      "copied": "已复制！",
+      "clear": "清空",
+      "invalidInput": "所选模式的数据输入无效，请检查您的数据。"
+    },
+    "jsonFormatter": {
+      "inputLabel": "JSON 输入：",
+      "outputLabel": "格式化输出：",
+      "inputPlaceholder": "在此粘贴 JSON 内容...",
+      "outputPlaceholder": "格式化后的 JSON 将在此显示...",
+      "formatBtn": "格式化 / 美化",
+      "minifyBtn": "压缩",
+      "copyBtn": "复制",
+      "copied": "已复制！",
+      "invalidJson": "无效的 JSON：{error}"
+    }
   }
 }

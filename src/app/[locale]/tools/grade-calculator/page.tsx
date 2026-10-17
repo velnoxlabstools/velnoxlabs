@@ -163,7 +163,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
             </div>
             <div
               style={{
-                color: '#fff',
+                color: 'var(--text-main)',
                 fontSize: '3.5rem',
                 fontWeight: 800,
                 fontFamily: 'monospace',
@@ -176,7 +176,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
             <div style={{ display: 'inline-flex', gap: '12px', alignItems: 'center' }}>
               <span
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
+                  backgroundColor: 'var(--bg-page)',
                   border: `1px solid ${gradeInfo.color}`,
                   borderRadius: '20px',
                   padding: '6px 16px',
@@ -189,11 +189,11 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
               </span>
               <span
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
+                  backgroundColor: 'var(--bg-page)',
                   border: '1px solid rgba(255,255,255,0.2)',
                   borderRadius: '20px',
                   padding: '6px 16px',
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.85rem',
                   fontWeight: 600,
                 }}
@@ -206,8 +206,8 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
           {/* Assignments */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginBottom: '20px',
@@ -221,8 +221,10 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                 marginBottom: '16px',
               }}
             >
-              <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700 }}>📋 Assignments</h3>
-              <span style={{ color: '#94a3b8', fontSize: '0.8rem' }}>
+              <h3 style={{ color: 'var(--text-main)', fontSize: '1rem', fontWeight: 700 }}>
+                📋 Assignments
+              </h3>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
                 Total weight:{' '}
                 <strong
                   style={{
@@ -270,10 +272,10 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   placeholder="Assignment name"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.85rem',
                     outline: 'none',
@@ -286,8 +288,8 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   placeholder="92"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
                     color: '#34d399',
                     padding: '10px',
@@ -304,8 +306,8 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   placeholder="20"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
                     color: '#60a5fa',
                     padding: '10px',
@@ -372,9 +374,9 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
               >
                 🎯 What-If Calculator
               </h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '14px' }}>
-                You have <strong style={{ color: '#fff' }}>{remainingWeight}%</strong> remaining.
-                What do you need to hit your target?
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '14px' }}>
+                You have <strong style={{ color: 'var(--text-main)' }}>{remainingWeight}%</strong>{' '}
+                remaining. What do you need to hit your target?
               </p>
               <div
                 style={{
@@ -387,7 +389,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                 <div>
                   <label
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       display: 'block',
@@ -403,10 +405,10 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                     placeholder="90"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '12px',
                       fontSize: '1rem',
                       fontWeight: 700,
@@ -418,7 +420,7 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                 <div>
                   <label
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       display: 'block',
@@ -429,8 +431,8 @@ ${remainingWeight > 0 ? `Need ${neededOnFinal.toFixed(2)}% on remaining ${remain
                   </label>
                   <div
                     style={{
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
                       padding: '12px',
                       fontSize: '1.1rem',

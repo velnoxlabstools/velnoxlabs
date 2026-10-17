@@ -141,8 +141,8 @@ export default function PercentageCalculatorPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -155,8 +155,7 @@ export default function PercentageCalculatorPage() {
                   key={m.key}
                   onClick={() => setMode(m.key)}
                   style={{
-                    backgroundColor:
-                      mode === m.key ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    backgroundColor: mode === m.key ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                     color: mode === m.key ? '#60a5fa' : '#94a3b8',
                     border:
                       mode === m.key
@@ -187,7 +186,7 @@ export default function PercentageCalculatorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -203,10 +202,10 @@ export default function PercentageCalculatorPage() {
                   placeholder="Enter value"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.1rem',
                     fontWeight: 700,
@@ -218,7 +217,7 @@ export default function PercentageCalculatorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -234,10 +233,10 @@ export default function PercentageCalculatorPage() {
                   placeholder="Enter value"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.1rem',
                     fontWeight: 700,
@@ -273,7 +272,7 @@ export default function PercentageCalculatorPage() {
               </div>
               <div
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '2.5rem',
                   fontWeight: 800,
                   fontFamily: 'monospace',
@@ -307,15 +306,15 @@ export default function PercentageCalculatorPage() {
             <div
               style={{
                 marginTop: '20px',
-                backgroundColor: 'rgba(0,0,0,0.3)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                backgroundColor: 'var(--bg-page)',
+                border: '1px solid var(--border-color)',
                 borderRadius: '8px',
                 padding: '16px',
               }}
             >
               <div
                 style={{
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   marginBottom: '10px',

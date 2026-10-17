@@ -185,8 +185,8 @@ export default function CronExpressionGeneratorPage() {
           {/* Main Builder */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
             }}
@@ -202,7 +202,7 @@ export default function CronExpressionGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -218,10 +218,10 @@ export default function CronExpressionGeneratorPage() {
                   placeholder="0-59, *, */5"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -232,7 +232,7 @@ export default function CronExpressionGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -248,10 +248,10 @@ export default function CronExpressionGeneratorPage() {
                   placeholder="0-23, *, */2"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -262,7 +262,7 @@ export default function CronExpressionGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -278,10 +278,10 @@ export default function CronExpressionGeneratorPage() {
                   placeholder="1-31, *"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -292,7 +292,7 @@ export default function CronExpressionGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -308,10 +308,10 @@ export default function CronExpressionGeneratorPage() {
                   placeholder="1-12, *"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -322,7 +322,7 @@ export default function CronExpressionGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -338,10 +338,10 @@ export default function CronExpressionGeneratorPage() {
                   placeholder="0-6 (Sun-Sat), *"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -355,7 +355,7 @@ export default function CronExpressionGeneratorPage() {
             <div style={{ marginBottom: '16px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -367,8 +367,8 @@ export default function CronExpressionGeneratorPage() {
               <div
                 style={{
                   position: 'relative',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '16px',
                   paddingRight: '120px',
@@ -416,7 +416,7 @@ export default function CronExpressionGeneratorPage() {
             <div>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -445,13 +445,20 @@ export default function CronExpressionGeneratorPage() {
           <div
             style={{
               marginTop: '24px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
             }}
           >
-            <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '12px' }}>
+            <h3
+              style={{
+                color: 'var(--text-main)',
+                fontSize: '1rem',
+                fontWeight: 700,
+                marginBottom: '12px',
+              }}
+            >
               Cron Format Reference
             </h3>
             <div
@@ -471,8 +478,8 @@ export default function CronExpressionGeneratorPage() {
                 <div
                   key={i}
                   style={{
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     padding: '12px',
                   }}
@@ -487,7 +494,9 @@ export default function CronExpressionGeneratorPage() {
                   >
                     {row.field}
                   </div>
-                  <div style={{ color: '#94a3b8', fontSize: '0.8rem' }}>Range: {row.range}</div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                    Range: {row.range}
+                  </div>
                   <div
                     style={{
                       color: '#64748b',

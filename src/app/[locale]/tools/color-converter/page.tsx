@@ -184,8 +184,8 @@ export default function ColorConverterPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -195,7 +195,7 @@ export default function ColorConverterPage() {
             <div style={{ marginBottom: '24px', textAlign: 'center' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -210,7 +210,7 @@ export default function ColorConverterPage() {
                   height: '80px',
                   borderRadius: '8px',
                   backgroundColor: hex,
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  border: '1px solid var(--border-color)',
                 }}
               ></div>
             </div>
@@ -232,7 +232,9 @@ export default function ColorConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     HEX:
                   </label>
                   <button
@@ -258,10 +260,10 @@ export default function ColorConverterPage() {
                   placeholder="#3b82f6"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.9rem',
@@ -280,7 +282,9 @@ export default function ColorConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     RGB:
                   </label>
                   <button
@@ -306,10 +310,10 @@ export default function ColorConverterPage() {
                   placeholder="rgb(59, 130, 246)"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.9rem',
@@ -328,7 +332,9 @@ export default function ColorConverterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     HSL:
                   </label>
                   <button
@@ -354,10 +360,10 @@ export default function ColorConverterPage() {
                   placeholder="hsl(217, 91%, 60%)"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.9rem',

@@ -1,4 +1,4 @@
-﻿import { Link } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { GlobalContainer } from '@/components/layout';
 import { tools } from '@/data/tools';
@@ -68,7 +68,7 @@ export default async function Home() {
             style={{
               fontSize: '3rem',
               fontWeight: 800,
-              color: '#ffffff',
+              color: 'var(--text-main)',
               marginTop: 'var(--space-4)',
               marginBottom: 'var(--space-4)',
             }}
@@ -77,7 +77,7 @@ export default async function Home() {
           </h1>
           <p
             style={{
-              color: 'var(--color-text-muted)',
+              color: 'var(--text-muted)',
               fontSize: '1.1rem',
               maxWidth: '600px',
               margin: '0 auto',
@@ -95,8 +95,8 @@ export default async function Home() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
             gap: '16px',
             marginBottom: 'var(--space-16)',
-            backgroundColor: 'rgba(255, 255, 255, 0.02)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
             borderRadius: '12px',
             padding: '24px',
             textAlign: 'center',
@@ -105,7 +105,7 @@ export default async function Home() {
           <div>
             <div
               style={{
-                color: 'var(--color-text-muted)',
+                color: 'var(--text-muted)',
                 fontSize: '0.8rem',
                 fontWeight: 600,
                 marginBottom: '4px',
@@ -113,14 +113,14 @@ export default async function Home() {
             >
               {t('statsTools')}
             </div>
-            <div style={{ color: '#ffffff', fontSize: '2rem', fontWeight: 700 }}>
+            <div style={{ color: 'var(--text-main)', fontSize: '2rem', fontWeight: 700 }}>
               {publishedTools.length}
             </div>
           </div>
           <div>
             <div
               style={{
-                color: 'var(--color-text-muted)',
+                color: 'var(--text-muted)',
                 fontSize: '0.8rem',
                 fontWeight: 600,
                 marginBottom: '4px',
@@ -128,12 +128,12 @@ export default async function Home() {
             >
               {t('statsCategories')}
             </div>
-            <div style={{ color: '#ffffff', fontSize: '2rem', fontWeight: 700 }}>11</div>
+            <div style={{ color: 'var(--text-main)', fontSize: '2rem', fontWeight: 700 }}>11</div>
           </div>
           <div>
             <div
               style={{
-                color: 'var(--color-text-muted)',
+                color: 'var(--text-muted)',
                 fontSize: '0.8rem',
                 fontWeight: 600,
                 marginBottom: '4px',
@@ -141,7 +141,7 @@ export default async function Home() {
             >
               {t('statsPrivacy')}
             </div>
-            <div style={{ color: '#ffffff', fontSize: '2rem', fontWeight: 700 }}>100%</div>
+            <div style={{ color: 'var(--text-main)', fontSize: '2rem', fontWeight: 700 }}>100%</div>
           </div>
         </div>
 
@@ -153,80 +153,38 @@ export default async function Home() {
                 style={{
                   fontSize: '1.75rem',
                   fontWeight: 700,
-                  color: '#ffffff',
+                  color: 'var(--text-main)',
                   marginBottom: '8px',
                 }}
               >
                 {t('popularTitle')}
               </h2>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
                 {t('popularSubtitle')}
               </p>
             </div>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '20px',
-              }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {popularTools.map((tool) => (
                 <div
                   key={tool.id}
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '12px',
-                    padding: '24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                  }}
+                  className="p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col justify-between shadow-sm hover:border-cyan-500/50 transition-all"
                 >
                   <div>
-                    <div style={{ marginBottom: '12px' }}>
-                      <span
-                        style={{
-                          fontSize: '0.75rem',
-                          fontWeight: 600,
-                          color: '#60a5fa',
-                          backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                          padding: '4px 10px',
-                          borderRadius: '6px',
-                        }}
-                      >
+                    <div className="mb-3">
+                      <span className="text-xs font-semibold text-blue-500 bg-blue-500/10 px-2.5 py-1 rounded-md">
                         {getCategoryName(tool.categoryId)}
                       </span>
                     </div>
-                    <h3
-                      style={{
-                        fontSize: '1.15rem',
-                        fontWeight: 700,
-                        color: '#ffffff',
-                        marginBottom: '8px',
-                      }}
-                    >
+                    <h3 className="text-lg font-bold text-[var(--text-main)] mb-2">
                       {getToolName(tool.slug, tool.name)}
                     </h3>
-                    <p
-                      style={{
-                        color: 'var(--color-text-muted)',
-                        fontSize: '0.875rem',
-                        lineHeight: '1.5',
-                        marginBottom: '20px',
-                      }}
-                    >
+                    <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-4 leading-relaxed">
                       {getToolDesc(tool.slug, tool.description)}
                     </p>
                   </div>
                   <Link
                     href={`/tools/${tool.slug}`}
-                    style={{
-                      color: '#34d399',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      textDecoration: 'none',
-                    }}
+                    className="text-sm font-semibold text-emerald-500 hover:text-emerald-400 mt-auto transition-colors"
                   >
                     {t('openTool')}
                   </Link>
@@ -244,99 +202,41 @@ export default async function Home() {
                 style={{
                   fontSize: '1.75rem',
                   fontWeight: 700,
-                  color: '#ffffff',
+                  color: 'var(--text-main)',
                   marginBottom: '8px',
                 }}
               >
                 {t('latestTitle')}
               </h2>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
                 {t('latestSubtitle')}
               </p>
             </div>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '20px',
-              }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {latestTools.map((tool) => (
                 <div
                   key={tool.id}
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '12px',
-                    padding: '24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                  }}
+                  className="p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col justify-between shadow-sm hover:border-cyan-500/50 transition-all"
                 >
                   <div>
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        marginBottom: '12px',
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: '0.75rem',
-                          fontWeight: 600,
-                          color: '#60a5fa',
-                          backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                          padding: '4px 10px',
-                          borderRadius: '6px',
-                        }}
-                      >
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-xs font-semibold text-blue-500 bg-blue-500/10 px-2.5 py-1 rounded-md">
                         {getCategoryName(tool.categoryId)}
                       </span>
-                      <span
-                        style={{
-                          fontSize: '0.7rem',
-                          fontWeight: 700,
-                          color: '#34d399',
-                          backgroundColor: 'rgba(52, 211, 153, 0.1)',
-                          padding: '3px 8px',
-                          borderRadius: '4px',
-                        }}
-                      >
+                      <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">
                         NEW
                       </span>
                     </div>
-                    <h3
-                      style={{
-                        fontSize: '1.15rem',
-                        fontWeight: 700,
-                        color: '#ffffff',
-                        marginBottom: '8px',
-                      }}
-                    >
+                    <h3 className="text-lg font-bold text-[var(--text-main)] mb-2">
                       {getToolName(tool.slug, tool.name)}
                     </h3>
-                    <p
-                      style={{
-                        color: 'var(--color-text-muted)',
-                        fontSize: '0.875rem',
-                        lineHeight: '1.5',
-                        marginBottom: '20px',
-                      }}
-                    >
+                    <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-4 leading-relaxed">
                       {getToolDesc(tool.slug, tool.description)}
                     </p>
                   </div>
                   <Link
                     href={`/tools/${tool.slug}`}
-                    style={{
-                      color: '#34d399',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      textDecoration: 'none',
-                    }}
+                    className="text-sm font-semibold text-emerald-500 hover:text-emerald-400 mt-auto transition-colors"
                   >
                     {t('openTool')}
                   </Link>
@@ -347,81 +247,35 @@ export default async function Home() {
         )}
 
         {/* ALL TOOLS SECTION */}
-        <div style={{ marginBottom: 'var(--space-8)' }}>
-          <h2
-            style={{ fontSize: '1.75rem', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}
-          >
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-[var(--text-main)] mb-2">
             {t('allToolsTitle')} ({publishedTools.length})
           </h2>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
-            {t('allToolsSubtitle')}
-          </p>
+          <p className="text-base text-[var(--text-muted)]">{t('allToolsSubtitle')}</p>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px',
-          }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {publishedTools.map((tool) => (
             <div
               key={tool.id}
-              style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '12px',
-                padding: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
+              className="p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col justify-between shadow-sm hover:border-cyan-500/50 transition-all"
             >
               <div>
-                <div style={{ marginBottom: '12px' }}>
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      color: '#60a5fa',
-                      backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                      padding: '4px 10px',
-                      borderRadius: '6px',
-                    }}
-                  >
+                <div className="mb-3">
+                  <span className="text-xs font-semibold text-blue-500 bg-blue-500/10 px-2.5 py-1 rounded-md">
                     {getCategoryName(tool.categoryId)}
                   </span>
                 </div>
-                <h3
-                  style={{
-                    fontSize: '1.15rem',
-                    fontWeight: 700,
-                    color: '#ffffff',
-                    marginBottom: '8px',
-                  }}
-                >
+                <h3 className="text-lg font-bold text-[var(--text-main)] mb-2">
                   {getToolName(tool.slug, tool.name)}
                 </h3>
-                <p
-                  style={{
-                    color: 'var(--color-text-muted)',
-                    fontSize: '0.875rem',
-                    lineHeight: '1.5',
-                    marginBottom: '20px',
-                  }}
-                >
+                <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-4 leading-relaxed">
                   {getToolDesc(tool.slug, tool.description)}
                 </p>
               </div>
               <Link
                 href={`/tools/${tool.slug}`}
-                style={{
-                  color: '#34d399',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                }}
+                className="text-sm font-semibold text-emerald-500 hover:text-emerald-400 mt-auto transition-colors"
               >
                 {t('openTool')}
               </Link>

@@ -30,8 +30,8 @@ export async function Footer() {
       role="contentinfo"
       style={{
         width: '100%',
-        borderTop: '1px solid var(--border)',
-        background: 'var(--muted)',
+        borderTop: '1px solid var(--border-color)',
+        background: 'var(--bg-page)',
         marginTop: 'auto',
       }}
     >
@@ -52,7 +52,7 @@ export async function Footer() {
               style={{
                 marginTop: 'var(--space-3)',
                 fontSize: 'var(--font-size-sm)',
-                color: 'var(--muted-foreground)',
+                color: 'var(--text-muted)',
                 lineHeight: 'var(--line-height-relaxed)',
               }}
             >
@@ -80,8 +80,8 @@ export async function Footer() {
                     width: 'var(--icon-lg)',
                     height: 'var(--icon-lg)',
                     borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--border)',
-                    color: 'var(--foreground)',
+                    border: '1px solid var(--border-color)',
+                    color: 'var(--text-main)',
                     textDecoration: 'none',
                     fontSize: 'var(--font-size-xs)',
                   }}
@@ -100,7 +100,7 @@ export async function Footer() {
                   fontSize: 'var(--font-size-sm)',
                   fontWeight: 'var(--font-weight-semibold)',
                   marginBottom: 'var(--space-3)',
-                  color: 'var(--foreground)',
+                  color: 'var(--text-main)',
                 }}
               >
                 {t(groupTitleKeys[group.id] || group.title)}
@@ -112,7 +112,7 @@ export async function Footer() {
                       href={link.href}
                       style={{
                         fontSize: 'var(--font-size-sm)',
-                        color: 'var(--muted-foreground)',
+                        color: 'var(--text-muted)',
                         textDecoration: 'none',
                       }}
                     >
@@ -131,7 +131,7 @@ export async function Footer() {
                 fontSize: 'var(--font-size-sm)',
                 fontWeight: 'var(--font-weight-semibold)',
                 marginBottom: 'var(--space-3)',
-                color: 'var(--foreground)',
+                color: 'var(--text-main)',
               }}
             >
               {t('legalTitle')}
@@ -143,7 +143,7 @@ export async function Footer() {
                     href={link.href}
                     style={{
                       fontSize: 'var(--font-size-sm)',
-                      color: 'var(--muted-foreground)',
+                      color: 'var(--text-muted)',
                       textDecoration: 'none',
                     }}
                   >
@@ -160,7 +160,7 @@ export async function Footer() {
           style={{
             paddingTop: 'var(--space-6)',
             paddingBottom: 'var(--space-6)',
-            borderTop: '1px solid var(--border)',
+            borderTop: '1px solid var(--border-color)',
             textAlign: 'center',
           }}
         >
@@ -168,7 +168,7 @@ export async function Footer() {
             style={{
               margin: 0,
               fontSize: 'var(--font-size-sm)',
-              color: 'var(--muted-foreground)',
+              color: 'var(--text-muted)',
             }}
           >
             {t('copyright', { year })}

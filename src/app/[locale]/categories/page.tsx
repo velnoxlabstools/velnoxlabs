@@ -82,40 +82,14 @@ export default async function CategoriesPage() {
     <GlobalContainer maxWidth="2xl">
       <div style={{ paddingTop: 'var(--space-12)', paddingBottom: 'var(--space-16)' }}>
         {/* HERO */}
-        <div style={{ textAlign: 'center', marginBottom: 'var(--space-16)' }}>
-          <span
-            style={{
-              backgroundColor: 'rgba(59, 130, 246, 0.1)',
-              color: '#60a5fa',
-              padding: '6px 14px',
-              borderRadius: '20px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              border: '1px solid rgba(59, 130, 246, 0.2)',
-            }}
-          >
+        <div className="text-center mb-16">
+          <span className="inline-block bg-blue-500/10 text-blue-500 dark:text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-blue-500/20 mb-4">
             {t('badge')}
           </span>
-          <h1
-            style={{
-              fontSize: '3rem',
-              fontWeight: 800,
-              color: '#ffffff',
-              marginTop: 'var(--space-4)',
-              marginBottom: 'var(--space-4)',
-            }}
-          >
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--text-main)] mb-4">
             {t('title')}
           </h1>
-          <p
-            style={{
-              color: 'var(--color-text-muted)',
-              fontSize: '1.1rem',
-              maxWidth: '600px',
-              margin: '0 auto',
-              lineHeight: '1.6',
-            }}
-          >
+          <p className="text-lg text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
             {t('subtitle', {
               count: publishedTools.length,
               categoryCount: sortedCategories.length,
@@ -131,76 +105,33 @@ export default async function CategoriesPage() {
           const catTools = grouped[catId];
 
           return (
-            <div key={catId} style={{ marginBottom: 'var(--space-16)' }}>
-              <div style={{ marginBottom: 'var(--space-6)' }}>
-                <h2
-                  style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 700,
-                    color: '#ffffff',
-                    marginBottom: '6px',
-                  }}
-                >
-                  {catEmoji} {catName}{' '}
-                  <span style={{ color: '#60a5fa', fontSize: '1rem', fontWeight: 600 }}>
-                    ({catTools.length})
-                  </span>
+            <div key={catId} className="mb-16">
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-[var(--text-main)] mb-1 flex items-center gap-2">
+                  <span>{catEmoji}</span>
+                  <span>{catName}</span>
+                  <span className="text-blue-500 text-base font-semibold">({catTools.length})</span>
                 </h2>
-                {catDesc && (
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{catDesc}</p>
-                )}
+                {catDesc && <p className="text-sm text-[var(--text-muted)]">{catDesc}</p>}
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '20px',
-                }}
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {catTools.map((tool) => (
                   <div
                     key={tool.id}
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: '12px',
-                      padding: '24px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                    }}
+                    className="p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col justify-between shadow-sm hover:border-cyan-500/50 transition-all"
                   >
                     <div>
-                      <h3
-                        style={{
-                          fontSize: '1.1rem',
-                          fontWeight: 700,
-                          color: '#ffffff',
-                          marginBottom: '8px',
-                        }}
-                      >
+                      <h3 className="text-lg font-bold text-[var(--text-main)] mb-2">
                         {getToolName(tool.slug, tool.name)}
                       </h3>
-                      <p
-                        style={{
-                          color: 'var(--color-text-muted)',
-                          fontSize: '0.875rem',
-                          lineHeight: '1.5',
-                          marginBottom: '20px',
-                        }}
-                      >
+                      <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-4 leading-relaxed">
                         {getToolDesc(tool.slug, tool.description)}
                       </p>
                     </div>
                     <Link
                       href={`/tools/${tool.slug}`}
-                      style={{
-                        color: '#34d399',
-                        fontSize: '0.875rem',
-                        fontWeight: 600,
-                        textDecoration: 'none',
-                      }}
+                      className="text-sm font-semibold text-emerald-500 hover:text-emerald-400 mt-auto transition-colors"
                     >
                       {t('openTool')}
                     </Link>

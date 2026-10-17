@@ -125,8 +125,8 @@ export default function UserAgentParserPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -142,7 +142,7 @@ export default function UserAgentParserPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -158,10 +158,10 @@ export default function UserAgentParserPage() {
                   placeholder="Enter or paste User-Agent string here..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -179,7 +179,9 @@ export default function UserAgentParserPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     Parsed Output:
                   </label>
                   <button
@@ -205,8 +207,8 @@ export default function UserAgentParserPage() {
                   placeholder="Parsed output will appear here..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',
@@ -224,8 +226,8 @@ export default function UserAgentParserPage() {
           <div
             style={{
               marginTop: '48px',
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '32px',
             }}
@@ -234,13 +236,13 @@ export default function UserAgentParserPage() {
               style={{
                 fontSize: '1.5rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '16px',
               }}
             >
               {t('about', { name: 'User-Agent Parser' })}
             </h2>
-            <p style={{ color: '#94a3b8', lineHeight: 1.7, marginBottom: '24px' }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '24px' }}>
               {t('about', { name: 'User-Agent Parser' })}
             </p>
 
@@ -248,7 +250,7 @@ export default function UserAgentParserPage() {
               style={{
                 fontSize: '1.2rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '12px',
                 marginTop: '24px',
               }}
@@ -257,7 +259,7 @@ export default function UserAgentParserPage() {
             </h3>
             <ul
               style={{
-                color: '#94a3b8',
+                color: 'var(--text-muted)',
                 lineHeight: 1.9,
                 paddingLeft: '20px',
                 marginBottom: '24px',
@@ -278,7 +280,7 @@ export default function UserAgentParserPage() {
               style={{
                 fontSize: '1.2rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 marginBottom: '16px',
                 marginTop: '24px',
               }}
@@ -292,7 +294,7 @@ export default function UserAgentParserPage() {
               >
                 {tFaq('q1')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{tFaq('a1')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{tFaq('a1')}</p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
@@ -301,7 +303,7 @@ export default function UserAgentParserPage() {
               >
                 {tFaq('q2')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{tFaq('a2')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{tFaq('a2')}</p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
@@ -310,7 +312,7 @@ export default function UserAgentParserPage() {
               >
                 {tFaq('q3')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{tFaq('a3')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{tFaq('a3')}</p>
             </div>
 
             <div style={{ marginBottom: '16px' }}>
@@ -319,7 +321,7 @@ export default function UserAgentParserPage() {
               >
                 {tFaq('q4')}
               </h4>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{tFaq('a4')}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{tFaq('a4')}</p>
             </div>
           </div>
 

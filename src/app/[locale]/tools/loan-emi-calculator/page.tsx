@@ -162,8 +162,8 @@ Payoff Date: ${results.payoffDate}`;
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -181,7 +181,7 @@ Payoff Date: ${results.payoffDate}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -197,10 +197,10 @@ Payoff Date: ${results.payoffDate}`;
                   placeholder="250000"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -212,7 +212,7 @@ Payoff Date: ${results.payoffDate}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -229,10 +229,10 @@ Payoff Date: ${results.payoffDate}`;
                   step="0.1"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -244,7 +244,7 @@ Payoff Date: ${results.payoffDate}`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -260,10 +260,10 @@ Payoff Date: ${results.payoffDate}`;
                   placeholder="30"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -299,7 +299,7 @@ Payoff Date: ${results.payoffDate}`;
               </div>
               <div
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '3rem',
                   fontWeight: 800,
                   fontFamily: 'monospace',
@@ -309,7 +309,7 @@ Payoff Date: ${results.payoffDate}`;
               >
                 {formatCurrency(results.monthlyPayment)}
               </div>
-              <div style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                 Payoff by {results.payoffDate}
               </div>
             </div>
@@ -346,7 +346,7 @@ Payoff Date: ${results.payoffDate}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.4rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -378,7 +378,7 @@ Payoff Date: ${results.payoffDate}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.4rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -410,7 +410,7 @@ Payoff Date: ${results.payoffDate}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '1.4rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -425,7 +425,7 @@ Payoff Date: ${results.payoffDate}`;
             <div style={{ marginBottom: '24px' }}>
               <div
                 style={{
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   marginBottom: '8px',
@@ -451,7 +451,7 @@ Payoff Date: ${results.payoffDate}`;
                     justifyContent: 'center',
                     fontSize: '0.7rem',
                     fontWeight: 700,
-                    color: '#fff',
+                    color: 'var(--text-main)',
                   }}
                 >
                   {results.totalPayment > 0
@@ -467,7 +467,7 @@ Payoff Date: ${results.payoffDate}`;
                     justifyContent: 'center',
                     fontSize: '0.7rem',
                     fontWeight: 700,
-                    color: '#fff',
+                    color: 'var(--text-main)',
                   }}
                 >
                   {results.totalPayment > 0
@@ -475,7 +475,14 @@ Payoff Date: ${results.payoffDate}`;
                     : ''}
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '16px', fontSize: '0.75rem', color: '#94a3b8' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '16px',
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                }}
+              >
                 <span>
                   <span style={{ color: '#3b82f6' }}>■</span> Principal
                 </span>
@@ -490,7 +497,7 @@ Payoff Date: ${results.payoffDate}`;
               <div style={{ marginBottom: '20px' }}>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.9rem',
                     fontWeight: 700,
                     marginBottom: '10px',
@@ -500,8 +507,8 @@ Payoff Date: ${results.payoffDate}`;
                 </div>
                 <div
                   style={{
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     overflow: 'hidden',
                   }}
@@ -535,7 +542,7 @@ Payoff Date: ${results.payoffDate}`;
                           padding: '8px 14px',
                           borderTop: '1px solid rgba(255,255,255,0.04)',
                           fontSize: '0.78rem',
-                          color: '#94a3b8',
+                          color: 'var(--text-muted)',
                           fontFamily: 'monospace',
                         }}
                       >
@@ -546,7 +553,9 @@ Payoff Date: ${results.payoffDate}`;
                         <div style={{ textAlign: 'right', color: '#c4b5fd' }}>
                           {formatCurrency(row.interest)}
                         </div>
-                        <div style={{ textAlign: 'right', color: '#fff', fontWeight: 700 }}>
+                        <div
+                          style={{ textAlign: 'right', color: 'var(--text-main)', fontWeight: 700 }}
+                        >
                           {formatCurrency(row.balance)}
                         </div>
                       </div>

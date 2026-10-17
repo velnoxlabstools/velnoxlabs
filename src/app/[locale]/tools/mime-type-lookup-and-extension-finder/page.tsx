@@ -203,8 +203,8 @@ export default function Page() {
           {/* ========== TOOL UI ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -214,7 +214,7 @@ export default function Page() {
             <div style={{ marginBottom: '20px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -230,10 +230,10 @@ export default function Page() {
                 placeholder="e.g., jpg, png, pdf, image/, video/, mime (show all)"
                 style={{
                   width: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   padding: '12px',
                   fontFamily: 'monospace',
                   fontSize: '0.9rem',
@@ -253,7 +253,7 @@ export default function Page() {
                 gap: '8px',
               }}
             >
-              <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+              <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
                 {isBrowseMode ? (
                   <>
                     Reference Table:{' '}
@@ -287,8 +287,8 @@ export default function Page() {
             {/* Results table */}
             <div
               style={{
-                backgroundColor: 'rgba(0,0,0,0.3)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                backgroundColor: 'var(--bg-page)',
+                border: '1px solid var(--border-color)',
                 borderRadius: '8px',
                 padding: '8px',
                 maxHeight: '480px',

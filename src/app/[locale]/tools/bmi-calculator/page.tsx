@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -10,27 +11,27 @@ type Unit = 'metric' | 'imperial';
 function getBMICategory(bmi: number) {
   if (bmi < 18.5)
     return {
-      label: 'Underweight',
+      key: 'underweight' as const,
       color: '#60a5fa',
       bg: 'rgba(59, 130, 246, 0.15)',
       border: 'rgba(59, 130, 246, 0.4)',
     };
   if (bmi < 25)
     return {
-      label: 'Normal Weight',
+      key: 'normalWeight' as const,
       color: '#34d399',
       bg: 'rgba(16, 185, 129, 0.15)',
       border: 'rgba(16, 185, 129, 0.4)',
     };
   if (bmi < 30)
     return {
-      label: 'Overweight',
+      key: 'overweight' as const,
       color: '#fbbf24',
       bg: 'rgba(251, 191, 36, 0.15)',
       border: 'rgba(251, 191, 36, 0.4)',
     };
   return {
-    label: 'Obese',
+    key: 'obese' as const,
     color: '#f87171',
     bg: 'rgba(248, 113, 113, 0.15)',
     border: 'rgba(248, 113, 113, 0.4)',
@@ -38,6 +39,7 @@ function getBMICategory(bmi: number) {
 }
 
 export default function BmiCalculatorPage() {
+  const t = useTranslations('ToolUI.bmiCalculator');
   const [unit, setUnit] = useState<Unit>('imperial');
   const [weightKg, setWeightKg] = useState('70');
   const [heightCm, setHeightCm] = useState('175');
@@ -84,9 +86,10 @@ export default function BmiCalculatorPage() {
 
   const handleCopy = () => {
     if (!bmi) return;
-    const text = `BMI: ${bmi.toFixed(1)}
-Category: ${category?.label}
-Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${healthyMax.toFixed(1)} kg` : `${healthyMin.toFixed(1)} - ${healthyMax.toFixed(1)} lbs`}`;
+    const categoryName = category ? t(category.key) : '';
+    const text = `${t('bmiLabel')}: ${bmi.toFixed(1)}
+${t('categoryLabel')}: ${categoryName}
+${t('healthyRangeLabel')}: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${healthyMax.toFixed(1)} kg` : `${healthyMin.toFixed(1)} - ${healthyMax.toFixed(1)} lbs`}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -152,8 +155,8 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -166,7 +169,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 style={{
                   flex: 1,
                   backgroundColor:
-                    unit === 'imperial' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    unit === 'imperial' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: unit === 'imperial' ? '#60a5fa' : '#94a3b8',
                   border:
                     unit === 'imperial'
@@ -180,14 +183,14 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                   transition: 'all 0.2s',
                 }}
               >
-                🇺🇸 Imperial (lbs, ft)
+                {t('usImperial')}
               </button>
               <button
                 onClick={() => setUnit('metric')}
                 style={{
                   flex: 1,
                   backgroundColor:
-                    unit === 'metric' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    unit === 'metric' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: unit === 'metric' ? '#60a5fa' : '#94a3b8',
                   border:
                     unit === 'metric'
@@ -201,7 +204,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                   transition: 'all 0.2s',
                 }}
               >
-                🌍 Metric (kg, cm)
+                {t('metric')}
               </button>
             </div>
 
@@ -218,26 +221,26 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
                       marginBottom: '8px',
                     }}
                   >
-                    Weight (lbs):
+                    {t('weightLbs')}
                   </label>
                   <input
                     type="number"
                     value={weightLbs}
                     onChange={(e) => setWeightLbs(e.target.value)}
-                    placeholder="e.g. 154"
+                    placeholder={t('placeholderWeightLbs')}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.05rem',
                       fontWeight: 700,
@@ -249,26 +252,26 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
                       marginBottom: '8px',
                     }}
                   >
-                    Height (feet):
+                    {t('heightFeet')}
                   </label>
                   <input
                     type="number"
                     value={heightFt}
                     onChange={(e) => setHeightFt(e.target.value)}
-                    placeholder="e.g. 5"
+                    placeholder={t('placeholderHeightFeet')}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.05rem',
                       fontWeight: 700,
@@ -280,26 +283,26 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
                       marginBottom: '8px',
                     }}
                   >
-                    Height (inches):
+                    {t('heightInches')}
                   </label>
                   <input
                     type="number"
                     value={heightIn}
                     onChange={(e) => setHeightIn(e.target.value)}
-                    placeholder="e.g. 9"
+                    placeholder={t('placeholderHeightInches')}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.05rem',
                       fontWeight: 700,
@@ -321,26 +324,26 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
                       marginBottom: '8px',
                     }}
                   >
-                    Weight (kg):
+                    {t('weightKg')}
                   </label>
                   <input
                     type="number"
                     value={weightKg}
                     onChange={(e) => setWeightKg(e.target.value)}
-                    placeholder="e.g. 70"
+                    placeholder={t('placeholderWeightKg')}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.05rem',
                       fontWeight: 700,
@@ -352,26 +355,26 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
                       marginBottom: '8px',
                     }}
                   >
-                    Height (cm):
+                    {t('heightCm')}
                   </label>
                   <input
                     type="number"
                     value={heightCm}
                     onChange={(e) => setHeightCm(e.target.value)}
-                    placeholder="e.g. 175"
+                    placeholder={t('placeholderHeightCm')}
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.05rem',
                       fontWeight: 700,
@@ -398,7 +401,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 >
                   <div
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.85rem',
                       fontWeight: 600,
                       textTransform: 'uppercase',
@@ -406,11 +409,11 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                       marginBottom: '8px',
                     }}
                   >
-                    Your BMI
+                    {t('yourBmi')}
                   </div>
                   <div
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '3.5rem',
                       fontWeight: 800,
                       fontFamily: 'monospace',
@@ -423,7 +426,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                   <div
                     style={{
                       display: 'inline-block',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
+                      backgroundColor: 'var(--bg-page)',
                       borderRadius: '20px',
                       padding: '8px 20px',
                       color: category.color,
@@ -431,7 +434,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                       fontWeight: 700,
                     }}
                   >
-                    {category.label}
+                    {t(category.key)}
                   </div>
                 </div>
 
@@ -439,13 +442,13 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 <div style={{ marginBottom: '20px' }}>
                   <div
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       marginBottom: '8px',
                     }}
                   >
-                    BMI Scale:
+                    {t('bmiScale')}
                   </div>
                   <div
                     style={{
@@ -470,18 +473,18 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                       fontWeight: 600,
                     }}
                   >
-                    <span>Under 18.5</span>
-                    <span>18.5-24.9</span>
-                    <span>25-29.9</span>
-                    <span>30+</span>
+                    <span>{t('under18')}</span>
+                    <span>{t('rangeNormal')}</span>
+                    <span>{t('rangeOver')}</span>
+                    <span>{t('rangeObese')}</span>
                   </div>
                 </div>
 
                 {/* Healthy Weight Range */}
                 <div
                   style={{
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     padding: '16px',
                     marginBottom: '20px',
@@ -489,13 +492,13 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                 >
                   <div
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       marginBottom: '4px',
                     }}
                   >
-                    💚 Healthy Weight Range for Your Height
+                    {t('healthyWeightRange')}
                   </div>
                   <div
                     style={{
@@ -529,7 +532,7 @@ Healthy weight range: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${health
                     transition: 'all 0.2s',
                   }}
                 >
-                  {copied ? '✓ Copied!' : '📋 Copy Result'}
+                  {copied ? t('copied') : t('copyResult')}
                 </button>
               </>
             )}

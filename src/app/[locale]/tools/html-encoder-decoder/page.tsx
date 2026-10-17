@@ -110,8 +110,8 @@ export default function HtmlEncoderDecoderPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -122,7 +122,7 @@ export default function HtmlEncoderDecoderPage() {
                 onClick={() => toggleMode('encode')}
                 style={{
                   backgroundColor:
-                    mode === 'encode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'encode' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'encode' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '8px',
@@ -138,7 +138,7 @@ export default function HtmlEncoderDecoderPage() {
                 onClick={() => toggleMode('decode')}
                 style={{
                   backgroundColor:
-                    mode === 'decode' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    mode === 'decode' ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                   color: mode === 'decode' ? '#60a5fa' : '#94a3b8',
                   border: '1px solid rgba(59, 130, 246, 0.3)',
                   borderRadius: '8px',
@@ -162,7 +162,7 @@ export default function HtmlEncoderDecoderPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -182,10 +182,10 @@ export default function HtmlEncoderDecoderPage() {
                   }
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -203,7 +203,9 @@ export default function HtmlEncoderDecoderPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     {mode === 'encode' ? 'Encoded Output:' : 'Decoded Output:'}
                   </label>
                   <button
@@ -229,8 +231,8 @@ export default function HtmlEncoderDecoderPage() {
                   placeholder="Output will appear here..."
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',

@@ -131,8 +131,8 @@ export default function RandomNumberGeneratorPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -150,7 +150,7 @@ export default function RandomNumberGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -166,10 +166,10 @@ export default function RandomNumberGeneratorPage() {
                   placeholder="1"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -181,7 +181,7 @@ export default function RandomNumberGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -197,10 +197,10 @@ export default function RandomNumberGeneratorPage() {
                   placeholder="100"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -212,7 +212,7 @@ export default function RandomNumberGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -230,10 +230,10 @@ export default function RandomNumberGeneratorPage() {
                   max="1000"
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '14px',
                     fontSize: '1.05rem',
                     fontWeight: 700,
@@ -258,7 +258,7 @@ export default function RandomNumberGeneratorPage() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '10px',
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.9rem',
                   cursor: 'pointer',
                 }}
@@ -279,7 +279,7 @@ export default function RandomNumberGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.85rem',
                     fontWeight: 600,
                     display: 'block',
@@ -293,10 +293,10 @@ export default function RandomNumberGeneratorPage() {
                   onChange={(e) => setSort(e.target.value)}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '10px',
                     fontSize: '0.9rem',
                     outline: 'none',
@@ -383,7 +383,7 @@ export default function RandomNumberGeneratorPage() {
                       <span
                         key={i}
                         style={{
-                          backgroundColor: 'rgba(0,0,0,0.4)',
+                          backgroundColor: 'var(--bg-page)',
                           border: '1px solid rgba(59, 130, 246, 0.3)',
                           borderRadius: '8px',
                           padding: '8px 14px',

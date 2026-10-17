@@ -1048,10 +1048,10 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           disabled={!output}
           style={{
             padding: '8px 16px',
-            backgroundColor: '#1e293b',
-            color: '#fff',
+            backgroundColor: 'var(--bg-card)',
+            color: 'var(--text-main)',
             borderRadius: '6px',
-            border: '1px solid #334155',
+            border: '1px solid var(--border-color)',
             cursor: output ? 'pointer' : 'not-allowed',
           }}
         >
@@ -1064,10 +1064,10 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           disabled={!output && !resizedImageUrl}
           style={{
             padding: '8px 16px',
-            backgroundColor: '#1e293b',
-            color: '#fff',
+            backgroundColor: 'var(--bg-card)',
+            color: 'var(--text-main)',
             borderRadius: '6px',
-            border: '1px solid #334155',
+            border: '1px solid var(--border-color)',
             cursor: output || resizedImageUrl ? 'pointer' : 'not-allowed',
           }}
         >
@@ -1080,7 +1080,7 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           style={{
             padding: '8px 16px',
             backgroundColor: 'transparent',
-            color: '#94a3b8',
+            color: 'var(--text-muted)',
             border: 'none',
             cursor: 'pointer',
           }}
@@ -1103,14 +1103,19 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
             display: 'flex',
             flexDirection: 'column',
             gap: 'var(--space-4)',
-            backgroundColor: '#090d16',
+            backgroundColor: 'var(--bg-card)',
             padding: '20px',
             borderRadius: '10px',
-            border: '1px solid #1e293b',
+            border: '1px solid var(--border-color)',
           }}
         >
           <span
-            style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: '#64748b' }}
+            style={{
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '1px',
+              color: 'var(--text-muted)',
+            }}
           >
             INPUT & SETTINGS
           </span>
@@ -1119,7 +1124,7 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
             <div
               style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '8px' }}
             >
-              <label style={{ fontSize: '13px', fontWeight: 600, color: '#38bdf8' }}>
+              <label style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-main)' }}>
                 Select Image File (Client-Side)
               </label>
               <input
@@ -1128,16 +1133,16 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
                 accept="image/*"
                 onChange={handleFileChange}
                 style={{
-                  backgroundColor: '#0f172a',
-                  color: '#94a3b8',
+                  backgroundColor: 'var(--bg-page)',
+                  color: 'var(--text-main)',
                   padding: '8px',
                   borderRadius: '6px',
-                  border: '1px solid #334155',
+                  border: '1px solid var(--border-color)',
                   fontSize: '12px',
                 }}
               />
               {selectedFile && (
-                <span style={{ fontSize: '11px', color: '#34d399' }}>
+                <span style={{ fontSize: '11px', color: '#10b981' }}>
                   ✓ Loaded: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)
                 </span>
               )}
@@ -1147,7 +1152,7 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
           {safeSchema.inputs.map((field) => (
             <div key={field.id} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {field.type !== 'checkbox' && (
-                <label style={{ fontSize: '13px', fontWeight: 500, color: '#cbd5e1' }}>
+                <label style={{ fontSize: '13px', fontWeight: 500, color: 'var(--text-main)' }}>
                   {field.label}
                 </label>
               )}
@@ -1157,9 +1162,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
                   value={(inputs[field.id] as string | number) ?? ''}
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
                   style={{
-                    backgroundColor: '#0f172a',
-                    color: '#f8fafc',
-                    border: '1px solid #334155',
+                    backgroundColor: 'var(--bg-page)',
+                    color: 'var(--text-main)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
                     padding: '8px 12px',
                     outline: 'none',
@@ -1180,9 +1185,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
                   placeholder={field.placeholder}
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
                   style={{
-                    backgroundColor: '#0f172a',
-                    color: '#f8fafc',
-                    border: '1px solid #334155',
+                    backgroundColor: 'var(--bg-page)',
+                    color: 'var(--text-main)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
                     padding: '10px',
                     fontFamily: 'monospace',
@@ -1199,9 +1204,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
                   value={(inputs[field.id] as number | string) ?? ''}
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
                   style={{
-                    backgroundColor: '#0f172a',
-                    color: '#f8fafc',
-                    border: '1px solid #334155',
+                    backgroundColor: 'var(--bg-page)',
+                    color: 'var(--text-main)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '6px',
                     padding: '8px 12px',
                     outline: 'none',
@@ -1224,7 +1229,7 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
                     checked={inputs[field.id] === true}
                     onChange={(e) => handleInputChange(field.id, e.target.checked)}
                   />
-                  <span style={{ fontSize: '13px', color: '#cbd5e1' }}>{field.label}</span>
+                  <span style={{ fontSize: '13px', color: 'var(--text-main)' }}>{field.label}</span>
                 </label>
               )}
             </div>
@@ -1237,14 +1242,19 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
             display: 'flex',
             flexDirection: 'column',
             gap: 'var(--space-4)',
-            backgroundColor: '#090d16',
+            backgroundColor: 'var(--bg-card)',
             padding: '20px',
             borderRadius: '10px',
-            border: '1px solid #1e293b',
+            border: '1px solid var(--border-color)',
           }}
         >
           <span
-            style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: '#64748b' }}
+            style={{
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '1px',
+              color: 'var(--text-muted)',
+            }}
           >
             OUTPUT & ANALYSIS
           </span>
@@ -1261,7 +1271,7 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
                   maxWidth: '100%',
                   maxHeight: '180px',
                   borderRadius: '6px',
-                  border: '1px solid #334155',
+                  border: '1px solid var(--border-color)',
                   objectFit: 'contain',
                 }}
               />
@@ -1275,9 +1285,9 @@ export function UniversalToolInterface({ schema }: UniversalToolInterfaceProps) 
             rows={12}
             style={{
               flex: 1,
-              backgroundColor: '#0f172a',
-              color: '#38bdf8',
-              border: '1px solid #334155',
+              backgroundColor: 'var(--bg-page)',
+              color: 'var(--text-main)',
+              border: '1px solid var(--border-color)',
               borderRadius: '6px',
               padding: '10px',
               fontFamily: 'monospace',

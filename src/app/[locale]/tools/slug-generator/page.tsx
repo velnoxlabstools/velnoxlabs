@@ -186,8 +186,8 @@ export default function SlugGeneratorPage() {
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
             }}
@@ -195,7 +195,7 @@ export default function SlugGeneratorPage() {
             <div style={{ marginBottom: '20px' }}>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -211,10 +211,10 @@ export default function SlugGeneratorPage() {
                 placeholder="Enter title or heading..."
                 style={{
                   width: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   padding: '12px',
                   fontSize: '0.95rem',
                   outline: 'none',
@@ -235,7 +235,7 @@ export default function SlugGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -256,7 +256,7 @@ export default function SlugGeneratorPage() {
                       style={{
                         flex: 1,
                         backgroundColor:
-                          separator === s.v ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                          separator === s.v ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                         color: separator === s.v ? '#60a5fa' : '#94a3b8',
                         border: '1px solid rgba(59, 130, 246, 0.3)',
                         borderRadius: '6px',
@@ -274,7 +274,7 @@ export default function SlugGeneratorPage() {
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
                     display: 'block',
@@ -295,7 +295,7 @@ export default function SlugGeneratorPage() {
                       style={{
                         flex: 1,
                         backgroundColor:
-                          caseType === c.v ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                          caseType === c.v ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                         color: caseType === c.v ? '#60a5fa' : '#94a3b8',
                         border: '1px solid rgba(59, 130, 246, 0.3)',
                         borderRadius: '6px',
@@ -318,7 +318,7 @@ export default function SlugGeneratorPage() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.85rem',
                   cursor: 'pointer',
                 }}
@@ -341,7 +341,7 @@ export default function SlugGeneratorPage() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.85rem',
                   cursor: 'pointer',
                 }}
@@ -365,7 +365,7 @@ export default function SlugGeneratorPage() {
             <div>
               <label
                 style={{
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   display: 'block',
@@ -377,8 +377,8 @@ export default function SlugGeneratorPage() {
               <div
                 style={{
                   position: 'relative',
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '16px',
                   paddingRight: '120px',
@@ -424,7 +424,8 @@ export default function SlugGeneratorPage() {
                 </button>
               </div>
               <div style={{ marginTop: '8px', color: '#64748b', fontSize: '0.8rem' }}>
-                Slug length: <strong style={{ color: '#94a3b8' }}>{slug.length}</strong> characters
+                Slug length: <strong style={{ color: 'var(--text-muted)' }}>{slug.length}</strong>{' '}
+                characters
               </div>
             </div>
           </div>

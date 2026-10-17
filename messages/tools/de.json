@@ -46,5 +46,63 @@
       "q4": "Was bedeutet RFC-konform für einen User-Agent?",
       "a4": "RFC 7231 legt fest, dass HTTP-User-Agents mit Produktidentifikations-Tokens (wie Mozilla/5.0) beginnen und ein sauberes Token-Format ohne illegale Zeichen beibehalten sollten."
     }
+  },
+  "ToolUI": {
+    "bmiCalculator": {
+      "usImperial": "🇺🇸 Imperial (lbs, ft)",
+      "metric": "🌍 Metrisch (kg, cm)",
+      "weightLbs": "Gewicht (lbs):",
+      "placeholderWeightLbs": "z.B. 154",
+      "heightFeet": "Größe (Fuß):",
+      "placeholderHeightFeet": "z.B. 5",
+      "heightInches": "Größe (Zoll):",
+      "placeholderHeightInches": "z.B. 9",
+      "weightKg": "Gewicht (kg):",
+      "placeholderWeightKg": "z.B. 70",
+      "heightCm": "Größe (cm):",
+      "placeholderHeightCm": "z.B. 175",
+      "yourBmi": "Ihr BMI",
+      "underweight": "Untergewicht",
+      "normalWeight": "Normalgewicht",
+      "overweight": "Übergewicht",
+      "obese": "Adipositas",
+      "bmiScale": "BMI-Skala:",
+      "under18": "Unter 18,5",
+      "rangeNormal": "18,5-24,9",
+      "rangeOver": "25-29,9",
+      "rangeObese": "30+",
+      "healthyWeightRange": "💚 Gesundes Normalgewicht für Ihre Körpergröße",
+      "copyResult": "📋 Ergebnis kopieren",
+      "copied": "✓ Kopiert!",
+      "bmiLabel": "BMI",
+      "categoryLabel": "Kategorie",
+      "healthyRangeLabel": "Gesunder Gewichtsbereich"
+    },
+    "base64Encoder": {
+      "encode": "Codieren",
+      "decode": "Decodieren",
+      "textInput": "Texteingabe:",
+      "base64Input": "Base64-Eingabe:",
+      "enterTextPlaceholder": "Text zum Codieren eingeben...",
+      "pasteBase64Placeholder": "Base64 zum Decodieren einfügen...",
+      "base64Output": "Base64-Ausgabe:",
+      "decodedOutput": "Decodierte Ausgabe:",
+      "outputPlaceholder": "Ergebnis erscheint hier...",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "clear": "Löschen",
+      "invalidInput": "Ungültige Eingabe für den ausgewählten Modus. Bitte überprüfen Sie Ihre Daten."
+    },
+    "jsonFormatter": {
+      "inputLabel": "JSON-Eingabe:",
+      "outputLabel": "Formatierte Ausgabe:",
+      "inputPlaceholder": "JSON hier einfügen...",
+      "outputPlaceholder": "Formatiertes JSON erscheint hier...",
+      "formatBtn": "Formatieren / Verschönern",
+      "minifyBtn": "Minimieren",
+      "copyBtn": "Kopieren",
+      "copied": "Kopiert!",
+      "invalidJson": "Ungültiges JSON: {error}"
+    }
   }
 }

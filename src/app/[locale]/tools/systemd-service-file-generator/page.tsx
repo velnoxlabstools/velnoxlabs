@@ -203,8 +203,8 @@ WantedBy=multi-user.target`;
           {/* ========== TOOL UI ========== */}
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -221,7 +221,7 @@ WantedBy=multi-user.target`;
               <div>
                 <label
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     display: 'block',
@@ -239,10 +239,10 @@ WantedBy=multi-user.target`;
                   }
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     padding: '12px',
                     fontFamily: 'monospace',
                     fontSize: '0.85rem',
@@ -255,15 +255,15 @@ WantedBy=multi-user.target`;
                 <div
                   style={{
                     marginTop: '12px',
-                    backgroundColor: 'rgba(0,0,0,0.2)',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     padding: '12px',
                   }}
                 >
                   <p
                     style={{
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       fontSize: '0.75rem',
                       fontWeight: 600,
                       marginBottom: '6px',
@@ -342,7 +342,9 @@ WantedBy=multi-user.target`;
                     flexWrap: 'wrap',
                   }}
                 >
-                  <label style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>
+                  <label
+                    style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
+                  >
                     {serviceName ? `${serviceName}.service` : 'systemd .service file'}
                   </label>
                   <div style={{ display: 'flex', gap: '8px' }}>
@@ -389,8 +391,8 @@ WantedBy=multi-user.target`;
                   placeholder={'Enter config like "name=myapp" to generate a service file...'}
                   style={{
                     width: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '8px',
                     color: '#34d399',
                     padding: '12px',

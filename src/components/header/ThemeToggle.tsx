@@ -2,39 +2,24 @@
 
 import React, { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useTheme } from '@/theme';
 
 export function ThemeToggle() {
   const tCommon = useTranslations('Common');
   const [mounted, setMounted] = useState(false);
+  const { resolved, toggle } = useTheme();
 
   useEffect(() => setMounted(true), []);
 
-  const [theme, setTheme] = useState(() =>
-    typeof localStorage !== 'undefined' ? localStorage.getItem('theme') || 'dark' : 'dark'
-  );
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
   return (
     <button
-      onClick={toggleTheme}
+      type="button"
+      onClick={toggle}
       aria-label={tCommon('toggleTheme')}
-      className="p-2 rounded-xl bg-gray-800 text-yellow-400 hover:bg-gray-700 transition-all shadow-md flex items-center justify-center w-10 h-10 cursor-pointer"
+      className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-main)] hover:bg-[var(--bg-page)] transition-all shadow-sm flex items-center justify-center w-10 h-10 cursor-pointer"
     >
       {mounted ? (
-        theme === 'dark' ? (
+        resolved === 'dark' ? (
           <span role="img" aria-label={tCommon('lightMode')} className="text-xl">
             ☀️
           </span>

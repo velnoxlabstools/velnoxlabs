@@ -127,8 +127,8 @@ You Save: $${savings.toFixed(2)}`;
 
           <div
             style={{
-              backgroundColor: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
               borderRadius: '12px',
               padding: '24px',
               marginTop: 'var(--space-6)',
@@ -145,8 +145,7 @@ You Save: $${savings.toFixed(2)}`;
                   key={m.key}
                   onClick={() => setMode(m.key as Mode)}
                   style={{
-                    backgroundColor:
-                      mode === m.key ? 'rgba(59, 130, 246, 0.25)' : 'rgba(0,0,0,0.3)',
+                    backgroundColor: mode === m.key ? 'rgba(59, 130, 246, 0.25)' : 'var(--bg-page)',
                     color: mode === m.key ? '#60a5fa' : '#94a3b8',
                     border:
                       mode === m.key
@@ -178,7 +177,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -194,10 +193,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="100"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -209,7 +208,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -225,10 +224,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="25"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -252,7 +251,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -268,10 +267,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="75"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -283,7 +282,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -299,10 +298,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="25"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -326,7 +325,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -342,10 +341,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="100"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -357,7 +356,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -373,10 +372,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="20"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -388,7 +387,7 @@ You Save: $${savings.toFixed(2)}`;
                 <div>
                   <label
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       display: 'block',
@@ -404,10 +403,10 @@ You Save: $${savings.toFixed(2)}`;
                     placeholder="10"
                     style={{
                       width: '100%',
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
                       borderRadius: '8px',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       padding: '14px',
                       fontSize: '1.1rem',
                       fontWeight: 700,
@@ -451,7 +450,7 @@ You Save: $${savings.toFixed(2)}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '2rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -483,7 +482,7 @@ You Save: $${savings.toFixed(2)}`;
                 </div>
                 <div
                   style={{
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '2rem',
                     fontWeight: 800,
                     fontFamily: 'monospace',
@@ -516,7 +515,7 @@ You Save: $${savings.toFixed(2)}`;
                   </div>
                   <div
                     style={{
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '2rem',
                       fontWeight: 800,
                       fontFamily: 'monospace',
@@ -531,8 +530,8 @@ You Save: $${savings.toFixed(2)}`;
             {mode === 'discount' && (
               <div
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '16px',
                   marginBottom: '20px',
@@ -540,7 +539,7 @@ You Save: $${savings.toFixed(2)}`;
               >
                 <div
                   style={{
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.85rem',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -554,7 +553,7 @@ You Save: $${savings.toFixed(2)}`;
                 </div>
                 <div
                   style={{
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.85rem',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -588,10 +587,12 @@ You Save: $${savings.toFixed(2)}`;
                 >
                   ⚠️ How Stacked Discounts Work
                 </div>
-                <div style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.6 }}>
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', lineHeight: 1.6 }}>
                   {discountNum}% + {discount2Num}% ≠ {discountNum + discount2Num}%. Stacked
                   discounts apply to the discounted price, not the original. Effective:{' '}
-                  <strong style={{ color: '#fff' }}>{effectiveDiscount.toFixed(2)}%</strong>
+                  <strong style={{ color: 'var(--text-main)' }}>
+                    {effectiveDiscount.toFixed(2)}%
+                  </strong>
                 </div>
               </div>
             )}
@@ -619,15 +620,15 @@ You Save: $${savings.toFixed(2)}`;
             <div
               style={{
                 marginTop: '20px',
-                backgroundColor: 'rgba(0,0,0,0.3)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                backgroundColor: 'var(--bg-page)',
+                border: '1px solid var(--border-color)',
                 borderRadius: '8px',
                 padding: '16px',
               }}
             >
               <div
                 style={{
-                  color: '#94a3b8',
+                  color: 'var(--text-muted)',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   marginBottom: '10px',

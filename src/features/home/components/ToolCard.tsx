@@ -17,8 +17,8 @@ export function ToolCard({ tool }: ToolCardProps) {
         flexDirection: 'column',
         gap: 'var(--space-3)',
         padding: 'var(--space-5)',
-        background: 'var(--card, var(--color-neutral-0))',
-        border: '1px solid var(--border, var(--color-neutral-200))',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
         borderRadius: 'var(--radius-xl)',
         textDecoration: 'none',
         color: 'inherit',
@@ -40,7 +40,7 @@ export function ToolCard({ tool }: ToolCardProps) {
             fontSize: 'var(--font-size-base)',
             fontWeight: 600,
             letterSpacing: '-0.01em',
-            color: 'var(--foreground)',
+            color: 'var(--text-main)',
             lineHeight: 1.35,
           }}
         >
@@ -55,7 +55,7 @@ export function ToolCard({ tool }: ToolCardProps) {
           flex: 1,
           fontSize: 'var(--font-size-sm)',
           lineHeight: 1.55,
-          color: 'var(--muted-foreground)',
+          color: 'var(--text-muted)',
           display: '-webkit-box',
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',

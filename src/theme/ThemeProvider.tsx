@@ -10,12 +10,7 @@ import {
   type ReactNode,
 } from 'react';
 import type { ThemeMode } from './types';
-import {
-  applyThemeClass,
-  getStoredTheme,
-  resolveTheme,
-  storeTheme,
-} from './utils';
+import { applyThemeClass, getStoredTheme, resolveTheme, storeTheme } from './utils';
 
 interface ThemeContextValue {
   mode: ThemeMode;
@@ -32,12 +27,9 @@ interface ThemeProviderProps {
   storageKey?: string;
 }
 
-export function ThemeProvider({
-  children,
-  defaultMode = 'system',
-}: ThemeProviderProps) {
+export function ThemeProvider({ children, defaultMode = 'dark' }: ThemeProviderProps) {
   const [mode, setModeState] = useState<ThemeMode>(defaultMode);
-  const [resolved, setResolved] = useState<'light' | 'dark'>('light');
+  const [resolved, setResolved] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     const stored = getStoredTheme();
@@ -77,9 +69,7 @@ export function ThemeProvider({
     [mode, resolved, setMode, toggle]
   );
 
-  return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme(): ThemeContextValue {
