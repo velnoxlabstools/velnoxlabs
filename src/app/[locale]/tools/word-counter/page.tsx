@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -92,20 +93,19 @@ function analyzeText(text: string) {
   };
 }
 
-function formatTime(minutes: number) {
+function formatTime(minutes: number, secStr = 'sec', minStr = 'min') {
   if (minutes < 1) {
     const seconds = Math.round(minutes * 60);
-    return `${seconds} sec`;
+    return `${seconds} ${secStr}`;
   }
   const mins = Math.floor(minutes);
   const secs = Math.round((minutes - mins) * 60);
-  return secs > 0 ? `${mins} min ${secs} sec` : `${mins} min`;
+  return secs > 0 ? `${mins} ${minStr} ${secs} ${secStr}` : `${mins} ${minStr}`;
 }
 
 export default function WordCounterPage() {
-  const [text, setText] = useState(
-    'Welcome to VelnoxLabs! This is a free online Word Counter tool that helps writers, students, and bloggers count words, characters, sentences, and paragraphs in real time. Simply paste your text and get instant results.'
-  );
+  const tUI = useTranslations('ToolUI.wordCounter');
+  const [text, setText] = useState('');
   const [copied, setCopied] = useState(false);
   const [stats, setStats] = useState<ReturnType<typeof analyzeText> | null>(null);
 
@@ -115,13 +115,13 @@ export default function WordCounterPage() {
 
   const handleCopy = () => {
     if (!stats) return;
-    const summary = `Words: ${stats.wordCount}
-Characters: ${stats.charCount}
-Characters (no spaces): ${stats.charCountNoSpaces}
-Sentences: ${stats.sentenceCount}
-Paragraphs: ${stats.paragraphCount}
-Reading time: ${formatTime(stats.readingTimeMinutes)}
-Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
+    const summary = `${tUI('words')}: ${stats.wordCount}
+${tUI('characters')}: ${stats.charCount}
+${tUI('charsNoSpaces')}: ${stats.charCountNoSpaces}
+${tUI('sentences')}: ${stats.sentenceCount}
+${tUI('paragraphs')}: ${stats.paragraphCount}
+${tUI('readingTime')}: ${formatTime(stats.readingTimeMinutes, tUI('sec'), tUI('min'))}
+${tUI('speakingTime')}: ${formatTime(stats.speakingTimeMinutes, tUI('sec'), tUI('min'))}`;
     navigator.clipboard.writeText(summary);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -180,10 +180,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Word Counter"
-            subtitle="Count words, characters, sentences, and paragraphs in real time — with reading time and keyword density."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -205,13 +202,13 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                   marginBottom: '8px',
                 }}
               >
-                Your Text:
+                {tUI('yourText')}
               </label>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 rows={10}
-                placeholder="Start typing or paste your text here..."
+                placeholder={tUI('placeholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -258,7 +255,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      Words
+                      {tUI('words')}
                     </div>
                     <div
                       style={{
@@ -290,7 +287,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      Characters
+                      {tUI('characters')}
                     </div>
                     <div
                       style={{
@@ -322,7 +319,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      Sentences
+                      {tUI('sentences')}
                     </div>
                     <div
                       style={{
@@ -354,7 +351,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      Paragraphs
+                      {tUI('paragraphs')}
                     </div>
                     <div
                       style={{
@@ -395,7 +392,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      Chars (no spaces)
+                      {tUI('charsNoSpaces')}
                     </div>
                     <div
                       style={{
@@ -425,7 +422,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      📖 Reading Time
+                      {tUI('readingTime')}
                     </div>
                     <div
                       style={{
@@ -435,7 +432,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         fontFamily: 'monospace',
                       }}
                     >
-                      {formatTime(stats.readingTimeMinutes)}
+                      {formatTime(stats.readingTimeMinutes, tUI('sec'), tUI('min'))}
                     </div>
                   </div>
                   <div
@@ -455,7 +452,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '4px',
                       }}
                     >
-                      🗣️ Speaking Time
+                      {tUI('speakingTime')}
                     </div>
                     <div
                       style={{
@@ -465,7 +462,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         fontFamily: 'monospace',
                       }}
                     >
-                      {formatTime(stats.speakingTimeMinutes)}
+                      {formatTime(stats.speakingTimeMinutes, tUI('sec'), tUI('min'))}
                     </div>
                   </div>
                 </div>
@@ -489,7 +486,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                         marginBottom: '10px',
                       }}
                     >
-                      🔑 Top Keywords
+                      {tUI('topKeywords')}
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                       {stats.topWords.map((kw, i) => (
@@ -533,7 +530,7 @@ Speaking time: ${formatTime(stats.speakingTimeMinutes)}`;
                     transition: 'all 0.2s',
                   }}
                 >
-                  {copied ? '✓ Copied!' : '📋 Copy Statistics'}
+                  {copied ? tUI('copied') : tUI('copyStats')}
                 </button>
               </>
             )}

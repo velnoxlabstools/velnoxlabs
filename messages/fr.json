@@ -482,7 +482,7 @@
     },
     "random-number-generator": {
       "name": "Générateur de Nombres Aléatoires",
-      "description": "Génère des nombres aléatoires avec options uniques et de tri."
+      "description": "Génère des nombres aléatoires avec mode sans doublon et tri."
     },
     "bmi-calculator": {
       "name": "Calculatrice d'IMC",

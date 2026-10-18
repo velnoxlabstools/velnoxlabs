@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function UuidGeneratorPage() {
+  const tUI = useTranslations('ToolUI.uuidGenerator');
   const [uuids, setUuids] = useState<string[]>([]);
   const [count, setCount] = useState<number>(5);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
@@ -80,10 +82,7 @@ export default function UuidGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="UUID v4 Generator"
-            subtitle="Generate cryptographically secure Version 4 Universally Unique Identifiers (UUIDs) instantly."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -113,7 +112,7 @@ export default function UuidGeneratorPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  How many UUIDs?
+                  {tUI('howMany')}
                 </label>
                 <input
                   type="number"
@@ -146,7 +145,7 @@ export default function UuidGeneratorPage() {
                   cursor: 'pointer',
                 }}
               >
-                Generate UUIDs
+                {tUI('generateBtn')}
               </button>
               <button
                 onClick={handleCopyAll}
@@ -161,7 +160,7 @@ export default function UuidGeneratorPage() {
                   cursor: 'pointer',
                 }}
               >
-                {allCopied ? 'All Copied!' : 'Copy All'}
+                {allCopied ? tUI('allCopied') : tUI('copyAll')}
               </button>
             </div>
 
@@ -204,7 +203,7 @@ export default function UuidGeneratorPage() {
                       flexShrink: 0,
                     }}
                   >
-                    {copiedIndex === idx ? 'Copied!' : 'Copy'}
+                    {copiedIndex === idx ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
               ))}

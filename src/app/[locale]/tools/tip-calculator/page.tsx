@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -9,6 +9,7 @@ import { formatCurrency, getCurrencySymbol } from '@/lib/format';
 
 export default function TipCalculatorPage() {
   const locale = useLocale();
+  const tUI = useTranslations('ToolUI.tipCalculator');
   const [bill, setBill] = useState('50.00');
   const [tipPercent, setTipPercent] = useState(18);
   const [people, setPeople] = useState(1);
@@ -28,10 +29,14 @@ export default function TipCalculatorPage() {
   const perPersonTip = tipAmount / (people || 1);
 
   const handleCopy = () => {
-    const text = `Bill: ${formatCurrency(billNum, locale)}
-Tip (${tipPercent}%): ${formatCurrency(tipAmount, locale)}
-Total: ${formatCurrency(totalAmount, locale)}
-Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(perPerson, locale)} each`;
+    const text = `${tUI('billLabel')}: ${formatCurrency(billNum, locale)}
+${tUI('tipAmount')} (${tipPercent}%): ${formatCurrency(tipAmount, locale)}
+${tUI('totalLabel')}: ${formatCurrency(totalAmount, locale)}
+${tUI('splitBetweenLabel', {
+  count: people,
+  peopleLabel: people === 1 ? tUI('person') : tUI('people'),
+  amount: formatCurrency(perPerson, locale),
+})}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -92,10 +97,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Tip Calculator"
-            subtitle="Calculate restaurant tips and split bills instantly — perfect for dining out with friends."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -117,7 +119,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                   marginBottom: '8px',
                 }}
               >
-                Bill Amount
+                {tUI('billAmount')}
               </label>
               <div style={{ position: 'relative' }}>
                 <span
@@ -169,7 +171,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                   marginBottom: '8px',
                 }}
               >
-                Tip Percentage:
+                {tUI('tipPercentage')}
               </label>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
                 {tipOptions.map((p) => (
@@ -201,7 +203,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                 type="number"
                 value={tipPercent}
                 onChange={(e) => setTipPercent(parseFloat(e.target.value) || 0)}
-                placeholder="Custom %"
+                placeholder={tUI('customTip')}
                 min="0"
                 max="100"
                 style={{
@@ -229,7 +231,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                   marginBottom: '8px',
                 }}
               >
-                Split Between (people):
+                {tUI('splitBetween')}
               </label>
               <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                 <button
@@ -307,7 +309,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                     accentColor: '#3b82f6',
                   }}
                 />
-                Round up total to nearest dollar
+                {tUI('roundUp')}
               </label>
             </div>
 
@@ -339,7 +341,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                     marginBottom: '6px',
                   }}
                 >
-                  Tip Amount
+                  {tUI('tipAmount')}
                 </div>
                 <div
                   style={{
@@ -371,7 +373,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                     marginBottom: '6px',
                   }}
                 >
-                  Total Bill
+                  {tUI('totalBill')}
                 </div>
                 <div
                   style={{
@@ -403,7 +405,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                     marginBottom: '6px',
                   }}
                 >
-                  Each Person Pays
+                  {tUI('eachPersonPays')}
                 </div>
                 <div
                   style={{
@@ -438,7 +440,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                     marginBottom: '6px',
                   }}
                 >
-                  <span>Bill share per person:</span>
+                  <span>{tUI('billSharePerPerson')}</span>
                   <strong style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                     {formatCurrency(billNum / people, locale)}
                   </strong>
@@ -451,7 +453,7 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                     justifyContent: 'space-between',
                   }}
                 >
-                  <span>Tip per person:</span>
+                  <span>{tUI('tipPerPerson')}</span>
                   <strong style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                     {formatCurrency(perPersonTip, locale)}
                   </strong>
@@ -475,11 +477,11 @@ Split between ${people} ${people === 1 ? 'person' : 'people'}: ${formatCurrency(
                 transition: 'all 0.2s',
               }}
             >
-              {copied ? '✓ Copied!' : '📋 Copy Full Breakdown'}
+              {copied ? tUI('copied') : tUI('copyBreakdown')}
             </button>
           </div>
 
-          <ToolSeoContent toolSlug="tip-calculator" toolName="Tip Calculator" />
+          <ToolSeoContent toolSlug="tip-calculator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

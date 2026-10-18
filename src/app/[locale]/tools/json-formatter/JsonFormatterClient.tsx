@@ -139,7 +139,7 @@ export default function JsonFormatterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  {t('inputLabel')}
+                  {tUI('inputLabel')}
                 </label>
                 <textarea
                   value={inputJson}
@@ -177,7 +177,7 @@ export default function JsonFormatterPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    {t('outputLabel')}
+                    {tUI('outputLabel')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -195,7 +195,7 @@ export default function JsonFormatterPage() {
                       cursor: outputJson ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? tUI('copied') : t('copyBtn')}
+                    {copied ? tUI('copied') : tUI('copyBtn')}
                   </button>
                 </div>
                 <textarea
@@ -234,7 +234,7 @@ export default function JsonFormatterPage() {
                   cursor: 'pointer',
                 }}
               >
-                {t('formatBtn')}
+                {tUI('formatBtn')}
               </button>
               <button
                 onClick={handleMinify}
@@ -249,7 +249,7 @@ export default function JsonFormatterPage() {
                   cursor: 'pointer',
                 }}
               >
-                {t('minifyBtn')}
+                {tUI('minifyBtn')}
               </button>
             </div>
 

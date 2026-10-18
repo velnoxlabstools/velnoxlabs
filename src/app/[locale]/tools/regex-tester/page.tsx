@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function RegexTesterPage() {
+  const tUI = useTranslations('ToolUI.regexTester');
   const [pattern, setPattern] = useState('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}');
   const [flags, setFlags] = useState('g');
   const [testString, setTestString] = useState(
@@ -14,12 +16,14 @@ export default function RegexTesterPage() {
   const [matches, setMatches] = useState<string[]>([]);
   const [matchCount, setMatchCount] = useState(0);
   const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
+
   const availableFlags = [
-    { key: 'g', label: 'Global' },
-    { key: 'i', label: 'Ignore Case' },
-    { key: 'm', label: 'Multiline' },
-    { key: 's', label: 'Dot All' },
-    { key: 'u', label: 'Unicode' },
+    { key: 'g', label: tUI('flagGlobal') },
+    { key: 'i', label: tUI('flagIgnoreCase') },
+    { key: 'm', label: tUI('flagMultiline') },
+    { key: 's', label: tUI('flagDotAll') },
+    { key: 'u', label: tUI('flagUnicode') },
   ];
 
   const toggleFlag = (flag: string) => {
@@ -32,38 +36,43 @@ export default function RegexTesterPage() {
     setFlags(newFlags);
   };
 
-  const runTest = (pat: string, flg: string, text: string) => {
-    setError('');
-    setMatches([]);
-    setMatchCount(0);
+  const runTest = useCallback(
+    (pat: string, flg: string, text: string) => {
+      setError('');
+      setMatches([]);
+      setMatchCount(0);
 
-    if (!pat.trim() || !text.trim()) return;
+      if (!pat.trim() || !text.trim()) return;
 
-    try {
-      const regex = new RegExp(pat, flg);
-      const results = text.match(regex);
-      if (results) {
-        setMatches(results);
-        setMatchCount(results.length);
-      } else {
+      try {
+        const regex = new RegExp(pat, flg);
+        const results = text.match(regex);
+        if (results) {
+          setMatches(results);
+          setMatchCount(results.length);
+        } else {
+          setMatches([]);
+          setMatchCount(0);
+        }
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setError(msg || tUI('invalidRegex'));
         setMatches([]);
         setMatchCount(0);
       }
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      setError(msg || 'Invalid Regular Expression');
-      setMatches([]);
-      setMatchCount(0);
-    }
-  };
+    },
+    [tUI]
+  );
 
   useEffect(() => {
     runTest(pattern, flags, testString);
-  }, [pattern, flags, testString]);
+  }, [pattern, flags, testString, runTest]);
 
   const handleCopyMatches = () => {
     if (matches.length === 0) return;
     navigator.clipboard.writeText(matches.join('\n'));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   // Build highlighted text
@@ -153,10 +162,7 @@ export default function RegexTesterPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Regular Expression (RegEx) Tester"
-            subtitle="Test, debug, and evaluate regular expression patterns against test strings in real-time."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -179,13 +185,13 @@ export default function RegexTesterPage() {
                   marginBottom: '8px',
                 }}
               >
-                RegEx Pattern:
+                {tUI('patternLabel')}
               </label>
               <input
                 type="text"
                 value={pattern}
                 onChange={(e) => setPattern(e.target.value)}
-                placeholder="e.g., [A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+                placeholder={tUI('patternPlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -211,7 +217,7 @@ export default function RegexTesterPage() {
                   marginBottom: '8px',
                 }}
               >
-                Flags:
+                {tUI('flagsLabel')}
               </label>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 {availableFlags.map((f) => (
@@ -251,13 +257,13 @@ export default function RegexTesterPage() {
                   marginBottom: '8px',
                 }}
               >
-                Test String:
+                {tUI('testStringLabel')}
               </label>
               <textarea
                 value={testString}
                 onChange={(e) => setTestString(e.target.value)}
                 rows={5}
-                placeholder="Enter text to test against the pattern..."
+                placeholder={tUI('testStringPlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -298,7 +304,7 @@ export default function RegexTesterPage() {
               }}
             >
               <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
-                Matches Found: <span style={{ color: '#34d399' }}>{matchCount}</span>
+                {tUI('matchesFound', { count: matchCount })}
               </label>
               <button
                 onClick={handleCopyMatches}
@@ -315,7 +321,7 @@ export default function RegexTesterPage() {
                   cursor: matches.length > 0 ? 'pointer' : 'not-allowed',
                 }}
               >
-                Copy Matches
+                {copied ? tUI('copied') : tUI('copyMatches')}
               </button>
             </div>
 
@@ -330,7 +336,7 @@ export default function RegexTesterPage() {
                   marginBottom: '8px',
                 }}
               >
-                Highlighted Output:
+                {tUI('highlightedOutput')}
               </label>
               <div
                 style={{
@@ -348,7 +354,7 @@ export default function RegexTesterPage() {
               >
                 {renderHighlighted() || (
                   <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                    Highlighted matches will appear here...
+                    {tUI('highlightedPlaceholder')}
                   </span>
                 )}
               </div>
@@ -366,7 +372,7 @@ export default function RegexTesterPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Match List:
+                  {tUI('matchList')}
                 </label>
                 <div
                   style={{
@@ -395,7 +401,7 @@ export default function RegexTesterPage() {
             )}
           </div>
 
-          <ToolSeoContent toolSlug="regex-tester" toolName="RegEx Tester" />
+          <ToolSeoContent toolSlug="regex-tester" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

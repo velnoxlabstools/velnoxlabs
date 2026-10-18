@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function UrlEncoderDecoderPage() {
+  const tUI = useTranslations('ToolUI.urlEncoderDecoder');
   const [input, setInput] = useState('https://velnoxlabs.com/search?q=developer tools & utilities');
   const [output, setOutput] = useState('');
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
@@ -28,11 +30,11 @@ export default function UrlEncoderDecoderPage() {
         }
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : String(err);
-        setError(msg || 'Invalid string format for processing');
+        setError(msg || tUI('invalidFormat'));
         setOutput('');
       }
     },
-    [mode]
+    [mode, tUI]
   );
 
   const toggleMode = (newMode: 'encode' | 'decode') => {
@@ -103,10 +105,7 @@ export default function UrlEncoderDecoderPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="URL Encoder & Decoder"
-            subtitle="Encode special characters for safe URL transmission or decode URI components instantly."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -132,7 +131,7 @@ export default function UrlEncoderDecoderPage() {
                   fontWeight: 600,
                 }}
               >
-                Encode
+                {tUI('encode')}
               </button>
               <button
                 onClick={() => toggleMode('decode')}
@@ -147,7 +146,7 @@ export default function UrlEncoderDecoderPage() {
                   fontWeight: 600,
                 }}
               >
-                Decode
+                {tUI('decode')}
               </button>
             </div>
 
@@ -168,13 +167,13 @@ export default function UrlEncoderDecoderPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Input:
+                  {tUI('inputLabel')}
                 </label>
                 <textarea
                   value={input || ''}
                   onChange={(e) => handleProcess(e.target.value)}
                   rows={10}
-                  placeholder="Enter your input here..."
+                  placeholder={tUI('inputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -200,7 +199,7 @@ export default function UrlEncoderDecoderPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Output:
+                    {tUI('outputLabel')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -215,14 +214,14 @@ export default function UrlEncoderDecoderPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output || ''}
                   readOnly
                   rows={10}
-                  placeholder="Output will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -244,7 +243,7 @@ export default function UrlEncoderDecoderPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="url-encoder-decoder" toolName="URL Encoder & Decoder" />
+          <ToolSeoContent toolSlug="url-encoder-decoder" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

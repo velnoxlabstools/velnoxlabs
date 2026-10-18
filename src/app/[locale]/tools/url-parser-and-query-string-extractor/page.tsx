@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function Page() {
+  const tUI = useTranslations('ToolUI.urlParser');
   const [input, setInput] = useState(
     'https://example.com/path/to/page?search=hello&page=2#section'
   );
@@ -85,10 +87,7 @@ export default function Page() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="URL Parser & Query Extractor"
-            subtitle="Deconstruct URLs into components and query params."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
           <div
             style={{
               backgroundColor: 'var(--bg-card)',
@@ -115,13 +114,13 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  URL:
+                  {tUI('urlLabel')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => handleProcess(e.target.value)}
                   rows={12}
-                  placeholder="Paste a URL..."
+                  placeholder={tUI('urlPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -150,7 +149,7 @@ export default function Page() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Parsed Components:
+                    {tUI('parsedComponents')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -165,14 +164,14 @@ export default function Page() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder="Output will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',

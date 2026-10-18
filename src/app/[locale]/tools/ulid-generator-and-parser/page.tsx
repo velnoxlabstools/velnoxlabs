@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -17,6 +18,7 @@ interface UlidParseResult {
 }
 
 export default function Page() {
+  const tUI = useTranslations('ToolUI.ulidGenerator');
   const [input, setInput] = useState('5');
   const [output, setOutput] = useState('');
   const [error, setError] = useState('');
@@ -72,14 +74,12 @@ export default function Page() {
     const clean = val.trim().toUpperCase();
 
     if (clean.length !== 26) {
-      setParseError(`Invalid ULID length: ${clean.length} characters (expected 26)`);
+      setParseError(tUI('invalidLength', { length: clean.length }));
       return;
     }
 
     if (!/^[0-9A-HJKMNP-TV-Z]{26}$/.test(clean)) {
-      setParseError(
-        'Invalid ULID characters. Only Crockford Base32 allowed (excludes I, L, O, U).'
-      );
+      setParseError(tUI('invalidChars'));
       return;
     }
 
@@ -136,10 +136,7 @@ export default function Page() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="ULID Generator & Parser"
-            subtitle="Generate Universally Unique Lexicographically Sortable Identifiers."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== GENERATOR SECTION ========== */}
           <div
@@ -159,7 +156,7 @@ export default function Page() {
                 marginBottom: '16px',
               }}
             >
-              🔄 Generate ULIDs
+              🔄 {tUI('title')}
             </h3>
             <div
               style={{
@@ -178,13 +175,13 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  Count:
+                  {tUI('countLabel')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => handleProcess(e.target.value)}
                   rows={8}
-                  placeholder="How many ULIDs? (1-20)"
+                  placeholder={tUI('countPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -213,7 +210,7 @@ export default function Page() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Generated ULIDs:
+                    {tUI('generatedUlids')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -228,14 +225,14 @@ export default function Page() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={8}
-                  placeholder="Output will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -270,7 +267,7 @@ export default function Page() {
                 marginBottom: '16px',
               }}
             >
-              🔍 Parse ULID
+              {tUI('parseHeading')}
             </h3>
             <div
               style={{
@@ -289,13 +286,13 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  Paste ULID to Parse:
+                  {tUI('parseInputLabel')}
                 </label>
                 <textarea
                   value={parseInput}
                   onChange={(e) => handleParse(e.target.value)}
                   rows={8}
-                  placeholder="e.g., 01M38YQ455NA9Z760PC16G3E9D"
+                  placeholder={tUI('parsePlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -324,7 +321,7 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  Parsed Result:
+                  {tUI('parsedResult')}
                 </label>
                 {parseResult ? (
                   <div
@@ -337,32 +334,32 @@ export default function Page() {
                     }}
                   >
                     <p style={{ color: '#34d399', fontWeight: 600, marginBottom: '12px' }}>
-                      ✅ Valid ULID
+                      {tUI('validUlid')}
                     </p>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: 'var(--text-muted)' }}>Timestamp Part: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>{tUI('timestampPart')} </span>
                       <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
                         {parseResult.timestampPart}
                       </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: 'var(--text-muted)' }}>Randomness Part: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>{tUI('randomnessPart')} </span>
                       <span style={{ color: '#60a5fa', fontFamily: 'monospace' }}>
                         {parseResult.randomness}
                       </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: 'var(--text-muted)' }}>Unix Timestamp: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>{tUI('unixTimestamp')} </span>
                       <span style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                         {parseResult.timestamp}
                       </span>
                     </div>
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ color: 'var(--text-muted)' }}>Generated On: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>{tUI('generatedOn')} </span>
                       <span style={{ color: 'var(--text-main)' }}>{parseResult.date}</span>
                     </div>
                     <div>
-                      <span style={{ color: 'var(--text-muted)' }}>ISO 8601: </span>
+                      <span style={{ color: 'var(--text-muted)' }}>{tUI('iso8601')} </span>
                       <span style={{ color: 'var(--text-main)', fontFamily: 'monospace' }}>
                         {parseResult.isoDate}
                       </span>
@@ -380,14 +377,14 @@ export default function Page() {
                       textAlign: 'center',
                     }}
                   >
-                    Paste a ULID to see its details
+                    {tUI('pasteUlidPrompt')}
                   </div>
                 )}
               </div>
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="ulid-generator-and-parser" toolName="ULID Generator & Parser" />
+          <ToolSeoContent toolSlug="ulid-generator-and-parser" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

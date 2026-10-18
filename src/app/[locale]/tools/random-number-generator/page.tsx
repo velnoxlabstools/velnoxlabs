@@ -1,19 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 function generateNumbers(min: number, max: number, count: number, unique: boolean, sort: string) {
   const range = max - min + 1;
-  if (unique && count > range) {
-    return {
-      error: `Cannot generate ${count} unique numbers from a range of ${range}`,
-      numbers: [] as number[],
-    };
-  }
-
   let numbers: number[] = [];
 
   if (unique) {
@@ -31,10 +25,11 @@ function generateNumbers(min: number, max: number, count: number, unique: boolea
   if (sort === 'asc') numbers.sort((a, b) => a - b);
   else if (sort === 'desc') numbers.sort((a, b) => b - a);
 
-  return { error: '', numbers };
+  return numbers;
 }
 
 export default function RandomNumberGeneratorPage() {
+  const tUI = useTranslations('ToolUI.randomNumberGenerator');
   const [min, setMin] = useState('1');
   const [max, setMax] = useState('100');
   const [count, setCount] = useState('5');
@@ -43,20 +38,27 @@ export default function RandomNumberGeneratorPage() {
   const [numbers, setNumbers] = useState<number[]>([]);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+
   const handleGenerate = () => {
     const minNum = parseInt(min) || 0;
     const maxNum = parseInt(max) || 100;
     const countNum = Math.min(1000, Math.max(1, parseInt(count) || 1));
 
     if (minNum > maxNum) {
-      setError('Minimum must be less than or equal to maximum');
+      setError(tUI('errorMinMax'));
       setNumbers([]);
       return;
     }
 
-    const result = generateNumbers(minNum, maxNum, countNum, unique, sort);
-    setError(result.error);
-    setNumbers(result.numbers);
+    const range = maxNum - minNum + 1;
+    if (unique && countNum > range) {
+      setError(tUI('errorRange', { count: countNum, range }));
+      setNumbers([]);
+      return;
+    }
+
+    setError('');
+    setNumbers(generateNumbers(minNum, maxNum, countNum, unique, sort));
   };
 
   React.useEffect(() => {
@@ -124,10 +126,7 @@ export default function RandomNumberGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Random Number Generator"
-            subtitle="Generate random numbers in any range instantly — with unique-only mode, sorting, and bulk generation."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -157,7 +156,7 @@ export default function RandomNumberGeneratorPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Minimum:
+                  {tUI('minLabel')}
                 </label>
                 <input
                   type="number"
@@ -188,7 +187,7 @@ export default function RandomNumberGeneratorPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Maximum:
+                  {tUI('maxLabel')}
                 </label>
                 <input
                   type="number"
@@ -219,7 +218,7 @@ export default function RandomNumberGeneratorPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  How Many (max 1000):
+                  {tUI('countLabel')}
                 </label>
                 <input
                   type="number"
@@ -274,7 +273,7 @@ export default function RandomNumberGeneratorPage() {
                     accentColor: '#3b82f6',
                   }}
                 />
-                Unique numbers only (no duplicates)
+                {tUI('uniqueLabel')}
               </label>
               <div>
                 <label
@@ -286,7 +285,7 @@ export default function RandomNumberGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Sort:
+                  {tUI('sortLabel')}
                 </label>
                 <select
                   value={sort}
@@ -303,9 +302,9 @@ export default function RandomNumberGeneratorPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  <option value="none">No sorting (random order)</option>
-                  <option value="asc">Ascending (small → large)</option>
-                  <option value="desc">Descending (large → small)</option>
+                  <option value="none">{tUI('sortNone')}</option>
+                  <option value="asc">{tUI('sortAsc')}</option>
+                  <option value="desc">{tUI('sortDesc')}</option>
                 </select>
               </div>
             </div>
@@ -327,7 +326,7 @@ export default function RandomNumberGeneratorPage() {
                 marginBottom: '20px',
               }}
             >
-              🎲 Generate Random Numbers
+              {tUI('generateButton')}
             </button>
 
             {error && (
@@ -369,7 +368,7 @@ export default function RandomNumberGeneratorPage() {
                       textAlign: 'center',
                     }}
                   >
-                    Generated {numbers.length} Random Number{numbers.length !== 1 ? 's' : ''}
+                    {tUI('generatedHeading', { count: numbers.length })}
                   </div>
                   <div
                     style={{
@@ -419,13 +418,13 @@ export default function RandomNumberGeneratorPage() {
                     transition: 'all 0.2s',
                   }}
                 >
-                  {copied ? '✓ Copied!' : '📋 Copy All Numbers'}
+                  {copied ? tUI('copied') : tUI('copyAll')}
                 </button>
               </>
             )}
           </div>
 
-          <ToolSeoContent toolSlug="random-number-generator" toolName="Random Number Generator" />
+          <ToolSeoContent toolSlug="random-number-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

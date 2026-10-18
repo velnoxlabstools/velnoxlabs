@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -14,6 +15,7 @@ type DiffLine = {
 };
 
 export default function TextDiffCheckerPage() {
+  const tUI = useTranslations('ToolUI.textDiffChecker');
   const [original, setOriginal] = useState(
     'VelnoxLabs developer tools v1.0\nFast and reliable\nBuilt for developers\nAll tools free forever'
   );
@@ -142,10 +144,7 @@ export default function TextDiffCheckerPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Text Difference Checker"
-            subtitle="Compare two versions of text or code to instantly analyze modifications and updates."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -175,13 +174,13 @@ export default function TextDiffCheckerPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Original Text:
+                  {tUI('originalText')}
                 </label>
                 <textarea
                   value={original}
                   onChange={(e) => setOriginal(e.target.value)}
                   rows={8}
-                  placeholder="Paste original text here..."
+                  placeholder={tUI('placeholderOriginal')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -206,13 +205,13 @@ export default function TextDiffCheckerPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Modified Text:
+                  {tUI('modifiedText')}
                 </label>
                 <textarea
                   value={modified}
                   onChange={(e) => setModified(e.target.value)}
                   rows={8}
-                  placeholder="Paste modified text here..."
+                  placeholder={tUI('placeholderModified')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -240,13 +239,13 @@ export default function TextDiffCheckerPage() {
               }}
             >
               <span style={{ color: '#34d399', fontSize: '0.85rem', fontWeight: 600 }}>
-                ✅ {stats.same} unchanged
+                ✅ {tUI('unchanged', { count: stats.same })}
               </span>
               <span style={{ color: '#4ade80', fontSize: '0.85rem', fontWeight: 600 }}>
-                ➕ {stats.added} added
+                ➕ {tUI('added', { count: stats.added })}
               </span>
               <span style={{ color: '#f87171', fontSize: '0.85rem', fontWeight: 600 }}>
-                ➖ {stats.removed} removed
+                ➖ {tUI('removed', { count: stats.removed })}
               </span>
               <button
                 onClick={handleCopy}
@@ -262,7 +261,7 @@ export default function TextDiffCheckerPage() {
                   cursor: 'pointer',
                 }}
               >
-                {copied ? 'Copied!' : 'Copy Diff'}
+                {copied ? tUI('copied') : tUI('copyDiff')}
               </button>
             </div>
 
@@ -277,7 +276,7 @@ export default function TextDiffCheckerPage() {
                   marginBottom: '8px',
                 }}
               >
-                Diff Result:
+                {tUI('diffResult')}
               </label>
               <div
                 style={{
@@ -326,14 +325,14 @@ export default function TextDiffCheckerPage() {
                 })}
                 {diff.length === 0 && (
                   <p style={{ color: '#64748b', fontStyle: 'italic', margin: 0 }}>
-                    Diff will appear here when you enter text...
+                    {tUI('diffPlaceholder')}
                   </p>
                 )}
               </div>
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="text-diff-checker" toolName="Text Difference Checker" />
+          <ToolSeoContent toolSlug="text-diff-checker" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

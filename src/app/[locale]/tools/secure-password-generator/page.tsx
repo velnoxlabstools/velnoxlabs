@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -15,6 +16,22 @@ export default function SecurePasswordGeneratorPage() {
   const [excludeSimilar, setExcludeSimilar] = useState(false);
   const [copied, setCopied] = useState(false);
   const [strength, setStrength] = useState('');
+  const tUI = useTranslations('ToolUI.securePasswordGenerator');
+
+  const getStrengthLabel = (s: string) => {
+    switch (s) {
+      case 'Weak':
+        return tUI('strengthWeak');
+      case 'Medium':
+        return tUI('strengthMedium');
+      case 'Strong':
+        return tUI('strengthStrong');
+      case 'Very Strong':
+        return tUI('strengthVeryStrong');
+      default:
+        return s;
+    }
+  };
   const generate = () => {
     let chars = '';
     if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -76,10 +93,7 @@ export default function SecurePasswordGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Secure Password Generator"
-            subtitle="Create cryptographically secure passwords with custom character sets."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -101,7 +115,7 @@ export default function SecurePasswordGeneratorPage() {
               }}
             >
               <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
-                Generated Password:
+                {tUI('generatedPassword')}
               </label>
               <button
                 onClick={handleCopy}
@@ -116,7 +130,7 @@ export default function SecurePasswordGeneratorPage() {
                   cursor: 'pointer',
                 }}
               >
-                {copied ? 'Copied!' : 'Copy'}
+                {copied ? tUI('copied') : tUI('copy')}
               </button>
             </div>
 
@@ -133,7 +147,7 @@ export default function SecurePasswordGeneratorPage() {
                 marginBottom: '8px',
               }}
             >
-              {password || 'Generate password...'}
+              {password || tUI('placeholder')}
             </div>
             {strength && (
               <div
@@ -144,7 +158,7 @@ export default function SecurePasswordGeneratorPage() {
                   marginBottom: '16px',
                 }}
               >
-                Strength: <strong>{strength}</strong>
+                {tUI('strengthLabel')} <strong>{getStrengthLabel(strength)}</strong>
               </div>
             )}
 
@@ -158,7 +172,7 @@ export default function SecurePasswordGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Length: {length}
+                {tUI('lengthLabel', { length })}
               </label>
               <input
                 type="range"
@@ -193,7 +207,7 @@ export default function SecurePasswordGeneratorPage() {
                   checked={useUpper}
                   onChange={(e) => setUseUpper(e.target.checked)}
                 />{' '}
-                Uppercase (A-Z)
+                {tUI('uppercase')}
               </label>
               <label
                 style={{
@@ -210,7 +224,7 @@ export default function SecurePasswordGeneratorPage() {
                   checked={useLower}
                   onChange={(e) => setUseLower(e.target.checked)}
                 />{' '}
-                Lowercase (a-z)
+                {tUI('lowercase')}
               </label>
               <label
                 style={{
@@ -227,7 +241,7 @@ export default function SecurePasswordGeneratorPage() {
                   checked={useNumbers}
                   onChange={(e) => setUseNumbers(e.target.checked)}
                 />{' '}
-                Numbers (0-9)
+                {tUI('numbers')}
               </label>
               <label
                 style={{
@@ -244,7 +258,7 @@ export default function SecurePasswordGeneratorPage() {
                   checked={useSymbols}
                   onChange={(e) => setUseSymbols(e.target.checked)}
                 />{' '}
-                Symbols (!@#$)
+                {tUI('symbols')}
               </label>
               <label
                 style={{
@@ -261,7 +275,7 @@ export default function SecurePasswordGeneratorPage() {
                   checked={excludeSimilar}
                   onChange={(e) => setExcludeSimilar(e.target.checked)}
                 />{' '}
-                Exclude similar (il1Lo0O)
+                {tUI('excludeSimilar')}
               </label>
             </div>
 
@@ -278,14 +292,11 @@ export default function SecurePasswordGeneratorPage() {
                 cursor: 'pointer',
               }}
             >
-              Generate New Password
+              {tUI('generateButton')}
             </button>
           </div>
 
-          <ToolSeoContent
-            toolSlug="secure-password-generator"
-            toolName="Secure Password Generator"
-          />
+          <ToolSeoContent toolSlug="secure-password-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

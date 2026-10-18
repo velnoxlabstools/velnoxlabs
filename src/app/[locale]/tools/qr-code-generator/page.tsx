@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import QRCode from 'react-qr-code'; // ✅ Asli QR Code Library Import ki
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function QrCodeGeneratorPage() {
+  const tUI = useTranslations('ToolUI.qrCodeGenerator');
   const [text, setText] = useState('https://velnoxlabs.com');
   const downloadQR = () => {
     const svg = document.getElementById('qr-svg');
@@ -67,10 +69,7 @@ export default function QrCodeGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="QR Code Generator"
-            subtitle="Generate high-resolution QR codes instantly for URLs, text strings, and digital assets."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* TOOL UI */}
           <div
@@ -99,13 +98,13 @@ export default function QrCodeGeneratorPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Input Text / URL:
+                  {tUI('inputText')}
                 </label>
                 <textarea
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   rows={8}
-                  placeholder="Enter URL or text..."
+                  placeholder={tUI('placeholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -120,7 +119,7 @@ export default function QrCodeGeneratorPage() {
                   }}
                 />
                 <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '8px' }}>
-                  {text.length} characters
+                  {tUI('charactersCount', { count: text.length })}
                 </p>
               </div>
               <div>
@@ -135,7 +134,7 @@ export default function QrCodeGeneratorPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    QR Code Preview:
+                    {tUI('qrCodePreview')}
                   </label>
                   <button
                     onClick={downloadQR}
@@ -152,7 +151,7 @@ export default function QrCodeGeneratorPage() {
                       cursor: text.trim() === '' ? 'not-allowed' : 'pointer',
                     }}
                   >
-                    Download SVG
+                    {tUI('downloadSvg')}
                   </button>
                 </div>
                 <div
@@ -177,7 +176,7 @@ export default function QrCodeGeneratorPage() {
                         margin: 0,
                       }}
                     >
-                      Enter text or URL to generate QR code
+                      {tUI('emptyPrompt')}
                     </p>
                   ) : (
                     <div
@@ -198,7 +197,7 @@ export default function QrCodeGeneratorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="qr-code-generator" toolName="QR Code Generator" />
+          <ToolSeoContent toolSlug="qr-code-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

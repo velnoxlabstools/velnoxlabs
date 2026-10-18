@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -15,6 +16,7 @@ const SUPPORTED_KEYS = [
 ];
 
 export default function Page() {
+  const tUI = useTranslations('ToolUI.systemdServiceGenerator');
   const [input, setInput] = useState(
     'name=myapp\ndescription=My Node Application\nexec=/usr/bin/node /opt/myapp/index.js\nuser=www-data\nworkdir=/opt/myapp\nrestart=on-failure'
   );
@@ -64,7 +66,7 @@ export default function Page() {
 
     // If nothing valid was parsed, show error
     if (Object.keys(cfg).length === 0) {
-      setError('No valid key=value pairs found. Format: key=value (one per line)');
+      setError(tUI('errorNoValidPairs'));
       return;
     }
 
@@ -80,7 +82,7 @@ export default function Page() {
 
     // Required field: exec
     if (!cfg.exec) {
-      setError('Missing required field: "exec" (the command to start the service)');
+      setError(tUI('errorMissingExec'));
       setWarnings(warns);
       return;
     }
@@ -195,10 +197,7 @@ WantedBy=multi-user.target`;
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Systemd Service File Generator"
-            subtitle="Create production-ready systemd .service files for your Linux applications."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -228,15 +227,13 @@ WantedBy=multi-user.target`;
                     marginBottom: '8px',
                   }}
                 >
-                  Service Config (key=value):
+                  {tUI('serviceConfig')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={12}
-                  placeholder={
-                    'name=myapp\ndescription=My App\nexec=/usr/bin/node /opt/myapp/index.js\nuser=www-data\nworkdir=/opt/myapp\nrestart=on-failure'
-                  }
+                  placeholder={tUI('placeholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -269,7 +266,7 @@ WantedBy=multi-user.target`;
                       marginBottom: '6px',
                     }}
                   >
-                    Supported keys:
+                    {tUI('supportedKeys')}
                   </p>
                   {SUPPORTED_KEYS.map((k) => (
                     <p
@@ -316,7 +313,7 @@ WantedBy=multi-user.target`;
                         marginBottom: '6px',
                       }}
                     >
-                      ⚠️ Warnings:
+                      {tUI('warnings')}
                     </p>
                     {warnings.map((w, i) => (
                       <p
@@ -345,7 +342,7 @@ WantedBy=multi-user.target`;
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    {serviceName ? `${serviceName}.service` : 'systemd .service file'}
+                    {serviceName ? `${serviceName}.service` : tUI('defaultFileName')}
                   </label>
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <button
@@ -362,7 +359,7 @@ WantedBy=multi-user.target`;
                         cursor: output ? 'pointer' : 'not-allowed',
                       }}
                     >
-                      Download
+                      {tUI('download')}
                     </button>
                     <button
                       onClick={handleCopy}
@@ -380,7 +377,7 @@ WantedBy=multi-user.target`;
                         cursor: output ? 'pointer' : 'not-allowed',
                       }}
                     >
-                      {copied ? 'Copied!' : 'Copy'}
+                      {copied ? tUI('copied') : tUI('copy')}
                     </button>
                   </div>
                 </div>
@@ -388,7 +385,7 @@ WantedBy=multi-user.target`;
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder={'Enter config like "name=myapp" to generate a service file...'}
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -406,10 +403,7 @@ WantedBy=multi-user.target`;
             </div>
           </div>
 
-          <ToolSeoContent
-            toolSlug="systemd-service-file-generator"
-            toolName="Systemd Service File Generator"
-          />
+          <ToolSeoContent toolSlug="systemd-service-file-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function UnixTimestampPage() {
+  const tUI = useTranslations('ToolUI.unixTimestampConverter');
   const [timestamp, setTimestamp] = useState<string>(String(Math.floor(Date.now() / 1000)));
   const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000));
   const [copied, setCopied] = useState(false);
@@ -19,8 +21,8 @@ export default function UnixTimestampPage() {
   const isValid = timestamp.trim() !== '' && !isNaN(parsedTimestamp);
 
   const date = isValid ? new Date(parsedTimestamp * 1000) : null;
-  const humanDate = date ? date.toString() : 'Invalid Timestamp';
-  const isoDate = date ? date.toISOString() : 'Invalid Timestamp';
+  const humanDate = date ? date.toString() : tUI('invalidTimestamp');
+  const isoDate = date ? date.toISOString() : tUI('invalidTimestamp');
 
   const handleTimestampChange = (val: string) => {
     setTimestamp(val);
@@ -59,10 +61,7 @@ export default function UnixTimestampPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Unix Timestamp Converter"
-            subtitle="Convert between Unix timestamps and human-readable dates instantly."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -83,7 +82,7 @@ export default function UnixTimestampPage() {
               }}
             >
               <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                Current Unix Time:
+                {tUI('currentUnixTime')}
               </span>
               <span
                 style={{
@@ -108,7 +107,7 @@ export default function UnixTimestampPage() {
                   cursor: 'pointer',
                 }}
               >
-                Use Now
+                {tUI('useNow')}
               </button>
             </div>
 
@@ -129,14 +128,14 @@ export default function UnixTimestampPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Unix Timestamp:
+                  {tUI('unixTimestamp')}
                 </label>
                 <input
                   type="text"
                   inputMode="numeric"
                   value={timestamp}
                   onChange={(e) => handleTimestampChange(e.target.value)}
-                  placeholder="Enter Unix timestamp..."
+                  placeholder={tUI('placeholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -160,7 +159,7 @@ export default function UnixTimestampPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Pick a Date:
+                  {tUI('pickDate')}
                 </label>
                 <input
                   type="datetime-local"
@@ -190,7 +189,7 @@ export default function UnixTimestampPage() {
                 }}
               >
                 <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
-                  Human Readable:
+                  {tUI('humanReadable')}
                 </label>
                 <button
                   onClick={handleCopy}
@@ -205,7 +204,7 @@ export default function UnixTimestampPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  {copied ? 'Copied!' : 'Copy Timestamp'}
+                  {copied ? tUI('copied') : tUI('copy')}
                 </button>
               </div>
               <div
@@ -251,7 +250,7 @@ export default function UnixTimestampPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="unix-timestamp-converter" toolName="Unix Timestamp Converter" />
+          <ToolSeoContent toolSlug="unix-timestamp-converter" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

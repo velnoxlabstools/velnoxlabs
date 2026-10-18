@@ -12,7 +12,7 @@ export default function HttpHeaderInspectorPage() {
     `content-type: application/json; charset=utf-8
 cache-control: no-cache, no-store, must-revalidate
 strict-transport-security: max-age=63072000; includeSubDomains
-x-frame-options: DENY
+content-security-policy: default-src 'self'
 server: nginx/1.18.0`
   );
   const [copied, setCopied] = useState(false);

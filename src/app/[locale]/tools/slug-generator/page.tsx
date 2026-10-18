@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -71,6 +72,7 @@ function generateSlug(
 }
 
 export default function SlugGeneratorPage() {
+  const tUI = useTranslations('ToolUI.slugGenerator');
   const [text, setText] = useState('Hello World! This is VelnoxLabs 2024 Blog Post');
   const [separator, setSeparator] = useState('-');
   const [caseType, setCaseType] = useState('lower');
@@ -149,10 +151,7 @@ export default function SlugGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Slug Generator"
-            subtitle="Convert any text into clean, SEO-friendly URL slugs instantly — with custom separators and case options."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* Presets */}
           <div
@@ -202,13 +201,13 @@ export default function SlugGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Text Input:
+                {tUI('textInput')}
               </label>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 rows={3}
-                placeholder="Enter title or heading..."
+                placeholder={tUI('placeholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -242,13 +241,13 @@ export default function SlugGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Separator:
+                  {tUI('separator')}
                 </label>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   {[
-                    { v: '-', l: 'hyphen (-)' },
-                    { v: '_', l: 'underscore (_)' },
-                    { v: '.', l: 'dot (.)' },
+                    { v: '-', l: tUI('hyphen') },
+                    { v: '_', l: tUI('underscore') },
+                    { v: '.', l: tUI('dot') },
                   ].map((s) => (
                     <button
                       key={s.v}
@@ -281,13 +280,13 @@ export default function SlugGeneratorPage() {
                     marginBottom: '6px',
                   }}
                 >
-                  Case:
+                  {tUI('case')}
                 </label>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   {[
-                    { v: 'lower', l: 'lower' },
-                    { v: 'upper', l: 'UPPER' },
-                    { v: 'title', l: 'Title' },
+                    { v: 'lower', l: tUI('lower') },
+                    { v: 'upper', l: tUI('upper') },
+                    { v: 'title', l: tUI('titleCase') },
                   ].map((c) => (
                     <button
                       key={c.v}
@@ -334,7 +333,7 @@ export default function SlugGeneratorPage() {
                     accentColor: '#3b82f6',
                   }}
                 />
-                Remove stop words (a, an, the...)
+                {tUI('removeStopWords')}
               </label>
               <label
                 style={{
@@ -357,7 +356,7 @@ export default function SlugGeneratorPage() {
                     accentColor: '#3b82f6',
                   }}
                 />
-                Remove numbers
+                {tUI('removeNumbers')}
               </label>
             </div>
 
@@ -372,7 +371,7 @@ export default function SlugGeneratorPage() {
                   marginBottom: '8px',
                 }}
               >
-                Generated Slug:
+                {tUI('generatedSlug')}
               </label>
               <div
                 style={{
@@ -397,7 +396,7 @@ export default function SlugGeneratorPage() {
                 >
                   {slug || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      Slug will appear here...
+                      {tUI('slugPlaceholder')}
                     </span>
                   )}
                 </code>
@@ -420,17 +419,18 @@ export default function SlugGeneratorPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  {copied ? '✓ Copied' : 'Copy'}
+                  {copied ? tUI('copied') : tUI('copy')}
                 </button>
               </div>
               <div style={{ marginTop: '8px', color: '#64748b', fontSize: '0.8rem' }}>
-                Slug length: <strong style={{ color: 'var(--text-muted)' }}>{slug.length}</strong>{' '}
-                characters
+                {tUI('slugLength')}{' '}
+                <strong style={{ color: 'var(--text-muted)' }}>{slug.length}</strong>{' '}
+                {tUI('characters')}
               </div>
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="slug-generator" toolName="Slug Generator" />
+          <ToolSeoContent toolSlug="slug-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

@@ -11,7 +11,7 @@ type Mode = 'salaryToHourly' | 'hourlyToSalary';
 
 export default function SalaryToHourlyCalculatorPage() {
   const locale = useLocale();
-  const tTools = useTranslations('Tools');
+  const tUI = useTranslations('ToolUI.salaryToHourlyCalculator');
   const [mode, setMode] = useState<Mode>('salaryToHourly');
   const [annualSalary, setAnnualSalary] = useState('60000');
   const [hourlyRate, setHourlyRate] = useState('28.85');
@@ -128,18 +128,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title={
-              tTools.has('salary-to-hourly-calculator.name')
-                ? tTools('salary-to-hourly-calculator.name')
-                : 'Salary to Hourly Calculator'
-            }
-            subtitle={
-              tTools.has('salary-to-hourly-calculator.description')
-                ? tTools('salary-to-hourly-calculator.description')
-                : 'Convert between annual salary and hourly rate — see your pay broken down by hour, day, week, month, and year.'
-            }
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div className="p-6 md:p-8 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] mt-6 shadow-sm">
             {/* Mode Toggle */}
@@ -153,7 +142,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                     : 'bg-[var(--bg-page)] text-[var(--text-muted)] border-[var(--border-color)] hover:text-[var(--text-main)]'
                 }`}
               >
-                💼 Salary → Hourly
+                {tUI('modeSalaryToHourly')}
               </button>
               <button
                 type="button"
@@ -164,7 +153,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                     : 'bg-[var(--bg-page)] text-[var(--text-muted)] border-[var(--border-color)] hover:text-[var(--text-main)]'
                 }`}
               >
-                ⏰ Hourly → Salary
+                {tUI('modeHourlyToSalary')}
               </button>
             </div>
 
@@ -173,7 +162,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               {mode === 'salaryToHourly' ? (
                 <div>
                   <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
-                    Annual Salary
+                    {tUI('annualSalaryLabel')}
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] font-mono font-bold text-base pointer-events-none">
@@ -191,7 +180,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               ) : (
                 <div>
                   <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
-                    Hourly Rate
+                    {tUI('hourlyRateLabel')}
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] font-mono font-bold text-base pointer-events-none">
@@ -210,7 +199,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               )}
               <div>
                 <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
-                  Hours per Week:
+                  {tUI('hoursPerWeekLabel')}
                 </label>
                 <input
                   type="number"
@@ -222,7 +211,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[var(--text-main)] mb-2">
-                  Weeks per Year:
+                  {tUI('weeksPerYearLabel')}
                 </label>
                 <input
                   type="number"
@@ -237,7 +226,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
             {/* Main Result */}
             <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-500/15 p-8 text-center mb-6">
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">
-                {mode === 'salaryToHourly' ? 'Your Hourly Rate' : 'Your Annual Salary'}
+                {mode === 'salaryToHourly' ? tUI('yourHourlyRate') : tUI('yourAnnualSalary')}
               </div>
               <div className="text-4xl md:text-5xl font-extrabold font-mono text-[var(--text-main)] leading-none my-2">
                 {mode === 'salaryToHourly'
@@ -245,8 +234,13 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                   : formatCurrency(result.annual)}
               </div>
               <div className="text-xs text-[var(--text-muted)] mt-2">
-                Based on {hoursPerWeek} hrs/week × {weeksPerYear} weeks (
-                {parseFloat(hoursPerWeek) * parseFloat(weeksPerYear)} hrs/year)
+                {tUI('basedOnCalculation', {
+                  hpw: hoursPerWeek,
+                  wpy: weeksPerYear,
+                  total: (
+                    (parseFloat(hoursPerWeek) || 0) * (parseFloat(weeksPerYear) || 0)
+                  ).toString(),
+                })}
               </div>
             </div>
 
@@ -254,7 +248,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
               <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
                 <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1.5">
-                  Hourly
+                  {tUI('breakdownHourly')}
                 </div>
                 <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.hourly)}
@@ -262,7 +256,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               </div>
               <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
                 <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1.5">
-                  Daily
+                  {tUI('breakdownDaily')}
                 </div>
                 <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.daily)}
@@ -270,7 +264,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               </div>
               <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
                 <div className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-1.5">
-                  Weekly
+                  {tUI('breakdownWeekly')}
                 </div>
                 <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.weekly)}
@@ -278,7 +272,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               </div>
               <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
                 <div className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-1.5">
-                  Biweekly
+                  {tUI('breakdownBiweekly')}
                 </div>
                 <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.biweekly)}
@@ -286,7 +280,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               </div>
               <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
                 <div className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-1.5">
-                  Monthly
+                  {tUI('breakdownMonthly')}
                 </div>
                 <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.monthly)}
@@ -294,7 +288,7 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
               </div>
               <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-page)] text-center">
                 <div className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1.5">
-                  Annual
+                  {tUI('breakdownAnnual')}
                 </div>
                 <div className="text-lg md:text-xl font-bold font-mono text-[var(--text-main)]">
                   {formatCurrency(result.annual)}
@@ -312,18 +306,11 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
                   : 'bg-blue-600 hover:bg-blue-500 text-white border-blue-600 shadow-sm'
               }`}
             >
-              {copied ? '✓ Copied!' : '📋 Copy Full Breakdown'}
+              {copied ? tUI('copied') : tUI('copyBreakdown')}
             </button>
           </div>
 
-          <ToolSeoContent
-            toolSlug="salary-to-hourly-calculator"
-            toolName={
-              tTools.has('salary-to-hourly-calculator.name')
-                ? tTools('salary-to-hourly-calculator.name')
-                : 'Salary to Hourly Calculator'
-            }
-          />
+          <ToolSeoContent toolSlug="salary-to-hourly-calculator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>
