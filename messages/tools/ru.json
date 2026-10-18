@@ -510,6 +510,69 @@
       "privacyDesc": "Вся обработка происходит в браузере клиента без передачи на сторонние серверы.",
       "productionReadyTitle": "🛠️ Готовность к продакшену",
       "productionReadyDesc": "Формирует чистый и структурированный код, готовый для вставки в проект."
+    },
+    "jsonToTypescript": {
+      "title": "Генератор интерфейсов TypeScript из JSON",
+      "subtitle": "Мгновенное преобразование объектов JSON в типизированные интерфейсы TypeScript — поддержка вложенных объектов и массивов.",
+      "jsonInput": "Ввод JSON:",
+      "jsonPlaceholder": "Вставьте JSON сюда...",
+      "tsOutput": "Вывод интерфейса TypeScript:",
+      "copyTs": "Копировать TS",
+      "copied": "Скопировано!",
+      "tsPlaceholder": "Интерфейс TypeScript появится здесь...",
+      "invalidJson": "Недопустимый синтаксис JSON: {message}"
+    },
+    "jsonToZod": {
+      "title": "Генератор схем Zod из JSON",
+      "subtitle": "Мгновенная генерация схем валидации Zod из объектов JSON — поддержка вложенных объектов, массивов и null.",
+      "jsonInput": "Ввод JSON:",
+      "jsonPlaceholder": "Вставьте JSON сюда...",
+      "zodOutput": "Вывод схемы Zod:",
+      "copy": "Копировать",
+      "copied": "Скопировано!",
+      "zodPlaceholder": "Схема Zod появится здесь...",
+      "invalidJson": "Недопустимый JSON: {message}"
+    },
+    "jsonYamlConverter": {
+      "title": "Конвертер JSON и YAML",
+      "subtitle": "Мгновенная конвертация между форматами JSON и YAML — поддержка вложенных объектов и массивов.",
+      "jsonToYamlTab": "JSON в YAML",
+      "yamlToJsonTab": "YAML в JSON",
+      "jsonInput": "Ввод JSON:",
+      "yamlInput": "Ввод YAML:",
+      "jsonPlaceholder": "Вставьте JSON сюда...",
+      "yamlPlaceholder": "Вставьте YAML сюда...",
+      "jsonOutput": "Вывод JSON:",
+      "yamlOutput": "Вывод YAML:",
+      "copy": "Копировать",
+      "copied": "Скопировано!",
+      "outputPlaceholder": "Результат появится здесь...",
+      "error": "Ошибка: {message}"
+    },
+    "jwtDecoder": {
+      "title": "Декодер и анализатор JWT",
+      "subtitle": "Безопасный анализ заголовков JSON Web Token (JWT), пользовательских утверждений, срока действия и подписей.",
+      "tokenInput": "Токен JWT:",
+      "tokenPlaceholder": "Вставьте токен JWT сюда...",
+      "header": "Заголовок (Header):",
+      "headerPlaceholder": "Декодированный заголовок появится здесь...",
+      "payload": "Полезная нагрузка (Payload):",
+      "payloadPlaceholder": "Декодированная полезная нагрузка появится здесь...",
+      "signature": "Подпись (Signature):",
+      "signaturePlaceholder": "Подпись появится здесь...",
+      "copy": "Копировать",
+      "copied": "Скопировано!",
+      "invalidFormat": "Неверный формат JWT. Действительный токен должен состоять из 3 частей, разделенных точками.",
+      "decodeFailed": "Не удалось декодировать токен JWT"
+    },
+    "loremIpsum": {
+      "title": "Генератор текста Lorem Ipsum",
+      "subtitle": "Мгновенная генерация текста-рыбы для ваших макетов и прототипов.",
+      "paragraphs": "Количество абзацев (1-20):",
+      "regenerate": "Перегенерировать",
+      "copy": "Копировать",
+      "copied": "Скопировано!",
+      "outputPlaceholder": "Сгенерированный текст Lorem Ipsum появится здесь..."
     }
   }
 }

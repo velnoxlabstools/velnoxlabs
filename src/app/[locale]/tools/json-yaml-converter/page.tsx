@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -185,6 +186,7 @@ function yamlToJson(yaml: string): unknown {
 
 // ========== Component ==========
 export default function JsonYamlPage() {
+  const tUI = useTranslations('ToolUI.jsonYamlConverter');
   const [input, setInput] = useState(
     '{\n  "name": "VelnoxLabs",\n  "version": "1.0.0",\n  "features": ["tools", "api"]\n}'
   );
@@ -208,7 +210,7 @@ export default function JsonYamlPage() {
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError('Error: ' + msg);
+      setError(msg);
       setOutput('');
     }
   };
@@ -269,10 +271,7 @@ export default function JsonYamlPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="JSON to YAML Converter"
-            subtitle="Convert between JSON and YAML formats instantly — nested objects and arrays supported."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -299,7 +298,7 @@ export default function JsonYamlPage() {
                   cursor: 'pointer',
                 }}
               >
-                JSON to YAML
+                {tUI('jsonToYamlTab')}
               </button>
               <button
                 onClick={() => setMode('yaml2json')}
@@ -315,7 +314,7 @@ export default function JsonYamlPage() {
                   cursor: 'pointer',
                 }}
               >
-                YAML to JSON
+                {tUI('yamlToJsonTab')}
               </button>
             </div>
 
@@ -336,13 +335,15 @@ export default function JsonYamlPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  {mode === 'json2yaml' ? 'JSON Input:' : 'YAML Input:'}
+                  {mode === 'json2yaml' ? tUI('jsonInput') : tUI('yamlInput')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={12}
-                  placeholder={mode === 'json2yaml' ? 'Paste JSON here...' : 'Paste YAML here...'}
+                  placeholder={
+                    mode === 'json2yaml' ? tUI('jsonPlaceholder') : tUI('yamlPlaceholder')
+                  }
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -369,7 +370,7 @@ export default function JsonYamlPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    {mode === 'json2yaml' ? 'YAML Output:' : 'JSON Output:'}
+                    {mode === 'json2yaml' ? tUI('yamlOutput') : tUI('jsonOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -387,14 +388,14 @@ export default function JsonYamlPage() {
                       cursor: output ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder="Output will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -421,12 +422,14 @@ export default function JsonYamlPage() {
                   padding: '12px',
                 }}
               >
-                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
+                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
+                  ❌ {tUI('error', { message: error })}
+                </p>
               </div>
             )}
           </div>
 
-          <ToolSeoContent toolSlug="json-yaml-converter" toolName="JSON to YAML Converter" />
+          <ToolSeoContent toolSlug="json-yaml-converter" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

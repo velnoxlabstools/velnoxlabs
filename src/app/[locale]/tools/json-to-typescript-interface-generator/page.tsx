@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -67,6 +68,7 @@ function generateInterfaces(json: Record<string, unknown> | unknown[]): string {
 }
 
 export default function JsonToTsPage() {
+  const tUI = useTranslations('ToolUI.jsonToTypescript');
   const [jsonInput, setJsonInput] = useState(
     '{\n  "id": "uuid-123",\n  "score": 98.5,\n  "roles": ["admin", "user"]\n}'
   );
@@ -84,7 +86,7 @@ export default function JsonToTsPage() {
       setTsOutput(generateInterfaces(parsed));
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError('Invalid JSON syntax: ' + msg);
+      setError(msg);
       setTsOutput('');
     }
   };
@@ -145,10 +147,7 @@ export default function JsonToTsPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="JSON to TypeScript Interface"
-            subtitle="Convert JSON objects into typed TypeScript interfaces instantly — nested objects and arrays supported."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -177,13 +176,13 @@ export default function JsonToTsPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  JSON Input:
+                  {tUI('jsonInput')}
                 </label>
                 <textarea
                   value={jsonInput}
                   onChange={(e) => setJsonInput(e.target.value)}
                   rows={14}
-                  placeholder="Paste JSON here..."
+                  placeholder={tUI('jsonPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -210,7 +209,7 @@ export default function JsonToTsPage() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    TypeScript Interface Output:
+                    {tUI('tsOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -228,14 +227,14 @@ export default function JsonToTsPage() {
                       cursor: tsOutput ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy TS'}
+                    {copied ? tUI('copied') : tUI('copyTs')}
                   </button>
                 </div>
                 <textarea
                   value={tsOutput}
                   readOnly
                   rows={14}
-                  placeholder="TypeScript interface will appear here..."
+                  placeholder={tUI('tsPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -262,14 +261,16 @@ export default function JsonToTsPage() {
                   padding: '12px',
                 }}
               >
-                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>❌ {error}</p>
+                <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
+                  ❌ {tUI('invalidJson', { message: error })}
+                </p>
               </div>
             )}
           </div>
 
           <ToolSeoContent
             toolSlug="json-to-typescript-interface-generator"
-            toolName="JSON to TypeScript Interface"
+            toolName={tUI('title')}
           />
         </div>
       </GlobalContainer>

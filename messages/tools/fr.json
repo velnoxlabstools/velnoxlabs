@@ -510,6 +510,69 @@
       "privacyDesc": "Toutes les opérations ont lieu dans votre navigateur sans aucune transmission de données sensibles.",
       "productionReadyTitle": "🛠️ Prêt pour la Production",
       "productionReadyDesc": "Génère des classes typées propres, directement exploitables dans vos applications Python."
+    },
+    "jsonToTypescript": {
+      "title": "JSON vers Interface TypeScript",
+      "subtitle": "Convertissez instantanément des objets JSON en interfaces TypeScript typées — objets imbriqués et tableaux pris en charge.",
+      "jsonInput": "Entrée JSON :",
+      "jsonPlaceholder": "Collez le JSON ici...",
+      "tsOutput": "Sortie d'interface TypeScript :",
+      "copyTs": "Copier TS",
+      "copied": "Copié !",
+      "tsPlaceholder": "L'interface TypeScript apparaîtra ici...",
+      "invalidJson": "Syntaxe JSON non valide : {message}"
+    },
+    "jsonToZod": {
+      "title": "Générateur de Schéma Zod depuis JSON",
+      "subtitle": "Générez instantanément des schémas de validation Zod à partir d'objets JSON — objets imbriqués, tableaux et valeurs nulles pris en charge.",
+      "jsonInput": "Entrée JSON :",
+      "jsonPlaceholder": "Collez le JSON ici...",
+      "zodOutput": "Sortie du schéma Zod :",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "zodPlaceholder": "Le schéma Zod apparaîtra ici...",
+      "invalidJson": "JSON non valide : {message}"
+    },
+    "jsonYamlConverter": {
+      "title": "Convertisseur JSON vers YAML",
+      "subtitle": "Convertissez instantanément entre les formats JSON et YAML — objets imbriqués et tableaux pris en charge.",
+      "jsonToYamlTab": "JSON vers YAML",
+      "yamlToJsonTab": "YAML vers JSON",
+      "jsonInput": "Entrée JSON :",
+      "yamlInput": "Entrée YAML :",
+      "jsonPlaceholder": "Collez le JSON ici...",
+      "yamlPlaceholder": "Collez le YAML ici...",
+      "jsonOutput": "Sortie JSON :",
+      "yamlOutput": "Sortie YAML :",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "outputPlaceholder": "La sortie apparaîtra ici...",
+      "error": "Erreur : {message}"
+    },
+    "jwtDecoder": {
+      "title": "Décodeur et Inspecteur JWT",
+      "subtitle": "Inspectez en toute sécurité les en-têtes JSON Web Token (JWT), les revendications personnalisées, les dates d'expiration et les signatures.",
+      "tokenInput": "Jeton JWT :",
+      "tokenPlaceholder": "Collez votre jeton JWT ici...",
+      "header": "En-tête :",
+      "headerPlaceholder": "L'en-tête décodé apparaîtra ici...",
+      "payload": "Charge utile (Payload) :",
+      "payloadPlaceholder": "La charge utile décodée apparaîtra ici...",
+      "signature": "Signature :",
+      "signaturePlaceholder": "La signature apparaîtra ici...",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "invalidFormat": "Format JWT non valide. Un jeton valide doit comporter 3 parties séparées par des points.",
+      "decodeFailed": "Échec du décodage du jeton JWT"
+    },
+    "loremIpsum": {
+      "title": "Générateur Lorem Ipsum",
+      "subtitle": "Générez instantanément du faux-texte pour vos maquettes et designs.",
+      "paragraphs": "Paragraphes (1-20) :",
+      "regenerate": "Régénérer",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "outputPlaceholder": "Le texte Lorem Ipsum généré apparaîtra ici..."
     }
   }
 }

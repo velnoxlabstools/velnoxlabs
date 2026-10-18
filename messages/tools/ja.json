@@ -510,6 +510,69 @@
       "privacyDesc": "すべてのデータはブラウザメモリ内でのみ処理され、外部への送信は一切行われません。",
       "productionReadyTitle": "🛠️ 本番環境対応品質",
       "productionReadyDesc": "標準コーディング規約に準拠したクリーンな型定義コードを出力します。"
+    },
+    "jsonToTypescript": {
+      "title": "JSON から TypeScript 型定義変換",
+      "subtitle": "JSON オブジェクトから型定義された TypeScript interface を瞬時に生成 — ネストされたオブジェクトや配列に対応。",
+      "jsonInput": "JSON 入力:",
+      "jsonPlaceholder": "ここに JSON を貼り付け...",
+      "tsOutput": "TypeScript 型定義出力:",
+      "copyTs": "TSをコピー",
+      "copied": "コピー完了!",
+      "tsPlaceholder": "生成された TypeScript 型定義がここに表示されます...",
+      "invalidJson": "無効な JSON 構文: {message}"
+    },
+    "jsonToZod": {
+      "title": "JSON から Zod スキーマ生成",
+      "subtitle": "JSON オブジェクトから Zod バリデーションスキーマを瞬時に生成 — ネストされたオブジェクト、配列、null に対応。",
+      "jsonInput": "JSON 入力:",
+      "jsonPlaceholder": "ここに JSON を貼り付け...",
+      "zodOutput": "Zod スキーマ出力:",
+      "copy": "コピー",
+      "copied": "コピー完了!",
+      "zodPlaceholder": "生成された Zod スキーマがここに表示されます...",
+      "invalidJson": "無効な JSON: {message}"
+    },
+    "jsonYamlConverter": {
+      "title": "JSON と YAML 相互変換",
+      "subtitle": "JSON 形式と YAML 形式の間で瞬時に相互変換 — ネストされたオブジェクトや配列に対応。",
+      "jsonToYamlTab": "JSON から YAML",
+      "yamlToJsonTab": "YAML から JSON",
+      "jsonInput": "JSON 入力:",
+      "yamlInput": "YAML 入力:",
+      "jsonPlaceholder": "ここに JSON を貼り付け...",
+      "yamlPlaceholder": "ここに YAML を貼り付け...",
+      "jsonOutput": "JSON 出力:",
+      "yamlOutput": "YAML 出力:",
+      "copy": "コピー",
+      "copied": "コピー完了!",
+      "outputPlaceholder": "変換結果がここに表示されます...",
+      "error": "エラー: {message}"
+    },
+    "jwtDecoder": {
+      "title": "JWT デコーダ & インスペクタ",
+      "subtitle": "JSON Web Token (JWT) のヘッダー、カスタムクレーム、有効期限、署名を安全に検査・解析します。",
+      "tokenInput": "JWT トークン:",
+      "tokenPlaceholder": "ここに JWT トークンを貼り付け...",
+      "header": "ヘッダー (Header):",
+      "headerPlaceholder": "デコードされたヘッダーがここに表示されます...",
+      "payload": "ペイロード (Payload):",
+      "payloadPlaceholder": "デコードされたペイロードがここに表示されます...",
+      "signature": "署名 (Signature):",
+      "signaturePlaceholder": "署名がここに表示されます...",
+      "copy": "コピー",
+      "copied": "コピー完了!",
+      "invalidFormat": "無効な JWT 形式です。有効なトークンはドットで区切られた3つの部分から構成される必要があります。",
+      "decodeFailed": "JWT トークンのデコードに失敗しました"
+    },
+    "loremIpsum": {
+      "title": "Lorem Ipsum ダミーテキスト生成",
+      "subtitle": "デザインやレイアウトのプレースホルダー用テキストを瞬時に生成します。",
+      "paragraphs": "段落数 (1-20):",
+      "regenerate": "再生成",
+      "copy": "コピー",
+      "copied": "コピー完了!",
+      "outputPlaceholder": "生成された Lorem Ipsum テキストがここに表示されます..."
     }
   }
 }

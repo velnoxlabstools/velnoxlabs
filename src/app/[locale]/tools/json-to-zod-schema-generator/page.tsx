@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -54,6 +55,7 @@ function generateZodSchema(json: Record<string, unknown> | unknown[]): string {
 }
 
 export default function Page() {
+  const tUI = useTranslations('ToolUI.jsonToZod');
   const [input, setInput] = useState(
     '{\n  "name": "VelnoxLabs",\n  "version": 1,\n  "active": true\n}'
   );
@@ -132,10 +134,7 @@ export default function Page() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="JSON to Zod Schema Generator"
-            subtitle="Generate Zod validation schemas from JSON objects instantly — nested objects, arrays, and nulls supported."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -164,13 +163,13 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  JSON Input:
+                  {tUI('jsonInput')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={12}
-                  placeholder="Paste JSON here..."
+                  placeholder={tUI('jsonPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -197,7 +196,7 @@ export default function Page() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Zod Schema Output:
+                    {tUI('zodOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -215,14 +214,14 @@ export default function Page() {
                       cursor: output ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder="Zod schema will appear here..."
+                  placeholder={tUI('zodPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -250,16 +249,13 @@ export default function Page() {
                 }}
               >
                 <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
-                  ❌ Invalid JSON: {error}
+                  ❌ {tUI('invalidJson', { message: error })}
                 </p>
               </div>
             )}
           </div>
 
-          <ToolSeoContent
-            toolSlug="json-to-zod-schema-generator"
-            toolName="JSON to Zod Schema Generator"
-          />
+          <ToolSeoContent toolSlug="json-to-zod-schema-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

@@ -510,6 +510,69 @@
       "privacyDesc": "所有数据均在浏览器本地内存处理，绝不上传任何敏感数据或日志。",
       "productionReadyTitle": "🛠️ 生产环境标准",
       "productionReadyDesc": "输出符合规范的类型标注代码，开箱即用融入开发工作流。"
+    },
+    "jsonToTypescript": {
+      "title": "JSON 转 TypeScript Interface",
+      "subtitle": "一键将 JSON 对象推导为严格的 TypeScript 接口类型定义，支持嵌套对象与数组。",
+      "jsonInput": "JSON 输入：",
+      "jsonPlaceholder": "在此处粘贴 JSON...",
+      "tsOutput": "TypeScript 接口输出：",
+      "copyTs": "复制 TS",
+      "copied": "已复制！",
+      "tsPlaceholder": "生成的 TypeScript 接口将显示在这里...",
+      "invalidJson": "JSON 语法无效：{message}"
+    },
+    "jsonToZod": {
+      "title": "JSON 转 Zod Schema 校验器",
+      "subtitle": "一键从 JSON 对象生成 Zod 校验模式 — 支持嵌套对象、数组和 null。",
+      "jsonInput": "JSON 输入：",
+      "jsonPlaceholder": "在此处粘贴 JSON...",
+      "zodOutput": "Zod Schema 输出：",
+      "copy": "复制",
+      "copied": "已复制！",
+      "zodPlaceholder": "生成的 Zod 模式将显示在这里...",
+      "invalidJson": "无效的 JSON：{message}"
+    },
+    "jsonYamlConverter": {
+      "title": "JSON 与 YAML 互转工具",
+      "subtitle": "即时在 JSON 和 YAML 格式之间双向转换 — 完美支持嵌套对象与数组。",
+      "jsonToYamlTab": "JSON 转 YAML",
+      "yamlToJsonTab": "YAML 转 JSON",
+      "jsonInput": "JSON 输入：",
+      "yamlInput": "YAML 输入：",
+      "jsonPlaceholder": "在此处粘贴 JSON...",
+      "yamlPlaceholder": "在此处粘贴 YAML...",
+      "jsonOutput": "JSON 输出：",
+      "yamlOutput": "YAML 输出：",
+      "copy": "复制",
+      "copied": "已复制！",
+      "outputPlaceholder": "转换结果将显示在这里...",
+      "error": "错误：{message}"
+    },
+    "jwtDecoder": {
+      "title": "JWT 解码与分析工具",
+      "subtitle": "安全检查 JSON Web Token (JWT) 的标头 (Header)、自定义声明 (Payload) 及签名 (Signature)。",
+      "tokenInput": "JWT Token：",
+      "tokenPlaceholder": "在此处粘贴您的 JWT Token...",
+      "header": "标头 (Header)：",
+      "headerPlaceholder": "解码后的 Header 将显示在这里...",
+      "payload": "负载 (Payload)：",
+      "payloadPlaceholder": "解码后的 Payload 将显示在这里...",
+      "signature": "签名 (Signature)：",
+      "signaturePlaceholder": "签名将显示在这里...",
+      "copy": "复制",
+      "copied": "已复制！",
+      "invalidFormat": "无效的 JWT 格式。有效的 Token 必须包含由点号分隔的 3 个部分。",
+      "decodeFailed": "解码 JWT Token 失败"
+    },
+    "loremIpsum": {
+      "title": "Lorem Ipsum 假文生成器",
+      "subtitle": "一键快速为您的排版设计与原型生成占位文本段落。",
+      "paragraphs": "段落数 (1-20)：",
+      "regenerate": "重新生成",
+      "copy": "复制",
+      "copied": "已复制！",
+      "outputPlaceholder": "生成的 Lorem Ipsum 假文将显示在这里..."
     }
   }
 }

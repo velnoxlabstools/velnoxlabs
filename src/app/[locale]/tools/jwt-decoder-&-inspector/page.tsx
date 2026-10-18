@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function JwtDecoderPage() {
+  const tUI = useTranslations('ToolUI.jwtDecoder');
   const [token, setToken] = useState(
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlZlbG5veExhYnMiLCJpYXQiOjE1MTYyMzkwMjJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
   );
@@ -27,7 +29,7 @@ export default function JwtDecoderPage() {
     try {
       const parts = jwt.trim().split('.');
       if (parts.length !== 3) {
-        throw new Error('Invalid JWT format. A valid token must have 3 parts separated by dots.');
+        throw new Error(tUI('invalidFormat'));
       }
 
       const decodeBase64Url = (str: string) => {
@@ -51,7 +53,7 @@ export default function JwtDecoderPage() {
       setSignature(parts[2]);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      setError(msg || 'Failed to decode JWT token');
+      setError(msg || tUI('decodeFailed'));
       setHeader('');
       setPayload('');
       setSignature('');
@@ -116,10 +118,7 @@ export default function JwtDecoderPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="JWT Decoder & Inspector"
-            subtitle="Inspect JSON Web Token (JWT) headers, custom claims, expiration dates, and signatures securely."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -141,13 +140,13 @@ export default function JwtDecoderPage() {
                   marginBottom: '8px',
                 }}
               >
-                JWT Token:
+                {tUI('tokenInput')}
               </label>
               <textarea
                 value={token}
                 onChange={(e) => handleDecode(e.target.value)}
                 rows={4}
-                placeholder="Paste your JWT token here..."
+                placeholder={tUI('tokenPlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -179,7 +178,7 @@ export default function JwtDecoderPage() {
                   }}
                 >
                   <label style={{ color: '#60a5fa', fontSize: '0.875rem', fontWeight: 600 }}>
-                    Header:
+                    {tUI('header')}
                   </label>
                   <button
                     onClick={() => handleCopy(header, 'header')}
@@ -194,7 +193,7 @@ export default function JwtDecoderPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'header' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'header' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <pre
@@ -213,7 +212,7 @@ export default function JwtDecoderPage() {
                 >
                   {header || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      Decoded header will appear here...
+                      {tUI('headerPlaceholder')}
                     </span>
                   )}
                 </pre>
@@ -230,7 +229,7 @@ export default function JwtDecoderPage() {
                   }}
                 >
                   <label style={{ color: '#a78bfa', fontSize: '0.875rem', fontWeight: 600 }}>
-                    Payload:
+                    {tUI('payload')}
                   </label>
                   <button
                     onClick={() => handleCopy(payload, 'payload')}
@@ -245,7 +244,7 @@ export default function JwtDecoderPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'payload' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'payload' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <pre
@@ -264,7 +263,7 @@ export default function JwtDecoderPage() {
                 >
                   {payload || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      Decoded payload will appear here...
+                      {tUI('payloadPlaceholder')}
                     </span>
                   )}
                 </pre>
@@ -281,7 +280,7 @@ export default function JwtDecoderPage() {
                   }}
                 >
                   <label style={{ color: '#fbbf24', fontSize: '0.875rem', fontWeight: 600 }}>
-                    Signature:
+                    {tUI('signature')}
                   </label>
                   <button
                     onClick={() => handleCopy(signature, 'signature')}
@@ -296,7 +295,7 @@ export default function JwtDecoderPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copiedField === 'signature' ? 'Copied!' : 'Copy'}
+                    {copiedField === 'signature' ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <div
@@ -314,7 +313,7 @@ export default function JwtDecoderPage() {
                 >
                   {signature || (
                     <span style={{ color: '#64748b', fontStyle: 'italic' }}>
-                      Signature will appear here...
+                      {tUI('signaturePlaceholder')}
                     </span>
                   )}
                 </div>
@@ -322,7 +321,7 @@ export default function JwtDecoderPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="jwt-decoder-&-inspector" toolName="JWT Decoder & Inspector" />
+          <ToolSeoContent toolSlug="jwt-decoder-&-inspector" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

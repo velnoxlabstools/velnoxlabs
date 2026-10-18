@@ -510,6 +510,69 @@
       "privacyDesc": "Alle Daten verbleiben auf Ihrem Rechner; es werden keinerlei sensible Eingaben übertragen.",
       "productionReadyTitle": "🛠️ Produktionsbereit",
       "productionReadyDesc": "Erzeugt standardkonforme Typisierungen, die sofort in Ihre Codebasis integriert werden können."
+    },
+    "jsonToTypescript": {
+      "title": "JSON-zu-TypeScript-Interface",
+      "subtitle": "Konvertieren Sie JSON-Objekte sofort in typisierte TypeScript-Schnittstellen – unterstützt verschachtelte Objekte und Arrays.",
+      "jsonInput": "JSON-Eingabe:",
+      "jsonPlaceholder": "JSON hier einfügen...",
+      "tsOutput": "TypeScript-Schnittstellenausgabe:",
+      "copyTs": "TS kopieren",
+      "copied": "Kopiert!",
+      "tsPlaceholder": "Die TypeScript-Schnittstelle wird hier angezeigt...",
+      "invalidJson": "Ungültige JSON-Syntax: {message}"
+    },
+    "jsonToZod": {
+      "title": "JSON-zu-Zod-Schema-Generator",
+      "subtitle": "Erstellen Sie Zod-Validierungsschemata sofort aus JSON-Objekten – unterstützt verschachtelte Objekte, Arrays und Null-Werte.",
+      "jsonInput": "JSON-Eingabe:",
+      "jsonPlaceholder": "JSON hier einfügen...",
+      "zodOutput": "Zod-Schema-Ausgabe:",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "zodPlaceholder": "Das Zod-Schema wird hier angezeigt...",
+      "invalidJson": "Ungültiges JSON: {message}"
+    },
+    "jsonYamlConverter": {
+      "title": "JSON-zu-YAML-Konverter",
+      "subtitle": "Konvertieren Sie sofort zwischen JSON- und YAML-Formaten – unterstützt verschachtelte Objekte und Arrays.",
+      "jsonToYamlTab": "JSON zu YAML",
+      "yamlToJsonTab": "YAML zu JSON",
+      "jsonInput": "JSON-Eingabe:",
+      "yamlInput": "YAML-Eingabe:",
+      "jsonPlaceholder": "JSON hier einfügen...",
+      "yamlPlaceholder": "YAML hier einfügen...",
+      "jsonOutput": "JSON-Ausgabe:",
+      "yamlOutput": "YAML-Ausgabe:",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "outputPlaceholder": "Die Ausgabe wird hier angezeigt...",
+      "error": "Fehler: {message}"
+    },
+    "jwtDecoder": {
+      "title": "JWT-Decoder & Inspektor",
+      "subtitle": "Überprüfen Sie JSON Web Token (JWT) Header, benutzerdefinierte Claims, Ablaufdaten und Signaturen sicher.",
+      "tokenInput": "JWT-Token:",
+      "tokenPlaceholder": "Fügen Sie Ihr JWT-Token hier ein...",
+      "header": "Header:",
+      "headerPlaceholder": "Der decodierte Header wird hier angezeigt...",
+      "payload": "Payload:",
+      "payloadPlaceholder": "Die decodierte Payload wird hier angezeigt...",
+      "signature": "Signatur:",
+      "signaturePlaceholder": "Die Signatur wird hier angezeigt...",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "invalidFormat": "Ungültiges JWT-Format. Ein gültiges Token muss aus 3 durch Punkte getrennten Teilen bestehen.",
+      "decodeFailed": "Fehler beim Decodieren des JWT-Tokens"
+    },
+    "loremIpsum": {
+      "title": "Lorem-Ipsum-Generator",
+      "subtitle": "Erstellen Sie sofort Blindtext für Ihre Designs und Layouts.",
+      "paragraphs": "Absätze (1-20):",
+      "regenerate": "Neu generieren",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "outputPlaceholder": "Der generierte Lorem Ipsum-Text wird hier angezeigt..."
     }
   }
 }

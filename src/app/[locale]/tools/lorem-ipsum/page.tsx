@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -31,6 +32,7 @@ function generateLorem(paragraphs: number) {
 }
 
 export default function LoremIpsumPage() {
+  const tUI = useTranslations('ToolUI.loremIpsum');
   const [count, setCount] = useState(3);
   const [output, setOutput] = useState('');
   const [copied, setCopied] = useState(false);
@@ -104,10 +106,7 @@ export default function LoremIpsumPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Lorem Ipsum Generator"
-            subtitle="Generate placeholder text for your designs and layouts instantly."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -139,7 +138,7 @@ export default function LoremIpsumPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Paragraphs (1-20):
+                  {tUI('paragraphs')}
                 </label>
                 <input
                   type="number"
@@ -172,7 +171,7 @@ export default function LoremIpsumPage() {
                   cursor: 'pointer',
                 }}
               >
-                Regenerate
+                {tUI('regenerate')}
               </button>
               <button
                 onClick={handleCopy}
@@ -187,7 +186,7 @@ export default function LoremIpsumPage() {
                   cursor: 'pointer',
                 }}
               >
-                {copied ? 'Copied!' : 'Copy'}
+                {copied ? tUI('copied') : tUI('copy')}
               </button>
             </div>
 
@@ -196,7 +195,7 @@ export default function LoremIpsumPage() {
               value={output}
               readOnly
               rows={14}
-              placeholder="Generated Lorem Ipsum will appear here..."
+              placeholder={tUI('outputPlaceholder')}
               style={{
                 width: '100%',
                 backgroundColor: 'var(--bg-page)',
@@ -212,7 +211,7 @@ export default function LoremIpsumPage() {
             />
           </div>
 
-          <ToolSeoContent toolSlug="lorem-ipsum" toolName="Lorem Ipsum Generator" />
+          <ToolSeoContent toolSlug="lorem-ipsum" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

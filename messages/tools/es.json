@@ -510,6 +510,69 @@
       "privacyDesc": "Todo el análisis ocurre en el navegador sin registrar datos confidenciales.",
       "productionReadyTitle": "🛠️ Listo para Producción",
       "productionReadyDesc": "Genera formatos limpios y estandarizados listos para integrar en tu flujo de trabajo."
+    },
+    "jsonToTypescript": {
+      "title": "JSON a Interfaz de TypeScript",
+      "subtitle": "Convierte objetos JSON en interfaces tipadas de TypeScript al instante: admite objetos anidados y matrices.",
+      "jsonInput": "Entrada JSON:",
+      "jsonPlaceholder": "Pega JSON aquí...",
+      "tsOutput": "Salida de interfaz TypeScript:",
+      "copyTs": "Copiar TS",
+      "copied": "¡Copiado!",
+      "tsPlaceholder": "La interfaz de TypeScript aparecerá aquí...",
+      "invalidJson": "Sintaxis JSON no válida: {message}"
+    },
+    "jsonToZod": {
+      "title": "Generador de Esquema Zod desde JSON",
+      "subtitle": "Genera esquemas de validación Zod a partir de objetos JSON al instante: admite objetos anidados, matrices y valores nulos.",
+      "jsonInput": "Entrada JSON:",
+      "jsonPlaceholder": "Pega JSON aquí...",
+      "zodOutput": "Salida de esquema Zod:",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "zodPlaceholder": "El esquema Zod aparecerá aquí...",
+      "invalidJson": "JSON no válido: {message}"
+    },
+    "jsonYamlConverter": {
+      "title": "Convertidor de JSON a YAML",
+      "subtitle": "Convierte entre formatos JSON y YAML al instante: admite objetos anidados y matrices.",
+      "jsonToYamlTab": "JSON a YAML",
+      "yamlToJsonTab": "YAML a JSON",
+      "jsonInput": "Entrada JSON:",
+      "yamlInput": "Entrada YAML:",
+      "jsonPlaceholder": "Pega JSON aquí...",
+      "yamlPlaceholder": "Pega YAML aquí...",
+      "jsonOutput": "Salida JSON:",
+      "yamlOutput": "Salida YAML:",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "outputPlaceholder": "El resultado aparecerá aquí...",
+      "error": "Error: {message}"
+    },
+    "jwtDecoder": {
+      "title": "Decodificador e Inspector de JWT",
+      "subtitle": "Inspecciona encabezados, notificaciones personalizadas, fechas de caducidad y firmas de JSON Web Token (JWT) de forma segura.",
+      "tokenInput": "Token JWT:",
+      "tokenPlaceholder": "Pega tu token JWT aquí...",
+      "header": "Encabezado:",
+      "headerPlaceholder": "El encabezado decodificado aparecerá aquí...",
+      "payload": "Carga útil (Payload):",
+      "payloadPlaceholder": "La carga útil decodificada aparecerá aquí...",
+      "signature": "Firma:",
+      "signaturePlaceholder": "La firma aparecerá aquí...",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "invalidFormat": "Formato JWT no válido. Un token válido debe tener 3 partes separadas por puntos.",
+      "decodeFailed": "Error al decodificar el token JWT"
+    },
+    "loremIpsum": {
+      "title": "Generador de Lorem Ipsum",
+      "subtitle": "Genera texto de relleno para tus diseños y maquetas al instante.",
+      "paragraphs": "Párrafos (1-20):",
+      "regenerate": "Regenerar",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "outputPlaceholder": "El texto Lorem Ipsum generado aparecerá aquí..."
     }
   }
 }

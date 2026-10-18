@@ -510,6 +510,69 @@
       "privacyDesc": "All parsing happens completely client-side without logging sensitive parameters.",
       "productionReadyTitle": "🛠️ Production Ready",
       "productionReadyDesc": "Outputs clean, standardized formats built to integrate directly into your workflow."
+    },
+    "jsonToTypescript": {
+      "title": "JSON to TypeScript Interface",
+      "subtitle": "Convert JSON objects into typed TypeScript interfaces instantly — nested objects and arrays supported.",
+      "jsonInput": "JSON Input:",
+      "jsonPlaceholder": "Paste JSON here...",
+      "tsOutput": "TypeScript Interface Output:",
+      "copyTs": "Copy TS",
+      "copied": "Copied!",
+      "tsPlaceholder": "TypeScript interface will appear here...",
+      "invalidJson": "Invalid JSON syntax: {message}"
+    },
+    "jsonToZod": {
+      "title": "JSON to Zod Schema Generator",
+      "subtitle": "Generate Zod validation schemas from JSON objects instantly — nested objects, arrays, and nulls supported.",
+      "jsonInput": "JSON Input:",
+      "jsonPlaceholder": "Paste JSON here...",
+      "zodOutput": "Zod Schema Output:",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "zodPlaceholder": "Zod schema will appear here...",
+      "invalidJson": "Invalid JSON: {message}"
+    },
+    "jsonYamlConverter": {
+      "title": "JSON to YAML Converter",
+      "subtitle": "Convert between JSON and YAML formats instantly — nested objects and arrays supported.",
+      "jsonToYamlTab": "JSON to YAML",
+      "yamlToJsonTab": "YAML to JSON",
+      "jsonInput": "JSON Input:",
+      "yamlInput": "YAML Input:",
+      "jsonPlaceholder": "Paste JSON here...",
+      "yamlPlaceholder": "Paste YAML here...",
+      "jsonOutput": "JSON Output:",
+      "yamlOutput": "YAML Output:",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "outputPlaceholder": "Output will appear here...",
+      "error": "Error: {message}"
+    },
+    "jwtDecoder": {
+      "title": "JWT Decoder & Inspector",
+      "subtitle": "Inspect JSON Web Token (JWT) headers, custom claims, expiration dates, and signatures securely.",
+      "tokenInput": "JWT Token:",
+      "tokenPlaceholder": "Paste your JWT token here...",
+      "header": "Header:",
+      "headerPlaceholder": "Decoded header will appear here...",
+      "payload": "Payload:",
+      "payloadPlaceholder": "Decoded payload will appear here...",
+      "signature": "Signature:",
+      "signaturePlaceholder": "Signature will appear here...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "invalidFormat": "Invalid JWT format. A valid token must have 3 parts separated by dots.",
+      "decodeFailed": "Failed to decode JWT token"
+    },
+    "loremIpsum": {
+      "title": "Lorem Ipsum Generator",
+      "subtitle": "Generate placeholder text for your designs and layouts instantly.",
+      "paragraphs": "Paragraphs (1-20):",
+      "regenerate": "Regenerate",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "outputPlaceholder": "Generated Lorem Ipsum will appear here..."
     }
   }
 }
