@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function Page() {
+  const tUI = useTranslations('ToolUI.nanoidGenerator');
   const [input, setInput] = useState('21');
   const [output, setOutput] = useState('');
   const [error, setError] = useState('');
@@ -71,10 +73,7 @@ export default function Page() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="NanoID Generator"
-            subtitle="Generate compact, URL-friendly unique IDs."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
           <div
             style={{
               backgroundColor: 'var(--bg-card)',
@@ -101,13 +100,13 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  Length:
+                  {tUI('length')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => handleProcess(e.target.value)}
                   rows={12}
-                  placeholder="Enter length (default 21)"
+                  placeholder={tUI('lengthPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -136,7 +135,7 @@ export default function Page() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    Generated NanoID:
+                    {tUI('generatedId')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -151,14 +150,14 @@ export default function Page() {
                       cursor: 'pointer',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder="Output will appear here..."
+                  placeholder={tUI('outputPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -175,7 +174,7 @@ export default function Page() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="nanoid-generator" toolName="NanoID Generator" />
+          <ToolSeoContent toolSlug="nanoid-generator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

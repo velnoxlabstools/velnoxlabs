@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -151,9 +152,8 @@ function markdownToHtml(md: string): string {
 }
 
 export default function Page() {
-  const [input, setInput] = useState(
-    '# Hello VelnoxLabs\n\nThis is **bold** and *italic*.\n\n- Item 1\n- Item 2\n\n[Link](https://velnoxlabs.com)'
-  );
+  const tUI = useTranslations('ToolUI.markdownToHtml');
+  const [input, setInput] = useState(tUI('sampleMarkdown'));
   const [output, setOutput] = useState('');
   const [copied, setCopied] = useState(false);
   useEffect(() => {
@@ -216,10 +216,7 @@ export default function Page() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Markdown to HTML Live Converter"
-            subtitle="Preview and convert Markdown text to clean HTML in real-time."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -248,13 +245,13 @@ export default function Page() {
                     marginBottom: '8px',
                   }}
                 >
-                  Markdown Input:
+                  {tUI('markdownInput')}
                 </label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={12}
-                  placeholder="Enter Markdown..."
+                  placeholder={tUI('markdownPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -281,7 +278,7 @@ export default function Page() {
                   <label
                     style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}
                   >
-                    HTML Output:
+                    {tUI('htmlOutput')}
                   </label>
                   <button
                     onClick={handleCopy}
@@ -299,14 +296,14 @@ export default function Page() {
                       cursor: output ? 'pointer' : 'not-allowed',
                     }}
                   >
-                    {copied ? 'Copied!' : 'Copy'}
+                    {copied ? tUI('copied') : tUI('copy')}
                   </button>
                 </div>
                 <textarea
                   value={output}
                   readOnly
                   rows={12}
-                  placeholder="HTML output will appear here..."
+                  placeholder={tUI('htmlPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -324,10 +321,7 @@ export default function Page() {
             </div>
           </div>
 
-          <ToolSeoContent
-            toolSlug="markdown-to-html-live-converter"
-            toolName="Markdown to HTML Converter"
-          />
+          <ToolSeoContent toolSlug="markdown-to-html-live-converter" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

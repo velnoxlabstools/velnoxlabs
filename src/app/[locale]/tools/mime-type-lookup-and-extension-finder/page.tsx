@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -136,11 +137,35 @@ function searchMime(query: string): Match[] {
 }
 
 export default function Page() {
+  const tUI = useTranslations('ToolUI.mimeTypeLookup');
   const [input, setInput] = useState('jpg');
   const [copied, setCopied] = useState(false);
   const matches = searchMime(input);
   const isEmptyQuery = !input.trim();
   const isBrowseMode = isEmptyQuery || matches.length === MIME_DB.length;
+
+  const getCategoryLabel = (cat: string) => {
+    switch (cat.toLowerCase()) {
+      case 'document':
+        return tUI('categoryDocument');
+      case 'archive':
+        return tUI('categoryArchive');
+      case 'image':
+        return tUI('categoryImage');
+      case 'audio':
+        return tUI('categoryAudio');
+      case 'video':
+        return tUI('categoryVideo');
+      case 'font':
+        return tUI('categoryFont');
+      case 'code':
+        return tUI('categoryCode');
+      case 'data':
+        return tUI('categoryData');
+      default:
+        return cat;
+    }
+  };
 
   const handleCopy = () => {
     if (!matches.length) return;
@@ -195,10 +220,7 @@ export default function Page() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="MIME Type Lookup & Extension Finder"
-            subtitle="Look up MIME types by extension or find extensions by MIME type — 100+ formats."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -221,13 +243,13 @@ export default function Page() {
                   marginBottom: '8px',
                 }}
               >
-                Search by extension (jpg) or MIME type (image/jpeg):
+                {tUI('searchLabel')}
               </label>
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="e.g., jpg, png, pdf, image/, video/, mime (show all)"
+                placeholder={tUI('searchPlaceholder')}
                 style={{
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
@@ -256,12 +278,17 @@ export default function Page() {
               <label style={{ color: 'var(--text-main)', fontSize: '0.875rem', fontWeight: 600 }}>
                 {isBrowseMode ? (
                   <>
-                    Reference Table:{' '}
-                    <span style={{ color: '#34d399' }}>{MIME_DB.length} formats</span>
+                    {tUI('referenceTable')}{' '}
+                    <span style={{ color: '#34d399' }}>
+                      {tUI('formatsCount', { count: MIME_DB.length })}
+                    </span>
                   </>
                 ) : (
                   <>
-                    Results: <span style={{ color: '#34d399' }}>{matches.length} found</span>
+                    {tUI('results')}{' '}
+                    <span style={{ color: '#34d399' }}>
+                      {tUI('foundCount', { count: matches.length })}
+                    </span>
                   </>
                 )}
               </label>
@@ -280,7 +307,7 @@ export default function Page() {
                   cursor: matches.length > 0 ? 'pointer' : 'not-allowed',
                 }}
               >
-                {copied ? 'Copied!' : 'Copy Results'}
+                {copied ? tUI('copied') : tUI('copyResults')}
               </button>
             </div>
 
@@ -305,7 +332,7 @@ export default function Page() {
                     fontStyle: 'italic',
                   }}
                 >
-                  Showing all supported formats. Type above to filter.
+                  {tUI('browseHelp')}
                 </p>
               )}
 
@@ -318,7 +345,7 @@ export default function Page() {
                     textAlign: 'center',
                   }}
                 >
-                  No matches found for: <strong>{input}</strong>
+                  {tUI('noMatches', { query: input })}
                 </p>
               )}
 
@@ -364,7 +391,7 @@ export default function Page() {
                       letterSpacing: '0.5px',
                     }}
                   >
-                    {m.category}
+                    {getCategoryLabel(m.category)}
                   </div>
                 </div>
               ))}
@@ -373,7 +400,7 @@ export default function Page() {
 
           <ToolSeoContent
             toolSlug="mime-type-lookup-and-extension-finder"
-            toolName="MIME Type Lookup & Extension Finder"
+            toolName={tUI('title')}
           />
         </div>
       </GlobalContainer>

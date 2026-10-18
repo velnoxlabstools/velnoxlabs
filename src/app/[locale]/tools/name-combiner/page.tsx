@@ -1,11 +1,26 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
-function combineNames(a: string, b: string) {
+type VariationKey =
+  | 'blendAB'
+  | 'blendBA'
+  | 'aInitialB'
+  | 'bInitialA'
+  | 'underscore'
+  | 'hyphenated'
+  | 'camelCase'
+  | 'pascalCase'
+  | 'reversed'
+  | 'interleaved'
+  | 'first3'
+  | 'vowelsConsonants';
+
+function combineNames(a: string, b: string): { key: VariationKey; value: string }[] {
   const A = a.trim();
   const B = b.trim();
   if (!A || !B) return [];
@@ -13,33 +28,33 @@ function combineNames(a: string, b: string) {
   const aLow = A.toLowerCase();
   const bLow = B.toLowerCase();
 
-  const results: { label: string; value: string }[] = [];
+  const results: { key: VariationKey; value: string }[] = [];
 
   const aHalf = A.slice(0, Math.ceil(A.length / 2));
   const bHalf = B.slice(Math.floor(B.length / 2));
-  results.push({ label: 'Blend (A+B)', value: (aHalf + bHalf).toLowerCase() });
+  results.push({ key: 'blendAB', value: (aHalf + bHalf).toLowerCase() });
 
   const bFirst = B.slice(0, Math.ceil(B.length / 2));
   const aSecond = A.slice(Math.floor(A.length / 2));
-  results.push({ label: 'Blend (B+A)', value: (bFirst + aSecond).toLowerCase() });
+  results.push({ key: 'blendBA', value: (bFirst + aSecond).toLowerCase() });
 
-  results.push({ label: 'A + B initial', value: (A + B.charAt(0)).toLowerCase() });
-  results.push({ label: 'A initial + B', value: (A.charAt(0) + B).toLowerCase() });
-  results.push({ label: 'Underscore', value: aLow + '_' + bLow });
-  results.push({ label: 'Hyphenated', value: aLow + '-' + bLow });
+  results.push({ key: 'aInitialB', value: (A + B.charAt(0)).toLowerCase() });
+  results.push({ key: 'bInitialA', value: (A.charAt(0) + B).toLowerCase() });
+  results.push({ key: 'underscore', value: aLow + '_' + bLow });
+  results.push({ key: 'hyphenated', value: aLow + '-' + bLow });
   results.push({
-    label: 'camelCase',
+    key: 'camelCase',
     value: aLow + B.charAt(0).toUpperCase() + B.slice(1).toLowerCase(),
   });
   results.push({
-    label: 'PascalCase',
+    key: 'pascalCase',
     value:
       A.charAt(0).toUpperCase() +
       A.slice(1).toLowerCase() +
       B.charAt(0).toUpperCase() +
       B.slice(1).toLowerCase(),
   });
-  results.push({ label: 'Reversed', value: bLow + aLow });
+  results.push({ key: 'reversed', value: bLow + aLow });
 
   let shuffled = '';
   const maxLen = Math.max(A.length, B.length);
@@ -47,9 +62,9 @@ function combineNames(a: string, b: string) {
     if (i < A.length) shuffled += A[i].toLowerCase();
     if (i < B.length) shuffled += B[i].toLowerCase();
   }
-  results.push({ label: 'Interleaved', value: shuffled });
+  results.push({ key: 'interleaved', value: shuffled });
   results.push({
-    label: 'First 3 + First 3',
+    key: 'first3',
     value: (A.slice(0, 3) + B.slice(0, 3)).toLowerCase(),
   });
 
@@ -62,16 +77,17 @@ function combineNames(a: string, b: string) {
     .filter((c) => !'aeiou'.includes(c))
     .join('');
   if (vowelsA || consB) {
-    results.push({ label: 'A vowels + B consonants', value: vowelsA + consB });
+    results.push({ key: 'vowelsConsonants', value: vowelsA + consB });
   }
 
   return results;
 }
 
 export default function NameCombinerPage() {
+  const tUI = useTranslations('ToolUI.nameCombiner');
   const [nameA, setNameA] = useState('John');
   const [nameB, setNameB] = useState('Emma');
-  const [results, setResults] = useState<{ label: string; value: string }[]>([]);
+  const [results, setResults] = useState<{ key: VariationKey; value: string }[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
   useEffect(() => {
@@ -181,10 +197,7 @@ export default function NameCombinerPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Name Combiner"
-            subtitle="Combine two names into creative blends, ship names, couple names, and brand names instantly."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* Presets */}
           <div
@@ -246,13 +259,13 @@ export default function NameCombinerPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  First Name:
+                  {tUI('firstName')}
                 </label>
                 <input
                   type="text"
                   value={nameA}
                   onChange={(e) => setNameA(e.target.value)}
-                  placeholder="e.g. John"
+                  placeholder={tUI('firstNamePlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -267,7 +280,7 @@ export default function NameCombinerPage() {
               </div>
               <button
                 onClick={handleSwap}
-                title="Swap names"
+                title={tUI('swap')}
                 style={{
                   backgroundColor: 'rgba(59, 130, 246, 0.15)',
                   color: '#60a5fa',
@@ -291,13 +304,13 @@ export default function NameCombinerPage() {
                     marginBottom: '8px',
                   }}
                 >
-                  Second Name:
+                  {tUI('secondName')}
                 </label>
                 <input
                   type="text"
                   value={nameB}
                   onChange={(e) => setNameB(e.target.value)}
-                  placeholder="e.g. Emma"
+                  placeholder={tUI('secondPlaceholder')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -320,7 +333,7 @@ export default function NameCombinerPage() {
                 marginBottom: '12px',
               }}
             >
-              Combined Variations ({results.length})
+              {tUI('combinedVariations', { count: results.length })}
             </h3>
 
             <div
@@ -361,7 +374,7 @@ export default function NameCombinerPage() {
                         marginBottom: '2px',
                       }}
                     >
-                      {r.label}
+                      {tUI(r.key)}
                     </div>
                     <div
                       style={{
@@ -377,7 +390,7 @@ export default function NameCombinerPage() {
                   <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
                     <button
                       onClick={() => toggleFavorite(r.value)}
-                      title="Save to favorites"
+                      title={tUI('saveFavorite')}
                       style={{
                         backgroundColor: favorites.includes(r.value)
                           ? 'rgba(239, 68, 68, 0.2)'
@@ -394,7 +407,7 @@ export default function NameCombinerPage() {
                     </button>
                     <button
                       onClick={() => shareOnWhatsApp(r.value)}
-                      title="Share on WhatsApp"
+                      title={tUI('shareWhatsApp')}
                       style={{
                         backgroundColor: 'rgba(37, 211, 102, 0.15)',
                         color: '#4ade80',
@@ -409,7 +422,7 @@ export default function NameCombinerPage() {
                     </button>
                     <button
                       onClick={() => shareOnTwitter(r.value)}
-                      title="Share on Twitter"
+                      title={tUI('shareTwitter')}
                       style={{
                         backgroundColor: 'rgba(29, 161, 242, 0.15)',
                         color: '#60a5fa',
@@ -438,7 +451,7 @@ export default function NameCombinerPage() {
                         cursor: 'pointer',
                       }}
                     >
-                      {copiedIndex === idx ? '✓ Copied' : 'Copy'}
+                      {copiedIndex === idx ? tUI('copied') : tUI('copy')}
                     </button>
                   </div>
                 </div>
@@ -461,7 +474,7 @@ export default function NameCombinerPage() {
                     marginBottom: '12px',
                   }}
                 >
-                  ❤️ Your Favorites ({favorites.length})
+                  {tUI('yourFavorites', { count: favorites.length })}
                 </h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {favorites.map((fav, idx) => (
@@ -487,7 +500,7 @@ export default function NameCombinerPage() {
             )}
           </div>
 
-          <ToolSeoContent toolSlug="name-combiner" toolName="Name Combiner" />
+          <ToolSeoContent toolSlug="name-combiner" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>

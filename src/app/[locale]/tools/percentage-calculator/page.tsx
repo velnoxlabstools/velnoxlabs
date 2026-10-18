@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -8,42 +9,50 @@ import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 type Mode = 'of' | 'isWhatPercent' | 'increase' | 'decrease' | 'difference';
 
 export default function PercentageCalculatorPage() {
+  const tUI = useTranslations('ToolUI.percentageCalculator');
   const [mode, setMode] = useState<Mode>('of');
   const [a, setA] = useState('15');
   const [b, setB] = useState('200');
   const [result, setResult] = useState('');
   const [copied, setCopied] = useState(false);
-  const calculate = (currentMode: Mode, aVal: string, bVal: string) => {
-    const numA = parseFloat(aVal);
-    const numB = parseFloat(bVal);
-    if (isNaN(numA) || isNaN(numB)) return '';
 
-    switch (currentMode) {
-      case 'of':
-        return ((numA / 100) * numB).toFixed(4).replace(/\.?0+$/, '');
-      case 'isWhatPercent':
-        if (numB === 0) return 'Cannot divide by zero';
-        return ((numA / numB) * 100).toFixed(4).replace(/\.?0+$/, '') + '%';
-      case 'increase':
-        if (numA === 0) return 'Cannot divide by zero';
-        return (((numB - numA) / numA) * 100).toFixed(4).replace(/\.?0+$/, '') + '%';
-      case 'decrease':
-        if (numA === 0) return 'Cannot divide by zero';
-        return (((numA - numB) / numA) * 100).toFixed(4).replace(/\.?0+$/, '') + '%';
-      case 'difference':
-        if (numA === 0 && numB === 0) return '0%';
-        return (
-          ((Math.abs(numA - numB) / ((numA + numB) / 2)) * 100).toFixed(4).replace(/\.?0+$/, '') +
-          '%'
-        );
-      default:
-        return '';
-    }
-  };
+  const calculate = useCallback(
+    (currentMode: Mode, aVal: string, bVal: string) => {
+      const numA = parseFloat(aVal);
+      const numB = parseFloat(bVal);
+      if (isNaN(numA) || isNaN(numB)) return '';
 
-  const handleCalculate = useCallback((newMode: Mode, newA: string, newB: string) => {
-    setResult(calculate(newMode, newA, newB));
-  }, []);
+      switch (currentMode) {
+        case 'of':
+          return ((numA / 100) * numB).toFixed(4).replace(/\.?0+$/, '');
+        case 'isWhatPercent':
+          if (numB === 0) return tUI('cannotDivideByZero');
+          return ((numA / numB) * 100).toFixed(4).replace(/\.?0+$/, '') + '%';
+        case 'increase':
+          if (numA === 0) return tUI('cannotDivideByZero');
+          return (((numB - numA) / numA) * 100).toFixed(4).replace(/\.?0+$/, '') + '%';
+        case 'decrease':
+          if (numA === 0) return tUI('cannotDivideByZero');
+          return (((numA - numB) / numA) * 100).toFixed(4).replace(/\.?0+$/, '') + '%';
+        case 'difference':
+          if (numA === 0 && numB === 0) return '0%';
+          return (
+            ((Math.abs(numA - numB) / ((numA + numB) / 2)) * 100).toFixed(4).replace(/\.?0+$/, '') +
+            '%'
+          );
+        default:
+          return '';
+      }
+    },
+    [tUI]
+  );
+
+  const handleCalculate = useCallback(
+    (newMode: Mode, newA: string, newB: string) => {
+      setResult(calculate(newMode, newA, newB));
+    },
+    [calculate]
+  );
 
   React.useEffect(() => {
     handleCalculate(mode, a, b);
@@ -52,26 +61,42 @@ export default function PercentageCalculatorPage() {
   const getLabels = () => {
     switch (mode) {
       case 'of':
-        return { a: 'Percentage (%)', b: 'Of Number', prefix: 'Result:' };
+        return { a: tUI('percentageLabel'), b: tUI('ofNumberLabel'), prefix: tUI('resultPrefix') };
       case 'isWhatPercent':
-        return { a: 'First Number', b: 'Second Number', prefix: 'is what % of' };
+        return {
+          a: tUI('firstNumberLabel'),
+          b: tUI('secondNumberLabel'),
+          prefix: tUI('isWhatPercentPrefix'),
+        };
       case 'increase':
-        return { a: 'Original Value', b: 'New Value', prefix: 'Percentage Increase:' };
+        return {
+          a: tUI('originalValueLabel'),
+          b: tUI('newValueLabel'),
+          prefix: tUI('increasePrefix'),
+        };
       case 'decrease':
-        return { a: 'Original Value', b: 'New Value', prefix: 'Percentage Decrease:' };
+        return {
+          a: tUI('originalValueLabel'),
+          b: tUI('newValueLabel'),
+          prefix: tUI('decreasePrefix'),
+        };
       case 'difference':
-        return { a: 'First Value', b: 'Second Value', prefix: 'Percentage Difference:' };
+        return {
+          a: tUI('firstValueLabel'),
+          b: tUI('secondValueLabel'),
+          prefix: tUI('differencePrefix'),
+        };
     }
   };
 
   const labels = getLabels();
 
   const modes: { key: Mode; label: string }[] = [
-    { key: 'of', label: 'X% of Y' },
-    { key: 'isWhatPercent', label: 'X is what % of Y' },
-    { key: 'increase', label: '% Increase' },
-    { key: 'decrease', label: '% Decrease' },
-    { key: 'difference', label: '% Difference' },
+    { key: 'of', label: tUI('modeOf') },
+    { key: 'isWhatPercent', label: tUI('modeIsWhatPercent') },
+    { key: 'increase', label: tUI('modeIncrease') },
+    { key: 'decrease', label: tUI('modeDecrease') },
+    { key: 'difference', label: tUI('modeDifference') },
   ];
 
   const handleCopy = () => {
@@ -134,10 +159,7 @@ export default function PercentageCalculatorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Percentage Calculator"
-            subtitle="Calculate percentages, increases, decreases, and differences instantly with our free online tool."
-          />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           <div
             style={{
@@ -199,7 +221,7 @@ export default function PercentageCalculatorPage() {
                   type="number"
                   value={a}
                   onChange={(e) => setA(e.target.value)}
-                  placeholder="Enter value"
+                  placeholder={tUI('enterValue')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -230,7 +252,7 @@ export default function PercentageCalculatorPage() {
                   type="number"
                   value={b}
                   onChange={(e) => setB(e.target.value)}
-                  placeholder="Enter value"
+                  placeholder={tUI('enterValue')}
                   style={{
                     width: '100%',
                     backgroundColor: 'var(--bg-page)',
@@ -299,7 +321,7 @@ export default function PercentageCalculatorPage() {
                 transition: 'all 0.2s',
               }}
             >
-              {copied ? '✓ Copied!' : '📋 Copy Result'}
+              {copied ? tUI('copied') : tUI('copyResult')}
             </button>
 
             {/* Common Examples */}
@@ -320,14 +342,14 @@ export default function PercentageCalculatorPage() {
                   marginBottom: '10px',
                 }}
               >
-                💡 Common Examples:
+                {tUI('commonExamples')}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {[
-                  { a: '15', b: '200', label: '15% of 200' },
-                  { a: '20', b: '150', label: '20% of 150 (tip)' },
-                  { a: '10', b: '100', label: '10% of 100 (discount)' },
-                  { a: '25', b: '80', label: '25% of 80' },
+                  { a: '15', b: '200', label: tUI('example1') },
+                  { a: '20', b: '150', label: tUI('example2') },
+                  { a: '10', b: '100', label: tUI('example3') },
+                  { a: '25', b: '80', label: tUI('example4') },
                 ].map((ex, i) => (
                   <button
                     key={i}
@@ -354,7 +376,7 @@ export default function PercentageCalculatorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="percentage-calculator" toolName="Percentage Calculator" />
+          <ToolSeoContent toolSlug="percentage-calculator" toolName={tUI('title')} />
         </div>
       </GlobalContainer>
     </>
