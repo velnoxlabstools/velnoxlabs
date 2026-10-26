@@ -507,6 +507,10 @@
     "grade-calculator": {
       "name": "Calculatrice de Notes",
       "description": "Calcule les notes pondérées, lettres et GPA."
+    },
+    "fix-my-speaker": {
+      "name": "Nettoyer Haut-Parleur",
+      "description": "Éjectez l'eau et éliminez la poussière des haut-parleurs de smartphone grâce aux ondes sonores et aux vibrations."
     }
   },
   "DocsPage": {

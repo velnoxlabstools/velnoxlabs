@@ -13,6 +13,7 @@
     "curl-to-fetch-and-axios-converter",
     "curl-to-python-requests-converter",
     "discount-calculator",
+    "fix-my-speaker",
     "grade-calculator",
     "hash-generator",
     "hmac-generator",
@@ -53,6 +54,6 @@
     "word-counter"
   ],
   "flaggedTools": [],
-  "totalScanned": 459,
+  "totalScanned": 468,
   "totalErrors": 0
 }

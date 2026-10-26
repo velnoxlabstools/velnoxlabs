@@ -507,6 +507,10 @@
     "grade-calculator": {
       "name": "Calculadora de Notas",
       "description": "Calcula notas ponderadas, nota em letra e GPA."
+    },
+    "fix-my-speaker": {
+      "name": "Reparar Altifalante",
+      "description": "Ejete água e remova poeiras dos altifalantes do telemóvel usando ondas sonoras e vibração."
     }
   },
   "DocsPage": {

@@ -500,6 +500,10 @@
     "grade-calculator": {
       "name": "成績 & GPA 計算ツール",
       "description": "科目ごとの配点ウェイトを加味した評点および GPA 績点を算出します。"
+    },
+    "fix-my-speaker": {
+      "name": "スピーカー水抜き・ホコリ除去",
+      "description": "特定の音波周波数と振動パルスで、スマホのスピーカーに入り込んだ水やホコリを強力排出します。"
     }
   },
   "DocsPage": {

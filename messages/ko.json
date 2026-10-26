@@ -500,6 +500,10 @@
     "grade-calculator": {
       "name": "학점 및 성적 계산기",
       "description": "과목별 가중치와 성적 등급을 반영하여 최종 GPA 평점을 계산합니다."
+    },
+    "fix-my-speaker": {
+      "name": "스피커 물빼기 및 먼지 청소",
+      "description": "특정 주파수 음파와 진동 펄스를 이용하여 스마트폰 스피커에 들어간 물기와 먼지를 배출합니다."
     }
   },
   "DocsPage": {

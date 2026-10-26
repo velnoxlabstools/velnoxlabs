@@ -507,6 +507,10 @@
     "grade-calculator": {
       "name": "Notenrechner",
       "description": "Berechnet gewichtete Noten, Buchstabennote und GPA."
+    },
+    "fix-my-speaker": {
+      "name": "Lautsprecher Reinigen",
+      "description": "Wasser und Staub aus Handy-Lautsprechern mit gezielten Schallwellen und Vibrationen entfernen."
     }
   },
   "DocsPage": {

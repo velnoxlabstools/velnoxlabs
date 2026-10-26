@@ -500,6 +500,10 @@
     "grade-calculator": {
       "name": "Grade Calculator",
       "description": "Calculate weighted grades, letter grade, GPA."
+    },
+    "fix-my-speaker": {
+      "name": "Fix My Speaker",
+      "description": "Eject water and clear dust from phone speakers using sound waves and vibration."
     }
   },
   "DocsPage": {

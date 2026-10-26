@@ -16,6 +16,10 @@ export interface ToolSeoContentProps {
     categoryId?: string;
     version?: { version: string } | string;
   };
+  customAbout?: string;
+  customFeatures?: string[];
+  customSteps?: Array<{ title: string; body: string }>;
+  customFaqs?: Array<{ q: string; a: string }>;
 }
 
 export function ToolSeoContent({
@@ -25,6 +29,10 @@ export function ToolSeoContent({
   categoryId: _propCatId,
   version: _propVersion,
   tool,
+  customAbout,
+  customFeatures,
+  customSteps,
+  customFaqs,
 }: ToolSeoContentProps) {
   const t = useTranslations('ToolSeoDefaults');
   const tFaq = useTranslations('ToolFaq');
@@ -53,14 +61,17 @@ export function ToolSeoContent({
 
   const isUserAgent = slug === 'user-agent-parser';
 
-  const faqs = isUserAgent
-    ? [
-        { q: tFaq('userAgentParser.q1'), a: tFaq('userAgentParser.a1') },
-        { q: tFaq('userAgentParser.q2'), a: tFaq('userAgentParser.a2') },
-        { q: tFaq('userAgentParser.q3'), a: tFaq('userAgentParser.a3') },
-        { q: tFaq('userAgentParser.q4'), a: tFaq('userAgentParser.a4') },
-      ]
-    : [{ q: tFaq('generic.q1'), a: tFaq('generic.a1') }];
+  const faqs =
+    customFaqs && customFaqs.length > 0
+      ? customFaqs
+      : isUserAgent
+        ? [
+            { q: tFaq('userAgentParser.q1'), a: tFaq('userAgentParser.a1') },
+            { q: tFaq('userAgentParser.q2'), a: tFaq('userAgentParser.a2') },
+            { q: tFaq('userAgentParser.q3'), a: tFaq('userAgentParser.a3') },
+            { q: tFaq('userAgentParser.q4'), a: tFaq('userAgentParser.a4') },
+          ]
+        : [{ q: tFaq('generic.q1'), a: tFaq('generic.a1') }];
 
   return (
     <>
@@ -86,7 +97,7 @@ export function ToolSeoContent({
           {t('about', { name })}
         </h2>
         <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '24px' }}>
-          {t('about', { name })}
+          {customAbout || t('about', { name })}
         </p>
 
         {/* Key Features */}
@@ -109,9 +120,15 @@ export function ToolSeoContent({
             marginBottom: '24px',
           }}
         >
-          <li>{t('feature1')}</li>
-          <li>{t('feature2')}</li>
-          <li>{t('feature3')}</li>
+          {customFeatures && customFeatures.length > 0 ? (
+            customFeatures.map((feat, i) => <li key={i}>{feat}</li>)
+          ) : (
+            <>
+              <li>{t('feature1')}</li>
+              <li>{t('feature2')}</li>
+              <li>{t('feature3')}</li>
+            </>
+          )}
         </ul>
 
         {/* How To Use Steps */}
@@ -134,18 +151,28 @@ export function ToolSeoContent({
             marginBottom: '24px',
           }}
         >
-          <li>
-            <strong style={{ color: 'var(--text-main)' }}>{t('step1Title')}:</strong>{' '}
-            {t('step1Body')}
-          </li>
-          <li>
-            <strong style={{ color: 'var(--text-main)' }}>{t('step2Title')}:</strong>{' '}
-            {t('step2Body')}
-          </li>
-          <li>
-            <strong style={{ color: 'var(--text-main)' }}>{t('step3Title')}:</strong>{' '}
-            {t('step3Body')}
-          </li>
+          {customSteps && customSteps.length > 0 ? (
+            customSteps.map((step, i) => (
+              <li key={i}>
+                <strong style={{ color: 'var(--text-main)' }}>{step.title}:</strong> {step.body}
+              </li>
+            ))
+          ) : (
+            <>
+              <li>
+                <strong style={{ color: 'var(--text-main)' }}>{t('step1Title')}:</strong>{' '}
+                {t('step1Body')}
+              </li>
+              <li>
+                <strong style={{ color: 'var(--text-main)' }}>{t('step2Title')}:</strong>{' '}
+                {t('step2Body')}
+              </li>
+              <li>
+                <strong style={{ color: 'var(--text-main)' }}>{t('step3Title')}:</strong>{' '}
+                {t('step3Body')}
+              </li>
+            </>
+          )}
         </ul>
 
         {/* FAQ Section */}

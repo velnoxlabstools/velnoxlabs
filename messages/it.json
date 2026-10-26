@@ -507,6 +507,10 @@
     "grade-calculator": {
       "name": "Calcolatore di Voti",
       "description": "Calcola voti ponderati, voto in lettere e GPA."
+    },
+    "fix-my-speaker": {
+      "name": "Pulisci Altoparlante",
+      "description": "Espelli l'acqua e rimuovi la polvere dagli altoparlanti del telefono con onde sonore e vibrazioni."
     }
   },
   "DocsPage": {

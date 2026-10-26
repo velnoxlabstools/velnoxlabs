@@ -500,6 +500,10 @@
     "grade-calculator": {
       "name": "成绩与加权 GPA 计算器",
       "description": "支持加权课程分数、字母等级判定与最终综合 GPA 绩点换算。"
+    },
+    "fix-my-speaker": {
+      "name": "扬声器排水除尘",
+      "description": "利用特定频率声波和振动脉冲，排出手机与数码设备扬声器中的水分与灰尘。"
     }
   },
   "DocsPage": {

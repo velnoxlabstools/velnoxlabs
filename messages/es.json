@@ -507,6 +507,10 @@
     "grade-calculator": {
       "name": "Calculadora de Calificaciones",
       "description": "Calcula calificaciones ponderadas, letra y GPA."
+    },
+    "fix-my-speaker": {
+      "name": "Reparar Altavoz",
+      "description": "Expulsa agua y elimina polvo de los altavoces de tu móvil mediante ondas de sonido y vibración."
     }
   },
   "DocsPage": {
