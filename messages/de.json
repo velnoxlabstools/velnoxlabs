@@ -511,6 +511,10 @@
     "fix-my-speaker": {
       "name": "Lautsprecher Reinigen",
       "description": "Wasser und Staub aus Handy-Lautsprechern mit gezielten Schallwellen und Vibrationen entfernen."
+    },
+    "image-compressor": {
+      "name": "Online-Bildkompressor",
+      "description": "Komprimiere JPG-, PNG- und WebP-Bilder direkt im Browser mit vollständigem Datenschutz und ohne Qualitätsverlust."
     }
   },
   "DocsPage": {

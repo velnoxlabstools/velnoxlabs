@@ -504,6 +504,10 @@
     "fix-my-speaker": {
       "name": "Fix My Speaker",
       "description": "Eject water and clear dust from phone speakers using sound waves and vibration."
+    },
+    "image-compressor": {
+      "name": "Image Compressor",
+      "description": "Compress JPEG, PNG, and WebP images directly in your browser with zero quality compromise."
     }
   },
   "DocsPage": {

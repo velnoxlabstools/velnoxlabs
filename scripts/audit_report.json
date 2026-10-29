@@ -19,6 +19,7 @@
     "hmac-generator",
     "html-encoder-decoder",
     "http-header-inspector-_-parser",
+    "image-compressor",
     "image-resizer",
     "invoice-generator",
     "json-formatter",
@@ -54,6 +55,6 @@
     "word-counter"
   ],
   "flaggedTools": [],
-  "totalScanned": 468,
+  "totalScanned": 477,
   "totalErrors": 0
 }

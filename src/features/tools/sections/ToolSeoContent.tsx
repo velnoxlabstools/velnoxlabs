@@ -1,12 +1,18 @@
 'use client';
 
 import React from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { FeedbackForm } from '@/components/ui';
+import { siteConfig } from '@/config';
+
+const ALL_LOCALES = ['en', 'zh', 'es', 'pt', 'de', 'fr', 'it', 'ja', 'ru', 'ko'] as const;
 
 export interface ToolSeoContentProps {
-  toolSlug: string;
+  toolSlug?: string;
+  toolId?: string;
   toolName?: string;
+  name?: string;
+  description?: string;
   categorySlug?: string;
   categoryId?: string;
   version?: string;
@@ -20,11 +26,15 @@ export interface ToolSeoContentProps {
   customFeatures?: string[];
   customSteps?: Array<{ title: string; body: string }>;
   customFaqs?: Array<{ q: string; a: string }>;
+  faqs?: Array<{ q: string; a: string }>;
 }
 
 export function ToolSeoContent({
   toolSlug: propSlug,
+  toolId: propId,
   toolName: propName,
+  name: propNameDirect,
+  description: propDescription,
   categorySlug: _propCatSlug,
   categoryId: _propCatId,
   version: _propVersion,
@@ -32,10 +42,13 @@ export function ToolSeoContent({
   customAbout,
   customFeatures,
   customSteps,
-  customFaqs,
+  customFaqs: propCustomFaqs,
+  faqs: propFaqs,
 }: ToolSeoContentProps) {
+  const locale = useLocale();
   const t = useTranslations('ToolSeoDefaults');
   const tFaq = useTranslations('ToolFaq');
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tTools: any = null;
   try {
@@ -45,8 +58,12 @@ export function ToolSeoContent({
     // outside provider
   }
 
-  const slug = propSlug || tool?.slug || '';
-  let name = propName || tool?.name || slug;
+  const rawSlug = propSlug || propId || tool?.slug || '';
+  const slug = rawSlug.replace(/^tool-/, '');
+
+  let name = propName || propNameDirect || tool?.name || slug;
+  let toolDictDesc = '';
+
   if (tTools && slug) {
     try {
       if (tTools.has(`${slug}.name`)) {
@@ -54,28 +71,106 @@ export function ToolSeoContent({
       } else if (tTools.has(`${slug}.title`)) {
         name = tTools(`${slug}.title`);
       }
+      if (tTools.has(`${slug}.description`)) {
+        toolDictDesc = tTools(`${slug}.description`);
+      }
     } catch {
       // fallback to name
     }
   }
 
-  const isUserAgent = slug === 'user-agent-parser';
+  const isUserAgent = slug === 'user-agent-parser' || slug === 'user-agent';
 
   const faqs =
-    customFaqs && customFaqs.length > 0
-      ? customFaqs
-      : isUserAgent
-        ? [
-            { q: tFaq('userAgentParser.q1'), a: tFaq('userAgentParser.a1') },
-            { q: tFaq('userAgentParser.q2'), a: tFaq('userAgentParser.a2') },
-            { q: tFaq('userAgentParser.q3'), a: tFaq('userAgentParser.a3') },
-            { q: tFaq('userAgentParser.q4'), a: tFaq('userAgentParser.a4') },
-          ]
-        : [{ q: tFaq('generic.q1'), a: tFaq('generic.a1') }];
+    propCustomFaqs && propCustomFaqs.length > 0
+      ? propCustomFaqs
+      : propFaqs && propFaqs.length > 0
+        ? propFaqs
+        : isUserAgent
+          ? [
+              { q: tFaq('userAgentParser.q1'), a: tFaq('userAgentParser.a1') },
+              { q: tFaq('userAgentParser.q2'), a: tFaq('userAgentParser.a2') },
+              { q: tFaq('userAgentParser.q3'), a: tFaq('userAgentParser.a3') },
+              { q: tFaq('userAgentParser.q4'), a: tFaq('userAgentParser.a4') },
+            ]
+          : [{ q: tFaq('generic.q1'), a: tFaq('generic.a1') }];
+
+  const metaDescription = propDescription || toolDictDesc || customAbout || t('about', { name });
+  const aboutText = customAbout || toolDictDesc || t('about', { name });
+
+  // URL resolution for hreflang and canonical tags
+  const baseUrl = (process.env.NEXT_PUBLIC_APP_URL || 'https://velnoxlabs.com').replace(/\/$/, '');
+
+  const getLocaleUrl = (loc: string) => {
+    if (!slug) return baseUrl;
+    return loc === 'en' ? `${baseUrl}/tools/${slug}` : `${baseUrl}/${loc}/tools/${slug}`;
+  };
+
+  const canonicalUrl = getLocaleUrl(locale);
+
+  // Dynamic Localized JSON-LD Structured Data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const schemaGraph: any[] = [
+    {
+      '@type': 'WebApplication',
+      name: `${name} - ${siteConfig.name}`,
+      description: metaDescription,
+      url: canonicalUrl,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'All',
+      inLanguage: locale,
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+  ];
+
+  if (faqs && faqs.length > 0) {
+    schemaGraph.push({
+      '@type': 'FAQPage',
+      inLanguage: locale,
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.a,
+        },
+      })),
+    });
+  }
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': schemaGraph,
+  };
 
   return (
     <>
-      {/* SEO Content Container */}
+      {/* 1. Dynamic Localized Title & Meta Description (Hoisted by React 19 / Next.js to <head>) */}
+      <title>{`${name} | ${siteConfig.name}`}</title>
+      <meta name="description" content={metaDescription} />
+      <link rel="canonical" href={canonicalUrl} />
+
+      {/* 2. Hreflang Tags for all 10 Locales + x-default */}
+      {slug && (
+        <>
+          {ALL_LOCALES.map((loc) => (
+            <link key={loc} rel="alternate" hrefLang={loc} href={getLocaleUrl(loc)} />
+          ))}
+          <link rel="alternate" hrefLang="x-default" href={getLocaleUrl('en')} />
+        </>
+      )}
+
+      {/* 3. Dynamic Localized JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* 4. Visible SEO Content Container */}
       <div
         style={{
           marginTop: '48px',
@@ -97,7 +192,7 @@ export function ToolSeoContent({
           {t('about', { name })}
         </h2>
         <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '24px' }}>
-          {customAbout || t('about', { name })}
+          {aboutText}
         </p>
 
         {/* Key Features */}

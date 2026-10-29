@@ -511,6 +511,10 @@
     "fix-my-speaker": {
       "name": "Reparar Altavoz",
       "description": "Expulsa agua y elimina polvo de los altavoces de tu móvil mediante ondas de sonido y vibración."
+    },
+    "image-compressor": {
+      "name": "Compresor de Imágenes Online",
+      "description": "Comprime imágenes JPG, PNG y WebP directamente en tu navegador con total privacidad y sin pérdida de calidad."
     }
   },
   "DocsPage": {

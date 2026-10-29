@@ -511,6 +511,10 @@
     "fix-my-speaker": {
       "name": "Reparar Altifalante",
       "description": "Ejete água e remova poeiras dos altifalantes do telemóvel usando ondas sonoras e vibração."
+    },
+    "image-compressor": {
+      "name": "Compressor de Imagens Online",
+      "description": "Comprima imagens JPG, PNG e WebP diretamente no navegador com total privacidade e sem perder qualidade."
     }
   },
   "DocsPage": {

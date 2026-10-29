@@ -504,6 +504,10 @@
     "fix-my-speaker": {
       "name": "스피커 물빼기 및 먼지 청소",
       "description": "특정 주파수 음파와 진동 펄스를 이용하여 스마트폰 스피커에 들어간 물기와 먼지를 배출합니다."
+    },
+    "image-compressor": {
+      "name": "온라인 이미지 압축기",
+      "description": "브라우저에서 직접 JPG, PNG, WebP 이미지를 무손실 수준으로 압축하고 완벽한 개인정보 보호를 제공합니다."
     }
   },
   "DocsPage": {

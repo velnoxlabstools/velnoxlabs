@@ -511,6 +511,10 @@
     "fix-my-speaker": {
       "name": "Nettoyer Haut-Parleur",
       "description": "Éjectez l'eau et éliminez la poussière des haut-parleurs de smartphone grâce aux ondes sonores et aux vibrations."
+    },
+    "image-compressor": {
+      "name": "Compresseur d'Images en Ligne",
+      "description": "Compressez des images JPG, PNG et WebP directement dans votre navigateur avec une confidentialité totale et sans perte de qualité."
     }
   },
   "DocsPage": {

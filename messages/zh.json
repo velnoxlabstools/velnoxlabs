@@ -504,6 +504,10 @@
     "fix-my-speaker": {
       "name": "扬声器排水除尘",
       "description": "利用特定频率声波和振动脉冲，排出手机与数码设备扬声器中的水分与灰尘。"
+    },
+    "image-compressor": {
+      "name": "在线图片压缩工具",
+      "description": "直接在浏览器中高效压缩 JPG、PNG 和 WebP 图片，零质量损失，保护个人隐私。"
     }
   },
   "DocsPage": {

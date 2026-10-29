@@ -101,6 +101,23 @@ export const tools: Tool[] = [
     updatedAt: '2026-07-05T00:00:00.000Z',
   },
   {
+    id: 'tool-image-compressor',
+    slug: 'image-compressor',
+    name: 'Image Compressor',
+    description:
+      'Compress JPEG, PNG, and WebP images in the browser with real-time size reduction.',
+    categoryId: 'cat-image',
+    tags: ['image', 'compress', 'optimize', 'webp', 'jpeg', 'png'],
+    status: 'published',
+    featured: true,
+    trending: true,
+    popular: false,
+    isNew: true,
+    usageCount: 150,
+    createdAt: '2026-10-28T00:00:00.000Z',
+    updatedAt: '2026-10-28T00:00:00.000Z',
+  },
+  {
     id: 'tool-invoice-generator',
     slug: 'invoice-generator',
     name: 'Invoice Generator',
