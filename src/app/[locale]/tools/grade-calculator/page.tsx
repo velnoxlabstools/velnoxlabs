@@ -81,62 +81,13 @@ ${remainingWeight > 0 ? tUI('summaryNeedFinal', { needed: neededOnFinal.toFixed(
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Grade Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'EducationApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free grade calculator — calculate your weighted course grade, letter grade, GPA, and figure out what you need on the final exam to hit your target.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How do I calculate my grade?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Multiply each assignment grade by its weight, then divide the total by the sum of all weights. Example: (92 × 20 + 85 × 30 + 88 × 25 + 90 × 25) / 100 = 88.35%.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How do I figure out what I need on the final?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Use the formula: (Desired Grade − Current Weighted Score) / Remaining Weight. For example, if you have an 85% and want a 90% with a 20% final exam, you need (90 − 85×0.8)/0.2 = 100%.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Grade Calculator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Grade Calculator is 100% free with no sign-up required. All calculations happen in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading
-            title="Grade Calculator"
-            subtitle="Calculate your weighted grade, letter grade, GPA — and find out what you need on the final exam."
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
             toolSlug="grade-calculator"
           />
 
@@ -468,7 +419,24 @@ ${remainingWeight > 0 ? tUI('summaryNeedFinal', { needed: neededOnFinal.toFixed(
             {copied ? tUI('copied') : tUI('copySummary')}
           </button>
 
-          <ToolSeoContent toolSlug="grade-calculator" toolName="Grade Calculator" />
+          <ToolSeoContent
+            toolSlug="grade-calculator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

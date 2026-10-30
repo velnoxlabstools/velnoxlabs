@@ -102,52 +102,15 @@ export default function JsonToTsPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs JSON to TypeScript Interface Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Convert JSON objects into typed TypeScript interfaces instantly with support for nested objects, arrays, unions, and nulls.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to generate TypeScript interface from JSON?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your JSON and the tool instantly generates a TypeScript interface with proper typing including nested objects and arrays.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Does it support nested objects and arrays?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, it recursively handles nested objects, arrays of primitives, arrays of objects, and mixed-type unions.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
+          <SectionHeading
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
+            toolSlug="json-to-typescript-interface-generator"
+          />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -271,6 +234,20 @@ export default function JsonToTsPage() {
           <ToolSeoContent
             toolSlug="json-to-typescript-interface-generator"
             toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
           />
         </div>
       </GlobalContainer>

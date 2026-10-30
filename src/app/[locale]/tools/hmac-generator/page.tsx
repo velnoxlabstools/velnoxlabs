@@ -51,54 +51,13 @@ export default function HmacGeneratorPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs HMAC Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Generate cryptographic HMAC signatures using SHA-256, SHA-384, or SHA-512 instantly inside your browser.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to generate HMAC signatures online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Enter your secret key, message payload, and select a cryptographic hashing algorithm to generate the HMAC signature instantly.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this HMAC tool secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes! All signature generation runs locally using browser-native Web Crypto APIs.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading
-            title="HMAC Signature Generator"
-            subtitle="Generate secure Hash-based Message Authentication Codes (HMAC) using native browser cryptographic APIs."
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
             toolSlug="hmac-generator"
           />
 
@@ -258,7 +217,24 @@ export default function HmacGeneratorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="hmac-generator" toolName="HMAC Generator" />
+          <ToolSeoContent
+            toolSlug="hmac-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

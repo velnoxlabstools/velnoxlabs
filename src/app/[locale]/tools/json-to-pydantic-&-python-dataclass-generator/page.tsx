@@ -135,52 +135,15 @@ export default function JsonToPyPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs JSON to Pydantic Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Convert JSON objects into Python Pydantic BaseModel classes instantly with full support for nested objects, arrays, nulls, and unions.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to generate Pydantic model from JSON?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your JSON and the tool instantly generates Python Pydantic BaseModel classes with proper typing for nested objects and arrays.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Does it support nested objects and arrays?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, the generator recursively handles nested objects (creating separate BaseModel classes), arrays of primitives, arrays of objects, and mixed-type unions.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
+          <SectionHeading
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
+            toolSlug="json-to-pydantic-&-python-dataclass-generator"
+          />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -361,6 +324,20 @@ export default function JsonToPyPage() {
           <ToolSeoContent
             toolSlug="json-to-pydantic-&-python-dataclass-generator"
             toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
           />
         </div>
       </GlobalContainer>

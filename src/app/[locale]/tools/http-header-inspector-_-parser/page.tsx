@@ -34,43 +34,15 @@ server: nginx/1.18.0`
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs HTTP Header Inspector & Parser',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Inspect, parse, and analyze raw HTTP request and response headers instantly inside your browser.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to parse raw HTTP headers online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your raw header text block to instantly break down keys and values into structured tables.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
+          <SectionHeading
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
+            toolSlug="http-header-inspector-_-parser"
+          />
 
           {/* TOOL UI */}
           <div
@@ -181,7 +153,24 @@ server: nginx/1.18.0`
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="http-header-inspector-_-parser" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="http-header-inspector-_-parser"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

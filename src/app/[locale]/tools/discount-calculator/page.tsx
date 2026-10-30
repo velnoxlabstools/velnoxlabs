@@ -71,62 +71,13 @@ ${tUI('youSave')}: ${formatCurrency(savings, locale)}`;
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Discount Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online discount calculator — find the final sale price, savings, and effective discount. Supports stacked discounts and reverse calculation from sale price.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How do I calculate a discount?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Multiply the original price by the discount percentage, then divide by 100 to get the savings. Subtract savings from original price to get the sale price. Example: 25% off $100 = $25 savings, so $75 final.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How do stacked discounts work?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Stacked discounts apply one after the other. 20% off, then another 10% off, is NOT 30% off. It is 28% effective. Example: $100 with 20% off = $80, then 10% off $80 = $72.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this discount calculator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Discount Calculator is 100% free with no sign-up required. All calculations happen in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading
-            title="Discount Calculator"
-            subtitle="Calculate sale prices, savings, stacked discounts, and reverse-engineer original prices from sale tags."
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
             toolSlug="discount-calculator"
           />
 
@@ -730,7 +681,24 @@ ${tUI('youSave')}: ${formatCurrency(savings, locale)}`;
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="discount-calculator" toolName="Discount Calculator" />
+          <ToolSeoContent
+            toolSlug="discount-calculator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

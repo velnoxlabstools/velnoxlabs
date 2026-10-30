@@ -135,7 +135,11 @@ export default function InvoiceGeneratorPage() {
 
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
+          <SectionHeading
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
+            toolSlug="invoice-generator"
+          />
 
           {/* Launch Offer Banner */}
           <div
@@ -1274,7 +1278,24 @@ export default function InvoiceGeneratorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="invoice-generator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="invoice-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

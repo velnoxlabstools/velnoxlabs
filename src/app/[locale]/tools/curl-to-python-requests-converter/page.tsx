@@ -270,54 +270,13 @@ export default function CurlToPythonPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs cURL to Python Requests Converter',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Convert cURL commands into clean Python requests library code instantly inside your browser with full support for headers, JSON bodies, and multi-line commands.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to convert cURL to Python requests online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your cURL command into the input box to instantly generate corresponding Python requests code.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is command translation secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, all parsing runs entirely client-side with zero data logging.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading
-            title="cURL to Python Requests Converter"
-            subtitle="Transform cURL terminal commands into idiomatic Python requests code instantly."
+            title={tUI('title')}
+            subtitle={tUI('subtitle')}
             toolSlug="curl-to-python-requests-converter"
           />
 
@@ -440,7 +399,21 @@ export default function CurlToPythonPage() {
 
           <ToolSeoContent
             toolSlug="curl-to-python-requests-converter"
-            toolName="cURL to Python Requests Converter"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
           />
         </div>
       </GlobalContainer>
