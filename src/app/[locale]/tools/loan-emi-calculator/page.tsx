@@ -106,57 +106,8 @@ ${tUI('copyPayoffDate', { date: results.payoffDate })}`;
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Loan EMI Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'FinanceApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free loan EMI calculator — calculate monthly mortgage, car, or personal loan payments with a detailed amortization schedule.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'What is a loan EMI?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'EMI stands for Equated Monthly Installment. It is the fixed amount you pay your lender every month to repay both the principal and interest on a loan over the loan term.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How is EMI calculated?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'EMI is calculated using the formula: EMI = P × r × (1 + r)^n / ((1 + r)^n − 1), where P is principal, r is monthly interest rate, and n is the number of months in the loan term.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How does a shorter loan term affect my payment?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'A shorter term means higher monthly payments, but you pay much less interest overall. For example, a 15-year mortgage typically saves tens of thousands of dollars in interest compared to a 30-year mortgage.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -603,7 +554,24 @@ ${tUI('copyPayoffDate', { date: results.payoffDate })}`;
             </button>
           </div>
 
-          <ToolSeoContent toolSlug="loan-emi-calculator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="loan-emi-calculator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

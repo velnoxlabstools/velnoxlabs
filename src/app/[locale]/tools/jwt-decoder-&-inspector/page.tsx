@@ -73,49 +73,8 @@ export default function JwtDecoderPage() {
     setTimeout(() => setCopiedField(''), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs JWT Decoder & Inspector',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Decode and inspect JSON Web Tokens (JWT) headers, payloads, and signatures securely inside your browser.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to decode a JWT token online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your encoded JWT string into the input box to instantly inspect header claims, payload data, and signature.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is token decoding secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, 100% client-side decoding ensures your sensitive auth tokens never leave your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -321,7 +280,24 @@ export default function JwtDecoderPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="jwt-decoder-&-inspector" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="jwt-decoder-&-inspector"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

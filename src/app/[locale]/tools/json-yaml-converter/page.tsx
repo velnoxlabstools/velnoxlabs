@@ -226,49 +226,8 @@ export default function JsonYamlPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs JSON to YAML Converter',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Convert between JSON and YAML formats instantly with full nested object and array support.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to convert JSON to YAML?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your JSON or YAML content and select the conversion direction. The tool instantly outputs the converted format.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Does it support nested structures?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, the converter handles deeply nested objects, arrays, booleans, numbers, and strings while preserving the full structure.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -429,7 +388,24 @@ export default function JsonYamlPage() {
             )}
           </div>
 
-          <ToolSeoContent toolSlug="json-yaml-converter" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="json-yaml-converter"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

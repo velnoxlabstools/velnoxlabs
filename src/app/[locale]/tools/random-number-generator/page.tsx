@@ -73,57 +73,8 @@ export default function RandomNumberGeneratorPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Random Number Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online random number generator — generate random numbers in any range, with unique-only option, sorting, and bulk generation up to 1000 numbers.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How do I generate random numbers?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Enter your minimum and maximum range, choose how many numbers you want, and click Generate. You can also enable unique-only mode to prevent duplicates.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Are these numbers truly random?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Yes. This tool uses the browser's built-in Math.random() which is a pseudo-random number generator. For most everyday purposes (games, drawings, decisions) it is sufficiently random.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Random Number Generator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Random Number Generator is 100% free with no sign-up required. All generation happens in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -424,7 +375,24 @@ export default function RandomNumberGeneratorPage() {
             )}
           </div>
 
-          <ToolSeoContent toolSlug="random-number-generator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="random-number-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

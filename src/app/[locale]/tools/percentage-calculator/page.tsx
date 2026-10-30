@@ -106,57 +106,8 @@ export default function PercentageCalculatorPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Percentage Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online percentage calculator — calculate percentages, percentage increase, decrease, and difference instantly. Perfect for students, shoppers, finance, and daily math.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How do I calculate a percentage?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'To find X% of Y, multiply Y by X and divide by 100. Example: 15% of 200 = (15 × 200) / 100 = 30.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How do I calculate percentage increase?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Percentage increase = ((New Value − Original Value) / Original Value) × 100. Example: from 100 to 125 = 25% increase.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Percentage Calculator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Percentage Calculator is 100% free with no sign-up required. All calculations happen in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -376,7 +327,24 @@ export default function PercentageCalculatorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="percentage-calculator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="percentage-calculator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

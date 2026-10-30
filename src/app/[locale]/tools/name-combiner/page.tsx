@@ -144,57 +144,8 @@ export default function NameCombinerPage() {
     );
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Name Combiner',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free Name Combiner tool — combine two names into creative blends, couple names, ship names, and brand names instantly. Works for any language and origin.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'What is a Name Combiner?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'A Name Combiner merges two names into multiple creative variations like blended couple names, ship names, brand names, and baby name ideas.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Name Combiner free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Name Combiner is 100% free with no sign-up required and works with any name from any language.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Can I use it for brand names?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Absolutely. It generates camelCase, PascalCase, hyphenated, and underscore versions perfect for brand names and social media handles.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -500,7 +451,24 @@ export default function NameCombinerPage() {
             )}
           </div>
 
-          <ToolSeoContent toolSlug="name-combiner" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="name-combiner"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

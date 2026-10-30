@@ -61,49 +61,8 @@ export default function LoremIpsumPage() {
     }
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Lorem Ipsum Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Generate placeholder lorem ipsum text instantly for designs, mockups, and layouts.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to generate Lorem Ipsum text online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Enter the number of paragraphs (1-20) and the tool instantly generates placeholder text.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is the Lorem Ipsum generator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, 100% free with client-side generation and no tracking.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -211,7 +170,24 @@ export default function LoremIpsumPage() {
             />
           </div>
 
-          <ToolSeoContent toolSlug="lorem-ipsum" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="lorem-ipsum"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

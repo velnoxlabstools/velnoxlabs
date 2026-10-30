@@ -89,49 +89,8 @@ export default function Page() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs JSON to Zod Schema Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Generate Zod validation schemas from JSON objects instantly with full support for nested objects, arrays, nulls, and unions.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to generate Zod schema from JSON?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your JSON into the input box and the tool instantly generates a TypeScript-ready Zod schema with proper types for nested objects and arrays.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this tool secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, everything runs client-side in your browser. No data leaves your device.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -255,7 +214,24 @@ export default function Page() {
             )}
           </div>
 
-          <ToolSeoContent toolSlug="json-to-zod-schema-generator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="json-to-zod-schema-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

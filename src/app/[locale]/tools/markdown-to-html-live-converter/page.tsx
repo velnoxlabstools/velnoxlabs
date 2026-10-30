@@ -171,49 +171,8 @@ export default function Page() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Markdown to HTML Live Converter',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Convert Markdown text to clean HTML in real-time with support for headings, lists, bold, italics, code blocks, and links.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to convert Markdown to HTML online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your Markdown text into the input box and instantly get clean HTML output with proper paragraph, heading, and list tags.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is Markdown to HTML conversion secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, all processing happens client-side. HTML entities are properly escaped to prevent XSS attacks.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -321,7 +280,24 @@ export default function Page() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="markdown-to-html-live-converter" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="markdown-to-html-live-converter"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

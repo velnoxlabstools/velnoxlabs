@@ -24,49 +24,8 @@ export default function QrCodeGeneratorPage() {
     URL.revokeObjectURL(url);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs QR Code Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Generate custom QR codes instantly inside your browser for URLs, text, and contact data with zero server tracking.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to generate QR codes online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Type your URL or text payload to instantly render a high-resolution QR code in your browser.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Are generated QR codes permanent?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes! Generated codes are rendered client-side instantly and remain fully static and secure.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
@@ -197,7 +156,24 @@ export default function QrCodeGeneratorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="qr-code-generator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="qr-code-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>
