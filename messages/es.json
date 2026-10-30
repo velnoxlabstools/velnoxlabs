@@ -228,12 +228,12 @@
       "description": "Genera IDs compactos compatibles con URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Constructor y Validador de Cabeceras CSP",
-      "description": "Construye cabeceras de Política de Seguridad de Contenido."
+      "name": "Generador y Validador de Cabeceras CSP",
+      "description": "Diseña, prueba y valida cabeceras Content-Security-Policy para proteger tu aplicación web contra ataques XSS."
     },
     "json-formatter": {
-      "name": "Formateador y Validador de JSON",
-      "description": "Formatea y valida cargas útiles JSON.",
+      "name": "Formateador y Validador JSON Online",
+      "description": "Formatea, valida, embellece y comprime estructuras JSON en tu navegador con privacidad total.",
       "title": "Formateador y Validador de JSON",
       "subtitle": "Formatea, valida y embellece cargas útiles JSON al instante en tu navegador con absoluta privacidad del lado del cliente.",
       "inputLabel": "Entrada JSON:",
@@ -258,8 +258,8 @@
       "faq3A": "Sí, esta herramienta es completamente responsive y funciona en navegadores de escritorio, tablet y móviles."
     },
     "image-resizer": {
-      "name": "Redimensionador de Imágenes",
-      "description": "Redimensiona y comprime imágenes en el navegador sin subirlas."
+      "name": "Redimensionador de Imágenes por Lotes",
+      "description": "Cambia el tamaño de una o varias imágenes por píxeles o porcentaje con renderizado canvas de alta calidad."
     },
     "invoice-generator": {
       "name": "Generador de Facturas",
@@ -270,16 +270,16 @@
       "description": "Codifica y decodifica cadenas Base64."
     },
     "cron-expression-generator": {
-      "name": "Generador de Expresiones Cron",
-      "description": "Construye expresiones cron visualmente con explicaciones legibles."
+      "name": "Generador y Decodificador de Expresiones Cron",
+      "description": "Construye, traduce y programa expresiones cron de 5 y 6 campos con explicaciones claras en lenguaje natural."
     },
     "word-counter": {
       "name": "Contador de Palabras",
       "description": "Cuenta palabras, caracteres, oraciones y tiempo de lectura."
     },
     "csv-to-json": {
-      "name": "Convertidor de CSV a JSON",
-      "description": "Convierte datos CSV a JSON al instante con delimitadores personalizados."
+      "name": "Conversor de CSV a JSON",
+      "description": "Convierte hojas de cálculo CSV y TSV en matrices y objetos JSON estructurados con detección automática de delimitadores."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertidor de cURL a Python Requests",
@@ -362,8 +362,8 @@
       "description": "Genera contraseñas criptográficamente fuertes."
     },
     "checksum-calculator": {
-      "name": "Calculadora de Checksum",
-      "description": "Calcula hashes (SHA-256, SHA-512, SHA-1)."
+      "name": "Calculadora de Checksum de Archivos y Texto",
+      "description": "Genera hashes criptográficos MD5, SHA-1, SHA-256 y SHA-512 para verificar la integridad de tus datos."
     },
     "hmac-generator": {
       "name": "Generador de HMAC",
@@ -378,12 +378,12 @@
       "description": "Codifica y decodifica entidades HTML."
     },
     "color-converter": {
-      "name": "Convertidor de Color",
-      "description": "Convierte entre HEX, RGB y HSL."
+      "name": "Conversor de Color y Paleta Accesible",
+      "description": "Convierte colores entre HEX, RGB, HSL, HSV y CMYK con comprobación de contraste accesible WCAG 2.1."
     },
     "case-converter": {
-      "name": "Convertidor de Mayúsculas",
-      "description": "Convierte texto entre camel, snake y kebab case."
+      "name": "Conversor de Mayúsculas y Minúsculas",
+      "description": "Transforma texto entre camelCase, snake_case, kebab-case, mayúsculas, minúsculas, Tipo Título y PascalCase."
     },
     "lorem-ipsum": {
       "name": "Generador de Lorem Ipsum",
@@ -402,8 +402,8 @@
       "description": "Convierte texto en slugs de URL limpios y amigables para SEO."
     },
     "age-calculator": {
-      "name": "Calculadora de Edad",
-      "description": "Calcula la edad exacta en años, meses, días y horas.",
+      "name": "Calculadora de Edad Exacta",
+      "description": "Calcula tu edad cronológica precisa en años, meses, días, horas y minutos con cuenta regresiva para tu próximo cumpleaños.",
       "pageSubtitle": "Calcula tu edad exacta en años, meses, días, horas y minutos, además de la cuenta atrás para tu próximo cumpleaños y tu signo del zodiaco.",
       "seoHeading": "¿Qué es una calculadora de edad?",
       "seoDescription": "Una calculadora de edad es una herramienta online gratuita que calcula tu edad exacta a partir de tu fecha de nacimiento. A diferencia de una simple resta de años, ofrece un desglose preciso en años, meses, días, horas, minutos y semanas totales. También muestra el día de la semana en que naciste, tu signo del zodiaco y los días que faltan para tu próximo cumpleaños. Es útil para rellenar formularios, documentos legales y solicitudes de visado, o simplemente para satisfacer tu curiosidad.",
@@ -494,7 +494,7 @@
     },
     "compound-interest-calculator": {
       "name": "Calculadora de Interés Compuesto",
-      "description": "Calcula el crecimiento compuesto con aportes mensuales."
+      "description": "Proyecta el crecimiento de tus inversiones según capital inicial, tasa anual, frecuencia de capitalización y aportaciones periódicas."
     },
     "loan-emi-calculator": {
       "name": "Calculadora de EMI de Préstamo",
@@ -515,6 +515,10 @@
     "image-compressor": {
       "name": "Compresor de Imágenes Online",
       "description": "Comprime imágenes JPG, PNG y WebP directamente en tu navegador con total privacidad y sin pérdida de calidad."
+    },
+    "image-format-converter": {
+      "name": "Conversor de Formato de Imágenes Online",
+      "description": "Convierte imágenes entre JPG, PNG y WebP directamente en el navegador con total privacidad y procesamiento por lotes."
     }
   },
   "DocsPage": {
@@ -545,5 +549,28 @@
     "tool": "Herramienta",
     "formActions": "Acciones del formulario",
     "primaryNavigation": "Principal"
+  },
+  "ToolUI": {
+    "base64Encoder": {
+      "aboutText": "El codificador y decodificador Base64 es una utilidad de alta velocidad para desarrolladores que convierte texto plano, cadenas Unicode y secuencias binarias en representaciones Base64 estándar RFC 4648 y viceversa. Al ejecutarse íntegramente en la memoria del navegador, garantiza total privacidad y conversión bidireccional instantánea.",
+      "feature1": "100% de privacidad en el navegador: todas las operaciones se ejecutan localmente en la memoria sin enviar datos a servidores externos",
+      "feature2": "Compatibilidad total con UTF-8 y Unicode: codifica con precisión caracteres multibyte, acentos y emojis sin pérdida de información",
+      "feature3": "Conversión bidireccional instantánea: alterne fácilmente entre los modos de codificación y decodificación con procesamiento dinámico en tiempo real",
+      "feature4": "Detección inmediata de errores y copiado al portapapeles: validación visual de cadenas Base64 con copiado en un solo clic",
+      "step1Title": "Seleccione el modo de conversión",
+      "step1Body": "Elija \"Codificar\" para serializar texto plano en Base64 o \"Decodificar\" para transformar Base64 en texto legible.",
+      "step2Title": "Escriba o pegue su contenido",
+      "step2Body": "Introduzca sus datos en el editor de origen; la herramienta procesará y actualizará el resultado de forma automática.",
+      "step3Title": "Copie el resultado generado",
+      "step3Body": "Revise la salida en el panel correspondiente y haga clic en \"Copiar\" para guardar el resultado en el portapapeles.",
+      "faq1Q": "¿Para qué se utiliza la codificación Base64?",
+      "faq1A": "Base64 es un esquema de codificación diseñado para representar datos binarios en cadenas ASCII, muy utilizado en encabezados de correo electrónico (MIME), Data URLs y cargas útiles de API.",
+      "faq2Q": "¿Esta herramienta admite caracteres Unicode y emojis?",
+      "faq2A": "Sí, nuestro conversor procesa secuencias de bytes UTF-8 de forma adecuada, preservando emojis y caracteres internacionales sin corrupción.",
+      "faq3Q": "¿Se transmiten mis datos a algún servidor remoto?",
+      "faq3A": "No, en absoluto. Todo el procesamiento se realiza localmente en su navegador mediante JavaScript del lado cliente sin transmitir datos a la red.",
+      "faq4Q": "¿Es Base64 lo mismo que el cifrado?",
+      "faq4A": "No. Base64 es un formato de representación de datos para transmisión, no un algoritmo criptográfico. No ofrece protección de seguridad ni contraseñas."
+    }
   }
 }

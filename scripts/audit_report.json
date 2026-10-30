@@ -20,6 +20,7 @@
     "html-encoder-decoder",
     "http-header-inspector-_-parser",
     "image-compressor",
+    "image-format-converter",
     "image-resizer",
     "invoice-generator",
     "json-formatter",
@@ -55,6 +56,6 @@
     "word-counter"
   ],
   "flaggedTools": [],
-  "totalScanned": 477,
+  "totalScanned": 486,
   "totalErrors": 0
 }

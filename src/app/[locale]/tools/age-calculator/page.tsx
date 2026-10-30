@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 const getZodiacSign = (month: number, day: number): string => {
   const signs = [
@@ -574,62 +575,25 @@ export default function AgeCalculatorPage() {
                 </Link>
               </div>
             </section>
-            {/* Feedback Section */}
-            <section
-              style={{
-                backgroundColor: 'var(--bg-card)',
-                border: '1px solid var(--border-color)',
-                borderRadius: '16px',
-                padding: '32px',
-                marginTop: '48px',
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: '1.25rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  marginBottom: '8px',
-                }}
-              >
-                {t('feedbackHeading')}
-              </h2>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.875rem' }}>
-                {t('feedbackDescription')}
-              </p>
-              <textarea
-                rows={4}
-                placeholder={t('feedbackPlaceholder')}
-                style={{
-                  width: '100%',
-                  backgroundColor: 'var(--bg-page)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  color: 'var(--text-main)',
-                  fontSize: '0.875rem',
-                  resize: 'none',
-                  outline: 'none',
-                  marginBottom: '16px',
-                }}
-              ></textarea>
-              <div>
-                <button
-                  style={{
-                    backgroundColor: '#059669',
-                    color: '#ffffff',
-                    fontWeight: 600,
-                    padding: '10px 24px',
-                    borderRadius: '12px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '0.875rem',
-                  }}
-                >
-                  {t('submitSuggestion')}
-                </button>
-              </div>
-            </section>
+            {/* SEO Content Section */}
+            <ToolSeoContent
+              toolSlug="age-calculator"
+              toolName={tUI('title')}
+              description={tUI('subtitle')}
+              customAbout={tUI('aboutText')}
+              customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+              customSteps={[
+                { title: tUI('step1Title'), body: tUI('step1Body') },
+                { title: tUI('step2Title'), body: tUI('step2Body') },
+                { title: tUI('step3Title'), body: tUI('step3Body') },
+              ]}
+              customFaqs={[
+                { q: tUI('faq1Q'), a: tUI('faq1A') },
+                { q: tUI('faq2Q'), a: tUI('faq2A') },
+                { q: tUI('faq3Q'), a: tUI('faq3A') },
+                { q: tUI('faq4Q'), a: tUI('faq4A') },
+              ]}
+            />
           </div>
         </div>
       </div>

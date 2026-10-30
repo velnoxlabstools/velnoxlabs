@@ -508,6 +508,10 @@
     "image-compressor": {
       "name": "Image Compressor",
       "description": "Compress JPEG, PNG, and WebP images directly in your browser with zero quality compromise."
+    },
+    "image-format-converter": {
+      "name": "Image Format Converter",
+      "description": "Convert images between JPEG, PNG, and WebP formats instantly in your browser with complete privacy."
     }
   },
   "DocsPage": {

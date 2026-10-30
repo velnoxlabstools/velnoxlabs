@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
-import { SectionHeading, FeedbackForm } from '@/components/ui';
+import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 export default function JsonFormatterPage() {
-  const t = useTranslations('Tools.json-formatter');
   const tUI = useTranslations('ToolUI.jsonFormatter');
 
   const [inputJson, setInputJson] = useState(
@@ -65,52 +65,11 @@ export default function JsonFormatterPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs JSON Formatter & Validator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Format, validate, and beautify JSON payloads instantly inside your browser with absolute client-side privacy.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to format and validate JSON online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your raw or minified JSON into the editor, click Format / Beautify to instantly fix indentation, or validate syntax errors with precise line feedback.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is my JSON data secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes! All JSON parsing and validation happens 100% client-side in your browser. Your sensitive payloads never leave your machine.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+          <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -272,97 +231,24 @@ export default function JsonFormatterPage() {
           </div>
 
           {/* ========== SEO CONTENT ========== */}
-          <div
-            style={{
-              marginTop: '48px',
-              backgroundColor: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              borderRadius: '12px',
-              padding: '32px',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: 'var(--text-main)',
-                marginBottom: '16px',
-              }}
-            >
-              {t('whatIsHeading')}
-            </h2>
-            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '24px' }}>
-              {t('whatIsText')}
-            </p>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: 'var(--text-main)',
-                marginBottom: '12px',
-                marginTop: '24px',
-              }}
-            >
-              {t('howToHeading')}
-            </h3>
-            <ul
-              style={{
-                color: 'var(--text-muted)',
-                lineHeight: 1.9,
-                paddingLeft: '20px',
-                marginBottom: '24px',
-              }}
-            >
-              <li>{t('howTo1')}</li>
-              <li>{t('howTo2')}</li>
-              <li>{t('howTo3')}</li>
-              <li>{t('howTo4')}</li>
-              <li>{t('howTo5')}</li>
-            </ul>
-
-            <h3
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 700,
-                color: 'var(--text-main)',
-                marginBottom: '16px',
-                marginTop: '24px',
-              }}
-            >
-              {t('faqHeading')}
-            </h3>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                {t('faq1Q')}
-              </h4>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('faq1A')}</p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                {t('faq2Q')}
-              </h4>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('faq2A')}</p>
-            </div>
-
-            <div style={{ marginBottom: '16px' }}>
-              <h4
-                style={{ fontSize: '1rem', fontWeight: 600, color: '#60a5fa', marginBottom: '6px' }}
-              >
-                {t('faq3Q')}
-              </h4>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('faq3A')}</p>
-            </div>
-          </div>
-
-          {/* ========== FEEDBACK FORM ========== */}
-          <FeedbackForm />
+          <ToolSeoContent
+            toolSlug="json-formatter"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

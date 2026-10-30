@@ -221,12 +221,12 @@
       "description": "生成轻量、紧凑且 URL 友好的高强度唯一 ID。"
     },
     "csp-header-builder-and-validator": {
-      "name": "CSP 安全标头构建与验证工具",
-      "description": "在线配置与验证内容安全策略 (Content Security Policy) 响应头。"
+      "name": "CSP 安全策略响应头构建与校验器",
+      "description": "可视化定制、测试并验证 Content-Security-Policy 标头，有效防御 XSS 跨站脚本与数据外泄攻击。"
     },
     "json-formatter": {
-      "name": "JSON 格式化与校验工具",
-      "description": "在线校验、高亮美化与压缩 JSON 数据。",
+      "name": "JSON 格式化与语法验证工具",
+      "description": "在浏览器中实时格式化、美化、校验与压缩 JSON 数据，纯本地运行，保护隐私。",
       "title": "JSON 格式化与校验工具",
       "subtitle": "纯浏览器端即时格式化、校验并美化 JSON 数据，绝对保护本地数据隐私。",
       "inputLabel": "JSON 输入：",
@@ -251,8 +251,8 @@
       "faq3A": "是的，本工具采用全面自适应设计，完美兼容桌面端、平板及手机浏览器。"
     },
     "image-resizer": {
-      "name": "图片尺寸调整工具",
-      "description": "纯浏览器端本地调整图片尺寸与画质压缩，免上传保私密。"
+      "name": "图片批量尺寸调整工具",
+      "description": "在浏览器中按像素或百分比自由缩放单张或多张图片，双三次插值渲染，兼顾画质与隐私。"
     },
     "invoice-generator": {
       "name": "在线发票生成器",
@@ -263,16 +263,16 @@
       "description": "快速进行文本与二进制数据的 Base64 双向编解码。"
     },
     "cron-expression-generator": {
-      "name": "Cron 表达式生成器",
-      "description": "可视化配置与人类可读中文释义的 Cron 定时任务表达式生成工具。"
+      "name": "Cron 表达式生成与自然语言解析器",
+      "description": "快速构建、解码与测试标准 5 字段及 6 字段 Cron 定时表达式，支持下次执行时间预览。"
     },
     "word-counter": {
       "name": "在线字数统计工具",
       "description": "精确统计中文字数、英文单词、字符量、段落数及预估阅读时长。"
     },
     "csv-to-json": {
-      "name": "CSV 转 JSON 工具",
-      "description": "支持自定义分隔符，秒级将 CSV 表格数据转换为标准 JSON 格式。"
+      "name": "CSV 转 JSON 格式转换工具",
+      "description": "一键将 CSV 及 TSV 表格数据转换为结构化 JSON 数组与对象，智能识别分隔符与数据类型。"
     },
     "curl-to-python-requests-converter": {
       "name": "cURL 转 Python Requests 工具",
@@ -355,8 +355,8 @@
       "description": "生成包含大小写、数字及特殊符号的高安全度密码。"
     },
     "checksum-calculator": {
-      "name": "校验和计算器 (Checksum)",
-      "description": "快速计算并核对数据的 SHA-256、SHA-512、SHA-1 校验和。"
+      "name": "文件与文本哈希校验和计算器",
+      "description": "通过本地原生硬件加速生成 MD5、SHA-1、SHA-256 和 SHA-512 校验和，快速验证文件完整性。"
     },
     "hmac-generator": {
       "name": "HMAC 签名生成器",
@@ -371,12 +371,12 @@
       "description": "双向转义与反转义 HTML 特殊字符实体。"
     },
     "color-converter": {
-      "name": "颜色格式转换工具",
-      "description": "支持 HEX、RGB、HSL 颜色数值之间的精确双向转换。"
+      "name": "专业色彩空间转换与调色盘工具",
+      "description": "在 HEX、RGB、HSL、HSV 与 CMYK 色彩空间中自由互转，并带有 WCAG 2.1 无障碍对比度测试。"
     },
     "case-converter": {
-      "name": "命名风格与大小写转换工具",
-      "description": "支持驼峰命名 (camelCase)、蛇形 (snake_case)、短横线 (kebab-case) 等命名风格互转。"
+      "name": "英文字符大小写转换工具",
+      "description": "快速在 camelCase、snake_case、kebab-case、大写、小写、标题首字母及 PascalCase 之间批量转换。"
     },
     "lorem-ipsum": {
       "name": "Lorem Ipsum 假文生成器",
@@ -395,8 +395,8 @@
       "description": "将标题或文本转换为符合 SEO 友好规范的 URL 短链别名。"
     },
     "age-calculator": {
-      "name": "精确年龄计算器",
-      "description": "精确计算您的实际周岁、月数、天数及小时数。",
+      "name": "精确年龄在线计算器",
+      "description": "精确计算周岁年龄，分解为年、月、天、小时与分钟，并带有生肖星座与下次生日倒计时。",
       "pageSubtitle": "精确计算您的实际周岁、月数、天数、小时及分钟 —— 附带下个生日倒计时与星座查询。",
       "seoHeading": "什么是年龄计算器？",
       "seoDescription": "年龄计算器是一款免费的在线工具，可根据您的出生日期精确计算实际年龄。与简单的年份相减不同，它能精细拆解出具体的年数、月数、天数、小时、分钟以及总周数，同时显示您的出生星期、所属星座以及距离下一个生日的倒计时天数。非常适合用于填写表单、法律签证申请或满足日常好奇心。",
@@ -486,8 +486,8 @@
       "description": "计算促销售价、节省金额及叠加优惠券后的最终折后价。"
     },
     "compound-interest-calculator": {
-      "name": "复利投资收益计算器",
-      "description": "模拟定期定额定投在复利增值下的长期收益回报曲线。"
+      "name": "复利投资收益测算计算器",
+      "description": "灵活模拟本金投资、年化收益率、复利计息频次与定投追加，预测长期财富增值趋势。"
     },
     "loan-emi-calculator": {
       "name": "贷款等额本息计算器",
@@ -508,6 +508,10 @@
     "image-compressor": {
       "name": "在线图片压缩工具",
       "description": "直接在浏览器中高效压缩 JPG、PNG 和 WebP 图片，零质量损失，保护个人隐私。"
+    },
+    "image-format-converter": {
+      "name": "在线图片格式转换工具",
+      "description": "在浏览器中自由转换 JPG、PNG、WebP 等图片格式，高效批量处理，完全保护隐私。"
     }
   },
   "DocsPage": {
@@ -538,5 +542,28 @@
     "tool": "工具",
     "formActions": "表单操作",
     "primaryNavigation": "主导航"
+  },
+  "ToolUI": {
+    "base64Encoder": {
+      "aboutText": "Base64编码与解码器是一款高速纯前端开发者工具，可将纯文本、Unicode字符串及二进制序列转换为符合RFC 4648标准的Base64表示形式，反之亦然。所有运算完全在浏览器内存中运行，确保数据隐私零网络泄露。",
+      "feature1": "100%浏览器本地隐私：所有编码与解码操作均在浏览器内存中完成，绝不向外部服务器传输数据",
+      "feature2": "完整UTF-8与Unicode支持：准确编码多字节Unicode字符、带重音符号的字母以及Emoji表情符号，无数据损坏",
+      "feature3": "双向实时转换：在编码（文本转Base64）与解码（Base64转文本）模式之间无缝切换，实时输出结果",
+      "feature4": "即时错误验证与剪贴板复制：直观的输入校验能够及时标记格式错误的Base64字符串，并支持一键快捷复制",
+      "step1Title": "选择转换模式",
+      "step1Body": "选择“编码”将纯文本序列化为Base64，或选择“解码”将Base64字符串还原为可读文本。",
+      "step2Title": "输入或粘贴内容",
+      "step2Body": "在源文本框中键入或粘贴内容，工具将实时自动处理并显示生成结果。",
+      "step3Title": "复制转换结果",
+      "step3Body": "在结果面板中检查生成的数据，点击“复制”按钮即可将其保存至剪贴板。",
+      "faq1Q": "Base64编码通常用于什么场景？",
+      "faq1A": "Base64是一种将二进制数据表示为ASCII文本字符串的编码方案，常用于电子邮件标头（MIME）、Data URL内联图像以及API数据传输。",
+      "faq2Q": "该工具是否支持Unicode与Emoji表情？",
+      "faq2A": "支持。我们的编码器能够精确处理UTF-8字节序列，完整保留Emoji表情、多语言字符与特殊符号，避免乱码或数据损坏。",
+      "faq3Q": "我的数据会被上传到远程服务器吗？",
+      "faq3A": "绝对不会。所有计算均通过客户端JavaScript在浏览器内部执行，任何数据都不会在网络上传输或记录到服务器。",
+      "faq4Q": "Base64等同于加密吗？",
+      "faq4A": "不等同。Base64仅是一种用于数据传输与存储的公开编码格式，并非加密算法，不具备任何保密性或密码保护功能。"
+    }
   }
 }

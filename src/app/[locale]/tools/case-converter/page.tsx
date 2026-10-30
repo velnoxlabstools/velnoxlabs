@@ -298,7 +298,24 @@ export default function CaseConverterPage() {
             {/* 👆 BUTTONS YAHAN KHATAM 👆 */}
           </div>
 
-          <ToolSeoContent toolSlug="case-converter" toolName="Case Converter" />
+          <ToolSeoContent
+            toolSlug="case-converter"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

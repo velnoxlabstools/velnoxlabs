@@ -53,55 +53,11 @@ export default function Base64EncoderPage() {
     setError('');
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Base64 Encoder & Decoder',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Encode and decode Base64 strings instantly in your browser with secure, zero-latency client-side processing.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to encode or decode Base64 online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your text or Base64 string into the input box, select Encode or Decode mode, and the result appears instantly.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Base64 tool secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Absolutely. All encoding and decoding functions are performed locally in your browser. No data is sent to our servers.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="Base64 Encoder & Decoder"
-            subtitle="Encode text to Base64 or decode Base64 strings instantly with absolute client-side privacy."
-          />
+          <SectionHeading title={t('title')} subtitle={t('subtitle')} />
 
           {/* ========== TOOL UI ========== */}
           <div
@@ -292,7 +248,24 @@ export default function Base64EncoderPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="base64-encoder" toolName="Base64 Encoder & Decoder" />
+          <ToolSeoContent
+            toolSlug="base64-encoder"
+            toolName={t('title')}
+            description={t('subtitle')}
+            customAbout={t('aboutText')}
+            customFeatures={[t('feature1'), t('feature2'), t('feature3'), t('feature4')]}
+            customSteps={[
+              { title: t('step1Title'), body: t('step1Body') },
+              { title: t('step2Title'), body: t('step2Body') },
+              { title: t('step3Title'), body: t('step3Body') },
+            ]}
+            customFaqs={[
+              { q: t('faq1Q'), a: t('faq1A') },
+              { q: t('faq2Q'), a: t('faq2A') },
+              { q: t('faq3Q'), a: t('faq3A') },
+              { q: t('faq4Q'), a: t('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>
