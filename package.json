@@ -31,6 +31,7 @@
   "dependencies": {
     "cronstrue": "^3.32.0",
     "crypto-js": "^4.2.0",
+    "jspdf": "^4.2.1",
     "jszip": "^3.10.2",
     "lucide-react": "^1.47.0",
     "next": "^15.3.0",

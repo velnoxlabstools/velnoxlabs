@@ -22,6 +22,7 @@
     "image-compressor",
     "image-format-converter",
     "image-resizer",
+    "image-to-pdf",
     "invoice-generator",
     "json-formatter",
     "json-to-go-struct-generator",
@@ -56,6 +57,6 @@
     "word-counter"
   ],
   "flaggedTools": [],
-  "totalScanned": 486,
+  "totalScanned": 495,
   "totalErrors": 0
 }

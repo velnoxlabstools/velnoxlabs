@@ -1,6 +1,22 @@
 import type { Tool, ToolCollection } from '@/types/tools';
 
 export const tools: Tool[] = [
+  {
+    id: 'tool-image-to-pdf',
+    slug: 'image-to-pdf',
+    name: 'Image to PDF Converter',
+    description: 'Convert JPG, PNG, and WebP images to high-quality PDF documents client-side.',
+    categoryId: 'cat-media',
+    tags: ['image', 'pdf', 'converter', 'jpg-to-pdf', 'png-to-pdf', 'media'],
+    status: 'published',
+    featured: true,
+    trending: true,
+    popular: true,
+    isNew: true,
+    usageCount: 250,
+    createdAt: '2026-10-31T00:00:00.000Z',
+    updatedAt: '2026-10-31T00:00:00.000Z',
+  },
   // ============ SEPTEMBER 2026 (Latest 4) ============
   {
     id: 'tool-user-agent-parser',
