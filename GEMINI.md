@@ -19,3 +19,9 @@ Refer to and strictly follow [DEVELOPMENT_RULES.md](file:///C:/Users/chouh/Downl
 
 4. **Always run `scripts/verify-all-tools.js` and `pnpm build` before committing.**
    - Ensure 0 hardcoded English strings and 0 errors across all 486+ page permutations.
+
+5. **Always follow the Sequential Execution Protocol.**
+   - Never run multiple large tasks in parallel.
+   - Always build new tools in 4 sequential steps: (1) Core UI & Logic, (2) Unique SEO Content, (3) 10-Locale Translation, (4) Verification & Build.
+   - Pause for review and approval after each step before proceeding.
+

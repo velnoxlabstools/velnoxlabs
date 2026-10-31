@@ -88,3 +88,15 @@ Before staging or committing any code:
 
 - **100% Client-Side Execution**: All processing (parsing, conversion, cryptography, image processing) must execute in the browser using Web APIs (Web Crypto, Canvas, Web Workers). No user data may leave the client.
 - **Design System Consistency**: Use standard layout components (`GlobalContainer`, `SectionHeading`) and design tokens via CSS variables (`var(--bg-card)`, `var(--text-main)`, `var(--border-color)`, `var(--space-*)`).
+
+---
+
+## 6. Sequential Execution Protocol
+Never run multiple large tasks in parallel. Always build new tools in sequential steps:
+1. **Core UI & Logic (English only)**: Component layout, interactive controls, client-side processing, register in tools catalog, verify with zero hardcoded strings in JSX. Pause for review.
+2. **Unique Technical SEO Content (English only)**: Author in-depth, specification-backed technical SEO copy (`aboutText`, exactly 4 `features`, 3 `steps`, 4 `faqs`), wire up `<ToolSeoContent>`. Pause for review.
+3. **10-Locale Translation**: Translate all UI and SEO strings into `zh`, `es`, `pt`, `de`, `fr`, `it`, `ja`, `ru`, `ko` strictly obeying language-specific loanword rules. Pause for review.
+4. **Verification & Build**: Execute `pnpm build` and run `node scripts/verify-all-tools.js` to confirm 0 compilation errors and 0 flagged errors across all permutations. Present report and pause for review.
+
+Pause for review after each step. Never proceed to subsequent steps without explicit confirmation, and never commit before completing the verification audit and receiving approval.
+
