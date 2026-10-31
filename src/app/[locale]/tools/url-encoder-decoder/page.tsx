@@ -56,54 +56,9 @@ export default function UrlEncoderDecoderPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs URL Encoder & Decoder',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
-        },
-        description:
-          'Encode and decode URLs and query parameters instantly inside your browser with secure client-side execution.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to encode or decode URLs online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your text or URL string into the input box to instantly convert it based on your selected mode.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is URL processing secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, everything is executed locally in your browser memory.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -243,7 +198,24 @@ export default function UrlEncoderDecoderPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="url-encoder-decoder" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="url-encoder-decoder"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

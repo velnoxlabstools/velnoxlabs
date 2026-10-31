@@ -75,58 +75,9 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Salary to Hourly Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'FinanceApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free salary to hourly calculator — convert annual salary to hourly, daily, weekly, biweekly, and monthly pay. Also convert hourly rate to annual salary.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How do I convert salary to hourly?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Divide your annual salary by the total hours you work per year. For a standard 40-hour workweek with 52 weeks, that's 2,080 hours. Example: $60,000 ÷ 2,080 = $28.85/hour.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How many work hours are in a year?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "A standard full-time year is 2,080 hours (40 hours/week × 52 weeks). If you get 2 weeks paid vacation, it's still 2,080 because vacation is paid. If you work 50 weeks (2 unpaid weeks off), it's 2,000 hours.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Salary to Hourly Calculator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Salary to Hourly Calculator is 100% free with no sign-up required. All calculations happen in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -310,7 +261,24 @@ Based on ${hoursPerWeek} hrs/week × ${weeksPerYear} weeks/year`;
             </button>
           </div>
 
-          <ToolSeoContent toolSlug="salary-to-hourly-calculator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="salary-to-hourly-calculator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

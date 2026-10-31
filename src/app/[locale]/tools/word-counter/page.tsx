@@ -127,58 +127,9 @@ ${tUI('speakingTime')}: ${formatTime(stats.speakingTimeMinutes, tUI('sec'), tUI(
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Word Counter',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online word counter — count words, characters, sentences, paragraphs, and reading time in real time. Includes keyword density analysis.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How do I count words in a document?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste or type your text into the box and the word count updates instantly. It also shows characters, sentences, paragraphs, and reading time.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How long does it take to read 1000 words?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'At an average reading speed of 225 words per minute, 1000 words takes about 4 minutes 27 seconds to read silently. Speaking takes longer — around 6-7 minutes at 150 wpm.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this Word Counter free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Word Counter is 100% free with no sign-up required. All counting happens in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -536,7 +487,24 @@ ${tUI('speakingTime')}: ${formatTime(stats.speakingTimeMinutes, tUI('sec'), tUI(
             )}
           </div>
 
-          <ToolSeoContent toolSlug="word-counter" toolName="Word Counter" />
+          <ToolSeoContent
+            toolSlug="word-counter"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

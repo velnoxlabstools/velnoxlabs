@@ -95,63 +95,11 @@ ${t('healthyRangeLabel')}: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${h
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs BMI Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'HealthApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online BMI calculator — calculate your Body Mass Index in metric (kg/cm) or imperial (lbs/ft) units. See your BMI category and healthy weight range instantly.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'What is a healthy BMI?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'For most adults, a healthy BMI range is 18.5 to 24.9. Below 18.5 is underweight, 25-29.9 is overweight, and 30+ is considered obese.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How is BMI calculated?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'BMI = weight (kg) ÷ height (m)². In imperial units, BMI = 703 × weight (lbs) ÷ height (in)².',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is BMI accurate for everyone?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'BMI is a general screening tool. It may not be accurate for athletes with high muscle mass, pregnant women, elderly adults, or children. Consult a doctor for personalized health advice.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-          <SectionHeading
-            title="BMI Calculator"
-            subtitle="Calculate your Body Mass Index (BMI) in metric or imperial units and see your healthy weight range."
-          />
+          <SectionHeading title={t('title')} subtitle={t('subtitle')} />
 
           <div
             style={{
@@ -538,7 +486,24 @@ ${t('healthyRangeLabel')}: ${unit === 'metric' ? `${healthyMin.toFixed(1)} - ${h
             )}
           </div>
 
-          <ToolSeoContent toolSlug="bmi-calculator" toolName="BMI Calculator" />
+          <ToolSeoContent
+            toolSlug="bmi-calculator"
+            toolName={t('title')}
+            description={t('subtitle')}
+            customAbout={t('aboutText')}
+            customFeatures={[t('feature1'), t('feature2'), t('feature3'), t('feature4')]}
+            customSteps={[
+              { title: t('step1Title'), body: t('step1Body') },
+              { title: t('step2Title'), body: t('step2Body') },
+              { title: t('step3Title'), body: t('step3Body') },
+            ]}
+            customFaqs={[
+              { q: t('faq1Q'), a: t('faq1A') },
+              { q: t('faq2Q'), a: t('faq2A') },
+              { q: t('faq3Q'), a: t('faq3A') },
+              { q: t('faq4Q'), a: t('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

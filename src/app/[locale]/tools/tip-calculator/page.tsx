@@ -44,58 +44,9 @@ ${tUI('splitBetweenLabel', {
 
   const tipOptions = [10, 15, 18, 20, 25];
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Tip Calculator',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online tip calculator — calculate restaurant tips, split bills between friends, and see total cost instantly. Supports 10%, 15%, 18%, 20%, 25% tips and custom amounts.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How much should I tip at a restaurant?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'In the United States, the standard tip is 15% to 20% for good service, 18% for average, and 20%+ for excellent service. For takeout, 10% is common.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How do I split the bill?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Enter the total bill, select tip percentage, and enter the number of people. The calculator divides the total (bill + tip) evenly between everyone.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is the Tip Calculator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Tip Calculator is 100% free with no sign-up required. All calculations happen in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -481,7 +432,24 @@ ${tUI('splitBetweenLabel', {
             </button>
           </div>
 
-          <ToolSeoContent toolSlug="tip-calculator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="tip-calculator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

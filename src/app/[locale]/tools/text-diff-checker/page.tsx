@@ -99,50 +99,9 @@ export default function TextDiffCheckerPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Text Diff Checker',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Compare two blocks of text or code snippets to find differences instantly inside your browser.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to compare text differences online?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Paste your original and modified text blocks into the respective boxes to inspect changes instantly.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is text comparison secure?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, 100% client-side processing ensuring your data never leaves your device.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -332,7 +291,24 @@ export default function TextDiffCheckerPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="text-diff-checker" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="text-diff-checker"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

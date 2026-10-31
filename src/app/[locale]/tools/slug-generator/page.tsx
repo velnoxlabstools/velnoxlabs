@@ -98,58 +98,9 @@ export default function SlugGeneratorPage() {
     'The Ultimate Guide to SEO in 2024',
   ];
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Slug Generator',
-        operatingSystem: 'All',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Free online slug generator — convert any text into clean URL-friendly slugs for blogs, SEO, and websites. Supports custom separators, case options, and stop word removal.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'What is a slug?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'A slug is the URL-friendly version of a title or heading. It uses lowercase letters, hyphens or underscores instead of spaces, and removes special characters. Example: "Hello World" becomes "hello-world".',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Why are slugs important for SEO?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Descriptive slugs improve SEO by giving search engines and users a clear idea of what a page is about. They also make URLs more shareable and easier to remember.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is this slug generator free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Slug Generator is 100% free with no sign-up required. All processing runs in your browser.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -430,7 +381,24 @@ export default function SlugGeneratorPage() {
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="slug-generator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="slug-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>

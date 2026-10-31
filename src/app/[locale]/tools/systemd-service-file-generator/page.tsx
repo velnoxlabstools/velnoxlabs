@@ -152,50 +152,9 @@ WantedBy=multi-user.target`;
     URL.revokeObjectURL(url);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Systemd Service File Generator',
-        operatingSystem: 'Linux',
-        applicationCategory: 'DeveloperApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Generate production-ready systemd .service files for Linux applications in seconds. Supports Node.js, Python, Go, and any executable.',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How to create a systemd service file?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Enter key=value pairs like name, description, exec, user, workdir, and restart. The tool generates a ready-to-use .service file that you can copy or download.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Where do systemd service files go?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Custom systemd service files are typically placed in /etc/systemd/system/ or /usr/lib/systemd/system/. After adding one, run: systemctl daemon-reload && systemctl enable --now your-service.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
-      <GlobalContainer maxWidth="2xl">
+<GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
@@ -403,7 +362,24 @@ WantedBy=multi-user.target`;
             </div>
           </div>
 
-          <ToolSeoContent toolSlug="systemd-service-file-generator" toolName={tUI('title')} />
+          <ToolSeoContent
+            toolSlug="systemd-service-file-generator"
+            toolName={tUI('title')}
+            description={tUI('subtitle')}
+            customAbout={tUI('aboutText')}
+            customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
+            customSteps={[
+              { title: tUI('step1Title'), body: tUI('step1Body') },
+              { title: tUI('step2Title'), body: tUI('step2Body') },
+              { title: tUI('step3Title'), body: tUI('step3Body') },
+            ]}
+            customFaqs={[
+              { q: tUI('faq1Q'), a: tUI('faq1A') },
+              { q: tUI('faq2Q'), a: tUI('faq2A') },
+              { q: tUI('faq3Q'), a: tUI('faq3A') },
+              { q: tUI('faq4Q'), a: tUI('faq4A') },
+            ]}
+          />
         </div>
       </GlobalContainer>
     </>
