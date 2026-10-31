@@ -79,6 +79,10 @@
       "shopping": {
         "name": "Compras",
         "description": "Calculadoras de descuentos y precios."
+      },
+      "media": {
+        "name": "Multimedia",
+        "description": "Herramientas de procesamiento de imágenes y multimedia."
       }
     }
   },
@@ -519,6 +523,18 @@
     "image-format-converter": {
       "name": "Conversor de Formato de Imágenes Online",
       "description": "Convierte imágenes entre JPG, PNG y WebP directamente en el navegador con total privacidad y procesamiento por lotes."
+    },
+    "image-cropper": {
+      "name": "Recortador de Imágenes",
+      "description": "Recorta imágenes JPG, PNG y WebP a proporciones exactas o tamaños personalizados en tu navegador."
+    },
+    "image-to-pdf": {
+      "name": "Convertidor de Imágenes a PDF",
+      "description": "Convierte imágenes JPG, PNG y WebP en un único documento PDF profesional de alta calidad en tu navegador."
+    },
+    "fancy-text-generator": {
+      "name": "Generador de Texto Elegante",
+      "description": "Transforma texto normal en estilos Unicode para biografías de Instagram, Discord, Twitter y nombres de juegos."
     }
   },
   "DocsPage": {
@@ -1586,6 +1602,56 @@
       "faq3A": "Al seleccionar recorte circular, se fija una proporción cuadrada 1:1 y se aplica una máscara de trazado circular en Canvas (ctx.arc() y ctx.clip()). Al guardarlo en PNG o WebP, el área fuera del círculo queda totalmente transparente.",
       "faq4Q": "¿Qué formatos de exportación se admiten y cómo se gestiona la transparencia?",
       "faq4A": "Puedes exportar en PNG, JPEG y WebP. PNG y WebP conservan íntegramente la transparencia alfa, mientras que JPEG rellena automáticamente las zonas transparentes con fondo blanco puro."
+    },
+    "fancyTextGenerator": {
+      "title": "Generador de Texto Elegante",
+      "subtitle": "Transforma texto normal en estilos Unicode para biografías de Instagram, Discord, Twitter y nombres de juegos.",
+      "inputLabel": "Escribe o pega tu texto:",
+      "inputPlaceholder": "Escribe algo con estilo aquí...",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "clear": "Borrar",
+      "sampleText": "Texto Elegante VelnoxLabs",
+      "characterCount": "Caracteres",
+      "wordCount": "Palabras",
+      "copyAll": "Copiar todos los estilos",
+      "allCopied": "¡Todo copiado!",
+      "styleBold": "Negrita (Matemática)",
+      "styleItalic": "Cursiva",
+      "styleBoldItalic": "Negrita cursiva",
+      "styleScript": "Manuscrita / Cursiva",
+      "styleBoldScript": "Manuscrita en negrita",
+      "styleFraktur": "Gótica / Fraktur",
+      "styleBoldFraktur": "Gótica en negrita",
+      "styleDoubleStruck": "Doble trazo (Pizarra)",
+      "styleSans": "Sans-Serif",
+      "styleMonospace": "Monoespaciado / Código",
+      "styleCircled": "Circulado / Burbuja",
+      "styleSmallCaps": "Versalitas",
+      "styleStrikethrough": "Tachado",
+      "styleUnderline": "Subrayado",
+      "styleInverted": "Invertido (Boca abajo)",
+      "styleFullwidth": "Ancho completo (Vaporwave)",
+      "styleSquared": "Cuadrado (Cajas)",
+      "aboutText": "El Generador de Texto Elegante es una utilidad tipográfica que procesa texto ASCII estándar directamente en el navegador y lo transforma en glifos Unicode estilizados, ideales para biografías en redes sociales, perfiles de videojuegos y aplicaciones de mensajería. Mediante matrices de mapeo basadas en el estándar Unicode (incluyendo los bloques de símbolos alfanuméricos matemáticos U+1D400–U+1D7FF, símbolos de tipo carta U+2100–U+214F y alfanuméricos encerrados U+2460–U+24FF), el convertidor reasigna letras ordinarias a estilos como negrita matemática, cursiva manuscrita, gótica fraktur, doble trazo y caracteres rodeados por círculos. A diferencia de las fuentes tradicionales que requieren instalación local o archivos CSS externos, estas cadenas estilizadas son puntos de código Unicode universales renderizados de manera nativa por cualquier sistema operativo, navegador y dispositivo móvil moderno. Todo el procesamiento se realiza en la memoria local del navegador sin peticiones a servidores externos, garantizando inmediatez y confidencialidad absoluta.",
+      "feature1": "Compatibilidad Unicode universal: Genera glifos basados en el estándar Unicode 15.1 que se visualizan de manera nativa en iOS, Android, macOS, Windows y Linux.",
+      "feature2": "Transformaciones alfanuméricas matemáticas: Asigna caracteres estándar a estilos matemáticos en negrita, cursiva manuscrita, gótica fraktur, monoespaciado y doble trazo.",
+      "feature3": "Superposición diacrítica: Emplea marcas diacríticas combinables (U+0336 para tachado y U+0332 para subrayado) creando efectos visuales compuestos en tiempo real.",
+      "feature4": "Procesamiento local inmediato y privacidad: Todas las matrices de sustitución y acciones de portapapeles se ejecutan en la memoria del cliente sin transferencia de datos.",
+      "step1Title": "Escribe o pega tu texto",
+      "step1Body": "Introduce o pega el contenido en el campo superior; los contadores de caracteres y palabras se actualizarán en tiempo real.",
+      "step2Title": "Explora las variantes tipográficas",
+      "step2Body": "Desplázate por la lista de más de 17 estilos generados automáticamente, incluyendo negrita, gótica, versalitas y burbuja.",
+      "step3Title": "Copia y comparte en cualquier plataforma",
+      "step3Body": "Haz clic en el botón Copiar junto al estilo deseado para guardarlo en el portapapeles y pégalo directamente en Instagram, Twitter o videojuegos.",
+      "faq1Q": "¿Por qué estos estilos tipográficos funcionan en redes sociales sin instalar fuentes?",
+      "faq1A": "No son archivos tipográficos (.ttf o .woff), sino puntos de código de caracteres legítimos definidos en el estándar Unicode internacional. Como las plataformas actuales admiten Unicode universal, muestran estos caracteres de forma nativa sin requerir software adicional.",
+      "faq2Q": "¿Existen limitaciones de accesibilidad o compatibilidad con lectores de pantalla?",
+      "faq2A": "Aunque prácticamente todos los dispositivos modernos muestran los símbolos correctamente, los lectores de pantalla para personas con discapacidad visual pueden leer los caracteres matemáticos por su denominación técnica. Por accesibilidad, es recomendable utilizarlos para apodos, biografías y títulos cortos.",
+      "faq3Q": "¿El texto que introduzco se envía o almacena en algún servidor externo?",
+      "faq3A": "No. Todo el proceso de transformación se ejecuta íntegramente en tu navegador mediante funciones JavaScript de mapeo de códigos de caracteres. Ninguna pulsación ni texto se transmite por la red.",
+      "faq4Q": "¿Puedo usar estos textos estilizados en perfiles de videojuegos como Discord, Steam o Minecraft?",
+      "faq4A": "Sí. La mayoría de redes y plataformas de videojuegos actuales admiten codificación UTF-8 completa. Simplemente copia el estilo que prefieras y pégalo en tu perfil o nombre de usuario."
     }
   }
 }

@@ -2,6 +2,22 @@ import type { Tool, ToolCollection } from '@/types/tools';
 
 export const tools: Tool[] = [
   {
+    id: 'tool-fancy-text-generator',
+    slug: 'fancy-text-generator',
+    name: 'Fancy Text Generator',
+    description: 'Transform normal text into stylish Unicode fonts for Instagram, Twitter, Discord, and social bios.',
+    categoryId: 'cat-text',
+    tags: ['text', 'fancy', 'unicode', 'fonts', 'stylish-text', 'bio'],
+    status: 'published',
+    featured: true,
+    trending: true,
+    popular: true,
+    isNew: true,
+    usageCount: 450,
+    createdAt: '2026-10-31T00:00:00.000Z',
+    updatedAt: '2026-10-31T00:00:00.000Z',
+  },
+  {
     id: 'tool-image-cropper',
     slug: 'image-cropper',
     name: 'Image Cropper',

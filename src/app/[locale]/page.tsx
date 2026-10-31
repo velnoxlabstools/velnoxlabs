@@ -6,6 +6,7 @@ import { tools } from '@/data/tools';
 export default async function Home() {
   const t = await getTranslations('HomePage');
   const tTools = await getTranslations('Tools');
+  const tToolUI = await getTranslations('ToolUI');
   const tCategories = await getTranslations('Categories');
   const publishedTools = tools.filter((tool) => tool.status === 'published');
 
@@ -17,10 +18,17 @@ export default async function Home() {
 
   // Helper: get translated category name
   const getCategoryName = (catId: string) => {
-    const key = catId.replace('cat-', '');
+    let key = catId.replace('cat-', '');
+    if (key === 'media') key = 'image';
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tCategories(`categories.${key}.name` as any);
+      if (tCategories.has(`categories.${key}.name` as any)) {
+        return tCategories(`categories.${key}.name` as any);
+      }
+      const rawKey = catId.replace('cat-', '');
+      if (tCategories.has(`categories.${rawKey}.name` as any)) {
+        return tCategories(`categories.${rawKey}.name` as any);
+      }
+      return key.charAt(0).toUpperCase() + key.slice(1);
     } catch {
       return catId;
     }
@@ -29,8 +37,17 @@ export default async function Home() {
   // Helper: get translated tool name
   const getToolName = (slug: string, fallback: string) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tTools(`${slug}.name` as any);
+      if (tTools.has(`${slug}.name` as any)) {
+        return tTools(`${slug}.name` as any);
+      }
+      if (tTools.has(`${slug}.title` as any)) {
+        return tTools(`${slug}.title` as any);
+      }
+      const camelSlug = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.title` as any)) {
+        return tToolUI(`${camelSlug}.title` as any);
+      }
+      return fallback;
     } catch {
       return fallback;
     }
@@ -39,8 +56,17 @@ export default async function Home() {
   // Helper: get translated tool description
   const getToolDesc = (slug: string, fallback: string) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tTools(`${slug}.description` as any);
+      if (tTools.has(`${slug}.description` as any)) {
+        return tTools(`${slug}.description` as any);
+      }
+      if (tTools.has(`${slug}.subtitle` as any)) {
+        return tTools(`${slug}.subtitle` as any);
+      }
+      const camelSlug = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.subtitle` as any)) {
+        return tToolUI(`${camelSlug}.subtitle` as any);
+      }
+      return fallback;
     } catch {
       return fallback;
     }

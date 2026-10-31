@@ -79,6 +79,10 @@
       "shopping": {
         "name": "Shopping",
         "description": "Discount and price calculators."
+      },
+      "media": {
+        "name": "Media",
+        "description": "Image and media processing tools."
       }
     }
   },
@@ -512,6 +516,18 @@
     "image-format-converter": {
       "name": "Image Format Converter",
       "description": "Convert images between JPEG, PNG, and WebP formats instantly in your browser with complete privacy."
+    },
+    "image-cropper": {
+      "name": "Image Cropper",
+      "description": "Crop JPG, PNG, and WebP images to exact aspect ratios or custom dimensions client-side."
+    },
+    "image-to-pdf": {
+      "name": "Image to PDF Converter",
+      "description": "Convert JPG, PNG, and WebP images into a single clean PDF document client-side."
+    },
+    "fancy-text-generator": {
+      "name": "Fancy Text Generator",
+      "description": "Convert plain text into stylish Unicode fonts for Instagram bios, Discord, Twitter, and gaming handles."
     }
   },
   "DocsPage": {
@@ -1494,6 +1510,56 @@
       "faq3A": "When Circle Crop is selected, the tool enforces a 1:1 square aspect ratio and utilizes a 2D canvas clipping path (ctx.arc() and ctx.clip()) to mask the crop boundary into a circle. Exporting as PNG or WebP maintains transparency outside the circular perimeter.",
       "faq4Q": "What export formats are supported and how is transparency handled?",
       "faq4A": "You can export cropped images in PNG, JPEG, or WebP formats. PNG and WebP fully preserve alpha transparency (ideal for circular avatars and graphics with transparent backgrounds), while JPEG automatically flattens transparent pixels over a solid white background."
+    },
+    "fancyTextGenerator": {
+      "title": "Fancy Text Generator",
+      "subtitle": "Convert plain text into stylish Unicode fonts for Instagram bios, Discord, Twitter, and gaming handles.",
+      "inputLabel": "Enter or paste your text:",
+      "inputPlaceholder": "Type something stylish here...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "clear": "Clear",
+      "sampleText": "VelnoxLabs Fancy Text",
+      "characterCount": "Characters",
+      "wordCount": "Words",
+      "copyAll": "Copy All Styles",
+      "allCopied": "All Copied!",
+      "styleBold": "Bold (Math Sans)",
+      "styleItalic": "Italic",
+      "styleBoldItalic": "Bold Italic",
+      "styleScript": "Script / Cursive",
+      "styleBoldScript": "Bold Script",
+      "styleFraktur": "Fraktur / Gothic",
+      "styleBoldFraktur": "Bold Fraktur",
+      "styleDoubleStruck": "Double-Struck (Blackboard)",
+      "styleSans": "Sans-Serif",
+      "styleMonospace": "Monospace / Code",
+      "styleCircled": "Circled / Bubble",
+      "styleSmallCaps": "Small Capitals",
+      "styleStrikethrough": "Strikethrough",
+      "styleUnderline": "Underline",
+      "styleInverted": "Upside Down (Inverted)",
+      "styleFullwidth": "Fullwidth (Vaporwave)",
+      "styleSquared": "Squared (Boxes)",
+      "aboutText": "The Fancy Text Generator is a client-side typography utility engineered to transform standard ASCII text into stylized Unicode glyphs suitable for social media bios, gaming handles, messaging apps, and online profiles. Utilizing character mapping algorithms across the Unicode Standard (including the Mathematical Alphanumeric Symbols block U+1D400–U+1D7FF, Letterlike Symbols U+2100–U+214F, and Enclosed Alphanumerics U+2460–U+24FF), the generator translates plain letters into mathematical bold, script cursive, fraktur gothic, double-struck blackboard, and circled bubble text. Unlike custom system fonts that require local installation or external CSS stylesheets, these stylized outputs consist of universal Unicode codepoints rendered natively by any modern operating system, web browser, and mobile device. The entire transformation executes in local browser memory without server API requests, providing instantaneous conversion and complete privacy.",
+      "feature1": "Universal Unicode Compatibility: Generates cross-platform glyphs from the Unicode 15.1 standard that render natively across iOS, Android, macOS, Windows, and Linux.",
+      "feature2": "Mathematical Alphanumeric Transformations: Maps standard characters into Mathematical Bold, Script Cursive, Fraktur Gothic, Monospace, and Double-Struck Blackboard styles.",
+      "feature3": "Diacritical Stacking & Diacritic Shading: Employs combining diacritical marks (U+0336 for strikethrough, U+0332 for underline) to generate real-time composite decorative effects.",
+      "feature4": "Instantaneous Local Processing & Privacy: All character translation matrices and clipboard operations execute in client memory with zero server transmission.",
+      "step1Title": "Enter or Paste Text",
+      "step1Body": "Type or paste your text into the input field above. The character and word counters will update in real time.",
+      "step2Title": "Browse Stylized Variations",
+      "step2Body": "Scroll through the list of 17+ automatically generated Unicode styles, including Bold, Script, Gothic, Bubble, and Small Caps.",
+      "step3Title": "Copy & Paste Everywhere",
+      "step3Body": "Click the Copy button next to your favorite style to save it to your clipboard, then paste it directly into Instagram, Twitter, Discord, or games.",
+      "faq1Q": "Why do these fancy fonts work on social media platforms without installing custom fonts?",
+      "faq1A": "These are not actual font files (.ttf or .woff), but legitimate Unicode character codepoints defined in international standards (such as the Mathematical Alphanumeric Symbols block). Because modern operating systems and platforms (Instagram, Twitter, Discord, TikTok) support universal Unicode, they render these distinct characters natively without extra software.",
+      "faq2Q": "Are there any compatibility limitations with older devices or screen readers?",
+      "faq2A": "While almost all modern smartphones and computers display Unicode symbols correctly, screen readers for visually impaired users may announce mathematical characters by their technical names (e.g., 'Mathematical Bold Capital A'). For accessibility, we recommend using decorative styles for usernames, bios, and short titles rather than long bodies of essential text.",
+      "faq3Q": "Is my typed text transmitted to or stored on any external server?",
+      "faq3A": "No. The entire transformation is computed entirely in your browser using local JavaScript character-code mapping functions. No keystrokes or text inputs are ever sent over the internet.",
+      "faq4Q": "Can I use these stylized fonts for gaming handles (Steam, Discord, Roblox)?",
+      "faq4A": "Yes! Most modern games and gaming networks (including Discord, Steam, Roblox, and Minecraft) fully support UTF-8 encoded text. Simply copy the generated style and paste it directly into your username or profile settings."
     }
   }
 }

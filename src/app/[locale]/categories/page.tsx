@@ -6,6 +6,7 @@ import { tools } from '@/data/tools';
 export default async function CategoriesPage() {
   const t = await getTranslations('Categories');
   const tTools = await getTranslations('Tools');
+  const tToolUI = await getTranslations('ToolUI');
   const publishedTools = tools.filter((t) => t.status === 'published');
 
   // Group tools by category
@@ -25,6 +26,7 @@ export default async function CategoriesPage() {
     'cat-text': '📝',
     'cat-converters': '🔄',
     'cat-image': '🖼️',
+    'cat-media': '🖼️',
     'cat-utility': '🧰',
     'cat-finance': '💰',
     'cat-education': '🎓',
@@ -34,20 +36,34 @@ export default async function CategoriesPage() {
   };
 
   const getCategoryName = (catId: string) => {
-    const key = catId.replace('cat-', '');
+    let key = catId.replace('cat-', '');
+    if (key === 'media') key = 'image';
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return t(`categories.${key}.name` as any);
+      if (t.has(`categories.${key}.name` as any)) {
+        return t(`categories.${key}.name` as any);
+      }
+      const rawKey = catId.replace('cat-', '');
+      if (t.has(`categories.${rawKey}.name` as any)) {
+        return t(`categories.${rawKey}.name` as any);
+      }
+      return key.charAt(0).toUpperCase() + key.slice(1);
     } catch {
       return catId;
     }
   };
 
   const getCategoryDesc = (catId: string) => {
-    const key = catId.replace('cat-', '');
+    let key = catId.replace('cat-', '');
+    if (key === 'media') key = 'image';
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return t(`categories.${key}.description` as any);
+      if (t.has(`categories.${key}.description` as any)) {
+        return t(`categories.${key}.description` as any);
+      }
+      const rawKey = catId.replace('cat-', '');
+      if (t.has(`categories.${rawKey}.description` as any)) {
+        return t(`categories.${rawKey}.description` as any);
+      }
+      return '';
     } catch {
       return '';
     }
@@ -56,8 +72,17 @@ export default async function CategoriesPage() {
   // Helper: get translated tool name
   const getToolName = (slug: string, fallback: string) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tTools(`${slug}.name` as any);
+      if (tTools.has(`${slug}.name` as any)) {
+        return tTools(`${slug}.name` as any);
+      }
+      if (tTools.has(`${slug}.title` as any)) {
+        return tTools(`${slug}.title` as any);
+      }
+      const camelSlug = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.title` as any)) {
+        return tToolUI(`${camelSlug}.title` as any);
+      }
+      return fallback;
     } catch {
       return fallback;
     }
@@ -66,8 +91,17 @@ export default async function CategoriesPage() {
   // Helper: get translated tool description
   const getToolDesc = (slug: string, fallback: string) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tTools(`${slug}.description` as any);
+      if (tTools.has(`${slug}.description` as any)) {
+        return tTools(`${slug}.description` as any);
+      }
+      if (tTools.has(`${slug}.subtitle` as any)) {
+        return tTools(`${slug}.subtitle` as any);
+      }
+      const camelSlug = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.subtitle` as any)) {
+        return tToolUI(`${camelSlug}.subtitle` as any);
+      }
+      return fallback;
     } catch {
       return fallback;
     }

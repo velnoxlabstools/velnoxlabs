@@ -79,6 +79,10 @@
       "shopping": {
         "name": "Acquisti",
         "description": "Calcolatrici di sconti e prezzi."
+      },
+      "media": {
+        "name": "Media",
+        "description": "Elaborazione di immagini e media."
       }
     }
   },
@@ -519,6 +523,18 @@
     "image-format-converter": {
       "name": "Convertitore di Formato Immagini Online",
       "description": "Converti immagini tra JPG, PNG e WebP direttamente nel browser con massima privacy ed elaborazione in serie."
+    },
+    "image-cropper": {
+      "name": "Strumento Ritaglia Immagini",
+      "description": "Ritaglia immagini JPG, PNG e WebP in proporzioni esatte o dimensioni personalizzate direttamente nel browser."
+    },
+    "image-to-pdf": {
+      "name": "Convertitore da Immagini a PDF",
+      "description": "Converti immagini JPG, PNG e WebP in un unico documento PDF professionale ad alta definizione direttamente nel browser."
+    },
+    "fancy-text-generator": {
+      "name": "Generatore di Testo Elegante",
+      "description": "Trasforma il testo semplice in stili Unicode per biografie di Instagram, Discord, Twitter e nickname per videogiochi."
     }
   },
   "DocsPage": {
@@ -1586,6 +1602,56 @@
       "faq3A": "Con il ritaglio circolare viene applicata una proporzione quadrata 1:1 e un tracciato di ritaglio circolare in Canvas (arc() e clip()). Salvando in PNG o WebP, l'esterno del cerchio rimane perfettamente trasparente.",
       "faq4Q": "Quali tipi di file posso salvare e come viene gestita la trasparenza?",
       "faq4A": "Puoi salvare in PNG, JPEG o WebP. PNG e WebP conservano integralmente la trasparenza alfa, mentre il formato JPEG converte le parti trasparenti su fondo bianco uniforme."
+    },
+    "fancyTextGenerator": {
+      "title": "Generatore di Testo Elegante",
+      "subtitle": "Trasforma il testo semplice in stili Unicode per biografie di Instagram, Discord, Twitter e nickname per videogiochi.",
+      "inputLabel": "Scrivi o incolla il tuo testo:",
+      "inputPlaceholder": "Scrivi qualcosa di elegante qui...",
+      "copy": "Copia",
+      "copied": "Copiato!",
+      "clear": "Cancella",
+      "sampleText": "Testo Elegante VelnoxLabs",
+      "characterCount": "Caratteri",
+      "wordCount": "Parole",
+      "copyAll": "Copia tutti gli stili",
+      "allCopied": "Tutto copiato!",
+      "styleBold": "Grassetto (Matematico)",
+      "styleItalic": "Corsivo",
+      "styleBoldItalic": "Grassetto corsivo",
+      "styleScript": "Calligrafico / Corsivo",
+      "styleBoldScript": "Calligrafico in grassetto",
+      "styleFraktur": "Gotico / Fraktur",
+      "styleBoldFraktur": "Gotico in grassetto",
+      "styleDoubleStruck": "Doppio tratto (Lavagna)",
+      "styleSans": "Sans-Serif",
+      "styleMonospace": "Monospazio / Codice",
+      "styleCircled": "Circolare / Bolla",
+      "styleSmallCaps": "Maiuscoletto",
+      "styleStrikethrough": "Barrato",
+      "styleUnderline": "Sottolineato",
+      "styleInverted": "Capovolto (Sottosopra)",
+      "styleFullwidth": "Larghezza intera (Vaporwave)",
+      "styleSquared": "Riquadrato (Scatole)",
+      "aboutText": "Il Generatore di Testo Elegante è uno strumento tipografico che opera interamente nel browser client-side per trasformare sequenze ASCII standard in glifi Unicode stilizzati, ideali per biografie social, nickname da gaming e app di messaggistica. Tramite matrici di mappatura basate sullo standard Unicode (inclusi i blocchi Simboli Alfanumerici Matematici U+1D400–U+1D7FF, Simboli Simili a Lettere U+2100–U+214F e Alfanumerici Racchiusi U+2460–U+24FF), l'applicazione converte i normali caratteri in grassetto matematico, corsivo calligrafico, gotico fraktur, doppio tratto e simboli cerchiati. A differenza dei file tipografici che necessitano di installazione o fogli di stile CSS, queste composizioni sono punti di codice Unicode universali visualizzati nativamente da qualsiasi sistema operativo, browser e smartphone moderno. L'intera elaborazione avviene nella memoria locale senza alcuna chiamata API verso server esterni, garantendo rapidità istantanea e totale riservatezza.",
+      "feature1": "Compatibilità Unicode universale: Genera glifi basati sullo standard Unicode 15.1 visibili nativamente su iOS, Android, macOS, Windows e Linux.",
+      "feature2": "Trasformazioni alfanumeriche matematiche: Mappa caratteri standard in grassetto matematico, corsivo calligrafico, gotico fraktur, monospazio e doppio tratto.",
+      "feature3": "Segni diacritici combinabili: Sfrutta segni diacritici combinati (U+0336 per il barrato e U+0332 per la sottolineatura) per creare effetti grafici in tempo reale.",
+      "feature4": "Elaborazione locale istantanea e privacy: Tutte le conversioni e le operazioni con gli appunti si svolgono nella memoria del client senza trasmissione di dati.",
+      "step1Title": "Scrivi o incolla il testo",
+      "step1Body": "Inserisci o incolla le parole nel campo in alto; i contatori di caratteri e parole si aggiorneranno in tempo reale.",
+      "step2Title": "Sfoglia le varianti stilistiche",
+      "step2Body": "Scorri l'elenco con oltre 17 stili creati istantaneamente, tra cui grassetto, gotico, maiuscoletto e caratteri cerchiati.",
+      "step3Title": "Copia e utilizza ovunque",
+      "step3Body": "Fai clic sul pulsante Copia accanto allo stile prescelto per memorizzarlo negli appunti e incollalo su Instagram, Twitter o nei tuoi giochi.",
+      "faq1Q": "Perché questi stili funzionano sui social network senza installare caratteri speciali?",
+      "faq1A": "Non si tratta di file di font (.ttf o .woff), bensì di punti di codice definiti nello standard internazionale Unicode. Poiché le piattaforme e i sistemi operativi attuali supportano Unicode in modo universale, riconoscono e mostrano questi glifi in modo nativo.",
+      "faq2Q": "Ci sono limitazioni per l'accessibilità o con i lettori vocali?",
+      "faq2A": "Sebbene tutti i dispositivi moderni supportino visivamente questi simboli, i software di lettura vocale per utenti non vedenti possono pronunciare i simboli matematici con le loro descrizioni tecniche. Per preservare l'accessibilità, è consigliabile impiegarli per nickname, biografie e brevi titoli.",
+      "faq3Q": "Il testo inserito viene inviato o memorizzato su server remoti?",
+      "faq3A": "No. La conversione viene eseguita per intero nel browser locale tramite funzioni JavaScript di mappatura. Nessun testo né sequenza di digitazione lascia il dispositivo.",
+      "faq4Q": "Posso usare questi stili nei profili gaming come Discord, Steam o Minecraft?",
+      "faq4A": "Certamente. La maggior parte dei giochi e delle piattaforme di comunicazione supporta pienamente la codifica UTF-8. È sufficiente copiare lo stile preferito e incollarlo direttamente nelle impostazioni del profilo o del nickname."
     }
   }
 }

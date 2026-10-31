@@ -6,13 +6,23 @@ import { tools } from '@/data/tools';
 export default async function ToolsPage() {
   const t = await getTranslations('ToolsPage');
   const tTools = await getTranslations('Tools');
+  const tToolUI = await getTranslations('ToolUI');
   const publishedTools = tools.filter((tool) => tool.status === 'published');
 
   // Helper: get translated tool name
   const getToolName = (slug: string, fallback: string) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tTools(`${slug}.name` as any);
+      if (tTools.has(`${slug}.name` as any)) {
+        return tTools(`${slug}.name` as any);
+      }
+      if (tTools.has(`${slug}.title` as any)) {
+        return tTools(`${slug}.title` as any);
+      }
+      const camelSlug = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.title` as any)) {
+        return tToolUI(`${camelSlug}.title` as any);
+      }
+      return fallback;
     } catch {
       return fallback;
     }
@@ -21,8 +31,17 @@ export default async function ToolsPage() {
   // Helper: get translated tool description
   const getToolDesc = (slug: string, fallback: string) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return tTools(`${slug}.description` as any);
+      if (tTools.has(`${slug}.description` as any)) {
+        return tTools(`${slug}.description` as any);
+      }
+      if (tTools.has(`${slug}.subtitle` as any)) {
+        return tTools(`${slug}.subtitle` as any);
+      }
+      const camelSlug = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.subtitle` as any)) {
+        return tToolUI(`${camelSlug}.subtitle` as any);
+      }
+      return fallback;
     } catch {
       return fallback;
     }
@@ -34,10 +53,17 @@ export default async function ToolsPage() {
   );
 
   const getCategoryName = (catId: string) => {
-    const key = catId.replace('cat-', '');
+    let key = catId.replace('cat-', '');
+    if (key === 'media') key = 'image';
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return t(`categories.${key}` as any);
+      if (t.has(`categories.${key}` as any)) {
+        return t(`categories.${key}` as any);
+      }
+      const rawKey = catId.replace('cat-', '');
+      if (t.has(`categories.${rawKey}` as any)) {
+        return t(`categories.${rawKey}` as any);
+      }
+      return key.charAt(0).toUpperCase() + key.slice(1);
     } catch {
       return catId;
     }

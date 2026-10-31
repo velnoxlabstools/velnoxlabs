@@ -1,13 +1,50 @@
 import { Link } from '@/i18n/navigation';
 import type { Tool } from '@/types/tools';
 import { Badge } from '@/components/ui/Badge';
+import { useTranslations } from 'next-intl';
 
 interface ToolCardProps {
   tool: Tool;
 }
 
 export function ToolCard({ tool }: ToolCardProps) {
+  const tTools = useTranslations('Tools');
+  const tToolUI = useTranslations('ToolUI');
   const href = `/tools/${tool.slug}`;
+
+  let name = tool.name;
+  let description = tool.description;
+
+  try {
+    if (tTools.has(`${tool.slug}.name` as any)) {
+      name = tTools(`${tool.slug}.name` as any);
+    } else if (tTools.has(`${tool.slug}.title` as any)) {
+      name = tTools(`${tool.slug}.title` as any);
+    } else {
+      const camelSlug = tool.slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.title` as any)) {
+        name = tToolUI(`${camelSlug}.title` as any);
+      }
+    }
+  } catch {
+    // fallback to tool.name
+  }
+
+  try {
+    if (tTools.has(`${tool.slug}.description` as any)) {
+      description = tTools(`${tool.slug}.description` as any);
+    } else if (tTools.has(`${tool.slug}.subtitle` as any)) {
+      description = tTools(`${tool.slug}.subtitle` as any);
+    } else {
+      const camelSlug = tool.slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      if (tToolUI.has(`${camelSlug}.subtitle` as any)) {
+        description = tToolUI(`${camelSlug}.subtitle` as any);
+      }
+    }
+  } catch {
+    // fallback to tool.description
+  }
+
   return (
     <Link
       href={href}
@@ -44,7 +81,7 @@ export function ToolCard({ tool }: ToolCardProps) {
             lineHeight: 1.35,
           }}
         >
-          {tool.name}
+          {name}
         </h3>
         {tool.featured ? <Badge variant="brand">Featured</Badge> : null}
         {!tool.featured && tool.isNew ? <Badge variant="success">New</Badge> : null}
@@ -62,7 +99,7 @@ export function ToolCard({ tool }: ToolCardProps) {
           overflow: 'hidden',
         }}
       >
-        {tool.description}
+        {description}
       </p>
       <span
         style={{

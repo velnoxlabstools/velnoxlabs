@@ -79,6 +79,10 @@
       "shopping": {
         "name": "购物计算",
         "description": "折扣特惠与省钱比价计算工具。"
+      },
+      "media": {
+        "name": "多媒体工具",
+        "description": "图像处理与媒体优化工具。"
       }
     }
   },
@@ -512,6 +516,18 @@
     "image-format-converter": {
       "name": "在线图片格式转换工具",
       "description": "在浏览器中自由转换 JPG、PNG、WebP 等图片格式，高效批量处理，完全保护隐私。"
+    },
+    "image-cropper": {
+      "name": "图片在线裁剪工具",
+      "description": "在浏览器中将 JPG、PNG 和 WebP 图片裁剪为指定宽高比或自定义尺寸。"
+    },
+    "image-to-pdf": {
+      "name": "图片转 PDF 转换器",
+      "description": "在浏览器端即时将 JPG、PNG 和 WebP 图片合并转换为高质量的标准 PDF 文档。"
+    },
+    "fancy-text-generator": {
+      "name": "花样字体生成器 (Fancy Text)",
+      "description": "将普通文字转换为适用于 Instagram 个人简介、Twitter、Discord 和游戏昵称的个性化 Unicode 字体。"
     }
   },
   "DocsPage": {
@@ -1515,6 +1531,56 @@
       "faq3A": "选择圆形裁剪时，系统自动锁定 1:1 正方形比例并通过 Canvas 2D 绘制圆形裁剪路径（ctx.arc() 与 ctx.clip()）。导出为 PNG 或 WebP 格式时，圆形区域外部的像素将保留完全透明。",
       "faq4Q": "支持哪些图片导出格式？透明通道是如何处理的？",
       "faq4A": "支持导出为 PNG、JPEG 及 WebP 格式。PNG 和 WebP 可完整保留透明通道（非常适合圆形头像和透明图标），若选择 JPEG 则会自动为透明区域填充纯白底色以防止出现黑色杂边。"
+    },
+    "fancyTextGenerator": {
+      "title": "花样字体生成器 (Fancy Text)",
+      "subtitle": "将普通文字转换为适用于 Instagram 个人简介、Twitter、Discord 和游戏昵称的个性化 Unicode 字体。",
+      "inputLabel": "输入或粘贴文本：",
+      "inputPlaceholder": "在此输入需要转换样式的文字...",
+      "copy": "复制",
+      "copied": "已复制！",
+      "clear": "清空",
+      "sampleText": "VelnoxLabs 花样文字",
+      "characterCount": "字符数",
+      "wordCount": "单词数",
+      "copyAll": "复制所有样式",
+      "allCopied": "全部已复制！",
+      "styleBold": "粗体 (数学无衬线粗体)",
+      "styleItalic": "斜体 (数学斜体)",
+      "styleBoldItalic": "粗斜体",
+      "styleScript": "花体 / 手写草书",
+      "styleBoldScript": "粗花体",
+      "styleFraktur": "哥特体 / 德式花体",
+      "styleBoldFraktur": "粗哥特体",
+      "styleDoubleStruck": "双线空心体 (黑板粗体)",
+      "styleSans": "无衬线体",
+      "styleMonospace": "等宽代码体",
+      "styleCircled": "气泡圈圈字 (Circled)",
+      "styleSmallCaps": "小型大写字母 (Small Caps)",
+      "styleStrikethrough": "删除线贯穿字",
+      "styleUnderline": "下划线装饰字",
+      "styleInverted": "倒立翻转字 (Inverted)",
+      "styleFullwidth": "全角蒸汽波风格 (Vaporwave)",
+      "styleSquared": "方块方框字 (Squared)",
+      "aboutText": "花样字体生成器是一款纯前端运行的排版装饰转换工具，专为将普通 ASCII 文本转码为可直接在社交媒体个人主页、游戏昵称、即时通讯工具和个人签名中展示的个性化 Unicode 字符而设计。该工具通过映射国际 Unicode 标准字符集（包括数学字母数字符号集 U+1D400–U+1D7FF、类字母符号集 U+2100–U+214F 以及带圈字符集 U+2460–U+24FF），将常规字符转换为粗体、花体草书、哥特体、双线空心体和气泡圈圈字等。与需要安装字体文件或加载外部 CSS 样式的传统字体不同，生成的字符属于通用的原生 Unicode 编码，几乎所有现代操作系统、网页浏览器及手机均可原生解析显示。全部转换在本地浏览器内存中即时完成，无需调用远程服务器接口，确保极致流畅与绝对隐私。",
+      "feature1": "跨平台通用兼容性：基于 Unicode 15.1 国际标准构建原生字符，在 iOS、Android、macOS、Windows 和 Linux 系统中均能原生显示。",
+      "feature2": "数学字母符号精准转码：覆盖数学粗体、斜体、连笔手写花体、德式哥特体、等宽字体及黑板空心体等 17+ 种热门艺术风格。",
+      "feature3": "变音组合符号叠加渲染：运用变音组合符（U+0336 删除线与 U+0332 下划线）在浏览器端实时组合出独特的排版视觉装饰。",
+      "feature4": "即时客户端处理与隐私防护：字符转码映射与剪贴板复制操作完全在本地内存中执行，零网络请求，绝不记录任何输入内容。",
+      "step1Title": "输入或粘贴文本",
+      "step1Body": "在上方输入框中输入或粘贴文字，字符数和单词统计指标将即时更新。",
+      "step2Title": "浏览艺术字样式",
+      "step2Body": "向下滚动浏览自动生成的 17+ 种 Unicode 个性字体，包含粗体、花体、哥特体、气泡字以及小型大写字母。",
+      "step3Title": "一键复制随处粘贴",
+      "step3Body": "点击心仪样式右侧的复制按钮将文本复制至剪贴板，即可直接粘贴至 Instagram、Twitter、Discord、小红书或游戏昵称中。",
+      "faq1Q": "为什么这些特殊花样字体无需安装字体文件即可在社交媒体上显示？",
+      "faq1A": "这些字符并非字体文件（.ttf 或 .woff），而是 Unicode 国际编码标准中正式收录的独立字符码位（例如数学字母数字符号块）。由于现代平台（Instagram、Twitter、TikTok、Discord）均内置完备的 Unicode 支持，因此能够直接原生渲染这些特殊字符。",
+      "faq2Q": "在老旧设备或屏幕阅读器上是否有兼容性限制？",
+      "faq2A": "绝大多数现代智能手机和电脑都能完美显示。针对视障群体的屏幕阅读器可能会将数学字符按其专业名称读出。因此从无障碍规范建议，此类花样字符推荐用于用户名、主页个签和简短标语，避免用于大段正文。",
+      "faq3Q": "我输入的文字内容会被传输或记录在服务器上吗？",
+      "faq3A": "绝对不会。整个转码过程完全依托本地 JavaScript 字符映射函数在浏览器内部运行，任何按键与文本都不会离开您的终端设备。",
+      "faq4Q": "这些花样字体能用于游戏昵称吗（如 Steam、Discord、Minecraft、Roblox）？",
+      "faq4A": "完全可以！绝大部分主流游戏平台与联机社区（包括 Steam、Discord、Roblox、Minecraft 等）均全面支持 UTF-8 编码文本。只需复制生成的艺术字并直接粘贴至游戏昵称设置栏即可。"
     }
   }
 }

@@ -79,6 +79,10 @@
       "shopping": {
         "name": "Einkaufen",
         "description": "Rabatt- und Preisrechner."
+      },
+      "media": {
+        "name": "Medien",
+        "description": "Bild- und Medienverarbeitung."
       }
     }
   },
@@ -519,6 +523,18 @@
     "image-format-converter": {
       "name": "Online-Bildformat-Konverter",
       "description": "Konvertiere Bilder zwischen JPG, PNG und WebP direkt im Browser mit vollständigem Datenschutz und Stapelverarbeitung."
+    },
+    "image-cropper": {
+      "name": "Bilder zuschneiden",
+      "description": "Schneiden Sie JPG-, PNG- und WebP-Bilder direkt im Browser auf feste Seitenverhältnisse oder Wunschmaße zu."
+    },
+    "image-to-pdf": {
+      "name": "Bilder in PDF Konverter",
+      "description": "Konvertieren Sie JPG-, PNG- und WebP-Bilder direkt im Browser in ein einzelnes, hochwertiges PDF-Dokument."
+    },
+    "fancy-text-generator": {
+      "name": "Schriftarten-Generator",
+      "description": "Wandle normalen Text in stilvolle Unicode-Schriftarten für Instagram-Biografien, Discord, Twitter und Gaming-Namen um."
     }
   },
   "DocsPage": {
@@ -1586,6 +1602,56 @@
       "faq3A": "Beim Kreiszuschnitt wird ein 1:1-Quadrat fixiert und eine kreisförmige Canvas-Pfadmaske (arc() und clip()) angewendet. Beim Speichern als PNG oder WebP bleibt der Bereich außerhalb des Kreises transparent.",
       "faq4Q": "Welche Exportformate werden unterstützt und wie wird Transparenz gehandhabt?",
       "faq4A": "Sie können in PNG, JPEG und WebP speichern. PNG und WebP behalten transparente Alphakanäle vollständig bei, während JPEG transparente Bereiche automatisch mit weißer Farbe auffüllt."
+    },
+    "fancyTextGenerator": {
+      "title": "Schriftarten-Generator",
+      "subtitle": "Wandle normalen Text in stilvolle Unicode-Schriftarten für Instagram-Biografien, Discord, Twitter und Gaming-Namen um.",
+      "inputLabel": "Text eingeben oder einfügen:",
+      "inputPlaceholder": "Schreibe hier etwas Stilvolles...",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "clear": "Löschen",
+      "sampleText": "VelnoxLabs Schöner Text",
+      "characterCount": "Zeichen",
+      "wordCount": "Wörter",
+      "copyAll": "Alle Schriftstile kopieren",
+      "allCopied": "Alles kopiert!",
+      "styleBold": "Fett (Mathematisch)",
+      "styleItalic": "Kursiv",
+      "styleBoldItalic": "Fett kursiv",
+      "styleScript": "Schreibschrift / Kursiv",
+      "styleBoldScript": "Fette Schreibschrift",
+      "styleFraktur": "Fraktur / Gotisch",
+      "styleBoldFraktur": "Fette Fraktur",
+      "styleDoubleStruck": "Doppelstrich (Tafel)",
+      "styleSans": "Serifenlos",
+      "styleMonospace": "Nichtproportional / Code",
+      "styleCircled": "Eingekreist / Blase",
+      "styleSmallCaps": "Kapitälchen",
+      "styleStrikethrough": "Durchgestrichen",
+      "styleUnderline": "Unterstrichen",
+      "styleInverted": "Auf den Kopf gestellt (Invertiert)",
+      "styleFullwidth": "Volle Breite (Vaporwave)",
+      "styleSquared": "Quadratisch (Kästen)",
+      "aboutText": "Der Schriftarten-Generator ist ein clientseitiges Typografie-Werkzeug, das Standard-ASCII-Zeichen direkt im Browser in stilisierte Unicode-Glyphen für Social-Media-Biografien, Gaming-Profile und Messenger umwandelt. Mithilfe von Zeichen-Mapping-Algorithmen basierend auf dem Unicode-Standard (darunter die Blöcke für mathematische alphanumerische Symbole U+1D400–U+1D7FF, buchstabenähnliche Symbole U+2100–U+214F und eingekreiste alphanumerische Zeichen U+2460–U+24FF) übersetzt das Programm normale Buchstaben in mathematische Fettschrift, Fraktur, Schreibschrift, Doppelstrich- und Kreisbuchstaben. Im Gegensatz zu traditionellen Systemschriftarten, die eine lokale Installation oder externe CSS-Dateien erfordern, bestehen diese Ausgaben aus universellen Unicode-Codepoints, die von jedem modernen Betriebssystem, Webbrowser und Mobilgerät nativ dargestellt werden. Die gesamte Umwandlung findet im lokalen Arbeitsspeicher ohne Server-Anfragen statt, was sofortige Ergebnisse und absolute Privatsphäre gewährleistet.",
+      "feature1": "Universelle Unicode-Kompatibilität: Erzeugt plattformübergreifende Glyphen nach dem Unicode-15.1-Standard, die unter iOS, Android, macOS, Windows und Linux nativ dargestellt werden.",
+      "feature2": "Mathematische alphanumerische Stile: Ordnet Standardzeichen mathematischen Stilen wie Fett, Schreibschrift, Fraktur, Monospace und Doppelstrich zu.",
+      "feature3": "Kombinierende diakritische Zeichen: Nutzt diakritische Zeichen (U+0336 für Durchstreichung und U+0332 für Unterstreichung) zur Erzeugung dynamischer Zusatzeffekte in Echtzeit.",
+      "feature4": "Sofortige lokale Verarbeitung und Privatsphäre: Sämtliche Zeichenumsetzungen und Zwischenablage-Aktionen laufen im Arbeitsspeicher des Browsers ohne Datenübertragung ab.",
+      "step1Title": "Text eingeben oder einfügen",
+      "step1Body": "Tippe oder füge deinen Text in das Eingabefeld ein. Die Zeichen- und Wortzähler aktualisieren sich in Echtzeit.",
+      "step2Title": "Stilistische Varianten durchsuchen",
+      "step2Body": "Scrolle durch die Liste von über 17 automatisch erstellten Schriftstilen, darunter Fraktur, Schreibschrift, Kapitälchen und Blasen.",
+      "step3Title": "Kopieren und überall einfügen",
+      "step3Body": "Klicke neben dem gewünschten Stil auf Kopieren, um ihn in die Zwischenablage zu übernehmen, und füge ihn in Instagram, Twitter oder Games ein.",
+      "faq1Q": "Warum funktionieren diese Schriftarten auf sozialen Plattformen ohne Schriftinstallation?",
+      "faq1A": "Es handelt sich nicht um eigentliche Schriftdateien (.ttf oder .woff), sondern um offizielle Unicode-Zeichenwerte internationaler Standards. Da moderne Betriebssysteme und soziale Netzwerke Unicode universell unterstützen, werden diese Glyphen ohne zusätzliche Software direkt angezeigt.",
+      "faq2Q": "Gibt es Einschränkungen bei der Barrierefreiheit oder für Screenreader?",
+      "faq2A": "Zwar stellen moderne Smartphones und Computer die Zeichen fehlerfrei dar, Bildschirmleseprogramme für sehbehinderte Personen lesen mathematische Sonderzeichen jedoch meist mit ihren technischen Bezeichnungen vor. Aus Gründen der Barrierefreiheit empfehlen wir stilisierte Texte primär für Namen, Biografien und kurze Überschriften.",
+      "faq3Q": "Wird mein eingegebener Text an externe Server gesendet oder gespeichert?",
+      "faq3A": "Nein. Die Umwandlung läuft vollständig lokal im Browser über JavaScript-Zuordnungen. Es werden keinerlei Tastatureingaben über das Internet übermittelt.",
+      "faq4Q": "Kann ich diese Schriftstile für Gaming-Namen auf Steam, Discord oder Minecraft nutzen?",
+      "faq4A": "Ja. Nahezu alle modernen Gaming-Netzwerke unterstützen UTF-8-codierten Text uneingeschränkt. Kopiere einfach deinen bevorzugten Schriftstil und füge ihn in deine Profileinstellungen ein."
     }
   }
 }

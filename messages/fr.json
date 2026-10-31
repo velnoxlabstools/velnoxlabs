@@ -79,6 +79,10 @@
       "shopping": {
         "name": "Achats",
         "description": "Calculatrices de remises et de prix."
+      },
+      "media": {
+        "name": "Médias",
+        "description": "Traitement d'images et de médias."
       }
     }
   },
@@ -519,6 +523,18 @@
     "image-format-converter": {
       "name": "Convertisseur de Formats d'Images en Ligne",
       "description": "Convertissez des images entre JPG, PNG et WebP directement dans votre navigateur avec une confidentialité totale."
+    },
+    "image-cropper": {
+      "name": "Recadreur d'Images",
+      "description": "Recadrez vos images JPG, PNG et WebP à des proportions exactes ou des dimensions libres dans votre navigateur."
+    },
+    "image-to-pdf": {
+      "name": "Convertisseur Image en PDF",
+      "description": "Convertissez vos images JPG, PNG et WebP en un document PDF professionnel unique directement dans votre navigateur."
+    },
+    "fancy-text-generator": {
+      "name": "Générateur de Texte Stylé",
+      "description": "Transformez du texte standard en typographies Unicode pour vos biographies Instagram, Discord, Twitter et pseudonymes de jeux."
     }
   },
   "DocsPage": {
@@ -1588,6 +1604,56 @@
       "faq3A": "En sélectionnant le recadrage circulaire, une proportion 1:1 carrée est appliquée avec un tracé de découpe circulaire en canevas (arc() et clip()). Enregistrée en PNG ou WebP, la zone entourant le cercle reste parfaitement transparente.",
       "faq4Q": "Quels types de fichiers sont supportés et comment la transparence est-elle gérée ?",
       "faq4A": "Vous pouvez enregistrer en PNG, JPEG ou WebP. Les types PNG et WebP conservent intégralement la transparence du canal alpha, tandis que le fichier JPEG applique automatiquement un fond blanc pur."
+    },
+    "fancyTextGenerator": {
+      "title": "Générateur de Texte Stylé",
+      "subtitle": "Transformez du texte standard en typographies Unicode pour vos biographies Instagram, Discord, Twitter et pseudonymes de jeux.",
+      "inputLabel": "Saisissez ou collez votre texte :",
+      "inputPlaceholder": "Écrivez quelque chose avec style ici...",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "clear": "Effacer",
+      "sampleText": "Texte Stylé VelnoxLabs",
+      "characterCount": "Caractères",
+      "wordCount": "Mots",
+      "copyAll": "Copier tous les styles",
+      "allCopied": "Tout est copié !",
+      "styleBold": "Gras (Mathématique)",
+      "styleItalic": "Italique",
+      "styleBoldItalic": "Gras italique",
+      "styleScript": "Manuscrit / Cursif",
+      "styleBoldScript": "Manuscrit en gras",
+      "styleFraktur": "Gothique / Fraktur",
+      "styleBoldFraktur": "Gothique en gras",
+      "styleDoubleStruck": "Double trait (Tableau)",
+      "styleSans": "Sans-Serif",
+      "styleMonospace": "Monospace / Code",
+      "styleCircled": "Entouré / Bulle",
+      "styleSmallCaps": "Petites capitales",
+      "styleStrikethrough": "Barré",
+      "styleUnderline": "Souligné",
+      "styleInverted": "Renversé (À l'envers)",
+      "styleFullwidth": "Pleine largeur (Vaporwave)",
+      "styleSquared": "Encadré (Carrés)",
+      "aboutText": "Le Générateur de Texte Stylé est un outil typographique fonctionnant directement dans le navigateur pour transformer des caractères ASCII standards en glyphes Unicode stylisés, parfaitement adaptés aux biographies sur les réseaux sociaux, aux pseudonymes de jeu et aux applications de messagerie. Grâce à des tables de correspondance fondées sur la norme Unicode (notamment les blocs de symboles mathématiques alphanumériques U+1D400–U+1D7FF, les symboles de type lettre U+2100–U+214F et les caractères alphanumériques cerclés U+2460–U+24FF), l'application réattribue les lettres classiques vers des styles en gras mathématique, écriture cursive manuscrite, gothique fraktur, double trait et caractères en bulle. Contrairement aux polices conventionnelles nécessitant une installation sur le système ou des feuilles de style CSS, ces créations textuelles sont des points de code universels affichés nativement par l'ensemble des systèmes d'exploitation, navigateurs et appareils mobiles modernes. Toute l'exécution s'effectue dans la mémoire locale de votre navigateur sans aucune requête vers des serveurs distants, assurant instantanéité et confidentialité intégrale.",
+      "feature1": "Compatibilité Unicode universelle : Crée des glyphes conformes à la norme Unicode 15.1 qui s'affichent nativement sous iOS, Android, macOS, Windows et Linux.",
+      "feature2": "Variations alphanumériques mathématiques : Reconvertit les lettres ordinaires en styles mathématiques gras, cursif manuscrit, gothique fraktur, monospace et double trait.",
+      "feature3": "Superposition diacritique combinée : Utilise des signes diacritiques combinables (U+0336 pour le texte barré et U+0332 pour le texte souligné) pour composer des effets visuels en temps réel.",
+      "feature4": "Traitement local instantané et confidentialité : L'ensemble des algorithmes de correspondance et des interactions avec le presse-papiers s'exécute dans la mémoire du navigateur sans transmission réseau.",
+      "step1Title": "Saisissez ou collez votre texte",
+      "step1Body": "Tapez ou déposez votre texte dans le champ ci-dessus ; les compteurs de caractères et de mots se mettent à jour instantanément.",
+      "step2Title": "Découvrez les variantes typographiques",
+      "step2Body": "Parcourez la liste de plus de 17 styles générés automatiquement, incluant le gras, le gothique, les petites capitales et les bulles.",
+      "step3Title": "Copiez et collez sur toutes vos plateformes",
+      "step3Body": "Cliquez sur le bouton Copier en face de votre style favori pour l'ajouter au presse-papiers, puis collez-le directement sur Instagram, Twitter ou vos jeux vidéo.",
+      "faq1Q": "Pourquoi ces polices stylisées s'affichent-elles sur les réseaux sociaux sans installation de police ?",
+      "faq1A": "Il ne s'agit pas de véritables fichiers de polices (.ttf ou .woff), mais de points de code de caractères officiels définis par le consortium Unicode international. Les systèmes d'exploitation et applications actuelles prenant en charge la norme Unicode, ces caractères sont affichés de manière native sans logiciel additionnel.",
+      "faq2Q": "Existe-t-il des limites de compatibilité ou d'accessibilité avec les lecteurs d'écran ?",
+      "faq2A": "Bien que la totalité des téléphones et ordinateurs récents restitue ces caractères sans anomalie, les lecteurs d'écran destinés aux personnes malvoyantes peuvent énoncer les symboles mathématiques par leur nom officiel. Pour des raisons d'accessibilité, il est conseillé de réserver ces ornements typographiques aux pseudonymes, biographies et titres courts.",
+      "faq3Q": "Mon texte saisi est-il transmis ou stocké sur un serveur distant ?",
+      "faq3A": "Non. La transformation est réalisée en totalité au sein de votre navigateur via des instructions JavaScript locales. Aucune saisie ni texte n'est transmis sur Internet.",
+      "faq4Q": "Puis-je employer ces styles de texte pour mes profils de jeu sur Discord, Steam ou Minecraft ?",
+      "faq4A": "Tout à fait. La plupart des réseaux de jeu et plateformes sociales acceptent pleinement les chaînes encodées en UTF-8. Copiez simplement votre variante préférée et appliquez-la dans les réglages de votre profil ou de votre pseudonyme."
     }
   }
 }
