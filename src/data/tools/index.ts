@@ -2,6 +2,22 @@ import type { Tool, ToolCollection } from '@/types/tools';
 
 export const tools: Tool[] = [
   {
+    id: 'tool-image-cropper',
+    slug: 'image-cropper',
+    name: 'Image Cropper',
+    description: 'Crop images to exact aspect ratios, dimensions, or circular avatars in the browser.',
+    categoryId: 'cat-media',
+    tags: ['image', 'crop', 'cropper', 'avatar', 'aspect-ratio', 'media'],
+    status: 'published',
+    featured: true,
+    trending: true,
+    popular: true,
+    isNew: true,
+    usageCount: 260,
+    createdAt: '2026-10-31T00:00:00.000Z',
+    updatedAt: '2026-10-31T00:00:00.000Z',
+  },
+  {
     id: 'tool-image-to-pdf',
     slug: 'image-to-pdf',
     name: 'Image to PDF Converter',

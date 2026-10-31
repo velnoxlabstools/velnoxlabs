@@ -20,6 +20,7 @@
     "html-encoder-decoder",
     "http-header-inspector-_-parser",
     "image-compressor",
+    "image-cropper",
     "image-format-converter",
     "image-resizer",
     "image-to-pdf",
@@ -57,6 +58,6 @@
     "word-counter"
   ],
   "flaggedTools": [],
-  "totalScanned": 495,
+  "totalScanned": 504,
   "totalErrors": 0
 }
