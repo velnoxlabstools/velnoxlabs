@@ -535,6 +535,10 @@
     "fancy-text-generator": {
       "name": "Générateur de Texte Stylé",
       "description": "Transformez du texte standard en typographies Unicode pour vos biographies Instagram, Discord, Twitter et pseudonymes de jeux."
+    },
+    "emoji-copy": {
+      "name": "Clavier Emoji & Copier-Coller",
+      "description": "Recherchez et copiez rapidement des symboles Unicode populaires pour vos réseaux sociaux et messages."
     }
   },
   "DocsPage": {
@@ -1654,6 +1658,54 @@
       "faq3A": "Non. La transformation est réalisée en totalité au sein de votre navigateur via des instructions JavaScript locales. Aucune saisie ni texte n'est transmis sur Internet.",
       "faq4Q": "Puis-je employer ces styles de texte pour mes profils de jeu sur Discord, Steam ou Minecraft ?",
       "faq4A": "Tout à fait. La plupart des réseaux de jeu et plateformes sociales acceptent pleinement les chaînes encodées en UTF-8. Copiez simplement votre variante préférée et appliquez-la dans les réglages de votre profil ou de votre pseudonyme."
+    },
+    "emojiCopy": {
+      "title": "Clavier Emoji & Copier-Coller",
+      "subtitle": "Trouvez et copiez des symboles emoji Unicode en un clic pour vos profils Instagram, Discord, WhatsApp et réseaux sociaux.",
+      "searchPlaceholder": "Rechercher des emojis par nom ou mot-clé (ex. flamme, sourire, cœur)...",
+      "categoryAll": "Tous les emojis",
+      "categorySmileys": "Sourires et émotions",
+      "categoryPeople": "Personnes et corps",
+      "categoryAnimals": "Animaux et nature",
+      "categoryFood": "Nourriture et boissons",
+      "categoryTravel": "Voyages et lieux",
+      "categoryActivities": "Activités et loisirs",
+      "categoryObjects": "Objets et accessoires",
+      "categorySymbols": "Symboles et signes",
+      "categoryFlags": "Drapeaux",
+      "categoryRecent": "Récemment utilisés",
+      "categoryFavorites": "Favoris",
+      "deckTitle": "Zone d'assemblage",
+      "deckPlaceholder": "Cliquez sur un emoji ci-dessous pour le copier ou créer une combinaison...",
+      "copyDeck": "Tout copier",
+      "copiedDeck": "Tout est copié !",
+      "clearDeck": "Effacer",
+      "toastCopied": "Copié dans le presse-papiers !",
+      "noResults": "Aucun emoji trouvé pour",
+      "clearRecent": "Effacer l'historique",
+      "noFavorites": "Aucun favori enregistré. Cliquez sur le cœur d'un emoji pour le conserver ici.",
+      "noRecent": "Aucun emoji récent. Cliquez sur un symbole pour commencer.",
+      "copiedBadge": "Copié !",
+      "totalEmojis": "emojis",
+      "aboutText": "Le Clavier Emoji & Copier-Coller est un utilitaire fonctionnant intégralement au sein du navigateur web, pensé pour rechercher, agencer et copier des symboles emoji officiels Unicode de manière instantanée. Conçu sans dépendances externes et exécuté exclusivement en JavaScript dans la mémoire locale, il propose une ergonomie bien supérieure aux fenêtres de sélection des systèmes d'exploitation. Que ce soit pour personnaliser vos biographies sur les réseaux sociaux (Instagram, TikTok, Twitter/X), animer des discussions professionnelles (Discord, Slack, Teams) ou échanger des messages privés (WhatsApp, Telegram), la sélection regroupe des centaines de glyphes UTF-8 répartis entre visages, faune, délices, itinéraires, sports, ustensiles et drapeaux nationaux. Grâce à sa zone d'assemblage, sa recherche dynamique par mots-clés, son historique local et son onglet de favoris, cet outil allie réactivité et respect absolu des données privées.",
+      "feature1": "Encodage universel Unicode UTF-8 : Chaque symbole respecte les spécifications internationales (dont Emoji 15.1 et les liaisons ZWJ complexes), assurant un rendu fidèle sur iOS, Android, macOS, Windows et Linux.",
+      "feature2": "Rendu vectoriel des drapeaux et emblèmes : Intègre des visuels vectoriels nets pour pallier les absences de polices sous Windows, tout en transmettant les vrais caractères Unicode lors de la copie.",
+      "feature3": "Zone d'assemblage et copie groupée : Permet d'aligner plusieurs emojis pour concevoir des messages visuels originaux et de copier l'intégralité de la composition d'un seul geste.",
+      "feature4": "Confidentialité totale sans serveur : Recherches, historique récent et liste de favoris restent cantonnés à la mémoire de votre navigateur, sans traçage ni transmission distante.",
+      "step1Title": "Parcourez ou recherchez des emojis",
+      "step1Body": "Naviguez parmi les rubriques (visages, faune, cuisine, drapeaux) ou saisissez un mot dans la barre de recherche pour faire apparaître le symbole voulu.",
+      "step2Title": "Cliquez pour copier ou combiner",
+      "step2Body": "Touchez un symbole pour l'envoyer dans le presse-papiers et l'ajouter à la zone d'assemblage ; cliquez sur le cœur pour l'inscrire dans vos favoris.",
+      "step3Title": "Collez où vous le souhaitez",
+      "step3Body": "Insérez vos emojis au cœur de vos publications, messages instantanés, profils en ligne ou documents.",
+      "faq1Q": "Pourquoi privilégier ce clavier web face au panneau de saisie habituel de l'ordinateur ?",
+      "faq1A": "Il procure une recherche instantanée par mots-clés, une zone pratique pour combiner plusieurs emojis, la mémorisation de favoris et un affichage vectoriel des drapeaux souvent indisponibles sous Windows.",
+      "faq2Q": "Les emojis copiés s'affichent-ils normalement sur smartphone, Discord et WhatsApp ?",
+      "faq2A": "Oui. L'ensemble des symboles répond aux critères du consortium Unicode. La séquence copiée est universelle et s'interprète sans encombre sur tous les appareils modernes.",
+      "faq3Q": "Mes recherches ou mon presse-papiers sont-ils conservés sur vos serveurs ?",
+      "faq3A": "Non. VelnoxLabs applique une stricte politique de traitement local. Toutes les données demeurent exclusivement sur votre propre ordinateur ou téléphone.",
+      "faq4Q": "De quelle façon les drapeaux et emojis combinés sont-ils traités ?",
+      "faq4A": "Ils sont constitués de codets multiples reliés par des caractères de jonction ZWJ. Notre outil préserve scrupuleusement ces séquences lors de la copie pour garantir leur affichage à l'arrivée."
     }
   }
 }

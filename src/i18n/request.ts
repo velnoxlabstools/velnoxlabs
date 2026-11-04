@@ -35,6 +35,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: {
       ...mainMessages,
       ...toolMessages,
+      Tools: {
+        ...(mainMessages.Tools || {}),
+        ...(toolMessages.Tools || {}),
+      },
+      ToolUI: {
+        ...(mainMessages.ToolUI || {}),
+        ...(toolMessages.ToolUI || {}),
+      },
     },
   };
 });

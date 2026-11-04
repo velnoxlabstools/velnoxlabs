@@ -535,6 +535,10 @@
     "fancy-text-generator": {
       "name": "Generador de Texto Elegante",
       "description": "Transforma texto normal en estilos Unicode para biografías de Instagram, Discord, Twitter y nombres de juegos."
+    },
+    "emoji-copy": {
+      "name": "Teclado de Emojis y Copiar",
+      "description": "Busca y copia emoticonos y símbolos Unicode para redes sociales, mensajería y biografías."
     }
   },
   "DocsPage": {
@@ -1652,6 +1656,54 @@
       "faq3A": "No. Todo el proceso de transformación se ejecuta íntegramente en tu navegador mediante funciones JavaScript de mapeo de códigos de caracteres. Ninguna pulsación ni texto se transmite por la red.",
       "faq4Q": "¿Puedo usar estos textos estilizados en perfiles de videojuegos como Discord, Steam o Minecraft?",
       "faq4A": "Sí. La mayoría de redes y plataformas de videojuegos actuales admiten codificación UTF-8 completa. Simplemente copia el estilo que prefieras y pégalo en tu perfil o nombre de usuario."
+    },
+    "emojiCopy": {
+      "title": "Teclado de Emojis y Copiar",
+      "subtitle": "Busca y copia emoticonos y símbolos Unicode con un solo clic para biografías de Instagram, Discord, WhatsApp y redes sociales.",
+      "searchPlaceholder": "Buscar emojis por nombre o palabra clave (ej. fuego, sonrisa, corazón)...",
+      "categoryAll": "Todos los emojis",
+      "categorySmileys": "Emoticonos y emociones",
+      "categoryPeople": "Personas y cuerpo",
+      "categoryAnimals": "Animales y naturaleza",
+      "categoryFood": "Comida y bebida",
+      "categoryTravel": "Viajes y lugares",
+      "categoryActivities": "Actividades y deportes",
+      "categoryObjects": "Objetos y herramientas",
+      "categorySymbols": "Símbolos y marcas",
+      "categoryFlags": "Banderas",
+      "categoryRecent": "Usados recientemente",
+      "categoryFavorites": "Favoritos",
+      "deckTitle": "Bandeja de combinaciones",
+      "deckPlaceholder": "Haz clic en cualquier emoji abajo para copiarlo o crear una combinación...",
+      "copyDeck": "Copiar todo",
+      "copiedDeck": "¡Todo copiado!",
+      "clearDeck": "Borrar",
+      "toastCopied": "¡Copiado al portapapeles!",
+      "noResults": "No se encontraron emojis que coincidan con",
+      "clearRecent": "Borrar recientes",
+      "noFavorites": "Aún no tienes favoritos. Pulsa el corazón de cualquier emoji para guardarlo.",
+      "noRecent": "No hay emojis recientes. Haz clic en cualquiera para empezar a copiar.",
+      "copiedBadge": "¡Copiado!",
+      "totalEmojis": "emojis",
+      "aboutText": "El Teclado de Emojis y Copiar es una herramienta que se ejecuta íntegramente en el navegador para buscar, organizar y transferir al portapapeles símbolos emoji oficiales de Unicode al instante. Sin necesidad de extensiones externas y con un procesamiento en memoria local mediante JavaScript, esta utilidad ofrece una experiencia moderna frente a los teclados virtuales convencionales. Ya sea para redactar biografías atractivas en redes sociales (Instagram, TikTok, Twitter/X), comunicarse en plataformas de equipo (Discord, Slack, Microsoft Teams) o enviar mensajes en aplicaciones de chat (WhatsApp, Telegram), nuestro catálogo organiza cientos de símbolos UTF-8 en secciones claras como emoticonos, naturaleza, gastronomía, lugares, actividades, objetos y banderas. Incorpora una bandeja de combinaciones, filtrado dinámico en tiempo real, historial reciente y favoritos persistentes en el almacenamiento del navegador, garantizando privacidad total y rapidez absoluta.",
+      "feature1": "Codificación universal Unicode UTF-8: Cada glifo utiliza puntos de código estandarizados (incluyendo Emoji 15.1 y secuencias compuestas ZWJ) compatibles de manera nativa con iOS, Android, macOS, Windows y Linux.",
+      "feature2": "Representación vectorial de banderas y símbolos: Integra gráficos vectoriales de alta definición para evitar las limitaciones tipográficas de Windows y asegurar una visualización nítida, conservando los caracteres Unicode auténticos al copiar.",
+      "feature3": "Bandeja interactiva y selección múltiple: Permite acumular varios símbolos consecutivamente para crear frases o composiciones decorativas y copiarlas al portapapeles con una sola pulsación.",
+      "feature4": "Privacidad total sin servidores: Las búsquedas, el historial de uso y la lista de favoritos se procesan y almacenan exclusivamente en la memoria local de tu navegador sin envío de datos a la red.",
+      "step1Title": "Explora o busca emojis",
+      "step1Body": "Selecciona las categorías superiores o escribe términos descriptivos en el buscador para localizar cualquier símbolo por su denominación o significado.",
+      "step2Title": "Haz clic para copiar o combinar",
+      "step2Body": "Toca cualquier icono para copiarlo directamente en tu sistema y añadirlo a la bandeja superior; activa el icono de corazón para guardarlo en favoritos.",
+      "step3Title": "Pega en cualquier aplicación",
+      "step3Body": "Inserta los símbolos copiados en publicaciones, conversaciones de mensajería, descripciones de perfil o títulos de documentos.",
+      "faq1Q": "¿Por qué utilizar este teclado web en lugar del teclado del sistema operativo?",
+      "faq1A": "Ofrece búsqueda inmediata por palabras clave, bandeja para acumular secuencias de emojis, favoritos sin registro y visualización vectorial de banderas que evita los recuadros de texto habituales en Windows.",
+      "faq2Q": "¿Los emojis copiados se ven correctamente en Discord, WhatsApp y teléfonos móviles?",
+      "faq2A": "Sí. Toda la colección sigue las pautas oficiales del Consorcio Unicode. Al copiar, se transfiere la secuencia de caracteres estándar compatible con cualquier dispositivo actual.",
+      "faq3Q": "¿El texto que copio o busco se almacena en algún servidor?",
+      "faq3A": "No. VelnoxLabs diseña utilidades que funcionan en el lado del cliente. Toda la información permanece guardada en el almacenamiento local de tu propio navegador.",
+      "faq4Q": "¿Cómo se gestionan las banderas y los emojis compuestos?",
+      "faq4A": "Se componen mediante secuencias de unión de ancho cero (ZWJ) e indicadores regionales. Nuestra plataforma preserva intactos estos códigos estándar para que funcionen con total fidelidad al pegarlos."
     }
   }
 }

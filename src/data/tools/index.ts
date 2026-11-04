@@ -2,6 +2,22 @@ import type { Tool, ToolCollection } from '@/types/tools';
 
 export const tools: Tool[] = [
   {
+    id: 'tool-emoji-copy',
+    slug: 'emoji-copy',
+    name: 'Emoji Copy & Keyboard',
+    description: 'Browse, search, and copy emojis to clipboard with one click for social media, messaging, and bios.',
+    categoryId: 'cat-utility',
+    tags: ['emoji', 'keyboard', 'copy', 'emoticons', 'symbols', 'social-media', 'discord'],
+    status: 'published',
+    featured: true,
+    trending: true,
+    popular: true,
+    isNew: true,
+    usageCount: 520,
+    createdAt: '2026-10-31T00:00:00.000Z',
+    updatedAt: '2026-10-31T00:00:00.000Z',
+  },
+  {
     id: 'tool-fancy-text-generator',
     slug: 'fancy-text-generator',
     name: 'Fancy Text Generator',

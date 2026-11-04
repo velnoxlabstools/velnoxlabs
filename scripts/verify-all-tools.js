@@ -94,31 +94,44 @@ const FORBIDDEN_PATTERNS = [
   { pattern: /\bHash\s+output\s+will\s+appear\b/i, label: 'Hash output will appear' }
 ];
 
+const PORT = process.env.PORT || 3000;
+
 function fetchPage(url, retries = 3) {
   return new Promise((resolve) => {
-    http.get(url, (res) => {
+    const req = http.get(url, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         const redirectUrl = res.headers.location.startsWith('http')
           ? res.headers.location
-          : 'http://localhost:3001' + res.headers.location;
+          : `http://localhost:${PORT}` + res.headers.location;
         return fetchPage(redirectUrl, retries).then(resolve);
       }
       if (res.statusCode >= 500 && retries > 0) {
         setTimeout(() => {
           fetchPage(url, retries - 1).then(resolve);
-        }, 3000);
+        }, 1500);
         return;
       }
       let body = '';
       res.on('data', chunk => body += chunk);
       res.on('end', () => resolve({ statusCode: res.statusCode, body }));
-    }).on('error', () => {
+    });
+    req.on('error', () => {
       if (retries > 0) {
         setTimeout(() => {
           fetchPage(url, retries - 1).then(resolve);
-        }, 3000);
+        }, 1500);
       } else {
         resolve({ statusCode: 500, body: '', error: 'Request failed' });
+      }
+    });
+    req.setTimeout(12000, () => {
+      req.destroy();
+      if (retries > 0) {
+        setTimeout(() => {
+          fetchPage(url, retries - 1).then(resolve);
+        }, 1500);
+      } else {
+        resolve({ statusCode: 500, body: '', error: 'Request timed out' });
       }
     });
   });
@@ -218,7 +231,7 @@ async function runAudit() {
     results[tool] = {};
     for (const loc of NON_EN_LOCALES) {
       totalScanned++;
-      const url = `http://localhost:3001/${loc}/tools/${tool}`;
+      const url = `http://localhost:${PORT}/${loc}/tools/${tool}`;
       const res = await fetchPage(url);
       await new Promise(r => setTimeout(r, 60));
 

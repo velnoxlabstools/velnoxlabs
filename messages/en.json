@@ -528,6 +528,10 @@
     "fancy-text-generator": {
       "name": "Fancy Text Generator",
       "description": "Convert plain text into stylish Unicode fonts for Instagram bios, Discord, Twitter, and gaming handles."
+    },
+    "emoji-copy": {
+      "name": "Emoji Copy & Keyboard",
+      "description": "Browse, search, and copy emojis to clipboard with one click for social media, messaging, and bios."
     }
   },
   "DocsPage": {
@@ -1560,6 +1564,54 @@
       "faq3A": "No. The entire transformation is computed entirely in your browser using local JavaScript character-code mapping functions. No keystrokes or text inputs are ever sent over the internet.",
       "faq4Q": "Can I use these stylized fonts for gaming handles (Steam, Discord, Roblox)?",
       "faq4A": "Yes! Most modern games and gaming networks (including Discord, Steam, Roblox, and Minecraft) fully support UTF-8 encoded text. Simply copy the generated style and paste it directly into your username or profile settings."
+    },
+    "emojiCopy": {
+      "title": "Emoji Copy & Keyboard",
+      "subtitle": "Search and one-click copy popular Unicode emojis for social media, bios, Discord, and messaging.",
+      "searchPlaceholder": "Search emojis by name or keyword (e.g. fire, happy, heart)...",
+      "categoryAll": "All Emojis",
+      "categorySmileys": "Smileys & Emotion",
+      "categoryPeople": "People & Body",
+      "categoryAnimals": "Animals & Nature",
+      "categoryFood": "Food & Drink",
+      "categoryTravel": "Travel & Places",
+      "categoryActivities": "Activities",
+      "categoryObjects": "Objects",
+      "categorySymbols": "Symbols",
+      "categoryFlags": "Flags",
+      "categoryRecent": "Recently Used",
+      "categoryFavorites": "Favorites",
+      "deckTitle": "Emoji Clipboard Deck",
+      "deckPlaceholder": "Click any emoji below to copy or build a combination...",
+      "copyDeck": "Copy All",
+      "copiedDeck": "All Copied!",
+      "clearDeck": "Clear",
+      "toastCopied": "Copied to clipboard!",
+      "noResults": "No emojis found matching",
+      "clearRecent": "Clear Recents",
+      "noFavorites": "No favorites added yet. Click the heart icon on any emoji to save it here.",
+      "noRecent": "No recent emojis yet. Click any emoji to copy it.",
+      "copiedBadge": "Copied!",
+      "totalEmojis": "Emojis",
+      "aboutText": "The Emoji Copy & Keyboard tool is an interactive, client-side utility engineered for instantaneous searching, organizing, and copying of standard Unicode emoji symbols. Built with zero external dependencies and 100% in-browser JavaScript execution, this tool provides a modern alternative to legacy emoji keyboards. Whether you need emoji copy and paste functionality for social media bios (Instagram, TikTok, Twitter/X), team collaboration platforms (Discord, Slack, Microsoft Teams), or messaging apps (WhatsApp, Telegram), our keyboard organizes hundreds of standard UTF-8 emoji symbols across categories like Smileys, Animals, Food, Travel, Activities, Objects, Symbols, and Flags. Featuring a persistent Clipboard Deck accumulator, real-time keyword filtering, recently used history, and custom favorites saved to local browser storage, this text emoji copy keyboard ensures complete user privacy with zero data transmission over external servers.",
+      "feature1": "Universal Unicode UTF-8 Encoding: Every emoji glyph uses standardized Unicode codepoints (including Emoji 15.1 and multi-codepoint Zero-Width Joiner sequences) that render natively on iOS, Android, macOS, Windows, and Linux.",
+      "feature2": "Cross-Platform Flag & Symbol Rendering: Integrates high-definition vector flag rendering to overcome Windows OS font limitations while preserving genuine Unicode codepoints during all emoji copy paste operations.",
+      "feature3": "Interactive Clipboard Deck & Multi-Select: Accumulate multiple emoji symbols in an interactive buffer deck to craft complex combinations and copy entire sequences to your clipboard in a single click.",
+      "feature4": "100% Client-Side Privacy & Local Persistence: All searches, recently copied history, and favorite lists execute entirely within local browser memory with zero tracking or server analytics.",
+      "step1Title": "Browse or Search Emojis",
+      "step1Body": "Filter by category pills (Smileys, Animals, Food, Objects, Flags) or use the search bar to locate specific emoji symbols by name or semantic keyword.",
+      "step2Title": "Click to Copy or Build Combinations",
+      "step2Body": "Click any emoji to instantly copy it to your system clipboard and automatically append it to your Emoji Clipboard Deck. Click the heart icon to save favorites.",
+      "step3Title": "Paste Anywhere Seamlessly",
+      "step3Body": "Paste your copied emoji symbols directly into Instagram captions, Discord chats, WhatsApp messages, YouTube comments, or document titles.",
+      "faq1Q": "Why is this emoji copy and paste tool better than the native OS emoji keyboard?",
+      "faq1A": "Our keyboard provides instant full-text keyword search, multi-emoji combination accumulation in a dedicated Clipboard Deck, persistent favorites, and cross-platform flag rendering that bypasses OS-level font omissions (such as Windows lack of native flag glyphs).",
+      "faq2Q": "Are these text emoji copy characters universally compatible across platforms?",
+      "faq2A": "Yes. All emojis in our database adhere to official Unicode Consortium UTF-8 standards. When you perform an emoji copy paste, you copy the authentic Unicode character sequence, which is natively supported by iOS, Android, macOS, Windows, Discord, WhatsApp, and all modern web browsers.",
+      "faq3Q": "Is my clipboard data or typed message tracked or stored on your servers?",
+      "faq3A": "Never. VelnoxLabs tools are strictly client-side. All clipboard interactions, recent emoji logs, and favorites remain stored in your local browser localStorage and are never transmitted to any external server.",
+      "faq4Q": "How does the tool handle complex emojis like flags and multi-person symbols?",
+      "faq4A": "Complex emojis rely on Unicode Zero-Width Joiners (ZWJ) and Regional Indicator Symbol sequences (such as U+1F1FA and U+1F1F8 for the US flag). Our tool preserves these composite codepoint sequences intact during copying while using vector SVG rendering for crystal-clear visual display."
     }
   }
 }

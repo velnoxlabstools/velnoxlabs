@@ -535,6 +535,10 @@
     "fancy-text-generator": {
       "name": "Gerador de Letras Diferentes",
       "description": "Transforme texto simples em estilos Unicode elegantes para biografias do Instagram, Discord, Twitter e nicks de jogos."
+    },
+    "emoji-copy": {
+      "name": "Copiar Emojis e Teclado Online",
+      "description": "Encontre e copie carinhas e símbolos Unicode com facilidade para redes sociais e mensagens."
     }
   },
   "DocsPage": {
@@ -1654,6 +1658,54 @@
       "faq3A": "Não. Todo o processo acontece inteiramente no seu navegador por meio de rotinas JavaScript locais. Nenhum caractere ou texto é enviado pela internet.",
       "faq4Q": "Posso usar esses estilos em jogos como Discord, Steam, Roblox ou Minecraft?",
       "faq4A": "Sim. As principais plataformas de jogos e comunidades online oferecem suporte pleno a texto em UTF-8. Basta copiar a variante que mais gostar e colar no seu nome de perfil ou configurações de conta."
+    },
+    "emojiCopy": {
+      "title": "Copiar Emojis e Teclado Online",
+      "subtitle": "Pesquise e copie emojis Unicode com apenas um clique para biografias do Instagram, Discord, WhatsApp e redes sociais.",
+      "searchPlaceholder": "Pesquisar emojis por nome ou palavra-chave (ex: fogo, sorriso, coração)...",
+      "categoryAll": "Todos os emojis",
+      "categorySmileys": "Carinhas e emoções",
+      "categoryPeople": "Pessoas e corpo",
+      "categoryAnimals": "Animais e natureza",
+      "categoryFood": "Comida e bebida",
+      "categoryTravel": "Viagens e lugares",
+      "categoryActivities": "Atividades e esportes",
+      "categoryObjects": "Objetos e utilidades",
+      "categorySymbols": "Símbolos e sinais",
+      "categoryFlags": "Bandeiras",
+      "categoryRecent": "Usados recentemente",
+      "categoryFavorites": "Favoritos",
+      "deckTitle": "Área de composição",
+      "deckPlaceholder": "Clique em qualquer emoji abaixo para copiar ou montar uma sequência...",
+      "copyDeck": "Copiar tudo",
+      "copiedDeck": "Tudo copiado!",
+      "clearDeck": "Limpar",
+      "toastCopied": "Copiado para a área de transferência!",
+      "noResults": "Nenhum emoji encontrado para",
+      "clearRecent": "Limpar recentes",
+      "noFavorites": "Nenhum favorito salvo. Clique no coração de qualquer emoji para adicioná-lo.",
+      "noRecent": "Nenhum emoji recente. Clique em qualquer um para começar a copiar.",
+      "copiedBadge": "Copiado!",
+      "totalEmojis": "emojis",
+      "aboutText": "A ferramenta Copiar Emojis e Teclado Online é um recurso tipográfico que funciona diretamente no navegador, projetado para localizar, organizar e transferir símbolos emoji Unicode padronizados instantaneamente. Desenvolvida sem bibliotecas pesadas e executada inteiramente em JavaScript na máquina do usuário, proporciona uma alternativa ágil aos seletores nativos. Seja para estilizar biografias em redes sociais (Instagram, TikTok, Twitter/X), conversar em canais de equipe (Discord, Slack, Teams) ou enviar recados em comunicadores (WhatsApp, Telegram), nossa lista divide centenas de caracteres UTF-8 em seções temáticas como carinhas, fauna, alimentação, destinos, lazer, ferramentas e bandeiras. Dispõe de área de composição para agrupar múltiplos símbolos, busca instantânea, histórico recente e lista de favoritos salva localmente, unindo privacidade rigorosa e alto desempenho.",
+      "feature1": "Compatibilidade Unicode UTF-8 universal: Cada caractere adota pontos de código homologados pelo padrão internacional (incluindo Emoji 15.1 e sequências compostas ZWJ), com exibição nativa no iOS, Android, macOS, Windows e Linux.",
+      "feature2": "Exibição vetorial de bandeiras e ícones: Conta com ilustrações vetoriais nítidas para superar restrições de fontes em certos sistemas como o Windows, garantindo que o código Unicode correto seja preservado ao copiar.",
+      "feature3": "Área de composição e cópia em lote: Permite reunir vários elementos em sequência para elaborar frases visuais completas e copiá-las juntas com apenas um clique.",
+      "feature4": "Privacidade estrita no cliente: Pesquisas, histórico de uso e favoritos operam restritos à memória do seu navegador, sem monitoramento ou tráfego de dados para servidores.",
+      "step1Title": "Navegue ou pesquise emojis",
+      "step1Body": "Use as abas temáticas (carinhas, animais, culinária, bandeiras) ou digite palavras-chave no campo de pesquisa para encontrar o símbolo ideal.",
+      "step2Title": "Clique para copiar ou combinar",
+      "step2Body": "Toque em qualquer emoji para salvá-lo na área de transferência e na barra superior; marque o coração para guardá-lo nos seus favoritos.",
+      "step3Title": "Cole onde desejar",
+      "step3Body": "Utilize os símbolos em legendas de fotos, conversas de bate-papo, descrições de perfil ou documentos de texto.",
+      "faq1Q": "Quais as vantagens deste teclado em relação ao seletor padrão do computador?",
+      "faq1A": "Ele oferece busca textual ultraveloz, área de acúmulo para montar sequências, favoritos locais e visualização vetorial de bandeiras que elimina problemas comuns de exibição no Windows.",
+      "faq2Q": "Os símbolos copiados funcionam no celular, WhatsApp e Discord?",
+      "faq2A": "Sim. Todos os elementos respeitam os padrões do Unicode Consortium. Ao copiar, o código transferido é universal e interpretado normalmente pelos principais sistemas e aplicativos.",
+      "faq3Q": "Os dados da minha área de transferência ou minhas buscas são armazenados?",
+      "faq3A": "Não. A filosofia do VelnoxLabs foca em processamento local. Todas as escolhas, histórico e itens salvos ficam restritos ao armazenamento do seu navegador.",
+      "faq4Q": "Como funcionam as bandeiras e emojis de combinação?",
+      "faq4A": "Eles são formados por múltiplos códigos interligados por sequências de junção (ZWJ). Nossa ferramenta assegura que essas sequências se mantenham íntegras ao serem coladas."
     }
   }
 }
