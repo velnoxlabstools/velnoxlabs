@@ -386,8 +386,8 @@
       "description": "Convertissez les couleurs entre HEX, RGB, HSL, HSV et CMYK avec contrôle de contraste accessible WCAG 2.1."
     },
     "case-converter": {
-      "name": "Convertisseur de Casse Typographique",
-      "description": "Changez la casse entre camelCase, snake_case, kebab-case, majuscules, minuscules, Casse de Titre et PascalCase."
+      "name": "Casse de Phrase et Titre (Sentence Case & Title Case)",
+      "description": "Outil en ligne sans frais pour modifier la casse. Modifiez les minuscules en majuscules dans Excel, ajustez vos phrases et vos textes sans aucune extension."
     },
     "lorem-ipsum": {
       "name": "Générateur Lorem Ipsum",
@@ -1739,6 +1739,42 @@
       "faq3A": "Oui. En plus des années, mois et jours, il affiche le total de mois, semaines et jours vécus. En divisant les jours par 365,2425, on obtient un âge décimal (comme 25,5 ans), très apprécié pour les études actuarielles et statistiques.",
       "faq4Q": "Cet outil fonctionne-t-il pour les utilisateurs du Népal, d'Inde et d'ailleurs ?",
       "faq4A": "Oui, il est conçu pour un usage universel. Les ressortissants népalais ou indiens renseignant le calendrier grégorien (AD) pour passeports, visas ou concours obtiennent leur âge chronologique instantanément."
+    },
+    "caseConverter": {
+      "title": "Casse de Phrase et Titre – Modification Majuscules et Minuscules",
+      "subtitle": "Outil en ligne sans frais pour modifier la casse. Modifiez les minuscules en majuscules dans Excel, ajustez vos phrases et vos textes sans aucune extension.",
+      "inputLabel": "Entrée :",
+      "inputPlaceholder": "Entrez votre texte ici...",
+      "outputLabel": "Sortie :",
+      "outputPlaceholder": "Cliquez sur un bouton de conversion pour afficher le résultat...",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "uppercase": "MAJUSCULES",
+      "lowercase": "minuscules",
+      "titleCase": "Casse Titre",
+      "camelCase": "camelCase",
+      "snakeCase": "snake_case",
+      "kebabCase": "kebab-case",
+      "clear": "Effacer",
+      "aboutText": "L'utilitaire Casse de Phrase et Titre est une solution performante exécutée côté client pour transformer vos textes entre casse de phrase, style de titre, MAJUSCULES, minuscules, camelCase, snake_case et kebab-case directement dans le navigateur. Que vous ayez besoin de modifier des lettres minuscules en majuscules dans vos feuilles de calcul Excel, d'harmoniser les titres de vos articles ou de corriger des paragraphes entiers, cet outil assure un traitement instantané avec zéro latence. Solution web sécurisée et alternative entièrement gratuite aux extensions de navigateur, tout le traitement s'exécute dans la mémoire locale de votre appareil afin de garantir une confidentialité absolue.",
+      "feature1": "Plus de 12 styles typographiques : passez sans effort des normes de nommage de code aux règles éditoriales",
+      "feature2": "Gestion soignée des délimiteurs : respecte les frontières lexicales en traitant intelligemment espaces, tirets et tirets bas",
+      "feature3": "Statistiques lexicales en direct : affiche les compteurs de caractères, mots, phrases et lignes en temps réel",
+      "feature4": "Copie et réinitialisation immédiates : outils dédiés pour transférer la chaîne obtenue dans le presse-papiers ou vider la zone",
+      "step1Title": "Saisissez votre texte",
+      "step1Body": "Tapez ou collez votre chaîne de caractères ou liste de variables dans le champ de saisie.",
+      "step2Title": "Sélectionnez le style cible",
+      "step2Body": "Cliquez sur le bouton de transformation voulu (comme camelCase, snake_case, Casse de Titre ou MAJUSCULES).",
+      "step3Title": "Copiez le résultat",
+      "step3Body": "Vérifiez le texte obtenu dans la zone d'affichage et cliquez sur 'Copier' pour l'utiliser dans votre projet.",
+      "faq1Q": "Comment modifier des lettres minuscules en majuscules dans Excel ?",
+      "faq1A": "Pour changer des minuscules en majuscules dans Excel, vous pouvez utiliser la formule intégrée =MAJUSCULE(A1) pour les majuscules, =MINUSCULE(A1) pour les minuscules ou =NOMPROPRE(A1) pour le style de titre. Vous pouvez également copier vos colonnes de cellules, les coller dans notre outil sans frais, choisir le bouton correspondant et recoller le texte transformé directement dans votre feuille Excel sans devoir créer de formule.",
+      "faq2Q": "Cet outil est-il une alternative sans frais aux extensions de navigateur ?",
+      "faq2A": "Oui, cet utilitaire en ligne remplace avantageusement l'installation d'une extension de navigateur. Contrairement aux modules complémentaires qui demandent des permissions d'accès à l'ensemble de vos pages web, notre solution s'exécute uniquement via des scripts dans la mémoire de votre navigateur, sans installation ni traçage de données.",
+      "faq3Q": "L'outil prend-il en charge la casse de phrase et le style de titre ?",
+      "faq3A": "Parfaitement ! Le moteur de style de titre met en majuscule la première lettre des mots clés selon les règles typographiques, tandis que la casse de phrase place une majuscule au début de chaque phrase après un point ou un signe de ponctuation finale (. ! ?). Vous pouvez aussi basculer vers les notations de développement d'un simple clic.",
+      "faq4Q": "Peut-on utiliser cet outil pour corriger les phrases dans des classeurs Excel ?",
+      "faq4A": "Oui, tout à fait. Comme le tableur Excel ne propose pas de fonction native pour la casse de phrase (il ne dispose que de MAJUSCULE, MINUSCULE et NOMPROPRE), de nombreux utilisateurs utilisent notre service pour normaliser leurs colonnes de données. Copiez votre contenu, sélectionnez le style souhaité et replacez le texte propre dans vos tableaux."
     }
   }
 }

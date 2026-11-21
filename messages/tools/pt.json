@@ -213,8 +213,8 @@
       "faq4A": "Sim, funciona internacionalmente. Cidadãos do Nepal e da Índia que recorrem ao calendário gregoriano (AD) para vistos, passaportes e exames escolares encontram aqui a idade exata com total precisão."
     },
     "caseConverter": {
-      "title": "Conversor de Maiúsculas e Minúsculas",
-      "subtitle": "Converta textos entre camelCase, snake_case, kebab-case, maiúsculas, minúsculas, Formato de Título e PascalCase.",
+      "title": "Conversor de Frases e Títulos – Maiúsculas e Minúsculas Online",
+      "subtitle": "Ferramenta gratuita para alterar maiúsculas e minúsculas online. Altere letras minúsculas para maiúsculas no Excel, ajuste frases e textos sem precisar de extensão.",
       "inputLabel": "Entrada:",
       "inputPlaceholder": "Digite seu texto aqui...",
       "outputLabel": "Saída:",
@@ -228,7 +228,7 @@
       "snakeCase": "snake_case",
       "kebabCase": "kebab-case",
       "clear": "Limpar",
-      "aboutText": "O Conversor de Maiúsculas e Minúsculas é uma ferramenta versátil para programadores, redatores e revisores. Transforma textos com rapidez entre padrões de código de programação (camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE) e convenções editoriais (Formato de Título, Primeira maiúscula, etc.), com execução instantânea e segura.",
+      "aboutText": "O Conversor de Frases e Títulos é uma solução rápida e executada no navegador para transformar textos entre início de frase, estilo de título, MAIÚSCULAS, minúsculas, camelCase, snake_case e kebab-case. Se você precisa mudar letras minúsculas para maiúsculas em planilhas do Excel, padronizar títulos editoriais ou estruturar frases completas, esta ferramenta entrega resultados imediatos com zero latência. Servindo como uma alternativa gratuita e segura à instalação de extensões para navegadores, todo o processamento de texto ocorre localmente na memória do dispositivo, preservando total sigilo.",
       "feature1": "Mais de 12 estilos de capitalização: alterne com facilidade entre padrões de código e diagramação de artigos",
       "feature2": "Tratamento inteligente de divisores: preserva limites de palavras respeitando espaços, traços e sublinhados",
       "feature3": "Estatísticas em tempo real: exibe contagem de caracteres, palavras, sentenças e linhas instantaneamente",
@@ -239,14 +239,14 @@
       "step2Body": "Clique no botão correspondente ao padrão pretendido (como camelCase, snake_case, Formato de Título ou MAIÚSCULAS).",
       "step3Title": "Copie o texto gerado",
       "step3Body": "Revise o resultado na caixa de texto e clique em 'Copiar' para salvar na sua área de transferência.",
-      "faq1Q": "Qual a diferença entre camelCase e PascalCase?",
-      "faq1A": "No camelCase a primeira letra começa em minúscula (minhaVariavelExemplo), enquanto no PascalCase cada palavra inicia com letra maiúscula (MinhaClasseExemplo).",
-      "faq2Q": "Como o Formato de Título lida com preposições e artigos?",
-      "faq2A": "Ele segue regras de estilo editoriais, capitalizando substantivos e verbos e mantendo artigos e preposições curtas em minúsculas, exceto no início do texto.",
-      "faq3Q": "O texto que eu inserir fica registrado?",
-      "faq3A": "Não. Toda a manipulação de strings é processada localmente pelo navegador através de JavaScript. Nenhuma informação é guardada.",
-      "faq4Q": "Posso usar para nomes de variáveis e colunas de banco de dados?",
-      "faq4A": "Sim, é ideal para padronização de identificadores de software, atributos JSON e colunas SQL."
+      "faq1Q": "Como transformar letras minúsculas em maiúsculas no Excel?",
+      "faq1A": "Para mudar letras minúsculas para maiúsculas no Excel, você pode usar a fórmula nativa =MAIÚSCULA(A1) para letras maiúsculas, =MINÚSCULA(A1) para minúsculas ou =PRI.MAIÚSCULA(A1) para estilo de título. Como alternativa rápida, você pode copiar os dados da coluna no Excel, colá-los nesta página gratuita, escolher a opção desejada e colar o texto atualizado de volta na planilha sem fórmulas.",
+      "faq2Q": "Esta ferramenta é uma alternativa gratuita a extensões de navegador?",
+      "faq2A": "Sim, este utilitário online gratuito substitui com facilidade a necessidade de instalar extensões de terceiros. Diferente dos complementos de navegador que solicitam permissões para ler dados de navegação, nossa aplicação web opera estritamente via scripts locais, sem rastreamento nem necessidade de instalação.",
+      "faq3Q": "O sistema suporta formato de frase e estilo de título?",
+      "faq3A": "Sim! O motor de estilo de títulos coloca em maiúscula a letra inicial das palavras relevantes conforme as normas de tipografia, enquanto a transformação de frases capitaliza a primeira letra de cada oração após sinais de pontuação (. ! ?). Você também pode alternar entre convenções de programação com apenas um clique.",
+      "faq4Q": "Posso usar esta ferramenta para organizar frases de planilhas do Excel?",
+      "faq4A": "Sim. Como o Excel não possui uma fórmula nativa específica para início de frase (disponibiliza apenas MAIÚSCULA, MINÚSCULA e PRI.MAIÚSCULA), muitos profissionais utilizam nossa página para padronizar frases vindas de planilhas. Basta colar o conteúdo, aplicar a transformação e colar o texto pronto de volta."
     },
     "checksumCalculator": {
       "title": "Calculadora de Checksum de Arquivos e Texto",

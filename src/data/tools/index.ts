@@ -688,10 +688,10 @@ export const tools: Tool[] = [
   {
     id: 'tool-case',
     slug: 'case-converter',
-    name: 'Case Converter',
-    description: 'Convert text between camel, snake, kebab cases.',
+    name: 'Sentence Case Converter & Title Case – Case Converter Text',
+    description: 'Free sentence case converter and title case text tool online. Convert small letter to capital in Excel, format sentences, and transform case converter text instantly without any extension.',
     categoryId: 'cat-text',
-    tags: ['text', 'case', 'converter'],
+    tags: ['text', 'case', 'converter', 'sentence case converter', 'convert small letter to capital in excel', 'case converter free', 'case converter extension', 'case converter title case', 'case converter net', 'sentence case converter in excel', 'case converter text'],
     status: 'published',
     featured: false,
     trending: false,

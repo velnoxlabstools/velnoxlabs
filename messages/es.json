@@ -386,8 +386,8 @@
       "description": "Convierte colores entre HEX, RGB, HSL, HSV y CMYK con comprobación de contraste accesible WCAG 2.1."
     },
     "case-converter": {
-      "name": "Conversor de Mayúsculas y Minúsculas",
-      "description": "Transforma texto entre camelCase, snake_case, kebab-case, mayúsculas, minúsculas, Tipo Título y PascalCase."
+      "name": "Conversor de Frases y Títulos (Sentence Case & Title Case)",
+      "description": "Herramienta gratuita para cambiar mayúsculas y minúsculas en línea. Transforma letras minúsculas a mayúsculas en Excel, ajusta oraciones y textos al instante sin extensiones."
     },
     "lorem-ipsum": {
       "name": "Generador de Lorem Ipsum",
@@ -1737,6 +1737,42 @@
       "faq3A": "Sí. Además de años, meses y días, muestra los meses, semanas y días totales acumulados. Dividir los días restantes entre 365,2425 permite obtener la edad decimal (como 25,5 años), muy útil para estadísticas y análisis actuariales.",
       "faq4Q": "¿Funciona para usuarios de Nepal, India y a escala internacional?",
       "faq4A": "Sí, opera universalmente. Los usuarios de Nepal e India que emplean el calendario gregoriano (AD) para pasaportes, visados y trámites consulares obtienen su edad cronológica precisa al instante."
+    },
+    "caseConverter": {
+      "title": "Conversor de Frases y Títulos – Cambio de Mayúsculas y Minúsculas",
+      "subtitle": "Herramienta gratuita para cambiar mayúsculas y minúsculas en línea. Transforma letras minúsculas a mayúsculas en Excel, ajusta oraciones y textos al instante sin extensiones.",
+      "inputLabel": "Entrada:",
+      "inputPlaceholder": "Ingresa tu texto aquí...",
+      "outputLabel": "Salida:",
+      "outputPlaceholder": "Haz clic en un botón de caso abajo para ver el resultado...",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "uppercase": "MAYÚSCULAS",
+      "lowercase": "minúsculas",
+      "titleCase": "Tipo Título",
+      "camelCase": "camelCase",
+      "snakeCase": "snake_case",
+      "kebabCase": "kebab-case",
+      "clear": "Limpiar",
+      "aboutText": "El Conversor de Frases y Títulos es una potente utilidad en línea que transforma cadenas entre mayúscula inicial de frase, estilo de título, MAYÚSCULAS, minúsculas, camelCase, snake_case y kebab-case directamente en tu navegador. Si necesitas transformar letras minúsculas a mayúsculas en hojas de cálculo de Excel, estructurar títulos editoriales o corregir la primera letra de cada oración, esta utilidad ofrece soluciones inmediatas con latencia cero. Funciona como una solución web segura y gratuita que reemplaza por completo a las extensiones de Chrome, ejecutando todo el procesamiento en la memoria local del navegador sin comprometer tu privacidad.",
+      "feature1": "Más de 12 estilos tipográficos: convierte cadenas para desarrollo de software y redacción editorial",
+      "feature2": "Tratamiento inteligente de delimitadores: gestiona espacios, guiones bajos y guiones respetando los límites de cada palabra",
+      "feature3": "Métricas de texto en vivo: calcula y muestra recuentos de caracteres, palabras, frases y líneas en tiempo real",
+      "feature4": "Copia y limpieza instantáneas: botones directos para copiar el texto transformado al portapapeles o limpiar el área de trabajo",
+      "step1Title": "Ingresa el texto",
+      "step1Body": "Escribe o pega el texto que deseas transformar en el área de entrada.",
+      "step2Title": "Selecciona el estilo deseado",
+      "step2Body": "Haz clic en el botón de conversión correspondiente (como camelCase, snake_case, Tipo Título o MAYÚSCULAS).",
+      "step3Title": "Copia el resultado",
+      "step3Body": "Comprueba el texto adaptado y pulsa 'Copiar' para guardarlo en tu portapapeles.",
+      "faq1Q": "¿Cómo convertir letras minúsculas a mayúsculas en Excel?",
+      "faq1A": "Para convertir letras minúsculas a mayúsculas en Excel, puedes utilizar la función integrada =MAYUSC(A1) para mayúsculas, =MINUSC(A1) para minúsculas o =NOMPROPIO(A1) para estilo de título. De forma alternativa, puedes copiar las celdas de tu columna en Excel, pegarlas en este cambiador gratuito, presionar el botón deseado y pegar el texto resultante de nuevo en tu hoja de cálculo sin necesidad de fórmulas.",
+      "faq2Q": "¿Es esta herramienta una alternativa gratuita a las extensiones de navegador?",
+      "faq2A": "Sí, esta utilidad web gratuita es una alternativa completa a la instalación de extensiones de navegador. A diferencia de los complementos que requieren permisos invasivos para leer el contenido de todas las páginas web, nuestra herramienta se ejecuta exclusivamente mediante scripts en la memoria de tu navegador, sin seguimiento ni descargas.",
+      "faq3Q": "¿Admite la mayúscula inicial de frase y el estilo de título?",
+      "faq3A": "¡Totalmente! Nuestro motor de estilo de título coloca en mayúscula la inicial de las palabras principales siguiendo normas tipográficas, mientras que la función de frase aplica mayúscula automáticamente tras cada punto o signo de puntuación final (. ! ?). Además, puedes alternar entre estilos de desarrollo y edición general con un solo clic.",
+      "faq4Q": "¿Puedo utilizar esta utilidad para ajustar textos de oraciones en Excel?",
+      "faq4A": "Sí. Dado que Excel no incluye una función nativa para mayúscula de frase (únicamente ofrece MAYUSC, MINUSC y NOMPROPIO), numerosos usuarios emplean nuestra plataforma para sus datos de Excel. Solo copia tu columna, selecciona el estilo deseado y transfiere el texto limpio a tu planilla."
     }
   }
 }

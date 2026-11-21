@@ -213,8 +213,8 @@
       "faq4A": "Yes, it works universally for users worldwide. Nepali and Indian users who use the Gregorian (AD) calendar for passports, visas, academic exams, and civil service forms can calculate their exact age instantly. Nepali users converting from Bikram Sambat (BS) to English date (AD) can enter their AD date of birth to get their exact chronological age."
     },
     "caseConverter": {
-      "title": "Text Case Converter",
-      "subtitle": "Transform text between camelCase, snake_case, kebab-case, UPPERCASE, lowercase, Title Case, and PascalCase.",
+      "title": "Sentence Case Converter & Title Case – Case Converter Text",
+      "subtitle": "Free sentence case converter and title case text tool online. Convert small letter to capital in Excel, format sentences, and transform case converter text instantly without any extension.",
       "inputLabel": "Input:",
       "inputPlaceholder": "Enter your text here...",
       "outputLabel": "Output:",
@@ -228,7 +228,7 @@
       "snakeCase": "snake_case",
       "kebabCase": "kebab-case",
       "clear": "Clear",
-      "aboutText": "The Text Case Converter is a comprehensive text manipulation utility designed for programmers, content creators, and copywriters. It rapidly converts strings between standard programming naming conventions (camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE) and typographical formats (Title Case, Sentence case, Alternating case). All conversions run instantly in client-side memory.",
+      "aboutText": "Sentence Case Converter & Title Case is a powerful, client-side case converter text utility that transforms strings between sentence case, Title Case, UPPERCASE, lowercase, camelCase, snake_case, and kebab-case instantly in your browser. Whether you need to convert small letter to capital in Excel spreadsheets, format headline capitalization with our case converter title case engine, or execute a sentence case converter in Excel data cleanup, this tool provides instant formatting with zero latency. Serving as a fast, secure case converter net solution and a 100% case converter free alternative to installing a bulky case converter extension, all text processing executes locally in browser memory with total privacy.",
       "feature1": "12+ Essential Case Formats: Convert strings effortlessly between developer naming conventions and editorial casing",
       "feature2": "Special Character & Delimiter Preservation: Intelligently handles spaces, underscores, hyphens, and multi-word token boundaries",
       "feature3": "Real-Time Statistics: Displays live character, word, sentence, and line count metrics alongside converted results",
@@ -239,14 +239,14 @@
       "step2Body": "Click any case transformation button (e.g., camelCase, snake_case, Title Case, UPPERCASE) to convert immediately.",
       "step3Title": "Copy the Converted String",
       "step3Body": "Review the converted result and click the \"Copy\" button to copy it to your clipboard.",
-      "faq1Q": "What is the difference between camelCase and PascalCase?",
-      "faq1A": "In camelCase, the first letter is lowercase and subsequent words start with an uppercase letter (myVariableName). In PascalCase, every word starts with an uppercase letter (MyClassName).",
-      "faq2Q": "How does Title Case handle minor words like \"and\", \"the\", and \"in\"?",
-      "faq2A": "Our Title Case converter adheres to standard English capitalization guidelines, capitalizing major words while keeping articles, short conjunctions, and prepositions lowercase unless they start the sentence.",
-      "faq3Q": "Is my input text stored or monitored?",
-      "faq3A": "No. All text manipulations run exclusively in your browser via client-side JavaScript. No text is recorded, analyzed, or sent to external servers.",
-      "faq4Q": "Can this tool handle programming code snippets?",
-      "faq4A": "Yes, it is specifically optimized for variable renaming, identifier normalization, and database column naming transformations."
+      "faq1Q": "How do I convert small letter to capital in Excel?",
+      "faq1A": "To convert small letters to capital in Excel, you can use the built-in formula =UPPER(A1) to make text uppercase, =LOWER(A1) for lowercase, or =PROPER(A1) for title case. Alternatively, you can copy your Excel column cells, paste them into this free sentence case converter, click the desired casing button (UPPERCASE, Title Case, or lowercase), and paste the converted text back into Excel with no formulas required.",
+      "faq2Q": "Is this a free case converter extension alternative?",
+      "faq2A": "Yes, this online case converter free tool serves as a full alternative to installing a browser case converter extension. Unlike browser extensions that often require intrusive permissions to read all website data, our web-based tool runs purely on client-side JavaScript in your browser memory without tracking, permissions, or installation overhead.",
+      "faq3Q": "Does this tool support Sentence Case and Title Case?",
+      "faq3A": "Yes! Our case converter title case engine capitalizes the first letter of each significant word while following standard typographical style guides, and the sentence case converter capitalizes the initial letter of each sentence following terminal punctuation (. ! ?). You can also toggle between camelCase, snake_case, kebab-case, and UPPERCASE with a single click.",
+      "faq4Q": "Can I use this as a sentence case converter in Excel workflows?",
+      "faq4A": "Yes. Because Excel lacks a native sentence case function (it only offers UPPER, LOWER, and PROPER), many spreadsheet users use our tool as their dedicated sentence case converter in Excel. Simply copy your data column, click Title Case or UPPERCASE, copy the output, and paste the formatted case converter text back into your spreadsheet."
     },
     "checksumCalculator": {
       "title": "File & Text Checksum Calculator",

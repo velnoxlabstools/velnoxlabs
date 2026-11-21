@@ -213,8 +213,8 @@
       "faq4A": "Oui, il est conçu pour un usage universel. Les ressortissants népalais ou indiens renseignant le calendrier grégorien (AD) pour passeports, visas ou concours obtiennent leur âge chronologique instantanément."
     },
     "caseConverter": {
-      "title": "Convertisseur de Casse Typographique",
-      "subtitle": "Changez la casse entre camelCase, snake_case, kebab-case, majuscules, minuscules, Casse de Titre et PascalCase.",
+      "title": "Casse de Phrase et Titre – Modification Majuscules et Minuscules",
+      "subtitle": "Outil en ligne sans frais pour modifier la casse. Modifiez les minuscules en majuscules dans Excel, ajustez vos phrases et vos textes sans aucune extension.",
       "inputLabel": "Entrée :",
       "inputPlaceholder": "Entrez votre texte ici...",
       "outputLabel": "Sortie :",
@@ -228,7 +228,7 @@
       "snakeCase": "snake_case",
       "kebabCase": "kebab-case",
       "clear": "Effacer",
-      "aboutText": "Le Convertisseur de Casse Typographique est un outil conçu pour les développeurs, rédacteurs et créateurs de contenu. Il convertit instantanément les textes entre les normes de programmation courantes (camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE) et les règles éditoriales classiques, avec une rapidité d'exécution locale totale.",
+      "aboutText": "L'utilitaire Casse de Phrase et Titre est une solution performante exécutée côté client pour transformer vos textes entre casse de phrase, style de titre, MAJUSCULES, minuscules, camelCase, snake_case et kebab-case directement dans le navigateur. Que vous ayez besoin de modifier des lettres minuscules en majuscules dans vos feuilles de calcul Excel, d'harmoniser les titres de vos articles ou de corriger des paragraphes entiers, cet outil assure un traitement instantané avec zéro latence. Solution web sécurisée et alternative entièrement gratuite aux extensions de navigateur, tout le traitement s'exécute dans la mémoire locale de votre appareil afin de garantir une confidentialité absolue.",
       "feature1": "Plus de 12 styles typographiques : passez sans effort des normes de nommage de code aux règles éditoriales",
       "feature2": "Gestion soignée des délimiteurs : respecte les frontières lexicales en traitant intelligemment espaces, tirets et tirets bas",
       "feature3": "Statistiques lexicales en direct : affiche les compteurs de caractères, mots, phrases et lignes en temps réel",
@@ -239,14 +239,14 @@
       "step2Body": "Cliquez sur le bouton de transformation voulu (comme camelCase, snake_case, Casse de Titre ou MAJUSCULES).",
       "step3Title": "Copiez le résultat",
       "step3Body": "Vérifiez le texte obtenu dans la zone d'affichage et cliquez sur 'Copier' pour l'utiliser dans votre projet.",
-      "faq1Q": "Quelle est la différence entre camelCase et PascalCase ?",
-      "faq1A": "En camelCase la première lettre commence par une minuscule (monIdentifiantExemple), alors qu'en PascalCase chaque mot débute par une majuscule (MonIdentifiantExemple).",
-      "faq2Q": "Comment la Casse de Titre traite-t-elle les mots secondaires ?",
-      "faq2A": "Elle applique les normes éditoriales : les mots principaux prennent une majuscule, tandis que les articles et prépositions courtes restent en minuscules sauf en début de phrase.",
-      "faq3Q": "Mes textes saisis sont-ils conservés ou transmis ?",
-      "faq3A": "Non. Toutes les opérations de manipulation textuelle sont exécutées localement dans votre navigateur en JavaScript.",
-      "faq4Q": "L'outil est-il adapté pour renommer des variables de code ?",
-      "faq4A": "Tout à fait, il est spécialement calibré pour le renommage de variables, de colonnes de bases de données et d'attributs JSON."
+      "faq1Q": "Comment modifier des lettres minuscules en majuscules dans Excel ?",
+      "faq1A": "Pour changer des minuscules en majuscules dans Excel, vous pouvez utiliser la formule intégrée =MAJUSCULE(A1) pour les majuscules, =MINUSCULE(A1) pour les minuscules ou =NOMPROPRE(A1) pour le style de titre. Vous pouvez également copier vos colonnes de cellules, les coller dans notre outil sans frais, choisir le bouton correspondant et recoller le texte transformé directement dans votre feuille Excel sans devoir créer de formule.",
+      "faq2Q": "Cet outil est-il une alternative sans frais aux extensions de navigateur ?",
+      "faq2A": "Oui, cet utilitaire en ligne remplace avantageusement l'installation d'une extension de navigateur. Contrairement aux modules complémentaires qui demandent des permissions d'accès à l'ensemble de vos pages web, notre solution s'exécute uniquement via des scripts dans la mémoire de votre navigateur, sans installation ni traçage de données.",
+      "faq3Q": "L'outil prend-il en charge la casse de phrase et le style de titre ?",
+      "faq3A": "Parfaitement ! Le moteur de style de titre met en majuscule la première lettre des mots clés selon les règles typographiques, tandis que la casse de phrase place une majuscule au début de chaque phrase après un point ou un signe de ponctuation finale (. ! ?). Vous pouvez aussi basculer vers les notations de développement d'un simple clic.",
+      "faq4Q": "Peut-on utiliser cet outil pour corriger les phrases dans des classeurs Excel ?",
+      "faq4A": "Oui, tout à fait. Comme le tableur Excel ne propose pas de fonction native pour la casse de phrase (il ne dispose que de MAJUSCULE, MINUSCULE et NOMPROPRE), de nombreux utilisateurs utilisent notre service pour normaliser leurs colonnes de données. Copiez votre contenu, sélectionnez le style souhaité et replacez le texte propre dans vos tableaux."
     },
     "checksumCalculator": {
       "title": "Calculateur d'Empreinte Numérique et Checksum",

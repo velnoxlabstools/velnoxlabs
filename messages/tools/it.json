@@ -215,8 +215,8 @@
       "faq4A": "Sì, funziona su scala globale. Gli utenti di Nepal e India che adoperano il calendario gregoriano (AD) per visti, passaporti ed esami pubblici ottengono l'età anagrafica esatta senza complicazioni."
     },
     "caseConverter": {
-      "title": "Convertitore di Maiuscole e Minuscole",
-      "subtitle": "Converti il testo tra camelCase, snake_case, kebab-case, tutto maiuscolo, tutto minuscolo, Stile Titolo e PascalCase.",
+      "title": "Stile Frase e Titolo – Modifica Maiuscole e Minuscole Online",
+      "subtitle": "Strumento gratuito online per cambiare maiuscole e minuscole. Modifica lettere minuscole in maiuscole in Excel, sistema frasi e testi senza alcuna estensione.",
       "inputLabel": "Testo iniziale:",
       "inputPlaceholder": "Inserisci il tuo testo qui...",
       "outputLabel": "Risultato:",
@@ -230,7 +230,7 @@
       "snakeCase": "snake_case",
       "kebabCase": "kebab-case",
       "clear": "Cancella",
-      "aboutText": "Il Convertitore di Maiuscole e Minuscole è uno strumento versatile per programmatori, copywriter e redattori. Trasforma le stringhe rapidamente tra le convenzioni tipiche dello sviluppo software (camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE) e gli stili tipografici editoriali, con esecuzione in memoria istantanea.",
+      "aboutText": "L'applicativo Stile Frase e Titolo è una potente utility lato client progettata per trasformare stringhe di testo tra stile frase, stile titolo, TUTTO MAIUSCOLO, tutto minuscolo, camelCase, snake_case e kebab-case all'interno del browser. Sia che tu debba mutare lettere minuscole in maiuscole nei fogli di calcolo di Excel, ottimizzare titoli editoriali o riordinare elenchi di dati, questo strumento offre una trasformazione istantanea senza alcuna latenza. Validissima alternativa gratuita e sicura all'installazione di estensioni per browser, tutte le operazioni avvengono nella memoria locale garantendo la massima riservatezza.",
       "feature1": "Oltre 12 formati di testo: converti con facilità tra convenzioni per variabili di codice e stili di impaginazione per articoli",
       "feature2": "Gestione accurata dei separatori: riconosce i confini tra le parole gestendo spaziature, trattini e caratteri underscore",
       "feature3": "Dati statistici in tempo reale: visualizza conteggi costantemente aggiornati di caratteri, parole, frasi e righe",
@@ -241,14 +241,14 @@
       "step2Body": "Fai clic sul pulsante corrispondente alla conversione desiderata (come camelCase, snake_case, Stile Titolo o MAIUSCOLO).",
       "step3Title": "Copia il valore generato",
       "step3Body": "Controlla la nuova disposizione delle lettere nel campo di arrivo e premi 'Copia' per usarla dove preferisci.",
-      "faq1Q": "Qual è la differenza fra camelCase e PascalCase?",
-      "faq1A": "In camelCase la prima parola comincia con l'iniziale minuscola (miaVariabileEsempio), mentre in PascalCase ogni singolo termine ha l'iniziale maiuscola (MiaClasseEsempio).",
-      "faq2Q": "Come gestisce lo Stile Titolo le preposizioni e gli articoli?",
-      "faq2A": "Applica le convenzioni tipografiche standard: mette in maiuscolo le parole principali e mantiene in minuscolo articoli e brevi preposizioni, a meno che non siano all'inizio della frase.",
-      "faq3Q": "Le frasi che inserisco rimangono salvate?",
-      "faq3A": "No. Tutta l'elaborazione viene eseguita localmente all'interno del browser tramite JavaScript. Nessun testo viene registrato.",
-      "faq4Q": "È indicato per ridenominare variabili di programmazione?",
-      "faq4A": "Certamente, è calibrato specificamente per la normalizzazione di variabili, colonne di database e chiavi di file JSON."
+      "faq1Q": "Come trasformare le lettere minuscole in maiuscole in Excel?",
+      "faq1A": "Per mutare le lettere minuscole in maiuscole in Excel, puoi adoperare la formula predefinita =MAIUSC(A1) per le maiuscole, =MINUSC(A1) per le minuscole o =MAIUSC.INIZ(A1) per lo stile titolo. In alternativa, puoi copiare le celle della colonna Excel, incollarle in questo applicativo gratuito, selezionare il pulsante corrispondente e reincollare il testo trasformato nel foglio di calcolo senza formule aggiuntive.",
+      "faq2Q": "Questo strumento è un'alternativa gratuita alle estensioni per browser?",
+      "faq2A": "Sì, questo strumento gratuito sostituisce appieno l'installazione di estensioni o componenti aggiuntivi del browser. A differenza dei plugin che richiedono autorizzazioni invasive per leggere i contenuti web, il nostro applicativo funziona esclusivamente nella memoria del tuo browser, senza installazione né tracciamento.",
+      "faq3Q": "Supporta lo Stile Frase e lo Stile Titolo?",
+      "faq3A": "Certamente! Il motore per lo stile titolo trasforma in maiuscola l'iniziale dei termini principali seguendo i criteri tipografici, mentre la funzione stile frase rende maiuscola la prima lettera dopo la punteggiatura conclusiva (. ! ?). Con un solo clic puoi anche passare agli stili tipici della programmazione.",
+      "faq4Q": "Posso usarlo per impostare lo stile frase sui dati di una tabella Excel?",
+      "faq4A": "Certamente. Poiché Excel non include una funzione specifica per lo stile frase (offre unicamente MAIUSC, MINUSC e MAIUSC.INIZ), molti utenti scelgono il nostro strumento come supporto dedicato per i propri elenchi. Copia la colonna, effettua l'operazione e incolla il testo ordinato nella tabella."
     },
     "checksumCalculator": {
       "title": "Calcolatore di Checksum di File e Testo",

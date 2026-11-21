@@ -213,8 +213,8 @@
       "faq4A": "Ja, er arbeitet weltweit zuverlässig. Anwender aus Nepal und Indien, die für Visa, Pässe oder Prüfungen den gregorianischen Kalender (AD) nutzen, können ihr chronologisches Alter direkt und fehlerfrei bestimmen."
     },
     "caseConverter": {
-      "title": "Text-Groß-/Kleinschreibung-Konverter",
-      "subtitle": "Wandle Texte zwischen camelCase, snake_case, kebab-case, Großbuchstaben, Kleinbuchstaben und PascalCase um.",
+      "title": "Satzanfang- & Titelschrift-Werkzeug – Text-Groß-/Kleinschreibung",
+      "subtitle": "Kostenloser Online-Helfer für Groß- und Kleinschreibung. Wandeln Sie Kleinbuchstaben in Excel in Großbuchstaben um und passen Sie Texte ohne Browser-Erweiterung an.",
       "inputLabel": "Eingabe:",
       "inputPlaceholder": "Geben Sie Ihren Text hier ein...",
       "outputLabel": "Ausgabe:",
@@ -228,7 +228,7 @@
       "snakeCase": "snake_case",
       "kebabCase": "kebab-case",
       "clear": "Löschen",
-      "aboutText": "Der Text-Groß-/Kleinschreibung-Konverter ist ein praktisches Textwerkzeug für Entwickler, Autoren und Übersetzer. Er wandelt Begriffe und Sätze blitzschnell zwischen Programmierkonventionen (camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE) und typografischen Schreibweisen um, ohne dass Daten dein Gerät verlassen.",
+      "aboutText": "Das Satzanfang- und Titelschrift-Werkzeug ist eine praktische Lösung zur Textanpassung, die Zeichenketten blitzschnell zwischen Satzanfang-Großschreibung, Titelschrift, GROSSBUCHSTABEN, Kleinbuchstaben, camelCase, snake_case und kebab-case transformiert. Ganz gleich, ob Sie in Excel-Tabellen Kleinbuchstaben in Großbuchstaben umwandeln, Überschriften typografisch korrekt gestalten oder Datensätze aufbereiten möchten – dieses Online-Tool liefert sofortige Ergebnisse ohne Wartezeiten. Als sichere, kostenfreie Alternative zu Browser-Erweiterungen läuft die gesamte Textverarbeitung direkt im Arbeitsspeicher Ihres Browsers ab, sodass Ihre Eingaben stets vertraulich bleiben.",
       "feature1": "Über 12 Schreibweisen: Wechsle problemlos zwischen Entwickler-Namenskonventionen und redaktionellen Textstilen",
       "feature2": "Intelligente Trennzeichenbehandlung: Berücksichtigt Leerzeichen, Unterstriche und Bindestriche an echten Wortgrenzen",
       "feature3": "Echtzeit-Textstatistik: Zeigt Zeichen-, Wort-, Satz- und Zeilenanzahl parallel zur Umwandlung an",
@@ -239,14 +239,14 @@
       "step2Body": "Klicke auf die gewünschte Schaltfläche (z. B. camelCase, snake_case, Titelschreibweise oder GROSSBUCHSTABEN).",
       "step3Title": "Ergebnis kopieren",
       "step3Body": "Prüfe den formatierten Text und klicke auf 'Kopieren', um ihn in deiner Anwendung einzusetzen.",
-      "faq1Q": "Was ist der Unterschied zwischen camelCase und PascalCase?",
-      "faq1A": "Bei camelCase beginnt das erste Wort mit einem Kleinbuchstaben (meinVariablenName), während bei PascalCase jedes Wort mit einem Großbuchstaben beginnt (MeinKlassenName).",
-      "faq2Q": "Wie geht die Titelschreibweise mit kurzen Bindewörtern um?",
-      "faq2A": "Sie folgt typografischen Konventionen: Hauptwörter werden großgeschrieben, kurze Artikel und Präpositionen bleiben kleingeschrieben, es sei denn, sie stehen am Satzanfang.",
-      "faq3Q": "Wird mein eingegebener Text gespeichert?",
-      "faq3A": "Nein. Die Textmanipulation läuft ausschließlich in deinem Browser via JavaScript ab. Es wird nichts mitgeloggt oder übertragen.",
-      "faq4Q": "Eignet sich das Tool für Quellcode-Variablen?",
-      "faq4A": "Ja, es ist speziell auf das Umbenennen von Variablen, Datenbankspalten und JSON-Attributen optimiert."
+      "faq1Q": "Wie kann man Kleinbuchstaben in Excel in Großbuchstaben umwandeln?",
+      "faq1A": "Um in Excel Kleinbuchstaben in Großbuchstaben umzuwandeln, können Sie die integrierte Formel =GROSS(A1) für Großbuchstaben, =KLEIN(A1) für Kleinbuchstaben oder =GROSS2(A1) für Titelschrift verwenden. Alternativ kopieren Sie die Zellen Ihrer Spalte, fügen sie in dieses kostenlose Werkzeug ein, wählen den gewünschten Modus und übertragen den Text ohne Formelaufwand direkt wieder zurück in Excel.",
+      "faq2Q": "Ist dieses Tool eine kostenlose Alternative zu Browser-Erweiterungen?",
+      "faq2A": "Ja, diese kostenlose Web-Anwendung ersetzt Browser-Erweiterungen vollständig. Während Erweiterungen häufig weitreichende Berechtigungen für das Lesen von Webseiten erfordern, arbeitet unsere Anwendung ausschließlich lokal in Ihrem Browser – ohne Installation, ohne Datenübertragung und ohne Tracking.",
+      "faq3Q": "Werden Satzanfang-Schreibweise und Titelschrift unterstützt?",
+      "faq3A": "Ja! Unsere Titelschrift-Logik schreibt die Anfangsbuchstaben relevanter Wörter gemäß typografischen Regeln groß, während die Satzanfang-Funktion jeweils den ersten Buchstaben nach Satzzeichen (. ! ?) kapitalisiert. Ebenso können Sie per Mausklick in gängige Programmierkonventionen wechseln.",
+      "faq4Q": "Eignet sich dieses Werkzeug für Excel-Texte im Satzanfang-Stil?",
+      "faq4A": "Absolut. Da Excel keine direkte Funktion für Satzanfang-Großschreibung bietet (es stehen nur GROSS, KLEIN und GROSS2 bereit), nutzen viele Anwender unsere Lösung als zuverlässigen Helfer für Tabelleninhalte. Kopieren Sie einfach den Spalteninhalt, führen Sie die Anpassung aus und fügen Sie den Text wieder ein."
     },
     "checksumCalculator": {
       "title": "Prüfsummen-Rechner für Dateien und Text",

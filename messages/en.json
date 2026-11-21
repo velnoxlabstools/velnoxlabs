@@ -379,8 +379,8 @@
       "description": "Convert between HEX, RGB, and HSL."
     },
     "case-converter": {
-      "name": "Case Converter",
-      "description": "Convert text between camel, snake, kebab cases."
+      "name": "Sentence Case Converter & Title Case – Case Converter Text",
+      "description": "Free sentence case converter and title case text tool online. Convert small letter to capital in Excel, format sentences, and transform case converter text instantly without any extension."
     },
     "lorem-ipsum": {
       "name": "Lorem Ipsum Generator",
@@ -1656,6 +1656,42 @@
       "faq3A": "Yes, VelnoxLabs provides this Base64 encoder & decoder online completely free without any limitations, watermarks, or user registration. All encoding and decoding operations run 100% client-side within your browser's local memory, meaning your files and confidential data are never sent to external servers.",
       "faq4Q": "What is the difference between Base64 encoding and encryption?",
       "faq4A": "Base64 is a binary-to-text representation scheme designed to safely transmit byte data across text-only protocols (like HTTP and SMTP). It is not cryptographic encryption and does not protect data with a secret key, so any Base64 decoder online can easily reconstruct the original payload."
+    },
+    "caseConverter": {
+      "title": "Sentence Case Converter & Title Case – Case Converter Text",
+      "subtitle": "Free sentence case converter and title case text tool online. Convert small letter to capital in Excel, format sentences, and transform case converter text instantly without any extension.",
+      "inputLabel": "Input:",
+      "inputPlaceholder": "Enter your text here...",
+      "outputLabel": "Output:",
+      "outputPlaceholder": "Click a case button below to see the result...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "uppercase": "UPPERCASE",
+      "lowercase": "lowercase",
+      "titleCase": "Title Case",
+      "camelCase": "camelCase",
+      "snakeCase": "snake_case",
+      "kebabCase": "kebab-case",
+      "clear": "Clear",
+      "aboutText": "Sentence Case Converter & Title Case is a powerful, client-side case converter text utility that transforms strings between sentence case, Title Case, UPPERCASE, lowercase, camelCase, snake_case, and kebab-case instantly in your browser. Whether you need to convert small letter to capital in Excel spreadsheets, format headline capitalization with our case converter title case engine, or execute a sentence case converter in Excel data cleanup, this tool provides instant formatting with zero latency. Serving as a fast, secure case converter net solution and a 100% case converter free alternative to installing a bulky case converter extension, all text processing executes locally in browser memory with total privacy.",
+      "feature1": "12+ Essential Case Formats: Convert strings effortlessly between developer naming conventions and editorial casing",
+      "feature2": "Special Character & Delimiter Preservation: Intelligently handles spaces, underscores, hyphens, and multi-word token boundaries",
+      "feature3": "Real-Time Statistics: Displays live character, word, sentence, and line count metrics alongside converted results",
+      "feature4": "Instant Copy & Clear: One-click actions to copy formatted strings directly to your clipboard or clear workspace",
+      "step1Title": "Input Your Text",
+      "step1Body": "Type or paste your text into the input workspace.",
+      "step2Title": "Choose Target Case",
+      "step2Body": "Click any case transformation button (e.g., camelCase, snake_case, Title Case, UPPERCASE) to convert immediately.",
+      "step3Title": "Copy the Converted String",
+      "step3Body": "Review the converted result and click the \"Copy\" button to copy it to your clipboard.",
+      "faq1Q": "How do I convert small letter to capital in Excel?",
+      "faq1A": "To convert small letters to capital in Excel, you can use the built-in formula =UPPER(A1) to make text uppercase, =LOWER(A1) for lowercase, or =PROPER(A1) for title case. Alternatively, you can copy your Excel column cells, paste them into this free sentence case converter, click the desired casing button (UPPERCASE, Title Case, or lowercase), and paste the converted text back into Excel with no formulas required.",
+      "faq2Q": "Is this a free case converter extension alternative?",
+      "faq2A": "Yes, this online case converter free tool serves as a full alternative to installing a browser case converter extension. Unlike browser extensions that often require intrusive permissions to read all website data, our web-based tool runs purely on client-side JavaScript in your browser memory without tracking, permissions, or installation overhead.",
+      "faq3Q": "Does this tool support Sentence Case and Title Case?",
+      "faq3A": "Yes! Our case converter title case engine capitalizes the first letter of each significant word while following standard typographical style guides, and the sentence case converter capitalizes the initial letter of each sentence following terminal punctuation (. ! ?). You can also toggle between camelCase, snake_case, kebab-case, and UPPERCASE with a single click.",
+      "faq4Q": "Can I use this as a sentence case converter in Excel workflows?",
+      "faq4A": "Yes. Because Excel lacks a native sentence case function (it only offers UPPER, LOWER, and PROPER), many spreadsheet users use our tool as their dedicated sentence case converter in Excel. Simply copy your data column, click Title Case or UPPERCASE, copy the output, and paste the formatted case converter text back into your spreadsheet."
     }
   }
 }

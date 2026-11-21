@@ -386,8 +386,8 @@
       "description": "Converti colori fra HEX, RGB, HSL, HSV e CMYK con verifica del rapporto di contrasto accessibile WCAG 2.1."
     },
     "case-converter": {
-      "name": "Convertitore di Maiuscole e Minuscole",
-      "description": "Converti il testo tra camelCase, snake_case, kebab-case, tutto maiuscolo, tutto minuscolo, Stile Titolo e PascalCase."
+      "name": "Stile Frase e Titolo (Sentence Case & Title Case)",
+      "description": "Strumento gratuito online per cambiare maiuscole e minuscole. Modifica lettere minuscole in maiuscole in Excel, sistema frasi e testi senza alcuna estensione."
     },
     "lorem-ipsum": {
       "name": "Generatore Lorem Ipsum",
@@ -1737,6 +1737,42 @@
       "faq3A": "Sì. Oltre ad anni, mesi e giorni, mostra i mesi, le settimane e i giorni totali vissuti. Dividendo i giorni per 365,2425 si ottiene l'età in formato decimale (es. 25,5 anni), utile per analisi attuariali e sanitarie.",
       "faq4Q": "È idoneo per utenti di Nepal, India e internazionali?",
       "faq4A": "Sì, funziona su scala globale. Gli utenti di Nepal e India che adoperano il calendario gregoriano (AD) per visti, passaporti ed esami pubblici ottengono l'età anagrafica esatta senza complicazioni."
+    },
+    "caseConverter": {
+      "title": "Stile Frase e Titolo – Modifica Maiuscole e Minuscole Online",
+      "subtitle": "Strumento gratuito online per cambiare maiuscole e minuscole. Modifica lettere minuscole in maiuscole in Excel, sistema frasi e testi senza alcuna estensione.",
+      "inputLabel": "Testo iniziale:",
+      "inputPlaceholder": "Inserisci il tuo testo qui...",
+      "outputLabel": "Risultato:",
+      "outputPlaceholder": "Fai clic su un pulsante di conversione in basso per vedere il risultato...",
+      "copy": "Copia",
+      "copied": "Copiato!",
+      "uppercase": "MAIUSCOLO",
+      "lowercase": "minuscolo",
+      "titleCase": "Iniziali Maiuscole",
+      "camelCase": "camelCase",
+      "snakeCase": "snake_case",
+      "kebabCase": "kebab-case",
+      "clear": "Cancella",
+      "aboutText": "L'applicativo Stile Frase e Titolo è una potente utility lato client progettata per trasformare stringhe di testo tra stile frase, stile titolo, TUTTO MAIUSCOLO, tutto minuscolo, camelCase, snake_case e kebab-case all'interno del browser. Sia che tu debba mutare lettere minuscole in maiuscole nei fogli di calcolo di Excel, ottimizzare titoli editoriali o riordinare elenchi di dati, questo strumento offre una trasformazione istantanea senza alcuna latenza. Validissima alternativa gratuita e sicura all'installazione di estensioni per browser, tutte le operazioni avvengono nella memoria locale garantendo la massima riservatezza.",
+      "feature1": "Oltre 12 formati di testo: converti con facilità tra convenzioni per variabili di codice e stili di impaginazione per articoli",
+      "feature2": "Gestione accurata dei separatori: riconosce i confini tra le parole gestendo spaziature, trattini e caratteri underscore",
+      "feature3": "Dati statistici in tempo reale: visualizza conteggi costantemente aggiornati di caratteri, parole, frasi e righe",
+      "feature4": "Copia e azzeramento immediati: comandi rapidi per trasferire il testo negli appunti o pulire l'area di lavoro",
+      "step1Title": "Digita o incolla il testo",
+      "step1Body": "Inserisci le frasi, gli identificatori di codice o i paragrafi da modificare nel riquadro di inserimento.",
+      "step2Title": "Scegli lo stile desiderato",
+      "step2Body": "Fai clic sul pulsante corrispondente alla conversione desiderata (come camelCase, snake_case, Stile Titolo o MAIUSCOLO).",
+      "step3Title": "Copia il valore generato",
+      "step3Body": "Controlla la nuova disposizione delle lettere nel campo di arrivo e premi 'Copia' per usarla dove preferisci.",
+      "faq1Q": "Come trasformare le lettere minuscole in maiuscole in Excel?",
+      "faq1A": "Per mutare le lettere minuscole in maiuscole in Excel, puoi adoperare la formula predefinita =MAIUSC(A1) per le maiuscole, =MINUSC(A1) per le minuscole o =MAIUSC.INIZ(A1) per lo stile titolo. In alternativa, puoi copiare le celle della colonna Excel, incollarle in questo applicativo gratuito, selezionare il pulsante corrispondente e reincollare il testo trasformato nel foglio di calcolo senza formule aggiuntive.",
+      "faq2Q": "Questo strumento è un'alternativa gratuita alle estensioni per browser?",
+      "faq2A": "Sì, questo strumento gratuito sostituisce appieno l'installazione di estensioni o componenti aggiuntivi del browser. A differenza dei plugin che richiedono autorizzazioni invasive per leggere i contenuti web, il nostro applicativo funziona esclusivamente nella memoria del tuo browser, senza installazione né tracciamento.",
+      "faq3Q": "Supporta lo Stile Frase e lo Stile Titolo?",
+      "faq3A": "Certamente! Il motore per lo stile titolo trasforma in maiuscola l'iniziale dei termini principali seguendo i criteri tipografici, mentre la funzione stile frase rende maiuscola la prima lettera dopo la punteggiatura conclusiva (. ! ?). Con un solo clic puoi anche passare agli stili tipici della programmazione.",
+      "faq4Q": "Posso usarlo per impostare lo stile frase sui dati di una tabella Excel?",
+      "faq4A": "Certamente. Poiché Excel non include una funzione specifica per lo stile frase (offre unicamente MAIUSC, MINUSC e MAIUSC.INIZ), molti utenti scelgono il nostro strumento come supporto dedicato per i propri elenchi. Copia la colonna, effettua l'operazione e incolla il testo ordinato nella tabella."
     }
   }
 }

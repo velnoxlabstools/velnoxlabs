@@ -386,8 +386,8 @@
       "description": "Converta cores entre HEX, RGB, HSL, HSV e CMYK com teste de contraste acessível conforme a norma WCAG 2.1."
     },
     "case-converter": {
-      "name": "Conversor de Maiúsculas e Minúsculas",
-      "description": "Converta textos entre camelCase, snake_case, kebab-case, maiúsculas, minúsculas, Formato de Título e PascalCase."
+      "name": "Conversor de Frases e Títulos (Sentence Case & Title Case)",
+      "description": "Ferramenta gratuita para alterar maiúsculas e minúsculas online. Altere letras minúsculas para maiúsculas no Excel, ajuste frases e textos sem precisar de extensão."
     },
     "lorem-ipsum": {
       "name": "Gerador Lorem Ipsum",
@@ -1739,6 +1739,42 @@
       "faq3A": "Sim. Além da decomposição em anos, meses e dias, exibe o total de meses, semanas e dias vividos. Dividir os dias restantes por 365,2425 gera a idade em formato decimal (como 25,5 anos), vantajosa para avaliações atuariais e médicas.",
       "faq4Q": "Funciona para utilizadores do Nepal, Índia e outros países?",
       "faq4A": "Sim, funciona internacionalmente. Cidadãos do Nepal e da Índia que recorrem ao calendário gregoriano (AD) para vistos, passaportes e exames escolares encontram aqui a idade exata com total precisão."
+    },
+    "caseConverter": {
+      "title": "Conversor de Frases e Títulos – Maiúsculas e Minúsculas Online",
+      "subtitle": "Ferramenta gratuita para alterar maiúsculas e minúsculas online. Altere letras minúsculas para maiúsculas no Excel, ajuste frases e textos sem precisar de extensão.",
+      "inputLabel": "Entrada:",
+      "inputPlaceholder": "Digite seu texto aqui...",
+      "outputLabel": "Saída:",
+      "outputPlaceholder": "Clique em um botão de formato abaixo para ver o resultado...",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "uppercase": "MAIÚSCULAS",
+      "lowercase": "minúsculas",
+      "titleCase": "Primeira Maiúscula",
+      "camelCase": "camelCase",
+      "snakeCase": "snake_case",
+      "kebabCase": "kebab-case",
+      "clear": "Limpar",
+      "aboutText": "O Conversor de Frases e Títulos é uma solução rápida e executada no navegador para transformar textos entre início de frase, estilo de título, MAIÚSCULAS, minúsculas, camelCase, snake_case e kebab-case. Se você precisa mudar letras minúsculas para maiúsculas em planilhas do Excel, padronizar títulos editoriais ou estruturar frases completas, esta ferramenta entrega resultados imediatos com zero latência. Servindo como uma alternativa gratuita e segura à instalação de extensões para navegadores, todo o processamento de texto ocorre localmente na memória do dispositivo, preservando total sigilo.",
+      "feature1": "Mais de 12 estilos de capitalização: alterne com facilidade entre padrões de código e diagramação de artigos",
+      "feature2": "Tratamento inteligente de divisores: preserva limites de palavras respeitando espaços, traços e sublinhados",
+      "feature3": "Estatísticas em tempo real: exibe contagem de caracteres, palavras, sentenças e linhas instantaneamente",
+      "feature4": "Cópia e limpeza ágeis: recursos para transferir a frase modificada para a área de transferência ou limpar o campo",
+      "step1Title": "Cole ou escreva o texto",
+      "step1Body": "Digite ou cole a frase, lista de variáveis ou parágrafo no campo de entrada.",
+      "step2Title": "Selecione o formato desejado",
+      "step2Body": "Clique no botão correspondente ao padrão pretendido (como camelCase, snake_case, Formato de Título ou MAIÚSCULAS).",
+      "step3Title": "Copie o texto gerado",
+      "step3Body": "Revise o resultado na caixa de texto e clique em 'Copiar' para salvar na sua área de transferência.",
+      "faq1Q": "Como transformar letras minúsculas em maiúsculas no Excel?",
+      "faq1A": "Para mudar letras minúsculas para maiúsculas no Excel, você pode usar a fórmula nativa =MAIÚSCULA(A1) para letras maiúsculas, =MINÚSCULA(A1) para minúsculas ou =PRI.MAIÚSCULA(A1) para estilo de título. Como alternativa rápida, você pode copiar os dados da coluna no Excel, colá-los nesta página gratuita, escolher a opção desejada e colar o texto atualizado de volta na planilha sem fórmulas.",
+      "faq2Q": "Esta ferramenta é uma alternativa gratuita a extensões de navegador?",
+      "faq2A": "Sim, este utilitário online gratuito substitui com facilidade a necessidade de instalar extensões de terceiros. Diferente dos complementos de navegador que solicitam permissões para ler dados de navegação, nossa aplicação web opera estritamente via scripts locais, sem rastreamento nem necessidade de instalação.",
+      "faq3Q": "O sistema suporta formato de frase e estilo de título?",
+      "faq3A": "Sim! O motor de estilo de títulos coloca em maiúscula a letra inicial das palavras relevantes conforme as normas de tipografia, enquanto a transformação de frases capitaliza a primeira letra de cada oração após sinais de pontuação (. ! ?). Você também pode alternar entre convenções de programação com apenas um clique.",
+      "faq4Q": "Posso usar esta ferramenta para organizar frases de planilhas do Excel?",
+      "faq4A": "Sim. Como o Excel não possui uma fórmula nativa específica para início de frase (disponibiliza apenas MAIÚSCULA, MINÚSCULA e PRI.MAIÚSCULA), muitos profissionais utilizam nossa página para padronizar frases vindas de planilhas. Basta colar o conteúdo, aplicar a transformação e colar o texto pronto de volta."
     }
   }
 }
