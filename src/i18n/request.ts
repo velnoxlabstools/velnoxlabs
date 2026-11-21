@@ -23,7 +23,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const mainMessages = (await import(`../../messages/${locale}.json`)).default;
 
   // Load tool-specific SEO translations (ToolCommon, ToolSeoDefaults, ToolInfo, ToolFaq)
-  let toolMessages = {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let toolMessages: Record<string, any> = {};
   try {
     toolMessages = (await import(`../../messages/tools/${locale}.json`)).default;
   } catch {

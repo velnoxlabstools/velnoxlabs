@@ -267,20 +267,20 @@
       "description": "Encode and decode Base64 strings."
     },
     "cron-expression-generator": {
-      "name": "Cron Expression Generator",
-      "description": "Build cron expressions visually with human-readable explanations."
+      "name": "Cron Expression Generator & Crontab Builder",
+      "description": "Generate, test, and decode any cron expression visually with human-readable schedules."
     },
     "word-counter": {
-      "name": "Word Counter",
-      "description": "Count words, characters, sentences, and reading time."
+      "name": "Word Counter & Online Word Count Tool",
+      "description": "Real-time word count, character count, word length checker, and keyword count tool."
     },
     "csv-to-json": {
       "name": "CSV to JSON Converter",
       "description": "Convert CSV data to JSON instantly with custom delimiters."
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL to Python Requests Converter",
-      "description": "Convert cURL commands into Python requests code."
+      "name": "cURL to Python Converter",
+      "description": "Convert cURL commands to Python requests code online instantly with headers, auth, and cookies."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL to Fetch & Axios Converter",
@@ -335,8 +335,8 @@
       "description": "Parse User-Agent strings."
     },
     "unix-timestamp-converter": {
-      "name": "Unix Timestamp Converter",
-      "description": "Convert Unix timestamps to dates."
+      "name": "Unix Timestamp Converter & Epoch Date Calculator",
+      "description": "Convert unix timestamp to human-readable date and time or epoch time to UTC and local timezone."
     },
     "markdown-to-html-live-converter": {
       "name": "Markdown to HTML Converter",
@@ -371,8 +371,8 @@
       "description": "Decode and inspect JWT tokens."
     },
     "html-encoder-decoder": {
-      "name": "HTML Encoder & Decoder",
-      "description": "Encode and decode HTML entities."
+      "name": "HTML Decoder & Entity Encoder",
+      "description": "Free online HTML decoder and entity encoder to decode HTML entities or escape special characters."
     },
     "color-converter": {
       "name": "Color Converter",
@@ -588,8 +588,8 @@
       "faq4A": "Yes. Right-click any network request in Chrome, Firefox, or Safari, select \"Copy as cURL\", and paste it directly into this tool."
     },
     "curlToPython": {
-      "title": "cURL to Python Requests Converter",
-      "subtitle": "Transform cURL terminal commands into idiomatic Python requests code instantly with zero latency.",
+      "title": "cURL to Python Converter",
+      "subtitle": "Convert cURL commands to Python requests code online with headers, authentication, cookies, and JSON payloads.",
       "aboutText": "The cURL to Python Requests Converter converts command-line cURL commands into clean, idiomatic Python code utilizing the widely-used requests library. It intelligently parses HTTP request methods, custom headers, cookies, URL parameters, basic authentication credentials, and data payloads (both application/json and form-encoded data). Ideal for data engineers, backend developers, and automation specialists converting API documentation into maintainable Python scripts.",
       "feature1": "Idiomatic Python Output: Formats payloads as Python dictionaries, preserving types, nested keys, and custom headers",
       "feature2": "Smart Auth & Payload Detection: Automatically maps -u flags to requests.auth.HTTPBasicAuth and JSON payloads to json=",
@@ -703,8 +703,8 @@
       "faq4A": "HMAC itself verifies message authenticity. To prevent replay attacks, webhooks commonly include a timestamp in the signed payload and verify it against a short validity window."
     },
     "htmlEncoderDecoder": {
-      "title": "HTML Entity Encoder & Decoder",
-      "subtitle": "Convert special characters into HTML entities or decode entities back to plaintext instantly.",
+      "title": "HTML Decoder & Entity Encoder",
+      "subtitle": "Free online HTML decoder and encoder to decode HTML entities to plain text or escape special characters instantly.",
       "aboutText": "The HTML Entity Encoder & Decoder is a developer utility that converts reserved characters, symbols, and Unicode glyphs into standardized HTML entities (e.g., &lt;, &gt;, &amp;) and decodes encoded markup back into readable text. Essential for preventing Cross-Site Scripting (XSS) vulnerabilities, displaying raw code snippets inside HTML documents, and debugging encoded web content, this tool processes text in real time entirely within your browser.",
       "feature1": "Bi-Directional Conversion: Seamlessly toggle between Encode (Text to HTML Entities) and Decode (Entities to Plaintext)",
       "feature2": "Comprehensive Character Mapping: Safely encodes reserved characters (<, >, &, \", ') as well as high-order Unicode symbols",
@@ -1108,8 +1108,8 @@
       "step3Body": "Inspect your calculated score, classification category, and copy the summary.",
       "faq1Q": "What is the mathematical formula for Body Mass Index?",
       "faq1A": "The Quetelet formula is weight in kilograms divided by height in meters squared: BMI = weight (kg) / [height (m)]².",
-      "faq2Q": "Does BMI distinguish between muscle mass and body fat?",
-      "faq2A": "BMI is a population screening metric that does not directly measure adipose tissue; muscular athletes may record higher BMI values without elevated adiposity.",
+      "faq2Q": "Is a biomass index calculator the same as a Body Mass Index (BMI) calculator?",
+      "faq2A": "Yes, 'biomass index calculator' is a common alternative query and search term for a Body Mass Index (BMI) calculator. While biomass in ecology refers to total biological mass, in personal health queries it refers to Body Mass Index (BMI), which screens weight relative to height.",
       "faq3Q": "What are the WHO BMI thresholds?",
       "faq3A": "Underweight is below 18.5, Normal weight is 18.5–24.9, Overweight is 25.0–29.9, and Obese is 30.0 or greater.",
       "faq4Q": "Is my personal biometric data stored or sent anywhere?",
@@ -1302,7 +1302,9 @@
       "faq3Q": "What is the Year 2038 problem (Y2038)?",
       "faq3A": "32-bit signed integers will overflow on January 19, 2038; this tool utilizes 64-bit JavaScript numbers safe for millions of years.",
       "faq4Q": "Does the converter account for daylight saving time (DST)?",
-      "faq4A": "Yes, your browser local timezone calculation automatically handles regional DST offsets."
+      "faq4A": "Yes, your browser local timezone calculation automatically handles regional DST offsets.",
+      "title": "Unix Timestamp Converter & Epoch Date Calculator",
+      "subtitle": "Convert unix timestamp to human-readable date, UTC, and local time with real-time epoch tracking."
     },
     "urlEncoderDecoder": {
       "aboutText": "RFC 3986 compliant URL encoder and decoder handling percent-encoding for query parameters, path components, form payloads, and non-ASCII characters.",
@@ -1389,10 +1391,10 @@
       "faq4A": "Yes, though because they are unordered, developers frequently use ULIDs or sequential UUIDs to optimize B-tree index performance."
     },
     "wordCounter": {
-      "aboutText": "Real-time text analysis tool calculating word count, character count (with and without spaces), sentences, paragraphs, reading time, and speaking duration.",
-      "feature1": "Real-time lexical metrics: word count, character count, spaces, sentences, and paragraphs.",
+      "aboutText": "Real-time text analysis tool calculating word count, character count (with and without spaces), sentences, paragraphs, reading time, and speaking duration. Functioning as an advanced word length checker and keyword count tool, it provides live frequency breakdowns and lexical statistics for essays, articles, and SEO copy.",
+      "feature1": "Comprehensive word length checker and real-time lexical metrics: word count, character count, spaces, sentences, and paragraphs.",
       "feature2": "Reading time and speaking duration estimations based on standard psychometric speech rates.",
-      "feature3": "Top keyword density and frequency analysis to optimize content for SEO and editorial guidelines.",
+      "feature3": "Integrated keyword count tool and keyword density analyzer to optimize editorial content and monitor target search terms.",
       "feature4": "100% client-side text processing ensuring essays, articles, and sensitive manuscripts remain private.",
       "step1Title": "Paste or Type Text",
       "step1Body": "Enter your article draft, essay, social post, or notes into the main text editor.",
@@ -1404,10 +1406,12 @@
       "faq1A": "It divides total word count by 200 words per minute (WPM), the standard average reading speed for English adults.",
       "faq2Q": "What is the difference between character count with and without spaces?",
       "faq2A": "With spaces counts every whitespace character, while without spaces counts strictly visible alphanumeric and punctuation glyphs.",
-      "faq3Q": "Does this word counter count hyphenated words and contractions as one word?",
-      "faq3A": "Yes, standard hyphenated terms (e.g. 'state-of-the-art') and contractions (e.g. 'don't') are parsed as single linguistic units.",
+      "faq3Q": "Can I use this as a word length checker and keyword count tool?",
+      "faq3A": "Yes, VelnoxLabs Word Counter functions as both a precise word length checker and keyword count tool, displaying word length distributions, character counts, and top keyword frequencies in real time.",
       "faq4Q": "Is my text uploaded or stored on any server?",
-      "faq4A": "No, all text processing runs entirely within your browser local memory."
+      "faq4A": "No, all text processing runs entirely within your browser local memory.",
+      "title": "Word Counter & Online Word Count Tool",
+      "subtitle": "Real-time word count, character counter, word length checker, and keyword count tool with reading time estimation."
     },
     "imageToPdf": {
       "title": "Image to PDF Converter",
@@ -1612,6 +1616,10 @@
       "faq3A": "Never. VelnoxLabs tools are strictly client-side. All clipboard interactions, recent emoji logs, and favorites remain stored in your local browser localStorage and are never transmitted to any external server.",
       "faq4Q": "How does the tool handle complex emojis like flags and multi-person symbols?",
       "faq4A": "Complex emojis rely on Unicode Zero-Width Joiners (ZWJ) and Regional Indicator Symbol sequences (such as U+1F1FA and U+1F1F8 for the US flag). Our tool preserves these composite codepoint sequences intact during copying while using vector SVG rendering for crystal-clear visual display."
+    },
+    "cronExpressionGenerator": {
+      "title": "Cron Expression Generator & Crontab Builder",
+      "subtitle": "Build, decode, and validate standard 5-part and 6-part cron expression schedules with instant human-readable explanations."
     }
   }
 }

@@ -275,19 +275,19 @@
     },
     "cron-expression-generator": {
       "name": "Generador y Decodificador de Expresiones Cron",
-      "description": "Construye, traduce y programa expresiones cron de 5 y 6 campos con explicaciones claras en lenguaje natural."
+      "description": "Genera, prueba y decodifica cualquier expresión cron visualmente con programaciones claras."
     },
     "word-counter": {
-      "name": "Contador de Palabras",
-      "description": "Cuenta palabras, caracteres, oraciones y tiempo de lectura."
+      "name": "Contador de Palabras y Estadísticas de Texto",
+      "description": "Recuento de palabras en tiempo real, caracteres, verificador de longitud y densidad de términos."
     },
     "csv-to-json": {
       "name": "Conversor de CSV a JSON",
       "description": "Convierte hojas de cálculo CSV y TSV en matrices y objetos JSON estructurados con detección automática de delimitadores."
     },
     "curl-to-python-requests-converter": {
-      "name": "Convertidor de cURL a Python Requests",
-      "description": "Convierte comandos cURL en código Python requests."
+      "name": "Convertidor de cURL a Python",
+      "description": "Convierte comandos cURL a código Python Requests en línea con cabeceras, cookies y autenticación."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "Convertidor de cURL a Fetch y Axios",
@@ -342,8 +342,8 @@
       "description": "Analiza cadenas de User-Agent."
     },
     "unix-timestamp-converter": {
-      "name": "Convertidor de Marca de Tiempo Unix",
-      "description": "Convierte marcas de tiempo Unix a fechas."
+      "name": "Convertidor de Marca de Tiempo Unix y Calculadora Epoch",
+      "description": "Convierte marcas de tiempo Unix a fechas legibles, tiempo Epoch y hora UTC local al instante."
     },
     "markdown-to-html-live-converter": {
       "name": "Convertidor de Markdown a HTML",
@@ -378,8 +378,8 @@
       "description": "Decodifica e inspecciona tokens JWT."
     },
     "html-encoder-decoder": {
-      "name": "Codificador y Decodificador HTML",
-      "description": "Codifica y decodifica entidades HTML."
+      "name": "Decodificador HTML y Codificador de Entidades",
+      "description": "Decodificador HTML gratuito para restaurar entidades a texto plano o proteger caracteres especiales."
     },
     "color-converter": {
       "name": "Conversor de Color y Paleta Accesible",
@@ -616,8 +616,8 @@
       "faq4A": "Sí. Haga clic derecho sobre cualquier solicitud en la pestaña Red de Chrome, Firefox o Safari, elija \"Copiar como cURL\" y péguela directamente en esta herramienta."
     },
     "curlToPython": {
-      "title": "Convertidor de cURL a Python Requests",
-      "subtitle": "Transforme comandos cURL de la terminal en código idiomático de Python con la biblioteca requests.",
+      "title": "Convertidor de cURL a Python",
+      "subtitle": "Convierte comandos cURL a código Python Requests en línea con cabeceras, cookies, autenticación y cargas JSON.",
       "aboutText": "El Convertidor de cURL a Python Requests convierte llamadas de línea de comandos en código Python limpio e idiomático utilizando la popular biblioteca requests. Analiza de manera inteligente verbos HTTP, encabezados personalizados, cookies, parámetros de URL, credenciales de autenticación básica y cargas útiles (tanto application/json como datos codificados en formulario). Ideal para ingenieros de datos y desarrolladores backend que automatizan flujos de trabajo con APIs.",
       "feature1": "Salida de Python idiomática: formatea encabezados y cargas útiles como diccionarios nativos de Python preservando tipos de datos",
       "feature2": "Detección inteligente de autenticación y JSON: asocia automáticamente el modificador -u con HTTPBasicAuth y el contenido JSON con el parámetro json=",
@@ -731,8 +731,8 @@
       "faq4A": "El HMAC en sí certifica la autenticidad. Para impedir ataques de repetición, comúnmente se incorpora una marca de tiempo en los datos firmados y el receptor verifica que se encuentre dentro de un margen de validez aceptable."
     },
     "htmlEncoderDecoder": {
-      "title": "Codificador y Decodificador de Entidades HTML",
-      "subtitle": "Convierta caracteres especiales en entidades HTML seguras o restaure entidades codificadas a texto legible al instante.",
+      "title": "Decodificador HTML y Codificador de Entidades",
+      "subtitle": "Decodificador HTML en línea para transformar entidades en texto legible o asegurar código web al instante.",
       "aboutText": "El Codificador y Decodificador de Entidades HTML es una herramienta indispensable para desarrolladores web que transforma caracteres reservados, símbolos y glifos Unicode en entidades HTML estándar (&lt;, &gt;, &amp;, etc.) y viceversa. Esencial para prevenir vulnerabilidades de secuencias de comandos en sitios cruzados (XSS), mostrar fragmentos de código dentro de páginas web y depurar contenidos web codificados, ejecutándose totalmente en el navegador.",
       "feature1": "Conversión bidireccional instantánea: alterne fácilmente entre codificar (texto a entidades) y decodificar (entidades a texto plano)",
       "feature2": "Mapeo exhaustivo de caracteres: procesa caracteres HTML reservados (<, >, &, \", ') así como símbolos y emojis",
@@ -749,7 +749,7 @@
       "faq2Q": "¿Cuáles son las 5 entidades HTML más comunes?",
       "faq2A": "Las cinco entidades básicas son: &lt; (<), &gt; (>), &amp; (&), &quot; (\") y &#39; (').",
       "faq3Q": "¿Esta herramienta decodifica referencias numéricas decimales y hexadecimales?",
-      "faq3A": "Sí. Reconoce y restaura tanto entidades con nombre (como &copy; o &nbsp;) como referencias numéricas decimales (&#169;) y hexadecimales (&#xA9;).",
+      "faq3A": "Sí. Reconoce y restaura tanto entidades con nombre (como &amp; o &nbsp;) como referencias numéricas decimales (&#169;) y hexadecimales (&#xA9;).",
       "faq4Q": "¿Mis fragmentos de HTML se transmiten a servidores externos?",
       "faq4A": "No. Toda la codificación y decodificación se efectúa en la memoria local mediante el motor del navegador, sin tráfico de red."
     },
@@ -1172,8 +1172,8 @@
       "step3Body": "Revisa el resultado obtenido, tu categoría nutricional y copia el resumen generado.",
       "faq1Q": "¿Cuál es la fórmula matemática del Índice de Masa Corporal?",
       "faq1A": "Se calcula mediante la fórmula de Quetelet: peso en kilogramos dividido por la altura en metros al cuadrado (IMC = peso / [altura]²).",
-      "faq2Q": "¿Distingue el IMC entre masa muscular y grasa corporal?",
-      "faq2A": "No directamente; es una herramienta de cribado poblacional y los deportistas con gran masa muscular pueden registrar valores altos sin exceso de grasa.",
+      "faq2Q": "¿Es una calculadora de biomass index lo mismo que una calculadora de Índice de Masa Corporal (IMC)?",
+      "faq2A": "Sí, \"biomass index calculator\" es una búsqueda alternativa y frecuente que emplean los usuarios al buscar una calculadora de Índice de Masa Corporal (IMC). En el ámbito de la salud, evalúa el peso en proporción a la estatura.",
       "faq3Q": "¿Cuáles son los intervalos de peso de la OMS?",
       "faq3A": "Menos de 18.5 es bajo peso, de 18.5 a 24.9 es peso normal, de 25.0 a 29.9 es sobrepeso y 30.0 o más indica obesidad.",
       "faq4Q": "¿Mis datos corporales quedan guardados en algún servidor?",
@@ -1394,7 +1394,9 @@
       "faq3Q": "¿En qué consiste el problema del año 2038 (Y2038)?",
       "faq3A": "Los enteros con signo de 32 bits se desbordarán el 19 de enero de 2038; este conversor emplea números de 64 bits para garantizar soporte sin límite.",
       "faq4Q": "¿Tiene en cuenta el horario de verano (DST)?",
-      "faq4A": "Sí, la hora local se calcula mediante las tablas de zonas horarias del navegador, ajustando automáticamente el desfase estacional."
+      "faq4A": "Sí, la hora local se calcula mediante las tablas de zonas horarias del navegador, ajustando automáticamente el desfase estacional.",
+      "title": "Convertidor de Marca de Tiempo Unix y Calculadora Epoch",
+      "subtitle": "Convierte marcas de tiempo Unix a fechas legibles, tiempo Epoch y hora UTC al instante."
     },
     "urlEncoderDecoder": {
       "aboutText": "Codificador y decodificador de URLs conforme a RFC 3986 para percent-encoding de parámetros de consulta, rutas web y caracteres especiales.",
@@ -1499,7 +1501,9 @@
       "faq3Q": "¿Se contabilizan las palabras compuestas con guion como una sola palabra?",
       "faq3A": "Sí, los términos unidos por guion y las contracciones gramaticales habituales se procesan como unidades léxicas únicas.",
       "faq4Q": "¿Se guarda o transmite mi texto a algún servidor?",
-      "faq4A": "No, todo el recuento y procesamiento del contenido tiene lugar únicamente en la memoria local de tu equipo."
+      "faq4A": "No, todo el recuento y procesamiento del contenido tiene lugar únicamente en la memoria local de tu equipo.",
+      "title": "Contador de Palabras y Estadísticas de Texto",
+      "subtitle": "Recuento de palabras en tiempo real, caracteres, comprobador de longitud y frecuencia de términos."
     },
     "imageToPdf": {
       "title": "Convertidor de Imágenes a PDF",
@@ -1704,6 +1708,10 @@
       "faq3A": "No. VelnoxLabs diseña utilidades que funcionan en el lado del cliente. Toda la información permanece guardada en el almacenamiento local de tu propio navegador.",
       "faq4Q": "¿Cómo se gestionan las banderas y los emojis compuestos?",
       "faq4A": "Se componen mediante secuencias de unión de ancho cero (ZWJ) e indicadores regionales. Nuestra plataforma preserva intactos estos códigos estándar para que funcionen con total fidelidad al pegarlos."
+    },
+    "cronExpressionGenerator": {
+      "title": "Generador y Decodificador de Expresiones Cron",
+      "subtitle": "Construye, decodifica y valida programaciones de expresiones cron de 5 y 6 campos al instante."
     }
   }
 }

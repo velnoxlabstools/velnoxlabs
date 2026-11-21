@@ -44,21 +44,6 @@ export default function UnixTimestampPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'SoftwareApplication',
-            name: 'VelnoxLabs Unix Timestamp Converter',
-            operatingSystem: 'All',
-            applicationCategory: 'DeveloperApplication',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description: 'Convert Unix timestamps to human-readable dates.',
-          }),
-        }}
-      />
-
       <GlobalContainer maxWidth="2xl">
         <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />

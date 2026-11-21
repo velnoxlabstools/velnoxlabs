@@ -275,19 +275,19 @@
     },
     "cron-expression-generator": {
       "name": "Cron-Ausdruck-Generator und Übersetzer",
-      "description": "Erstelle, analysiere und plane 5- und 6-teilige Cron-Ausdrücke mit verständlichen Erklärungen in natürlicher Sprache."
+      "description": "Beliebige Cron-Ausdrücke visuell erstellen, prüfen und in verständliche Zeitpläne übersetzen."
     },
     "word-counter": {
-      "name": "Wortzähler",
-      "description": "Zählt Wörter, Zeichen, Sätze und Lesezeit."
+      "name": "Wortzähler & Textstatistik-Werkzeug",
+      "description": "Echtzeit-Wortzählung, Zeichenzähler, Wortlängenprüfer und Schlüsselwort-Häufigkeitsanalyse."
     },
     "csv-to-json": {
       "name": "CSV-zu-JSON-Konverter",
       "description": "Wandle CSV- und TSV-Tabellen in strukturierte JSON-Objekte und Arrays um mit automatischer Trennzeichenerkennung."
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL-zu-Python-Requests-Konverter",
-      "description": "Konvertiert cURL-Befehle in Python-Requests-Code."
+      "name": "cURL-zu-Python-Konverter",
+      "description": "cURL-Befehle online in Python-Requests-Code umwandeln – inklusive Header, Cookies und Authentifizierung."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL-zu-Fetch-und-Axios-Konverter",
@@ -342,8 +342,8 @@
       "description": "Analysiert User-Agent-Strings."
     },
     "unix-timestamp-converter": {
-      "name": "Unix-Zeitstempel-Konverter",
-      "description": "Konvertiert Unix-Zeitstempel in Daten."
+      "name": "Unix-Zeitstempel-Konverter & Epoch-Rechner",
+      "description": "Unix-Zeitstempel in lesbare Datumsangaben, Epoch-Werte und UTC-Zeiten sekundenschnell umwandeln."
     },
     "markdown-to-html-live-converter": {
       "name": "Markdown-zu-HTML-Konverter",
@@ -378,8 +378,8 @@
       "description": "Dekodiert und inspiziert JWT-Token."
     },
     "html-encoder-decoder": {
-      "name": "HTML-Encoder & Decoder",
-      "description": "Kodiert und dekodiert HTML-Entitäten."
+      "name": "HTML-Decoder & Entity-Encoder",
+      "description": "Kostenloser HTML-Decoder zur Wiederherstellung von HTML-Entities in Klartext oder Zeichenmaskierung."
     },
     "color-converter": {
       "name": "Farbkonverter und Barrierefreie Palette",
@@ -616,8 +616,8 @@
       "faq4A": "Ja. Klicken Sie im Netzwerk-Tab Ihres Browsers mit der rechten Maustaste auf eine Anfrage, wählen Sie \"Als cURL kopieren\" und fügen Sie den Befehl hier ein."
     },
     "curlToPython": {
-      "title": "cURL zu Python Requests Konverter",
-      "subtitle": "Verwandeln Sie cURL-Terminalbefehle sofort in sauberen, idiomatischen Python-Code mit der requests-Bibliothek.",
+      "title": "cURL-zu-Python-Konverter",
+      "subtitle": "cURL-Befehle online in sauberen Python-Requests-Code umwandeln – mit Headern, Authentifizierung, Cookies und JSON-Daten.",
       "aboutText": "Der cURL zu Python Requests Konverter wandelt Befehlszeilenaufrufe in strukturierten und lesbaren Python-Code um, der auf der beliebten requests-Bibliothek basiert. Er analysiert HTTP-Methoden, benutzerdefinierte Header, Cookies, URL-Parameter, Anmeldedaten und Nutzlasten (sowohl application/json als auch Formulardaten). Ideal für Data Engineers, Backend-Entwickler und Automatisierungsspezialisten, die APIs schnell und zuverlässig in Python anbinden möchten.",
       "feature1": "Idiomatische Python-Ausgabe: Strukturiert Header und Payloads als native Python-Dictionaries unter Erhalt der Datentypen",
       "feature2": "Automatische Authentifizierung & JSON-Erkennung: Verknüpft -u Flags direkt mit HTTPBasicAuth und JSON-Daten mit dem json=-Parameter",
@@ -731,8 +731,8 @@
       "faq4A": "HMAC bestätigt die Echtheit einer Nachricht. Um Replay-Angriffe abzuwehren, wird meist ein Zeitstempel in die signierten Daten eingebunden und serverseitig auf ein gültiges Zeitfenster geprüft."
     },
     "htmlEncoderDecoder": {
-      "title": "HTML-Entitäten Kodierer & Dekodierer",
-      "subtitle": "Wandeln Sie Sonderzeichen sicher in HTML-Entitäten um oder dekodieren Sie Entitäten zurück in Klartext.",
+      "title": "HTML-Decoder & Entity-Encoder",
+      "subtitle": "HTML-Entities mit dem Online-Decoder in Klartext umwandeln oder Sonderzeichen für Webseiten sicher maskieren.",
       "aboutText": "Der HTML-Entitäten Kodierer & Dekodierer ist ein unverzichtbares Werkzeug für Webentwickler, das reservierte Zeichen, Symbole und Unicode-Zeichen in standardisierte HTML-Entitäten (&lt;, &gt;, &amp; usw.) und umgekehrt übersetzt. Es schützt effektiv vor Cross-Site-Scripting (XSS), ermöglicht die saubere Darstellung von Code-Auszügen auf Webseiten und erleichtert das Debuggen kodierter Inhalte im Browser.",
       "feature1": "Reibungslose Zwei-Wege-Umwandlung: Wechseln Sie einfach zwischen Kodieren (Text zu Entitäten) und Dekodieren (Entitäten zu Text)",
       "feature2": "Breite Zeichenabdeckung: Verarbeitet reservierte HTML-Zeichen (<, >, &, \", ') sowie spezielle Unicode-Symbole",
@@ -749,7 +749,7 @@
       "faq2Q": "Welches sind die fünf zentralen HTML-Entitäten?",
       "faq2A": "Die wichtigsten Standardentitäten sind: &lt; (<), &gt; (>), &amp; (&), &quot; (\") und &#39; (').",
       "faq3Q": "Können auch numerische Zeichenreferenzen dekodiert werden?",
-      "faq3A": "Ja. Das Werkzeug dekodiert benannte Entitäten (wie &copy; und &nbsp;) ebenso wie dezimale (&#169;) und hexadezimale (&#xA9;) Zeichenreferenzen.",
+      "faq3A": "Ja. Das Werkzeug dekodiert benannte Entitäten (wie &amp; und &nbsp;) ebenso wie dezimale (&#169;) und hexadezimale (&#xA9;) Zeichenreferenzen.",
       "faq4Q": "Werden meine HTML-Inhalte an einen Server gesendet?",
       "faq4A": "Nein. Alle Operationen laufen lokal im Speicher Ihres Browsers mithilfe nativer Schnittstellen ab, wodurch Ihre Daten vertraulich bleiben."
     },
@@ -1172,8 +1172,8 @@
       "step3Body": "Prüfen Sie den berechneten Kennwert, Ihre Gewichtsklasse und kopieren Sie das Ergebnis.",
       "faq1Q": "Wie lautet die mathematische Formel zur Berechnung des BMI?",
       "faq1A": "Die Berechnung erfolgt nach der Quetelet-Formel: Körpergewicht in Kilogramm geteilt durch die Körpergröße in Metern zum Quadrat (BMI = Gewicht / [Größe]²).",
-      "faq2Q": "Unterscheidet der BMI zwischen Muskelmasse und Körperfett?",
-      "faq2A": "Nein, es handelt sich um einen allgemeinen Richtwert; bei Sportlern mit hoher Muskelmasse kann der BMI erhöht sein, ohne dass Übergewicht vorliegt.",
+      "faq2Q": "Ist ein biomass index calculator dasselbe wie ein Body-Mass-Index-Rechner (BMI)?",
+      "faq2A": "Ja, \"biomass index calculator\" ist eine häufige alternative Suchanfrage für den Body-Mass-Index-Rechner (BMI). Im Fitnessbereich bewertet er das Körpergewicht im Verhältnis zur Körpergröße.",
       "faq3Q": "Welche Gewichtsbereiche definiert die WHO?",
       "faq3A": "Unter 18.5 gilt als Untergewicht, 18.5 bis 24.9 als Normalgewicht, 25.0 bis 29.9 als Übergewicht und ab 30.0 als Adipositas.",
       "faq4Q": "Werden meine biometrischen Daten auf externen Servern gespeichert?",
@@ -1394,7 +1394,9 @@
       "faq3Q": "Was beschreibt das Jahr-2038-Problem (Y2038)?",
       "faq3A": "Vorzeichenbehaftete 32-Bit-Ganzzahlen laufen am 19. Januar 2038 über; dieser Konverter nutzt 64-Bit-Gleitkommazahlen.",
       "faq4Q": "Wird die Sommerzeit (DST) berücksichtigt?",
-      "faq4A": "Ja, die lokale Zeitzonenberechnung Ihres Browsers berücksichtigt saisonale Zeitumstellungen automatisch."
+      "faq4A": "Ja, die lokale Zeitzonenberechnung Ihres Browsers berücksichtigt saisonale Zeitumstellungen automatisch.",
+      "title": "Unix-Zeitstempel-Konverter & Epoch-Rechner",
+      "subtitle": "Unix-Zeitstempel in verständliche Datumsformate, Epoch-Werte und UTC-Uhrzeiten in Echtzeit umwandeln."
     },
     "urlEncoderDecoder": {
       "aboutText": "RFC-3986-konformer URL-Encoder und Decoder zur Prozent-Codierung von Abfrageparametern, Pfaden und Sonderzeichen.",
@@ -1499,7 +1501,9 @@
       "faq3Q": "Werden Wörter mit Bindestrich als ein oder mehrere Wörter gezählt?",
       "faq3A": "Reguläre Begriffe mit Bindestrich sowie englische Kontraktionen werden als eine zusammenhängende Worteinheit gewertet.",
       "faq4Q": "Wird mein Text auf externe Server hochgeladen?",
-      "faq4A": "Nein, alle Zählungen und Textanalysen finden ausschließlich lokal im Speicher Ihres Browsers statt."
+      "faq4A": "Nein, alle Zählungen und Textanalysen finden ausschließlich lokal im Speicher Ihres Browsers statt.",
+      "title": "Wortzähler & Textstatistik-Werkzeug",
+      "subtitle": "Echtzeit-Wortzählung, Zeichenanzahl, Wortlängenprüfer und Analyse der Begriffshäufigkeit mit Lesezeit."
     },
     "imageToPdf": {
       "title": "Bilder in PDF Konverter",
@@ -1704,6 +1708,10 @@
       "faq3A": "Nein. VelnoxLabs setzt auf reine Client-Verarbeitung. Chronik und Favoriten verbleiben ausschließlich im Speicher deines eigenen Webbrowsers.",
       "faq4Q": "Wie werden Länderflaggen und mehrteilige Emojis gehandhabt?",
       "faq4A": "Sie bestehen aus Verknüpfungen von Regionalindikatoren und ZWJ-Steuerzeichen. Unsere Anwendung belässt diese Zeichenfolgen beim Kopiervorgang intakt, sodass sie beim Einfügen exakt dargestellt werden."
+    },
+    "cronExpressionGenerator": {
+      "title": "Cron-Ausdruck-Generator und Übersetzer",
+      "subtitle": "Standardmäßige 5-teilige und 6-teilige Cron-Ausdrücke visuell erstellen, entschlüsseln und verständlich erklären."
     }
   }
 }

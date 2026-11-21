@@ -275,19 +275,19 @@
     },
     "cron-expression-generator": {
       "name": "Générateur et Traducteur d'Expressions Cron",
-      "description": "Concevez, décodez et planifiez des expressions cron standards à 5 et 6 champs avec des explications claires en français."
+      "description": "Créez, testez et décodez facilement toute expression cron avec des planifications claires."
     },
     "word-counter": {
-      "name": "Compteur de Mots",
-      "description": "Compte les mots, caractères, phrases et temps de lecture."
+      "name": "Compteur de Mots et Statistiques de Texte",
+      "description": "Comptage de mots en direct, caractères, vérificateur de longueur de mots et densité des termes."
     },
     "csv-to-json": {
       "name": "Outil de Conversion de CSV vers JSON",
       "description": "Convertissez vos tableaux CSV et TSV en structures et objets JSON soignés avec détection automatique des séparateurs."
     },
     "curl-to-python-requests-converter": {
-      "name": "Convertisseur cURL vers Python Requests",
-      "description": "Convertit les commandes cURL en code Python requests."
+      "name": "Convertisseur cURL vers Python",
+      "description": "Convertissez les commandes cURL en code Python Requests en ligne avec en-têtes, cookies et authentification."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "Convertisseur cURL vers Fetch et Axios",
@@ -342,8 +342,8 @@
       "description": "Analyse les chaînes User-Agent."
     },
     "unix-timestamp-converter": {
-      "name": "Convertisseur de Timestamp Unix",
-      "description": "Convertit les timestamps Unix en dates."
+      "name": "Convertisseur de Timestamp Unix et Calculateur Epoch",
+      "description": "Convertissez les timestamps Unix en dates lisibles, temps Epoch et heures UTC instantanément."
     },
     "markdown-to-html-live-converter": {
       "name": "Convertisseur Markdown vers HTML",
@@ -378,8 +378,8 @@
       "description": "Décode et inspecte les jetons JWT."
     },
     "html-encoder-decoder": {
-      "name": "Encodeur et Décodeur HTML",
-      "description": "Encode et décode les entités HTML."
+      "name": "Décodeur HTML et Encodeur d'Entités",
+      "description": "Décodeur HTML gratuit pour restituer les entités en texte clair ou sécuriser les caractères spéciaux."
     },
     "color-converter": {
       "name": "Nuancier et Outil de Teintes Accessibles",
@@ -616,9 +616,9 @@
       "faq4A": "Oui. Faites un clic droit sur une requête dans l'onglet Réseau de votre navigateur, sélectionnez « Copier comme cURL » et collez-la ici."
     },
     "curlToPython": {
-      "title": "Convertisseur cURL vers Python Requests",
-      "subtitle": "Transformez vos commandes cURL de terminal en code Python idiomatique utilisant la bibliothèque requests.",
-      "aboutText": "Le Convertisseur cURL vers Python Requests transforme les commandes cURL brutes en code Python propre et structuré en s'appuyant sur la bibliothèque requests. Il prend en compte les méthodes HTTP, les en-têtes personnalisés, les cookies, les paramètres d'URL, les identifiants d'authentification et les données utiles (au format application/json ou formulaire). Parfait pour les développeurs backend et data engineers qui conçoivent des scripts d'intégration d'API.",
+      "title": "Convertisseur cURL vers Python",
+      "subtitle": "Convertissez des commandes cURL en code Python Requests avec en-têtes, authentification, cookies et charges utiles JSON.",
+      "aboutText": "Le Convertisseur cURL vers Python Requests transforme les commandes cURL brutes en code Python propre et structuré en s'appuyant sur la bibliothèque requests. Il prend en compte les méthodes HTTP, les en-têtes personnalisés, les cookies, les paramètres d'URL, les identifiants d'authentification et les données utiles (au type de contenu application/json ou formulaire). Parfait pour les développeurs backend et data engineers qui conçoivent des scripts d'intégration d'API.",
       "feature1": "Code Python idiomatique : structure les en-têtes et données sous forme de dictionnaires natifs en préservant les types",
       "feature2": "Gestion intelligente de l'authentification et du JSON : associe -u à HTTPBasicAuth et lie automatiquement les données au paramètre json=",
       "feature3": "Confidentialité totale dans le navigateur : vos clés d'API et corps de requêtes ne quittent jamais votre environnement local",
@@ -631,7 +631,7 @@
       "step3Body": "Cliquez sur Copier le code pour coller le fragment dans votre notebook Jupyter, service FastAPI ou script d'automatisation.",
       "faq1Q": "Ce convertisseur produit-il du code pour requests ou httpx ?",
       "faq1A": "Il produit du code standard pour la bibliothèque requests avec des dictionnaires clairs, aisément adaptables pour httpx ou aiohttp.",
-      "faq2Q": "Comment les données JSON sont-elles formatées en Python ?",
+      "faq2Q": "Comment les données JSON sont-elles structurées en Python ?",
       "faq2A": "Si la commande contient du JSON valide dans -d ou --data-raw, il est converti en dictionnaire Python transmis au paramètre json=.",
       "faq3Q": "Y a-t-il un risque de fuite pour mes données sensibles ?",
       "faq3A": "Aucun. Tout le traitement syntaxique s'opère dans la mémoire locale de votre navigateur, sans aucun échange réseau.",
@@ -731,8 +731,8 @@
       "faq4A": "Le HMAC certifie l'authenticité de la requête. Pour parer les attaques par rejeu, on inclut généralement un horodatage dans le message signé afin de vérifier sa validité temporelle."
     },
     "htmlEncoderDecoder": {
-      "title": "Encodeur et Décodeur d'Entités HTML",
-      "subtitle": "Convertissez les caractères spéciaux en entités HTML sûres ou restaurez les entités en texte lisible instantanément.",
+      "title": "Décodeur HTML et Encodeur d'Entités",
+      "subtitle": "Décodeur HTML en ligne pour restituer les entités en texte lisible ou échapper les caractères spéciaux.",
       "aboutText": "L'Encodeur et Décodeur d'Entités HTML est un outil indispensable pour les développeurs web qui transforme les caractères réservés, symboles et glyphes Unicode en entités HTML conformes (&lt;, &gt;, &amp;, etc.) et réciproquement. Essentiel pour neutraliser les vulnérabilités de Cross-Site Scripting (XSS), afficher des portions de code source dans les pages web et inspecter des contenus encodés, avec traitement immédiat dans votre navigateur.",
       "feature1": "Conversion bidirectionnelle fluide : basculez entre l'encodage (texte vers entités) et le décodage (entités vers texte)",
       "feature2": "Prise en charge étendue des caractères : traite les caractères HTML réservés (<, >, &, \", ') et les symboles Unicode",
@@ -749,7 +749,7 @@
       "faq2Q": "Quelles sont les 5 entités HTML les plus courantes ?",
       "faq2A": "Les cinq entités essentielles sont : &lt; (<), &gt; (>), &amp; (&), &quot; (\") et &#39; (').",
       "faq3Q": "Cet outil sait-il décoder les références numériques décimales et hexadécimales ?",
-      "faq3A": "Oui. Il interprète tant les entités nommées (comme &copy; et &nbsp;) que les références numériques décimales (&#169;) et hexadécimales (&#xA9;).",
+      "faq3A": "Oui. Il interprète tant les entités nommées (comme &amp; et &nbsp;) que les références numériques décimales (&#169;) et hexadécimales (&#xA9;).",
       "faq4Q": "Mes données HTML sont-elles transmises à des serveurs distants ?",
       "faq4A": "Non. L'encodage et le décodage s'opèrent localement dans la mémoire du navigateur, sans aucune communication réseau."
     },
@@ -1172,8 +1172,8 @@
       "step3Body": "Vérifiez l'indice obtenu, votre positionnement sur l'échelle OMS et copiez le récapitulatif.",
       "faq1Q": "Quelle est la formule de calcul de l'Indice de Masse Corporelle ?",
       "faq1A": "La formule de Quetelet divise le poids en kilogrammes par la taille en mètres au carré (IMC = poids / [taille]²).",
-      "faq2Q": "L'IMC distingue-t-il la masse musculaire de la graisse corporelle ?",
-      "faq2A": "Non, c'est un outil de dépistage général; les sportifs dotés d'une musculature développée peuvent présenter un IMC élevé sans excès graisseux.",
+      "faq2Q": "Un biomass index calculator est-il identique à un calculateur d'Indice de Masse Corporelle (IMC) ?",
+      "faq2A": "Oui, \"biomass index calculator\" est une requête alternative fréquemment tapée par les internautes cherchant un calculateur d'IMC. En santé individuelle, il évalue le poids corporel par rapport à la taille.",
       "faq3Q": "Quels sont les paliers fixés par l'OMS ?",
       "faq3A": "Moins de 18.5 correspond à l'insuffisance pondérale, 18.5 à 24.9 à la corpulence normale, 25.0 à 29.9 au surpoids et 30.0 ou plus à l'obésité.",
       "faq4Q": "Mes mesures personnelles sont-elles conservées sur un serveur ?",
@@ -1396,7 +1396,9 @@
       "faq3Q": "Qu'est-ce que le bogue de l'an 2038 (Y2038) ?",
       "faq3A": "Les entiers signés sur 32 bits déborderont le 19 janvier 2038; cet utilitaire s'appuie sur des nombres 64 bits garantissant une pérennité totale.",
       "faq4Q": "L'heure d'été est-elle prise en compte dans le calcul ?",
-      "faq4A": "Oui, le calcul de l'heure locale s'ajuste automatiquement aux règles de changement d'heure de votre système d'exploitation."
+      "faq4A": "Oui, le calcul de l'heure locale s'ajuste automatiquement aux règles de changement d'heure de votre système d'exploitation.",
+      "title": "Convertisseur de Timestamp Unix et Calculateur Epoch",
+      "subtitle": "Convertissez les timestamps Unix en dates lisibles, temps Epoch et fuseaux horaires UTC en direct."
     },
     "urlEncoderDecoder": {
       "aboutText": "Outil d'encodage et de décodage d'URL selon la norme RFC 3986 pour le codage par pourcentage (Percent-Encoding) des paramètres et routes.",
@@ -1501,7 +1503,9 @@
       "faq3Q": "Les termes associés par un tiret et les formes élidées forment-ils un ou plusieurs mots ?",
       "faq3A": "Les termes composés soudés par un trait d'union et les formes élidées courantes sont comptabilisés comme des entités lexicales uniques.",
       "faq4Q": "Mon document est-il transmis ou hébergé sur un serveur ?",
-      "faq4A": "Non, tous les calculs d'analyse et de comptage sont exécutés exclusivement dans la mémoire de votre navigateur."
+      "faq4A": "Non, tous les calculs d'analyse et de comptage sont exécutés exclusivement dans la mémoire de votre navigateur.",
+      "title": "Compteur de Mots et Statistiques de Texte",
+      "subtitle": "Comptage de mots en temps réel, caractères, vérificateur de longueur et fréquence des termes avec temps de lecture."
     },
     "imageToPdf": {
       "title": "Convertisseur Image en PDF",
@@ -1706,6 +1710,10 @@
       "faq3A": "Non. VelnoxLabs applique une stricte politique de traitement local. Toutes les données demeurent exclusivement sur votre propre ordinateur ou téléphone.",
       "faq4Q": "De quelle façon les drapeaux et emojis combinés sont-ils traités ?",
       "faq4A": "Ils sont constitués de codets multiples reliés par des caractères de jonction ZWJ. Notre outil préserve scrupuleusement ces séquences lors de la copie pour garantir leur affichage à l'arrivée."
+    },
+    "cronExpressionGenerator": {
+      "title": "Générateur et Traducteur d'Expressions Cron",
+      "subtitle": "Créez, décodez et validez des expressions cron standards à 5 ou 6 champs avec explications claires."
     }
   }
 }
