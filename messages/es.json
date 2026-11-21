@@ -270,8 +270,8 @@
       "description": "Crea facturas profesionales con impuestos, descuentos y soporte multimoneda."
     },
     "base64-encoder": {
-      "name": "Codificador y Decodificador Base64",
-      "description": "Codifica y decodifica cadenas Base64."
+      "name": "Codificador y Decodificador Base64 en Línea – Codificar Archivo a Base64",
+      "description": "Codificador y decodificador Base64 en línea gratuito. Codifica archivos a Base64, decodifica imágenes, cadenas y datos seguros para URL."
     },
     "cron-expression-generator": {
       "name": "Generador y Validador de Expresiones Cron Gratuito",
@@ -572,7 +572,7 @@
   },
   "ToolUI": {
     "base64Encoder": {
-      "aboutText": "El codificador y decodificador Base64 es una utilidad de alta velocidad para desarrolladores que convierte texto plano, cadenas Unicode y secuencias binarias en representaciones Base64 estándar RFC 4648 y viceversa. Al ejecutarse íntegramente en la memoria del navegador, garantiza total privacidad y conversión bidireccional instantánea.",
+      "aboutText": "El Codificador y Decodificador Base64 en Línea es una utilidad gratuita y veloz para procesar datos de forma bidireccional en el navegador sin enviar información a servidores. Admite texto plano, imágenes, archivos y direcciones web (mediante la variante URL-safe de RFC 4648). Ya sea para codificar archivos a Base64 en esquemas Data URI de CSS/HTML o descifrar cadenas gráficas, brinda procesamiento inmediato y seguro.",
       "feature1": "100% de privacidad en el navegador: todas las operaciones se ejecutan localmente en la memoria sin enviar datos a servidores externos",
       "feature2": "Compatibilidad total con UTF-8 y Unicode: codifica con precisión caracteres multibyte, acentos y emojis sin pérdida de información",
       "feature3": "Conversión bidireccional instantánea: alterne fácilmente entre los modos de codificación y decodificación con procesamiento dinámico en tiempo real",
@@ -583,14 +583,16 @@
       "step2Body": "Introduzca sus datos en el editor de origen; la herramienta procesará y actualizará el resultado de forma automática.",
       "step3Title": "Copie el resultado generado",
       "step3Body": "Revise la salida en el panel correspondiente y haga clic en \"Copiar\" para guardar el resultado en el portapapeles.",
-      "faq1Q": "¿Para qué se utiliza la codificación Base64?",
-      "faq1A": "Base64 es un esquema de codificación diseñado para representar datos binarios en cadenas ASCII, muy utilizado en encabezados de correo electrónico (MIME), Data URLs y cargas útiles de API.",
-      "faq2Q": "¿Esta herramienta admite caracteres Unicode y emojis?",
-      "faq2A": "Sí, nuestro conversor procesa secuencias de bytes UTF-8 de forma adecuada, preservando emojis y caracteres internacionales sin corrupción.",
-      "faq3Q": "¿Se transmiten mis datos a algún servidor remoto?",
-      "faq3A": "No, en absoluto. Todo el procesamiento se realiza localmente en su navegador mediante JavaScript del lado cliente sin transmitir datos a la red.",
-      "faq4Q": "¿Es Base64 lo mismo que el cifrado?",
-      "faq4A": "No. Base64 es un formato de representación de datos para transmisión, no un algoritmo criptográfico. No ofrece protección de seguridad ni contraseñas."
+      "faq1Q": "¿Cómo decodificar una imagen en Base64 o Data URI?",
+      "faq1A": "Para decodificar una imagen, selecciona el modo Decodificar y pega la cadena Base64 o Data URI. Nuestro decodificador elimina automáticamente el prefijo MIME si existe, valida los caracteres y reconstruye los bytes de la imagen para su visualización.",
+      "faq2Q": "¿Cómo codificar un archivo o URL a Base64?",
+      "faq2A": "Pega el contenido del archivo o la dirección web en el área de texto en modo Codificar. Para parámetros web, la herramienta genera Base64 seguro para URL (sustituyendo + por - y / por _ sin relleno final), ideal para tokens web y enlaces.",
+      "faq3Q": "¿Este decodificador Base64 en línea es gratuito?",
+      "faq3A": "Sí, VelnoxLabs ofrece este decodificador y codificador Base64 en línea de forma 100% gratuita, sin límites de uso ni necesidad de registro. Toda la ejecución ocurre en la memoria local de tu navegador garantizando privacidad absoluta.",
+      "faq4Q": "¿Cuál es la diferencia entre codificación Base64 y cifrado?",
+      "faq4A": "Base64 es un esquema de representación de binario a texto diseñado para transmitir datos en canales de texto. No constituye un algoritmo de cifrado criptográfico ni protege la información mediante clave secreta.",
+      "title": "Codificador y Decodificador Base64 en Línea – Codificar Archivo a Base64",
+      "subtitle": "Codificador y decodificador Base64 en línea gratuito. Codifica archivos a Base64, decodifica imágenes y gestiona datos seguros para URL con total privacidad."
     },
     "curlToFetch": {
       "title": "Convertidor de cURL a Fetch y Axios",

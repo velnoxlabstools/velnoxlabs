@@ -270,8 +270,8 @@
       "description": "Erstellen Sie professionelle Rechnungen mit Steuern, Rabatten und Multi-Währungs-Unterstützung."
     },
     "base64-encoder": {
-      "name": "Base64-Encoder & Decoder",
-      "description": "Kodiert und dekodiert Base64-Strings."
+      "name": "Base64-Encoder & Decoder Online – Datei in Base64 kodieren",
+      "description": "Kostenloser Online-Base64-Encoder und Decoder. Dateien in Base64 kodieren, Bilder decodieren und URL-sichere Daten verarbeiten."
     },
     "cron-expression-generator": {
       "name": "Kostenloser Cron-Ausdruck-Generator & Validator",
@@ -572,7 +572,7 @@
   },
   "ToolUI": {
     "base64Encoder": {
-      "aboutText": "Der Base64 Encoder & Decoder ist ein schnelles, clientseitiges Entwickler-Tool, das Klartext, Unicode-Zeichenfolgen und Binärdaten in standardisierte RFC 4648 Base64-Darstellungen und umgekehrt konvertiert. Da alles komplett im Arbeitsspeicher des Browsers abläuft, sind absolute Privatsphäre und sofortige Konvertierung garantiert.",
+      "aboutText": "Der Base64-Encoder & Decoder Online ist ein schnelles, kostenloses Werkzeug für die browserbasierte Kodierung und Dekodierung von Daten mit vollständiger lokaler Privatsphäre. Er verarbeitet Text, Bilder, Dateien und URLs (mittels RFC 4648 URL-safe Base64). Ob zur Datei-Kodierung in Base64 für CSS-Data-URIs oder zur Dekodierung von Bilddaten: Die Anwendung arbeitet verzögerungsfrei im Arbeitsspeicher.",
       "feature1": "100% Privatsphäre im Browser: Alle Kodierungs- und Dekodierungsschritte laufen lokal im Speicher ohne Datenübertragung an externe Server",
       "feature2": "Vollständige UTF-8- und Unicode-Unterstützung: Kodiert Multi-Byte-Unicode-Zeichen, Umlaute und Emojis absolut verlustfrei",
       "feature3": "Bidirektionale Konvertierung: Nahtloser Wechsel zwischen Kodieren (Text zu Base64) und Dekodieren (Base64 zu Text) mit Live-Verarbeitung",
@@ -583,14 +583,16 @@
       "step2Body": "Geben Sie Ihren Text ein oder fügen Sie ihn ein; das Werkzeug verarbeitet und aktualisiert das Ergebnis in Echtzeit.",
       "step3Title": "Konvertiertes Ergebnis kopieren",
       "step3Body": "Prüfen Sie das Ergebnis im Ausgabefeld und klicken Sie auf Kopieren, um es in die Zwischenablage zu übernehmen.",
-      "faq1Q": "Wofür wird die Base64-Kodierung verwendet?",
-      "faq1A": "Base64 ist ein Kodierungsverfahren zur Darstellung von Binärdaten als ASCII-Zeichenkette, das häufig in E-Mail-Headern (MIME), Data-URLs und API-Payloads genutzt wird.",
-      "faq2Q": "Unterstützt dieses Tool Unicode und Emojis?",
-      "faq2A": "Ja, unser Tool verarbeitet UTF-8-Bytesequenzen ordnungsgemäß, sodass Emojis, Umlaute und Sonderzeichen unverändert erhalten bleiben.",
-      "faq3Q": "Werden meine Daten an einen Remote-Server gesendet?",
-      "faq3A": "Nein, niemals. Sämtliche Berechnungen finden rein lokal im Browser über clientseitiges JavaScript statt, ohne Speicherung oder Netzwerkübertragung.",
-      "faq4Q": "Ist Base64 dasselbe wie Verschlüsselung?",
-      "faq4A": "Nein. Base64 ist ein Kodierungsformat für den Datentransfer und kein kryptographischer Algorithmus. Es bietet keinen Kennwortschutz oder Geheimhaltung."
+      "faq1Q": "Wie decodiert man ein Base64-Bild oder eine Data-URI?",
+      "faq1A": "Wechseln Sie in den Decode-Modus und fügen Sie den Base64-String oder die Data-URI ein. Der Bilddecoder entfernt eventuelle MIME-Präfixe, prüft die Zeichenfolge und stellt die ursprünglichen Bilddaten zur direkten Vorschau wieder her.",
+      "faq2Q": "Wie kodiert man eine Datei oder URL in Base64?",
+      "faq2A": "Fügen Sie den Dateiinhalt oder die URL im Encode-Modus in das Textfeld ein. Für Webadressen erzeugt das Tool URL-sicheres Base64 (ersetzt + durch - und / durch _ ohne Padding), optimal für Query-Parameter und Web-Tokens.",
+      "faq3Q": "Ist dieser Online-Base64-Decoder kostenlos?",
+      "faq3A": "Ja, VelnoxLabs stellt diesen Online-Decoder und Encoder uneingeschränkt kostenlos ohne Registrierung bereit. Alle Vorgänge laufen vollständig im lokalen Speicher Ihres Browsers ab; es werden keinerlei Daten an Server übermittelt.",
+      "faq4Q": "Was unterscheidet Base64-Kodierung von Verschlüsselung?",
+      "faq4A": "Base64 ist ein Schema zur Darstellung von Binärdaten in lesbarem Text für Übertragungsprotokolle. Es bietet keine kryptografische Sicherheit oder Zugriffskontrolle, sodass jeder Decoder den Ursprungstext wiederherstellen kann.",
+      "title": "Base64-Encoder & Decoder Online – Datei in Base64 kodieren",
+      "subtitle": "Kostenloser Online-Base64-Encoder und Decoder. Dateien in Base64 kodieren, Base64-Bilder decodieren und URL-sichere Daten im Browser verarbeiten."
     },
     "curlToFetch": {
       "title": "cURL zu Fetch & Axios Konverter",

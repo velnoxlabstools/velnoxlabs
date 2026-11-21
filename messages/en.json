@@ -263,8 +263,8 @@
       "description": "Create professional invoices with tax, discount, and multi-currency support."
     },
     "base64-encoder": {
-      "name": "Base64 Encoder & Decoder",
-      "description": "Encode and decode Base64 strings."
+      "name": "Base64 Encoder & Decoder Online – Encode File to Base64",
+      "description": "Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 strings, images, and URL-safe data."
     },
     "cron-expression-generator": {
       "name": "Free Cron Expression Generator & Validator",
@@ -1643,6 +1643,19 @@
       "faq3A": "Yes. In addition to years, months, and days, the tool displays total months, weeks, days, and minutes lived. You can calculate your decimal age by dividing remaining days by 365.2425 (e.g., 25 years and 6 months represents approximately 25.5 years), which is useful for actuarial, medical, and statistical benchmarks.",
       "faq4Q": "Does this age calculator work for Nepali, Indian, and international users?",
       "faq4A": "Yes, it works universally for users worldwide. Nepali and Indian users who use the Gregorian (AD) calendar for passports, visas, academic exams, and civil service forms can calculate their exact age instantly. Nepali users converting from Bikram Sambat (BS) to English date (AD) can enter their AD date of birth to get their exact chronological age."
+    },
+    "base64Encoder": {
+      "title": "Base64 Encoder & Decoder Online – Encode File to Base64",
+      "subtitle": "Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 image data, and handle Base64 URL encode tasks instantly with client-side privacy.",
+      "aboutText": "Base64 Encoder & Decoder Online is a fast, free in-browser utility to Base64 encode online and Base64 decode data with 100% client-side privacy. Engineered for modern developers, it handles plain text, images, files, and URLs (using RFC 4648 URL-safe Base64). Whether you need to encode file to Base64 for CSS/HTML data URIs, inspect payloads using our Base64 image decoder, or perform Base64 URL encode operations for web tokens, this Base64 decoder online delivers instant, bi-directional conversion with zero server latency.",
+      "faq1Q": "How to decode a Base64 image or data URI?",
+      "faq1A": "To decode a Base64 image, switch to Decode mode and paste the Base64 string or data URI (e.g., data:image/png;base64,...). Our Base64 image decoder strips the MIME prefix if present, validates the character stream, and converts the encoded ASCII bytes back into the underlying binary or SVG image data for immediate preview and clipboard export.",
+      "faq2Q": "How to encode a file or URL to Base64?",
+      "faq2A": "To encode a file or URL, copy the raw file content or URL query into the text area in Encode mode. For URLs, the encoder converts special characters into URL-safe Base64 (replacing + with - and / with _ without trailing padding), making it safe for query parameters and JSON Web Tokens (JWT).",
+      "faq3Q": "Is this Base64 decoder online and free to use?",
+      "faq3A": "Yes, VelnoxLabs provides this Base64 encoder & decoder online completely free without any limitations, watermarks, or user registration. All encoding and decoding operations run 100% client-side within your browser's local memory, meaning your files and confidential data are never sent to external servers.",
+      "faq4Q": "What is the difference between Base64 encoding and encryption?",
+      "faq4A": "Base64 is a binary-to-text representation scheme designed to safely transmit byte data across text-only protocols (like HTTP and SMTP). It is not cryptographic encryption and does not protect data with a secret key, so any Base64 decoder online can easily reconstruct the original payload."
     }
   }
 }

@@ -216,10 +216,10 @@ export const tools: Tool[] = [
   {
     id: 'tool-base64',
     slug: 'base64-encoder',
-    name: 'Base64 Encoder & Decoder',
-    description: 'Encode and decode Base64 strings.',
+    name: 'Base64 Encoder & Decoder Online – Encode File to Base64',
+    description: 'Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 strings, images, and URL-safe data.',
     categoryId: 'cat-converters',
-    tags: ['base64', 'encode', 'decode'],
+    tags: ['base64', 'encode', 'decode', 'base64 encoder & decoder online', 'base64 decode', 'base64 decoder online', 'base64 image decoder', 'base64 encode online', 'encode file to base64', 'base64 url encode'],
     status: 'published',
     featured: true,
     trending: true,
