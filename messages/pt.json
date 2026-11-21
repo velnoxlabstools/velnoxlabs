@@ -406,8 +406,8 @@
       "description": "Converte texto em slugs de URL limpos e otimizados para SEO."
     },
     "age-calculator": {
-      "name": "Calculadora de Idade Exata",
-      "description": "Calcule sua idade cronológica precisa em anos, meses, dias, horas e minutos com contagem regressiva para o próximo aniversário.",
+      "name": "Calculadora de Idade por Data de Nascimento",
+      "description": "Calculadora de idade por data de nascimento gratuita online. Calcule anos, meses, dias e tempo total vivido.",
       "pageSubtitle": "Calcule sua idade exata em anos, meses, dias, horas e minutos, além da contagem regressiva para seu próximo aniversário e do seu signo do zodíaco.",
       "seoHeading": "O que é uma calculadora de idade?",
       "seoDescription": "Uma calculadora de idade é uma ferramenta online gratuita que calcula sua idade exata a partir da data de nascimento. Em vez de apenas subtrair os anos, ela apresenta um cálculo detalhado em anos, meses, dias, horas, minutos e semanas totais. Também mostra o dia da semana em que você nasceu, seu signo do zodíaco e quantos dias faltam para seu próximo aniversário. É útil para preencher formulários, documentos legais, pedidos de visto ou simplesmente por curiosidade.",
@@ -1724,6 +1724,19 @@
       "faq3A": "O Salesforce Apex suporta sintaxe cron com segundos e ano. Pode aplicar o agendamento validado de 5 campos diretamente no método System.schedule() para as suas rotinas.",
       "faq4Q": "Qual é a diferença entre a sintaxe cron padrão, Spring e Quartz?",
       "faq4A": "O cron padrão do Linux usa 5 campos (minuto a dia da semana), o Spring cron usa 6 campos iniciando por segundos e o Quartz pode incluir até 7 campos. O nosso validador cria a estrutura base compatível com todos eles."
+    },
+    "ageCalculator": {
+      "title": "Calculadora de Idade por Data de Nascimento",
+      "subtitle": "Calculadora de idade por data de nascimento gratuita online. Descubra anos exatos, meses, dias e idade decimal instantaneamente.",
+      "aboutText": "A Calculadora de Idade por Data de Nascimento é uma ferramenta online que apura o tempo cronológico exato até ao minuto. Recorrendo à fórmula de cálculo de idade civil, considera anos bissextos e meses com durações entre 28 e 31 dias. Útil para documentos legais, inscrições escolares ou medição de idade decimal (ex.: 25,5 anos), está disponível globalmente para utilizadores do Nepal, Índia, Brasil, Portugal e outros países.",
+      "faq1Q": "Como funciona esta calculadora de idade por data de nascimento?",
+      "faq1A": "Compara a data de nascimento fornecida com o dia atual através de regras do calendário gregoriano. Subtrai ano, mês e dia dos valores de hoje, ajustando dias e meses anteriores quando necessário para apurar anos, meses e dias exatos.",
+      "faq2Q": "Qual é a fórmula de cálculo da idade?",
+      "faq2A": "A fórmula padrão é: Data Atual − Data de Nascimento. Caso o dia atual seja inferior ao dia natalício, compensam-se os dias do mês precedente; se o mês atual for inferior, compensam-se 12 meses do ano vigente. O total de dias corresponde aos milissegundos decorridos divididos por 86.400.000.",
+      "faq3Q": "Pode funcionar como calculadora de idade decimal?",
+      "faq3A": "Sim. Além da decomposição em anos, meses e dias, exibe o total de meses, semanas e dias vividos. Dividir os dias restantes por 365,2425 gera a idade em formato decimal (como 25,5 anos), vantajosa para avaliações atuariais e médicas.",
+      "faq4Q": "Funciona para utilizadores do Nepal, Índia e outros países?",
+      "faq4A": "Sim, funciona internacionalmente. Cidadãos do Nepal e da Índia que recorrem ao calendário gregoriano (AD) para vistos, passaportes e exames escolares encontram aqui a idade exata com total precisão."
     }
   }
 }

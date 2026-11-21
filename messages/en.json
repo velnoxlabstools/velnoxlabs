@@ -399,8 +399,8 @@
       "description": "Convert text into clean, SEO-friendly URL slugs."
     },
     "age-calculator": {
-      "name": "Age Calculator",
-      "description": "Calculate exact age in years, months, days, hours.",
+      "name": "Age Calculator by Date of Birth",
+      "description": "Free online age calculator by date of birth. Calculate your exact age in years, months, days, and total time lived.",
       "pageSubtitle": "Calculate your exact age in years, months, days, hours, and minutes — plus your next birthday countdown and zodiac sign.",
       "seoHeading": "What is an Age Calculator?",
       "seoDescription": "An Age Calculator is a free online tool that calculates your exact age from your date of birth. Unlike a simple year difference, it provides a precise breakdown in years, months, days, hours, minutes, and total weeks. It also shows the day of the week you were born, your zodiac sign, and the number of days until your next birthday. It is useful for forms, legal documents, visa applications, or satisfying your curiosity.",
@@ -1630,6 +1630,19 @@
       "faq3A": "Salesforce Apex supports standard cron expressions with seconds and years fields. You can take our validated 5-field schedule and map it into the System.schedule() method for your Salesforce recurring jobs.",
       "faq4Q": "What is the difference between standard cron, Spring, and Quartz syntax?",
       "faq4A": "Standard Linux cron uses 5 fields (minute to weekday). Spring cron uses 6 fields starting with seconds, and Quartz cron can use up to 7 fields with optional years. Our free cron generator and validator creates accurate base schedules that map directly across all of these engines."
+    },
+    "ageCalculator": {
+      "title": "Age Calculator by Date of Birth",
+      "subtitle": "Free online age calculator by date of birth. Calculate your exact age in years, months, days, and decimal age with our instant date of birth calculator.",
+      "aboutText": "The Age Calculator by Date of Birth is an accurate online date of birth calculator that computes your chronological age down to the day, hour, and minute. Utilizing the precise calendar age calculator formula, it accounts for leap years, variable month lengths (28 to 31 days), and timezone differences. Whether you need your age for legal paperwork, school admissions, job applications, or decimal age calculation (e.g. 25.5 years), our tool works globally for international users — including users from Nepal, India, the US, and worldwide converting Gregorian birthdates.",
+      "faq1Q": "How does this age calculator by date of birth work?",
+      "faq1A": "The date of birth calculator compares your birthdate with today's target date using exact calendar arithmetic. It subtracts birth year, month, and day from current values, borrowing days from the previous month and months from the previous year when necessary to determine your exact age in years, months, and days.",
+      "faq2Q": "What is the age calculator formula?",
+      "faq2A": "The standard age calculator formula is: Current Date − Date of Birth. If the current day is less than the birth day, borrow days equal to the number of days in the preceding month. If the current month is less than the birth month, borrow 12 months from the current year. For total days, the formula is: (Total Days Elapsed = End Timestamp − Birth Timestamp) / 86,400,000 ms.",
+      "faq3Q": "Can this tool function as a decimal age calculator?",
+      "faq3A": "Yes. In addition to years, months, and days, the tool displays total months, weeks, days, and minutes lived. You can calculate your decimal age by dividing remaining days by 365.2425 (e.g., 25 years and 6 months represents approximately 25.5 years), which is useful for actuarial, medical, and statistical benchmarks.",
+      "faq4Q": "Does this age calculator work for Nepali, Indian, and international users?",
+      "faq4A": "Yes, it works universally for users worldwide. Nepali and Indian users who use the Gregorian (AD) calendar for passports, visas, academic exams, and civil service forms can calculate their exact age instantly. Nepali users converting from Bikram Sambat (BS) to English date (AD) can enter their AD date of birth to get their exact chronological age."
     }
   }
 }

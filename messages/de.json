@@ -406,8 +406,8 @@
       "description": "Konvertiert Text in saubere, SEO-freundliche URL-Slugs."
     },
     "age-calculator": {
-      "name": "Exakter Altersrechner",
-      "description": "Berechne dein genaues chronologisches Alter in Jahren, Monaten, Tagen, Stunden und Minuten samt Geburtstagscountdown.",
+      "name": "Altersrechner nach Geburtsdatum",
+      "description": "Kostenloser Online-Altersrechner nach Geburtsdatum. Ermitteln Sie Ihr exaktes Alter in Jahren, Monaten, Tagen und Stunden.",
       "pageSubtitle": "Berechne dein genaues Alter in Jahren, Monaten, Tagen, Stunden und Minuten – inklusive Countdown bis zum nächsten Geburtstag und Sternzeichen.",
       "seoHeading": "Was ist ein Altersrechner?",
       "seoDescription": "Ein Altersrechner ist ein kostenloses Online-Tool, das dein genaues Alter anhand deines Geburtsdatums berechnet. Statt nur die Jahreszahlen voneinander abzuziehen, zeigt er dein Alter präzise in Jahren, Monaten, Tagen, Stunden, Minuten und Gesamtwochen an. Außerdem erfährst du den Wochentag deiner Geburt, dein Sternzeichen und wie viele Tage bis zu deinem nächsten Geburtstag verbleiben. Das Tool eignet sich für Formulare, rechtliche Dokumente, Visumanträge oder einfach aus Neugier.",
@@ -1722,6 +1722,19 @@
       "faq3A": "Salesforce Apex unterstützt Cron-Syntax mit Sekunden- und Jahresfeldern. Sie können den geprüften 5-Feld-Zeitplan direkt in die System.schedule()-Methode für wiederkehrende Aufträge einbinden.",
       "faq4Q": "Worin liegt der Unterschied zwischen Standard-Cron, Spring und Quartz?",
       "faq4A": "Standard-Linux-Cron umfasst 5 Felder (Minute bis Wochentag), Spring Cron verwendet 6 Felder beginnend mit Sekunden und Quartz kann bis zu 7 Felder umfassen. Unser Generator bietet die passende Basis für alle Systeme."
+    },
+    "ageCalculator": {
+      "title": "Altersrechner nach Geburtsdatum",
+      "subtitle": "Kostenloser Online-Altersrechner nach Geburtsdatum. Berechnen Sie Ihr genaues Alter in Jahren, Monaten, Tagen und Dezimaljahren.",
+      "aboutText": "Der Altersrechner nach Geburtsdatum ist ein präzises Online-Werkzeug zur exakten Ermittlung des chronologischen Alters bis auf die Minute. Unter Einsatz der Kalender-Altersformel berücksichtigt er Schaltjahre und wechselnde Monatslängen von 28 bis 31 Tagen. Ob für behördliche Formulare, Schulanmeldungen oder Dezimalalter-Ermittlungen (z. B. 25,5 Jahre) – das Werkzeug eignet sich weltweit für Nutzer aus Nepal, Indien, Deutschland, Österreich und der Schweiz.",
+      "faq1Q": "Wie funktioniert dieser Altersrechner nach Geburtsdatum?",
+      "faq1A": "Er vergleicht das eingegebene Geburtsdatum mit dem aktuellen Kalendertag. Durch mathematische Subtraktion von Tag, Monat und Jahr unter Berücksichtigung von Monatsüberträgen wird das Alter exakt in Jahren, Monaten und Tagen ermittelt.",
+      "faq2Q": "Wie lautet die Formel zur Altersberechnung?",
+      "faq2A": "Die Standardformel lautet: Aktuelles Datum − Geburtsdatum. Ist der aktuelle Tag kleiner als der Geburtstag, werden die Tage des Vormonats herangezogen; ist der Monat kleiner, werden 12 Monate des Jahres entliehen. Gesamttage ergeben sich aus den verstrichenen Millisekunden geteilt durch 86.400.000.",
+      "faq3Q": "Eignet sich das Werkzeug als Dezimal-Altersrechner?",
+      "faq3A": "Ja. Neben Jahren, Monaten und Tagen zeigt die Anwendung die gelebten Gesamtmonate, Wochen und Tage an. Teilt man die Tage durch 365,2425, erhält man das Dezimalalter (z. B. 25,5 Jahre), was für statistische und versicherungsmathematische Zwecke ideal ist.",
+      "faq4Q": "Funktioniert der Rechner für Nutzer aus Nepal, Indien und international?",
+      "faq4A": "Ja, er arbeitet weltweit zuverlässig. Anwender aus Nepal und Indien, die für Visa, Pässe oder Prüfungen den gregorianischen Kalender (AD) nutzen, können ihr chronologisches Alter direkt und fehlerfrei bestimmen."
     }
   }
 }

@@ -786,10 +786,10 @@ export const tools: Tool[] = [
   {
     id: 'tool-age',
     slug: 'age-calculator',
-    name: 'Age Calculator',
-    description: 'Calculate exact age in years, months, days, hours.',
+    name: 'Age Calculator by Date of Birth',
+    description: 'Free online age calculator by date of birth. Calculate your exact age in years, months, days, and total time lived.',
     categoryId: 'cat-utility',
-    tags: ['age', 'calculator', 'date'],
+    tags: ['age', 'calculator', 'date', 'age calculator by date of birth', 'date of birth calculator', 'age calculator formula', 'decimal age calculator', 'age calculator nepali'],
     status: 'published',
     featured: false,
     trending: false,

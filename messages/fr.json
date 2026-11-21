@@ -406,8 +406,8 @@
       "description": "Convertit le texte en slugs d'URL propres et adaptés au SEO."
     },
     "age-calculator": {
-      "name": "Calculateur d'Âge Précis",
-      "description": "Calculez votre âge chronologique exact en années, mois, jours, heures et minutes avec compte à rebours de votre anniversaire.",
+      "name": "Calculateur d'Âge par Date de Naissance",
+      "description": "Calculateur d'âge par date de naissance gratuit en ligne. Obtenez votre âge précis en années, mois, jours et heures.",
       "pageSubtitle": "Calculez votre âge exact en années, mois, jours, heures et minutes, avec le compte à rebours jusqu'à votre prochain anniversaire et votre signe astrologique.",
       "seoHeading": "Qu'est-ce qu'un calculateur d'âge ?",
       "seoDescription": "Un calculateur d'âge est un outil en ligne gratuit qui calcule votre âge exact à partir de votre date de naissance. Au lieu d'une simple soustraction des années, il fournit un calcul précis en années, mois, jours, heures, minutes et semaines au total. Il indique également le jour de la semaine de votre naissance, votre signe astrologique et le nombre de jours avant votre prochain anniversaire. Il est utile pour remplir des formulaires, des documents juridiques, des demandes de visa ou simplement par curiosité.",
@@ -1724,6 +1724,19 @@
       "faq3A": "Salesforce Apex supporte la syntaxe cron avec les secondes et l'année. Vous pouvez intégrer le calendrier validé à 5 champs dans la méthode System.schedule() pour vos tâches récurrentes.",
       "faq4Q": "Quelle est la différence entre la syntaxe cron standard, Spring et Quartz ?",
       "faq4A": "Le cron Linux standard compte 5 champs (de la minute au jour de semaine), Spring cron en compte 6 débutant par les secondes, et Quartz peut en compter jusqu'à 7. Notre validateur crée la base idéale pour l'ensemble de ces moteurs."
+    },
+    "ageCalculator": {
+      "title": "Calculateur d'Âge par Date de Naissance",
+      "subtitle": "Calculateur d'âge par date de naissance gratuit en ligne. Découvrez votre âge en années, mois, jours et âge décimal en un instant.",
+      "aboutText": "Le Calculateur d'Âge par Date de Naissance est un outil en ligne précis qui détermine votre temps chronologique à la minute près. Grâce à la formule de calcul d'âge calendaire, il gère les années bissextiles et la durée des mois de 28 à 31 jours. Indispensable pour démarches administratives, dossiers scolaires ou calculs d'âge décimal (ex. : 25,5 ans), il répond aux besoins d'utilisateurs du Népal, d'Inde, de France et du monde entier.",
+      "faq1Q": "Comment fonctionne ce calculateur d'âge par date de naissance ?",
+      "faq1A": "Il compare la date de naissance saisie à la date du jour par calcul calendaire. En soustrayant le jour, le mois et l'année de naissance des valeurs actuelles avec ajustement des reports, il fournit les années, mois et jours exacts.",
+      "faq2Q": "Quelle est la formule de calcul de l'âge exact ?",
+      "faq2A": "La formule standard est : Date Actuelle − Date de Naissance. Si le jour actuel est inférieur au jour natal, on emprunte les jours du mois précédent ; si le mois est inférieur, on emprunte 12 mois à l'année courante. Les jours totaux s'obtiennent en divisant les millisecondes écoulées par 86 400 000.",
+      "faq3Q": "L'outil peut-il servir de calculateur d'âge décimal ?",
+      "faq3A": "Oui. En plus des années, mois et jours, il affiche le total de mois, semaines et jours vécus. En divisant les jours par 365,2425, on obtient un âge décimal (comme 25,5 ans), très apprécié pour les études actuarielles et statistiques.",
+      "faq4Q": "Cet outil fonctionne-t-il pour les utilisateurs du Népal, d'Inde et d'ailleurs ?",
+      "faq4A": "Oui, il est conçu pour un usage universel. Les ressortissants népalais ou indiens renseignant le calendrier grégorien (AD) pour passeports, visas ou concours obtiennent leur âge chronologique instantanément."
     }
   }
 }
