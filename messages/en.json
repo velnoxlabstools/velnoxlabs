@@ -267,8 +267,8 @@
       "description": "Encode and decode Base64 strings."
     },
     "cron-expression-generator": {
-      "name": "Cron Expression Generator & Crontab Builder",
-      "description": "Generate, test, and decode any cron expression visually with human-readable schedules."
+      "name": "Free Cron Expression Generator & Validator",
+      "description": "Free online cron expression generator and validator. Build, decode, and schedule standard 5-part and 6-part cron expressions with human-readable explanations."
     },
     "word-counter": {
       "name": "Word Counter & Online Word Count Tool",
@@ -1618,8 +1618,18 @@
       "faq4A": "Complex emojis rely on Unicode Zero-Width Joiners (ZWJ) and Regional Indicator Symbol sequences (such as U+1F1FA and U+1F1F8 for the US flag). Our tool preserves these composite codepoint sequences intact during copying while using vector SVG rendering for crystal-clear visual display."
     },
     "cronExpressionGenerator": {
-      "title": "Cron Expression Generator & Crontab Builder",
-      "subtitle": "Build, decode, and validate standard 5-part and 6-part cron expression schedules with instant human-readable explanations."
+      "title": "Free Cron Expression Generator & Validator",
+      "subtitle": "Free online cron expression generator and validator. Build, decode, and schedule standard 5-part and 6-part cron expressions with instant human-readable explanations.",
+      "aboutText": "Free Cron Expression Generator & Validator is an essential DevOps and backend utility that translates between human-readable rules and standard cron syntax. Whether generating schedules for Linux crontab, Spring cron triggers, Quartz cron schedulers, Python cron jobs (APScheduler, Celery), or Salesforce Apex schedulers, this free cron validator generates accurate 5-part and 6-part expressions with instant natural language breakdowns and execution previews.",
+      "feature4": "Cross-Framework Compatibility: Compatible with Linux crontab, Spring cron, Quartz cron, Python cron (Celery, APScheduler), and Salesforce Apex.",
+      "faq1Q": "Does this support Spring and Quartz cron expressions?",
+      "faq1A": "Yes, our free cron validator generates standard 5-field cron syntax which is directly compatible with Spring Framework (@Scheduled) and easily adaptable to 6-field Quartz cron schedules.",
+      "faq2Q": "Can I use this for Python cron jobs?",
+      "faq2A": "Yes, the generated expressions can be used in Python scripts and scheduling libraries including APScheduler, Celery beat, crontab, and schedule.",
+      "faq3Q": "How do I use these expressions in Salesforce Apex?",
+      "faq3A": "Salesforce Apex supports standard cron expressions with seconds and years fields. You can take our validated 5-field schedule and map it into the System.schedule() method for your Salesforce recurring jobs.",
+      "faq4Q": "What is the difference between standard cron, Spring, and Quartz syntax?",
+      "faq4A": "Standard Linux cron uses 5 fields (minute to weekday). Spring cron uses 6 fields starting with seconds, and Quartz cron can use up to 7 fields with optional years. Our free cron generator and validator creates accurate base schedules that map directly across all of these engines."
     }
   }
 }

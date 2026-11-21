@@ -267,8 +267,8 @@
       "description": "快速进行文本与二进制数据的 Base64 双向编解码。"
     },
     "cron-expression-generator": {
-      "name": "Cron 表达式生成与自然语言解析器",
-      "description": "可视化生成、测试并解析任意 Cron 表达式与 Crontab 定时计划任务。"
+      "name": "免费 Cron 表达式生成与校验器",
+      "description": "免费在线 Cron 表达式生成与校验器，支持可视化构建、解析与校验 5 段及 6 段定时任务调度表达式。"
     },
     "word-counter": {
       "name": "在线字数统计与文本分析工具",
@@ -1639,8 +1639,18 @@
       "faq4A": "复合表情采用 Unicode 零宽连字符（ZWJ）与区域指示码点拼接构成。本工具在确保复制输出完整标准编码的同时，通过高清矢量图形技术确保视觉预览无瑕疵。"
     },
     "cronExpressionGenerator": {
-      "title": "Cron 表达式生成与自然语言解析器",
-      "subtitle": "可视化构建、解析与校验标准 5 段式及 6 段式 Cron 表达式，生成易读的定时调度说明。"
+      "title": "免费 Cron 表达式生成与校验器",
+      "subtitle": "免费在线 Cron 表达式生成与校验器。可视化构建、解析与校验标准 5 段式及 6 段式 Cron 定时任务，生成易懂的自然语言说明。",
+      "aboutText": "免费 Cron 表达式生成与校验器是一款面向后端与运维工程师的高效工具，支持在自然语言与标准 Cron 语法之间进行快速转换。无论是在 Linux Crontab、Spring Cron 定时注解、Quartz Cron 任务调度器、Python Cron 脚本（如 APScheduler、Celery），还是在 Salesforce Apex 定时器中使用，本校验器均能生成精准的 5 段与 6 段表达式，并实时提供执行时间预览。",
+      "feature4": "多开发框架全面兼容：支持 Linux Crontab、Spring Cron、Quartz Cron、Python Cron（Celery、APScheduler）以及 Salesforce Apex 等主流调度框架。",
+      "faq1Q": "该工具是否支持 Spring 和 Quartz 的 Cron 表达式？",
+      "faq1A": "支持。本免费 Cron 校验器生成的标准 5 段式语法可直接用于 Spring 框架（@Scheduled），并可轻松适配 Quartz 调度框架所需的 6 段式语法。",
+      "faq2Q": "可以在 Python Cron 任务中使用吗？",
+      "faq2A": "可以。生成的 Cron 表达式可直接无缝应用于 Python 脚本及主流定时框架，如 APScheduler、Celery beat、crontab 和 schedule 等。",
+      "faq3Q": "如何在 Salesforce Apex 中使用生成的定时表达式？",
+      "faq3A": "Salesforce Apex 支持包含秒和年份的标准调度语法。您可以将本工具验证通过的 5 段式时间方案填入 System.schedule() 方法中用于自动化任务。",
+      "faq4Q": "标准 Cron、Spring 与 Quartz 语法有何区别？",
+      "faq4A": "Linux 标准 Cron 采用 5 个字段（分钟到星期），Spring Cron 采用以秒开头的 6 个字段，Quartz 则可包含可选年份达到 7 个字段。本工具生成的表达式可作为核心基准轻松映射至各类引擎。"
     }
   }
 }

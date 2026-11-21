@@ -232,10 +232,10 @@ export const tools: Tool[] = [
   {
     id: 'tool-cron',
     slug: 'cron-expression-generator',
-    name: 'Cron Expression Generator & Crontab Builder',
-    description: 'Generate, test, and decode any cron expression visually with human-readable schedules.',
+    name: 'Free Cron Expression Generator & Validator',
+    description: 'Free online cron expression generator and validator. Build, decode, and schedule standard 5-part and 6-part cron expressions with human-readable explanations.',
     categoryId: 'cat-dev',
-    tags: ['cron', 'developer', 'scheduler', 'cron expression', 'crontab'],
+    tags: ['cron', 'developer', 'scheduler', 'cron expression', 'crontab', 'spring cron', 'quartz cron', 'python cron', 'salesforce cron', 'cron validator', 'free cron'],
     status: 'published',
     featured: true,
     trending: true,

@@ -274,8 +274,8 @@
       "description": "Kodiert und dekodiert Base64-Strings."
     },
     "cron-expression-generator": {
-      "name": "Cron-Ausdruck-Generator und Übersetzer",
-      "description": "Beliebige Cron-Ausdrücke visuell erstellen, prüfen und in verständliche Zeitpläne übersetzen."
+      "name": "Kostenloser Cron-Ausdruck-Generator & Validator",
+      "description": "Kostenloser Online-Cron-Ausdruck-Generator und Validator. Standardmäßige 5-teilige und 6-teilige Zeitpläne erstellen, entschlüsseln und prüfen."
     },
     "word-counter": {
       "name": "Wortzähler & Textstatistik-Werkzeug",
@@ -1710,8 +1710,18 @@
       "faq4A": "Sie bestehen aus Verknüpfungen von Regionalindikatoren und ZWJ-Steuerzeichen. Unsere Anwendung belässt diese Zeichenfolgen beim Kopiervorgang intakt, sodass sie beim Einfügen exakt dargestellt werden."
     },
     "cronExpressionGenerator": {
-      "title": "Cron-Ausdruck-Generator und Übersetzer",
-      "subtitle": "Standardmäßige 5-teilige und 6-teilige Cron-Ausdrücke visuell erstellen, entschlüsseln und verständlich erklären."
+      "title": "Kostenloser Cron-Ausdruck-Generator & Validator",
+      "subtitle": "Kostenloser Online-Cron-Ausdruck-Generator und Validator. 5-teilige und 6-teilige Cron-Ausdrücke erstellen, entschlüsseln und mit verständlichen Erklärungen prüfen.",
+      "aboutText": "Der kostenlose Cron-Ausdruck-Generator & Validator ist ein unentbehrliches Hilfswerkzeug für DevOps und Backend-Entwickler, das Zeitplanregeln in standardisierte Cron-Syntax übersetzt. Ob für Linux Crontab, Spring Cron-Trigger, Quartz Cron-Scheduler, Python Cron-Jobs (APScheduler, Celery) oder Salesforce Apex-Scheduler: Dieser kostenlose Validator liefert präzise 5-teilige und 6-teilige Ausdrücke mit Vorschau kommender Ausführungszeiten.",
+      "feature4": "Breite Framework-Kompatibilität: Einsetzbar für Linux Crontab, Spring Cron, Quartz Cron, Python Cron (Celery, APScheduler) und Salesforce Apex.",
+      "faq1Q": "Werden Cron-Ausdrücke für Spring und Quartz unterstützt?",
+      "faq1A": "Ja, unser kostenloser Cron-Validator erzeugt standardmäßige 5-Feld-Cron-Syntax, die direkt mit Spring (@Scheduled) kompatibel ist und sich unkompliziert für 6-Feld-Quartz-Zeitpläne anpassen lässt.",
+      "faq2Q": "Kann ich dies für Python Cron-Jobs verwenden?",
+      "faq2A": "Ja, die erzeugten Ausdrücke können direkt in Python-Skripten und Scheduling-Bibliotheken wie APScheduler, Celery beat, crontab und schedule eingesetzt werden.",
+      "faq3Q": "Wie setze ich diese Ausdrücke in Salesforce Apex ein?",
+      "faq3A": "Salesforce Apex unterstützt Cron-Syntax mit Sekunden- und Jahresfeldern. Sie können den geprüften 5-Feld-Zeitplan direkt in die System.schedule()-Methode für wiederkehrende Aufträge einbinden.",
+      "faq4Q": "Worin liegt der Unterschied zwischen Standard-Cron, Spring und Quartz?",
+      "faq4A": "Standard-Linux-Cron umfasst 5 Felder (Minute bis Wochentag), Spring Cron verwendet 6 Felder beginnend mit Sekunden und Quartz kann bis zu 7 Felder umfassen. Unser Generator bietet die passende Basis für alle Systeme."
     }
   }
 }

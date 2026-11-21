@@ -267,8 +267,8 @@
       "description": "テキストやデータを Base64 形式にエンコード／デコードします。"
     },
     "cron-expression-generator": {
-      "name": "Cron式生成・解析オンラインツール",
-      "description": "Cron 式を視覚的に生成、テストし、自然言語でスケジュールを分かりやすく解説。"
+      "name": "無料 Cron 式ジェネレーター & バリデーター",
+      "description": "無料のオンライン Cron 式生成・バリデーションツール。5 フィールドおよび 6 フィールドの Cron 式を視覚的に作成・検証し自然言語で解説。"
     },
     "word-counter": {
       "name": "文字数・単語数カウント & テキスト統計ツール",
@@ -1639,8 +1639,18 @@
       "faq4A": "複合絵文字は Unicode ゼロ幅接合子（ZWJ）などの特殊コードシーケンスで構成されています。本ツールはコピー時に正規の複合シーケンスを完全保持した状態で出力します。"
     },
     "cronExpressionGenerator": {
-      "title": "Cron式生成・解析オンラインツール",
-      "subtitle": "標準の 5 フィールドおよび 6 フィールド Cron 式を視覚的に作成・解析し、自然な日本語スケジュールで確認。"
+      "title": "無料 Cron 式ジェネレーター & バリデーター",
+      "subtitle": "無料オンライン Cron 式ジェネレーター & バリデーター。標準の 5 フィールドおよび 6 フィールド Cron 式を作成・解析し、直感的なスケジュール説明を表示。",
+      "aboutText": "無料 Cron 式ジェネレーター & バリデーターは、自然言語のスケジュール設定と標準的な Cron 構文を相互に変換するエンジニア向けユーティリティです。Linux Crontab、Spring Cron アノテーション、Quartz Cron スケジューラー、Python Cron スクリプト（APScheduler、Celery）、Salesforce Apex 定時ジョブなど、多様な環境に対応した 5 項目および 6 項目の正確な式を生成・検証し、次回実行時刻を即座に確認できます。",
+      "feature4": "主要フレームワークに完全対応：Linux Crontab、Spring Cron、Quartz Cron、Python Cron（Celery、APScheduler）、Salesforce Apex と高い互換性を保持。",
+      "faq1Q": "Spring や Quartz の Cron 式に対応していますか？",
+      "faq1A": "はい。本無料 Cron バリデーターが生成する標準 5 フィールド構文は、Spring Framework（@Scheduled）で直接利用可能であり、Quartz の 6 フィールド形式にも容易に適用できます。",
+      "faq2Q": "Python の Cron ジョブでも利用できますか？",
+      "faq2A": "はい。生成された Cron 式は、APScheduler、Celery beat、crontab、schedule などの Python ライブラリやスクリプトでそのまま利用可能です。",
+      "faq3Q": "Salesforce Apex スケジューラーでどのように設定しますか？",
+      "faq3A": "Salesforce Apex は秒や年を含む Cron 構文に対応しています。本ツールで検証した 5 フィールドのスケジュールを System.schedule() メソッドに渡すことで定期ジョブを実行できます。",
+      "faq4Q": "標準の Cron、Spring、Quartz の構文の違いは何ですか？",
+      "faq4A": "標準の Linux Cron は 5 フィールド（分〜曜日）、Spring Cron は秒から始まる 6 フィールド、Quartz は任意の年を含む最大 7 フィールドを使用します。本ツールはこれらすべての基盤となる正確な設定を提供します。"
     }
   }
 }
