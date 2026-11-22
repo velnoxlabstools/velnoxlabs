@@ -280,8 +280,8 @@
       "faq4A": "Conviene utilizar una suma de comprobación básica en entornos de hardware embebido, telemetría o paquetes de transmisión donde la velocidad es prioritaria y solo se busca detectar fallos accidentales de línea. En cambio, para verificar instaladores de programas o asegurar APIs financieras, es fundamental optar por algoritmos robustos como SHA-256."
     },
     "colorConverter": {
-      "title": "Conversor de Color y Paleta Accesible",
-      "subtitle": "Convierte colores entre HEX, RGB, HSL, HSV y CMYK con comprobación de contraste accesible WCAG 2.1.",
+      "title": "Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone)",
+      "subtitle": "Conversor de color en línea gratuito. Traduce códigos de color entre HEX, RGB, CMYK, HSL y descubre tonos equivalentes en LAB y Pantone con vista previa.",
       "colorPreview": "Vista previa del color:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -291,7 +291,7 @@
       "errorInvalidHex": "Código HEX no válido",
       "errorInvalidRgb": "Formato RGB no válido. Usa rgb(r, g, b)",
       "errorInvalidHsl": "Formato HSL no válido. Usa hsl(h, s%, l%)",
-      "aboutText": "El Conversor de Color y Paleta Accesible es un recurso para diseñadores UI/UX y maquetadores web. Permite transformar valores entre espacios de color HEX, RGB, HSL, HSV y CMYK, generar armonías cromáticas y evaluar el ratio de contraste frente a fondos claros y oscuros según las pautas WCAG 2.1 en tiempo real.",
+      "aboutText": "El Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone) es una completa suite de armonización cromática creada para diseñadores web, ilustradores y profesionales de las artes gráficas. Como herramienta para extraer colores de imágenes y conversor hexadecimal, traduce valores entre estándares digitales comunes (HEX, RGB, HSL) y esquemas para impresión en CMYK. Ya sea que desees transformar valores de RGB a hexadecimal, perfeccionar tonalidades en RGB, analizar la percepción visual en el espacio cromático LAB o localizar equivalencias con las guías de Pantone para manuales de marca corporativa, este recurso opera con latencia cero en la memoria de tu navegador.",
       "feature1": "Conversión entre múltiples formatos: traduce de inmediato entre HEX, RGB, RGBA, HSL, HSLA, HSV y CMYK de impresión",
       "feature2": "Selector visual interactivo: ajusta tono, saturación y luminosidad con controles deslizantes precisos",
       "feature3": "Evaluación de contraste WCAG 2.1: puntuación de legibilidad instantánea para cumplir niveles de accesibilidad AA y AAA",
@@ -302,14 +302,14 @@
       "step2Body": "Revisa los valores equivalentes en HEX, RGB, HSL, HSV y CMYK actualizados en simultáneo.",
       "step3Title": "Copia el formato necesario",
       "step3Body": "Pulsa el icono de copia junto al formato deseado para pegar el valor CSS directamente en tu proyecto.",
-      "faq1Q": "¿Qué diferencia hay entre RGB y CMYK?",
-      "faq1A": "RGB (Rojo, Verde, Azul) es un modelo aditivo para pantallas digitales que emiten luz. CMYK (Cian, Magenta, Amarillo, Negro) es un modelo sustractivo para impresión física con tinta sobre papel.",
-      "faq2Q": "¿Por qué es tan popular HSL en CSS moderno?",
-      "faq2A": "HSL (Tono, Saturación, Luminosidad) es intuitivo para los humanos: permite crear variantes de color o estados hover cambiando únicamente la luminosidad.",
-      "faq3Q": "¿Cómo funciona la puntuación de contraste WCAG?",
-      "faq3A": "WCAG 2.1 exige un contraste mínimo de 4.5:1 para texto normal (nivel AA) y de 7:1 para accesibilidad avanzada (nivel AAA). La herramienta calcula estos ratios al instante.",
-      "faq4Q": "¿Se admiten canales de transparencia alfa?",
-      "faq4A": "Sí, admite códigos HEX de 8 dígitos (HEX8), así como formatos RGBA y HSLA con opacidad porcentual."
+      "faq1Q": "¿Cómo transformar valores de HEX a CMYK o de RGB a HEX?",
+      "faq1A": "Para pasar de RGB a HEX, introduce los valores de rojo, verde y azul en las casillas correspondientes y obtén de inmediato el código hexadecimal de 6 caracteres. Para transformar de HEX a CMYK para impresiones físicas, el sistema efectúa la conversión sustractiva deduciendo el componente negro (K = 1 - max(R,G,B)) y calculando las proporciones exactas de cian, magenta y amarillo.",
+      "faq2Q": "¿Admite la herramienta el espacio cromático LAB y la correspondencia con tonos Pantone?",
+      "faq2A": "¡Totalmente! El motor LAB calcula las coordenadas CIE-L*a*b* que representan la luminosidad y el croma según la visión humana. En cuanto a impresión, aunque Pantone es un estándar comercial patentado, nuestra herramienta asocia tus códigos digitales a la referencia más cercana de Pantone mediante fórmulas de distancia Delta-E.",
+      "faq3Q": "¿Cómo puedo extraer un color de una imagen para obtener su código HEX?",
+      "faq3A": "Puedes capturar tonos de imágenes utilizando la herramienta de cuentagotas integrada del navegador o cargando un archivo gráfico para seleccionar cualquier píxel. La tonalidad elegida se transfiere automáticamente a los campos HEX y RGB para su conversión inmediata.",
+      "faq4Q": "¿Por qué los colores se ven distintos en pantallas RGB frente a impresiones en CMYK?",
+      "faq4A": "El modelo RGB es un sistema aditivo que emite luz en pantallas digitales, mientras que el CMYK es un sistema sustractivo basado en tintas sobre papel. Debido a que el espacio de color RGB abarca tonos más vivos que las tintas convencionales, las tonalidades muy brillantes pueden verse más suaves al imprimirse."
     },
     "compoundInterestCalculator": {
       "title": "Calculadora de Interés Compuesto",

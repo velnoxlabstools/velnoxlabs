@@ -670,10 +670,10 @@ export const tools: Tool[] = [
   {
     id: 'tool-color',
     slug: 'color-converter',
-    name: 'Color Converter',
-    description: 'Convert between HEX, RGB, and HSL.',
+    name: 'Color Converter Online (HEX, RGB, CMYK, LAB & Pantone)',
+    description: 'Free Color Converter Online (HEX, RGB, CMYK, LAB & Pantone). Convert RGB to HEX, HEX to CMYK, and inspect LAB and Pantone color values in your browser.',
     categoryId: 'cat-converters',
-    tags: ['color', 'converter', 'hex'],
+    tags: ['color', 'converter', 'hex', 'color converter image', 'color converter to pantone', 'color converter online', 'hex color converter', 'color converter lab', 'color converter rgb to hex', 'rgb color converter', 'color converter hex to cmyk'],
     status: 'published',
     featured: false,
     trending: true,

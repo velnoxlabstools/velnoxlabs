@@ -382,8 +382,8 @@
       "description": "Decodificador HTML gratuito para restaurar entidades a texto plano o proteger caracteres especiales."
     },
     "color-converter": {
-      "name": "Conversor de Color y Paleta Accesible",
-      "description": "Convierte colores entre HEX, RGB, HSL, HSV y CMYK con comprobación de contraste accesible WCAG 2.1."
+      "name": "Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone)",
+      "description": "Conversor de color en línea gratuito (HEX, RGB, CMYK, LAB y Pantone). Convierte códigos cromáticos al instante sin descargas."
     },
     "case-converter": {
       "name": "Conversor de Frases y Títulos (Sentence Case & Title Case)",
@@ -1804,6 +1804,38 @@
       "faq3A": "Sí, para comprobar la exactitud de los hashes criptográficos base. Diversas pasarelas bancarias y kits de comercio electrónico, incluidos los servicios de Axis Bank, requieren el uso de funciones como SHA-256 o HMAC para proteger las transacciones. Aunque cada entidad define concatenaciones y claves secretas particulares, la matemática de hashing subyacente es estándar y puede auditarse aquí con total fiabilidad.",
       "faq4Q": "¿Cuándo conviene usar una suma de comprobación simple frente a un hash criptográfico?",
       "faq4A": "Conviene utilizar una suma de comprobación básica en entornos de hardware embebido, telemetría o paquetes de transmisión donde la velocidad es prioritaria y solo se busca detectar fallos accidentales de línea. En cambio, para verificar instaladores de programas o asegurar APIs financieras, es fundamental optar por algoritmos robustos como SHA-256."
+    },
+    "colorConverter": {
+      "title": "Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone)",
+      "subtitle": "Conversor de color en línea gratuito. Traduce códigos de color entre HEX, RGB, CMYK, HSL y descubre tonos equivalentes en LAB y Pantone con vista previa.",
+      "colorPreview": "Vista previa del color:",
+      "hexLabel": "HEX:",
+      "rgbLabel": "RGB:",
+      "hslLabel": "HSL:",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "errorInvalidHex": "Código HEX no válido",
+      "errorInvalidRgb": "Formato RGB no válido. Usa rgb(r, g, b)",
+      "errorInvalidHsl": "Formato HSL no válido. Usa hsl(h, s%, l%)",
+      "aboutText": "El Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone) es una completa suite de armonización cromática creada para diseñadores web, ilustradores y profesionales de las artes gráficas. Como herramienta para extraer colores de imágenes y conversor hexadecimal, traduce valores entre estándares digitales comunes (HEX, RGB, HSL) y esquemas para impresión en CMYK. Ya sea que desees transformar valores de RGB a hexadecimal, perfeccionar tonalidades en RGB, analizar la percepción visual en el espacio cromático LAB o localizar equivalencias con las guías de Pantone para manuales de marca corporativa, este recurso opera con latencia cero en la memoria de tu navegador.",
+      "feature1": "Conversión entre múltiples formatos: traduce de inmediato entre HEX, RGB, RGBA, HSL, HSLA, HSV y CMYK de impresión",
+      "feature2": "Selector visual interactivo: ajusta tono, saturación y luminosidad con controles deslizantes precisos",
+      "feature3": "Evaluación de contraste WCAG 2.1: puntuación de legibilidad instantánea para cumplir niveles de accesibilidad AA y AAA",
+      "feature4": "Generación de armonías: descubre paletas monocromáticas, análogas y complementarias para enriquecer tus diseños",
+      "step1Title": "Introduce o selecciona un color",
+      "step1Body": "Escribe un código HEX (como #3B82F6), valores RGB o escoge un tono usando el selector visual.",
+      "step2Title": "Consulta las coordenadas de color",
+      "step2Body": "Revisa los valores equivalentes en HEX, RGB, HSL, HSV y CMYK actualizados en simultáneo.",
+      "step3Title": "Copia el formato necesario",
+      "step3Body": "Pulsa el icono de copia junto al formato deseado para pegar el valor CSS directamente en tu proyecto.",
+      "faq1Q": "¿Cómo transformar valores de HEX a CMYK o de RGB a HEX?",
+      "faq1A": "Para pasar de RGB a HEX, introduce los valores de rojo, verde y azul en las casillas correspondientes y obtén de inmediato el código hexadecimal de 6 caracteres. Para transformar de HEX a CMYK para impresiones físicas, el sistema efectúa la conversión sustractiva deduciendo el componente negro (K = 1 - max(R,G,B)) y calculando las proporciones exactas de cian, magenta y amarillo.",
+      "faq2Q": "¿Admite la herramienta el espacio cromático LAB y la correspondencia con tonos Pantone?",
+      "faq2A": "¡Totalmente! El motor LAB calcula las coordenadas CIE-L*a*b* que representan la luminosidad y el croma según la visión humana. En cuanto a impresión, aunque Pantone es un estándar comercial patentado, nuestra herramienta asocia tus códigos digitales a la referencia más cercana de Pantone mediante fórmulas de distancia Delta-E.",
+      "faq3Q": "¿Cómo puedo extraer un color de una imagen para obtener su código HEX?",
+      "faq3A": "Puedes capturar tonos de imágenes utilizando la herramienta de cuentagotas integrada del navegador o cargando un archivo gráfico para seleccionar cualquier píxel. La tonalidad elegida se transfiere automáticamente a los campos HEX y RGB para su conversión inmediata.",
+      "faq4Q": "¿Por qué los colores se ven distintos en pantallas RGB frente a impresiones en CMYK?",
+      "faq4A": "El modelo RGB es un sistema aditivo que emite luz en pantallas digitales, mientras que el CMYK es un sistema sustractivo basado en tintas sobre papel. Debido a que el espacio de color RGB abarca tonos más vivos que las tintas convencionales, las tonalidades muy brillantes pueden verse más suaves al imprimirse."
     }
   }
 }

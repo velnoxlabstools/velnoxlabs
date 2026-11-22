@@ -280,8 +280,8 @@
       "faq4A": "Use a simple checksum calculator when your primary goal is rapid error detection in non-sensitive environments, such as detecting bit flips in embedded hardware, IoT communication, or internal data caches where computation speed is critical. Use secure cryptographic algorithms like SHA-256 or SHA-512 whenever verifying downloaded software installers, sensitive transaction records, or securing APIs against unauthorized modification."
     },
     "colorConverter": {
-      "title": "Color Converter & Palette Inspector",
-      "subtitle": "Convert colors across HEX, RGB, HSL, HSV, and CMYK color spaces with contrast ratio preview.",
+      "title": "Color Converter Online (HEX, RGB, CMYK, LAB & Pantone)",
+      "subtitle": "Free color converter online. Seamlessly translate color codes between HEX, RGB, CMYK, HSL, and discover matching LAB and Pantone equivalents with live preview.",
       "colorPreview": "Color Preview:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -291,7 +291,7 @@
       "errorInvalidHex": "Invalid HEX code",
       "errorInvalidRgb": "Invalid RGB format. Use rgb(r, g, b)",
       "errorInvalidHsl": "Invalid HSL format. Use hsl(h, s%, l%)",
-      "aboutText": "The Color Converter & Palette Inspector is an indispensable tool for UI/UX designers, CSS developers, and graphic artists. It converts color values across HEX, RGB, HSL, HSV, and CMYK formats, computes complementary palettes, and calculates WCAG 2.1 accessibility contrast ratios against light and dark backgrounds in real time.",
+      "aboutText": "Color Converter Online (HEX, RGB, CMYK, LAB & Pantone) is a comprehensive color manipulation and translation suite built for web designers, digital illustrators, and print production artists. As a versatile Color Converter image tool and professional Hex color converter, it translates values across standard digital formats (HEX, RGB, HSL) and print-ready spaces using our Color converter HEX to CMYK engine. Whether you are using our Color converter RGB to hex to grab UI values, fine-tuning visual palettes with our RGB color converter, analyzing perceptual color spaces using our Color converter LAB module, or finding a Color converter to Pantone matching equivalent for brand guidelines, this fast in-browser utility delivers instant, client-side conversions with zero latency.",
       "feature1": "Multi-Format Color Translation: Instantly converts between HEX, RGB, RGBA, HSL, HSLA, HSV, and print-ready CMYK values",
       "feature2": "Interactive Color Picker & Sliders: Fine-tune hues, saturation, and luminance with an interactive visual picker",
       "feature3": "WCAG 2.1 Contrast Ratio Analysis: Real-time readability ratings for text on white and dark backgrounds to meet accessibility standards",
@@ -302,14 +302,14 @@
       "step2Body": "View synchronized representations across HEX, RGB, HSL, HSV, and CMYK formats simultaneously.",
       "step3Title": "Copy Code Snippet",
       "step3Body": "Click the copy icon beside any color format to copy CSS-ready values directly to your clipboard.",
-      "faq1Q": "What is the difference between RGB and CMYK?",
-      "faq1A": "RGB (Red, Green, Blue) is an additive color model designed for digital screens that emit light. CMYK (Cyan, Magenta, Yellow, Black) is a subtractive color model designed for physical ink printing on paper.",
-      "faq2Q": "Why is HSL favored by modern CSS developers?",
-      "faq2A": "HSL (Hue, Saturation, Lightness) aligns with human perception, making it intuitive to adjust brightness, create hover states, or build theme palettes by varying lightness while keeping hue constant.",
-      "faq3Q": "How does WCAG contrast ratio score work?",
-      "faq3A": "WCAG 2.1 requires a contrast ratio of at least 4.5:1 for normal text (AA level) and 7:1 for enhanced accessibility (AAA level). Our tool calculates these ratios dynamically to ensure readability.",
-      "faq4Q": "Are alpha transparency channels supported?",
-      "faq4A": "Yes, the converter supports 8-digit HEX codes (HEX8) as well as RGBA and HSLA strings with variable opacity percentages."
+      "faq1Q": "How do I convert HEX to CMYK or RGB to HEX?",
+      "faq1A": "To convert RGB to HEX, enter your red, green, and blue values into the RGB field or use our Color converter RGB to hex tool to immediately generate the 6-character hexadecimal code. To perform a Color converter HEX to CMYK calculation for print materials, our engine converts the RGB channels to subtractive CMYK percentages by calculating the black key (K = 1 - max(R,G,B)) and computing cyan, magenta, and yellow proportions accordingly.",
+      "faq2Q": "Does this tool support LAB and Pantone color matching?",
+      "faq2A": "Yes! Our Color converter LAB module calculates CIE-L*a*b* coordinates representing perceptual lightness and chroma. For print branding, while Pantone (PMS) is a proprietary ink standard, our tool maps your digital HEX and RGB values to their closest Color converter to Pantone color guide equivalents using Delta-E color distance formulas.",
+      "faq3Q": "How can I pick a color from an image or extract HEX codes?",
+      "faq3A": "You can extract color codes using our Color Converter image capabilities: either use the browser's native EyeDropper API to sample any pixel directly from an image or web element on your screen, or upload an image to sample pixel coordinates. The sampled color automatically populates the Hex color converter and RGB fields for instant conversion.",
+      "faq4Q": "Why do colors look different between RGB screen display and CMYK print?",
+      "faq4A": "RGB is an additive color model used by glowing digital displays (monitors and smartphones), while CMYK is a subtractive color model used by physical ink on paper. Because the digital RGB gamut is wider than standard printing ink gamuts, converting bright neon RGB colors to CMYK may result in slightly more subdued tones."
     },
     "compoundInterestCalculator": {
       "title": "Compound Interest Calculator",
