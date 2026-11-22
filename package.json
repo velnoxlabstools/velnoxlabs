@@ -31,6 +31,7 @@
   "dependencies": {
     "cronstrue": "^3.32.0",
     "crypto-js": "^4.2.0",
+    "jsbarcode": "^3.12.3",
     "jspdf": "^4.2.1",
     "jszip": "^3.10.2",
     "lucide-react": "^1.47.0",
@@ -49,6 +50,7 @@
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.0",
     "@types/crypto-js": "^4.2.2",
+    "@types/jsbarcode": "^3.11.4",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

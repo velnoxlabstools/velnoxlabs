@@ -1,6 +1,7 @@
 {
   "cleanTools": [
     "age-calculator",
+    "barcode-generator",
     "base64-encoder",
     "bmi-calculator",
     "case-converter",
@@ -60,6 +61,6 @@
     "word-counter"
   ],
   "flaggedTools": [],
-  "totalScanned": 522,
+  "totalScanned": 531,
   "totalErrors": 0
 }

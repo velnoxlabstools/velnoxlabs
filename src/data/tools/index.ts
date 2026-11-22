@@ -973,6 +973,38 @@ export const tools: Tool[] = [
     createdAt: '2025-09-10T00:00:00.000Z',
     updatedAt: '2026-06-01T00:00:00.000Z',
   },
+  {
+    id: 'tool-barcode-generator',
+    slug: 'barcode-generator',
+    name: 'Barcode Generator',
+    description: 'Generate customizable barcodes in Code 128, EAN-13, UPC-A, and more formats with instant SVG and PNG downloads.',
+    categoryId: 'cat-business',
+    tags: [
+      'barcode',
+      'generator',
+      'code128',
+      'ean13',
+      'upc',
+      'code39',
+      'itf14',
+      'barcode generator ai',
+      'barcode generator free',
+      'online barcode generator',
+      'barcode generator 128',
+      'bulk barcode generator',
+      'text to barcode generator',
+      'free barcode generator ai',
+      'barcode generator app'
+    ],
+    status: 'published',
+    featured: true,
+    trending: true,
+    popular: true,
+    isNew: true,
+    usageCount: 120,
+    createdAt: '2026-11-22T00:00:00.000Z',
+    updatedAt: '2026-11-22T00:00:00.000Z',
+  },
 ];
 
 export const collections: ToolCollection[] = [
@@ -990,4 +1022,5 @@ export const collections: ToolCollection[] = [
     description: 'Hash and password tools that stay on your device.',
     toolIds: ['tool-hash', 'tool-password'],
   },
+  
 ];
