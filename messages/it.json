@@ -232,8 +232,8 @@
       "description": "Genera ID compatti compatibili con URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Generatore e Validatore di Intestazioni CSP",
-      "description": "Costruisci, collauda e valida intestazioni Content-Security-Policy per proteggere i tuoi siti da attacchi XSS."
+      "name": "Generatore e Validatore di Intestazioni CSP Online (Controllo CSP)",
+      "description": "Strumento online gratuito per creare, collaudare e validare direttive Content-Security-Policy per la sicurezza delle applicazioni web."
     },
     "json-formatter": {
       "name": "Formattatore e Validatore JSON Online",
@@ -1881,6 +1881,42 @@
       "faq3A": "Sì. Il nostro simulatore impiega la formula standard del montante composto condivisa dagli istituti di credito in India. Sia per verificare i rendimenti dei certificati di deposito SBI (spesso capitalizzati su base trimestrale o annuale) sia per le polizze HDFC Life, basta selezionare il tasso previsto e la cadenza corretta per riprodurre le simulazioni bancarie.",
       "faq4Q": "Perché è utile disporre di una simulazione orientata agli investimenti indiani?",
       "faq4A": "Il panorama del risparmio indiano prevede ritmi di maturazione differenti: il fondo pensionistico PPF capitalizza a cadenza annuale, i depositi bancari SBI procedono su base trimestrale e i piani SIP lavorano mese dopo mese. Il nostro applicativo riunisce tutte queste opzioni per una pianificazione patrimoniale affidabile."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "Direttive (separate da nuova riga o punto e virgola):",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "Header CSP:",
+      "cspHeaderPlaceholder": "L'header CSP valido apparirà qui...",
+      "copy": "Copia",
+      "copied": "Copiato!",
+      "errorsHeading": "❌ Errori:",
+      "warningsHeading": "⚠️ Avvisi:",
+      "warnDefaultSrc": "Best practice: Aggiungi 'default-src' come direttiva di fallback.",
+      "warnUnsafeInline": "Avviso di sicurezza: 'unsafe-inline' riduce la protezione XSS.",
+      "warnUnsafeEval": "Avviso di sicurezza: 'unsafe-eval' consente l'esecuzione di codice pericoloso.",
+      "errInvalidDirective": "Direttiva non valida: \"{directive}\"",
+      "errInvalidSource": "Origine non valida: \"{source}\"",
+      "title": "Generatore e Validatore di Intestazioni CSP Online (Controllo CSP)",
+      "subtitle": "Strumento online gratuito per creare, collaudare e validare direttive Content-Security-Policy per la sicurezza delle applicazioni web.",
+      "aboutText": "Il Generatore e Validatore di Intestazioni CSP Online (Controllo CSP) è un supporto avanzato per la sicurezza dei portali web. Sia che tu abbia bisogno di una risorsa gratuita per rafforzare le intestazioni HTTP, impostare criteri di protezione per progetti JavaScript o cercare un'alternativa affidabile al validatore Mozilla CSP, la nostra applicazione esamina ogni parametro in conformità alle direttive W3C. Costruisci una barriera efficace contro vulnerabilità XSS, clickjacking e intercettazione non autorizzata di informazioni.",
+      "feature1": "Copertura integrale delle direttive: imposta default-src, script-src, style-src, img-src, connect-src e frame-ancestors",
+      "feature2": "Rilevamento delle vulnerabilità: avvisa circa la presenza di direttive rischiose come 'unsafe-inline' o 'unsafe-eval' consigliando contromisure adeguate",
+      "feature3": "Esportazione per Nginx, Apache e tag Meta: crea configurazioni pronte per Nginx, file .htaccess e tag HTML meta",
+      "feature4": "Verifica sicura nel browser: struttura e collauda le regole sul tuo computer senza rendere nota a terzi la configurazione dei tuoi server",
+      "step1Title": "Imposta le origini consentite",
+      "step1Body": "Indica i domini sicuri e le fonti fidate da cui è permesso caricare script, fogli di stile e connessioni API.",
+      "step2Title": "Controlla il giudizio di sicurezza",
+      "step2Body": "Verifica le segnalazioni del sistema per assicurarti di non adoperare caratteri jolly troppo estesi o costrutti deboli.",
+      "step3Title": "Copia l'intestazione generata",
+      "step3Body": "Esporta la direttiva Content-Security-Policy configurata e incollala nella configurazione del tuo server web con un clic.",
+      "faq1Q": "Come verificare l'intestazione Content Security Policy in Google Chrome?",
+      "faq1A": "In Google Chrome, apri gli strumenti per sviluppatori premendo F12 o Ctrl+Maiusc+I (Cmd+Opzione+I su Mac). Seleziona la scheda Rete (Network), ricarica la pagina, fai clic sulla richiesta del documento principale ed esamina le intestazioni di risposta per individuare 'Content-Security-Policy'. Eventuali violazioni vengono segnalate anche nella scheda Console.",
+      "faq2Q": "È possibile utilizzarlo come validatore Mozilla CSP per Firefox?",
+      "faq2A": "Certamente. La nostra applicazione applica gli standard ufficiali del W3C ed è perfetta per verificare le direttive destinate a Mozilla Firefox. Le regole controllate qui sono pienamente supportate da Firefox, Chrome, Safari ed Edge.",
+      "faq3Q": "È disponibile un esempio tipico di intestazione CSP?",
+      "faq3A": "Ecco una configurazione solida e diffusa: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Questo schema autorizza unicamente risorse dalla stessa origine e da domini fidati, escludendo plugin obsoleti e riquadri esterni.",
+      "faq4Q": "In che modo supporta lo sviluppo di applicazioni in JavaScript?",
+      "faq4A": "Aiuta a definire con precisione le istruzioni script-src, worker-src e connect-src richieste da librerie come React, Vue o Angular, preservando il corretto funzionamento delle API ed eliminando il pericolo di esecuzioni indesiderate."
     }
   }
 }

@@ -225,8 +225,8 @@
       "description": "Generate compact URL-friendly IDs."
     },
     "csp-header-builder-and-validator": {
-      "name": "CSP Header Builder & Validator",
-      "description": "Build Content Security Policy headers."
+      "name": "CSP Header Builder & Validator Online (CSP Checker)",
+      "description": "Free CSP header builder & validator online and CSP checker. Build, test, and evaluate Content Security Policy directives for modern web applications."
     },
     "json-formatter": {
       "name": "JSON Formatter & Validator",
@@ -1800,6 +1800,42 @@
       "faq3A": "Yes. Our tool applies the standard universal compound interest formula A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)] used across Indian financial institutions. Whether you are cross-referencing an SBI fixed deposit (which typically compounds quarterly or annually) or evaluating an HDFC Life endowment policy, simply select the matching compounding frequency and interest rate to replicate bank projections accurately.",
       "faq4Q": "Why use a specialized compound interest calculator India tool for financial planning?",
       "faq4A": "Indian wealth creation relies heavily on instruments with varying compounding schedules—such as PPF (compounded annually), bank FDs (compounded quarterly by SBI, ICICI, and HDFC), and mutual fund SIPs (compounded monthly). Our tool provides the exact compounding intervals and rupee currency formatting needed to plan Indian retirement, tax-saving, and wealth goals accurately."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "Directives (newline or semicolon separated):",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "CSP Header:",
+      "cspHeaderPlaceholder": "Valid CSP header will appear here...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "errorsHeading": "❌ Errors:",
+      "warningsHeading": "⚠️ Warnings:",
+      "warnDefaultSrc": "Best practice: Add 'default-src' as a fallback directive.",
+      "warnUnsafeInline": "Security warning: 'unsafe-inline' reduces XSS protection.",
+      "warnUnsafeEval": "Security warning: 'unsafe-eval' allows dangerous code execution.",
+      "errInvalidDirective": "Invalid directive: \"{directive}\"",
+      "errInvalidSource": "Invalid source: \"{source}\"",
+      "title": "CSP Header Builder & Validator Online (CSP Checker)",
+      "subtitle": "Free CSP header builder & validator online and CSP checker. Build, test, and evaluate Content Security Policy directives for modern web applications.",
+      "aboutText": "CSP Header Builder & Validator Online (CSP Checker) is a comprehensive web application security suite. Whether you need a Csp header builder & validator free tool to harden HTTP response headers, a Csp header builder & validator javascript utility for single-page frameworks, or a reliable alternative to the Mozilla CSP checker, our CSP header checker evaluates directives against modern W3C specifications. Easily construct robust defenses against cross-site scripting (XSS), clickjacking, and unauthorized data exfiltration with client-side verification.",
+      "feature1": "Comprehensive Directive Coverage: Configure default-src, script-src, style-src, img-src, connect-src, frame-ancestors, and object-src",
+      "feature2": "Security Risk Analysis: Automatically flags dangerous directives like \"unsafe-inline\" and \"unsafe-eval\" with hardening recommendations",
+      "feature3": "Nginx, Apache, & Meta Export: Generates ready-to-paste snippets for Nginx configs, Apache .htaccess, and HTML meta tags",
+      "feature4": "Client-Side Policy Testing: Validate existing CSP headers without transmitting sensitive server configurations across the web",
+      "step1Title": "Configure Directives",
+      "step1Body": "Set trust origins and source domains for scripts, stylesheets, media assets, and API connections.",
+      "step2Title": "Review Security Score",
+      "step2Body": "Check the automated risk validator to ensure your policy does not permit permissive wildcards or dangerous execution keywords.",
+      "step3Title": "Copy Header Configuration",
+      "step3Body": "Export the formatted Content-Security-Policy header for Nginx, Apache, or HTML meta tags with one click.",
+      "faq1Q": "How to check Content Security Policy header in Chrome?",
+      "faq1A": "To check the Content Security Policy header in Google Chrome, open Chrome DevTools (press F12 or Ctrl+Shift+I / Cmd+Option+I), navigate to the Network tab, reload the page, click the top document request, and view the Response Headers section to find 'Content-Security-Policy'. You can also inspect any CSP violation notices logged directly in the DevTools Console tab.",
+      "faq2Q": "Can I use this as a Mozilla CSP checker for Firefox?",
+      "faq2A": "Yes. Our CSP checker serves as an effective Mozilla CSP checker and universal validator. Because Content Security Policy is a standardized W3C specification implemented uniformly by modern browsers, the directives evaluated and generated here are fully compatible with Mozilla Firefox, Google Chrome, Safari, and Microsoft Edge.",
+      "faq3Q": "Can you provide a CSP header example for web applications?",
+      "faq3A": "Here is a standard, robust CSP header example: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. This example restricts resource fetching to the origin and explicitly authorized origins while disallowing legacy plugins and framing.",
+      "faq4Q": "How does this tool help configure CSP for JavaScript applications?",
+      "faq4A": "As a dedicated Csp header builder & validator javascript solution, our tool helps developers configure script-src, worker-src, and connect-src directives required by frameworks like React, Vue, Next.js, and Angular, ensuring your API endpoints and scripts remain functional while blocking malicious injection vectors."
     }
   }
 }

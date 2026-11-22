@@ -232,8 +232,8 @@
       "description": "Genera IDs compactos compatibles con URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Generador y Validador de Cabeceras CSP",
-      "description": "Diseña, prueba y valida cabeceras Content-Security-Policy para proteger tu aplicación web contra ataques XSS."
+      "name": "Generador y Validador de Cabeceras CSP Online (Inspector CSP)",
+      "description": "Herramienta online gratuita para construir, probar y validar directivas Content-Security-Policy en aplicaciones web modernas."
     },
     "json-formatter": {
       "name": "Formateador y Validador JSON Online",
@@ -1881,6 +1881,42 @@
       "faq3A": "Sí. Nuestra herramienta aplica la fórmula matemática universal de capitalización empleada por las entidades financieras de la India. Tanto para contrastar depósitos a plazo en SBI (habitualmente capitalizados trimestral o anualmente) como pólizas de ahorro de HDFC Life, basta con indicar la tasa y el periodo correspondiente para replicar con exactitud los cálculos de dichas entidades.",
       "faq4Q": "¿Por qué es conveniente usar una herramienta de interés compuesto adaptada a las finanzas de la India?",
       "faq4A": "En el mercado financiero indio conviven esquemas con diversas frecuencias de acumulación: desde fondos públicos PPF con balance anual hasta depósitos a plazo en SBI capitalizados por trimestres o fondos mutuos SIP mensuales. Esta herramienta contempla todas esas frecuencias para planificar metas de jubilación y ahorro con total certidumbre."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "Directivas (separadas por salto de línea o punto y coma):",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "Encabezado CSP:",
+      "cspHeaderPlaceholder": "El encabezado CSP válido aparecerá aquí...",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "errorsHeading": "❌ Errores:",
+      "warningsHeading": "⚠️ Advertencias:",
+      "warnDefaultSrc": "Mejor práctica: Añade 'default-src' como directiva de respaldo.",
+      "warnUnsafeInline": "Advertencia de seguridad: 'unsafe-inline' reduce la protección contra XSS.",
+      "warnUnsafeEval": "Advertencia de seguridad: 'unsafe-eval' permite ejecución de código peligrosa.",
+      "errInvalidDirective": "Directiva no válida: \"{directive}\"",
+      "errInvalidSource": "Fuente no válida: \"{source}\"",
+      "title": "Generador y Validador de Cabeceras CSP Online (Inspector CSP)",
+      "subtitle": "Herramienta online gratuita para construir, probar y validar directivas Content-Security-Policy en aplicaciones web modernas.",
+      "aboutText": "El Generador y Validador de Cabeceras CSP Online (Inspector CSP) es una solución integral para fortalecer la seguridad web. Tanto si buscas una utilidad gratuita para robustecer las cabeceras HTTP de tus proyectos, configurar directivas adaptadas a aplicaciones JavaScript o disponer de una alternativa práctica al verificador de Mozilla CSP, nuestra herramienta analiza cada directiva según las especificaciones del W3C. Levanta barreras efectivas contra ataques de secuencias de comandos en sitios cruzados (XSS), secuestro de clics y fuga indebida de información.",
+      "feature1": "Soporte integral de directivas: configura default-src, script-src, style-src, img-src, connect-src y frame-ancestors",
+      "feature2": "Detección de riesgos de seguridad: alerta sobre directivas inseguras como 'unsafe-inline' o 'unsafe-eval' recomendando soluciones robustas",
+      "feature3": "Exportación para Nginx, Apache y Meta: genera configuraciones listas para usar en Nginx, archivos .htaccess y etiquetas meta de HTML",
+      "feature4": "Evaluación local protegida: diseña y valida políticas en tu navegador sin compartir la arquitectura de tus servidores con terceros",
+      "step1Title": "Establece las directivas de confianza",
+      "step1Body": "Indica los dominios autorizados para cargar scripts, estilos, recursos multimedia y conexiones API.",
+      "step2Title": "Verifica la puntuación de seguridad",
+      "step2Body": "Revisa el diagnóstico de seguridad para cerciorarte de no emplear comodines excesivos o directivas vulnerables.",
+      "step3Title": "Copia la cabecera configurada",
+      "step3Body": "Exporta la cabecera Content-Security-Policy lista para tu servidor Nginx, Apache o plantilla HTML con un clic.",
+      "faq1Q": "¿Cómo comprobar la cabecera Content Security Policy en Google Chrome?",
+      "faq1A": "Para revisar la cabecera en Chrome, presiona F12 o Ctrl+Mayús+I (Cmd+Opción+I en Mac) para abrir las herramientas de desarrollo. Ve a la pestaña Red (Network), recarga la página, selecciona la petición del documento principal y examina la sección de cabeceras de respuesta para localizar 'Content-Security-Policy'. También puedes ver alertas de bloqueo en la pestaña Consola.",
+      "faq2Q": "¿Se puede usar como analizador Mozilla CSP para Firefox?",
+      "faq2A": "Sí. Nuestra utilidad actúa como un excelente comprobador para directivas compatibles con Mozilla y navegadores basados en estándares del W3C. La especificación CSP es universal, por lo que las políticas validadas aquí funcionan a la perfección en Mozilla Firefox, Google Chrome, Safari y Edge.",
+      "faq3Q": "¿Podrías mostrar un ejemplo práctico de cabecera CSP?",
+      "faq3A": "Un ejemplo básico y seguro es el siguiente: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Este esquema restringe la carga de recursos a tu propio dominio y orígenes de confianza, impidiendo la incrustación en marcos no autorizados.",
+      "faq4Q": "¿Cómo ayuda a configurar políticas en aplicaciones JavaScript modernas?",
+      "faq4A": "Facilita la definición precisa de directivas script-src, worker-src y connect-src requeridas por entornos como React, Vue y Angular, permitiendo que las llamadas a APIs funcionen sin fricción mientras se previenen inyecciones de código malicioso."
     }
   }
 }

@@ -232,8 +232,8 @@
       "description": "Generiert kompakte, URL-freundliche IDs."
     },
     "csp-header-builder-and-validator": {
-      "name": "CSP-Header-Generator und Sicherheitsprüfer",
-      "description": "Erstelle, teste und überprüfe Content-Security-Policy HTTP-Header zum Schutz deiner Webanwendung vor XSS-Angriffen."
+      "name": "CSP-Header-Generator und Sicherheitsprüfer Online (CSP-Checker)",
+      "description": "Kostenloses Online-Werkzeug zur Erstellung, Prüfung und Absicherung von Content-Security-Policy-Richtlinien für Webanwendungen."
     },
     "json-formatter": {
       "name": "Online-JSON-Formatierer und Validierer",
@@ -1881,6 +1881,42 @@
       "faq3A": "Ja. Die Anwendung stützt sich auf die weltweit anerkannte Zinseszinsformel, die auch von indischen Finanzinstituten angewendet wird. Ob Festgeldanlagen bei der SBI (die typischerweise vierteljährlich verzinst werden) oder Sparverträge bei HDFC Life – durch Auswahl des passenden Zinstaktes lassen sich die Modellrechnungen exakt abbilden.",
       "faq4Q": "Warum empfiehlt sich ein auf indische Anlageformen abgestimmtes Zinstool?",
       "faq4A": "Der indische Finanzmarkt zeichnet sich durch vielfältige Zinsmodelle aus – von staatlichen PPF-Konten mit jährlicher Zinsgutschrift über SBI-Festgelder mit Quartalsverzinsung bis hin zu monatlichen SIP-Fondssparplänen. Dieses Werkzeug deckt sämtliche Intervalle ab und erleichtert die langfristige Vorsorgeplanung."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "Direktiven (durch Zeilenumbruch oder Semikolon getrennt):",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "CSP-Header:",
+      "cspHeaderPlaceholder": "Gültiger CSP-Header wird hier angezeigt...",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "errorsHeading": "❌ Fehler:",
+      "warningsHeading": "⚠️ Warnungen:",
+      "warnDefaultSrc": "Best Practice: Fügen Sie 'default-src' als Fallback-Direktive hinzu.",
+      "warnUnsafeInline": "Sicherheitswarnung: 'unsafe-inline' reduziert den XSS-Schutz.",
+      "warnUnsafeEval": "Sicherheitswarnung: 'unsafe-eval' erlaubt gefährliche Code-Ausführung.",
+      "errInvalidDirective": "Ungültige Direktive: \"{directive}\"",
+      "errInvalidSource": "Ungültige Quelle: \"{source}\"",
+      "title": "CSP-Header-Generator und Sicherheitsprüfer Online (CSP-Checker)",
+      "subtitle": "Kostenloses Online-Werkzeug zur Erstellung, Prüfung und Absicherung von Content-Security-Policy-Richtlinien für Webanwendungen.",
+      "aboutText": "Der CSP-Header-Generator und Sicherheitsprüfer Online (CSP-Checker) bietet umfassenden Schutz für moderne Webprojekte. Ganz gleich, ob Sie ein kostenloses Hilfsmittel zur Härtung von HTTP-Headern benötigen, Richtlinien für JavaScript-Anwendungen definieren oder eine zuverlässige Alternative zum Mozilla CSP-Checker suchen – unser Prüfwerkzeug analysiert Sicherheitsrichtlinien anhand offizieller W3C-Vorgaben. Schützen Sie Ihre Seiten effektiv vor Cross-Site-Scripting (XSS), Clickjacking und Datenabfluss.",
+      "feature1": "Vollständige Richtlinien-Abdeckung: Konfiguriere default-src, script-src, style-src, img-src, connect-src und frame-ancestors",
+      "feature2": "Automatische Sicherheitswarnungen: Weist auf unsichere Angaben wie 'unsafe-inline' hin und schlägt robustere Alternativen vor",
+      "feature3": "Direktexport für Nginx, Apache und HTML: Erzeugt fertige Direktiven für Webserver-Konfigurationen und HTML-Meta-Tags",
+      "feature4": "Lokale Richtlinienprüfung: Entwirf und teste Richtlinien sicher im Browser, ohne sensible Serverstrukturen nach außen zu geben",
+      "step1Title": "Vertrauenswürdige Quellen festlegen",
+      "step1Body": "Bestimme erlaubte Domains für Skripte, Stylesheets, Mediendateien und API-Endpunkte.",
+      "step2Title": "Sicherheitsprüfung beachten",
+      "step2Body": "Prüfe die automatischen Hinweise, um zu weitreichende Platzhalter oder unsichere Schlüsselwörter zu vermeiden.",
+      "step3Title": "Header-Code kopieren",
+      "step3Body": "Kopiere den generierten Content-Security-Policy-Header mit einem Klick in deine Server-Konfiguration.",
+      "faq1Q": "Wie prüft man den Content-Security-Policy-Header in Google Chrome?",
+      "faq1A": "Öffnen Sie in Google Chrome die Entwicklertools mit F12 oder Strg+Umschalt+I (Cmd+Option+I auf dem Mac). Wechseln Sie zum Reiter Netzwerk (Network), laden Sie die Seite neu, wählen Sie den ersten Dokumentenabruf aus und suchen Sie im Bereich der Serverantworten nach 'Content-Security-Policy'. Richtlinienverstöße werden zudem im Reiter Konsole aufgeführt.",
+      "faq2Q": "Lässt sich dieses Tool als Mozilla CSP-Checker für Firefox einsetzen?",
+      "faq2A": "Ja. Unser Prüfwerkzeug orientiert sich an den universellen W3C-Sicherheitsstandards und eignet sich hervorragend zur Richtlinienprüfung für Mozilla Firefox. Eine hier validierte Konfiguration ist mit Firefox, Chrome, Safari und Edge gleichermaßen kompatibel.",
+      "faq3Q": "Gibt es ein typisches Beispiel für einen stabilen CSP-Header?",
+      "faq3A": "Ein bewährtes Beispiel lautet: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Diese Richtlinie beschränkt das Nachladen auf die eigene Domain und vertrauenswürdige Quellen, während unsichere Plug-ins und Einbettungen gesperrt bleiben.",
+      "faq4Q": "Welche Vorteile bietet das Tool für moderne JavaScript-Entwicklung?",
+      "faq4A": "Für Frameworks wie React, Vue oder Angular lassen sich script-src-, worker-src- und connect-src-Richtlinien präzise abstimmen, sodass benötigte API-Aufrufe reibungslos funktionieren und gleichzeitig Code-Injektionen unterbunden werden."
     }
   }
 }

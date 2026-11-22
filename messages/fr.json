@@ -232,8 +232,8 @@
       "description": "Génère des IDs compacts compatibles avec les URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Générateur et Analyseur d'En-têtes CSP",
-      "description": "Créez, testez et vérifiez vos en-têtes Content-Security-Policy pour prémunir vos applications web des failles XSS."
+      "name": "Générateur et Analyseur d'En-têtes CSP en Ligne (Vérificateur CSP)",
+      "description": "Outil gratuit en ligne pour concevoir, tester et valider vos directives Content-Security-Policy sur les applications web modernes."
     },
     "json-formatter": {
       "name": "Mise en page et Validateur JSON en Ligne",
@@ -1883,6 +1883,42 @@
       "faq3A": "Oui. Notre outil applique la formule mathématique internationale employée par les banques et assureurs en Inde. Qu'il s'agisse de vérifier un dépôt à terme SBI (généralement composé au trimestre ou à l'année) ou un contrat HDFC Life, il suffit de renseigner le taux convenu et le bon intervalle pour retrouver des montants identiques aux projections officielles.",
       "faq4Q": "Pourquoi privilégier un calculateur adapté aux spécificités du marché indien ?",
       "faq4A": "L'épargne en Inde met en jeu des calendriers de capitalisation variés : le fonds public PPF capitalise annuellement, les dépôts bancaires SBI fonctionnent au trimestre et les fonds SIP capitalisent chaque mois. Notre outil intègre tous ces schémas pour sécuriser votre stratégie d'épargne retraite."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "Directives (séparées par saut de ligne ou point-virgule) :",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "En-tête CSP :",
+      "cspHeaderPlaceholder": "L'en-tête CSP valide apparaîtra ici...",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "errorsHeading": "❌ Erreurs :",
+      "warningsHeading": "⚠️ Avertissements :",
+      "warnDefaultSrc": "Bonne pratique : Ajoutez 'default-src' comme directive de secours.",
+      "warnUnsafeInline": "Avertissement de sécurité : 'unsafe-inline' réduit la protection XSS.",
+      "warnUnsafeEval": "Avertissement de sécurité : 'unsafe-eval' permet l'exécution de code dangereux.",
+      "errInvalidDirective": "Directive non valide : \"{directive}\"",
+      "errInvalidSource": "Source non valide : \"{source}\"",
+      "title": "Générateur et Analyseur d'En-têtes CSP en Ligne (Vérificateur CSP)",
+      "subtitle": "Outil gratuit en ligne pour concevoir, tester et valider vos directives Content-Security-Policy sur les applications web modernes.",
+      "aboutText": "Le Générateur et Analyseur d'En-têtes CSP en Ligne (Vérificateur CSP) constitue une solution complète de sécurisation HTTP. Que vous recherchiez une solution gratuite pour durcir vos en-têtes réseau, adapter vos règles aux architectures JavaScript ou disposer d'une alternative efficace au vérificateur Mozilla CSP, notre analyseur passe au crible vos directives selon les préconisations du W3C. Protégez sereinement vos utilisateurs contre les attaques XSS, le détournement de clic et l'exfiltration de données.",
+      "feature1": "Prise en charge intégrale des directives : paramétrez default-src, script-src, style-src, img-src, connect-src et frame-ancestors",
+      "feature2": "Avertissements de sécurité : repère les consignes permissives comme 'unsafe-inline' et oriente vers des alternatives plus sûres",
+      "feature3": "Génération pour Nginx, Apache et balises Meta : produit des lignes de configuration prêtes pour Nginx, fichiers .htaccess ou balises HTML",
+      "feature4": "Diagnostic strictement local : concevez et éprouvez vos directives dans votre navigateur sans divulguer les coulisses de vos serveurs",
+      "step1Title": "Désignez les origines autorisées",
+      "step1Body": "Indiquez les domaines et protocoles habilités à diffuser scripts, feuilles de style et flux réseau.",
+      "step2Title": "Prenez note du diagnostic de sécurité",
+      "step2Body": "Consultez les suggestions automatiques afin d'éviter l'emploi d'étoiles trop permissives ou de termes vulnérables.",
+      "step3Title": "Copiez l'en-tête mis au point",
+      "step3Body": "Exportez la directive Content-Security-Policy finalisée et insérez-la directement dans votre serveur web.",
+      "faq1Q": "Comment vérifier l'en-tête Content Security Policy dans Google Chrome ?",
+      "faq1A": "Dans Chrome, ouvrez les outils de développement avec F12 ou Ctrl+Maj+I (Cmd+Option+I sur Mac). Rendez-vous sur l'onglet Réseau (Network), actualisez la page, sélectionnez la requête du document principal et consultez les en-têtes de réponse pour repérer 'Content-Security-Policy'. Les blocages de sécurité apparaissent également dans l'onglet Console.",
+      "faq2Q": "Peut-on l'utiliser comme vérificateur Mozilla CSP pour Firefox ?",
+      "faq2A": "Tout à fait. Cet analyseur respecte scrupuleusement les spécifications du W3C et fonctionne parfaitement pour Mozilla Firefox. Les directives validées ici sont reconnues de manière uniforme par Firefox, Google Chrome, Safari et Microsoft Edge.",
+      "faq3Q": "Existe-t-il un exemple type d'en-tête CSP sécurisé ?",
+      "faq3A": "Voici un modèle recommandé : `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Il restreint les ressources à votre propre domaine et à des sources de confiance, tout en interdisant les plugins obsolètes et les intégrations en iframe.",
+      "faq4Q": "En quoi cette solution facilite-t-elle la sécurisation d'applications JavaScript ?",
+      "faq4A": "Elle permet d'ajuster finement les directives script-src, worker-src et connect-src indispensables aux frameworks comme React, Vue ou Angular, maintenant le dialogue avec vos API tout en bloquant l'injection de scripts malveillants."
     }
   }
 }

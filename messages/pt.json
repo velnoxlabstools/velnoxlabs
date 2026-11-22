@@ -232,8 +232,8 @@
       "description": "Gera IDs compactos compatíveis com URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Gerador e Validador de Cabeçalhos CSP",
-      "description": "Configure, teste e valide cabeçalhos Content-Security-Policy para resguardar sua aplicação contra ataques de XSS e injeção de dados."
+      "name": "Criador e Validador de Cabeçalhos CSP Online (Inspetor CSP)",
+      "description": "Utilitário online gratuito para estruturar, avaliar e validar diretivas Content-Security-Policy em aplicações web modernas."
     },
     "json-formatter": {
       "name": "Formatador e Validador JSON Online",
@@ -1883,6 +1883,42 @@
       "faq3A": "Sim. Nosso algoritmo utiliza a fórmula matemática padrão adotada pelos bancos e seguradoras da Índia. Seja para conferir um depósito do SBI (geralmente capitalizado por trimestre ou por ano) ou planejar uma apólice da HDFC Life, basta selecionar a frequência correspondente e a taxa de juros para obter projeções idênticas às das instituições.",
       "faq4Q": "Por que utilizar uma ferramenta ajustada às práticas financeiras da Índia?",
       "faq4A": "O planejamento financeiro na Índia envolve produtos com regras de capitalização variadas, como o fundo público PPF com juros anuais, depósitos bancários no SBI com rendimentos trimestrais e aplicações em SIP mensais. Nosso simulador atende a todas essas variações para garantir um planejamento seguro de aposentadoria e patrimônio."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "Diretivas (separadas por nova linha ou ponto e vírgula):",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "Cabeçalho CSP:",
+      "cspHeaderPlaceholder": "O cabeçalho CSP válido aparecerá aqui...",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "errorsHeading": "❌ Erros:",
+      "warningsHeading": "⚠️ Avisos:",
+      "warnDefaultSrc": "Melhor prática: Adicione 'default-src' como diretiva de fallback.",
+      "warnUnsafeInline": "Aviso de segurança: 'unsafe-inline' reduz a proteção contra XSS.",
+      "warnUnsafeEval": "Aviso de segurança: 'unsafe-eval' permite execução perigosa de código.",
+      "errInvalidDirective": "Diretiva inválida: \"{directive}\"",
+      "errInvalidSource": "Origem inválida: \"{source}\"",
+      "title": "Criador e Validador de Cabeçalhos CSP Online (Inspetor CSP)",
+      "subtitle": "Utilitário online gratuito para estruturar, avaliar e validar diretivas Content-Security-Policy em aplicações web modernas.",
+      "aboutText": "O Criador e Validador de Cabeçalhos CSP Online (Inspetor CSP) é um recurso essencial para a segurança de aplicações web. Quer precise de um assistente gratuito para reforçar seus cabeçalhos HTTP, configurar regras para aplicações JavaScript ou contar com uma alternativa eficiente ao validador Mozilla CSP, nossa solução avalia suas diretivas segundo as recomendações oficiais do W3C. Bloqueie ataques de cross-site scripting (XSS), clickjacking e transferência não autorizada de dados com rapidez.",
+      "feature1": "Cobertura abrangente de diretivas: configure default-src, script-src, style-src, img-src, connect-src e frame-ancestors",
+      "feature2": "Identificação de riscos: sinaliza termos permissivos perigosos como 'unsafe-inline' ou 'unsafe-eval' sugerindo soluções mais seguras",
+      "feature3": "Exportação prática para Nginx, Apache e Meta: gera trechos de configuração prontos para Nginx, arquivos .htaccess ou tags meta",
+      "feature4": "Avaliação estritamente local: elabore e valide políticas no próprio navegador sem compartilhar detalhes da sua infraestrutura",
+      "step1Title": "Selecione as origens confiáveis",
+      "step1Body": "Aponte os domínios e protocolos autorizados a carregar scripts, folhas de estilo e conexões de rede.",
+      "step2Title": "Verifique o índice de segurança",
+      "step2Body": "Examine as observações do sistema para evitar diretivas excessivamente abertas ou vulneráveis a invasões.",
+      "step3Title": "Copie o cabeçalho gerado",
+      "step3Body": "Copie a declaração Content-Security-Policy ajustada e inclua diretamente no seu servidor web ou template.",
+      "faq1Q": "Como verificar o cabeçalho Content Security Policy no Google Chrome?",
+      "faq1A": "Para inspecionar o cabeçalho no Chrome, abra as ferramentas de desenvolvedor com F12 ou Ctrl+Shift+I (Cmd+Option+I no Mac). Acesse a aba Rede (Network), recarregue a página, clique no documento principal e examine a seção de cabeçalhos de resposta para conferir 'Content-Security-Policy'. Avisos de violação também são listados na aba Console.",
+      "faq2Q": "Posso utilizar esta ferramenta como verificador Mozilla CSP para Firefox?",
+      "faq2A": "Sim. Nosso inspetor segue os padrões internacionais do W3C, servindo perfeitamente como validador para Mozilla Firefox. As diretivas configuradas aqui possuem compatibilidade total com Firefox, Google Chrome, Safari e Microsoft Edge.",
+      "faq3Q": "Pode fornecer um exemplo de cabeçalho CSP para páginas web?",
+      "faq3A": "Veja este exemplo robusto e comum: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Essa diretiva autoriza recursos apenas da própria origem e de domínios confiáveis, bloqueando plugins e iframes externos.",
+      "faq4Q": "Como este recurso auxilia na segurança de ecossistemas JavaScript?",
+      "faq4A": "Ele simplifica a declaração de diretivas como script-src, connect-src e worker-src em projetos React, Vue ou Angular, mantendo a comunicação com servidores de API ativa enquanto neutraliza injeções indesejadas de código."
     }
   }
 }

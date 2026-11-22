@@ -225,8 +225,8 @@
       "description": "작고 안전하며 URL 친화적인 고유 식별자(NanoID)를 생성합니다."
     },
     "csp-header-builder-and-validator": {
-      "name": "CSP 헤더 생성 및 보안 검증기",
-      "description": "XSS 및 데이터 탈취 공격으로부터 웹사이트를 보호하는 Content-Security-Policy HTTP 헤더를 생성하고 검증."
+      "name": "온라인 CSP 헤더 빌더 및 검증기 (CSP 체커)",
+      "description": "무료 온라인 CSP 헤더 빌더 및 보안 검증 도구. 모던 웹 애플리케이션을 위한 Content-Security-Policy 디렉티브를 손쉽게 작성하고 진단하세요."
     },
     "json-formatter": {
       "name": "온라인 JSON 포맷터 및 유효성 검사기",
@@ -1810,6 +1810,42 @@
       "faq3A": "네, 일치합니다. 본 도구는 인도 및 전 세계 은행과 보험사에서 공통으로 적용하는 표준 복리 수학 공식을 따릅니다. 분기복리나 연복리가 주를 이루는 SBI 정기예금부터 HDFC Life의 장기 저축 플랜까지, 동일한 연이율과 복리 주기를 선택하면 기관의 안내장과 동일한 정확한 결과를 얻을 수 있습니다.",
       "faq4Q": "인도 금융 상품에 최적화된 복리 계산기가 필요한 이유는 무엇인가요?",
       "faq4A": "인도 금융시장은 연복리를 적용하는 공적기금(PPF), 분기복리를 적용하는 SBI 등 시중은행 정기예금, 월 단위로 적립되는 펀드 SIP 등 상품마다 이자 지급 주기가 다릅니다. 본 도구는 이러한 모든 주기를 지원하여 인도 현지 은퇴 자금과 절세 저축을 체계적으로 계획하도록 돕습니다."
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "지시문 (줄바꿈 또는 세미콜론으로 구분):",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "CSP 헤더:",
+      "cspHeaderPlaceholder": "유효한 CSP 헤더가 여기에 표시됩니다...",
+      "copy": "복사",
+      "copied": "복사완료!",
+      "errorsHeading": "❌ 오류:",
+      "warningsHeading": "⚠️ 경고:",
+      "warnDefaultSrc": "권장사항: 대체 지시문으로 'default-src'를 추가하세요.",
+      "warnUnsafeInline": "보안 경고: 'unsafe-inline'은 XSS 방어를 약화시킵니다.",
+      "warnUnsafeEval": "보안 경고: 'unsafe-eval'은 위험한 코드 실행을 허용합니다.",
+      "errInvalidDirective": "잘못된 지시문: \"{directive}\"",
+      "errInvalidSource": "잘못된 소스: \"{source}\"",
+      "title": "온라인 CSP 헤더 빌더 및 검증기 (CSP 체커)",
+      "subtitle": "무료 온라인 CSP 헤더 빌더 및 보안 검증 도구. 모던 웹 애플리케이션을 위한 Content-Security-Policy 디렉티브를 손쉽게 작성하고 진단하세요.",
+      "aboutText": "온라인 CSP 헤더 빌더 및 검증기 (CSP 체커)는 웹 애플리케이션의 취약점을 사전에 차단하는 보안 솔루션입니다. HTTP 응답 헤더를 보강하기 위한 무료 도구가 필요하거나, JavaScript 기반 프레임워크 환경에 적합한 정책을 수립하고자 하거나, Mozilla CSP 검사기의 유용한 대안을 찾고 계신다면 W3C 표준 규격에 맞추어 정책을 평가해 드립니다. 브라우저 내부에서 교차 사이트 스크립팅(XSS), 클릭재킹, 비인가 데이터 유출에 대응하는 강력한 방어선을 신속히 구축할 수 있습니다.",
+      "feature1": "모든 핵심 디렉티브 지원: default-src, script-src, style-src, img-src, connect-src, frame-ancestors 완벽 제어",
+      "feature2": "보안 위험 자동 감지: 'unsafe-inline'이나 'unsafe-eval'과 같은 취약한 지시어를 경고하고 강화 방안 안내",
+      "feature3": "Nginx, Apache, Meta 태그 출력: 웹 서버 설정 파일과 HTML 문서에 바로 적용 가능한 형식으로 원클릭 생성",
+      "feature4": "안전한 브라우저 내 설정: 내부 도메인 구성이나 보안 설정이 외부로 유출되지 않고 로컬에서 안전하게 생성",
+      "step1Title": "신뢰할 수 있는 출처 지정",
+      "step1Body": "스크립트, 스타일, 이미지, 네트워크 요청을 허용할 도메인 및 프로토콜을 지정합니다.",
+      "step2Title": "보안성 평가 점수 확인",
+      "step2Body": "자동 진단 패널을 확인하여 지나치게 광범위한 와일드카드(*)나 취약한 옵션이 없는지 점검합니다.",
+      "step3Title": "설정 코드 복사하기",
+      "step3Body": "완성된 Content-Security-Policy 헤더를 클릭하여 Nginx 또는 Apache 서버 설정에 적용합니다.",
+      "faq1Q": "Chrome 브라우저에서 Content Security Policy 헤더를 확인하는 방법은 무엇인가요?",
+      "faq1A": "Google Chrome에서 F12 키 또는 Ctrl+Shift+I(Mac은 Cmd+Option+I)를 눌러 개발자 도구를 실행합니다. 네트워크(Network) 탭으로 이동하여 페이지를 새로고침한 뒤 최상단 문서 요청을 선택하고, 응답 헤더(Response Headers) 섹션에서 'Content-Security-Policy' 항목을 확인하면 됩니다. 정책 위반 사항은 콘솔(Console) 탭에서도 실시간으로 모니터링할 수 있습니다.",
+      "faq2Q": "Firefox를 위한 Mozilla CSP 검사 용도로 사용할 수 있나요?",
+      "faq2A": "네, 완벽히 호환됩니다. 본 도구는 W3C의 공식 웹 표준을 기반으로 작동하므로 Mozilla CSP 검사 도구로서 훌륭하게 기능합니다. 이곳에서 생성 및 점검된 디렉티브는 Mozilla Firefox는 물론 Google Chrome, Safari, Microsoft Edge 등 모든 모던 웹 브라우저에서 동일하게 적용됩니다.",
+      "faq3Q": "웹사이트에 적용할 수 있는 대표적인 CSP 헤더 예시를 볼 수 있나요?",
+      "faq3A": "가장 권장되는 표준 보안 구성 예시는 다음과 같습니다: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. 자체 도메인과 신뢰할 수 있는 지정 출처로만 리소스 요청을 제한하며 플러그인 실행 및 iframe 프레임 삽입을 철저히 차단합니다.",
+      "faq4Q": "JavaScript 애플리케이션 보안 설정에 어떤 도움을 주나요?",
+      "faq4A": "React, Vue, Angular, Next.js 등 최신 프런트엔드 환경에서 필수적인 script-src, worker-src, connect-src 규칙을 세밀하게 조율하여, API 통신이나 정상 스크립트 실행을 방해하지 않으면서도 악의적인 스크립트 삽입 공격을 안정적으로 방어합니다."
     }
   }
 }

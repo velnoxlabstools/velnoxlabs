@@ -225,8 +225,8 @@
       "description": "生成轻量、紧凑且 URL 友好的高强度唯一 ID。"
     },
     "csp-header-builder-and-validator": {
-      "name": "CSP 安全策略响应头构建与校验器",
-      "description": "可视化定制、测试并验证 Content-Security-Policy 标头，有效防御 XSS 跨站脚本与数据外泄攻击。"
+      "name": "CSP 响应头构建与校验器在线版 (CSP 安全检查器)",
+      "description": "免费在线 CSP 响应头构建与安全校验工具。快速配置、测试并验证现代 Web 应用的内容安全策略，防御 XSS 跨站脚本攻击。"
     },
     "json-formatter": {
       "name": "JSON 格式化与语法验证工具",
@@ -1810,6 +1810,42 @@
       "faq3A": "完全一致。本工具采用印度乃至全球金融机构通用的标准复利数学模型。无论是核算 SBI 银行的定期存款（通常按季度或按年计息），还是评估 HDFC Life 保单的长期利益演示，只需选择对应的复利频次与预期年化利率，即可精确复现机构的标准测算。",
       "faq4Q": "为什么印度理财规划需要专门的复利计算工具？",
       "faq4A": "印度金融市场中各类投资品种的计息方式各异，例如公共公积金 (PPF) 按年计息、各大商业银行定期存款通常按季度计息，而互惠基金定投 (SIP) 则按月追加。本工具提供了完备的周期频次选择，有助于全面规划退休基金与长期理财目标。"
+    },
+    "cspHeaderBuilder": {
+      "directivesLabel": "指令（按换行符或分号分隔）：",
+      "directivesPlaceholder": "default-src 'self'; script-src 'self' https://cdn.example.com",
+      "cspHeaderLabel": "CSP 响应标头：",
+      "cspHeaderPlaceholder": "生成的有效 CSP 标头将在此处显示...",
+      "copy": "复制",
+      "copied": "已复制！",
+      "errorsHeading": "❌ 错误：",
+      "warningsHeading": "⚠️ 警告：",
+      "warnDefaultSrc": "最佳实践：添加 'default-src' 作为后备指令。",
+      "warnUnsafeInline": "安全警告：'unsafe-inline' 会降低 XSS 防护效果。",
+      "warnUnsafeEval": "安全警告：'unsafe-eval' 允许危险的代码执行。",
+      "errInvalidDirective": "无效指令：\"{directive}\"",
+      "errInvalidSource": "无效源：\"{source}\"",
+      "title": "CSP 响应头构建与校验器在线版 (CSP 安全检查器)",
+      "subtitle": "免费在线 CSP 响应头构建与安全校验工具。快速配置、测试并验证现代 Web 应用的内容安全策略，防御 XSS 跨站脚本攻击。",
+      "aboutText": "CSP 响应头构建与校验器在线版 (CSP 安全检查器) 是一套专为前端与系统安全打造的防护配置工具。无论您是需要一款免费的 CSP 响应头构建与校验工具以加固 HTTP 响应标头、为 JavaScript 单页应用框架定制安全策略，还是寻找 Mozilla CSP 检查器的理想在线替代方案，本工具均能依据现代 W3C 标准为您全面评估策略有效性。在浏览器本地轻松构建针对跨站脚本 (XSS)、点击劫持与非法数据外泄的严密防线。",
+      "feature1": "全指令参数全面覆盖：细致配置 default-src、script-src、style-src、img-src、connect-src 及 frame-ancestors",
+      "feature2": "安全风险智能预警：自动排查 unsafe-inline 与 unsafe-eval 等高危指令并给出合规建议",
+      "feature3": "多服务器格式一键导出：即时生成适配 Nginx 配置、Apache .htaccess 以及 HTML Meta 标签的代码",
+      "feature4": "本地沙盒安全模拟：所有策略生成与格式化纯在本地完成，绝不向外暴露网站私有架构",
+      "step1Title": "设定各资源许可源",
+      "step1Body": "为脚本、样式、图片及网络请求勾选信任源或填写受认可的外部域名。",
+      "step2Title": "查阅安全合规评分",
+      "step2Body": "查看右侧的安全风险检测面板，避免使用过于宽泛的通配符或脆弱关键字。",
+      "step3Title": "导出并应用标头",
+      "step3Body": "一键复制配置好的 Content-Security-Policy 文本，直接贴入 Nginx 或 Web 服务器配置中。",
+      "faq1Q": "如何在 Chrome 浏览器中检查内容安全策略 (CSP) 响应头？",
+      "faq1A": "在 Google Chrome 中，按 F12 或 Ctrl+Shift+I (Mac 为 Cmd+Option+I) 打开开发者工具，切换至 Network (网络) 标签页并刷新页面；点击首个主文档请求，在 Headers (标头) 面板的 Response Headers (响应标头) 区域即可找到 'Content-Security-Policy'。此外，若页面触发了策略拦截，Console (控制台) 标签页也会实时输出违规告警日志。",
+      "faq2Q": "本工具是否可作为适用于火狐 Firefox 的 Mozilla CSP 检查工具？",
+      "faq2A": "完全可以。本工具符合 W3C 国际通用规范，可作为可靠的 Mozilla CSP 策略核验工具。内容安全策略是由各大主流浏览器共同支持的统一标准，在此处生成与校验的策略指令完全兼容 Mozilla Firefox、Google Chrome、Safari 与 Microsoft Edge。",
+      "faq3Q": "能否提供一个标准的 CSP 响应头配置示例？",
+      "faq3A": "以下是一个常见且健壮的基础配置示例：`default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`。该示例将资源加载严格限制为同源及指定的受信域名，同时彻底禁用遗留插件与 iframe 页面嵌套。",
+      "faq4Q": "本工具如何辅助 JavaScript 应用程序配置安全策略？",
+      "faq4A": "针对 React、Vue、Next.js 及 Angular 等现代前端框架，工具支持精细化配置 script-src、worker-src 与 connect-src 指令，在确保第三方 API 正常通信和脚本合法执行的同时，有效封堵恶意注入隐患。"
     }
   }
 }
