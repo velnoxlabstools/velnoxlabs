@@ -366,8 +366,8 @@
       "description": "Generiert kryptografisch starke Passwörter."
     },
     "checksum-calculator": {
-      "name": "Prüfsummen-Rechner für Dateien und Text",
-      "description": "Erzeuge kryptografische MD5-, SHA-1-, SHA-256- und SHA-512-Prüfsummen zur Integritätsprüfung deiner Daten."
+      "name": "Online-Prüfsummen-Rechner (MD5, SHA256, Binär & 16-Bit)",
+      "description": "Kostenloser Online-Prüfsummen-Rechner (MD5, SHA256, binär und 16-Bit). Erstellen Sie kryptografische Hashes ohne Software-Installation."
     },
     "hmac-generator": {
       "name": "HMAC-Generator",
@@ -1773,6 +1773,37 @@
       "faq3A": "Ja! Unsere Titelschrift-Logik schreibt die Anfangsbuchstaben relevanter Wörter gemäß typografischen Regeln groß, während die Satzanfang-Funktion jeweils den ersten Buchstaben nach Satzzeichen (. ! ?) kapitalisiert. Ebenso können Sie per Mausklick in gängige Programmierkonventionen wechseln.",
       "faq4Q": "Eignet sich dieses Werkzeug für Excel-Texte im Satzanfang-Stil?",
       "faq4A": "Absolut. Da Excel keine direkte Funktion für Satzanfang-Großschreibung bietet (es stehen nur GROSS, KLEIN und GROSS2 bereit), nutzen viele Anwender unsere Lösung als zuverlässigen Helfer für Tabelleninhalte. Kopieren Sie einfach den Spalteninhalt, führen Sie die Anpassung aus und fügen Sie den Text wieder ein."
+    },
+    "checksumCalculator": {
+      "title": "Online-Prüfsummen-Rechner (MD5, SHA256, Binär & 16-Bit)",
+      "subtitle": "Kostenloser Online-Prüfsummen-Rechner (MD5, SHA256, binär und 16-Bit). Erstellen Sie kryptografische Hashes und einfache Prüfsummen ohne zusätzliche Software-Installation.",
+      "selectAlgorithm": "Algorithmus auswählen",
+      "simpleChecksum": "Einfache Prüfsumme",
+      "inputText": "Eingabetext",
+      "inputPlaceholder": "Text hier eingeben oder einfügen...",
+      "hashOutput": "Generierter Hash-Wert",
+      "hashPlaceholder": "Der Hash-Wert wird hier angezeigt...",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "aboutText": "Der Online-Prüfsummen-Rechner (MD5, SHA256, Binär & 16-Bit) ist ein modernes Werkzeug zur Prüfung der Datenintegrität für Softwareentwickler, Systemadministratoren und Sicherheitsexperten. Als leicht zugängliche Web-Alternative zum Herunterladen schwerfälliger Desktop-Programme arbeitet diese Anwendung direkt im Browser-Speicher unter Nutzung der nativen Web Crypto API. Ob Sie Hashes mit SHA-256 oder MD5 zur Software-Verifizierung benötigen, Signaturen in Banken-Schnittstellen wie bei Axis Bank nachvollziehen wollen oder kompakte 16-Bit- und Binär-Prüfsummen für Mikrocontroller auswerten – dieses Tool liefert unmittelbare Hexadezimal-Werte bei vollständiger lokaler Privatsphäre.",
+      "feature1": "Hardwarebeschleunigte Web Crypto API: Berechnet SHA-256 und SHA-512 Hashes über native Browser-Kryptografie",
+      "feature2": "Unterstützung für Text und Dateien: Erzeuge digitale Fingerabdrücke sowohl für Texteingaben als auch für lokale Dateien",
+      "feature3": "Mehrfachvergleich in Echtzeit: Überblicke und vergleiche MD5, SHA-1, SHA-256 und SHA-512 Prüfwerte auf einen Blick",
+      "feature4": "Integritätsabgleich: Vergleiche den ermittelten Hash direkt mit der Herstellerangabe auf Übereinstimmung",
+      "step1Title": "Eingabeart bestimmen",
+      "step1Body": "Wähle aus, ob du einen eingegebenen Text prüfen oder eine Datei deines Rechners analysieren möchtest.",
+      "step2Title": "Hash-Verfahren auswählen",
+      "step2Body": "Wähle den passenden Standard (z. B. SHA-256 für hohe Sicherheit oder MD5 für Standardprüfungen).",
+      "step3Title": "Prüfsumme abgleichen und kopieren",
+      "step3Body": "Gleiche den hexadezimalen Hashwert mit deiner Vorlage ab oder klicke auf 'Kopieren'.",
+      "faq1Q": "Wie wird eine 16-Bit- oder Binär-Prüfsumme ermittelt und wie unterscheidet sie sich von kryptografischen Hashes?",
+      "faq1A": "Eine 16-Bit- oder Binär-Prüfsumme summiert die Bytewerte eines Datenstroms über Modulo-Arithmetik (wie Modulo 65536 oder CRC-16), um versehentliche Übertragungsfehler in Netzwerk-Headern oder Firmware rasch aufzuspüren. Im Gegensatz dazu erzeugen kryptografische Funktionen wie MD5 und SHA-256 mathematisch irreversible Streuwerte mit Lawineneffekt, die Daten vor vorsätzlicher Manipulation und Hacking schützen.",
+      "faq2Q": "Ist diese Webseite eine kostenlose Alternative zum Herunterladen von Prüfsummen-Software?",
+      "faq2A": "Ja, unser browserbasierter Dienst steht vollständig kostenfrei zur Verfügung und erspart die Installation von Drittanbieter-Programmen. Mithilfe der browserinternen Krypto-Schnittstelle laufen alle Berechnungen für SHA-256, SHA-512, SHA-1 und Standard-Prüfsummen direkt auf Ihrem Gerät, ohne dass sensible Inhalte ins Netz übertragen werden.",
+      "faq3Q": "Kann dieses Werkzeug zur Validierung von Axis-Bank-Prüfsummen herangezogen werden?",
+      "faq3A": "Ja, zur Kontrolle der grundlegenden kryptografischen Prüfwerte. Viele Finanz- und Zahlungsschnittstellen, einschließlich Systemen von Axis Bank, verlangen zur Absicherung von Transaktionen Prüfsummen auf Basis von SHA-256 oder HMAC. Auch wenn bankspezifische Vorgaben bezüglich Reihenfolge und Sicherheitsschlüsseln gelten, basiert die mathematische Hash-Bildung auf den standardisierten Algorithmen, die Sie hier prüfen können.",
+      "faq4Q": "Wann empfiehlt sich eine einfache Prüfsumme und wann ein kryptografischer Hash?",
+      "faq4A": "Einfache Prüfsummen eignen sich hervorragend für ressourcensparende Embedded-Systeme oder IoT-Geräte, bei denen es primär auf Verarbeitungsgeschwindigkeit und das Erkennen zufälliger Bitfehler ankommt. Für das Überprüfen von Programmpaketen oder zur Absicherung von Schnittstellen gegen Missbrauch sind kryptografisch sichere Verfahren wie SHA-256 unverzichtbar."
     }
   }
 }

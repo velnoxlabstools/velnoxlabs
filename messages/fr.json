@@ -366,8 +366,8 @@
       "description": "Génère des mots de passe cryptographiquement forts."
     },
     "checksum-calculator": {
-      "name": "Calculateur d'Empreinte Numérique et Checksum",
-      "description": "Générez des condensats cryptographiques MD5, SHA-1, SHA-256 et SHA-512 pour contrôler l'intégrité de vos fichiers."
+      "name": "Calculateur de Checksum en Ligne (MD5, SHA256, Binaire et 16 bits)",
+      "description": "Calculateur de somme de contrôle gratuit en ligne (MD5, SHA256, binaire et 16 bits). Obtenez des empreintes sans aucun téléchargement."
     },
     "hmac-generator": {
       "name": "Générateur HMAC",
@@ -1775,6 +1775,37 @@
       "faq3A": "Parfaitement ! Le moteur de style de titre met en majuscule la première lettre des mots clés selon les règles typographiques, tandis que la casse de phrase place une majuscule au début de chaque phrase après un point ou un signe de ponctuation finale (. ! ?). Vous pouvez aussi basculer vers les notations de développement d'un simple clic.",
       "faq4Q": "Peut-on utiliser cet outil pour corriger les phrases dans des classeurs Excel ?",
       "faq4A": "Oui, tout à fait. Comme le tableur Excel ne propose pas de fonction native pour la casse de phrase (il ne dispose que de MAJUSCULE, MINUSCULE et NOMPROPRE), de nombreux utilisateurs utilisent notre service pour normaliser leurs colonnes de données. Copiez votre contenu, sélectionnez le style souhaité et replacez le texte propre dans vos tableaux."
+    },
+    "checksumCalculator": {
+      "title": "Calculateur de Checksum en Ligne (MD5, SHA256, Binaire et 16 bits)",
+      "subtitle": "Calculateur de somme de contrôle gratuit en ligne (MD5, SHA256, binaire et 16 bits). Obtenez des empreintes cryptographiques sans aucun téléchargement de logiciel.",
+      "selectAlgorithm": "Sélectionner un algorithme",
+      "simpleChecksum": "Checksum simple",
+      "inputText": "Texte d'entrée",
+      "inputPlaceholder": "Tapez ou collez votre texte ici...",
+      "hashOutput": "Empreinte hash générée",
+      "hashPlaceholder": "Le résultat du hash apparaîtra ici...",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "aboutText": "Le Calculateur de Checksum en Ligne (MD5, SHA256, Binaire et 16 bits) est une solution rapide dédiée au contrôle d'intégrité des données pour développeurs, techniciens réseaux et experts en cybersécurité. Véritable alternative en ligne au téléchargement d'utilitaires spécialisés, il s'exécute intégralement dans la mémoire du navigateur grâce à l'interface Web Crypto. Que vous ayez besoin de contrôler des paquets logiciels avec SHA-256 ou MD5, de tester des signatures de transactions pour des interfaces comme Axis Bank, ou de traiter des trames électroniques via des calculs binaires et 16 bits, cet outil fournit des empreintes hexadécimales immédiates dans le respect absolu de la confidentialité.",
+      "feature1": "Accélération Web Crypto native : calcule les condensats SHA-256 et SHA-512 via les routines matérielles de votre navigateur",
+      "feature2": "Prise en charge double texte et fichiers : obtenez l'empreinte de phrases textuelles ou inspectez des fichiers de votre machine",
+      "feature3": "Comparaison simultanée multi-algorithmes : visualisez et comparez les résultats en MD5, SHA-1, SHA-256 et SHA-512 côte à côte",
+      "feature4": "Validation de conformité : comparez la signature obtenue à la valeur officielle fournie par l'éditeur pour certifier son intégrité",
+      "step1Title": "Déterminez le type d'entrée",
+      "step1Body": "Choisissez d'analyser une chaîne de texte direct ou de charger un fichier depuis votre ordinateur.",
+      "step2Title": "Sélectionnez l'algorithme",
+      "step2Body": "Indiquez la norme cryptographique souhaitée (telle que SHA-256 pour la sécurité ou MD5 pour un contrôle d'intégrité usuel).",
+      "step3Title": "Vérifiez et copiez l'empreinte",
+      "step3Body": "Confrontez le condensat hexadécimal à votre référence ou cliquez sur 'Copier' pour le conserver.",
+      "faq1Q": "Comment s'établit une somme de contrôle binaire ou 16 bits et en quoi diffère-t-elle d'un hachage cryptographique ?",
+      "faq1A": "Une somme de contrôle binaire ou 16 bits procède à l'addition arithmétique des octets (selon un modulo 65536 ou un polynôme CRC-16) afin de détecter les anomalies accidentelles de transmission dans les trames de communication. À l'inverse, les algorithmes cryptographiques tels que MD5 ou SHA-256 élaborent des empreintes numériques irréversibles dotées d'un effet avalanche, prévenant toute tentative de falsification délibérée.",
+      "faq2Q": "Cet outil remplace-t-il le téléchargement d'un logiciel de somme de contrôle ?",
+      "faq2A": "Oui, notre application web gratuite évite d'installer des logiciels tiers sur votre machine. En s'appuyant sur les modules cryptographiques matériels de votre navigateur, les calculs de SHA-256, SHA-512, SHA-1 et des contrôles élémentaires s'opèrent localement sans qu'aucun fichier ne transite sur internet.",
+      "faq3Q": "Peut-on l'utiliser pour valider les clés d'intégrité de passerelles comme Axis Bank ?",
+      "faq3A": "Oui, pour vérifier les condensats cryptographiques sous-jacents. De nombreuses plateformes bancaires, y compris les documentations de paiement d'Axis Bank, imposent l'usage d'algorithmes normalisés comme SHA-256 ou HMAC pour sécuriser les requêtes. Même si chaque établissement bancaire emploie des concaténations spécifiques, le traitement mathématique de hachage demeure rigoureusement standard et peut être validé ici.",
+      "faq4Q": "Dans quelles circonstances préférer une somme de contrôle simple à un hachage cryptographique ?",
+      "faq4A": "Une somme simple est recommandée lorsqu'on recherche une très grande rapidité d'exécution sur des microcontrôleurs ou dans des réseaux industriels face au bruit électromagnétique. En revanche, pour garantir l'authenticité d'un exécutable ou verrouiller une API, un algorithme robuste comme SHA-256 s'avère indispensable."
     }
   }
 }

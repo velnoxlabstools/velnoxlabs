@@ -604,10 +604,10 @@ export const tools: Tool[] = [
   {
     id: 'tool-checksum',
     slug: 'checksum-calculator',
-    name: 'Checksum Calculator',
-    description: 'Calculate hashes (SHA-256, SHA-512, SHA-1).',
+    name: 'Checksum Calculator Online (MD5, SHA256, Binary & 16-bit)',
+    description: 'Free checksum calculator online (MD5, SHA256, binary & 16-bit). Compute cryptographic hashes and simple binary checksums in your browser without software downloads.',
     categoryId: 'cat-security',
-    tags: ['checksum', 'hash', 'security'],
+    tags: ['checksum', 'hash', 'security', 'checksum calculator online', '16-bit checksum calculator', 'checksum calculator binary', 'checksum calculator download', 'checksum calculator md5', 'checksum calculator axis bank', 'checksum calculator sha256', 'simple checksum calculator'],
     status: 'published',
     featured: false,
     trending: false,

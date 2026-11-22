@@ -366,8 +366,8 @@
       "description": "Genera contraseñas criptográficamente fuertes."
     },
     "checksum-calculator": {
-      "name": "Calculadora de Checksum de Archivos y Texto",
-      "description": "Genera hashes criptográficos MD5, SHA-1, SHA-256 y SHA-512 para verificar la integridad de tus datos."
+      "name": "Calculadora de Checksum en Línea (MD5, SHA256, Binario y 16 bits)",
+      "description": "Calculadora de comprobación en línea gratuita (MD5, SHA256, binario y 16 bits). Obtén hashes criptográficos al instante sin descargas."
     },
     "hmac-generator": {
       "name": "Generador de HMAC",
@@ -1773,6 +1773,37 @@
       "faq3A": "¡Totalmente! Nuestro motor de estilo de título coloca en mayúscula la inicial de las palabras principales siguiendo normas tipográficas, mientras que la función de frase aplica mayúscula automáticamente tras cada punto o signo de puntuación final (. ! ?). Además, puedes alternar entre estilos de desarrollo y edición general con un solo clic.",
       "faq4Q": "¿Puedo utilizar esta utilidad para ajustar textos de oraciones en Excel?",
       "faq4A": "Sí. Dado que Excel no incluye una función nativa para mayúscula de frase (únicamente ofrece MAYUSC, MINUSC y NOMPROPIO), numerosos usuarios emplean nuestra plataforma para sus datos de Excel. Solo copia tu columna, selecciona el estilo deseado y transfiere el texto limpio a tu planilla."
+    },
+    "checksumCalculator": {
+      "title": "Calculadora de Checksum en Línea (MD5, SHA256, Binario y 16 bits)",
+      "subtitle": "Calculadora de comprobación en línea gratuita (MD5, SHA256, binario y 16 bits). Obtén hashes criptográficos y sumas de comprobación al instante sin descargas.",
+      "selectAlgorithm": "Seleccionar algoritmo",
+      "simpleChecksum": "Checksum simple",
+      "inputText": "Texto de entrada",
+      "inputPlaceholder": "Escribe o pega tu texto aquí...",
+      "hashOutput": "Hash generado",
+      "hashPlaceholder": "El hash aparecerá aquí...",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "aboutText": "La Calculadora de Checksum en Línea (MD5, SHA256, Binario y 16 bits) es una herramienta de comprobación de integridad diseñada para desarrolladores, administradores de sistemas y analistas de seguridad. Como alternativa integral a la descarga de programas de escritorio, opera completamente en la memoria del navegador mediante la interfaz nativa Web Crypto. Ya sea que necesites verificar paquetes de software con SHA-256 o MD5, validar tramas de integración bancaria como las pasarelas de Axis Bank, o evaluar protocolos de sistemas embebidos mediante sumas binarias y de 16 bits, esta utilidad ofrece resultados hexadecimales inmediatos con privacidad garantizada.",
+      "feature1": "Aceleración mediante Web Crypto API: calcula firmas SHA-256 y SHA-512 con el soporte criptográfico nativo del navegador",
+      "feature2": "Compatibilidad dual con texto y archivos: obtén hashes tanto de cadenas de texto como de archivos locales",
+      "feature3": "Comparativa multialgoritmo simultánea: revisa y compara resúmenes en MD5, SHA-1, SHA-256 y SHA-512 a la vez",
+      "feature4": "Verificador de coincidencia: contrasta el hash obtenido con la firma original del fabricante para validar su autenticidad",
+      "step1Title": "Elige el tipo de entrada",
+      "step1Body": "Selecciona si deseas procesar un texto directo o cargar un archivo desde tu dispositivo.",
+      "step2Title": "Escoge el algoritmo criptográfico",
+      "step2Body": "Selecciona el estándar deseado (como SHA-256 para alta seguridad o MD5 para comprobaciones generales).",
+      "step3Title": "Verifica y copia el checksum",
+      "step3Body": "Compara el hash con tu valor de referencia o haz clic en 'Copiar' para guardar el resumen hexadecimal.",
+      "faq1Q": "¿Cómo se calcula un checksum de 16 bits o binario y en qué se diferencia de los hashes criptográficos?",
+      "faq1A": "Una suma de comprobación binaria o de 16 bits suma los valores numéricos de los bytes de una secuencia mediante operaciones modulares (como módulo 65536 o CRC-16) para detectar alteraciones accidentales en cabeceras de red o microcontroladores. Por el contrario, los algoritmos criptográficos como MD5 o SHA-256 generan resúmenes irreversibles con efecto avalancha, diseñados específicamente para resistir colisiones y evitar manipulaciones maliciosas.",
+      "faq2Q": "¿Es esta herramienta una alternativa gratuita a la descarga de aplicaciones de checksum?",
+      "faq2A": "Sí, funciona como una solución gratuita y sin instalación que reemplaza cualquier programa descargable. Gracias al motor de procesamiento interno del navegador, las sumas criptográficas SHA-256, SHA-512, SHA-1 y las comprobaciones básicas se procesan localmente en tu equipo sin transferir información confidencial a servidores externos.",
+      "faq3Q": "¿Se puede emplear para la verificación de firmas y checksums de Axis Bank?",
+      "faq3A": "Sí, para comprobar la exactitud de los hashes criptográficos base. Diversas pasarelas bancarias y kits de comercio electrónico, incluidos los servicios de Axis Bank, requieren el uso de funciones como SHA-256 o HMAC para proteger las transacciones. Aunque cada entidad define concatenaciones y claves secretas particulares, la matemática de hashing subyacente es estándar y puede auditarse aquí con total fiabilidad.",
+      "faq4Q": "¿Cuándo conviene usar una suma de comprobación simple frente a un hash criptográfico?",
+      "faq4A": "Conviene utilizar una suma de comprobación básica en entornos de hardware embebido, telemetría o paquetes de transmisión donde la velocidad es prioritaria y solo se busca detectar fallos accidentales de línea. En cambio, para verificar instaladores de programas o asegurar APIs financieras, es fundamental optar por algoritmos robustos como SHA-256."
     }
   }
 }

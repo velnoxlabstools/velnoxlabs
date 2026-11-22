@@ -359,8 +359,8 @@
       "description": "Generate cryptographically strong passwords."
     },
     "checksum-calculator": {
-      "name": "Checksum Calculator",
-      "description": "Calculate hashes (SHA-256, SHA-512, SHA-1)."
+      "name": "Checksum Calculator Online (MD5, SHA256, Binary & 16-bit)",
+      "description": "Free checksum calculator online (MD5, SHA256, binary & 16-bit). Compute cryptographic hashes and simple binary checksums in your browser without software downloads."
     },
     "hmac-generator": {
       "name": "HMAC Generator",
@@ -1692,6 +1692,37 @@
       "faq3A": "Yes! Our case converter title case engine capitalizes the first letter of each significant word while following standard typographical style guides, and the sentence case converter capitalizes the initial letter of each sentence following terminal punctuation (. ! ?). You can also toggle between camelCase, snake_case, kebab-case, and UPPERCASE with a single click.",
       "faq4Q": "Can I use this as a sentence case converter in Excel workflows?",
       "faq4A": "Yes. Because Excel lacks a native sentence case function (it only offers UPPER, LOWER, and PROPER), many spreadsheet users use our tool as their dedicated sentence case converter in Excel. Simply copy your data column, click Title Case or UPPERCASE, copy the output, and paste the formatted case converter text back into your spreadsheet."
+    },
+    "checksumCalculator": {
+      "title": "Checksum Calculator Online (MD5, SHA256, Binary & 16-bit)",
+      "subtitle": "Free checksum calculator online (MD5, SHA256, binary & 16-bit). Compute cryptographic hashes and simple checksums instantly in your browser with no software download required.",
+      "selectAlgorithm": "Select Algorithm",
+      "simpleChecksum": "Simple Checksum",
+      "inputText": "Input Text",
+      "inputPlaceholder": "Type or paste your text here...",
+      "hashOutput": "Generated Hash Output",
+      "hashPlaceholder": "Hash output will appear here...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "aboutText": "Checksum Calculator Online (MD5, SHA256, Binary & 16-bit) is a fast, client-side data integrity tool engineered for developers, system administrators, and security analysts. As a complete web alternative to a desktop Checksum Calculator download, it operates entirely in browser memory using the native Web Crypto API. Whether you need a Checksum calculator SHA256 or Checksum calculator MD5 for verifying software downloads, checking payment payloads that require a Checksum Calculator Axis Bank integration step, or using a lightweight 16-bit checksum calculator and checksum calculator binary utility for embedded protocols, this simple checksum calculator delivers instant hexadecimal digests with 100% private, client-side execution.",
+      "feature1": "Native Web Crypto API Acceleration: Generates SHA-256 and SHA-512 hashes using hardware-accelerated browser primitives",
+      "feature2": "Dual Text and File Support: Calculate cryptographic digests for raw text strings or directly inspect local files",
+      "feature3": "Multi-Algorithm Comparison: Simultaneously inspect MD5, SHA-1, SHA-256, and SHA-512 digests for comprehensive verification",
+      "feature4": "Integrity Verification Matcher: Compare computed checksums against vendor-provided hashes with instant visual pass/fail indicators",
+      "step1Title": "Select Input Type",
+      "step1Body": "Choose between hashing raw text or uploading a file from your computer.",
+      "step2Title": "Select Hash Algorithm",
+      "step2Body": "Choose your desired hashing standard (SHA-256, SHA-512, SHA-1, or MD5).",
+      "step3Title": "Verify and Copy Checksum",
+      "step3Body": "Compare the resulting hash against your reference checksum or click \"Copy\" to copy the hexadecimal digest.",
+      "faq1Q": "How do I calculate a 16-bit or binary checksum, and how does it differ from cryptographic hashes?",
+      "faq1A": "A 16-bit checksum calculator or checksum calculator binary method computes a compact mathematical sum (such as modulo-65536 summation or CRC-16) by adding together the binary byte values of a data stream. This is typically used in network packets (like TCP/UDP headers) and microcontroller firmware for quick error detection against accidental transmission noise. In contrast, cryptographic hash algorithms like MD5, SHA-256, and SHA-512 produce fixed-size avalanche digests designed to be computationally irreversible and collision-resistant, protecting data against deliberate tampering.",
+      "faq2Q": "Is this a free alternative to a Checksum Calculator download?",
+      "faq2A": "Yes. Our checksum calculator online serves as a 100% free, zero-install alternative to any third-party Checksum Calculator download or desktop utility. Powered entirely by the browser's native Web Crypto API, it computes SHA-256, SHA-512, SHA-1, and simple checksums locally in your device's memory without sending sensitive files or strings across the internet.",
+      "faq3Q": "Can this tool be used for Axis Bank checksum validation?",
+      "faq3A": "Yes, for standard cryptographic verification. Many payment gateways and banking APIs, including Axis Bank integration kits, require merchants to generate or validate request and response checksums using standardized hashing algorithms like SHA-256 or HMAC. While specific banking APIs like the Checksum Calculator Axis Bank gateway may use proprietary concatenated salt strings or merchant-specific parameter ordering, our checksum calculator SHA256 and MD5 engines compute the exact underlying mathematical digests required to debug and verify your transaction payloads.",
+      "faq4Q": "When should I use a simple checksum calculator versus a secure cryptographic hash?",
+      "faq4A": "Use a simple checksum calculator when your primary goal is rapid error detection in non-sensitive environments, such as detecting bit flips in embedded hardware, IoT communication, or internal data caches where computation speed is critical. Use secure cryptographic algorithms like SHA-256 or SHA-512 whenever verifying downloaded software installers, sensitive transaction records, or securing APIs against unauthorized modification."
     }
   }
 }
