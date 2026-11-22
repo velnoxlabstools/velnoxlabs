@@ -497,8 +497,8 @@
       "description": "Berechnet Verkaufspreise, Ersparnisse und gestapelte Rabatte."
     },
     "compound-interest-calculator": {
-      "name": "Zinseszinsrechner für Geldanlagen",
-      "description": "Plane dein Vermögenswachstum anhand von Startkapital, Zinssatz, Zinsintervallen und regelmäßigen Sparraten."
+      "name": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",
+      "description": "Kostenloser Zinseszinsrechner für Indien. Ermitteln Sie Erträge für SBI-Festgelder, HDFC Life-Sparpläne und SIP-Fonds mit täglicher, monatlicher und jährlicher Verzinsung."
     },
     "loan-emi-calculator": {
       "name": "Kredit-EMI-Rechner",
@@ -1836,6 +1836,51 @@
       "faq3A": "Sie können Farbtöne direkt aus Grafiken übernehmen, indem Sie die Pipetten-Funktion des Browsers nutzen, um beliebige Bildpunkte auf Ihrem Bildschirm abzutasten. Der gewählte Ton wird sofort in die HEX- und RGB-Felder übertragen und steht zur weiteren Abstimmung bereit.",
       "faq4Q": "Warum weichen Farben auf RGB-Monitoren vom CMYK-Druck ab?",
       "faq4A": "RGB ist ein additives Farbmodell leuchtender Bildschirme, während CMYK ein subtraktives Farbmodell physischer Druckfarben auf Papier darstellt. Da der RGB-Farbraum intensivere Nuancen darstellen kann als Drucktinten, wirken manche extrem leuchtenden Töne auf gedruckten Erzeugnissen etwas matter."
+    },
+    "compoundInterestCalculator": {
+      "title": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",
+      "subtitle": "Kostenloser Zinseszinsrechner für Indien. Ermitteln Sie Erträge für SBI-Festgelder, HDFC Life-Sparpläne und SIP-Fonds mit täglicher, monatlicher und jährlicher Verzinsung.",
+      "initialPrincipal": "Anfangskapital",
+      "annualRate": "Jährlicher Zinssatz (%):",
+      "yearsLabel": "Laufzeit in Jahren:",
+      "monthlyContribution": "Monatliche Sparrate",
+      "compoundingFrequency": "Zinsperiode (Häufigkeit):",
+      "annually": "Jährlich (1×/Jahr)",
+      "semiannually": "Halbjährlich (2×/Jahr)",
+      "quarterly": "Vierteljährlich (4×/Jahr)",
+      "monthly": "Monatlich (12×/Jahr)",
+      "daily": "Täglich (365×/Jahr)",
+      "finalBalance": "Endkapital",
+      "totalContributions": "Gesamteinzahlungen",
+      "interestEarned": "Zinsgewinn",
+      "breakdown": "Zusammensetzung:",
+      "contributions": "Einzahlungen",
+      "interest": "Zinsen",
+      "yearByYearGrowth": "📈 Jährlicher Vermögensaufbau",
+      "year": "Jahr",
+      "contributed": "Eingezahlt",
+      "balance": "Endstand",
+      "copyBreakdown": "📋 Übersicht kopieren",
+      "copied": "✓ Kopiert!",
+      "aboutText": "Der Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich) ist ein präzises Werkzeug zur Vermögensplanung für Sparer und Anleger. Ganz gleich, ob Sie Ertragsaussichten für Festgelder der State Bank of India (SBI) abschätzen, Policen der HDFC Life analysieren oder den Zuwachs durch regelmäßige Sparpläne (SIP) in Investmentfonds hochrechnen möchten – diese Anwendung bildet exponentielles Wachstum detailgetreu ab. Mit frei wählbaren Zinsintervallen wie täglicher, monatlicher oder jährlicher Zinsgutschrift läuft die gesamte Ertragssimulation direkt im Browser-Speicher ab, ohne dass persönliche Finanzdaten übertragen werden.",
+      "feature1": "Flexible Zinsgutschrift-Intervalle: Berechne den Zinseszins wahlweise täglich, monatlich, quartalsweise oder jährlich",
+      "feature2": "Regelmäßige Sparraten berücksichtigen: Simuliere monatliche oder jährliche Einzahlungen für stetigen Vermögensaufbau",
+      "feature3": "Detaillierte Jahresübersicht: Verfolge die Entwicklung von eingezahltem Kapital und erwirtschafteten Zinsen für jedes einzelne Jahr",
+      "feature4": "100% lokaler Datenschutz: Deine Finanzdaten, Sparziele und Einlagen verbleiben absolut privat auf deinem Gerät",
+      "step1Title": "Startkapital eintragen",
+      "step1Body": "Gib dein vorhandenes Anlagekapital sowie den erwarteten jährlichen Zinssatz in Prozent an.",
+      "step2Title": "Laufzeit und Sparrate festlegen",
+      "step2Body": "Bestimme die Anlagedauer in Jahren und trage optionale monatliche oder jährliche Sparbeiträge ein.",
+      "step3Title": "Wachstumsprognose auswerten",
+      "step3Body": "Analysiere das voraussichtliche Endguthaben, die erzielten Zinsgewinne und die jährliche Vermögenskurve.",
+      "faq1Q": "Wie ermittelt man Zinseszinsen mit monatlicher oder täglicher Gutschrift?",
+      "faq1A": "Wählen Sie im Auswahlfeld einfach 'Monatlich' (12× pro Jahr) oder 'Täglich' (365× pro Jahr). Das Rechenmodell teilt den Jahreszinssatz durch die Anzahl der Intervalle und rechnet die Zinserträge fortlaufend dem Anlagekapital hinzu. Kürzere Zinsabstände führen durch den frühzeitigen Zinseszinseffekt zu einem messbar höheren Endvermögen.",
+      "faq2Q": "Eignet sich dieses Werkzeug für regelmäßige Sparpläne (SIP)?",
+      "faq2A": "Ja, hervorragend! Geben Sie Ihr Startguthaben als Einmalbetrag ein und tragen Sie Ihre monatliche Sparrate in das entsprechende Feld ein. Das Tool simuliert den stetigen Zinszuwachs Monat für Monat und stellt das selbst eingezahlte Kapital dem erwirtschafteten Gesamtzins transparent gegenüber.",
+      "faq3Q": "Stimmen die Werte mit den Zinsangaben von SBI oder HDFC Life überein?",
+      "faq3A": "Ja. Die Anwendung stützt sich auf die weltweit anerkannte Zinseszinsformel, die auch von indischen Finanzinstituten angewendet wird. Ob Festgeldanlagen bei der SBI (die typischerweise vierteljährlich verzinst werden) oder Sparverträge bei HDFC Life – durch Auswahl des passenden Zinstaktes lassen sich die Modellrechnungen exakt abbilden.",
+      "faq4Q": "Warum empfiehlt sich ein auf indische Anlageformen abgestimmtes Zinstool?",
+      "faq4A": "Der indische Finanzmarkt zeichnet sich durch vielfältige Zinsmodelle aus – von staatlichen PPF-Konten mit jährlicher Zinsgutschrift über SBI-Festgelder mit Quartalsverzinsung bis hin zu monatlichen SIP-Fondssparplänen. Dieses Werkzeug deckt sämtliche Intervalle ab und erleichtert die langfristige Vorsorgeplanung."
     }
   }
 }

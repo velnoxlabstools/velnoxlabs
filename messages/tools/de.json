@@ -312,8 +312,8 @@
       "faq4A": "RGB ist ein additives Farbmodell leuchtender Bildschirme, während CMYK ein subtraktives Farbmodell physischer Druckfarben auf Papier darstellt. Da der RGB-Farbraum intensivere Nuancen darstellen kann als Drucktinten, wirken manche extrem leuchtenden Töne auf gedruckten Erzeugnissen etwas matter."
     },
     "compoundInterestCalculator": {
-      "title": "Zinseszinsrechner für Geldanlagen",
-      "subtitle": "Plane dein Vermögenswachstum anhand von Startkapital, Zinssatz, Zinsintervallen und regelmäßigen Sparraten.",
+      "title": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",
+      "subtitle": "Kostenloser Zinseszinsrechner für Indien. Ermitteln Sie Erträge für SBI-Festgelder, HDFC Life-Sparpläne und SIP-Fonds mit täglicher, monatlicher und jährlicher Verzinsung.",
       "initialPrincipal": "Anfangskapital",
       "annualRate": "Jährlicher Zinssatz (%):",
       "yearsLabel": "Laufzeit in Jahren:",
@@ -336,7 +336,7 @@
       "balance": "Endstand",
       "copyBreakdown": "📋 Übersicht kopieren",
       "copied": "✓ Kopiert!",
-      "aboutText": "Der Zinseszinsrechner ist ein Finanzwerkzeug zur Prognose von Vermögensaufbau, Altersvorsorge und Anlageerträgen. Basierend auf der Zinseszinsformel und periodischen Sparraten berechnet er die Vermögensentwicklung bei täglicher, monatlicher, vierteljährlicher oder jährlicher Zinsgutschrift.",
+      "aboutText": "Der Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich) ist ein präzises Werkzeug zur Vermögensplanung für Sparer und Anleger. Ganz gleich, ob Sie Ertragsaussichten für Festgelder der State Bank of India (SBI) abschätzen, Policen der HDFC Life analysieren oder den Zuwachs durch regelmäßige Sparpläne (SIP) in Investmentfonds hochrechnen möchten – diese Anwendung bildet exponentielles Wachstum detailgetreu ab. Mit frei wählbaren Zinsintervallen wie täglicher, monatlicher oder jährlicher Zinsgutschrift läuft die gesamte Ertragssimulation direkt im Browser-Speicher ab, ohne dass persönliche Finanzdaten übertragen werden.",
       "feature1": "Flexible Zinsgutschrift-Intervalle: Berechne den Zinseszins wahlweise täglich, monatlich, quartalsweise oder jährlich",
       "feature2": "Regelmäßige Sparraten berücksichtigen: Simuliere monatliche oder jährliche Einzahlungen für stetigen Vermögensaufbau",
       "feature3": "Detaillierte Jahresübersicht: Verfolge die Entwicklung von eingezahltem Kapital und erwirtschafteten Zinsen für jedes einzelne Jahr",
@@ -347,14 +347,14 @@
       "step2Body": "Bestimme die Anlagedauer in Jahren und trage optionale monatliche oder jährliche Sparbeiträge ein.",
       "step3Title": "Wachstumsprognose auswerten",
       "step3Body": "Analysiere das voraussichtliche Endguthaben, die erzielten Zinsgewinne und die jährliche Vermögenskurve.",
-      "faq1Q": "Was versteht man unter dem Zinseszinseffekt?",
-      "faq1A": "Zinseszins bedeutet, dass gutgeschriebene Zinsen künftig mitverzinst werden. Dadurch steigt das Vermögen über längere Zeiträume exponentiell an.",
-      "faq2Q": "Wie wirkt sich die Häufigkeit der Zinsgutschrift aus?",
-      "faq2A": "Je häufiger Zinsen gutgeschrieben werden (z. B. monatlich statt jährlich), desto früher bringen die Zinsen eigene Erträge hervor, was das Gesamtergebnis leicht verbessert.",
-      "faq3Q": "Was besagt die 72er-Regel?",
-      "faq3A": "Die 72er-Regel ist eine praktische Faustformel: Teilt man 72 durch den jährlichen Zinssatz, erhält man die ungefähre Anzahl an Jahren, in denen sich das Kapital verdoppelt.",
-      "faq4Q": "Berücksichtigt die Berechnung Inflation und Steuern?",
-      "faq4A": "Die Berechnung weist Nominalerträge aus. Um reale Kaufkraftgewinne abzuschätzen, empfiehlt es sich, die erwartete Inflationsrate vom Zinssatz abzuziehen."
+      "faq1Q": "Wie ermittelt man Zinseszinsen mit monatlicher oder täglicher Gutschrift?",
+      "faq1A": "Wählen Sie im Auswahlfeld einfach 'Monatlich' (12× pro Jahr) oder 'Täglich' (365× pro Jahr). Das Rechenmodell teilt den Jahreszinssatz durch die Anzahl der Intervalle und rechnet die Zinserträge fortlaufend dem Anlagekapital hinzu. Kürzere Zinsabstände führen durch den frühzeitigen Zinseszinseffekt zu einem messbar höheren Endvermögen.",
+      "faq2Q": "Eignet sich dieses Werkzeug für regelmäßige Sparpläne (SIP)?",
+      "faq2A": "Ja, hervorragend! Geben Sie Ihr Startguthaben als Einmalbetrag ein und tragen Sie Ihre monatliche Sparrate in das entsprechende Feld ein. Das Tool simuliert den stetigen Zinszuwachs Monat für Monat und stellt das selbst eingezahlte Kapital dem erwirtschafteten Gesamtzins transparent gegenüber.",
+      "faq3Q": "Stimmen die Werte mit den Zinsangaben von SBI oder HDFC Life überein?",
+      "faq3A": "Ja. Die Anwendung stützt sich auf die weltweit anerkannte Zinseszinsformel, die auch von indischen Finanzinstituten angewendet wird. Ob Festgeldanlagen bei der SBI (die typischerweise vierteljährlich verzinst werden) oder Sparverträge bei HDFC Life – durch Auswahl des passenden Zinstaktes lassen sich die Modellrechnungen exakt abbilden.",
+      "faq4Q": "Warum empfiehlt sich ein auf indische Anlageformen abgestimmtes Zinstool?",
+      "faq4A": "Der indische Finanzmarkt zeichnet sich durch vielfältige Zinsmodelle aus – von staatlichen PPF-Konten mit jährlicher Zinsgutschrift über SBI-Festgelder mit Quartalsverzinsung bis hin zu monatlichen SIP-Fondssparplänen. Dieses Werkzeug deckt sämtliche Intervalle ab und erleichtert die langfristige Vorsorgeplanung."
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Jede Minute",

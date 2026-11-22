@@ -312,8 +312,8 @@
       "faq4A": "El modelo RGB es un sistema aditivo que emite luz en pantallas digitales, mientras que el CMYK es un sistema sustractivo basado en tintas sobre papel. Debido a que el espacio de color RGB abarca tonos más vivos que las tintas convencionales, las tonalidades muy brillantes pueden verse más suaves al imprimirse."
     },
     "compoundInterestCalculator": {
-      "title": "Calculadora de Interés Compuesto",
-      "subtitle": "Proyecta el crecimiento de tus inversiones según capital inicial, tasa anual, frecuencia de capitalización y aportaciones periódicas.",
+      "title": "Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario)",
+      "subtitle": "Calculadora gratuita de interés compuesto para la India. Proyecta rendimientos para depósitos en SBI, planes de ahorro HDFC Life y fondos SIP con capitalización diaria, mensual y anual.",
       "initialPrincipal": "Capital inicial",
       "annualRate": "Tasa de interés anual (%):",
       "yearsLabel": "Años:",
@@ -336,7 +336,7 @@
       "balance": "Saldo",
       "copyBreakdown": "📋 Copiar desglose",
       "copied": "✓ ¡Copiado!",
-      "aboutText": "La Calculadora de Interés Compuesto es una herramienta de simulación financiera pensada para planificar metas de ahorro, fondos de retiro y carteras de inversión. Aplica la fórmula del interés compuesto con aportaciones periódicas para proyectar la evolución patrimonial con frecuencias de capitalización diaria, mensual, trimestral o anual.",
+      "aboutText": "La Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario) es una herramienta de simulación patrimonial pensada para inversores y ahorradores. Ya sea que desees estimar rendimientos de depósitos a plazo fijo en el State Bank of India (SBI), analizar planes de seguros y jubilación de HDFC Life o proyectar la acumulación de capital mediante planes de inversión sistemática (SIP), esta utilidad modela el crecimiento exponencial con absoluta precisión. Con opciones de capitalización diaria, mensual y anual, simula la acumulación de rendimientos e inversiones periódicas directamente en tu navegador, garantizando confidencialidad absoluta de tus datos financieros.",
       "feature1": "Frecuencias de capitalización flexibles: calcula intereses devengados de forma diaria, mensual, trimestral o anual",
       "feature2": "Aportaciones regulares programadas: añade depósitos periódicos mensuales o anuales para simular compras recurrentes",
       "feature3": "Desglose cronológico detallado: visualiza año a año la proporción entre el capital aportado y los rendimientos generados",
@@ -347,14 +347,14 @@
       "step2Body": "Establece los años de inversión y la cantidad que aportarás periódicamente cada mes o año.",
       "step3Title": "Analiza la proyección patrimonial",
       "step3Body": "Revisa el saldo total futuro, el total de intereses generados y la evolución anual acumulada.",
-      "faq1Q": "¿Qué es el interés compuesto?",
-      "faq1A": "Es aquel donde los rendimientos generados en cada periodo se suman al capital principal, permitiendo que los nuevos intereses se calculen sobre una base cada vez mayor, generando crecimiento exponencial.",
-      "faq2Q": "¿Cómo influye la frecuencia de capitalización en el rendimiento?",
-      "faq2A": "A mayor frecuencia de capitalización (por ejemplo, mensual frente a anual), los intereses se reinvierten con más rapidez y el saldo final resulta ligeramente superior.",
-      "faq3Q": "¿Qué es la Regla del 72?",
-      "faq3A": "Es una estimación rápida: divide 72 entre la tasa de interés anual y obtendrás el número aproximado de años necesarios para duplicar tu inversión.",
-      "faq4Q": "¿Tiene en cuenta la inflación o los impuestos?",
-      "faq4A": "Los resultados se expresan en términos nominales. Para estimar la rentabilidad real tras la inflación, puedes restar la inflación esperada (por ejemplo, 2-3%) a la tasa de interés prevista."
+      "faq1Q": "¿Cómo se calcula el interés compuesto con frecuencia mensual o diaria?",
+      "faq1A": "Para proyectar con mayor frecuencia, selecciona 'Mensual' (12 veces al año) o 'Diario' (365 veces al año) en el selector de capitalización. El motor divide la tasa nominal entre el número de periodos para reinvertir los beneficios de manera continua. Una capitalización más frecuente genera rendimientos ligeramente superiores gracias al efecto de reinversión acelerada.",
+      "faq2Q": "¿Se puede utilizar esta herramienta para evaluar planes de inversión sistemática (SIP)?",
+      "faq2A": "¡Por supuesto! Para simular un plan SIP, introduce tu aportación inicial en 'Capital Inicial' y define tu ahorro mensual recurrente en 'Aportación Mensual'. El sistema proyecta la acumulación progresiva mes a mes, desglosando con claridad el capital aportado frente a los intereses netos acumulados.",
+      "faq3Q": "¿Coinciden los valores con los cálculos bancarios de SBI o HDFC Life?",
+      "faq3A": "Sí. Nuestra herramienta aplica la fórmula matemática universal de capitalización empleada por las entidades financieras de la India. Tanto para contrastar depósitos a plazo en SBI (habitualmente capitalizados trimestral o anualmente) como pólizas de ahorro de HDFC Life, basta con indicar la tasa y el periodo correspondiente para replicar con exactitud los cálculos de dichas entidades.",
+      "faq4Q": "¿Por qué es conveniente usar una herramienta de interés compuesto adaptada a las finanzas de la India?",
+      "faq4A": "En el mercado financiero indio conviven esquemas con diversas frecuencias de acumulación: desde fondos públicos PPF con balance anual hasta depósitos a plazo en SBI capitalizados por trimestres o fondos mutuos SIP mensuales. Esta herramienta contempla todas esas frecuencias para planificar metas de jubilación y ahorro con total certidumbre."
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Cada Minuto",

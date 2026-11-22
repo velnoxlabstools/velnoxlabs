@@ -497,8 +497,8 @@
       "description": "Calcula preços de venda, economia e descontos acumulados."
     },
     "compound-interest-calculator": {
-      "name": "Calculadora de Juros Compostos",
-      "description": "Simule a evolução dos seus investimentos com base no aporte inicial, taxa anual, frequência de capitalização e depósitos mensais."
+      "name": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",
+      "description": "Calculadora gratuita de juros compostos para a Índia. Simule retornos em depósitos do SBI, apólices da HDFC Life e planos de investimento SIP com capitalização diária, mensal e anual."
     },
     "loan-emi-calculator": {
       "name": "Calculadora de EMI de Empréstimo",
@@ -1838,6 +1838,51 @@
       "faq3A": "Você pode capturar cores de arquivos visuais utilizando a função de conta-gotas nativa do navegador ou apontando para qualquer elemento gráfico na tela. O tom selecionado preenche instantaneamente os campos HEX e RGB, permitindo a consulta imediata em todos os padrões.",
       "faq4Q": "Por que as cores exibidas em telas RGB diferem das impressões em CMYK?",
       "faq4A": "O RGB é um modelo aditivo baseado na emissão de luz por telas eletrônicas, enquanto o CMYK é um modelo subtrativo que opera com tintas absorvendo luz no papel. Como a gama do padrão RGB é mais ampla, cores muito saturadas no monitor costumam parecer mais sóbrias quando impressas fisicamente."
+    },
+    "compoundInterestCalculator": {
+      "title": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",
+      "subtitle": "Calculadora gratuita de juros compostos para a Índia. Simule retornos em depósitos do SBI, apólices da HDFC Life e planos de investimento SIP com capitalização diária, mensal e anual.",
+      "initialPrincipal": "Capital inicial",
+      "annualRate": "Taxa de juros anual (%):",
+      "yearsLabel": "Anos:",
+      "monthlyContribution": "Aporte mensal",
+      "compoundingFrequency": "Frequência de capitalização:",
+      "annually": "Anual (1×/ano)",
+      "semiannually": "Semestral (2×/ano)",
+      "quarterly": "Trimestral (4×/ano)",
+      "monthly": "Mensal (12×/ano)",
+      "daily": "Diário (365×/ano)",
+      "finalBalance": "Saldo final",
+      "totalContributions": "Total aportado",
+      "interestEarned": "Juros acumulados",
+      "breakdown": "Composição:",
+      "contributions": "Aportes",
+      "interest": "Juros",
+      "yearByYearGrowth": "📈 Crescimento ano a ano",
+      "year": "Ano",
+      "contributed": "Aportado",
+      "balance": "Saldo",
+      "copyBreakdown": "📋 Copiar detalhamento",
+      "copied": "✓ Copiado!",
+      "aboutText": "A Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário) é uma ferramenta especializada de projeção patrimonial desenvolvida para investidores e poupadores. Seja para estimar os rendimentos de depósitos a prazo fixo no State Bank of India (SBI), avaliar planos de previdência da HDFC Life ou projetar a multiplicação de capital através de aportes regulares em fundos mútuos (SIP), este recurso simula a curva de crescimento exponencial com total exatidão. Equipado com intervalos diários, mensais e anuais, todo o processamento dos seus números financeiros ocorre exclusivamente na memória do dispositivo com privacidade absoluta.",
+      "feature1": "Frequências de capitalização flexíveis: projete retornos com juros calculados diariamente, mensalmente, trimestralmente ou anualmente",
+      "feature2": "Aportes regulares programados: adicione depósitos periódicos mensais ou anuais para simular investimentos recorrentes",
+      "feature3": "Evolução detalhada ano a ano: acompanhe a evolução do montante acumulado e distinga o capital investido do rendimento gerado",
+      "feature4": "100% Sigilo no aparelho: seus valores financeiros, planos e metas de poupança nunca saem do seu navegador",
+      "step1Title": "Informe o aporte inicial",
+      "step1Body": "Defina o saldo com que pretende começar e a taxa de juros anual estimada em porcentagem.",
+      "step2Title": "Defina o horizonte e aportes",
+      "step2Body": "Indique a quantidade de anos de aplicação e a quantia que pretende depositar mensalmente ou anualmente.",
+      "step3Title": "Examine a projeção de rendimentos",
+      "step3Body": "Avalie o saldo final acumulado, os juros auferidos e a curva de expansão patrimonial ao longo dos anos.",
+      "faq1Q": "Como calcular juros compostos com frequência mensal ou diária?",
+      "faq1A": "Para projetar com maior periodicidade, escolha 'Mensal' (12 vezes ao ano) ou 'Diário' (365 vezes ao ano) no seletor de capitalização. O sistema reparte a taxa anual pelo número de ciclos e reaplica os juros acumulados sobre o saldo anterior. Ciclos mais frequentes proporcionam um ganho final ligeiramente superior devido ao efeito multiplicador contínuo.",
+      "faq2Q": "É possível utilizar esta ferramenta para simulações de investimentos SIP?",
+      "faq2A": "Sim! Basta preencher o valor do depósito de abertura no campo de aporte inicial e indicar o montante recorrente na opção de contribuição mensal. O sistema calcula a estratégia de aportes constantes mês a mês, permitindo visualizar com clareza a quantia desembolsada em comparação com os juros líquidos obtidos.",
+      "faq3Q": "Os valores obtidos são equivalentes aos cálculos oficiais do SBI e da HDFC Life?",
+      "faq3A": "Sim. Nosso algoritmo utiliza a fórmula matemática padrão adotada pelos bancos e seguradoras da Índia. Seja para conferir um depósito do SBI (geralmente capitalizado por trimestre ou por ano) ou planejar uma apólice da HDFC Life, basta selecionar a frequência correspondente e a taxa de juros para obter projeções idênticas às das instituições.",
+      "faq4Q": "Por que utilizar uma ferramenta ajustada às práticas financeiras da Índia?",
+      "faq4A": "O planejamento financeiro na Índia envolve produtos com regras de capitalização variadas, como o fundo público PPF com juros anuais, depósitos bancários no SBI com rendimentos trimestrais e aplicações em SIP mensais. Nosso simulador atende a todas essas variações para garantir um planejamento seguro de aposentadoria e patrimônio."
     }
   }
 }

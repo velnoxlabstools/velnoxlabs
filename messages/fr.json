@@ -497,8 +497,8 @@
       "description": "Calcule les prix de vente, économies et remises cumulées."
     },
     "compound-interest-calculator": {
-      "name": "Calculateur d'Intérêts Composés",
-      "description": "Simulez la croissance de vos placements selon votre capital de départ, taux annuel, fréquence de capitalisation et versements réguliers."
+      "name": "Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien)",
+      "description": "Calculateur gratuit d'intérêts composés pour l'Inde. Estimez vos rendements sur les dépôts SBI, contrats HDFC Life et plans SIP avec capitalisation quotidienne, mensuelle et annuelle."
     },
     "loan-emi-calculator": {
       "name": "Calculatrice d'EMI de Prêt",
@@ -1838,6 +1838,51 @@
       "faq3A": "Vous pouvez prélever une nuance sur un visuel grâce à l'outil pipette intégré du navigateur ou en chargeant une image pour pointer un pixel précis. La teinte retenue s'inscrit immédiatement dans les zones HEX et RGB pour vous faire gagner du temps.",
       "faq4Q": "Pour quelle raison observe-t-on un écart entre un écran RGB et une impression CMYK ?",
       "faq4A": "Le modèle RGB est un système additif fonctionnant par émission lumineuse sur les écrans numériques, alors que le CMYK est un système soustractif fondé sur l'absorption de la lumière par les encres sur papier. Le gamut RGB étant plus étendu, les teintes très vives ou fluorescentes perdent légèrement de leur intensité lors de l'impression physique."
+    },
+    "compoundInterestCalculator": {
+      "title": "Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien)",
+      "subtitle": "Calculateur gratuit d'intérêts composés pour l'Inde. Estimez vos rendements sur les dépôts SBI, contrats HDFC Life et plans SIP avec capitalisation quotidienne, mensuelle et annuelle.",
+      "initialPrincipal": "Capital initial",
+      "annualRate": "Taux d'intérêt annuel (%) :",
+      "yearsLabel": "Durée en années :",
+      "monthlyContribution": "Versement mensuel",
+      "compoundingFrequency": "Fréquence de capitalisation :",
+      "annually": "Annuelle (1×/an)",
+      "semiannually": "Semestrielle (2×/an)",
+      "quarterly": "Trimestrielle (4×/an)",
+      "monthly": "Mensuelle (12×/an)",
+      "daily": "Quotidienne (365×/an)",
+      "finalBalance": "Solde final",
+      "totalContributions": "Total des versements",
+      "interestEarned": "Intérêts générés",
+      "breakdown": "Répartition :",
+      "contributions": "Versements",
+      "interest": "Intérêts",
+      "yearByYearGrowth": "📈 Croissance annuelle détaillée",
+      "year": "Année",
+      "contributed": "Versé",
+      "balance": "Solde",
+      "copyBreakdown": "📋 Copier la répartition",
+      "copied": "✓ Copié !",
+      "aboutText": "Le Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien) est une solution d'ingénierie financière pensée pour les investisseurs et épargnants. Que vous souhaitiez évaluer les gains sur dépôts à terme de la State Bank of India (SBI), analyser des contrats d'épargne HDFC Life ou modéliser l'effet multiplicateur d'un plan d'investissement systématique (SIP), cet outil retranscrit la dynamique exponentielle avec rigueur. Proposant des fréquences de composition quotidienne, mensuelle et annuelle, la simulation s'exécute directement dans la mémoire de votre navigateur, assurant la totale discrétion de vos informations patrimoniales.",
+      "feature1": "Périodicités de capitalisation flexibles : simulez vos gains avec un calcul d'intérêts quotidien, mensuel, trimestriel ou annuel",
+      "feature2": "Intégration d'apports récurrents : incorporez des versements mensuels ou annuels programmés pour simuler un investissement progressif",
+      "feature3": "Détail chronologique par année : observez année par année la part relative du capital injecté face aux intérêts cumulés",
+      "feature4": "100% Confidentialité locale : vos données d'épargne et vos objectifs patrimoniaux demeurent strictement sur votre machine",
+      "step1Title": "Indiquez le capital de départ",
+      "step1Body": "Renseignez votre solde initial et le taux d'intérêt annuel prévisionnel en pourcentage.",
+      "step2Title": "Configurez l'horizon et les apports",
+      "step2Body": "Définissez la durée en années et le montant des versements périodiques réguliers que vous comptez effectuer.",
+      "step3Title": "Analysez la projection de rendement",
+      "step3Body": "Consultez le capital final estimé, les gains d'intérêts générés et la courbe d'accroissement patrimonial.",
+      "faq1Q": "Comment s'effectue la composition des intérêts au rythme mensuel ou quotidien ?",
+      "faq1A": "Pour choisir une fréquence resserrée, sélectionnez 'Mensuel' (12 fois par an) ou 'Quotidien' (365 fois par an). Le moteur applique la fraction de taux nominal à chaque sous-période pour réinvestir les gains immédiatement. Plus la fréquence de capitalisation est soutenue, plus le capital final progresse rapidement grâce au réinvestissement continu.",
+      "faq2Q": "Peut-on utiliser cet outil pour projeter des investissements programmés (SIP) ?",
+      "faq2A": "Absolument ! Indiquez votre versement initial dans le capital de départ puis saisissez votre épargne récurrente dans le versement mensuel. Le système modélise l'accumulation régulière mois après mois et distingue nettement vos versements cumulés des intérêts réels engrangés.",
+      "faq3Q": "Les résultats obtenus concordent-ils avec les simulations bancaires de SBI ou HDFC Life ?",
+      "faq3A": "Oui. Notre outil applique la formule mathématique internationale employée par les banques et assureurs en Inde. Qu'il s'agisse de vérifier un dépôt à terme SBI (généralement composé au trimestre ou à l'année) ou un contrat HDFC Life, il suffit de renseigner le taux convenu et le bon intervalle pour retrouver des montants identiques aux projections officielles.",
+      "faq4Q": "Pourquoi privilégier un calculateur adapté aux spécificités du marché indien ?",
+      "faq4A": "L'épargne en Inde met en jeu des calendriers de capitalisation variés : le fonds public PPF capitalise annuellement, les dépôts bancaires SBI fonctionnent au trimestre et les fonds SIP capitalisent chaque mois. Notre outil intègre tous ces schémas pour sécuriser votre stratégie d'épargne retraite."
     }
   }
 }

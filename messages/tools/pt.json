@@ -312,8 +312,8 @@
       "faq4A": "O RGB é um modelo aditivo baseado na emissão de luz por telas eletrônicas, enquanto o CMYK é um modelo subtrativo que opera com tintas absorvendo luz no papel. Como a gama do padrão RGB é mais ampla, cores muito saturadas no monitor costumam parecer mais sóbrias quando impressas fisicamente."
     },
     "compoundInterestCalculator": {
-      "title": "Calculadora de Juros Compostos",
-      "subtitle": "Simule a evolução dos seus investimentos com base no aporte inicial, taxa anual, frequência de capitalização e depósitos mensais.",
+      "title": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",
+      "subtitle": "Calculadora gratuita de juros compostos para a Índia. Simule retornos em depósitos do SBI, apólices da HDFC Life e planos de investimento SIP com capitalização diária, mensal e anual.",
       "initialPrincipal": "Capital inicial",
       "annualRate": "Taxa de juros anual (%):",
       "yearsLabel": "Anos:",
@@ -336,7 +336,7 @@
       "balance": "Saldo",
       "copyBreakdown": "📋 Copiar detalhamento",
       "copied": "✓ Copiado!",
-      "aboutText": "A Calculadora de Juros Compostos é um simulador de finanças pessoais desenvolvido para planejar aposentadoria, poupança e evolução patrimonial. Aplicando a fórmula matemática de juros compostos combinada com aportes recorrentes, ela projeta o crescimento do seu capital em intervalos diários, mensais, semestrais ou anuais.",
+      "aboutText": "A Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário) é uma ferramenta especializada de projeção patrimonial desenvolvida para investidores e poupadores. Seja para estimar os rendimentos de depósitos a prazo fixo no State Bank of India (SBI), avaliar planos de previdência da HDFC Life ou projetar a multiplicação de capital através de aportes regulares em fundos mútuos (SIP), este recurso simula a curva de crescimento exponencial com total exatidão. Equipado com intervalos diários, mensais e anuais, todo o processamento dos seus números financeiros ocorre exclusivamente na memória do dispositivo com privacidade absoluta.",
       "feature1": "Frequências de capitalização flexíveis: projete retornos com juros calculados diariamente, mensalmente, trimestralmente ou anualmente",
       "feature2": "Aportes regulares programados: adicione depósitos periódicos mensais ou anuais para simular investimentos recorrentes",
       "feature3": "Evolução detalhada ano a ano: acompanhe a evolução do montante acumulado e distinga o capital investido do rendimento gerado",
@@ -347,14 +347,14 @@
       "step2Body": "Indique a quantidade de anos de aplicação e a quantia que pretende depositar mensalmente ou anualmente.",
       "step3Title": "Examine a projeção de rendimentos",
       "step3Body": "Avalie o saldo final acumulado, os juros auferidos e a curva de expansão patrimonial ao longo dos anos.",
-      "faq1Q": "O que são juros compostos?",
-      "faq1A": "São juros incidentes sobre o montante acumulado no período anterior (juros sobre juros), fazendo com que a rentabilidade cresça de forma exponencial ao longo do tempo.",
-      "faq2Q": "Como a periodicidade de capitalização altera o resultado?",
-      "faq2A": "Quanto mais frequente for a capitalização (por exemplo, mensal em vez de anual), mais rapidamente os juros passam a gerar novos juros, elevando ligeiramente o montante final.",
-      "faq3Q": "O que representa a 'Regra dos 72'?",
-      "faq3A": "É uma fórmula empírica de cálculo mental: ao dividir 72 pela sua taxa de juros anual, obtém-se o tempo aproximado em anos que o patrimônio levará para duplicar.",
-      "faq4Q": "O cálculo desconta inflação ou tributos?",
-      "faq4A": "Os números apresentados são nominais. Para avaliar o ganho real de poder de compra, subtraia a taxa de inflação esperada (ex: 3% a 4%) da sua taxa de rendimento pretendida."
+      "faq1Q": "Como calcular juros compostos com frequência mensal ou diária?",
+      "faq1A": "Para projetar com maior periodicidade, escolha 'Mensal' (12 vezes ao ano) ou 'Diário' (365 vezes ao ano) no seletor de capitalização. O sistema reparte a taxa anual pelo número de ciclos e reaplica os juros acumulados sobre o saldo anterior. Ciclos mais frequentes proporcionam um ganho final ligeiramente superior devido ao efeito multiplicador contínuo.",
+      "faq2Q": "É possível utilizar esta ferramenta para simulações de investimentos SIP?",
+      "faq2A": "Sim! Basta preencher o valor do depósito de abertura no campo de aporte inicial e indicar o montante recorrente na opção de contribuição mensal. O sistema calcula a estratégia de aportes constantes mês a mês, permitindo visualizar com clareza a quantia desembolsada em comparação com os juros líquidos obtidos.",
+      "faq3Q": "Os valores obtidos são equivalentes aos cálculos oficiais do SBI e da HDFC Life?",
+      "faq3A": "Sim. Nosso algoritmo utiliza a fórmula matemática padrão adotada pelos bancos e seguradoras da Índia. Seja para conferir um depósito do SBI (geralmente capitalizado por trimestre ou por ano) ou planejar uma apólice da HDFC Life, basta selecionar a frequência correspondente e a taxa de juros para obter projeções idênticas às das instituições.",
+      "faq4Q": "Por que utilizar uma ferramenta ajustada às práticas financeiras da Índia?",
+      "faq4A": "O planejamento financeiro na Índia envolve produtos com regras de capitalização variadas, como o fundo público PPF com juros anuais, depósitos bancários no SBI com rendimentos trimestrais e aplicações em SIP mensais. Nosso simulador atende a todas essas variações para garantir um planejamento seguro de aposentadoria e patrimônio."
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ A Cada Minuto",

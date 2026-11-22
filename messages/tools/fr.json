@@ -312,8 +312,8 @@
       "faq4A": "Le modèle RGB est un système additif fonctionnant par émission lumineuse sur les écrans numériques, alors que le CMYK est un système soustractif fondé sur l'absorption de la lumière par les encres sur papier. Le gamut RGB étant plus étendu, les teintes très vives ou fluorescentes perdent légèrement de leur intensité lors de l'impression physique."
     },
     "compoundInterestCalculator": {
-      "title": "Calculateur d'Intérêts Composés",
-      "subtitle": "Simulez la croissance de vos placements selon votre capital de départ, taux annuel, fréquence de capitalisation et versements réguliers.",
+      "title": "Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien)",
+      "subtitle": "Calculateur gratuit d'intérêts composés pour l'Inde. Estimez vos rendements sur les dépôts SBI, contrats HDFC Life et plans SIP avec capitalisation quotidienne, mensuelle et annuelle.",
       "initialPrincipal": "Capital initial",
       "annualRate": "Taux d'intérêt annuel (%) :",
       "yearsLabel": "Durée en années :",
@@ -336,7 +336,7 @@
       "balance": "Solde",
       "copyBreakdown": "📋 Copier la répartition",
       "copied": "✓ Copié !",
-      "aboutText": "Le Calculateur d'Intérêts Composés est un simulateur financier conçu pour préparer sa retraite, son épargne et le développement de son patrimoine. Appliquant la formule des intérêts composés complétée par des versements périodiques, il évalue l'évolution de vos investissements selon une capitalisation journalière, mensuelle, trimestrielle ou annuelle.",
+      "aboutText": "Le Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien) est une solution d'ingénierie financière pensée pour les investisseurs et épargnants. Que vous souhaitiez évaluer les gains sur dépôts à terme de la State Bank of India (SBI), analyser des contrats d'épargne HDFC Life ou modéliser l'effet multiplicateur d'un plan d'investissement systématique (SIP), cet outil retranscrit la dynamique exponentielle avec rigueur. Proposant des fréquences de composition quotidienne, mensuelle et annuelle, la simulation s'exécute directement dans la mémoire de votre navigateur, assurant la totale discrétion de vos informations patrimoniales.",
       "feature1": "Périodicités de capitalisation flexibles : simulez vos gains avec un calcul d'intérêts quotidien, mensuel, trimestriel ou annuel",
       "feature2": "Intégration d'apports récurrents : incorporez des versements mensuels ou annuels programmés pour simuler un investissement progressif",
       "feature3": "Détail chronologique par année : observez année par année la part relative du capital injecté face aux intérêts cumulés",
@@ -347,14 +347,14 @@
       "step2Body": "Définissez la durée en années et le montant des versements périodiques réguliers que vous comptez effectuer.",
       "step3Title": "Analysez la projection de rendement",
       "step3Body": "Consultez le capital final estimé, les gains d'intérêts générés et la courbe d'accroissement patrimonial.",
-      "faq1Q": "Qu'appelle-t-on les intérêts composés ?",
-      "faq1A": "Il s'agit d'un mécanisme où les intérêts acquis lors d'une période sont réincorporés au capital de base, produisant à leur tour de nouveaux intérêts, ce qui crée une dynamique de croissance exponentielle.",
-      "faq2Q": "Quel impact a la fréquence de composition sur les gains ?",
-      "faq2A": "Plus la capitalisation est fréquente (par exemple mensuelle plutôt qu'annuelle), plus vite les intérêts génèrent des rendements additionnels, augmentant légèrement le capital final.",
-      "faq3Q": "Qu'est-ce que la règle des 72 ?",
-      "faq3A": "C'est une formule mnémotechnique d'estimation rapide : en divisant 72 par votre taux d'intérêt annuel, vous obtenez le nombre approximatif d'années nécessaires pour doubler votre capital.",
-      "faq4Q": "L'outil tient-il compte de l'inflation ou des taxes ?",
-      "faq4A": "Les résultats sont donnés en valeur nominale. Pour apprécier l'évolution réelle du pouvoir d'achat, déduisez l'inflation prévisionnelle (ex. 2 à 3 %) de votre taux d'intérêt attendu."
+      "faq1Q": "Comment s'effectue la composition des intérêts au rythme mensuel ou quotidien ?",
+      "faq1A": "Pour choisir une fréquence resserrée, sélectionnez 'Mensuel' (12 fois par an) ou 'Quotidien' (365 fois par an). Le moteur applique la fraction de taux nominal à chaque sous-période pour réinvestir les gains immédiatement. Plus la fréquence de capitalisation est soutenue, plus le capital final progresse rapidement grâce au réinvestissement continu.",
+      "faq2Q": "Peut-on utiliser cet outil pour projeter des investissements programmés (SIP) ?",
+      "faq2A": "Absolument ! Indiquez votre versement initial dans le capital de départ puis saisissez votre épargne récurrente dans le versement mensuel. Le système modélise l'accumulation régulière mois après mois et distingue nettement vos versements cumulés des intérêts réels engrangés.",
+      "faq3Q": "Les résultats obtenus concordent-ils avec les simulations bancaires de SBI ou HDFC Life ?",
+      "faq3A": "Oui. Notre outil applique la formule mathématique internationale employée par les banques et assureurs en Inde. Qu'il s'agisse de vérifier un dépôt à terme SBI (généralement composé au trimestre ou à l'année) ou un contrat HDFC Life, il suffit de renseigner le taux convenu et le bon intervalle pour retrouver des montants identiques aux projections officielles.",
+      "faq4Q": "Pourquoi privilégier un calculateur adapté aux spécificités du marché indien ?",
+      "faq4A": "L'épargne en Inde met en jeu des calendriers de capitalisation variés : le fonds public PPF capitalise annuellement, les dépôts bancaires SBI fonctionnent au trimestre et les fonds SIP capitalisent chaque mois. Notre outil intègre tous ces schémas pour sécuriser votre stratégie d'épargne retraite."
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Chaque Minute",
