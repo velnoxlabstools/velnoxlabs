@@ -363,8 +363,8 @@
       "description": "免费在线校验和计算器 (MD5、SHA256、二进制与 16 位)。在浏览器内快速生成加密散列与简单校验和。"
     },
     "hmac-generator": {
-      "name": "HMAC 签名生成器",
-      "description": "基于密钥与主流哈希算法生成安全的 HMAC 签名散列。"
+      "name": "在线 HMAC-SHA256 签名生成器 – 密钥生成与认证工具",
+      "description": "免费在线 HMAC-SHA256 签名生成器。即时计算 SHA256、SHA512 与 MD5 消息认证码，支持十六进制与 Base64 编码。"
     },
     "jwt-decoder-&-inspector": {
       "name": "JWT 解码与分析工具",
@@ -707,9 +707,9 @@
       "faq4A": "是的！本在线工具提供了完全免费、零安装的轻量化体验，无需获取桌面可执行文件。在 Windows、macOS、Linux 或移动端浏览器上，您都能获得完全符合 NIST FIPS 180-4 及 RFC 1321 工业标准的严密密码学支持。"
     },
     "hmacGenerator": {
-      "title": "HMAC签名生成器 (HMAC-SHA256, HMAC-SHA512)",
-      "subtitle": "基于共享密钥即时计算HMAC-SHA256、HMAC-SHA512与HMAC-MD5消息认证码。",
-      "aboutText": "HMAC签名生成器是一款严格遵循RFC 2104与FIPS PUB 198规范的专业密码学工具。它通过将预先约定的加密共享密钥与待签署的消息体结合，利用底层散列函数（SHA-256、SHA-512或MD5）计算出具备防篡改特性的消息认证码（HMAC）。在验证Webhook回调（如GitHub、Stripe、Shopify）、构建REST API签名验证（如AWS Signature v4）等安全通信场景中不可或缺。",
+      "title": "在线 HMAC-SHA256 签名生成器 – 密钥生成与认证工具",
+      "subtitle": "免费在线 HMAC-SHA256 签名生成器。即时计算 SHA256、SHA512 与 MD5 消息认证码，支持十六进制与 Base64 编码。",
+      "aboutText": "我们的在线 HMAC-SHA256 签名计算工具是专为后端工程师、云架构师及安全审计人员打造的高效密码学实用程序。作为一款在浏览器本地快速运行、免除网络延迟的免费认证码生成助手，它严格遵循 RFC 2104 与 FIPS PUB 198 国际标准。无论您是需要高性能的 SHA256 算法生成网络钩子（Webhook）认证凭证，还是需要 Base64 编码适配 AWS、Stripe 和 GitHub 的 API 签名规范，本工具均能在本地内存中毫秒级完成运算。作为哈希密钥认证的直观参考环境，它极大方便了开发者核验鉴权请求头。对于使用 Python `hmac.new()` 脚本或基于 Java `Mac.getInstance(\"HmacSHA256\")` 框架的开发者而言，这是验证跨平台数据一致性不可或缺的测试工具。",
       "feature1": "支持核心加密算法：精准提供工业界标准的HMAC-SHA256、HMAC-SHA512及HMAC-MD5签名计算",
       "feature2": "密钥端到端隔离：共享密钥与私有消息仅在浏览器本地内存中处理，绝不经过外部网络服务器",
       "feature3": "动态实时联动运算：无论是修改密钥、调整消息内容还是切换加密算法，签名结果均即刻刷新",
@@ -720,14 +720,14 @@
       "step2Body": "选择所需的HMAC算法，并将待签名的JSON数据体或请求字符串粘贴至消息框。",
       "step3Title": "复制HMAC签名",
       "step3Body": "查看实时计算出的十六进制签名字符串，点击“复制”按钮即可将其配置到请求中。",
-      "faq1Q": "HMAC与常规普通哈希有什么区别？",
-      "faq1A": "普通哈希仅验证数据在传输中是否发生损坏；而HMAC引入了只有通信双方知晓的密钥，不仅能验证数据完整性，还能确凿证明该消息确由持有密钥的授权方发出。",
-      "faq2Q": "使用该工具时我的密钥安全吗？",
-      "faq2A": "完全安全。所有签名运算均由客户端JavaScript在本地执行，密钥与请求数据绝不上传至任何服务器。",
-      "faq3Q": "现代Webhook接口推荐选用哪种HMAC算法？",
-      "faq3A": "目前绝大多数主流平台（包括GitHub、Stripe、Slack等）均推荐使用HMAC-SHA256，它在安全强度与计算性能之间达到了最佳平衡。",
-      "faq4Q": "HMAC签名能否防止重放攻击？",
-      "faq4A": "HMAC本身负责验证消息真伪。在防止重放攻击时，通常会在待签名的消息体中加入时间戳或随机数（Nonce），并在服务端校验有效时间窗。"
+      "faq1Q": "如何在网页端快速生成 HMAC-SHA256 签名？",
+      "faq1A": "只需在专用栏位中输入您的通信密钥，选取 SHA-256 算法，并将待签名的请求数据粘贴至消息框。系统会在浏览器本地实时计算出对应的加密签名，便于您直接提取并配置到 API 鉴权头或 Webhook 校验机制中。",
+      "faq2Q": "如何借助本工具验证 Python 或 Java 程序的签名逻辑？",
+      "faq2A": "开发者可以使用本工具比对代码执行所得的摘要。在 Python 中：import hmac, hashlib; signature = hmac.new(b'secret', b'message', hashlib.sha256).hexdigest()。在 Java 中：Mac mac = Mac.getInstance(\"HmacSHA256\"); mac.init(new SecretKeySpec(secretBytes, \"HmacSHA256\")); byte[] hmac = mac.doFinal(messageBytes)。在此测试相同参数，即可确认代码生成的十六进制或 Base64 摘要是否完全一致。",
+      "faq3Q": "什么是消息认证密钥？为什么 HMAC 必须依赖密钥？",
+      "faq3A": "认证密钥是用于签名与校验的高熵随机字符串。普通哈希仅能核查数据是否遭到篡改，而 HMAC 通过引入双方共享的加密密钥，不仅确保了数据完整性，还能证实消息确实出自持有合法密钥的通信方，杜绝伪造风险。",
+      "faq4Q": "是否支持获取 Base64 编码形式的 HMAC 签名？",
+      "faq4A": "是的！虽然常规的 Webhook 和 API 头多采用十六进制字符呈现，但部分云服务（如 AWS 与 Google Cloud）强制要求 Base64 编码。您可以将生成的十六进制摘要直接放入我们的 Base64 编码工具中，即可迅速获取对应的 Base64 凭证字符串。"
     },
     "htmlEncoderDecoder": {
       "title": "HTML 实体解码与编码转换器",

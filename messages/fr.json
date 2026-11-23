@@ -370,8 +370,8 @@
       "description": "Calculateur de somme de contrôle gratuit en ligne (MD5, SHA256, binaire et 16 bits). Obtenez des empreintes sans aucun téléchargement."
     },
     "hmac-generator": {
-      "name": "Générateur HMAC",
-      "description": "Génère des signatures HMAC."
+      "name": "Générateur HMAC-SHA256 en Ligne – Créateur de Signatures et Clés Secrètes",
+      "description": "Générateur HMAC-SHA256 en ligne gratuit. Calculez des signatures sécurisées pour SHA256, SHA512 et MD5 instantanément avec codage hexadécimal et Base64."
     },
     "jwt-decoder-&-inspector": {
       "name": "Décodeur et Inspecteur JWT",
@@ -714,27 +714,27 @@
       "faq4A": "Oui ! Ce service offre une alternative entièrement gratuite sans aucun déploiement préalable. Conforme aux référentiels NIST FIPS 180-4 et RFC 1321, il fournit des calculs certifiés immédiatement accessibles sur Windows, macOS, Linux et terminaux mobiles."
     },
     "hmacGenerator": {
-      "title": "Générateur de Signatures HMAC (HMAC-SHA256, HMAC-SHA512)",
-      "subtitle": "Générez des codes d'authentification de message (HMAC-SHA256, HMAC-SHA512, HMAC-MD5) avec vos clés secrètes.",
-      "aboutText": "Le Générateur de Signatures HMAC est un utilitaire cryptographique de référence développé pour calculer des codes d'authentification de messages basés sur le hachage (HMAC) en accord avec les normes RFC 2104 et FIPS PUB 198. En liant une clé privée partagée à un message au moyen d'une fonction de hachage (SHA-256, SHA-512 ou MD5), le HMAC garantit l'intégrité du contenu et la provenance certifiée de l'émetteur. Vital pour sécuriser les webhooks (Stripe, GitHub, Shopify) et signer les requêtes REST API.",
+      "title": "Générateur HMAC-SHA256 en Ligne – Créateur de Signatures et Clés Secrètes",
+      "subtitle": "Générateur HMAC-SHA256 en ligne gratuit. Calculez des signatures sécurisées pour SHA256, SHA512 et MD5 instantanément avec codage hexadécimal et Base64.",
+      "aboutText": "Notre outil HMAC-SHA256 en ligne est une application cryptographique spécialisée pour développeurs backend, architectes cloud et auditeurs en sécurité. Fonctionnant instantanément dans le navigateur sans solliciter de serveur distant, elle produit des codes d'authentification de messages conformes aux exigences RFC 2104 et FIPS PUB 198. Que vous deviez valider des webhooks via SHA256 ou préparer des chaînes en encodage Base64 pour signer des requêtes vers AWS, Stripe ou GitHub, ce système traite vos charges utiles dans la mémoire locale. C'est l'outil de référence pour confronter vos entêtes d'autorisation avec des scripts Python utilisant `hmac.new()` ou des services Java exploitant `Mac.getInstance(\"HmacSHA256\")`.",
       "feature1": "Algorithmes standards pris en charge : calcul rigoureux des signatures HMAC-SHA256, HMAC-SHA512 et HMAC-MD5",
       "feature2": "Protection absolue des clés privées : la clé secrète et les messages sont traités dans la mémoire du navigateur sans fuite",
       "feature3": "Recalcul dynamique en temps réel : met à jour automatiquement la signature à chaque modification de la clé, du texte ou du mode",
-      "feature4": "Format hexadécimal standardisé : fournit une signature en lettres minuscules prête à être placée dans vos en-têtes HTTP",
+      "feature4": "Structure hexadécimale standardisée : fournit une signature en lettres minuscules prête à être placée dans vos en-têtes HTTP",
       "step1Title": "Entrez la clé secrète",
       "step1Body": "Saisissez votre clé partagée ou votre secret d'API dans le champ correspondant.",
       "step2Title": "Choisissez l'algorithme et saisissez le message",
       "step2Body": "Sélectionnez l'algorithme HMAC et collez votre charge utile JSON ou le corps de votre requête.",
       "step3Title": "Copiez la signature HMAC",
       "step3Body": "Vérifiez la signature hexadécimale produite et cliquez sur Copier pour l'ajouter dans vos en-têtes d'autorisation.",
-      "faq1Q": "Quelle est la différence entre un HMAC et un hash standard ?",
-      "faq1A": "Un hash ordinaire s'assure uniquement que les données n'ont pas été altérées. Le HMAC intègre une clé secrète connue uniquement des parties autorisées, prouvant à la fois l'intégrité et la légitimité de l'auteur du message.",
-      "faq2Q": "Ma clé secrète est-elle protégée lors de l'utilisation ?",
-      "faq2A": "Oui, totalement. Les calculs cryptographiques ont lieu sur votre machine au sein du moteur JavaScript de votre navigateur, sans aucun appel externe.",
-      "faq3Q": "Quel algorithme HMAC est recommandé pour les webhooks récents ?",
-      "faq3A": "HMAC-SHA256 est le standard industriel privilégié par la plupart des acteurs majeurs (GitHub, Stripe, Slack) pour son équilibre entre vitesse et sécurité.",
-      "faq4Q": "Une signature HMAC protège-t-elle des attaques par rejeu ?",
-      "faq4A": "Le HMAC certifie l'authenticité de la requête. Pour parer les attaques par rejeu, on inclut généralement un horodatage dans le message signé afin de vérifier sa validité temporelle."
+      "faq1Q": "Comment générer une signature HMAC-SHA256 en ligne ?",
+      "faq1A": "Renseignez votre clé partagée dans le champ dédié, sélectionnez SHA-256 dans la liste des algorithmes et collez le message à signer. La signature est calculée en temps réel au sein de votre navigateur, prête à être intégrée dans vos entêtes d'autorisation d'API.",
+      "faq2Q": "Comment vérifier la conformité d'un script Python ou Java avec cet outil ?",
+      "faq2A": "Vous pouvez vous assurer que vos implémentations logicielles fournissent le condensat attendu. En Python : import hmac, hashlib; signature = hmac.new(b'secret', b'message', hashlib.sha256).hexdigest(). En Java : Mac mac = Mac.getInstance(\"HmacSHA256\"); mac.init(new SecretKeySpec(secretBytes, \"HmacSHA256\")); byte[] hmac = mac.doFinal(messageBytes). Utilisez les mêmes paramètres ici pour confirmer l'exactitude de votre chaîne hexadécimale.",
+      "faq3Q": "Qu'est-ce qu'une clé secrète et pourquoi est-elle nécessaire pour le protocole HMAC ?",
+      "faq3A": "La clé secrète est une suite de caractères hautement imprévisible qui sert à sceller le message. Si un simple hachage vérifie l'intégrité, le protocole HMAC associe la clé partagée pour authentifier l'émetteur et certifier que la communication n'a pas été altérée.",
+      "faq4Q": "Peut-on obtenir la signature HMAC avec un encodage Base64 ?",
+      "faq4A": "Oui ! Bien que les webhooks classiques privilégient les chaînes hexadécimales, des plateformes cloud majeures exigent une structure Base64. Il vous suffit d'insérer l'empreinte hexadécimale obtenue dans notre outil d'encodage Base64 pour obtenir la chaîne textuelle adéquate."
     },
     "htmlEncoderDecoder": {
       "title": "Décodeur HTML et Encodeur d'Entités",

@@ -370,8 +370,8 @@
       "description": "Calcolatore di checksum online gratuito (MD5, SHA256, binario e 16 bit). Verifica hash nel browser senza scaricare software."
     },
     "hmac-generator": {
-      "name": "Generatore HMAC",
-      "description": "Genera firme HMAC."
+      "name": "Generatore HMAC-SHA256 Online – Firme Crittografiche e Chiavi Segrete",
+      "description": "Generatore HMAC-SHA256 online gratuito. Ricava firme di autenticazione per SHA256, SHA512 e MD5 all'istante con supporto per codifica esadecimale e Base64."
     },
     "jwt-decoder-&-inspector": {
       "name": "Decoder e Ispettore JWT",
@@ -714,9 +714,9 @@
       "faq4A": "Certamente! Fornisce un'esperienza interamente gratuita e priva di configurazioni. Nel pieno rispetto degli standard NIST FIPS 180-4 e RFC 1321, permette di operare con precisione su Windows, macOS, Linux e smartphone senza eseguire pacchetti software aggiuntivi."
     },
     "hmacGenerator": {
-      "title": "Generatore di Firme HMAC (HMAC-SHA256, HMAC-SHA512)",
-      "subtitle": "Genera codici di autenticazione dei messaggi sicuri (HMAC-SHA256, HMAC-SHA512, HMAC-MD5) con chiavi segrete.",
-      "aboutText": "Il Generatore di Firme HMAC è un'applicazione crittografica specialistica progettata per calcolare codici di autenticazione dei messaggi basati su hash (HMAC) conformi agli standard RFC 2104 e FIPS PUB 198. Combinando una chiave segreta condivisa con un messaggio tramite una funzione hash (SHA-256, SHA-512 o MD5), l'HMAC assicura sia l'integrità delle informazioni sia l'autenticità del mittente. È indispensabile per convalidare webhook (come GitHub, Stripe, Shopify) e firmare richieste API REST (come AWS Signature v4).",
+      "title": "Generatore HMAC-SHA256 Online – Firme Crittografiche e Chiavi Segrete",
+      "subtitle": "Generatore HMAC-SHA256 online gratuito. Ricava firme di autenticazione per SHA256, SHA512 e MD5 all'istante con supporto per codifica esadecimale e Base64.",
+      "aboutText": "Il nostro generatore HMAC-SHA256 online è uno strumento crittografico dedicato a sviluppatori di backend, architetti cloud ed esperti di sicurezza informatica. Operando senza latenze direttamente nel browser web, elabora codici di autenticazione dei messaggi nel pieno rispetto delle specifiche RFC 2104 e FIPS PUB 198. Sia per autenticare webhook tramite SHA256 sia per strutturare codifiche Base64 per API come AWS, Stripe o GitHub, la piattaforma gestisce i dati nella memoria locale. Risulta insostituibile per verificare che le intestazioni HTTP corrispondano alle implementazioni in Python con `hmac.new()` o in Java con `Mac.getInstance(\"HmacSHA256\")`.",
       "feature1": "Supporto ai principali algoritmi standard: elabora fedelmente firme HMAC-SHA256, HMAC-SHA512 e HMAC-MD5",
       "feature2": "Isolamento sicuro delle chiavi segrete: chiave e payload vengono gestiti solo nella memoria locale del browser",
       "feature3": "Ricalcolo immediato e dinamico: aggiorna in tempo reale la firma esadecimale a ogni modifica di testo, chiave o algoritmo",
@@ -727,14 +727,14 @@
       "step2Body": "Seleziona l'algoritmo HMAC e incolla il payload JSON o la stringa della richiesta nel riquadro.",
       "step3Title": "Copia la firma HMAC generata",
       "step3Body": "Verifica la firma esadecimale prodotta e fai clic su \"Copia\" per utilizzarla nelle intestazioni API.",
-      "faq1Q": "Cosa contraddistingue un HMAC rispetto a un normale hash?",
-      "faq1A": "Un hash ordinario attesta unicamente che i dati non siano stati alterati. L'HMAC introduce una chiave segreta, dimostrando sia l'integrità del messaggio sia che esso provenga effettivamente da chi possiede la chiave legittima.",
-      "faq2Q": "La mia chiave privata rimane riservata durante l'utilizzo?",
-      "faq2A": "Sì, in totale sicurezza. Tutte le operazioni crittografiche avvengono localmente nel tuo browser attraverso JavaScript, senza alcuna comunicazione verso server esterni.",
-      "faq3Q": "Quale algoritmo HMAC è preferibile per i webhook moderni?",
-      "faq3A": "HMAC-SHA256 rappresenta la scelta di riferimento per l'industria (adottata da Stripe, GitHub e Slack) offrendo prestazioni veloci e massima protezione.",
-      "faq4Q": "Le firme HMAC proteggono dagli attacchi di tipo replay?",
-      "faq4A": "L'HMAC certifica che il contenuto sia autentico. Per contrastare gli attacchi di ripetizione temporale, si include tipicamente un timestamp all'interno del payload firmato e se ne verifica la validità lato ricevente."
+      "faq1Q": "Come posso ricavare online una firma HMAC-SHA256 in tempo reale?",
+      "faq1A": "Basta digitare la chiave segreta nel riquadro apposito, selezionare SHA-256 e incollare il corpo del messaggio. L'applicazione ricava istantaneamente la firma crittografica nel browser, pronta per essere inclusa nelle intestazioni di autorizzazione delle tue API.",
+      "faq2Q": "In che modo posso validare il codice scritto in Python o Java?",
+      "faq2A": "Permette di verificare che la logica software produca il digest atteso. In Python: import hmac, hashlib; signature = hmac.new(b'secret', b'message', hashlib.sha256).hexdigest(). In Java: Mac mac = Mac.getInstance(\"HmacSHA256\"); mac.init(new SecretKeySpec(secretBytes, \"HmacSHA256\")); byte[] hmac = mac.doFinal(messageBytes). Prova qui gli stessi parametri per accertarti che la sequenza esadecimale coincida.",
+      "faq3Q": "Cos'è una chiave segreta e perché è indispensabile nello schema HMAC?",
+      "faq3A": "La chiave segreta è una stringa ad alta entropia che funge da sigillo per il messaggio. Mentre un'impronta semplice verifica solo l'integrità, HMAC aggiunge la chiave condivisa per certificare l'identità del mittente, scongiurando falsificazioni lungo il tragitto.",
+      "faq4Q": "Posso visualizzare la firma HMAC con codifica Base64?",
+      "faq4A": "Certamente! Sebbene molti webhook utilizzino notazioni esadecimali, svariati servizi cloud richiedono una codifica Base64. Puoi prendere la stringa esadecimale ricavata e incollarla nel nostro strumento Base64 per ottenere la sequenza corrispondente."
     },
     "htmlEncoderDecoder": {
       "title": "Decoder HTML ed Encoder di Entità",
