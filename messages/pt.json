@@ -493,8 +493,8 @@
       "description": "Calcula o Índice de Massa Corporal em unidades imperiais ou métricas."
     },
     "discount-calculator": {
-      "name": "Calculadora de Descontos",
-      "description": "Calcula preços de venda, economia e descontos acumulados."
+      "name": "Calculadora de Descontos com Taxas e GST – Porcentagens e Liquidações",
+      "description": "Utilitário online gratuito para calcular descontos com taxas e GST. Descubra preços promocionais, valor economizado e liquidações em qualquer moeda."
     },
     "compound-interest-calculator": {
       "name": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",
@@ -645,9 +645,9 @@
       "faq4A": "Sim. A ferramenta identifica objetos aninhados, listas, booleanos (ajustados para True e False) e campos nulos (ajustados para None). As informações são organizadas em um dicionário do Python associado diretamente ao parâmetro json= do requests."
     },
     "discountCalculator": {
-      "title": "Calculadora de Descontos e Preços Promocionais",
-      "subtitle": "Calcule preços com desconto, economia real, descontos cumulativos sucessivos e deduza o preço original.",
-      "aboutText": "A Calculadora de Descontos e Preços Promocionais é uma ferramenta financeira e de compras desenvolvida para calcular com exatidão descontos, valores finais e promoções sucessivas. Oferece três modos práticos: calcular o preço promocional a partir da porcentagem de desconto, deduzir o preço original a partir do valor pago e avaliar descontos cumulativos (por exemplo, 20% de desconto mais 15% adicional de liquidação).",
+      "title": "Calculadora de Descontos com Taxas e GST – Porcentagens e Liquidações",
+      "subtitle": "Utilitário online gratuito para calcular descontos com taxas e GST. Descubra preços promocionais, valor economizado e liquidações em qualquer moeda.",
+      "aboutText": "Nossa calculadora de descontos com taxas e GST é uma solução financeira ágil criada para consumidores atentos, lojistas e profissionais de contabilidade. Atuando como um assistente de porcentagens e deduções simples, ela calcula quantias finais, economia real e ofertas em cascata sem disparidades de arredondamento. Se você precisa conferir compras em rúpias sujeitas ao GST indiano, apurar recibos em euros com IVA ou apurar tributos sobre vendas no varejo, o sistema opera de forma neutra em relação à moeda. Serve perfeitamente para conferência de notas fiscais com tributação e para estimar saldos com 20% de liquidação. Como solução web independente, dispensa a instalação de aplicativos e preserva suas informações.",
       "feature1": "Três modos de operação: calcule o preço com desconto, deduza o preço original ou avalie descontos cumulativos",
       "feature2": "Cálculo preciso de descontos sucessivos: aplica reduções sobre o saldo restante e evita erros de soma direta",
       "feature3": "Detalhamento financeiro em tempo real: veja na hora o valor economizado, o preço a pagar e a porcentagem real de desconto",
@@ -658,14 +658,14 @@
       "step2Body": "Insira o preço inicial, o valor final pago ou as porcentagens de descontos sucessivos.",
       "step3Title": "Examine e copie o detalhamento",
       "step3Body": "Confira a economia total e a taxa efetiva de desconto obtida, depois clique para copiar o detalhamento.",
-      "faq1Q": "Como funcionam os descontos cumulativos na prática?",
-      "faq1A": "Os descontos cumulativos são aplicados em sequência. Por exemplo, 20% de desconto seguido por mais 10% adicional resulta em 28% de economia real (e não 30%), pois a segunda redução incide sobre o valor já rebaixado.",
-      "faq2Q": "É possível descobrir o valor original se eu souber apenas quanto paguei?",
-      "faq2A": "Sim. Escolha o modo de dedução de preço original, digite o valor pago e a porcentagem de desconto aplicada para obter o valor de tabela.",
-      "faq3Q": "A calculadora aceita valores com casas decimais?",
-      "faq3A": "Sim, você pode digitar valores fracionados (como 19,99) e ajustar os cálculos para conferir despesas reais com exatidão.",
-      "faq4Q": "Meus dados financeiros ficam gravados em servidores?",
-      "faq4A": "Não. Todos os cálculos ocorrem localmente no navegador e nenhuma informação financeira é enviada ou armazenada."
+      "faq1Q": "Como calcular uma redução de 20% sobre o valor de um item?",
+      "faq1A": "Multiplique o valor original por 0,20 para descobrir a quantia economizada e subtraia esse resultado do preço inicial. Por exemplo, em um item de 100 €: Economia = 100 × 0,20 = 20 €, resultando no montante final de 80 €. De modo direto, basta multiplicar o valor de tabela por 0,80.",
+      "faq2Q": "Como apurar o preço com abatimento e acréscimo de taxas ou GST?",
+      "faq2A": "Aplica-se primeiro o percentual promocional para achar o subtotal com abatimento e, em seguida, acrescenta-se a alíquota tributária sobre esse valor líquido. Em uma mercadoria de 1.000 ₹ com 20% de abatimento e 18% de GST: o subtotal fica em 800 ₹ e o tributo é de 144 ₹ (800 × 0,18), totalizando 944 ₹ a pagar.",
+      "faq3Q": "Posso utilizar a ferramenta com rúpias, euros ou outras moedas?",
+      "faq3A": "Com certeza. O sistema apoia-se em princípios matemáticos universais. Quer utilize rúpias (₹), euros (€), dólares ($) ou reais (R$), os cálculos de proporção e deduções acumuladas funcionam com absoluta paridade.",
+      "faq4Q": "Esta ferramenta web substitui aplicativos tradicionais para celulares?",
+      "faq4A": "Sim. Por rodar diretamente no navegador do celular, dispensa downloads de lojas virtuais, não requer permissões e opera com total leveza na memória do aparelho, sem cobranças ou anúncios intrusivos."
     },
     "gradeCalculator": {
       "title": "Calculadora de Notas Ponderadas e Prova Final",

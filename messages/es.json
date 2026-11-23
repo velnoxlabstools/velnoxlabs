@@ -493,8 +493,8 @@
       "description": "Calcula el Índice de Masa Corporal en unidades imperiales o métricas."
     },
     "discount-calculator": {
-      "name": "Calculadora de Descuentos",
-      "description": "Calcula precios de venta, ahorros y descuentos apilados."
+      "name": "Calculadora de Descuentos con Impuestos y GST – Porcentajes y Rebajas",
+      "description": "Herramienta online gratuita para calcular descuentos con impuestos y GST. Determina precios rebajados, ahorro real y promociones acumuladas en cualquier divisa."
     },
     "compound-interest-calculator": {
       "name": "Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario)",
@@ -645,9 +645,9 @@
       "faq4A": "Sí. Reconoce objetos anidados, listas, booleanos (adaptados a True y False en Python) y valores nulos (adaptados a None). Todo se ensambla en un diccionario limpio que se envía directamente mediante el argumento json= de requests."
     },
     "discountCalculator": {
-      "title": "Calculadora de Descuentos y Precios Rebajados",
-      "subtitle": "Calcule precios de oferta, ahorros totales, descuentos porcentuales acumulados y el precio original.",
-      "aboutText": "La Calculadora de Descuentos y Precios Rebajados es una herramienta esencial para compras minoristas y planificación financiera diseñada para calcular ahorros exactos, precios finales y promociones acumuladas. Admite tres modos de operación: calcular el precio final según el porcentaje de rebaja, deducir el precio original a partir de la etiqueta rebajada y calcular descuentos acumulados o escalonados (por ejemplo, 20% de descuento más un 15% adicional por liquidación).",
+      "title": "Calculadora de Descuentos con Impuestos y GST – Porcentajes y Rebajas",
+      "subtitle": "Herramienta online gratuita para calcular descuentos con impuestos y GST. Determina precios rebajados, ahorro real y promociones acumuladas en cualquier divisa.",
+      "aboutText": "Nuestra calculadora de descuentos con impuestos y GST es una herramienta financiera ágil y versátil pensada para compradores, comerciantes y contables. Funcionando como un fiable asistente de porcentaje y rebajas directas, determina precios finales, ahorro en efectivo y promociones acumuladas sin desajustes por redondeo. Ya sea que precises realizar operaciones en rupias con GST, revisar facturas en euros con IVA o liquidar importes netos con tasas locales, este sistema opera con lógica numérica universal independiente de la moneda. Resulta idóneo para revisar ventas comerciales con gravámenes fiscales y para tasar rebajas habituales del 20%. Al ejecutarse en el navegador, no requiere instalar aplicaciones nativas y resguarda la privacidad.",
       "feature1": "Tres modos de cálculo: obtenga el precio rebajado, deduzca el precio original o evalúe descuentos apilados",
       "feature2": "Cálculo preciso de descuentos apilados: aplica rebajas sucesivas sobre el importe reducido en lugar de sumas lineales erróneas",
       "feature3": "Desglose instantáneo en tiempo real: visualice al instante la cantidad de dinero ahorrada, el precio final y el porcentaje efectivo",
@@ -658,14 +658,14 @@
       "step2Body": "Introduzca el importe de catálogo, el precio pagado o los porcentajes sucesivos de descuento.",
       "step3Title": "Revise y copie el desglose",
       "step3Body": "Compruebe el total ahorrado y el porcentaje de rebaja real, luego haga clic en \"Copiar desglose\".",
-      "faq1Q": "¿Cómo funcionan realmente los descuentos acumulados o apilados?",
-      "faq1A": "Los descuentos apilados se aplican de forma secuencial. Por ejemplo, un 20% seguido de un 10% adicional resulta en un descuento real del 28% (no un 30%), ya que el segundo descuento se descuenta del precio ya reducido.",
-      "faq2Q": "¿Puedo averiguar el precio original si solo conozco lo que pagué?",
-      "faq2A": "Sí. Seleccione \"Deducir precio original\", ingrese el importe final pagado y el porcentaje de descuento aplicado para obtener el valor inicial.",
-      "faq3Q": "¿La calculadora admite decimales e impuestos?",
-      "faq3A": "Sí, puede ingresar importes con decimales (por ejemplo, 19.99) y ajustar los valores para incluir impuestos adicionales.",
-      "faq4Q": "¿Se almacena o registra algún dato financiero?",
-      "faq4A": "No. Todas las operaciones se realizan localmente en la sesión de su navegador y no se recopila ninguna información financiera."
+      "faq1Q": "¿Cómo se calcula una rebaja del 20% en cualquier compra?",
+      "faq1A": "Para determinar un 20% de rebaja, multiplica el precio de lista por 0,20 para hallar el dinero ahorrado y luego resta esa cantidad del valor inicial. Por ejemplo, en un artículo de 100 €: Ahorro = 100 × 0,20 = 20 €, quedando el valor final en 100 - 20 = 80 €. También puedes multiplicar el costo inicial directamente por 0,80.",
+      "faq2Q": "¿De qué forma se calcula una rebaja con impuestos o GST incluidos?",
+      "faq2A": "Primero se descuenta el porcentaje de la oferta sobre el valor base para obtener el subtotal y luego se añade el porcentaje tributario sobre ese importe reducido. Por ejemplo, con un bien de 1.000 ₹ con un 20% de rebaja y un 18% de GST: el precio rebajado es 800 ₹ y el impuesto asciende a 144 ₹ (800 × 0,18), siendo el total a pagar 944 ₹.",
+      "faq3Q": "¿Es posible usar este recurso con rupias, euros u otras monedas?",
+      "faq3A": "Sí. El motor matemático es independiente de la moneda. Las fórmulas porcentuales y las rebajas secuenciales se aplican de modo idéntico tanto para rupias (₹) y euros (€) como para dólares ($) o libras (£).",
+      "faq4Q": "¿Constituye esta web una alternativa libre y ligera a las aplicaciones móviles?",
+      "faq4A": "Por supuesto. Funciona directamente en navegadores de smartphones sin descargas desde tiendas de aplicaciones, sin registros y sin consumir espacio en tu dispositivo, ejecutando todas las operaciones en la memoria local."
     },
     "gradeCalculator": {
       "title": "Calculadora de Calificaciones Ponderadas y Examen Final",

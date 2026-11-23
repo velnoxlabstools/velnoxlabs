@@ -493,8 +493,8 @@
       "description": "Berechnet den Body-Mass-Index in imperialen oder metrischen Einheiten."
     },
     "discount-calculator": {
-      "name": "Rabattrechner",
-      "description": "Berechnet Verkaufspreise, Ersparnisse und gestapelte Rabatte."
+      "name": "Rabattrechner mit Steuern und GST – Prozentuale Preisminderungen",
+      "description": "Kostenloser Online-Rabattrechner mit Steuern und GST. Ermittle Sonderpreise, reale Ersparnisse und kombinierte Prozentsätze in jeder Währung."
     },
     "compound-interest-calculator": {
       "name": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",
@@ -645,9 +645,9 @@
       "faq4A": "Ja. Das Werkzeug verarbeitet verschachtelte Objekte, Arrays, boolesche Werte (umgewandelt in True und False) sowie Nullwerte (umgewandelt in None). Die Nutzlast wird als valides Python-Dictionary bereitgestellt und an den json=-Parameter übergeben."
     },
     "discountCalculator": {
-      "title": "Rabatt- & Sparpreis-Rechner",
-      "subtitle": "Berechnen Sie reduzierte Aktionspreise, Ersparnisse, gestaffelte Mehrfachrabatte und den ursprünglichen Normalpreis.",
-      "aboutText": "Der Rabatt- & Sparpreis-Rechner ist ein praktisches Finanz- und Shopping-Werkzeug, mit dem Sie prozentuale Preisnachlässe, effektive Einsparungen und mehrstufige Staffelrabatte exakt ermitteln können. Er unterstützt drei Betriebsarten: Endpreis aus Rabattprozenten berechnen, den ursprünglichen Normalpreis aus einem reduzierten Betrag zurückrechnen sowie gestaffelte Mehrfachrabatte kombinieren (z. B. 20% Rabatt plus zusätzliche 15% Sonderabverkauf).",
+      "title": "Rabattrechner mit Steuern und GST – Prozentuale Preisminderungen",
+      "subtitle": "Kostenloser Online-Rabattrechner mit Steuern und GST. Ermittle Sonderpreise, reale Ersparnisse und kombinierte Prozentsätze in jeder Währung.",
+      "aboutText": "Unser Rabattrechner mit Steuern und GST ist ein vielseitiges Finanzwerkzeug für preisbewusste Kunden, Einzelhändler und Buchhalter. Als präziser Rechner für prozentuale Preisnachlässe und einfache Aktionen berechnet er Barersparnisse, Endbeträge und gestaffelte Aktionen ohne Rundungsdifferenzen. Ob du Beträge in Rupien mit indischer GST bewerten, Kassenbelege in Euro inklusive Mehrwertsteuer analysieren oder steuerliche Preisreduzierungen überprüfen möchtest: Das Werkzeug arbeitet währungsneutral. Es eignet sich ideal zur Überprüfung kaufmännischer Abrechnungen und zur schnellen Ermittlung klassischer 20%-Schnäppchen. Als browserbasierte Lösung erfordert es keine Software-Installation und wahrt die Privatsphäre.",
       "feature1": "Drei Berechnungsmodi: Aktionspreis berechnen, Originalpreis zurückrechnen oder Staffelrabatte auswerten",
       "feature2": "Präzise Staffelrabatt-Berechnung: Wendet Folgeabzüge auf den bereits reduzierten Zwischenbetrag an statt fehlerhaft zu addieren",
       "feature3": "Transparente Kostenaufschlüsselung: Zeigt Ersparnisbetrag, finalen Zahlbetrag und den realen Gesamtrabatt in Echtzeit an",
@@ -658,14 +658,14 @@
       "step2Body": "Geben Sie den regulären Preis, den bezahlten Endbetrag oder aufeinanderfolgende Rabattsätze ein.",
       "step3Title": "Aufschlüsselung prüfen und kopieren",
       "step3Body": "Prüfen Sie den Gesamtsparbetrag und den effektiven Prozentsatz und klicken Sie auf Aufschlüsselung kopieren.",
-      "faq1Q": "Wie funktionieren gestaffelte Mehrfachrabatte mathematisch?",
-      "faq1A": "Staffelrabatte werden nacheinander angewendet. Ein Rabatt von 20% gefolgt von weiteren 10% ergibt einen effektiven Gesamtrabatt von 28% (nicht 30%), da der zweite Abzug auf den bereits vergünstigten Preis angewendet wird.",
-      "faq2Q": "Kann ich den Normalpreis ermitteln, wenn ich nur den Zahlbetrag kenne?",
-      "faq2A": "Ja. Wechseln Sie zu \"Originalpreis zurückrechnen\", geben Sie den bezahlten Endbetrag und den Rabattprozentsatz ein, um den regulären Preis zu berechnen.",
-      "faq3Q": "Werden Dezimalstellen und Nachkommastellen unterstützt?",
-      "faq3A": "Ja, Sie können Beträge mit Nachkommastellen (z. B. 19,99) eingeben und präzise Ergebnisse berechnen.",
-      "faq4Q": "Werden meine eingegebenen Finanzdaten gespeichert?",
-      "faq4A": "Nein. Alle Berechnungen finden rein lokal im Browser statt; es werden keinerlei Daten erfasst oder übermittelt."
+      "faq1Q": "Wie berechnet man einen Preisnachlass von 20% auf Waren?",
+      "faq1A": "Multipliziere den Ausgangspreis mit 0,20, um die Ersparnis zu erhalten, und ziehe diese vom Ausgangspreis ab. Beispiel bei einem 100-Euro-Artikel: Ersparnis = 100 × 0,20 = 20 €, somit ergibt sich ein Endbetrag von 80 €. Alternativ kannst du den Ausgangswert direkt mit 0,80 multiplizieren.",
+      "faq2Q": "Wie berechnet man einen Rabatt mit anschließender Steuer oder GST?",
+      "faq2A": "Berechne zunächst den reduzierten Betrag vor Steuern und schlage den Steuersatz auf diese verminderte Summe auf. Beispiel für ein Produkt von 1.000 ₹ mit 20% Preisnachlass und 18% GST: Der rabattierte Nettopreis beträgt 800 ₹, die Steuer beläuft sich auf 144 ₹ (800 × 0,18), woraus sich ein Zahlbetrag von 944 ₹ ergibt.",
+      "faq3Q": "Eignet sich die Anwendung gleichermaßen für Rupien und Euro?",
+      "faq3A": "Ja. Die mathematische Logik ist währungsunabhängig. Alle Verhältnisrechnungen und Nachlässe verhalten sich bei Rupien (₹), Euro (€), Dollar ($) oder Pfund (£) absolut gleichwertig.",
+      "faq4Q": "Stellt das Werkzeug eine vollwertige Alternative zu Smartphone-Apps dar?",
+      "faq4A": "Ja. Es läuft unmittelbar im mobilen Webbrowser, benötigt keine Speicherplatzbelegung durch Downloads aus App-Stores und verarbeitet alle Angaben direkt im Arbeitsspeicher deines Geräts."
     },
     "gradeCalculator": {
       "title": "Gewichteter Notenrechner & Abschlussprüfungs-Rechner",
