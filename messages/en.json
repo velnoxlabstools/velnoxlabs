@@ -286,10 +286,6 @@
       "name": "cURL to Fetch & Axios Converter – Convert cURL to Axios Online",
       "description": "Free cURL to Fetch & Axios Converter and cURL to Axios code generator. Convert any cURL command into JavaScript Fetch or Axios HTTP requests instantly."
     },
-    "http-header-inspector-_-parser": {
-      "name": "HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check",
-      "description": "Inspect, parse, and analyze HTTP request and response headers with our online HTTP header analyzer & Security headers check. Format headers into JSON and inspect security configurations instantly."
-    },
     "json-to-go-struct-generator": {
       "name": "JSON to Go Struct Generator",
       "description": "Convert JSON payloads into Go struct definitions."
@@ -536,6 +532,10 @@
     "barcode-generator": {
       "name": "Barcode Generator",
       "description": "Generate customizable barcodes in Code 128, EAN-13, UPC-A, and more formats with instant SVG and PNG downloads."
+    },
+    "http-header-inspector-parser": {
+      "name": "HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check",
+      "description": "Inspect, parse, and analyze HTTP request and response headers with our online HTTP header analyzer & Security headers check. Format headers into JSON and inspect security configurations instantly."
     }
   },
   "DocsPage": {

@@ -286,10 +286,6 @@
       "name": "cURL から Fetch & Axios コード生成ツール – cURL から Axios への変換",
       "description": "無料の cURL から Fetch & Axios 変換ツール。ターミナルの cURL コマンドを JavaScript の Fetch API および Axios リクエストコードへ即座に生成。"
     },
-    "http-header-inspector-_-parser": {
-      "name": "HTTP ヘッダーアナライザー＆セキュリティヘッダー検査",
-      "description": "オンラインの HTTP ヘッダーアナライザーとセキュリティヘッダー検査で、リクエストおよびレスポンスヘッダーを詳細に分析。JSON 構造に整理し、セキュリティ構成を素早く確認できます。"
-    },
     "json-to-go-struct-generator": {
       "name": "JSON から Go Struct 変換ツール",
       "description": "JSON データから Go 言語の構造体 (struct) 定義を自動生成します。"
@@ -536,6 +532,10 @@
     "barcode-generator": {
       "name": "バーコード作成・生成ツール (Barcode Generator)",
       "description": "Code 128、EAN-13 (JAN)、UPC-Aなど多彩な規格のバーコードを即座に作成し、高品質なSVG・PNGで保存。"
+    },
+    "http-header-inspector-parser": {
+      "name": "HTTP ヘッダーアナライザー＆セキュリティヘッダー検査",
+      "description": "オンラインの HTTP ヘッダーアナライザーとセキュリティヘッダー検査で、リクエストおよびレスポンスヘッダーを詳細に分析。JSON 構造に整理し、セキュリティ構成を素早く確認できます。"
     }
   },
   "DocsPage": {

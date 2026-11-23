@@ -293,10 +293,6 @@
       "name": "Conversor de cURL para Fetch e Axios – Código cURL para Axios Online",
       "description": "Utilitário gratuito para transformar cURL em Fetch e Axios. Converta comandos cURL do terminal em requisições HTTP modernas em JavaScript."
     },
-    "http-header-inspector-_-parser": {
-      "name": "Analisador de Cabeçalhos HTTP e Verificação de Segurança",
-      "description": "Examine e avalie cabeçalhos de requisição e resposta com nosso analisador de cabeçalhos HTTP e verificação de segurança. Estruture dados em JSON e revise configurações de proteção instantaneamente."
-    },
     "json-to-go-struct-generator": {
       "name": "Gerador de JSON para Struct Go",
       "description": "Converte payloads JSON em definições de struct Go."
@@ -543,6 +539,10 @@
     "barcode-generator": {
       "name": "Gerador de Códigos de Barras",
       "description": "Crie códigos de barras profissionais em Code 128, EAN-13, UPC-A e outros padrões com exportação imediata em SVG e PNG."
+    },
+    "http-header-inspector-parser": {
+      "name": "Analisador de Cabeçalhos HTTP e Verificação de Segurança",
+      "description": "Examine e avalie cabeçalhos de requisição e resposta com nosso analisador de cabeçalhos HTTP e verificação de segurança. Estruture dados em JSON e revise configurações de proteção instantaneamente."
     }
   },
   "DocsPage": {

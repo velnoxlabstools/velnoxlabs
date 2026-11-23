@@ -453,7 +453,7 @@ export const tools: Tool[] = [
   },
   {
     id: 'tool-http-inspector',
-    slug: 'http-header-inspector-_-parser',
+    slug: 'http-header-inspector-parser',
     name: 'HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check',
     description:
       'Inspect, parse, and analyze HTTP request and response headers with our online HTTP header analyzer & security headers check. Format headers into JSON and inspect security configurations instantly.',

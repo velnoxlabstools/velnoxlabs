@@ -293,10 +293,6 @@
       "name": "cURL-zu-Fetch-und-Axios-Konverter – cURL in Axios Online Umwandeln",
       "description": "Kostenloser cURL-zu-Fetch-und-Axios-Konverter. Wandle cURL-Befehle direkt in sauberen JavaScript Fetch- oder Axios-HTTP-Code um."
     },
-    "http-header-inspector-_-parser": {
-      "name": "HTTP-Header-Analysator & Sicherheitsheader-Prüfung",
-      "description": "Untersuchen und bewerten Sie HTTP-Anfrage- und Antwort-Header mit unserem HTTP-Header-Analysator und der Sicherheitsheader-Prüfung. Strukturieren Sie Header in JSON und prüfen Sie Sicherheitskonfigurationen sofort."
-    },
     "json-to-go-struct-generator": {
       "name": "JSON-zu-Go-Struct-Generator",
       "description": "Konvertiert JSON-Payloads in Go-Struct-Definitionen."
@@ -543,6 +539,10 @@
     "barcode-generator": {
       "name": "Barcode-Generator für Strichcodes",
       "description": "Erstelle Strichcodes in den Standards Code 128, EAN-13, UPC-A und weiteren Typen mit sofortigem SVG- und PNG-Export."
+    },
+    "http-header-inspector-parser": {
+      "name": "HTTP-Header-Analysator & Sicherheitsheader-Prüfung",
+      "description": "Untersuchen und bewerten Sie HTTP-Anfrage- und Antwort-Header mit unserem HTTP-Header-Analysator und der Sicherheitsheader-Prüfung. Strukturieren Sie Header in JSON und prüfen Sie Sicherheitskonfigurationen sofort."
     }
   },
   "DocsPage": {

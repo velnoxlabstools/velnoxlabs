@@ -21,7 +21,7 @@
     "hash-generator",
     "hmac-generator",
     "html-encoder-decoder",
-    "http-header-inspector-_-parser",
+    "http-header-inspector-parser",
     "image-compressor",
     "image-cropper",
     "image-format-converter",

@@ -286,10 +286,6 @@
       "name": "cURL to Fetch 및 Axios 변환기 – cURL to Axios 온라인 코드 생성",
       "description": "무료 cURL to Fetch 및 Axios 변환기. 터미널의 cURL 명령어를 표준 JavaScript Fetch API 및 Axios HTTP 요청 코드로 즉시 변환하세요."
     },
-    "http-header-inspector-_-parser": {
-      "name": "HTTP 헤더 분석기 및 보안 헤더 검사",
-      "description": "온라인 HTTP 헤더 분석기 및 보안 헤더 검사를 통해 요청과 응답 헤더를 정밀 분석하세요. 헤더를 구조화된 JSON 데이터로 정리하고 보안 보호 구성을 즉시 점검할 수 있습니다."
-    },
     "json-to-go-struct-generator": {
       "name": "JSON to Go Struct 변환기",
       "description": "JSON 구조를 분석하여 태그가 포함된 Go 구조체 코드를 자동 생성합니다."
@@ -536,6 +532,10 @@
     "barcode-generator": {
       "name": "바코드 생성기 (Barcode Generator)",
       "description": "Code 128, EAN-13, UPC-A 등 다양한 표준 규격의 바코드를 손쉽게 제작하고 SVG 및 고해상도 PNG로 즉시 저장하세요."
+    },
+    "http-header-inspector-parser": {
+      "name": "HTTP 헤더 분석기 및 보안 헤더 검사",
+      "description": "온라인 HTTP 헤더 분석기 및 보안 헤더 검사를 통해 요청과 응답 헤더를 정밀 분석하세요. 헤더를 구조화된 JSON 데이터로 정리하고 보안 보호 구성을 즉시 점검할 수 있습니다."
     }
   },
   "DocsPage": {

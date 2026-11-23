@@ -21,7 +21,7 @@ export default function Home() {
     { name: 'CSV to JSON Converter', path: '/tools/csv-to-json', desc: 'Convert CSV data to JSON instantly with custom delimiters and quoted fields.', cat: 'Developer Tools' },
     { name: 'cURL to Python Requests Converter', path: '/tools/curl-to-python-requests-converter', desc: 'Convert cURL commands into Python requests code.', cat: 'Developer Tools' },
     { name: 'cURL to Fetch & Axios Converter', path: '/tools/curl-to-fetch-and-axios-converter', desc: 'Translate cURL to JavaScript fetch and Axios.', cat: 'Developer Tools' },
-    { name: 'HTTP Header Inspector & Parser', path: '/tools/http-header-inspector-_-parser', desc: 'Inspect and parse HTTP headers.', cat: 'Developer Tools' },
+    { name: 'HTTP Header Inspector & Parser', path: '/tools/http-header-inspector-parser', desc: 'Inspect and parse HTTP headers.', cat: 'Developer Tools' },
     { name: 'JSON Formatter & Validator', path: '/tools/json-formatter', desc: 'Format and validate JSON payloads.', cat: 'Developer Tools', popular: true },
     { name: 'JSON to Go Struct Generator', path: '/tools/json-to-go-struct-generator', desc: 'Convert JSON payloads into Go struct definitions.', cat: 'Developer Tools' },
     { name: 'JSON to Pydantic & Dataclass', path: '/tools/json-to-pydantic-&-python-dataclass-generator', desc: 'Generate Pydantic models from JSON.', cat: 'Developer Tools' },

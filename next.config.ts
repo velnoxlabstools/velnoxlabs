@@ -22,6 +22,20 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/tools/http-header-inspector-_-parser',
+        destination: '/tools/http-header-inspector-parser',
+        permanent: true,
+      },
+      {
+        source: '/:locale/tools/http-header-inspector-_-parser',
+        destination: '/:locale/tools/http-header-inspector-parser',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

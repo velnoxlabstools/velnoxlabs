@@ -286,10 +286,6 @@
       "name": "cURL 转 Fetch 与 Axios 代码生成工具 – 在线 cURL 转换器",
       "description": "免费 cURL 转 Fetch 与 Axios 代码生成工具。一键将任何终端 cURL 命令行即时转换为标准的 JavaScript Fetch 或 Axios HTTP 请求代码。"
     },
-    "http-header-inspector-_-parser": {
-      "name": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",
-      "description": "使用在线 HTTP 标头分析器与安全标头检测，快速分解并分析 HTTP 请求与响应报文。即刻将标头整理为清晰的 JSON 映射并审查安全防护策略。"
-    },
     "json-to-go-struct-generator": {
       "name": "JSON 转 Go Struct 结构体工具",
       "description": "根据 JSON 数据自动生成带 Tag 标注的 Go 结构体定义代码。"
@@ -536,6 +532,10 @@
     "barcode-generator": {
       "name": "条形码生成器 (Barcode Generator)",
       "description": "在线制作 Code 128、EAN-13、UPC-A 等多种编码的条形码，支持矢量 SVG 与高清 PNG 极速保存。"
+    },
+    "http-header-inspector-parser": {
+      "name": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",
+      "description": "使用在线 HTTP 标头分析器与安全标头检测，快速分解并分析 HTTP 请求与响应报文。即刻将标头整理为清晰的 JSON 映射并审查安全防护策略。"
     }
   },
   "DocsPage": {

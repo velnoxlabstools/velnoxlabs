@@ -41,7 +41,7 @@ server: nginx/1.18.0`
           <SectionHeading
             title={tUI('title')}
             subtitle={tUI('subtitle')}
-            toolSlug="http-header-inspector-_-parser"
+            toolSlug="http-header-inspector-parser"
           />
 
           {/* TOOL UI */}
@@ -154,7 +154,7 @@ server: nginx/1.18.0`
           </div>
 
           <ToolSeoContent
-            toolSlug="http-header-inspector-_-parser"
+            toolSlug="http-header-inspector-parser"
             toolName={tUI('title')}
             description={tUI('subtitle')}
             customAbout={tUI('aboutText')}
