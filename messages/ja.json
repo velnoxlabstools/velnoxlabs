@@ -229,10 +229,10 @@
       "description": "無料のCSP作成・構文整形・診断ツール。Content-Security-Policyの記述を検証し、WebアプリをXSS攻撃から強固に防御。"
     },
     "json-formatter": {
-      "name": "JSON整形・構文検証オンラインツール",
-      "description": "ブラウザ上でJSONの整形、構文エラー検証、圧縮（Minify）を瞬時に実行。完全ローカル処理で機密データを保護。",
-      "title": "JSON フォーマッタ & バリデータ",
-      "subtitle": "ブラウザ内でプライベートかつ安全に、JSON データを瞬時に整形・検証・圧縮します。",
+      "name": "JSONフォーマッタ・バリデータ・ビューア",
+      "description": "JSONペイロードの整形、構文検証、美化、縮小をブラウザ上で即座に実行する開発者向けツール。",
+      "title": "JSONフォーマッタ・バリデータ・ビューア – オンライン最高峰のJSON検証ツール",
+      "subtitle": "JSONペイロードの整形、構文検証、美化、縮小をブラウザ上で即座に実行する開発者向けツール。",
       "inputLabel": "JSON 入力:",
       "outputLabel": "整形結果:",
       "formatBtn": "整形 / 美化",

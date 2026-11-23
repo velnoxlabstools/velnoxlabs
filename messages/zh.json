@@ -229,10 +229,10 @@
       "description": "免费 CSP 策略构建、语法整理与安全扫描工具。快速排版并测试内容安全策略，防范 Web 应用中的 XSS 漏洞。"
     },
     "json-formatter": {
-      "name": "JSON 格式化与语法验证工具",
-      "description": "在浏览器中实时格式化、美化、校验与压缩 JSON 数据，纯本地运行，保护隐私。",
-      "title": "JSON 格式化与校验工具",
-      "subtitle": "纯浏览器端即时格式化、校验并美化 JSON 数据，绝对保护本地数据隐私。",
+      "name": "JSON格式化、校验与查看器",
+      "description": "在线格式化、美化、校验与压缩JSON数据，极速语法报错与结构查看。",
+      "title": "JSON格式化、校验与查看器 – 在线最佳JSON校验工具",
+      "subtitle": "在线格式化、美化、校验与压缩JSON数据，极速语法报错与结构查看。",
       "inputLabel": "JSON 输入：",
       "outputLabel": "格式化输出：",
       "formatBtn": "格式化 / 美化",

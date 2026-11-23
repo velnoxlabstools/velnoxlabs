@@ -229,10 +229,10 @@
       "description": "Free CSP Generator & Formatter and CSP Scanner. Build, format, and run a Content Security Policy test to protect web apps from XSS vulnerabilities."
     },
     "json-formatter": {
-      "name": "JSON Formatter & Validator",
-      "description": "Format and validate JSON payloads.",
-      "title": "JSON Formatter & Validator",
-      "subtitle": "Format, validate, and beautify JSON payloads instantly in your browser with absolute client-side privacy.",
+      "name": "JSON Formatter, Validator & Viewer",
+      "description": "Free online JSON formatter, validator & viewer. Beautify, validate, minify, and compare JSON payloads in your browser. The best JSON validator online for developers.",
+      "title": "JSON Formatter, Validator & Viewer – Best JSON Validator Online",
+      "subtitle": "Free online JSON formatter, validator & viewer. Beautify, validate, minify, and compare JSON payloads in your browser. The best JSON validator online for developers.",
       "inputLabel": "JSON Input:",
       "outputLabel": "Formatted Output:",
       "formatBtn": "Format / Beautify",

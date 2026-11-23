@@ -236,10 +236,10 @@
       "description": "Applicativo gratuito per comporre, normalizzare e analizzare intestazioni CSP. Esegui verifiche di Content-Security-Policy contro attacchi XSS."
     },
     "json-formatter": {
-      "name": "Formattatore e Validatore JSON Online",
-      "description": "Formatta, convalida, abbellisci e comprimi payload JSON direttamente nel tuo browser con privacy assoluta.",
-      "title": "Formattatore e Validatore JSON",
-      "subtitle": "Formatta, valida e abbellisci i payload JSON istantaneamente nel tuo browser con assoluta privacy lato client.",
+      "name": "Formattatore, Validatore e Visualizzatore JSON",
+      "description": "Formatta, valida, abbellisci e minimizza payload JSON nel browser con rilevamento immediato degli errori.",
+      "title": "Formattatore, Validatore e Visualizzatore JSON – Miglior Validatore Online",
+      "subtitle": "Formatta, valida, abbellisci e minimizza payload JSON nel browser con rilevamento immediato degli errori.",
       "inputLabel": "Input JSON:",
       "outputLabel": "Output Formattato:",
       "formatBtn": "Formatta / Abbellisci",

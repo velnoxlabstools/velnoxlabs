@@ -236,10 +236,10 @@
       "description": "Kostenloses Hilfsmittel zur Erstellung, Syntax-Prüfung und Sicherheitsanalyse von CSP-Headern. Führe Content-Security-Policy-Tests gegen XSS-Lücken durch."
     },
     "json-formatter": {
-      "name": "Online-JSON-Formatierer und Validierer",
-      "description": "Formatiere, überprüfe, verschönere und komprimiere JSON-Strukturen direkt im Browser mit vollständigem Datenschutz.",
-      "title": "JSON-Formatierer & Validator",
-      "subtitle": "Formatieren, validieren und verschönern Sie JSON-Payloads sofort in Ihrem Browser mit absoluter clientseitiger Privatsphäre.",
+      "name": "JSON-Formatierer, Validator & Viewer",
+      "description": "JSON-Daten im Browser prüfen, formatieren, verschönern und komprimieren mit sofortiger Fehleranzeige.",
+      "title": "JSON-Formatierer, Validator & Viewer – Bester JSON-Validator online",
+      "subtitle": "JSON-Daten im Browser prüfen, formatieren, verschönern und komprimieren mit sofortiger Fehleranzeige.",
       "inputLabel": "JSON-Eingabe:",
       "outputLabel": "Formatierte Ausgabe:",
       "formatBtn": "Formatieren / Verschönern",

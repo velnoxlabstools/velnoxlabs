@@ -236,10 +236,10 @@
       "description": "Solution sans frais pour concevoir, structurer et analyser vos directives CSP. Lancez un test Content-Security-Policy pour prémunir vos sites du XSS."
     },
     "json-formatter": {
-      "name": "Mise en page et Validateur JSON en Ligne",
-      "description": "Mettez en forme, validez, embellissez et compressez vos données JSON directement dans votre navigateur.",
-      "title": "Formateur et Validateur JSON",
-      "subtitle": "Formatez, validez et embellissez les charges utiles JSON instantanément dans votre navigateur avec une confidentialité absolue côté client.",
+      "name": "Formateur, Validateur et Visualiseur JSON",
+      "description": "Structurez, validez, embellissez et condensez vos données JSON dans le navigateur avec détection immédiate des erreurs.",
+      "title": "Formateur, Validateur et Visualiseur JSON – Meilleur Validateur en Ligne",
+      "subtitle": "Structurez, validez, embellissez et condensez vos données JSON dans le navigateur avec détection immédiate des erreurs.",
       "inputLabel": "Entrée JSON :",
       "outputLabel": "Sortie Formatée :",
       "formatBtn": "Formater / Embellir",

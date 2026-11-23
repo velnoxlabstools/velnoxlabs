@@ -236,10 +236,10 @@
       "description": "Herramienta gratuita para construir, normalizar y analizar cabeceras CSP. Ejecuta pruebas de Content-Security-Policy para proteger sitios web contra XSS."
     },
     "json-formatter": {
-      "name": "Formateador y Validador JSON Online",
-      "description": "Formatea, valida, embellece y comprime estructuras JSON en tu navegador con privacidad total.",
-      "title": "Formateador y Validador de JSON",
-      "subtitle": "Formatea, valida y embellece cargas útiles JSON al instante en tu navegador con absoluta privacidad del lado del cliente.",
+      "name": "Formateador, Validador y Visor JSON",
+      "description": "Formatee, valide, embellezca y compacte JSON en el navegador con detección instantánea de errores.",
+      "title": "Formateador, Validador y Visor JSON – El Mejor Validador Online",
+      "subtitle": "Formatee, valide, embellezca y compacte JSON en el navegador con detección instantánea de errores.",
       "inputLabel": "Entrada JSON:",
       "outputLabel": "Salida Formateada:",
       "formatBtn": "Formatear / Embellecer",
