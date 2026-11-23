@@ -510,8 +510,8 @@
       "description": "ブラウザ内で JPG、PNG、WebP 画像を高画質圧縮。100KB、50KB、20KB、1MB など指定サイズへ直感的に容量削減できます。"
     },
     "image-format-converter": {
-      "name": "画像フォーマット変換オンラインツール",
-      "description": "JPG、PNG、WebPなどの画像フォーマットをブラウザ内で相互変換。完全なプライバシーと一括保存に対応。"
+      "name": "JPGおよびWord向け画像変換ツール",
+      "description": "JPG、PNG、WebPに対応した無料オンライン画像変換ツール。iLovePDFや専用ソフトの安全なブラウザ代替。"
     },
     "image-cropper": {
       "name": "オンライン画像トリミングツール（ピクセル・cm 指定対応）– 無料写真編集",
