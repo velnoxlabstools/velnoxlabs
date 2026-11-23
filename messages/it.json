@@ -286,8 +286,8 @@
       "description": "Applicativo gratuito per convertire grandi file CSV in JSON. Trasforma tabelle CSV, fogli TSV ed esportazioni Excel in array JSON puliti senza limiti di dimensione."
     },
     "curl-to-python-requests-converter": {
-      "name": "Convertitore cURL in Python",
-      "description": "Converti comandi cURL in codice Python Requests online con intestazioni, cookie e autenticazione."
+      "name": "Convertitore da cURL a Python Requests Online – Riferimento cURL per Postman",
+      "description": "Strumento online gratuito da cURL a Python Requests e riferimento per Postman. Trasforma comandi cURL da terminale in script Python requests puliti."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "Convertitore da cURL a Fetch e Axios – Codice cURL in Axios Online",
@@ -622,9 +622,9 @@
       "faq4A": "Certamente. Vengono elaborati dati JSON (--data, -d, --data-raw), parametri URL, Bearer Token e autenticazione di base (-u utente:password). Tutta l'elaborazione viene eseguita nella memoria del dispositivo senza trasmettere informazioni a server terzi."
     },
     "curlToPython": {
-      "title": "Convertitore cURL in Python",
-      "subtitle": "Converti comandi cURL in codice Python Requests online con intestazioni, autenticazione, cookie e payload JSON.",
-      "aboutText": "Il Convertitore da cURL a Python Requests trasforma le istruzioni cURL da riga di comando in codice Python strutturato secondo le migliori pratiche della libreria requests. Analizza metodi HTTP, intestazioni personalizzate, cookie, parametri di query, credenziali di autenticazione e payload (sia application/json che form-data). Ideale per data engineer e sviluppatori backend che necessitano di trasformare specifiche API in script Python affidabili.",
+      "title": "Convertitore da cURL a Python Requests Online – Riferimento cURL per Postman",
+      "subtitle": "Strumento online gratuito da cURL a Python Requests e riferimento per Postman. Trasforma comandi cURL da terminale in script Python requests puliti.",
+      "aboutText": "Il nostro convertitore da cURL a Python Requests online è una risorsa web celere ideata per sviluppatori e analisti di dati. Soluzione moderna e riservata rispetto a vecchi servizi web, trasferisce le istruzioni da terminale in codice Python requests pulito basato su dizionari ben formattati. Oltre a generare script Python, agisce da interprete per comandi da riga di comando Bash, traducendo istruzioni articolate in codice manutenibile. Viene impiegato regolarmente per preparare chiamate su Postman e per comprendere i parametri del protocollo HTTP. Gestisce inoltre strutture JSON derivate da flag -d e --data, organizzandole in oggetti nativi Python in tutta sicurezza.",
       "feature1": "Codice Python idiomatico: converte carichi e intestazioni in dizionari nativi preservando tipi e strutture dati",
       "feature2": "Gestione smart di autenticazione e JSON: associa automaticamente il flag -u a HTTPBasicAuth e i dati JSON al parametro json=",
       "feature3": "Massima riservatezza nel browser: chiavi di autenticazione e corpi di richiesta non lasciano mai la memoria del tuo computer",
@@ -635,14 +635,14 @@
       "step2Body": "Controlla i dizionari delle intestazioni, i parametri di query, l'autenticazione e la chiamata requests.",
       "step3Title": "Copia nello script Python",
       "step3Body": "Fai clic su \"Copia codice\" per incollare il blocco generato nel tuo notebook Jupyter, servizio FastAPI o script di automazione.",
-      "faq1Q": "Questo strumento crea codice per requests o httpx?",
-      "faq1A": "Genera codice standard per la libreria requests con dizionari ordinati, facilmente impiegabile anche con httpx o aiohttp.",
-      "faq2Q": "Come vengono formattati i corpi JSON in Python?",
-      "faq2A": "Se il comando cURL include JSON valido nei flag -d o --data-raw, viene convertito in un dizionario nativo passato all'argomento json=.",
-      "faq3Q": "Le credenziali di autorizzazione corrono rischi di diffusione?",
-      "faq3A": "Assolutamente no. Tutte le operazioni di parsing e sintassi avvengono esclusivamente nella memoria del browser senza traffico di rete.",
-      "faq4Q": "Come vengono gestiti i comandi cURL composti da più righe?",
-      "faq4A": "Il parser rimuove automaticamente i caratteri di continuazione (\\) e normalizza gli spazi prima di estrarre opzioni e parametri."
+      "faq1Q": "Come tradurre un comando cURL in codice Python requests?",
+      "faq1A": "Inserisci l'istruzione del terminale nell'area di lavoro. Una riga come `curl -X POST https://api.example.com/items -H 'Authorization: Bearer token123' -H 'Content-Type: application/json' -d '{\"name\":\"widget\",\"qty\":5}'` genera all'istante uno script Python funzionante basato su `requests.post(url, headers=headers, json=payload)` con dizionari ordinati.",
+      "faq2Q": "Come riprodurre una chiamata cURL in Postman o esaminare il formato HTTP?",
+      "faq2A": "Su Postman seleziona 'Import' nel menu superiore e incolla il comando cURL; il programma imposterà automaticamente metodo, chiavi di intestazione e corpo. Se desideri analizzare la chiamata HTTP pura, il nostro strumento suddivide metodo, percorso ed elementi principali.",
+      "faq3Q": "A cosa serve un traduttore di comandi di console per cURL?",
+      "faq3A": "Consente di decifrare istruzioni del terminale ricche di caratteri di escape (\\) e virgolette, estraendo automaticamente parametri come -H, -X, -d e -u. Ciò velocizza il trasferimento di script operativi verso architetture Python.",
+      "faq4Q": "Il sistema riconosce strutture JSON con livelli nidificati?",
+      "faq4A": "Certamente. Vengono gestiti oggetti nidificati, elenchi, valori booleani (trascritti in True e False) e valori nulli (trascritti in None), incapsulando il tutto in un dizionario Python pronto per il parametro json= di requests."
     },
     "discountCalculator": {
       "title": "Calcolatore di Sconti e Prezzi in Saldo",

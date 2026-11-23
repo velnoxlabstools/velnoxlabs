@@ -286,8 +286,8 @@
       "description": "Kostenloses Werkzeug für große CSV-Dateien. Wandle CSV-Tabellen, TSV-Dateien und Excel-Exporte ohne Dateigrößenbeschränkung in strukturierte JSON-Arrays um."
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL-zu-Python-Konverter",
-      "description": "cURL-Befehle online in Python-Requests-Code umwandeln – inklusive Header, Cookies und Authentifizierung."
+      "name": "cURL-zu-Python-Requests-Konverter Online – cURL zu Postman Referenz",
+      "description": "Kostenloser cURL-zu-Python-Requests-Konverter und cURL-zu-Postman-Leitfaden. Wandle Terminal-cURL-Befehle direkt in saubere Python-Requests-Skripte um."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL-zu-Fetch-und-Axios-Konverter – cURL in Axios Online Umwandeln",
@@ -622,9 +622,9 @@
       "faq4A": "Ja. Das System liest JSON-Inhalte (--data, -d, --data-raw), Formulardaten, Bearer-Tokens und Basic-Auth (-u Benutzer:Passwort) zuverlässig ein. Da alle Schritte clientseitig im Webbrowser ablaufen, bleiben deine Zugangsdaten vertraulich."
     },
     "curlToPython": {
-      "title": "cURL-zu-Python-Konverter",
-      "subtitle": "cURL-Befehle online in sauberen Python-Requests-Code umwandeln – mit Headern, Authentifizierung, Cookies und JSON-Daten.",
-      "aboutText": "Der cURL zu Python Requests Konverter wandelt Befehlszeilenaufrufe in strukturierten und lesbaren Python-Code um, der auf der beliebten requests-Bibliothek basiert. Er analysiert HTTP-Methoden, benutzerdefinierte Header, Cookies, URL-Parameter, Anmeldedaten und Nutzlasten (sowohl application/json als auch Formulardaten). Ideal für Data Engineers, Backend-Entwickler und Automatisierungsspezialisten, die APIs schnell und zuverlässig in Python anbinden möchten.",
+      "title": "cURL-zu-Python-Requests-Konverter Online – cURL zu Postman Referenz",
+      "subtitle": "Kostenloser cURL-zu-Python-Requests-Konverter und cURL-zu-Postman-Leitfaden. Wandle Terminal-cURL-Befehle direkt in saubere Python-Requests-Skripte um.",
+      "aboutText": "Unser webbasierter cURL-zu-Python-Requests-Konverter ist ein performantes Hilfsmittel für Softwareentwickler und Datenanalysten. Als zeitgemäße, datenschutzfreundliche Alternative zu älteren Portalen überträgt dieses Werkzeug Befehlszeilenaufrufe in sauberen Python-Requests-Code mit übersichtlichen Wörterbüchern. Neben der Skripterstellung fungiert die Anwendung als praktischer Helfer für Bash-Terminalbefehle, um unübersichtliche Einzeiler in wartungsfreundliche Abläufe zu überführen. Entwickler nutzen das Werkzeug häufig bei der Vorbereitung für Postman oder zur Analyse von HTTP-Headern. Durch die Erkennung von JSON-Strukturen werden -d- und --data-Nutzlasten direkt in native Python-Objekte umgewandelt.",
       "feature1": "Idiomatische Python-Ausgabe: Strukturiert Header und Payloads als native Python-Dictionaries unter Erhalt der Datentypen",
       "feature2": "Automatische Authentifizierung & JSON-Erkennung: Verknüpft -u Flags direkt mit HTTPBasicAuth und JSON-Daten mit dem json=-Parameter",
       "feature3": "100% Privatsphäre im Browser: Vertrauliche Token und Nutzlasten verlassen zu keinem Zeitpunkt Ihre lokale Umgebung",
@@ -635,14 +635,14 @@
       "step2Body": "Überprüfen Sie die erstellten Header-Dictionaries, URL-Parameter, Authentifizierungstupel und den requests-Aufruf.",
       "step3Title": "In Python-Skript kopieren",
       "step3Body": "Klicken Sie auf \"Code kopieren\", um das Snippet in Ihr Jupyter Notebook, FastAPI-Projekt oder Automatisierungsskript einzufügen.",
-      "faq1Q": "Wird Code für requests oder httpx generiert?",
-      "faq1A": "Das Tool erstellt standardmäßigen Code für Python requests mit klar getrennten Dictionaries, der sich auch sehr leicht auf httpx übertragen lässt.",
-      "faq2Q": "Wie werden JSON-Inhalte in Python abgebildet?",
-      "faq2A": "Gültiges JSON in -d oder --data-raw wird in ein natives Python-Dictionary umgewandelt und an den Parameter json= übergeben.",
-      "faq3Q": "Besteht ein Sicherheitsrisiko für Autorisierungsheader?",
-      "faq3A": "Nein. Sämtliche Parsing- und Generierungsschritte laufen lokal im Arbeitsspeicher Ihres Browsers ohne externe Netzwerkverbindungen ab.",
-      "faq4Q": "Werden mehrzeilige cURL-Befehle unterstützt?",
-      "faq4A": "Ja. Zeilenumbrüche mit Backslash (\\) werden vom Parser automatisch entfernt und Leerzeichen vor der Analyse standardisiert."
+      "faq1Q": "Wie wandelt man einen cURL-Befehl in Python-Requests-Code um?",
+      "faq1A": "Füge die Terminalzeile in das Textfeld ein. Ein Aufruf wie `curl -X POST https://api.example.com/items -H 'Authorization: Bearer token123' -H 'Content-Type: application/json' -d '{\"name\":\"widget\",\"qty\":5}'` wird unmittelbar in lesbaren Python-Code übersetzt und nutzt `requests.post(url, headers=headers, json=payload)` mit klar strukturierten Dictionaries.",
+      "faq2Q": "Wie überträgt man cURL-Befehle in Postman oder analysiert HTTP-Aufrufe?",
+      "faq2A": "In Postman klickst du oben links auf 'Import' und fügst den cURL-Befehl ein; Postman erstellt daraus automatisch eine fertige Anfrage mit Headern und Parametern. Zur Untersuchung von HTTP-Strukturen schlüsselt unser Werkzeug Methoden, Pfade und Kopfzeilen übersichtlich auf.",
+      "faq3Q": "Was versteht man unter einem Terminal-Befehlswandler für cURL?",
+      "faq3A": "Ein solcher Helfer übersetzt Shell- und Bash-Befehle, die oft Zeilenumbrüche mit Backslashes (\\) und Maskierungszeichen enthalten, in sauberen Quelltext. Parameter wie -H, -X, -d und -u werden automatisch aufgeschlüsselt, was die Skriptmigration zu Python beschleunigt.",
+      "faq4Q": "Werden verschachtelte JSON-Datenstrukturen verlässlich erkannt?",
+      "faq4A": "Ja. Das Werkzeug verarbeitet verschachtelte Objekte, Arrays, boolesche Werte (umgewandelt in True und False) sowie Nullwerte (umgewandelt in None). Die Nutzlast wird als valides Python-Dictionary bereitgestellt und an den json=-Parameter übergeben."
     },
     "discountCalculator": {
       "title": "Rabatt- & Sparpreis-Rechner",

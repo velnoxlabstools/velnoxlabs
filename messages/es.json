@@ -286,8 +286,8 @@
       "description": "Herramienta online gratuita para convertir archivos CSV grandes a JSON. Transforma hojas de cálculo CSV, TSV y exportaciones de Excel en matrices JSON sin límites."
     },
     "curl-to-python-requests-converter": {
-      "name": "Convertidor de cURL a Python",
-      "description": "Convierte comandos cURL a código Python Requests en línea con cabeceras, cookies y autenticación."
+      "name": "Conversor de cURL a Python Requests Online – Referencia de cURL a Postman",
+      "description": "Herramienta online gratuita de cURL a Python Requests y referencia para Postman. Transforma líneas de comando cURL en scripts limpios de Python requests al instante."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "Conversor de cURL a Fetch y Axios – Código cURL a Axios Online",
@@ -622,9 +622,9 @@
       "faq4A": "Sí. Reconoce datos JSON (--data, -d, --data-raw), formularios codificados, tokens de portador y autenticación básica (-u usuario:clave). Todo el procesamiento se realiza en la memoria local del navegador sin enviar credenciales a servidores externos."
     },
     "curlToPython": {
-      "title": "Convertidor de cURL a Python",
-      "subtitle": "Convierte comandos cURL a código Python Requests en línea con cabeceras, cookies, autenticación y cargas JSON.",
-      "aboutText": "El Convertidor de cURL a Python Requests convierte llamadas de línea de comandos en código Python limpio e idiomático utilizando la popular biblioteca requests. Analiza de manera inteligente verbos HTTP, encabezados personalizados, cookies, parámetros de URL, credenciales de autenticación básica y cargas útiles (tanto application/json como datos codificados en formulario). Ideal para ingenieros de datos y desarrolladores backend que automatizan flujos de trabajo con APIs.",
+      "title": "Conversor de cURL a Python Requests Online – Referencia de cURL a Postman",
+      "subtitle": "Herramienta online gratuita de cURL a Python Requests y referencia para Postman. Transforma líneas de comando cURL en scripts limpios de Python requests al instante.",
+      "aboutText": "Nuestro conversor online de cURL a Python Requests es una herramienta de procesamiento web de alta velocidad creada para programadores y especialistas en automatización. Diseñado como una alternativa privada y moderna frente a soluciones clásicas, traduce comandos de terminal a código limpio de Python requests con diccionarios bien estructurados. Más allá de generar scripts en Python, actúa como un práctico asistente para comandos de consola Bash, simplificando líneas extensas de terminal. Se utiliza con frecuencia para flujos de cURL a Postman y para examinar cabeceras del protocolo HTTP. Además, maneja cargas de datos JSON mediante los parámetros -d y --data, integrándolas en estructuras nativas de Python bajo absoluta privacidad local.",
       "feature1": "Salida de Python idiomática: formatea encabezados y cargas útiles como diccionarios nativos de Python preservando tipos de datos",
       "feature2": "Detección inteligente de autenticación y JSON: asocia automáticamente el modificador -u con HTTPBasicAuth y el contenido JSON con el parámetro json=",
       "feature3": "100% de privacidad en el navegador: las claves secretas y los cuerpos de solicitud nunca salen de su entorno local",
@@ -635,14 +635,14 @@
       "step2Body": "Inspeccione los diccionarios de encabezados, los parámetros de consulta, la tupla de autenticación y la llamada requests.",
       "step3Title": "Copie al script de Python",
       "step3Body": "Haga clic en \"Copiar código\" para pegar el fragmento en su entorno Jupyter, servicio FastAPI o script de automatización.",
-      "faq1Q": "¿Esta herramienta genera código para requests o httpx?",
-      "faq1A": "Genera código estándar para la biblioteca requests con diccionarios limpios. La estructura resultante es fácilmente adaptable a httpx o aiohttp.",
-      "faq2Q": "¿Cómo se formatean los cuerpos JSON en Python?",
-      "faq2A": "Si el comando cURL contiene datos JSON válidos en -d o --data-raw, se transforman en un diccionario nativo de Python que se pasa al parámetro json=.",
-      "faq3Q": "¿Se transmiten encabezados de autorización confidenciales durante la conversión?",
-      "faq3A": "Jamás. Todo el procesamiento y la generación de código se realizan exclusivamente en la memoria del lado del cliente sin tráfico de red.",
-      "faq4Q": "¿Cómo maneja comandos cURL de múltiples líneas?",
-      "faq4A": "El analizador elimina automáticamente las barras invertidas de continuación de línea (\\) y normaliza los espacios en blanco antes de evaluar las opciones."
+      "faq1Q": "¿Cómo transformar un comando cURL en código para Python requests?",
+      "faq1A": "Pega tu instrucción de terminal en el panel de trabajo. Por ejemplo, una llamada como `curl -X POST https://api.example.com/items -H 'Authorization: Bearer token123' -H 'Content-Type: application/json' -d '{\"name\":\"widget\",\"qty\":5}'` se traduce de inmediato en un script con `requests.post(url, headers=headers, json=payload)` con diccionarios organizados.",
+      "faq2Q": "¿Cómo llevar un comando cURL a Postman o revisar la llamada HTTP?",
+      "faq2A": "Para importar en Postman, abre el programa, presiona el botón 'Import' en la barra superior y pega la instrucción cURL para que configure automáticamente métodos, cabeceras y parámetros. Si deseas inspeccionar la estructura HTTP formal, nuestra herramienta separa de forma nítida el método, la ruta y los encabezados.",
+      "faq3Q": "¿Qué ventajas ofrece un transformador de instrucciones de consola cURL?",
+      "faq3A": "Permite tomar líneas complejas de la terminal repletas de barras invertidas (\\), comillas escapadas y variables, abstrayendo flags como -H, -X, -d o -u. Esto agiliza la migración de scripts de consola a servicios robustos en Python.",
+      "faq4Q": "¿Soporta estructuras complejas y objetos anidados en JSON?",
+      "faq4A": "Sí. Reconoce objetos anidados, listas, booleanos (adaptados a True y False en Python) y valores nulos (adaptados a None). Todo se ensambla en un diccionario limpio que se envía directamente mediante el argumento json= de requests."
     },
     "discountCalculator": {
       "title": "Calculadora de Descuentos y Precios Rebajados",
