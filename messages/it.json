@@ -262,8 +262,8 @@
       "faq3A": "Sì, questo strumento è completamente responsive e funziona su browser desktop, tablet e mobili."
     },
     "image-resizer": {
-      "name": "Ridimensionatore di Immagini per Lotti",
-      "description": "Modifica le dimensioni di immagini singole o multiple in pixel o percentuale nel browser con rendering canvas ad alta fedeltà."
+      "name": "Ridimensiona Immagini in KB, MB e CM",
+      "description": "Riduci immagini a 20KB, 50KB, 100KB o centimetri per passaporti, stampa e portali online nel browser."
     },
     "invoice-generator": {
       "name": "Generatore di Fatture",

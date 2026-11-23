@@ -262,8 +262,8 @@
       "faq3A": "Sim, esta ferramenta é totalmente responsiva e funciona em navegadores desktop, tablet e móveis."
     },
     "image-resizer": {
-      "name": "Redimensionador de Imagens em Lote",
-      "description": "Redimensione fotos individuais ou em massa por pixels ou porcentagem no navegador com renderização de alta qualidade."
+      "name": "Redimensionador de Imagens em KB, MB e CM",
+      "description": "Ajuste fotos para 20KB, 50KB, 100KB ou centímetros para documentos, passaporte e cadastros online."
     },
     "invoice-generator": {
       "name": "Gerador de Faturas",

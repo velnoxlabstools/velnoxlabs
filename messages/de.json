@@ -262,8 +262,8 @@
       "faq3A": "Ja, dieses Tool ist vollständig responsive und funktioniert auf Desktop-, Tablet- und mobilen Browsern."
     },
     "image-resizer": {
-      "name": "Bilder-Stapel-Größenanpassung",
-      "description": "Passe Bildabmessungen einzeln oder im Stapel nach Pixeln oder Prozent direkt im Browser mit Canvas-Qualität an."
+      "name": "Bildgröße in KB, MB & CM anpassen",
+      "description": "Bilder auf 20KB, 50KB, 100KB oder Zentimeter für Passfotos, Druck und Uploads im Browser skalieren."
     },
     "invoice-generator": {
       "name": "Rechnungsgenerator",

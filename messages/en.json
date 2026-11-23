@@ -255,8 +255,8 @@
       "faq3A": "Yes, this tool is fully responsive and works on desktop, tablet, and mobile browsers."
     },
     "image-resizer": {
-      "name": "Image Resizer",
-      "description": "Resize and compress images in the browser without uploads."
+      "name": "Image Resizer in KB, MB & CM",
+      "description": "Resize images to 20KB, 50KB, 100KB, or specific cm dimensions for passport photos, print, and portal uploads."
     },
     "invoice-generator": {
       "name": "Invoice Generator",
