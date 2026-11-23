@@ -294,8 +294,8 @@
       "description": "Utilitário gratuito para transformar cURL em Fetch e Axios. Converta comandos cURL do terminal em requisições HTTP modernas em JavaScript."
     },
     "http-header-inspector-_-parser": {
-      "name": "Inspetor e Analisador de Cabeçalhos HTTP",
-      "description": "Inspeciona e analisa cabeçalhos HTTP."
+      "name": "Analisador de Cabeçalhos HTTP e Verificação de Segurança",
+      "description": "Examine e avalie cabeçalhos de requisição e resposta com nosso analisador de cabeçalhos HTTP e verificação de segurança. Estruture dados em JSON e revise configurações de proteção instantaneamente."
     },
     "json-to-go-struct-generator": {
       "name": "Gerador de JSON para Struct Go",
@@ -760,27 +760,27 @@
       "faq4A": "Sim! O recurso é totalmente bidirecional. Você pode alternar quando quiser entre codificar texto puro para caracteres protegidos e decodificar códigos como &lt;div&gt; ou referências numéricas (como &#169;) de volta para texto compreensível."
     },
     "httpHeaderInspector": {
-      "title": "Inspetor e Analisador de Cabeçalhos HTTP",
-      "subtitle": "Decomponha cabeçalhos HTTP brutos em tabelas estruturadas de chave-valor com análise de segurança.",
-      "aboutText": "O Inspetor e Analisador de Cabeçalhos HTTP é uma ferramenta de diagnóstico e segurança na web que organiza blocos de cabeçalhos de requisições ou respostas HTTP em tabelas legíveis. Ele identifica parâmetros de rede (Host, User-Agent, Content-Type), inspeciona diretivas de cache (Cache-Control, ETag, Age) e evidencia cabeçalhos de segurança cruciais (Content-Security-Policy, Strict-Transport-Security, X-Frame-Options).",
-      "feature1": "Análise imediata de cabeçalhos brutos: remove linhas de status e organiza cabeçalhos em pares estruturados de chave e valor",
-      "feature2": "Identificação de cabeçalhos de proteção: destaca políticas de segurança como CSP, HSTS, CORS e opções contra cliques indevidos",
-      "feature3": "Visualização em tabela e exportação JSON: examine as diretivas organizadas ou copie o resultado como um objeto JSON estruturado",
-      "feature4": "Análise confidencial e privada: nenhum tráfego de rede é disparado; o processamento ocorre apenas sobre o texto colado no navegador",
-      "step1Title": "Cole os cabeçalhos brutos",
-      "step1Body": "Copie os cabeçalhos do curl, Postman ou da aba Rede das ferramentas de desenvolvedor e cole no campo apropriado.",
-      "step2Title": "Analise a estrutura organizada",
-      "step2Body": "Examine os cabeçalhos agrupados por protocolo padrão, regras de armazenamento em cache e atributos de segurança.",
-      "step3Title": "Copie a estrutura em JSON",
-      "step3Body": "Clique em copiar para obter o mapa estruturado de cabeçalhos em formato JSON para usar em relatórios ou testes.",
-      "faq1Q": "Quais cabeçalhos HTTP são vitais para a segurança de aplicações web?",
-      "faq1A": "Os mais relevantes incluem Content-Security-Policy (CSP) para mitigar XSS, Strict-Transport-Security (HSTS) para forçar conexões HTTPS, X-Frame-Options para impedir clickjacking e X-Content-Type-Options para barrar o MIME-sniffing.",
-      "faq2Q": "O utilitário processa cabeçalhos de requisição e de resposta?",
-      "faq2A": "Sim. Ele aceita e analisa perfeitamente tanto cabeçalhos de requisição (como Authorization, Cookie, Accept) quanto de resposta (como Set-Cookie, Cache-Control, Server).",
-      "faq3Q": "Como cabeçalhos repetidos são tratados?",
-      "faq3A": "Seguindo o padrão RFC 7230, cabeçalhos que possuem o mesmo nome (como múltiplas linhas de Set-Cookie) são preservados e agrupados, sem perda de dados.",
-      "faq4Q": "A ferramenta envia sondagens para o servidor de origem?",
-      "faq4A": "Não. Ela funciona como um analisador estático operando localmente no seu navegador, sem disparar conexões ativas na rede."
+      "title": "Analisador de Cabeçalhos HTTP e Verificação de Segurança",
+      "subtitle": "Examine e avalie cabeçalhos de requisição e resposta com nosso analisador de cabeçalhos HTTP e verificação de segurança. Estruture dados em JSON e revise configurações de proteção instantaneamente.",
+      "aboutText": "Nosso analisador de cabeçalhos HTTP é uma suíte robusta no navegador para visualização e diagnóstico de cabeçalhos, desenvolvida para profissionais da web, engenharia DevSecOps e administração de sistemas. Seja para conduzir uma verificação de segurança automatizada alinhada às melhores práticas ou para avaliar dados em rotinas JavaScript, esta ferramenta decompõe linhas brutas em tabelas estruturadas de chave e valor. Desenvolvedores com frequência precisam verificar os cabeçalhos que o Chrome registra durante a depuração de tráfego de rede ou executar uma verificação de segurança para auditar servidores com base nas diretrizes recomendadas pela Snyk. Seja ao analisar um exemplo de cabeçalho HTTP de uma API, checar parâmetros de cache ou experimentar exemplos com metadados personalizados, nosso utilitário em JavaScript processa tudo localmente com total privacidade e sem latência de servidores remotos.",
+      "feature1": "Divisão instantânea de texto: Remove linhas de status e organiza os dados em pares de chave e valor claros",
+      "feature2": "Detecção de diretivas de proteção: Evidencia a presença de parâmetros de defesa essenciais como CSP, HSTS e CORS",
+      "feature3": "Apresentação em tabelas e JSON: Organiza as linhas em tabelas acessíveis e permite exportar tudo em JSON estruturado",
+      "feature4": "Avaliação 100% privada no cliente: Nenhuma requisição externa é feita; o processamento ocorre na memória local do navegador",
+      "step1Title": "Colar cabeçalhos brutos",
+      "step1Body": "Extraia as linhas brutas de resposta do curl, Postman ou da aba de rede do DevTools no navegador e insira aqui.",
+      "step2Title": "Revisar detalhamento estruturado",
+      "step2Body": "Examine os parâmetros categorizados por protocolo padrão, regras de armazenamento em cache e atributos de segurança.",
+      "step3Title": "Transferir objeto JSON",
+      "step3Body": "Pressione o botão para transferir a estrutura organizada como JSON, ideal para testes automatizados ou documentação.",
+      "faq1Q": "Como verificar cabeçalhos HTTP no navegador Chrome?",
+      "faq1A": "Para checar os cabeçalhos registrados pelo Chrome, pressione F12 (ou clique com o botão direito e selecione 'Inspecionar') para abrir o DevTools e acesse a aba 'Network' (Rede). Recarregue a página ou faça uma chamada de API, selecione a requisição desejada na lista e abra a guia 'Headers' no painel lateral. Você visualizará 'General', 'Response Headers' e 'Request Headers'. Basta transferir o conteúdo bruto diretamente do DevTools e colar em nosso analisador para obter a estrutura imediata.",
+      "faq2Q": "O que são cabeçalhos de segurança e como funciona a verificação?",
+      "faq2A": "Cabeçalhos de segurança são diretivas de resposta HTTP que instruem os navegadores a ativar defesas integradas contra vulnerabilidades como Cross-Site Scripting (XSS), clickjacking e sniffing de pacotes. Nossa verificação de segurança avalia regras fundamentais como Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), defesas contra clickjacking, proteção de tipos MIME e Referrer-Policy. De forma similar às auditorias promovidas pela Snyk ou OWASP, a ferramenta aponta regras ausentes e checa parâmetros para assegurar o fortalecimento da sua aplicação web.",
+      "faq3Q": "Poderia fornecer um exemplo prático de cabeçalho HTTP?",
+      "faq3A": "Com certeza! Veja a seguir um exemplo prático de cabeçalho vindo de uma API protegida:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nEste exemplo demonstra cabeçalhos de protocolo, cache e proteção que nossa ferramenta decompõe automaticamente em linhas organizadas de chave e valor.",
+      "faq4Q": "Como esta ferramenta auxilia na integração e manipulação em JavaScript?",
+      "faq4A": "Ao manipular respostas brutas em Node.js, Fetch ou XMLHttpRequest (como xhr.getAllResponseHeaders()), os dados chegam em formato de texto delimitado por quebras CRLF (\\r\\n). Nosso mecanismo em JavaScript divide as linhas no primeiro caractere de dois pontos (:), ajusta espaçamentos, preserva registros duplicados como Set-Cookie e gera um dicionário JSON limpo. Isso torna simples validar dados simulados de API, depurar serviços e transferir estruturas JSON para suas aplicações em JavaScript."
     },
     "invoiceGenerator": {
       "title": "Gerador de Faturas Gratuito",

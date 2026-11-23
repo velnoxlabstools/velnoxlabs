@@ -5,7 +5,8 @@ export const tools: Tool[] = [
     id: 'tool-emoji-copy',
     slug: 'emoji-copy',
     name: '10000 Emojis Copy and Paste – Cute Emoji Copy & Keyboard',
-    description: 'Free Cute Emoji Copy & Keyboard with 10000 Emojis Copy and Paste. Search aesthetic symbols, kaomoji, and cute emoticons with one-click copy and paste for Android, iOS, Discord, and social media.',
+    description:
+      'Free Cute Emoji Copy & Keyboard with 10000 Emojis Copy and Paste. Search aesthetic symbols, kaomoji, and cute emoticons with one-click copy and paste for Android, iOS, Discord, and social media.',
     categoryId: 'cat-utility',
     tags: [
       'emoji',
@@ -37,7 +38,8 @@ export const tools: Tool[] = [
     id: 'tool-fancy-text-generator',
     slug: 'fancy-text-generator',
     name: 'Fancy Text Generator for WhatsApp – Fancy Font Generator',
-    description: 'Free online Fancy Text Generator for WhatsApp and Fancy Font Generator. Create stylish fonts, symbols, emojis, and aesthetic text with one-click copy and paste for Instagram bios, WhatsApp names, and Discord.',
+    description:
+      'Free online Fancy Text Generator for WhatsApp and Fancy Font Generator. Create stylish fonts, symbols, emojis, and aesthetic text with one-click copy and paste for Instagram bios, WhatsApp names, and Discord.',
     categoryId: 'cat-text',
     tags: [
       'text',
@@ -68,7 +70,8 @@ export const tools: Tool[] = [
     id: 'tool-image-cropper',
     slug: 'image-cropper',
     name: 'Image Cropper',
-    description: 'Crop images to exact aspect ratios, dimensions, or circular avatars in the browser.',
+    description:
+      'Crop images to exact aspect ratios, dimensions, or circular avatars in the browser.',
     categoryId: 'cat-media',
     tags: ['image', 'crop', 'cropper', 'avatar', 'aspect-ratio', 'media'],
     status: 'published',
@@ -149,7 +152,8 @@ export const tools: Tool[] = [
     id: 'tool-csp-builder',
     slug: 'csp-header-builder-and-validator',
     name: 'CSP Generator & Formatter – CSP Scanner & Header Validator',
-    description: 'Free CSP Generator & Formatter and CSP Scanner. Build, format, and run a Content Security Policy test to protect web apps from XSS vulnerabilities.',
+    description:
+      'Free CSP Generator & Formatter and CSP Scanner. Build, format, and run a Content Security Policy test to protect web apps from XSS vulnerabilities.',
     categoryId: 'cat-security',
     tags: [
       'csp',
@@ -265,9 +269,21 @@ export const tools: Tool[] = [
     id: 'tool-base64',
     slug: 'base64-encoder',
     name: 'Base64 Encoder & Decoder Online – Encode File to Base64',
-    description: 'Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 strings, images, and URL-safe data.',
+    description:
+      'Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 strings, images, and URL-safe data.',
     categoryId: 'cat-converters',
-    tags: ['base64', 'encode', 'decode', 'base64 encoder & decoder online', 'base64 decode', 'base64 decoder online', 'base64 image decoder', 'base64 encode online', 'encode file to base64', 'base64 url encode'],
+    tags: [
+      'base64',
+      'encode',
+      'decode',
+      'base64 encoder & decoder online',
+      'base64 decode',
+      'base64 decoder online',
+      'base64 image decoder',
+      'base64 encode online',
+      'encode file to base64',
+      'base64 url encode',
+    ],
     status: 'published',
     featured: true,
     trending: true,
@@ -281,7 +297,8 @@ export const tools: Tool[] = [
     id: 'tool-cron',
     slug: 'cron-expression-generator',
     name: 'Best Free Cron Expression Generator & Validator – Cron Expression Formatter',
-    description: 'The Best Free Cron Expression Generator & Validator and Cron Expression Formatter. Build, validate, and decode AWS cron expression, Spring cron expression, Quartz, and Linux schedules with human-readable explanations.',
+    description:
+      'The Best Free Cron Expression Generator & Validator and Cron Expression Formatter. Build, validate, and decode AWS cron expression, Spring cron expression, Quartz, and Linux schedules with human-readable explanations.',
     categoryId: 'cat-dev',
     tags: [
       'cron',
@@ -317,7 +334,8 @@ export const tools: Tool[] = [
     id: 'tool-word-counter',
     slug: 'word-counter',
     name: 'Word Counter & Online Word Count Tool',
-    description: 'Real-time word count, character count, word length checker, and keyword count tool.',
+    description:
+      'Real-time word count, character count, word length checker, and keyword count tool.',
     categoryId: 'cat-text',
     tags: ['text', 'count', 'words', 'word count', 'word length checker', 'keyword count tool'],
     status: 'published',
@@ -335,7 +353,8 @@ export const tools: Tool[] = [
     id: 'tool-csv-json',
     slug: 'csv-to-json',
     name: 'Large CSV to JSON Converter – Convert CSV to JSON Array Online',
-    description: 'Free online Large CSV to JSON converter. Convert CSV to JSON array structures, TSV spreadsheets, and Excel exports into clean JSON without file size limits.',
+    description:
+      'Free online Large CSV to JSON converter. Convert CSV to JSON array structures, TSV spreadsheets, and Excel exports into clean JSON without file size limits.',
     categoryId: 'cat-dev',
     tags: [
       'csv',
@@ -348,7 +367,7 @@ export const tools: Tool[] = [
       'csv to json converter javascript',
       'convert csv to json in excel',
       'csv to json converter vscode',
-      'how to convert csv to json python'
+      'how to convert csv to json python',
     ],
     status: 'published',
     featured: false,
@@ -363,7 +382,8 @@ export const tools: Tool[] = [
     id: 'tool-curl-python',
     slug: 'curl-to-python-requests-converter',
     name: 'cURL to Python Requests Converter (Online) – cURL to Postman',
-    description: 'Free cURL to Python Requests Converter (Online) and cURL to Postman reference. Convert terminal cURL commands into clean Python requests scripts instantly.',
+    description:
+      'Free cURL to Python Requests Converter (Online) and cURL to Postman reference. Convert terminal cURL commands into clean Python requests scripts instantly.',
     categoryId: 'cat-dev',
     tags: [
       'curl',
@@ -376,7 +396,7 @@ export const tools: Tool[] = [
       'curl to python requests',
       'curl to http',
       'curl (bash converter)',
-      'curl to postman'
+      'curl to postman',
     ],
     status: 'published',
     featured: false,
@@ -391,7 +411,8 @@ export const tools: Tool[] = [
     id: 'tool-curl-fetch',
     slug: 'curl-to-fetch-and-axios-converter',
     name: 'cURL to Fetch & Axios Converter – Convert cURL to Axios Online',
-    description: 'Free cURL to Fetch & Axios Converter and cURL to Axios code generator. Convert any cURL command into JavaScript Fetch or Axios HTTP requests instantly.',
+    description:
+      'Free cURL to Fetch & Axios Converter and cURL to Axios code generator. Convert any cURL command into JavaScript Fetch or Axios HTTP requests instantly.',
     categoryId: 'cat-dev',
     tags: [
       'curl',
@@ -404,7 +425,7 @@ export const tools: Tool[] = [
       'curl to fetch and axios converter example',
       'curl to fetch and axios converter javascript',
       'curl to axios',
-      'curl converter'
+      'curl converter',
     ],
     status: 'published',
     featured: false,
@@ -418,10 +439,23 @@ export const tools: Tool[] = [
   {
     id: 'tool-http-inspector',
     slug: 'http-header-inspector-_-parser',
-    name: 'HTTP Header Inspector & Parser',
-    description: 'Inspect and parse HTTP headers.',
+    name: 'HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check',
+    description:
+      'Inspect, parse, and analyze HTTP request and response headers with our online HTTP header analyzer & security headers check. Format headers into JSON and inspect security configurations instantly.',
     categoryId: 'cat-dev',
-    tags: ['http', 'headers', 'parser'],
+    tags: [
+      'http',
+      'headers',
+      'parser',
+      'http header analyzer',
+      'http header inspector & parser example',
+      'security headers check',
+      'http header inspector & parser javascript',
+      'http header example',
+      'http header viewer',
+      'security headers by snyk',
+      'check http headers chrome',
+    ],
     status: 'published',
     featured: false,
     trending: false,
@@ -429,7 +463,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 3200,
     createdAt: '2025-09-01T00:00:00.000Z',
-    updatedAt: '2026-05-01T00:00:00.000Z',
+    updatedAt: '2026-11-23T00:00:00.000Z',
   },
   {
     id: 'tool-json-go',
@@ -611,7 +645,8 @@ export const tools: Tool[] = [
     id: 'tool-unix-ts',
     slug: 'unix-timestamp-converter',
     name: 'Unix Timestamp Converter & Epoch Date Calculator',
-    description: 'Convert unix timestamp to human-readable date and time or epoch time to UTC and local timezone.',
+    description:
+      'Convert unix timestamp to human-readable date and time or epoch time to UTC and local timezone.',
     categoryId: 'cat-dev',
     tags: ['unix', 'timestamp', 'converter', 'unix timestamp', 'epoch'],
     status: 'published',
@@ -677,7 +712,8 @@ export const tools: Tool[] = [
     id: 'tool-hash',
     slug: 'hash-generator',
     name: 'Hash Generator Online (MD5, SHA256, Bcrypt & File)',
-    description: 'Free Hash Generator Online (MD5, SHA256, Bcrypt & File). Generate SHA-256, MD5, and SHA-512 cryptographic hashes instantly with client-side security.',
+    description:
+      'Free Hash Generator Online (MD5, SHA256, Bcrypt & File). Generate SHA-256, MD5, and SHA-512 cryptographic hashes instantly with client-side security.',
     categoryId: 'cat-security',
     tags: [
       'hash',
@@ -721,9 +757,22 @@ export const tools: Tool[] = [
     id: 'tool-checksum',
     slug: 'checksum-calculator',
     name: 'Checksum Calculator Online (MD5, SHA256, Binary & 16-bit)',
-    description: 'Free checksum calculator online (MD5, SHA256, binary & 16-bit). Compute cryptographic hashes and simple binary checksums in your browser without software downloads.',
+    description:
+      'Free checksum calculator online (MD5, SHA256, binary & 16-bit). Compute cryptographic hashes and simple binary checksums in your browser without software downloads.',
     categoryId: 'cat-security',
-    tags: ['checksum', 'hash', 'security', 'checksum calculator online', '16-bit checksum calculator', 'checksum calculator binary', 'checksum calculator download', 'checksum calculator md5', 'checksum calculator axis bank', 'checksum calculator sha256', 'simple checksum calculator'],
+    tags: [
+      'checksum',
+      'hash',
+      'security',
+      'checksum calculator online',
+      '16-bit checksum calculator',
+      'checksum calculator binary',
+      'checksum calculator download',
+      'checksum calculator md5',
+      'checksum calculator axis bank',
+      'checksum calculator sha256',
+      'simple checksum calculator',
+    ],
     status: 'published',
     featured: false,
     trending: false,
@@ -737,7 +786,8 @@ export const tools: Tool[] = [
     id: 'tool-hmac',
     slug: 'hmac-generator',
     name: 'HMAC-SHA256 Generator Online – HMAC Secret Key Generator',
-    description: 'Free HMAC-SHA256 Generator Online and HMAC Secret Key Generator. Compute secure SHA256, SHA512, and MD5 message signatures with hexadecimal and Base64 output.',
+    description:
+      'Free HMAC-SHA256 Generator Online and HMAC Secret Key Generator. Compute secure SHA256, SHA512, and MD5 message signatures with hexadecimal and Base64 output.',
     categoryId: 'cat-security',
     tags: [
       'hmac',
@@ -783,7 +833,8 @@ export const tools: Tool[] = [
     id: 'tool-html-encoder',
     slug: 'html-encoder-decoder',
     name: 'HTML Encoder & Decoder Online – Decode HTML Entities',
-    description: 'Free HTML Encoder & Decoder Online to decode HTML entities, escape reserved characters, and format HTML entities in your browser with zero latency.',
+    description:
+      'Free HTML Encoder & Decoder Online to decode HTML entities, escape reserved characters, and format HTML entities in your browser with zero latency.',
     categoryId: 'cat-converters',
     tags: [
       'html',
@@ -812,9 +863,22 @@ export const tools: Tool[] = [
     id: 'tool-color',
     slug: 'color-converter',
     name: 'Color Converter Online (HEX, RGB, CMYK, LAB & Pantone)',
-    description: 'Free Color Converter Online (HEX, RGB, CMYK, LAB & Pantone). Convert RGB to HEX, HEX to CMYK, and inspect LAB and Pantone color values in your browser.',
+    description:
+      'Free Color Converter Online (HEX, RGB, CMYK, LAB & Pantone). Convert RGB to HEX, HEX to CMYK, and inspect LAB and Pantone color values in your browser.',
     categoryId: 'cat-converters',
-    tags: ['color', 'converter', 'hex', 'color converter image', 'color converter to pantone', 'color converter online', 'hex color converter', 'color converter lab', 'color converter rgb to hex', 'rgb color converter', 'color converter hex to cmyk'],
+    tags: [
+      'color',
+      'converter',
+      'hex',
+      'color converter image',
+      'color converter to pantone',
+      'color converter online',
+      'hex color converter',
+      'color converter lab',
+      'color converter rgb to hex',
+      'rgb color converter',
+      'color converter hex to cmyk',
+    ],
     status: 'published',
     featured: false,
     trending: true,
@@ -830,9 +894,22 @@ export const tools: Tool[] = [
     id: 'tool-case',
     slug: 'case-converter',
     name: 'Sentence Case Converter & Title Case – Case Converter Text',
-    description: 'Free sentence case converter and title case text tool online. Convert small letter to capital in Excel, format sentences, and transform case converter text instantly without any extension.',
+    description:
+      'Free sentence case converter and title case text tool online. Convert small letter to capital in Excel, format sentences, and transform case converter text instantly without any extension.',
     categoryId: 'cat-text',
-    tags: ['text', 'case', 'converter', 'sentence case converter', 'convert small letter to capital in excel', 'case converter free', 'case converter extension', 'case converter title case', 'case converter net', 'sentence case converter in excel', 'case converter text'],
+    tags: [
+      'text',
+      'case',
+      'converter',
+      'sentence case converter',
+      'convert small letter to capital in excel',
+      'case converter free',
+      'case converter extension',
+      'case converter title case',
+      'case converter net',
+      'sentence case converter in excel',
+      'case converter text',
+    ],
     status: 'published',
     featured: false,
     trending: false,
@@ -912,7 +989,8 @@ export const tools: Tool[] = [
     id: 'tool-fix-my-speaker',
     slug: 'fix-my-speaker',
     name: 'Speaker Cleaner – Fix My Speaker & 10000 Hz Dust Cleaning Sound',
-    description: 'Free online Speaker Cleaner with 10000 Hz Dust Cleaning Sound. Eject trapped water, dislodge speaker dust, and restore muffled sound on Android, iPhone, and upper call speakers.',
+    description:
+      'Free online Speaker Cleaner with 10000 Hz Dust Cleaning Sound. Eject trapped water, dislodge speaker dust, and restore muffled sound on Android, iPhone, and upper call speakers.',
     categoryId: 'cat-utility',
     tags: [
       'speaker',
@@ -941,9 +1019,19 @@ export const tools: Tool[] = [
     id: 'tool-age',
     slug: 'age-calculator',
     name: 'Age Calculator by Date of Birth',
-    description: 'Free online age calculator by date of birth. Calculate your exact age in years, months, days, and total time lived.',
+    description:
+      'Free online age calculator by date of birth. Calculate your exact age in years, months, days, and total time lived.',
     categoryId: 'cat-utility',
-    tags: ['age', 'calculator', 'date', 'age calculator by date of birth', 'date of birth calculator', 'age calculator formula', 'decimal age calculator', 'age calculator nepali'],
+    tags: [
+      'age',
+      'calculator',
+      'date',
+      'age calculator by date of birth',
+      'date of birth calculator',
+      'age calculator formula',
+      'decimal age calculator',
+      'age calculator nepali',
+    ],
     status: 'published',
     featured: false,
     trending: false,
@@ -1023,7 +1111,8 @@ export const tools: Tool[] = [
     id: 'tool-discount',
     slug: 'discount-calculator',
     name: 'Discount Calculator with GST & Tax – Percentage Discount Calculator',
-    description: 'Free online Discount Calculator with GST & Tax and Percentage Discount Calculator. Calculate sale prices, customer savings, and stacked percentage discounts instantly in any currency.',
+    description:
+      'Free online Discount Calculator with GST & Tax and Percentage Discount Calculator. Calculate sale prices, customer savings, and stacked percentage discounts instantly in any currency.',
     categoryId: 'cat-shopping',
     tags: [
       'discount',
@@ -1053,7 +1142,8 @@ export const tools: Tool[] = [
     id: 'tool-compound',
     slug: 'compound-interest-calculator',
     name: 'Compound Interest Calculator India (SBI, SIP, Monthly & Daily)',
-    description: 'Free Compound Interest Calculator India (SBI, SIP, Monthly & Daily). Calculate returns for SBI fixed deposits, HDFC Life policies, and mutual fund SIPs with custom compounding frequencies.',
+    description:
+      'Free Compound Interest Calculator India (SBI, SIP, Monthly & Daily). Calculate returns for SBI fixed deposits, HDFC Life policies, and mutual fund SIPs with custom compounding frequencies.',
     categoryId: 'cat-finance',
     tags: [
       'compound',
@@ -1066,7 +1156,7 @@ export const tools: Tool[] = [
       'sip compound interest calculator',
       'yearly compound interest calculator',
       'monthly compound interest calculator india',
-      'compound interest calculator hdfc life'
+      'compound interest calculator hdfc life',
     ],
     status: 'published',
     featured: false,
@@ -1115,7 +1205,8 @@ export const tools: Tool[] = [
     id: 'tool-grade',
     slug: 'grade-calculator',
     name: 'Final Grade Calculator – What If Grade Calculator & Test Grader',
-    description: 'Free online Final Grade Calculator and What If Grade Calculator. Calculate semester grades, quarter grades, test scores, high school GPAs, and weighted points.',
+    description:
+      'Free online Final Grade Calculator and What If Grade Calculator. Calculate semester grades, quarter grades, test scores, high school GPAs, and weighted points.',
     categoryId: 'cat-education',
     tags: [
       'grade',
@@ -1143,7 +1234,8 @@ export const tools: Tool[] = [
     id: 'tool-barcode-generator',
     slug: 'barcode-generator',
     name: 'Barcode Generator',
-    description: 'Generate customizable barcodes in Code 128, EAN-13, UPC-A, and more formats with instant SVG and PNG downloads.',
+    description:
+      'Generate customizable barcodes in Code 128, EAN-13, UPC-A, and more formats with instant SVG and PNG downloads.',
     categoryId: 'cat-business',
     tags: [
       'barcode',
@@ -1160,7 +1252,7 @@ export const tools: Tool[] = [
       'bulk barcode generator',
       'text to barcode generator',
       'free barcode generator ai',
-      'barcode generator app'
+      'barcode generator app',
     ],
     status: 'published',
     featured: true,
@@ -1188,5 +1280,4 @@ export const collections: ToolCollection[] = [
     description: 'Hash and password tools that stay on your device.',
     toolIds: ['tool-hash', 'tool-password'],
   },
-  
 ];

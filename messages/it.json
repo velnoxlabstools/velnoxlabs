@@ -294,8 +294,8 @@
       "description": "Applicativo gratuito per tradurre comandi cURL in Fetch e Axios. Trasforma le istruzioni del terminale in chiamate HTTP per JavaScript in un attimo."
     },
     "http-header-inspector-_-parser": {
-      "name": "Ispettore e Parser Header HTTP",
-      "description": "Ispeziona e analizza header HTTP."
+      "name": "Analizzatore di Intestazioni HTTP e Verifica di Sicurezza",
+      "description": "Esamina e valuta le intestazioni di richiesta e risposta con il nostro analizzatore di intestazioni HTTP e verifica di sicurezza. Struttura i dati in JSON e controlla subito le configurazioni di protezione."
     },
     "json-to-go-struct-generator": {
       "name": "Generatore JSON in Struct Go",
@@ -760,27 +760,27 @@
       "faq4A": "Sì! Il programma è completamente bidirezionale. Puoi passare in qualsiasi momento dalla modalità di codifica per proteggere testo in chiaro alla modalità di decodifica per ripristinare codici come &lt;div&gt; o riferimenti numerici (quali &#169;) in testo leggibile."
     },
     "httpHeaderInspector": {
-      "title": "Ispettore e Analizzatore di Intestazioni HTTP",
-      "subtitle": "Scomponi intestazioni HTTP grezze in tabelle strutturate di chiavi e valori con analisi dei parametri di sicurezza.",
-      "aboutText": "L'Ispettore e Analizzatore di Intestazioni HTTP è uno strumento per sviluppatori e sistemisti web che scompone blocchi di intestazioni di richieste o risposte HTTP in tabelle chiare e ben organizzate. Rileva i parametri di rete primari (Host, User-Agent, Content-Type), valuta le direttive di caching (Cache-Control, ETag, Age) e pone in evidenza le intestazioni di sicurezza essenziali (Content-Security-Policy, Strict-Transport-Security, X-Frame-Options).",
-      "feature1": "Analisi istantanea di intestazioni grezze: isola la riga di stato e suddivide le intestazioni multiriga in coppie chiave-valore",
-      "feature2": "Riconoscimento delle difese web: evidenzia la presenza e la conformità di intestazioni quali CSP, HSTS, CORS e cookie sicuri",
-      "feature3": "Vista tabellare ed esportazione in JSON: consulta i parametri in modo chiaro oppure esporta l'oggetto JSON strutturato con un clic",
-      "feature4": "Elaborazione riservata sul dispositivo: nessuna chiamata verso l'esterno; l'analisi avviene unicamente sul testo incollato",
-      "step1Title": "Incolla le intestazioni HTTP",
-      "step1Body": "Copia le intestazioni da curl, Postman o dalla scheda Network degli strumenti del browser e incollale nel box.",
-      "step2Title": "Esamina la suddivisione organizzata",
-      "step2Body": "Consulta le intestazioni classificate per protocollo, direttive di cache e configurazioni di sicurezza.",
-      "step3Title": "Copia come struttura JSON",
-      "step3Body": "Fai clic sul pulsante per copiare l'oggetto strutturato in formato JSON da utilizzare in test o documentazione.",
-      "faq1Q": "Quali intestazioni HTTP risultano decisive per la sicurezza delle applicazioni web?",
-      "faq1A": "Le principali comprendono Content-Security-Policy (CSP) per contrastare attacchi XSS, Strict-Transport-Security (HSTS) per imporre HTTPS, X-Frame-Options per bloccare il clickjacking e X-Content-Type-Options per impedire il MIME-sniffing.",
-      "faq2Q": "È possibile esaminare sia intestazioni di richiesta che di risposta?",
-      "faq2A": "Sì. Il parser individua e organizza sia intestazioni di richiesta (come Authorization, Cookie, Accept) sia di risposta (come Set-Cookie, Cache-Control, Server).",
-      "faq3Q": "Come vengono gestite le intestazioni con nomi duplicati?",
-      "faq3A": "In conformità alla specifica RFC 7230, le intestazioni con lo stesso nome (come più istruzioni Set-Cookie) vengono mantenute e aggregate senza sovrascritture accidentali.",
-      "faq4Q": "Questo strumento invia richieste di prova verso il server analizzato?",
-      "faq4A": "No. È un analizzatore statico offline che opera esclusivamente sul testo fornito, senza instaurare connessioni di rete."
+      "title": "Analizzatore di Intestazioni HTTP e Verifica di Sicurezza",
+      "subtitle": "Esamina e valuta le intestazioni di richiesta e risposta con il nostro analizzatore di intestazioni HTTP e verifica di sicurezza. Struttura i dati in JSON e controlla subito le configurazioni di protezione.",
+      "aboutText": "Il nostro analizzatore di intestazioni HTTP è uno strumento client avanzato per la visualizzazione e la diagnosi delle intestazioni, ideato per sviluppatori web, specialisti DevSecOps e amministratori di sistema. Sia che tu abbia bisogno di una verifica di sicurezza automatizzata secondo le migliori pratiche, sia che desideri esaminare parametri nei flussi JavaScript, questo strumento organizza le righe grezze in chiare tabelle strutturate di chiavi e valori. Gli sviluppatori hanno spesso la necessità di verificare le intestazioni registrate da Chrome durante le sessioni di analisi di rete o di eseguire una verifica di sicurezza per confrontare i parametri del server con le linee guida consigliate da Snyk. Che si tratti di valutare un esempio di intestazione HTTP proveniente da una risposta API, verificare direttive di cache o sperimentare metadati personalizzati, la nostra soluzione in JavaScript elabora ogni informazione localmente con massima riservatezza e senza attese esterne.",
+      "feature1": "Scomposizione immediata del testo: Elimina le righe di stato e raggruppa le intestazioni in coppie ben definite di chiavi e valori",
+      "feature2": "Individuazione delle direttive di protezione: Evidenzia parametri essenziali per la sicurezza quali CSP, HSTS e CORS",
+      "feature3": "Visualizzazione chiara in tabella e JSON: Dispone le voci in tabelle leggibili e consente l'esportazione in un oggetto JSON ben strutturato",
+      "feature4": "Analisi 100% riservata nel browser: Nessuna chiamata a server remoti; l'intera elaborazione si svolge nella memoria locale",
+      "step1Title": "Incollare le intestazioni grezze",
+      "step1Body": "Preleva le righe grezze di risposta da curl, Postman o dal pannello di rete di DevTools nel tuo browser e inseriscile qui.",
+      "step2Title": "Esaminare la suddivisione strutturata",
+      "step2Body": "Consulta i dati suddivisi per protocollo standard, parametri di memorizzazione nella cache e regole di protezione.",
+      "step3Title": "Prelevare dati JSON",
+      "step3Body": "Premi il pulsante per esportare la mappatura delle intestazioni come oggetto JSON strutturato, comodo per verifiche automatiche.",
+      "faq1Q": "Come verificare le intestazioni HTTP nel browser Chrome?",
+      "faq1A": "Per controllare le intestazioni registrate da Chrome, premi F12 (oppure fai clic con il tasto destro e seleziona 'Ispeziona') per aprire DevTools, quindi accedi alla scheda 'Network' (Rete). Ricarica la pagina o esegui una chiamata API, seleziona la risorsa specifica dall'elenco e apri la scheda 'Headers' nel pannello a destra. Vedrai le sezioni 'General', 'Response Headers' e 'Request Headers'. Puoi estrarre il testo grezzo direttamente da DevTools e incollarlo nel nostro analizzatore per un riscontro immediato.",
+      "faq2Q": "Cosa sono le intestazioni di sicurezza e come viene eseguita la verifica?",
+      "faq2A": "Le intestazioni di sicurezza sono direttive di risposta HTTP che istruiscono il browser ad attivare protezioni integrate contro minacce come Cross-Site Scripting (XSS), clickjacking e sniffing MIME. La nostra verifica di sicurezza esamina direttive cruciali come Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), protezione da clickjacking, direttive sui tipi MIME e Referrer-Policy. Analogamente ai controlli automatizzati raccomandati da Snyk o OWASP, lo strumento mette in luce direttive mancanti e valida i parametri presenti per garantire la solidità del server web.",
+      "faq3Q": "È possibile visualizzare un esempio pratico di intestazione HTTP?",
+      "faq3A": "Certamente! Ecco un esempio pratico proveniente da una risposta API protetta:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nQuesto esempio illustra le direttive di protocollo, cache e rafforzamento che la nostra applicazione scompone automaticamente in righe ordinate di chiavi e valori.",
+      "faq4Q": "In che modo questo strumento facilita l'elaborazione in JavaScript e l'uso di API?",
+      "faq4A": "Quando si gestiscono intestazioni grezze in Node.js, chiamate Fetch o XMLHttpRequest (ad esempio con xhr.getAllResponseHeaders()), i dati arrivano come stringa continua separata da sequenze CRLF (\\r\\n). Il nostro meccanismo di elaborazione in JavaScript divide le righe in corrispondenza del primo carattere di due punti (:), rimuove gli spazi superflui, conserva voci multiple come Set-Cookie e compone una mappa JSON ordinata. In questo modo è facilissimo testare risposte simulate, correggere endpoint e integrare dati strutturati direttamente nei propri progetti JavaScript."
     },
     "invoiceGenerator": {
       "title": "Generatore di Fatture Gratuito",

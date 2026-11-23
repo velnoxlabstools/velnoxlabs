@@ -287,8 +287,8 @@
       "description": "免费 cURL 转 Fetch 与 Axios 代码生成工具。一键将任何终端 cURL 命令行即时转换为标准的 JavaScript Fetch 或 Axios HTTP 请求代码。"
     },
     "http-header-inspector-_-parser": {
-      "name": "HTTP 响应标头分析工具",
-      "description": "解析并深度检测 HTTP Headers 配置及安全性。"
+      "name": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",
+      "description": "使用在线 HTTP 标头分析器与安全标头检测，快速分解并分析 HTTP 请求与响应报文。即刻将标头整理为清晰的 JSON 映射并审查安全防护策略。"
     },
     "json-to-go-struct-generator": {
       "name": "JSON 转 Go Struct 结构体工具",
@@ -753,27 +753,27 @@
       "faq4A": "完全支持！本平台具备双向功能。您可以随时切换模式，既能将原始文本中的特殊字符转换为安全的 HTML 实体代码，也能将含有 &lt;div&gt; 或数字编号（如 &#169;）的转义文本完整还原为清晰易读的自然文本。"
     },
     "httpHeaderInspector": {
-      "title": "HTTP请求头检查与解析器",
-      "subtitle": "将原始HTTP请求或响应标头解析为结构化键值对表格，并提供安全配置深度分析。",
-      "aboutText": "HTTP请求头检查与解析器是一款专为Web架构师与安全运维人员设计的标头诊断工具。它可以将从curl、浏览器F12或API调试工具中复制的原始多行HTTP报文标头快速拆解为直观的键值对表格。自动提取网络传输参数（Host、User-Agent、Content-Type）、识别浏览器缓存指令（Cache-Control、ETag、Age），并重点标出核心Web安全标头（CSP、HSTS、X-Frame-Options等）的配置情况。",
-      "feature1": "多行报文快速分词：自动剔除HTTP状态行并准确将多行Header拆分为清晰的键值结构",
-      "feature2": "核心安全标头识别：重点高亮Content-Security-Policy、HSTS、CORS等深度防御标头及参数值",
-      "feature3": "支持表格展示与JSON导出：既可以直观浏览分类表格，也支持一键将结果导出为结构化JSON对象",
-      "feature4": "100%私密本地分析：无需发起任何网络请求，所有解析工作在您本地的浏览器内存中完成",
-      "step1Title": "粘贴原始HTTP标头",
-      "step1Body": "从终端curl命令、Postman调试记录或浏览器网络面板中复制原始Headers文本并粘贴进来。",
-      "step2Title": "查看结构化解析结果",
-      "step2Body": "浏览按通用协议、缓存控制和安全防护分类整理的标头表格及详细属性。",
-      "step3Title": "复制JSON对象",
-      "step3Body": "点击“复制”按钮，即可将整套解析后的标头映射导出为标准JSON，方便用于自动化测试或配置比对。",
-      "faq1Q": "哪些HTTP标头对Web应用的安全防护最为关键？",
-      "faq1A": "核心安全标头包括：防御XSS攻击的Content-Security-Policy (CSP)、强制HTTPS通信的Strict-Transport-Security (HSTS)、防范点击劫持的X-Frame-Options以及防止MIME类型混淆的X-Content-Type-Options。",
-      "faq2Q": "该工具可以同时解析请求头与响应头吗？",
-      "faq2A": "可以。无论是请求标头（如Authorization、Cookie、Accept）还是响应标头（如Set-Cookie、Cache-Control、Server），工具都能智能识别并完成解析。",
-      "faq3Q": "如何处理重复名称的标头？",
-      "faq3A": "根据RFC 7230规范，工具会对具有重复名称的标头（如多个Set-Cookie或Accept）进行安全合并或独立保留，避免覆盖丢失关键数据。",
-      "faq4Q": "该工具会向目标服务器发送探测请求吗？",
-      "faq4A": "不会。本工具属于离线静态报文分析器，仅对您粘贴的文本进行解析，绝不对外发起任何网络连接，不会触发防火墙警报。"
+      "title": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",
+      "subtitle": "使用在线 HTTP 标头分析器与安全标头检测，快速分解并分析 HTTP 请求与响应报文。即刻将标头整理为清晰的 JSON 映射并审查安全防护策略。",
+      "aboutText": "我们的 HTTP 标头分析器是一款功能强大的客户端 HTTP 标头查看与诊断套件，专为前端开发者、DevSecOps 工程师与系统管理员打造。无论您需要针对行业最佳实践执行自动化安全标头检测，还是希望在 JavaScript 业务流中解析标头，本工具都能将原始多行报文快速转化为结构化的键值对表格。开发者经常需要审查 Chrome 浏览器在网络调试期间捕获的 HTTP 标头，或运行安全标头检测以对照 Snyk 等权威机构制定的安全基准评估服务器配置。无论是审查来自 API 响应的 HTTP 标头示例、验证浏览器缓存指令，还是使用自定义元数据测试标头分析范例，我们的客户端 JavaScript 工具都能在本地以零延迟和完整隐私保障完成分析。",
+      "feature1": "多行报文即时拆解：自动去除状态行，将多行原始标头转化为整齐的键值映射",
+      "feature2": "核心安全标头识别：重点高亮 CSP、HSTS 及 CORS 等关键纵深防御标头及其配置值",
+      "feature3": "清晰的 JSON 与表格呈现：将解析后的标头整理为易读表格，并支持将数据导出为结构化 JSON",
+      "feature4": "100% 客户端私密运行：绝不发起外部网络探测，所有分析完全在浏览器本地内存中处理",
+      "step1Title": "粘贴原始标头",
+      "step1Body": "从终端 curl、Postman 或浏览器 DevTools 网络面板中提取原始响应标头并粘贴至此。",
+      "step2Title": "查看结构化拆解",
+      "step2Body": "浏览按照通用网络协议、缓存策略与安全加固分类整理的结构化标头表格。",
+      "step3Title": "保存 JSON 对象",
+      "step3Body": "轻按按钮将解析后的标头数据导出为标准 JSON，便于在自动化测试或报告中直接复用。",
+      "faq1Q": "如何在 Chrome 浏览器中查看 HTTP 标头？",
+      "faq1A": "要在 Chrome 浏览器中查看 HTTP 标头，请按 F12（或右键点击页面并选择“检查”）打开 DevTools 开发者工具，然后切换到“Network”（网络）标签页。刷新网页或触发 API 调用，在网络请求列表中点击对应资源，并在右侧面板中选中“Headers”（标头）选项卡。您将看到常规信息、响应标头与请求标头。您可以直接提取原始响应标头文本并粘贴到我们的标头分析器中进行即时结构化分析。",
+      "faq2Q": "什么是安全标头？本工具如何执行安全标头检测？",
+      "faq2A": "安全标头是专用的 HTTP 响应指令，用于指示浏览器启用内置安全机制，抵御跨站脚本攻击（XSS）、点击劫持和 MIME 混淆等威胁。我们的安全标头检测功能会审查 Content-Security-Policy (CSP)、Strict-Transport-Security (HSTS)、点击劫持防御指令、MIME 类型安全策略及 Referrer-Policy 等关键指令。类似于 Snyk 或 OWASP 的自动化安全扫描建议，本工具可重点指出缺失的防护标头并核验现有指令，确保 Web 应用满足严格的生产安全标准。",
+      "faq3Q": "能提供一个典型的 HTTP 标头示例吗？",
+      "faq3A": "当然可以！以下是来自标准生产环境 API 响应的 HTTP 标头示例：\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\n此标头分析示例展示了标准网络协议、缓存控制和安全防御标头，本工具会自动将它们拆分为清晰的键值对表格行。",
+      "faq4Q": "本工具对 JavaScript 解析与 API 对接有何帮助？",
+      "faq4A": "在 Node.js、Fetch 响应或 XMLHttpRequest（例如 xhr.getAllResponseHeaders()）中处理标头时，它们通常以回车换行符（\\r\\n）分隔的单行或多行原始字符串形式呈现。我们的客户端 JavaScript 解析方案依据冒号（:）分隔键值，自动去除空白字符，保留 Set-Cookie 等重复标头，并将原始文本转化为整洁的 JSON 映射字典。这使得调试接口、验证模拟响应以及将标头直接导入 JavaScript 代码变得极为便捷。"
     },
     "invoiceGenerator": {
       "title": "免费发票生成器",
