@@ -533,8 +533,8 @@
       "description": "Converta imagens JPG, PNG e WebP em um único documento PDF profissional de alta qualidade diretamente no navegador."
     },
     "fancy-text-generator": {
-      "name": "Gerador de Letras Diferentes",
-      "description": "Transforme texto simples em estilos Unicode elegantes para biografias do Instagram, Discord, Twitter e nicks de jogos."
+      "name": "Gerador de Letras Diferentes para WhatsApp – Fontes Bonitas e Estilos",
+      "description": "Gerador online gratuito de letras diferentes para WhatsApp e fontes elegantes. Crie estilos visuais, caracteres decorativos e textos personalizados para Instagram e redes."
     },
     "emoji-copy": {
       "name": "10000 Emojis para Copiar e Colar – Teclado de Emojis Fofos e Estéticos",
@@ -1620,8 +1620,8 @@
       "faq4A": "Pode exportar em PNG, JPEG e WebP. PNG e WebP mantêm a transparência do canal alfa intacta, enquanto o JPEG preenche fundos transparentes com cor branca."
     },
     "fancyTextGenerator": {
-      "title": "Gerador de Letras Diferentes",
-      "subtitle": "Transforme texto simples em estilos Unicode elegantes para biografias do Instagram, Discord, Twitter e nicks de jogos.",
+      "title": "Gerador de Letras Diferentes para WhatsApp – Fontes Bonitas e Estilos",
+      "subtitle": "Gerador online gratuito de letras diferentes para WhatsApp e fontes elegantes. Crie estilos visuais, caracteres decorativos e textos personalizados para Instagram e redes.",
       "inputLabel": "Digite ou cole o seu texto:",
       "inputPlaceholder": "Digite algo estiloso aqui...",
       "copy": "Copiar",
@@ -1649,7 +1649,7 @@
       "styleInverted": "Invertido (De Cabeça para Baixo)",
       "styleFullwidth": "Largura Total (Vaporwave)",
       "styleSquared": "Quadrado (Caixas)",
-      "aboutText": "O Gerador de Letras Diferentes é uma ferramenta tipográfica que opera diretamente no navegador, convertendo texto padrão ASCII em glifos Unicode estilizados, ideais para biografias de redes sociais, apelidos em jogos online e aplicativos de mensagens. Utilizando matrizes de mapeamento fundamentadas no padrão Unicode (incluindo os blocos de Símbolos Alfanuméricos Matemáticos U+1D400–U+1D7FF, Símbolos Semelhantes a Letras U+2100–U+214F e Alfanuméricos Enclausurados U+2460–U+24FF), o utilitário converte caracteres normais em negrito matemático, escrita cursiva manuscrita, estilo gótico fraktur, traço duplo e letras envoltas em círculos. Ao contrário de fontes de sistema que exigem instalação local ou folhas de estilo CSS, estas sequências estéticas são pontos de código universais exibidos nativamente por qualquer sistema operacional, navegador e celular moderno. Todo o cálculo ocorre na memória local do cliente sem envio a servidores, proporcionando conversão instantânea com privacidade rigorosa.",
+      "aboutText": "Nosso gerador de letras diferentes para WhatsApp e fontes elegantes é um utilitário tipográfico em Unicode criado para criadores digitais, streamers e usuários de redes sociais. Operando como uma alternativa rápida a aplicativos tradicionais sem exigir downloads ou instalações, ele transforma textos simples em caracteres expressivos, estilos decorativos e letras estilizadas em tempo real. Se você busca um nome personalizado para o WhatsApp, biografias encantadoras para o Instagram ou identidades marcantes para o Discord e jogos eletrônicos, nossa plataforma converte letras comuns em alfabetos góticos, cursivos, matemáticos e letras circulares. Diante de buscas frequentes por letras azuis e estilos coloridos, disponibilizamos caracteres regionais com tonalidade azulada e signos visuais que podem ser alinhados a corações e figuras expressivas. Embora nenhum sinal azul substitua o selo oficial de verificação das plataformas, essas fontes diferenciadas garantem destaque imediato ao seu perfil. Tudo funciona com máxima privacidade na memória local do navegador.",
       "feature1": "Compatibilidade Unicode universal: Cria glifos baseados no padrão Unicode 15.1 com renderização nativa em iOS, Android, macOS, Windows e Linux.",
       "feature2": "Transformações matemáticas alfanuméricas: Mapeia caracteres comuns para estilos matemáticos em negrito, cursivo manuscrito, gótico fraktur, monoespaçado e traço duplo.",
       "feature3": "Sobreposição de sinais diacríticos: Utiliza marcas diacríticas combináveis (U+0336 para tachado e U+0332 para sublinhado) gerando efeitos decorativos dinâmicos.",
@@ -1660,14 +1660,14 @@
       "step2Body": "Navegue pela lista com mais de 17 estilos gerados em tempo real, incluindo negrito, gótico, bolha e versalete.",
       "step3Title": "Copie e utilize em qualquer lugar",
       "step3Body": "Clique no botão Copiar ao lado do estilo escolhido para transferi-lo à área de transferência e use no Instagram, Twitter ou games.",
-      "faq1Q": "Por que esses estilos funcionam nas redes sociais sem precisar instalar fontes?",
-      "faq1A": "Eles não são arquivos de fontes tipográficas (.ttf ou .woff), mas sim códigos de caracteres oficiais do padrão Unicode internacional. Como os sistemas operacionais e plataformas populares suportam Unicode universal, esses caracteres aparecem nativamente sem ferramentas extras.",
-      "faq2Q": "Há algum impacto de acessibilidade para leitores de tela?",
-      "faq2A": "Apesar da compatibilidade visual em todos os dispositivos modernos, softwares de leitura de tela para pessoas com deficiência visual podem soletrar os símbolos matemáticos pelos seus nomes formais. Recomendamos o uso dessas letras decorativas em nomes de usuário, biografias e títulos curtos.",
-      "faq3Q": "O texto digitado é transferido ou armazenado em servidores externos?",
-      "faq3A": "Não. Todo o processo acontece inteiramente no seu navegador por meio de rotinas JavaScript locais. Nenhum caractere ou texto é enviado pela internet.",
-      "faq4Q": "Posso usar esses estilos em jogos como Discord, Steam, Roblox ou Minecraft?",
-      "faq4A": "Sim. As principais plataformas de jogos e comunidades online oferecem suporte pleno a texto em UTF-8. Basta copiar a variante que mais gostar e colar no seu nome de perfil ou configurações de conta."
+      "faq1Q": "Como criar um efeito de selo azul utilizando este estilizador de texto?",
+      "faq1A": "Muitos usuários buscam inserir um sinal azul para valorizar a apresentação do perfil. Vale lembrar que o selo azul autêntico é uma distinção concedida pelas próprias plataformas (como WhatsApp ou Instagram) após análise de notoriedade. Um aplicativo de texto não pode autenticar perfis, mas nosso catálogo disponibiliza caracteres de verificação artística (como ✓, ✔ e ☑) e letras estilizadas em azul para criar um perfil elegante.",
+      "faq2Q": "Posso utilizar essas fontes personalizadas no WhatsApp e em outros aplicativos?",
+      "faq2A": "Com certeza! As frases estilizadas são totalmente compatíveis com nomes de usuário no WhatsApp, recados, conversas e grupos. Como os resultados consistem em caracteres universais da tabela Unicode e não em arquivos de fontes instaláveis, eles podem ser colados e lidos com perfeição no WhatsApp, Instagram, TikTok, Telegram e chats sem falhas visuais.",
+      "faq3Q": "A ferramenta suporta a combinação de caracteres ornamentais e carinhas com fontes bonitas?",
+      "faq3A": "Sim. Você pode adicionar livremente estrelas, corações e elementos visuais ao seu texto. Para uma apresentação azulada estilizada com figuras expressivas, combine as letras em tons azuis com corações azuis 💙 e pontos brilhantes para destacar legendas e apelidos.",
+      "faq4Q": "Esta página web substitui os aplicativos tradicionais para smartphones?",
+      "faq4A": "Sim. Por ser uma solução leve acessível pelo navegador no celular (Android e iOS) ou computador, ela dispensa downloads em lojas de aplicativos, não ocupa espaço de armazenamento e opera com total privacidade na memória do dispositivo."
     },
     "emojiCopy": {
       "title": "10000 Emojis para Copiar e Colar – Teclado de Emojis Fofos e Estéticos",

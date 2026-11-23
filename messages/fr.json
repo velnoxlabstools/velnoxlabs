@@ -533,8 +533,8 @@
       "description": "Convertissez vos images JPG, PNG et WebP en un document PDF professionnel unique directement dans votre navigateur."
     },
     "fancy-text-generator": {
-      "name": "Générateur de Texte Stylé",
-      "description": "Transformez du texte standard en typographies Unicode pour vos biographies Instagram, Discord, Twitter et pseudonymes de jeux."
+      "name": "Générateur de Texte Stylé pour WhatsApp – Polices d'Écriture et Styles",
+      "description": "Générateur en ligne de texte stylé pour WhatsApp et polices artistiques. Créez des typographies élégantes, caractères décoratifs et émoticônes pour vos profils."
     },
     "emoji-copy": {
       "name": "10000 Emojis à Copier et Coller – Clavier d'Emojis Mignons et Esthétiques",
@@ -1620,8 +1620,8 @@
       "faq4A": "Vous pouvez enregistrer en PNG, JPEG ou WebP. Les types PNG et WebP conservent intégralement la transparence du canal alpha, tandis que le fichier JPEG applique automatiquement un fond blanc pur."
     },
     "fancyTextGenerator": {
-      "title": "Générateur de Texte Stylé",
-      "subtitle": "Transformez du texte standard en typographies Unicode pour vos biographies Instagram, Discord, Twitter et pseudonymes de jeux.",
+      "title": "Générateur de Texte Stylé pour WhatsApp – Polices d'Écriture et Styles",
+      "subtitle": "Générateur en ligne de texte stylé pour WhatsApp et polices artistiques. Créez des typographies élégantes, caractères décoratifs et émoticônes pour vos profils.",
       "inputLabel": "Saisissez ou collez votre texte :",
       "inputPlaceholder": "Écrivez quelque chose avec style ici...",
       "copy": "Copier",
@@ -1649,7 +1649,7 @@
       "styleInverted": "Renversé (À l'envers)",
       "styleFullwidth": "Pleine largeur (Vaporwave)",
       "styleSquared": "Encadré (Carrés)",
-      "aboutText": "Le Générateur de Texte Stylé est un outil typographique fonctionnant directement dans le navigateur pour transformer des caractères ASCII standards en glyphes Unicode stylisés, parfaitement adaptés aux biographies sur les réseaux sociaux, aux pseudonymes de jeu et aux applications de messagerie. Grâce à des tables de correspondance fondées sur la norme Unicode (notamment les blocs de symboles mathématiques alphanumériques U+1D400–U+1D7FF, les symboles de type lettre U+2100–U+214F et les caractères alphanumériques cerclés U+2460–U+24FF), l'application réattribue les lettres classiques vers des styles en gras mathématique, écriture cursive manuscrite, gothique fraktur, double trait et caractères en bulle. Contrairement aux polices conventionnelles nécessitant une installation sur le système ou des feuilles de style CSS, ces créations textuelles sont des points de code universels affichés nativement par l'ensemble des systèmes d'exploitation, navigateurs et appareils mobiles modernes. Toute l'exécution s'effectue dans la mémoire locale de votre navigateur sans aucune requête vers des serveurs distants, assurant instantanéité et confidentialité intégrale.",
+      "aboutText": "Notre générateur de texte stylé pour WhatsApp et de polices élégantes est un utilitaire typographique Unicode interactif pensé pour les créateurs de contenu, les gamers et les passionnés de réseaux sociaux. Conçu comme une alternative légère aux applications mobiles sans nécessiter le moindre enregistrement de fichier, il transforme instantanément un texte ordinaire en typographies captivantes, glyphes artistiques et styles esthétiques. Que vous cherchiez un nom marquant pour WhatsApp, une biographie attrayante pour Instagram ou un créateur de polices pour vos pseudonymes sur Discord et les jeux vidéo, notre répertoire associe les lettres standards à des caractères mathématiques, des écritures cursives, gothiques et des bulles cerclées. De nombreux internautes recherchent des polices bleues ou colorées ; bien que l'affichage des couleurs dépende du système d'exploitation, notre module propose des caractères à dominante bleue et des ornements qui s'associent idéalement aux cœurs et émoticônes. Bien qu'un signe bleu ne remplace pas le badge officiel des plateformes, cette typographie distinctive mettra immédiatement votre profil en valeur. Tout s'exécute dans la mémoire du navigateur en préservant votre vie privée.",
       "feature1": "Compatibilité Unicode universelle : Crée des glyphes conformes à la norme Unicode 15.1 qui s'affichent nativement sous iOS, Android, macOS, Windows et Linux.",
       "feature2": "Variations alphanumériques mathématiques : Reconvertit les lettres ordinaires en styles mathématiques gras, cursif manuscrit, gothique fraktur, monospace et double trait.",
       "feature3": "Superposition diacritique combinée : Utilise des signes diacritiques combinables (U+0336 pour le texte barré et U+0332 pour le texte souligné) pour composer des effets visuels en temps réel.",
@@ -1660,14 +1660,14 @@
       "step2Body": "Parcourez la liste de plus de 17 styles générés automatiquement, incluant le gras, le gothique, les petites capitales et les bulles.",
       "step3Title": "Copiez et collez sur toutes vos plateformes",
       "step3Body": "Cliquez sur le bouton Copier en face de votre style favori pour l'ajouter au presse-papiers, puis collez-le directement sur Instagram, Twitter ou vos jeux vidéo.",
-      "faq1Q": "Pourquoi ces polices stylisées s'affichent-elles sur les réseaux sociaux sans installation de police ?",
-      "faq1A": "Il ne s'agit pas de véritables fichiers de polices (.ttf ou .woff), mais de points de code de caractères officiels définis par le consortium Unicode international. Les systèmes d'exploitation et applications actuelles prenant en charge la norme Unicode, ces caractères sont affichés de manière native sans logiciel additionnel.",
-      "faq2Q": "Existe-t-il des limites de compatibilité ou d'accessibilité avec les lecteurs d'écran ?",
-      "faq2A": "Bien que la totalité des téléphones et ordinateurs récents restitue ces caractères sans anomalie, les lecteurs d'écran destinés aux personnes malvoyantes peuvent énoncer les symboles mathématiques par leur nom officiel. Pour des raisons d'accessibilité, il est conseillé de réserver ces ornements typographiques aux pseudonymes, biographies et titres courts.",
-      "faq3Q": "Mon texte saisi est-il transmis ou stocké sur un serveur distant ?",
-      "faq3A": "Non. La transformation est réalisée en totalité au sein de votre navigateur via des instructions JavaScript locales. Aucune saisie ni texte n'est transmis sur Internet.",
-      "faq4Q": "Puis-je employer ces styles de texte pour mes profils de jeu sur Discord, Steam ou Minecraft ?",
-      "faq4A": "Tout à fait. La plupart des réseaux de jeu et plateformes sociales acceptent pleinement les chaînes encodées en UTF-8. Copiez simplement votre variante préférée et appliquez-la dans les réglages de votre profil ou de votre pseudonyme."
+      "faq1Q": "Comment afficher un style évoquant le badge bleu avec cet outil de texte ?",
+      "faq1A": "De nombreux utilisateurs souhaitent ajouter une encoche bleue pour valoriser leur nom. Cependant, le véritable badge bleu de vérification est attribué exclusivement par WhatsApp ou Instagram après une procédure d'examen officielle. Un outil web ne peut pas conférer de certification officielle, mais nous proposons des caractères de validation décoratifs (comme ✓, ✔ et ☑) et des polices bleutées pour conférer une allure soignée à votre profil.",
+      "faq2Q": "Ces polices fonctionnent-elles correctement dans WhatsApp et les autres applications ?",
+      "faq2A": "Tout à fait ! Les styles créés sont 100% compatibles avec les pseudonymes WhatsApp, les statuts, les noms de groupes et les discussions. S'agissant de caractères textuels universels définis par le standard Unicode et non de fichiers typographiques externes, ils se collent sans altération dans WhatsApp, Instagram, TikTok ou Telegram.",
+      "faq3Q": "Peut-on combiner des caractères décoratifs et des émoticônes avec les écritures stylées ?",
+      "faq3A": "Oui. Vous pouvez ajouter des étoiles, des cœurs et des glyphes artistiques à votre texte. Si vous désirez une esthétique bleue assortie d'émoticônes, mariez les lettres bleutées à des cœurs bleus 💙 et des reflets scintillants pour composer des présentations soignées.",
+      "faq4Q": "Ce service en ligne remplace-t-il les applications traditionnelles pour smartphone ?",
+      "faq4A": "Oui. Accessible directement depuis le navigateur web sous Android, iOS ou sur ordinateur, il ne requiert aucune installation lourde, n'encombre pas l'espace de votre appareil et exécute chaque traitement en toute confidentialité dans la mémoire locale."
     },
     "emojiCopy": {
       "title": "10000 Emojis à Copier et Coller – Clavier d'Emojis Mignons et Esthétiques",

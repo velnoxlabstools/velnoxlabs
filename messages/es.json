@@ -533,8 +533,8 @@
       "description": "Convierte imágenes JPG, PNG y WebP en un único documento PDF profesional de alta calidad en tu navegador."
     },
     "fancy-text-generator": {
-      "name": "Generador de Texto Elegante",
-      "description": "Transforma texto normal en estilos Unicode para biografías de Instagram, Discord, Twitter y nombres de juegos."
+      "name": "Generador de Letras Bonitas para WhatsApp – Fuentes Elegantes y Estilos",
+      "description": "Generador online gratuito de letras bonitas para WhatsApp y fuentes elegantes. Diseña textos estilizados, signos decorativos y caritas con un clic para Instagram, WhatsApp y redes."
     },
     "emoji-copy": {
       "name": "10000 Emojis para Copiar y Pegar – Teclado de Emojis Tiernos y Estéticos",
@@ -1618,8 +1618,8 @@
       "faq4A": "Puedes exportar en PNG, JPEG y WebP. PNG y WebP conservan íntegramente la transparencia alfa, mientras que JPEG rellena automáticamente las zonas transparentes con fondo blanco puro."
     },
     "fancyTextGenerator": {
-      "title": "Generador de Texto Elegante",
-      "subtitle": "Transforma texto normal en estilos Unicode para biografías de Instagram, Discord, Twitter y nombres de juegos.",
+      "title": "Generador de Letras Bonitas para WhatsApp – Fuentes Elegantes y Estilos",
+      "subtitle": "Generador online gratuito de letras bonitas para WhatsApp y fuentes elegantes. Diseña textos estilizados, signos decorativos y caritas con un clic para Instagram, WhatsApp y redes.",
       "inputLabel": "Escribe o pega tu texto:",
       "inputPlaceholder": "Escribe algo con estilo aquí...",
       "copy": "Copiar",
@@ -1647,7 +1647,7 @@
       "styleInverted": "Invertido (Boca abajo)",
       "styleFullwidth": "Ancho completo (Vaporwave)",
       "styleSquared": "Cuadrado (Cajas)",
-      "aboutText": "El Generador de Texto Elegante es una utilidad tipográfica que procesa texto ASCII estándar directamente en el navegador y lo transforma en glifos Unicode estilizados, ideales para biografías en redes sociales, perfiles de videojuegos y aplicaciones de mensajería. Mediante matrices de mapeo basadas en el estándar Unicode (incluyendo los bloques de símbolos alfanuméricos matemáticos U+1D400–U+1D7FF, símbolos de tipo carta U+2100–U+214F y alfanuméricos encerrados U+2460–U+24FF), el convertidor reasigna letras ordinarias a estilos como negrita matemática, cursiva manuscrita, gótica fraktur, doble trazo y caracteres rodeados por círculos. A diferencia de las fuentes tradicionales que requieren instalación local o archivos CSS externos, estas cadenas estilizadas son puntos de código Unicode universales renderizados de manera nativa por cualquier sistema operativo, navegador y dispositivo móvil moderno. Todo el procesamiento se realiza en la memoria local del navegador sin peticiones a servidores externos, garantizando inmediatez y confidencialidad absoluta.",
+      "aboutText": "Nuestro generador de letras bonitas para WhatsApp y fuentes elegantes es una herramienta tipográfica basada en Unicode concebida para creadores de contenido, gamers y entusiastas de las redes sociales. Funcionando como una alternativa ágil a las aplicaciones móviles que no requiere descargas, transforma textos simples en tipografías llamativas, glifos decorativos y estilos visuales en tiempo real. Ya sea que precises tipografías personalizadas para tu nombre o info de WhatsApp, textos atractivos para biografías de Instagram o letras góticas para perfiles de Discord y videojuegos, el sistema enlaza letras ordinarias con caracteres matemáticos, cursivas elegantes y burbujas. Muchos usuarios buscan textos en tono azul o estilos coloridos; si bien el texto Unicode depende de la visualización del sistema operativo, nuestro conversor reúne caracteres con tintes azulados, letras enmarcadas y signos ornamentales que puedes combinar con caritas y corazones azules. Aunque un icono azul no equivale a la verificación oficial de las plataformas, esta tipografía distintiva hará destacar tu perfil en cualquier chat. Opera íntegramente en la memoria local del navegador sin registros externos.",
       "feature1": "Compatibilidad Unicode universal: Genera glifos basados en el estándar Unicode 15.1 que se visualizan de manera nativa en iOS, Android, macOS, Windows y Linux.",
       "feature2": "Transformaciones alfanuméricas matemáticas: Asigna caracteres estándar a estilos matemáticos en negrita, cursiva manuscrita, gótica fraktur, monoespaciado y doble trazo.",
       "feature3": "Superposición diacrítica: Emplea marcas diacríticas combinables (U+0336 para tachado y U+0332 para subrayado) creando efectos visuales compuestos en tiempo real.",
@@ -1658,14 +1658,14 @@
       "step2Body": "Desplázate por la lista de más de 17 estilos generados automáticamente, incluyendo negrita, gótica, versalitas y burbuja.",
       "step3Title": "Copia y comparte en cualquier plataforma",
       "step3Body": "Haz clic en el botón Copiar junto al estilo deseado para guardarlo en el portapapeles y pégalo directamente en Instagram, Twitter o videojuegos.",
-      "faq1Q": "¿Por qué estos estilos tipográficos funcionan en redes sociales sin instalar fuentes?",
-      "faq1A": "No son archivos tipográficos (.ttf o .woff), sino puntos de código de caracteres legítimos definidos en el estándar Unicode internacional. Como las plataformas actuales admiten Unicode universal, muestran estos caracteres de forma nativa sin requerir software adicional.",
-      "faq2Q": "¿Existen limitaciones de accesibilidad o compatibilidad con lectores de pantalla?",
-      "faq2A": "Aunque prácticamente todos los dispositivos modernos muestran los símbolos correctamente, los lectores de pantalla para personas con discapacidad visual pueden leer los caracteres matemáticos por su denominación técnica. Por accesibilidad, es recomendable utilizarlos para apodos, biografías y títulos cortos.",
-      "faq3Q": "¿El texto que introduzco se envía o almacena en algún servidor externo?",
-      "faq3A": "No. Todo el proceso de transformación se ejecuta íntegramente en tu navegador mediante funciones JavaScript de mapeo de códigos de caracteres. Ninguna pulsación ni texto se transmite por la red.",
-      "faq4Q": "¿Puedo usar estos textos estilizados en perfiles de videojuegos como Discord, Steam o Minecraft?",
-      "faq4A": "Sí. La mayoría de redes y plataformas de videojuegos actuales admiten codificación UTF-8 completa. Simplemente copia el estilo que prefieras y pégalo en tu perfil o nombre de usuario."
+      "faq1Q": "¿Cómo conseguir un efecto similar al tick azul con este creador de letras bonitas?",
+      "faq1A": "Muchos usuarios buscan crear un tick azul para emular una cuenta verificada. No obstante, la insignia oficial con tick azul es un distintivo que otorgan exclusivamente plataformas como WhatsApp o Instagram tras una comprobación de identidad formal. Aunque ninguna web puede otorgar la verificación real, nuestro catálogo brinda signos de verificación estilizados (como ✓, ✔ y ☑) y fuentes enmarcadas en azul para diseñar un perfil llamativo y profesional.",
+      "faq2Q": "¿Es posible utilizar estos estilos en WhatsApp y otras aplicaciones de mensajería?",
+      "faq2A": "¡Por supuesto! El flujo de trabajo es 100% compatible con nombres de WhatsApp, estados, asuntos de grupos y mensajes de chat. Como se trata de caracteres Unicode estándar y no de archivos de fuentes externos, se transfieren y leen con absoluta normalidad en WhatsApp, Instagram, TikTok, Telegram o mensajes tradicionales sin errores de visualización.",
+      "faq3Q": "¿Admite la combinación de caracteres decorativos y emoticonos con letras elegantes?",
+      "faq3A": "Sí. Puedes escribir o pegar emoticonos, estrellas, corazones y figuras ornamentales junto a tu mensaje. Si deseas una combinación estética en azul con figuras expresivas, puedes alternar las letras azuladas con corazones azules 💙 y destellos para crear textos memorables.",
+      "faq4Q": "¿Representa una alternativa libre frente a las aplicaciones móviles convencionales?",
+      "faq4A": "Sí. Funciona directamente en el navegador de dispositivos Android, iPhone y ordenadores sin necesidad de descargas desde tiendas virtuales. No consume espacio en tu móvil, carece de publicidad invasiva y realiza todas las tareas en la memoria temporal del terminal para una rapidez y privacidad óptimas."
     },
     "emojiCopy": {
       "title": "10000 Emojis para Copiar y Pegar – Teclado de Emojis Tiernos y Estéticos",

@@ -2228,8 +2228,8 @@
       "faq4A": "Sie können in PNG, JPEG und WebP speichern. PNG und WebP behalten transparente Alphakanäle vollständig bei, während JPEG transparente Bereiche automatisch mit weißer Farbe auffüllt."
     },
     "fancyTextGenerator": {
-      "title": "Schriftarten-Generator",
-      "subtitle": "Wandle normalen Text in stilvolle Unicode-Schriftarten für Instagram-Biografien, Discord, Twitter und Gaming-Namen um.",
+      "title": "Schriftarten-Ersteller für WhatsApp – Schöne Schriften und Schriftstile",
+      "subtitle": "Kostenloser Schriftarten-Ersteller für WhatsApp und schöne Schriften. Erstelle geschwungene Schriften, Schriftzeichen und Zierteile für WhatsApp, Instagram und Chats.",
       "inputLabel": "Text eingeben oder einfügen:",
       "inputPlaceholder": "Schreibe hier etwas Stilvolles...",
       "copy": "Kopieren",
@@ -2257,7 +2257,7 @@
       "styleInverted": "Auf den Kopf gestellt (Invertiert)",
       "styleFullwidth": "Volle Breite (Vaporwave)",
       "styleSquared": "Quadratisch (Kästen)",
-      "aboutText": "Der Schriftarten-Generator ist ein clientseitiges Typografie-Werkzeug, das Standard-ASCII-Zeichen direkt im Browser in stilisierte Unicode-Glyphen für Social-Media-Biografien, Gaming-Profile und Messenger umwandelt. Mithilfe von Zeichen-Mapping-Algorithmen basierend auf dem Unicode-Standard (darunter die Blöcke für mathematische alphanumerische Symbole U+1D400–U+1D7FF, buchstabenähnliche Symbole U+2100–U+214F und eingekreiste alphanumerische Zeichen U+2460–U+24FF) übersetzt das Programm normale Buchstaben in mathematische Fettschrift, Fraktur, Schreibschrift, Doppelstrich- und Kreisbuchstaben. Im Gegensatz zu traditionellen Systemschriftarten, die eine lokale Installation oder externe CSS-Dateien erfordern, bestehen diese Ausgaben aus universellen Unicode-Codepoints, die von jedem modernen Betriebssystem, Webbrowser und Mobilgerät nativ dargestellt werden. Die gesamte Umwandlung findet im lokalen Arbeitsspeicher ohne Server-Anfragen statt, was sofortige Ergebnisse und absolute Privatsphäre gewährleistet.",
+      "aboutText": "Unser Schriftarten-Ersteller für WhatsApp und stilvolle Schriften ist ein interaktives Unicode-Werkzeug für Social-Media-Gestalter, Gamer und Chat-Begeisterte. Als leichtgewichtige Alternative zu Smartphone-Apps konzipiert, die ganz ohne Software-Installation auskommt, wandelt es gewöhnliche Buchstaben in auffällige Schriftarten, Zierzeichen und ästhetische Stile um. Ob du nach einem einzigartigen Namen für WhatsApp und Statusmeldungen suchst, deine Instagram-Biografie verschönern willst oder nach einem vielseitigen Schriftstil-Editor für Discord und Online-Spiele suchst: Unsere Anwendung ordnet einfache Zeichen universellen mathematischen Glyphen, Schreibschriften, Frakturschriften und eingekreisten Buchstaben zu. Häufig wird nach blauen Schriftzügen und Farbvarianten gesucht; da reine Textzeichen der Systemdarstellung unterliegen, stellt unser System blaue Buchstaben-Varianten und Schriftzeichen bereit, die sich wunderbar mit blauen Herzen und Smileys kombinieren lassen. Ein blaues Häkchen-Zeichen ersetzt zwar kein echtes Verifizierungsabzeichen der Plattformen, doch diese Typografie hebt dein Profil garantiert aus der Masse hervor. Alle Umwandlungen erfolgen lokal im Browserspeicher mit absolutem Schutz deiner Daten.",
       "feature1": "Universelle Unicode-Kompatibilität: Erzeugt plattformübergreifende Glyphen nach dem Unicode-15.1-Standard, die unter iOS, Android, macOS, Windows und Linux nativ dargestellt werden.",
       "feature2": "Mathematische alphanumerische Stile: Ordnet Standardzeichen mathematischen Stilen wie Fett, Schreibschrift, Fraktur, Monospace und Doppelstrich zu.",
       "feature3": "Kombinierende diakritische Zeichen: Nutzt diakritische Zeichen (U+0336 für Durchstreichung und U+0332 für Unterstreichung) zur Erzeugung dynamischer Zusatzeffekte in Echtzeit.",
@@ -2268,14 +2268,14 @@
       "step2Body": "Scrolle durch die Liste von über 17 automatisch erstellten Schriftstilen, darunter Fraktur, Schreibschrift, Kapitälchen und Blasen.",
       "step3Title": "Kopieren und überall einfügen",
       "step3Body": "Klicke neben dem gewünschten Stil auf Kopieren, um ihn in die Zwischenablage zu übernehmen, und füge ihn in Instagram, Twitter oder Games ein.",
-      "faq1Q": "Warum funktionieren diese Schriftarten auf sozialen Plattformen ohne Schriftinstallation?",
-      "faq1A": "Es handelt sich nicht um eigentliche Schriftdateien (.ttf oder .woff), sondern um offizielle Unicode-Zeichenwerte internationaler Standards. Da moderne Betriebssysteme und soziale Netzwerke Unicode universell unterstützen, werden diese Glyphen ohne zusätzliche Software direkt angezeigt.",
-      "faq2Q": "Gibt es Einschränkungen bei der Barrierefreiheit oder für Screenreader?",
-      "faq2A": "Zwar stellen moderne Smartphones und Computer die Zeichen fehlerfrei dar, Bildschirmleseprogramme für sehbehinderte Personen lesen mathematische Sonderzeichen jedoch meist mit ihren technischen Bezeichnungen vor. Aus Gründen der Barrierefreiheit empfehlen wir stilisierte Texte primär für Namen, Biografien und kurze Überschriften.",
-      "faq3Q": "Wird mein eingegebener Text an externe Server gesendet oder gespeichert?",
-      "faq3A": "Nein. Die Umwandlung läuft vollständig lokal im Browser über JavaScript-Zuordnungen. Es werden keinerlei Tastatureingaben über das Internet übermittelt.",
-      "faq4Q": "Kann ich diese Schriftstile für Gaming-Namen auf Steam, Discord oder Minecraft nutzen?",
-      "faq4A": "Ja. Nahezu alle modernen Gaming-Netzwerke unterstützen UTF-8-codierten Text uneingeschränkt. Kopiere einfach deinen bevorzugten Schriftstil und füge ihn in deine Profileinstellungen ein."
+      "faq1Q": "Wie lässt sich ein blaues Häkchen mit diesem Schriftstil-Werkzeug nachempfinden?",
+      "faq1A": "Viele Nutzer suchen nach einem blauen Häkchen, um ihrem Profil einen offiziellen Touch zu verleihen. Ein echtes blaues Verifizierungsabzeichen wird jedoch ausschließlich von Plattformen wie Instagram oder WhatsApp nach einer Prüfung vergeben. Eine Website kann keine behördliche Verifizierung erteilen; unser Werkzeug bietet jedoch kunstvolle Häkchen-Zeichen (wie ✓, ✔ und ☑) sowie blaue Akzentbuchstaben, mit denen dein Profilname besonders seriös und edel wirkt.",
+      "faq2Q": "Funktionieren die erstellten Schriften in WhatsApp und anderen Messenger-Diensten?",
+      "faq2A": "Ja! Die Schriften sind zu 100% mit WhatsApp-Kontaktnamen, Status-Texten, Gruppennamen und Chatnachrichten kompatibel. Da die Ergebnisse aus universellen Unicode-Zeichenfolgen bestehen und keine externen Schriftdateien voraussetzen, lassen sie sich ohne Anzeigeprobleme in WhatsApp, Instagram, TikTok, Discord und Telegram einfügen.",
+      "faq3Q": "Können Zierzeichen und Smileys zusammen mit den Schriften verwendet werden?",
+      "faq3A": "Selbstverständlich. Du kannst Sterne, Herzen und Sonderzeichen direkt im Eingabefeld mit deinen Texten verknüpfen. Wer einen blauen Stil mit Smileys wünscht, kann die blauen Zeichen mit blauen Herzen 💙 oder Edelsteinen kombinieren, um unverwechselbare Titel zu kreieren.",
+      "faq4Q": "Bietet diese Weblösung eine vollwertige Alternative zu installierbaren Apps?",
+      "faq4A": "Ja. Sie läuft unmittelbar in mobilen Browsern auf Android und iOS sowie am PC. Du benötigst keine Dateibelegung im Gerätespeicher, musst keine Werbeunterbrechungen hinnehmen und führst alle Schritte geschützt im lokalen Arbeitsspeicher aus."
     },
     "emojiCopy": {
       "title": "10000 Emojis zum Kopieren und Einfügen – Süße Emoji-Tastatur",
