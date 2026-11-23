@@ -358,8 +358,8 @@
       "description": "Generiert Version-4-UUIDs."
     },
     "hash-generator": {
-      "name": "Hash-Generator",
-      "description": "Generiert SHA-256-, SHA-512-, SHA-384-, SHA-1-Hashes."
+      "name": "Online-Hash-Ersteller (MD5, SHA256, Bcrypt & Datei-Prüfsummen)",
+      "description": "Kostenloser Online-Hash-Ersteller (MD5, SHA256, Bcrypt & Datei). Berechne SHA-256-, MD5- und SHA-512-Prüfsummen sofort im Browser mit lückenloser Sicherheit."
     },
     "secure-password-generator": {
       "name": "Sicherer Passwort-Generator",
@@ -691,9 +691,9 @@
       "faq4A": "Ja! Bei gewichteten Fächern trägst du die prozentualen Anteile direkt ein (z. B. Mitarbeit 30 %, Prüfungen 70 %). Bei Systemen mit reiner Punkteakkumulation rechnest du erreichte Punkte in Prozentwerte um oder gewichtest die Aufgaben entsprechend ihrem Punktwert."
     },
     "hashGenerator": {
-      "title": "Kryptografischer Hash-Generator (SHA-256, SHA-512, MD5)",
-      "subtitle": "Erzeugen Sie kryptografische Hashes in SHA-256, SHA-512 und MD5 sofort mit nativer Browser-Sicherheit.",
-      "aboutText": "Der Kryptografische Hash-Generator ist ein hochperformantes Sicherheits-Werkzeug zur Erstellung deterministischer, unumkehrbarer Hash-Prüfwerte aus beliebigem Text oder Binärdaten. Er unterstützt anerkannte kryptografische Verfahren wie SHA-256, SHA-512 und das klassische MD5 direkt im Speicher Ihres Browsers. Entwickler und IT-Sicherheitsexperten nutzen das Tool für Dateiintegritätsprüfungen, Kennwortprüfungen und digitale Signaturen.",
+      "title": "Online-Hash-Ersteller (MD5, SHA256, Bcrypt & Datei-Prüfsummen)",
+      "subtitle": "Kostenloser Online-Hash-Ersteller (MD5, SHA256, Bcrypt & Datei). Berechne SHA-256-, MD5- und SHA-512-Prüfsummen sofort im Browser mit lückenloser Sicherheit.",
+      "aboutText": "Unser Online-Hash-Ersteller ist ein leistungsfähiges kryptographisches Werkzeug für Softwareentwickler, Sicherheitsexperten und Systemadministratoren. Als schnelle, browserbasierte Lösung macht er die Installation separater Desktop-Programme überflüssig. Ob du veraltete MD5-Prüfsummen abgleichen willst, eine hochsichere SHA-256-Prüfung vornimmst oder eine zuverlässige Online-Lösung für digitale Fingerabdrücke suchst: Diese Anwendung liefert die Prüfwerte in Millisekunden direkt im lokalen Speicher. Während Algorithmen wie Bcrypt auf wiederholtes Hashing mit Zufallssalz zur serverseitigen Absicherung von Passwörtern setzen, bietet dieses Werkzeug eine ideale Referenz zur Integritätsprüfung von Passwörtern und Dateien, ohne sensible Inhalte an externe Server zu übermitteln.",
       "feature1": "Parallele Hash-Erzeugung: Berechnet MD5, SHA-256 und SHA-512 synchron in Echtzeit direkt während der Texteingabe",
       "feature2": "100% clientseitige Kryptografie: Nutzt die native Web Crypto API des Browsers, ohne sensible Eingaben über das Internet zu senden",
       "feature3": "Einhaltung internationaler Standards: Entspricht exakt den Spezifikationen NIST FIPS 180-4 und RFC 1321",
@@ -704,14 +704,14 @@
       "step2Body": "Vergleichen Sie die berechneten Hexadezimalwerte für MD5 (128-Bit), SHA-256 (256-Bit) und SHA-512 (512-Bit).",
       "step3Title": "Hashwert kopieren",
       "step3Body": "Klicken Sie neben dem gewünschten Algorithmus auf Kopieren, um die Zeichenfolge in die Zwischenablage zu übernehmen.",
-      "faq1Q": "Kann ein kryptografischer Hash wieder in den Klartext entschlüsselt werden?",
-      "faq1A": "Nein. Kryptografische Hashes sind mathematische Einwegfunktionen. Eine Umkehrung oder Entschlüsselung ist unmöglich; Überprüfungen erfolgen stets durch den Neuvergleich berechneter Hashes.",
-      "faq2Q": "Was ist der Unterschied zwischen SHA-256 und MD5?",
-      "faq2A": "MD5 liefert einen 128-Bit-Hash und gilt aufgrund bekannter Kollisionsrisiken als kryptografisch veraltet. SHA-256 erzeugt einen kollisionsresistenten 256-Bit-Wert und entspricht modernen Sicherheitsanforderungen.",
-      "faq3Q": "Ist die Eingabe sensibler Passwörter in diesem Tool sicher?",
-      "faq3A": "Ja, absolut. Alle Algorithmen werden zu 100% lokal in Ihrem Browser ausgeführt. Es werden zu keinem Zeitpunkt Daten über das Netzwerk übertragen.",
-      "faq4Q": "Verändern Groß- und Kleinschreibung den erzeugten Hash?",
-      "faq4A": "Ja. Kryptografische Hashes weisen den Lawineneffekt auf: Selbst die Änderung eines einzigen Zeichens führt zu einem völlig anderen Prüfwert."
+      "faq1Q": "Wie erstelle ich online Prüfwerte mit MD5 oder SHA-256?",
+      "faq1A": "Gib deinen Klartext oder Datensatz einfach in das Textfeld ein. Die Anwendung berechnet unverzüglich und synchron die Prüfwerte für MD5 (128 Bit), SHA-256 (256 Bit) sowie SHA-512 (512 Bit). Mit einem Klick auf die Schaltfläche neben dem jeweiligen Prüfwert überträgst du die hexadezimale Zeichenkette direkt in die Zwischenablage.",
+      "faq2Q": "Wird das Hashing von Passwörtern mit Bcrypt unterstützt?",
+      "faq2A": "Diese Anwendung fungiert als regulärer kryptographischer Rechner für deterministische Prüfwerte (SHA-256, SHA-512, MD5). Im Unterschied dazu ist Bcrypt ein adaptives Schlüsselableitungsverfahren, das kryptographisches Salz und konfigurierbare Arbeitsrunden nutzt, um Passwörter gegen Brute-Force- und Wörterbuchangriffe abzusichern. Für den Produktiveinsatz bei Benutzerkonten sollten Backend-Bibliotheken für Bcrypt oder Argon2 verwendet werden; für die Integritätskontrolle ist SHA-256 optimal.",
+      "faq3Q": "Können sensible Kennwörter und Datei-Prüfwerte hier sicher analysiert werden?",
+      "faq3A": "Ja, vollkommen sicher! Sämtliche mathematischen Berechnungen erfolgen zu 100 % clientseitig im Browser über die standardisierte Web Cryptography API. Es findet keinerlei Datenübertragung über das Netzwerk statt, und es werden weder Protokolle noch Serveranfragen erzeugt.",
+      "faq4Q": "Ist dieses Online-Werkzeug ein gleichwertiger Ersatz für installierbare Prüfsummenprogramme?",
+      "faq4A": "Ja! Du erhältst ein vollkommen kostenloses Hilfsmittel ohne Einrichtungsaufwand. Unter Einhaltung der offiziellen Standards NIST FIPS 180-4 und RFC 1321 stehen dir alle Berechnungen direkt im Browser unter Windows, macOS, Linux und auf Smartphones zur Verfügung."
     },
     "hmacGenerator": {
       "title": "HMAC-Signaturgenerator (HMAC-SHA256, HMAC-SHA512)",

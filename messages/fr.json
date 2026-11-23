@@ -358,8 +358,8 @@
       "description": "Génère des UUID de version 4."
     },
     "hash-generator": {
-      "name": "Générateur de Hash",
-      "description": "Génère des hachages SHA-256, SHA-512, SHA-384, SHA-1."
+      "name": "Générateur de Hash en Ligne (MD5, SHA256, Bcrypt et Fichiers)",
+      "description": "Générateur de hash en ligne gratuit (MD5, SHA256, Bcrypt et fichiers). Obtenez instantanément des empreintes SHA-256, MD5 et SHA-512 dans votre navigateur en toute confidentialité."
     },
     "secure-password-generator": {
       "name": "Générateur de Mots de Passe Sécurisés",
@@ -691,9 +691,9 @@
       "faq4A": "Oui ! Pour les cours à coefficients, renseignez directement les parts relatives (par exemple : Devoirs 30 %, Examen 70 %). Si le cours utilise un barème par cumul de points, transposez les points obtenus en pourcentages ou attribuez des pondérations proportionnelles à l'importance de chaque épreuve."
     },
     "hashGenerator": {
-      "title": "Générateur de Hash Cryptographique (SHA-256, SHA-512, MD5)",
-      "subtitle": "Générez instantanément des empreintes cryptographiques SHA-256, SHA-512 et MD5 grâce au moteur natif de votre navigateur.",
-      "aboutText": "Le Générateur de Hash Cryptographique est un outil de sécurité informatique conçu pour créer des empreintes numériques unidirectionnelles et déterministes à partir de tout texte ou donnée binaire. Prenant en charge les algorithmes reconnus — tels que SHA-256, SHA-512 et le MD5 traditionnel —, il s'exécute directement dans la mémoire de votre navigateur. Utilisé par les ingénieurs en cybersécurité pour certifier l'intégrité de fichiers et vérifier des signatures.",
+      "title": "Générateur de Hash en Ligne (MD5, SHA256, Bcrypt et Fichiers)",
+      "subtitle": "Générateur de hash en ligne gratuit (MD5, SHA256, Bcrypt et fichiers). Obtenez instantanément des empreintes SHA-256, MD5 et SHA-512 dans votre navigateur en toute confidentialité.",
+      "aboutText": "Notre générateur cryptographique en ligne est un outil performant conçu pour les développeurs, spécialistes en cybersécurité et administrateurs réseau. Fonctionnant comme une alternative directe évitant l'installation de logiciels lourds sur votre machine, il dispense d'obtenir des exécutables tiers. Que vous ayez besoin de recalculer une somme de contrôle MD5, de générer une empreinte SHA-256 hautement sécurisée ou de vérifier des signatures numériques, cette plateforme traite vos données dans la mémoire locale. Tandis que des procédés comme Bcrypt utilisent un sel cryptographique et des itérations multiples pour protéger les mots de passe sur les serveurs, notre solution constitue une référence pratique pour analyser des chaînes de passe et contrôler l'intégrité de fichiers sans aucun transfert réseau.",
       "feature1": "Calcul simultané multi-algorithmes : calcule en direct les empreintes MD5, SHA-256 et SHA-512 au fil de votre saisie",
       "feature2": "Cryptographie 100% côté client : utilise l'API Web Crypto du navigateur sans jamais envoyer de texte vers des serveurs",
       "feature3": "Respect scrupuleux des normes internationales : parfaitement conforme aux spécifications NIST FIPS 180-4 et RFC 1321",
@@ -704,14 +704,14 @@
       "step2Body": "Examinez les valeurs hexadécimales obtenues pour MD5 (128 bits), SHA-256 (256 bits) et SHA-512 (512 bits).",
       "step3Title": "Copiez l'empreinte souhaitée",
       "step3Body": "Cliquez sur le bouton de copie situé à côté de l'algorithme désiré pour conserver l'empreinte dans le presse-papiers.",
-      "faq1Q": "Peut-on déchiffrer une empreinte de hash pour retrouver le texte d'origine ?",
-      "faq1A": "Non. Les fonctions de hachage cryptographique sont des fonctions mathématiques à sens unique. Il est impossible d'inverser une empreinte ; on ne peut que comparer le hash calculé d'un texte candidat.",
-      "faq2Q": "Quelle est la différence fondamentale entre SHA-256 et MD5 ?",
-      "faq2A": "MD5 fournit une empreinte de 128 bits et présente des risques de collision connus, le rendant obsolète pour la haute sécurité. SHA-256 offre une empreinte de 256 bits hautement résistante aux collisions, préconisée aujourd'hui.",
-      "faq3Q": "Est-il sûr d'entrer des mots de passe confidentiels dans cet outil ?",
-      "faq3A": "Oui, parfaitement sûr. Tous les calculs s'exécutent entièrement dans le navigateur client. Aucun caractère n'est transmis sur le réseau.",
-      "faq4Q": "La casse des lettres modifie-t-elle le résultat ?",
-      "faq4A": "Oui. En cryptographie, l'effet d'avalanche implique que changer ne serait-ce qu'une minuscule en majuscule produit une empreinte totalement différente."
+      "faq1Q": "Comment calculer une empreinte MD5 ou SHA-256 en ligne ?",
+      "faq1A": "Il suffit de saisir ou coller votre texte dans l'espace réservé. L'outil détermine en temps réel les condensats hexadécimaux pour MD5 (128 bits), SHA-256 (256 bits) et SHA-512 (512 bits). Vous pouvez cliquer sur le pictogramme correspondant pour placer instantanément la valeur dans votre presse-papiers.",
+      "faq2Q": "L'outil gère-t-il le hachage de mots de passe avec Bcrypt ?",
+      "faq2A": "Ce système est un calculateur cryptographique classique délivrant des empreintes rapides et déterministes (SHA-256, SHA-512, MD5). À l'inverse, Bcrypt est une fonction de dérivation à coût paramétrable intégrant un sel aléatoire afin de neutraliser les attaques par dictionnaire ou GPU. En environnement de production, les mots de passe doivent être traités côté serveur avec Bcrypt ou Argon2, tandis que SHA-256 demeure idéal pour certifier l'intégrité.",
+      "faq3Q": "Peut-on vérifier des mots de passe ou des fichiers en toute sérénité ?",
+      "faq3A": "Absolument ! Le traitement s'exécute intégralement côté client dans votre navigateur via l'API standard Web Cryptography. Aucun octet n'est envoyé sur un réseau distant, assurant une discrétion absolue de vos données confidentielles.",
+      "faq4Q": "Cette solution remplace-t-elle avantageusement les logiciels de hachage à installer ?",
+      "faq4A": "Oui ! Ce service offre une alternative entièrement gratuite sans aucun déploiement préalable. Conforme aux référentiels NIST FIPS 180-4 et RFC 1321, il fournit des calculs certifiés immédiatement accessibles sur Windows, macOS, Linux et terminaux mobiles."
     },
     "hmacGenerator": {
       "title": "Générateur de Signatures HMAC (HMAC-SHA256, HMAC-SHA512)",
