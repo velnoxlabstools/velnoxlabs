@@ -510,8 +510,8 @@
       "description": "免费在线手机扬声器喇叭排水除尘清理工具。利用 10000 Hz 声波与高频震动震出水珠，清理微尘，修复手机顶部听筒杂音与声音沉闷。"
     },
     "image-compressor": {
-      "name": "在线图片压缩工具",
-      "description": "直接在浏览器中高效压缩 JPG、PNG 和 WebP 图片，零质量损失，保护个人隐私。"
+      "name": "图片在线压缩工具 - 支持压缩至 100KB、50KB、20KB 及 1MB",
+      "description": "在浏览器中直接压缩 JPG、PNG 和 WebP 图片。自由调整压缩滑块，轻松将图片体积缩减至 100KB、50KB、20KB 或 1MB，兼顾画质与隐私安全。"
     },
     "image-format-converter": {
       "name": "在线图片格式转换工具",
