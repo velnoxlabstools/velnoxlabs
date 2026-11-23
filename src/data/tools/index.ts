@@ -117,13 +117,18 @@ export const tools: Tool[] = [
   {
     id: 'tool-csp-builder',
     slug: 'csp-header-builder-and-validator',
-    name: 'CSP Header Builder & Validator Online (CSP Checker)',
-    description: 'Free CSP header builder & validator online and CSP checker. Build, test, and evaluate Content Security Policy directives for modern web applications.',
+    name: 'CSP Generator & Formatter – CSP Scanner & Header Validator',
+    description: 'Free CSP Generator & Formatter and CSP Scanner. Build, format, and run a Content Security Policy test to protect web apps from XSS vulnerabilities.',
     categoryId: 'cat-security',
     tags: [
       'csp',
       'security',
       'header',
+      'csp header builder & validator online csp checker free',
+      'csp scanner',
+      'csp generator',
+      'csp formatter',
+      'content security policy test',
       'csp header builder & validator online',
       'csp header builder & validator free',
       'csp header builder & validator javascript',
@@ -131,7 +136,7 @@ export const tools: Tool[] = [
       'csp header checker',
       'mozilla csp checker',
       'csp header example',
-      'how to check content security policy header in chrome'
+      'how to check content security policy header in chrome',
     ],
     status: 'published',
     featured: false,
@@ -140,7 +145,7 @@ export const tools: Tool[] = [
     isNew: true,
     usageCount: 150,
     createdAt: '2026-09-18T00:00:00.000Z',
-    updatedAt: '2026-09-18T00:00:00.000Z',
+    updatedAt: '2026-10-30T00:00:00.000Z',
   },
 
   // ============ POPULAR TOOLS ============

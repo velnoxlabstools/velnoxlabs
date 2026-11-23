@@ -225,8 +225,8 @@
       "description": "生成轻量、紧凑且 URL 友好的高强度唯一 ID。"
     },
     "csp-header-builder-and-validator": {
-      "name": "CSP 响应头构建与校验器在线版 (CSP 安全检查器)",
-      "description": "免费在线 CSP 响应头构建与安全校验工具。快速配置、测试并验证现代 Web 应用的内容安全策略，防御 XSS 跨站脚本攻击。"
+      "name": "CSP 策略构建与排版器 – CSP 语法检测与分析工具",
+      "description": "免费 CSP 策略构建、语法整理与安全扫描工具。快速排版并测试内容安全策略，防范 Web 应用中的 XSS 漏洞。"
     },
     "json-formatter": {
       "name": "JSON 格式化与语法验证工具",
@@ -1829,9 +1829,9 @@
       "warnUnsafeEval": "安全警告：'unsafe-eval' 允许危险的代码执行。",
       "errInvalidDirective": "无效指令：\"{directive}\"",
       "errInvalidSource": "无效源：\"{source}\"",
-      "title": "CSP 响应头构建与校验器在线版 (CSP 安全检查器)",
-      "subtitle": "免费在线 CSP 响应头构建与安全校验工具。快速配置、测试并验证现代 Web 应用的内容安全策略，防御 XSS 跨站脚本攻击。",
-      "aboutText": "CSP 响应头构建与校验器在线版 (CSP 安全检查器) 是一套专为前端与系统安全打造的防护配置工具。无论您是需要一款免费的 CSP 响应头构建与校验工具以加固 HTTP 响应标头、为 JavaScript 单页应用框架定制安全策略，还是寻找 Mozilla CSP 检查器的理想在线替代方案，本工具均能依据现代 W3C 标准为您全面评估策略有效性。在浏览器本地轻松构建针对跨站脚本 (XSS)、点击劫持与非法数据外泄的严密防线。",
+      "title": "CSP 策略构建与排版器 – CSP 语法检测与分析工具",
+      "subtitle": "免费 CSP 策略构建、语法整理与安全扫描工具。快速排版并测试内容安全策略，防范 Web 应用中的 XSS 漏洞。",
+      "aboutText": "本在线 CSP 响应头构建与安全校验工具是一套集成了策略构建、语法排版以及全方位安全扫描的多功能防护套件。无论您是需要免费的 CSP 配置工具来加固 HTTP 响应头、为现代前端框架定制 JavaScript 安全规则，还是在浏览器中对现有策略执行内容安全策略深度检测，本工具均能依据现代 W3C 标准为您细致评估。作为 Mozilla CSP 检查工具的理想替代方案，它能自动扫描并标记 'unsafe-inline' 或 'unsafe-eval' 等高危指令，即刻输出适配 Nginx、Apache 及 HTML meta 标签的规范配置。",
       "feature1": "全指令参数全面覆盖：细致配置 default-src、script-src、style-src、img-src、connect-src 及 frame-ancestors",
       "feature2": "安全风险智能预警：自动排查 unsafe-inline 与 unsafe-eval 等高危指令并给出合规建议",
       "feature3": "多服务器格式一键导出：即时生成适配 Nginx 配置、Apache .htaccess 以及 HTML Meta 标签的代码",
@@ -1844,12 +1844,12 @@
       "step3Body": "一键复制配置好的 Content-Security-Policy 文本，直接贴入 Nginx 或 Web 服务器配置中。",
       "faq1Q": "如何在 Chrome 浏览器中检查内容安全策略 (CSP) 响应头？",
       "faq1A": "在 Google Chrome 中，按 F12 或 Ctrl+Shift+I (Mac 为 Cmd+Option+I) 打开开发者工具，切换至 Network (网络) 标签页并刷新页面；点击首个主文档请求，在 Headers (标头) 面板的 Response Headers (响应标头) 区域即可找到 'Content-Security-Policy'。此外，若页面触发了策略拦截，Console (控制台) 标签页也会实时输出违规告警日志。",
-      "faq2Q": "本工具是否可作为适用于火狐 Firefox 的 Mozilla CSP 检查工具？",
-      "faq2A": "完全可以。本工具符合 W3C 国际通用规范，可作为可靠的 Mozilla CSP 策略核验工具。内容安全策略是由各大主流浏览器共同支持的统一标准，在此处生成与校验的策略指令完全兼容 Mozilla Firefox、Google Chrome、Safari 与 Microsoft Edge。",
-      "faq3Q": "能否提供一个标准的 CSP 响应头配置示例？",
-      "faq3A": "以下是一个常见且健壮的基础配置示例：`default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`。该示例将资源加载严格限制为同源及指定的受信域名，同时彻底禁用遗留插件与 iframe 页面嵌套。",
-      "faq4Q": "本工具如何辅助 JavaScript 应用程序配置安全策略？",
-      "faq4A": "针对 React、Vue、Next.js 及 Angular 等现代前端框架，工具支持精细化配置 script-src、worker-src 与 connect-src 指令，在确保第三方 API 正常通信和脚本合法执行的同时，有效封堵恶意注入隐患。"
+      "faq2Q": "如何使用本工具进行 CSP 规则构建与语法排版？",
+      "faq2A": "若要构建与排版安全策略，只需在编辑器中录入指令或选用 default-src、script-src、style-src 等常用规则。系统会自动核验语法合规性、修正分号与单引号等标点排版，指出潜藏风险，并整理出规范易读的策略内容供您直接引入工程代码或服务器配置文件。",
+      "faq3Q": "我能否在此处对现有的内容安全策略执行语法与安全性检测？",
+      "faq3A": "完全可以。您可以将现有的任何 HTTP 策略粘贴至编辑区，一键运行深度检测。内置的分析扫描器会逐条审查指令语法、提示通配符隐患并评估合规等级。例如测试典型示例 `default-src 'self'; script-src 'self' https://trusted.com;`，在上线部署前确认其语法有效性与安全得分。",
+      "faq4Q": "本工具是否为免费的 CSP 安全扫描与火狐 Mozilla 检查替代方案？",
+      "faq4A": "是的，这是一款完全免费的本地端 CSP 安全扫描与 Mozilla CSP 检查工具，免注册且无任何额度限制。内容安全策略是由各大主流浏览器共同支持的统一 W3C 国际标准，因此在此处检测与排版完成的规则，在 Mozilla Firefox、Google Chrome、Apple Safari 与 Microsoft Edge 中均表现出完全一致的安全防护效果。"
     },
     "barcodeGenerator": {
       "title": "条形码生成器 (Barcode Generator)",

@@ -232,8 +232,8 @@
       "description": "Genera ID compatti compatibili con URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Generatore e Validatore di Intestazioni CSP Online (Controllo CSP)",
-      "description": "Strumento online gratuito per creare, collaudare e validare direttive Content-Security-Policy per la sicurezza delle applicazioni web."
+      "name": "Costruttore e Normalizzatore CSP – Analizzatore di Intestazioni di Sicurezza",
+      "description": "Applicativo gratuito per comporre, normalizzare e analizzare intestazioni CSP. Esegui verifiche di Content-Security-Policy contro attacchi XSS."
     },
     "json-formatter": {
       "name": "Formattatore e Validatore JSON Online",
@@ -1900,9 +1900,9 @@
       "warnUnsafeEval": "Avviso di sicurezza: 'unsafe-eval' consente l'esecuzione di codice pericoloso.",
       "errInvalidDirective": "Direttiva non valida: \"{directive}\"",
       "errInvalidSource": "Origine non valida: \"{source}\"",
-      "title": "Generatore e Validatore di Intestazioni CSP Online (Controllo CSP)",
-      "subtitle": "Strumento online gratuito per creare, collaudare e validare direttive Content-Security-Policy per la sicurezza delle applicazioni web.",
-      "aboutText": "Il Generatore e Validatore di Intestazioni CSP Online (Controllo CSP) è un supporto avanzato per la sicurezza dei portali web. Sia che tu abbia bisogno di una risorsa gratuita per rafforzare le intestazioni HTTP, impostare criteri di protezione per progetti JavaScript o cercare un'alternativa affidabile al validatore Mozilla CSP, la nostra applicazione esamina ogni parametro in conformità alle direttive W3C. Costruisci una barriera efficace contro vulnerabilità XSS, clickjacking e intercettazione non autorizzata di informazioni.",
+      "title": "Costruttore e Normalizzatore CSP – Analizzatore di Intestazioni di Sicurezza",
+      "subtitle": "Applicativo gratuito per comporre, normalizzare e analizzare intestazioni CSP. Esegui verifiche di Content-Security-Policy contro attacchi XSS.",
+      "aboutText": "Questo pacchetto online per la gestione delle intestazioni CSP opera come ambiente completo per la costruzione, la cura della sintassi e l'analisi di sicurezza delle direttive web. Sia che ti occorra una risorsa gratuita per blindare le intestazioni HTTP, creare regole per contesti JavaScript o eseguire una verifica approfondita di Content-Security-Policy sui parametri attuali, la nostra utility valuta ogni istruzione secondo le indicazioni W3C. Valida alternativa al controllore Mozilla CSP, scova diciture rischiose come 'unsafe-inline' o 'unsafe-eval' e produce configurazioni ordinate per Nginx, Apache e tag meta HTML.",
       "feature1": "Copertura integrale delle direttive: imposta default-src, script-src, style-src, img-src, connect-src e frame-ancestors",
       "feature2": "Rilevamento delle vulnerabilità: avvisa circa la presenza di direttive rischiose come 'unsafe-inline' o 'unsafe-eval' consigliando contromisure adeguate",
       "feature3": "Esportazione per Nginx, Apache e tag Meta: crea configurazioni pronte per Nginx, file .htaccess e tag HTML meta",
@@ -1915,12 +1915,12 @@
       "step3Body": "Esporta la direttiva Content-Security-Policy configurata e incollala nella configurazione del tuo server web con un clic.",
       "faq1Q": "Come verificare l'intestazione Content Security Policy in Google Chrome?",
       "faq1A": "In Google Chrome, apri gli strumenti per sviluppatori premendo F12 o Ctrl+Maiusc+I (Cmd+Opzione+I su Mac). Seleziona la scheda Rete (Network), ricarica la pagina, fai clic sulla richiesta del documento principale ed esamina le intestazioni di risposta per individuare 'Content-Security-Policy'. Eventuali violazioni vengono segnalate anche nella scheda Console.",
-      "faq2Q": "È possibile utilizzarlo come validatore Mozilla CSP per Firefox?",
-      "faq2A": "Certamente. La nostra applicazione applica gli standard ufficiali del W3C ed è perfetta per verificare le direttive destinate a Mozilla Firefox. Le regole controllate qui sono pienamente supportate da Firefox, Chrome, Safari ed Edge.",
-      "faq3Q": "È disponibile un esempio tipico di intestazione CSP?",
-      "faq3A": "Ecco una configurazione solida e diffusa: `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Questo schema autorizza unicamente risorse dalla stessa origine e da domini fidati, escludendo plugin obsoleti e riquadri esterni.",
-      "faq4Q": "In che modo supporta lo sviluppo di applicazioni in JavaScript?",
-      "faq4A": "Aiuta a definire con precisione le istruzioni script-src, worker-src e connect-src richieste da librerie come React, Vue o Angular, preservando il corretto funzionamento delle API ed eliminando il pericolo di esecuzioni indesiderate."
+      "faq2Q": "Come impiegare lo strumento per comporre e normalizzare i criteri CSP?",
+      "faq2A": "Per impostare e rifinire le tue regole di protezione, inserisci le istruzioni nell'area di lavoro o seleziona comandi primari come default-src, script-src e style-src. Il sistema controlla la correttezza della sintassi, sistema la punteggiatura e gli apici, segnala eventuali varchi di sicurezza e restituisce un'intestazione pulita pronta per i server aziendali.",
+      "faq3Q": "È possibile collaudare qui la propria direttiva Content-Security-Policy?",
+      "faq3A": "Certamente. Puoi incollare qualsiasi intestazione HTTP nell'editor per effettuare una scansione scrupolosa. L'analizzatore esamina la sintassi, segnala caratteri jolly rischiosi e verifica la conformità. Prova una regola di riferimento come `default-src 'self'; script-src 'self' https://trusted.com;` per sincerarti della sua efficacia prima del rilascio.",
+      "faq4Q": "Questo strumento di verifica è gratuito e funge da alternativa a Mozilla CSP?",
+      "faq4A": "Sì, è un analizzatore completamente gratuito e un ottimo sostituto del verificatore Mozilla CSP che opera in locale nel browser senza registrazioni. Essendo lo standard CSP stabilito dal W3C, le regole verificate qui sono pienamente operative su Mozilla Firefox, Google Chrome, Safari ed Edge."
     },
     "barcodeGenerator": {
       "title": "Generatore di Codici a Barre",

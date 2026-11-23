@@ -232,8 +232,8 @@
       "description": "Génère des IDs compacts compatibles avec les URL."
     },
     "csp-header-builder-and-validator": {
-      "name": "Générateur et Analyseur d'En-têtes CSP en Ligne (Vérificateur CSP)",
-      "description": "Outil gratuit en ligne pour concevoir, tester et valider vos directives Content-Security-Policy sur les applications web modernes."
+      "name": "Concepteur et Normalisateur CSP – Analyseur et Vérificateur d'En-têtes",
+      "description": "Solution sans frais pour concevoir, structurer et analyser vos directives CSP. Lancez un test Content-Security-Policy pour prémunir vos sites du XSS."
     },
     "json-formatter": {
       "name": "Mise en page et Validateur JSON en Ligne",
@@ -1902,9 +1902,9 @@
       "warnUnsafeEval": "Avertissement de sécurité : 'unsafe-eval' permet l'exécution de code dangereux.",
       "errInvalidDirective": "Directive non valide : \"{directive}\"",
       "errInvalidSource": "Source non valide : \"{source}\"",
-      "title": "Générateur et Analyseur d'En-têtes CSP en Ligne (Vérificateur CSP)",
-      "subtitle": "Outil gratuit en ligne pour concevoir, tester et valider vos directives Content-Security-Policy sur les applications web modernes.",
-      "aboutText": "Le Générateur et Analyseur d'En-têtes CSP en Ligne (Vérificateur CSP) constitue une solution complète de sécurisation HTTP. Que vous recherchiez une solution gratuite pour durcir vos en-têtes réseau, adapter vos règles aux architectures JavaScript ou disposer d'une alternative efficace au vérificateur Mozilla CSP, notre analyseur passe au crible vos directives selon les préconisations du W3C. Protégez sereinement vos utilisateurs contre les attaques XSS, le détournement de clic et l'exfiltration de données.",
+      "title": "Concepteur et Normalisateur CSP – Analyseur et Vérificateur d'En-têtes",
+      "subtitle": "Solution sans frais pour concevoir, structurer et analyser vos directives CSP. Lancez un test Content-Security-Policy pour prémunir vos sites du XSS.",
+      "aboutText": "Cette suite en ligne dédiée aux en-têtes CSP regroupe des fonctionnalités de conception, de mise en ordre syntaxique et d'analyse de sécurité approfondie. Que vous ayez besoin d'une solution libre d'accès pour renforcer vos en-têtes HTTP, adapter vos règles à des architectures JavaScript ou soumettre votre configuration à un test Content-Security-Policy, notre outil examine chaque directive au regard des normes W3C. Véritable alternative au vérificateur Mozilla CSP, il repère les éléments critiques tels que 'unsafe-inline' ou 'unsafe-eval' et prépare des déclarations conformes pour Nginx, Apache et balises meta HTML.",
       "feature1": "Prise en charge intégrale des directives : paramétrez default-src, script-src, style-src, img-src, connect-src et frame-ancestors",
       "feature2": "Avertissements de sécurité : repère les consignes permissives comme 'unsafe-inline' et oriente vers des alternatives plus sûres",
       "feature3": "Génération pour Nginx, Apache et balises Meta : produit des lignes de configuration prêtes pour Nginx, fichiers .htaccess ou balises HTML",
@@ -1917,12 +1917,12 @@
       "step3Body": "Exportez la directive Content-Security-Policy finalisée et insérez-la directement dans votre serveur web.",
       "faq1Q": "Comment vérifier l'en-tête Content Security Policy dans Google Chrome ?",
       "faq1A": "Dans Chrome, ouvrez les outils de développement avec F12 ou Ctrl+Maj+I (Cmd+Option+I sur Mac). Rendez-vous sur l'onglet Réseau (Network), actualisez la page, sélectionnez la requête du document principal et consultez les en-têtes de réponse pour repérer 'Content-Security-Policy'. Les blocages de sécurité apparaissent également dans l'onglet Console.",
-      "faq2Q": "Peut-on l'utiliser comme vérificateur Mozilla CSP pour Firefox ?",
-      "faq2A": "Tout à fait. Cet analyseur respecte scrupuleusement les spécifications du W3C et fonctionne parfaitement pour Mozilla Firefox. Les directives validées ici sont reconnues de manière uniforme par Firefox, Google Chrome, Safari et Microsoft Edge.",
-      "faq3Q": "Existe-t-il un exemple type d'en-tête CSP sécurisé ?",
-      "faq3A": "Voici un modèle recommandé : `default-src 'self'; script-src 'self' https://trusted.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; frame-ancestors 'none';`. Il restreint les ressources à votre propre domaine et à des sources de confiance, tout en interdisant les plugins obsolètes et les intégrations en iframe.",
-      "faq4Q": "En quoi cette solution facilite-t-elle la sécurisation d'applications JavaScript ?",
-      "faq4A": "Elle permet d'ajuster finement les directives script-src, worker-src et connect-src indispensables aux frameworks comme React, Vue ou Angular, maintenant le dialogue avec vos API tout en bloquant l'injection de scripts malveillants."
+      "faq2Q": "Comment employer cette solution pour concevoir et structurer ses règles CSP ?",
+      "faq2A": "Pour rédiger et harmoniser vos règles, saisissez vos instructions ou cochez des directives clés comme default-src, script-src et style-src. L'outil contrôle la syntaxe, rectifie les points-virgules et apostrophes, signale les vulnérabilités potentielles et élabore un en-tête standardisé prêt pour vos fichiers de configuration serveur.",
+      "faq3Q": "Est-il possible de tester une politique Content-Security-Policy existante ?",
+      "faq3A": "Oui. Il vous suffit de coller votre en-tête HTTP dans l'éditeur pour lancer une analyse complète. Le système évalue chaque directive, alerte sur les astérisques trop permissifs et valide la cohérence de l'ensemble. Vous pouvez par exemple examiner un modèle courant tel que `default-src 'self'; script-src 'self' https://trusted.com;` pour vérifier sa solidité avant déploiement.",
+      "faq4Q": "Cet analyseur est-il sans frais et compatible avec Mozilla Firefox ?",
+      "faq4A": "Oui, cet analyseur est totalement gratuit et constitue une alternative efficace au vérificateur Mozilla CSP, le tout s'exécutant dans le navigateur sans créer de compte. Les spécifications CSP étant uniformisées par le W3C, les règles validées ici fonctionnent à l'identique sous Mozilla Firefox, Google Chrome, Safari et Microsoft Edge."
     },
     "barcodeGenerator": {
       "title": "Générateur de Codes-Barres",
