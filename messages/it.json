@@ -282,8 +282,8 @@
       "description": "Conteggio di parole in tempo reale, caratteri, verificatore di lunghezza dei termini e densità."
     },
     "csv-to-json": {
-      "name": "Convertitore da CSV a JSON",
-      "description": "Trasforma tabelle CSV e TSV in oggetti e array JSON strutturati con riconoscimento automatico dei delimitatori."
+      "name": "Convertitore da CSV a JSON per File Grandi – Array JSON Online",
+      "description": "Applicativo gratuito per convertire grandi file CSV in JSON. Trasforma tabelle CSV, fogli TSV ed esportazioni Excel in array JSON puliti senza limiti di dimensione."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertitore cURL in Python",

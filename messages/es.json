@@ -282,8 +282,8 @@
       "description": "Recuento de palabras en tiempo real, caracteres, verificador de longitud y densidad de términos."
     },
     "csv-to-json": {
-      "name": "Conversor de CSV a JSON",
-      "description": "Convierte hojas de cálculo CSV y TSV en matrices y objetos JSON estructurados con detección automática de delimitadores."
+      "name": "Conversor de CSV a JSON para Archivos Grandes – Matriz JSON Online",
+      "description": "Herramienta online gratuita para convertir archivos CSV grandes a JSON. Transforma hojas de cálculo CSV, TSV y exportaciones de Excel en matrices JSON sin límites."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertidor de cURL a Python",

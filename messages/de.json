@@ -282,8 +282,8 @@
       "description": "Echtzeit-Wortzählung, Zeichenzähler, Wortlängenprüfer und Schlüsselwort-Häufigkeitsanalyse."
     },
     "csv-to-json": {
-      "name": "CSV-zu-JSON-Konverter",
-      "description": "Wandle CSV- und TSV-Tabellen in strukturierte JSON-Objekte und Arrays um mit automatischer Trennzeichenerkennung."
+      "name": "Konverter für große CSV-Dateien in JSON – JSON-Array Online",
+      "description": "Kostenloses Werkzeug für große CSV-Dateien. Wandle CSV-Tabellen, TSV-Dateien und Excel-Exporte ohne Dateigrößenbeschränkung in strukturierte JSON-Arrays um."
     },
     "curl-to-python-requests-converter": {
       "name": "cURL-zu-Python-Konverter",

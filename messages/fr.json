@@ -282,8 +282,8 @@
       "description": "Comptage de mots en direct, caractères, vérificateur de longueur de mots et densité des termes."
     },
     "csv-to-json": {
-      "name": "Outil de Conversion de CSV vers JSON",
-      "description": "Convertissez vos tableaux CSV et TSV en structures et objets JSON soignés avec détection automatique des séparateurs."
+      "name": "Convertisseur de Grands Fichiers CSV en JSON – Tableaux JSON en Ligne",
+      "description": "Outil gratuit pour volumineux fichiers CSV en JSON. Transformez vos feuilles de calcul CSV, TSV et classeurs Excel en tableaux JSON structurés sans limite de taille."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertisseur cURL vers Python",
