@@ -378,8 +378,8 @@
       "description": "Decodifica e inspeciona tokens JWT."
     },
     "html-encoder-decoder": {
-      "name": "Decodificador HTML e Codificador de Entidades",
-      "description": "Decodificador HTML gratuito para converter entidades em texto legível ou escapar caracteres."
+      "name": "Codificador e Decodificador HTML Online – Entidades HTML e Caracteres Especiais",
+      "description": "Codificador e decodificador HTML online gratuito. Transforme entidades HTML em texto puro e faça o escape de caracteres reservados no navegador instantaneamente."
     },
     "color-converter": {
       "name": "Conversor de Cores Online (HEX, RGB, CMYK, LAB e Pantone)",
@@ -737,9 +737,9 @@
       "faq4A": "Sim! Embora muitos serviços utilizem valores em formato hexadecimal, diversos ecossistemas em nuvem demandam Base64. Basta passar o código hexadecimal gerado pelo nosso codificador Base64 para obter a representação alfanumérica adequada aos seus cabeçalhos."
     },
     "htmlEncoderDecoder": {
-      "title": "Decodificador HTML e Codificador de Entidades",
-      "subtitle": "Decodificador HTML online para transformar entidades em texto simples ou escapar caracteres especiais com segurança.",
-      "aboutText": "O Codificador e Decodificador de Entidades HTML é uma ferramenta fundamental para desenvolvedores web, responsável por transformar caracteres reservados, símbolos e caracteres Unicode em entidades HTML padronizadas (&lt;, &gt;, &amp;, etc.) e vice-versa. Essencial para prevenir falhas de Cross-Site Scripting (XSS), exibir códigos-fonte dentro de páginas web com segurança e depurar conteúdos web codificados, com execução inteiramente local.",
+      "title": "Codificador e Decodificador HTML Online – Entidades HTML e Caracteres Especiais",
+      "subtitle": "Codificador e decodificador HTML online gratuito. Transforme entidades HTML em texto puro e faça o escape de caracteres reservados no navegador instantaneamente.",
+      "aboutText": "Nosso decodificador e codificador de entidades HTML online é um utilitário ágil projetado para desenvolvedores web com foco em escapar símbolos protegidos e restabelecer marcações codificadas. Operando como uma ferramenta gratuita no navegador, substitui caracteres reservados (&lt;, &gt;, &amp;, &quot;, &#39;) por sequências padronizadas e recupera o texto original com precisão absoluta. Atua como uma alternativa prática e moderna às tabelas estáticas do W3Schools ou arquivos de consulta em PDF. Quer você precise higienizar dados para conter vulnerabilidades de XSS, preparar tutoriais na web ou solucionar integrações em JavaScript ao manipular elementos do DOM, a plataforma processa tudo em memória local.",
       "feature1": "Conversão bidirecional ágil: alterne facilmente entre codificar (texto para entidades) e decodificar (entidades para texto legível)",
       "feature2": "Suporte completo a caracteres: protege caracteres HTML reservados (<, >, &, \", ') e símbolos especiais",
       "feature3": "Auxílio na prevenção contra XSS: escapa dados fornecidos por usuários para que possam ser inseridos com segurança no HTML",
@@ -750,14 +750,14 @@
       "step2Body": "Cole o trecho de código HTML, texto ou string codificada no painel de entrada.",
       "step3Title": "Copie o conteúdo processado",
       "step3Body": "Examine a saída gerada no painel de pré-visualização e clique no botão para salvar na área de transferência.",
-      "faq1Q": "Por que a codificação de entidades HTML é importante?",
-      "faq1A": "No HTML, caracteres como <, > e & definem a sintaxe das páginas. Se textos não confiáveis contendo esses caracteres forem inseridos sem tratamento, o navegador poderá executá-los como scripts, gerando vulnerabilidades XSS.",
-      "faq2Q": "Quais são as cinco entidades HTML fundamentais?",
-      "faq2A": "As cinco entidades básicas são: &lt; (<), &gt; (>), &amp; (&), &quot; (\") e &#39; (').",
-      "faq3Q": "Este utilitário suporta referências numéricas decimais e hexadecimais?",
-      "faq3A": "Sim. Ele decodifica tanto entidades nomeadas (como &amp; e &nbsp;) quanto referências numéricas decimais (&#169;) e hexadecimais (&#xA9;).",
-      "faq4Q": "O meu código HTML é enviado para algum servidor externo?",
-      "faq4A": "Não. Todas as conversões são realizadas no próprio navegador por meio das APIs locais de parsing, mantendo sigilo absoluto."
+      "faq1Q": "Como codificar entidades HTML online através desta página?",
+      "faq1A": "Selecione a aba de codificação e insira o texto ou código no painel. O utilitário substitui instantaneamente caracteres reservados como <, >, &, \" e ' pelas entidades formais (&lt;, &gt;, &amp;, &quot;, &#39;), garantindo segurança contra brechas de segurança em páginas web.",
+      "faq2Q": "Como decodificar entidades HTML em scripts de JavaScript?",
+      "faq2A": "No JavaScript, você pode restaurar entidades através da API DOMParser do navegador: const decodeHTML = (html) => new DOMParser().parseFromString(html, 'text/html').body.textContent;. Outra abordagem comum utiliza um elemento temporário: const txt = document.createElement('textarea'); txt.innerHTML = str; return txt.value;. Ambas as opções reconstituem os caracteres originais a partir de códigos como &amp;quot;.",
+      "faq3Q": "Esta solução substitui tabelas de consulta do W3Schools ou resumos em PDF?",
+      "faq3A": "Com certeza! Em vez de pesquisar listas longas no W3Schools ou abrir documentos PDF de referência, esta ferramenta dinâmica interpreta e valida entidades nomeadas e referências numéricas decimais ou hexadecimais em tempo real, sem exigir memorização.",
+      "faq4Q": "A ferramenta suporta tanto codificar quanto decodificar entidades?",
+      "faq4A": "Sim! O recurso é totalmente bidirecional. Você pode alternar quando quiser entre codificar texto puro para caracteres protegidos e decodificar códigos como &lt;div&gt; ou referências numéricas (como &#169;) de volta para texto compreensível."
     },
     "httpHeaderInspector": {
       "title": "Inspetor e Analisador de Cabeçalhos HTTP",

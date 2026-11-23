@@ -378,8 +378,8 @@
       "description": "Décode et inspecte les jetons JWT."
     },
     "html-encoder-decoder": {
-      "name": "Décodeur HTML et Encodeur d'Entités",
-      "description": "Décodeur HTML gratuit pour restituer les entités en texte clair ou sécuriser les caractères spéciaux."
+      "name": "Encodeur et Décodeur HTML en Ligne – Décodage d'Entités HTML",
+      "description": "Encodeur et décodeur HTML en ligne gratuit. Décodez les entités HTML en texte brut et échappez les caractères réservés instantanément dans votre navigateur."
     },
     "color-converter": {
       "name": "Convertisseur de Couleur en Ligne (HEX, RGB, CMYK, LAB et Pantone)",
@@ -737,9 +737,9 @@
       "faq4A": "Oui ! Bien que les webhooks classiques privilégient les chaînes hexadécimales, des plateformes cloud majeures exigent une structure Base64. Il vous suffit d'insérer l'empreinte hexadécimale obtenue dans notre outil d'encodage Base64 pour obtenir la chaîne textuelle adéquate."
     },
     "htmlEncoderDecoder": {
-      "title": "Décodeur HTML et Encodeur d'Entités",
-      "subtitle": "Décodeur HTML en ligne pour restituer les entités en texte lisible ou échapper les caractères spéciaux.",
-      "aboutText": "L'Encodeur et Décodeur d'Entités HTML est un outil indispensable pour les développeurs web qui transforme les caractères réservés, symboles et glyphes Unicode en entités HTML conformes (&lt;, &gt;, &amp;, etc.) et réciproquement. Essentiel pour neutraliser les vulnérabilités de Cross-Site Scripting (XSS), afficher des portions de code source dans les pages web et inspecter des contenus encodés, avec traitement immédiat dans votre navigateur.",
+      "title": "Encodeur et Décodeur HTML en Ligne – Décodage d'Entités HTML",
+      "subtitle": "Encodeur et décodeur HTML en ligne gratuit. Décodez les entités HTML en texte brut et échappez les caractères réservés instantanément dans votre navigateur.",
+      "aboutText": "Notre décodeur et encodeur d'entités HTML en ligne est un instrument polyvalent pour développeurs web conçu pour neutraliser les caractères réservés et rétablir les balises codées. Fonctionnant comme une solution gratuite sans latence de serveur, il transpose les symboles sensibles (&lt;, &gt;, &amp;, &quot;, &#39;) en codes de caractères sécurisés et restitue les textes d'origine avec une fidélité parfaite. Il constitue une alternative moderne aux répertoires de W3Schools et aux mémentos statiques en PDF. Que vous ayez besoin d'assainir des données utilisateur pour prévenir les failles XSS, de présenter des extraits de code dans une documentation ou de traiter des flux en JavaScript lors de la manipulation du DOM, notre plateforme exécute vos requêtes en mémoire locale.",
       "feature1": "Conversion bidirectionnelle fluide : basculez entre l'encodage (texte vers entités) et le décodage (entités vers texte)",
       "feature2": "Prise en charge étendue des caractères : traite les caractères HTML réservés (<, >, &, \", ') et les symboles Unicode",
       "feature3": "Sécurisation contre les attaques XSS : échappe les entrées non vérifiées pour une injection sans risque dans vos gabarits web",
@@ -750,14 +750,14 @@
       "step2Body": "Insérez votre bloc de code HTML, texte ou chaîne d'entités dans la zone de saisie.",
       "step3Title": "Copiez le résultat obtenu",
       "step3Body": "Examinez le texte converti dans l'aperçu et cliquez sur Copier pour l'exploiter dans votre projet.",
-      "faq1Q": "Pourquoi l'encodage des entités HTML est-il indispensable ?",
-      "faq1A": "En HTML, des caractères comme <, > et & ont une portée syntaxique. Si des données saisies par un utilisateur contiennent ces caractères sans encodage, le navigateur peut les exécuter en tant que scripts, créant des failles XSS.",
-      "faq2Q": "Quelles sont les 5 entités HTML les plus courantes ?",
-      "faq2A": "Les cinq entités essentielles sont : &lt; (<), &gt; (>), &amp; (&), &quot; (\") et &#39; (').",
-      "faq3Q": "Cet outil sait-il décoder les références numériques décimales et hexadécimales ?",
-      "faq3A": "Oui. Il interprète tant les entités nommées (comme &amp; et &nbsp;) que les références numériques décimales (&#169;) et hexadécimales (&#xA9;).",
-      "faq4Q": "Mes données HTML sont-elles transmises à des serveurs distants ?",
-      "faq4A": "Non. L'encodage et le décodage s'opèrent localement dans la mémoire du navigateur, sans aucune communication réseau."
+      "faq1Q": "Comment échapper des caractères spéciaux en ligne avec cet outil ?",
+      "faq1A": "Sélectionnez l'onglet d'encodage et déposez votre texte ou bloc de code dans l'espace prévu. L'outil remplace aussitôt les symboles réservés (<, >, &, \", ') par leurs entités officielles (&lt;, &gt;, &amp;, &quot;, &#39;), garantissant une diffusion web protégée contre les injections malveillantes.",
+      "faq2Q": "Comment décoder des entités HTML en JavaScript ?",
+      "faq2A": "En JavaScript, vous pouvez décoder les entités grâce à l'interface DOMParser native : const decodeHTML = (html) => new DOMParser().parseFromString(html, 'text/html').body.textContent;. Une autre méthode courante exploite une balise temporaire : const txt = document.createElement('textarea'); txt.innerHTML = str; return txt.value;. Ces deux approches restituent les caractères réels à partir d'entités comme &amp;quot;.",
+      "faq3Q": "Cet outil remplace-t-il les lexiques de W3Schools ou les fiches PDF ?",
+      "faq3A": "Absolument ! Au lieu de parcourir de longues listes sur W3Schools ou de consulter des fichiers PDF fixes, cette interface interactive identifie et résout immédiatement les entités nommées ainsi que les références numériques décimales ou hexadécimales sans apprentissage fastidieux.",
+      "faq4Q": "L'application prend-elle en charge le traitement bidirectionnel ?",
+      "faq4A": "Oui ! L'outil offre une double fonctionnalité. Vous pouvez basculer aisément entre le mode d'encodage pour sécuriser du texte brut et le mode de décodage pour rétablir des éléments tels que &lt;div&gt; ou des valeurs chiffrées (comme &#169;) sous leur aspect naturel."
     },
     "httpHeaderInspector": {
       "title": "Inspecteur et Analyseur d'En-têtes HTTP",

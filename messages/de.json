@@ -378,8 +378,8 @@
       "description": "Dekodiert und inspiziert JWT-Token."
     },
     "html-encoder-decoder": {
-      "name": "HTML-Decoder & Entity-Encoder",
-      "description": "Kostenloser HTML-Decoder zur Wiederherstellung von HTML-Entities in Klartext oder Zeichenmaskierung."
+      "name": "Online-HTML-Encoder & Decoder – HTML-Entitäten und Sonderzeichen dekodieren",
+      "description": "Kostenloser Online-HTML-Encoder und Decoder. Dekodiere HTML-Entitäten in Klartext oder maskiere reservierte Sonderzeichen sofort im Browser ohne Wartezeit."
     },
     "color-converter": {
       "name": "Online-Farbkonverter (HEX, RGB, CMYK, LAB & Pantone)",
@@ -737,9 +737,9 @@
       "faq4A": "Ja! Während viele Webhooks hexadezimale Darstellungen verlangen, setzen Clouddienste wie AWS oft auf Base64. Du kannst den hier berechneten hexadezimalen Wert unkompliziert in unseren Base64-Kodierer einfügen, um die benötigte Base64-Zeichenkette zu erhalten."
     },
     "htmlEncoderDecoder": {
-      "title": "HTML-Decoder & Entity-Encoder",
-      "subtitle": "HTML-Entities mit dem Online-Decoder in Klartext umwandeln oder Sonderzeichen für Webseiten sicher maskieren.",
-      "aboutText": "Der HTML-Entitäten Kodierer & Dekodierer ist ein unverzichtbares Werkzeug für Webentwickler, das reservierte Zeichen, Symbole und Unicode-Zeichen in standardisierte HTML-Entitäten (&lt;, &gt;, &amp; usw.) und umgekehrt übersetzt. Es schützt effektiv vor Cross-Site-Scripting (XSS), ermöglicht die saubere Darstellung von Code-Auszügen auf Webseiten und erleichtert das Debuggen kodierter Inhalte im Browser.",
+      "title": "Online-HTML-Encoder & Decoder – HTML-Entitäten und Sonderzeichen dekodieren",
+      "subtitle": "Kostenloser Online-HTML-Encoder und Decoder. Dekodiere HTML-Entitäten in Klartext oder maskiere reservierte Sonderzeichen sofort im Browser ohne Wartezeit.",
+      "aboutText": "Unser Online-HTML-Encoder und Decoder ist ein vielseitiges Werkzeug für Webentwickler zum Maskieren reservierter Sonderzeichen und Entschlüsseln kodierter Markup-Strings. Als schnelle browserbasierte Lösung wandelt er Zeichen wie &lt;, &gt;, &amp;, &quot; und &#39; in sichere HTML-Entitäten um und stellt ursprüngliche Texte originalgetreu wieder her. Das Werkzeug dient als zeitgemäßer Ersatz für unhandliche Tabellen auf W3Schools oder statische PDF-Übersichten. Ob du Benutzereingaben zur Vermeidung von Cross-Site-Scripting (XSS) absichern, Quellcode in technischen Dokumentationen darstellen oder JavaScript-Aufrufe beim Verarbeiten von DOM-Daten analysieren willst: Dieses Werkzeug arbeitet ohne Server-Umwege direkt im lokalen Speicher.",
       "feature1": "Reibungslose Zwei-Wege-Umwandlung: Wechseln Sie einfach zwischen Kodieren (Text zu Entitäten) und Dekodieren (Entitäten zu Text)",
       "feature2": "Breite Zeichenabdeckung: Verarbeitet reservierte HTML-Zeichen (<, >, &, \", ') sowie spezielle Unicode-Symbole",
       "feature3": "Schutz vor XSS-Sicherheitslücken: Bereitet ungesicherte Benutzereingaben für die gefahrlose Einbindung in HTML auf",
@@ -750,14 +750,14 @@
       "step2Body": "Fügen Sie Ihren HTML-Code, Text oder die kodierte Zeichenfolge in den Eingabebereich ein.",
       "step3Title": "Ergebnis übernehmen",
       "step3Body": "Prüfen Sie den umgewandelten Text in der Vorschau und klicken Sie auf Kopieren für die Zwischenablage.",
-      "faq1Q": "Warum ist das Kodieren von HTML-Entitäten so wichtig?",
-      "faq1A": "In HTML besitzen Zeichen wie <, > und & eine strukturelle Steuerfunktion. Werden Nutzereingaben ohne Maskierung eingefügt, interpretiert der Browser sie als ausführbaren Code, was zu gravierenden XSS-Lücken führen kann.",
-      "faq2Q": "Welches sind die fünf zentralen HTML-Entitäten?",
-      "faq2A": "Die wichtigsten Standardentitäten sind: &lt; (<), &gt; (>), &amp; (&), &quot; (\") und &#39; (').",
-      "faq3Q": "Können auch numerische Zeichenreferenzen dekodiert werden?",
-      "faq3A": "Ja. Das Werkzeug dekodiert benannte Entitäten (wie &amp; und &nbsp;) ebenso wie dezimale (&#169;) und hexadezimale (&#xA9;) Zeichenreferenzen.",
-      "faq4Q": "Werden meine HTML-Inhalte an einen Server gesendet?",
-      "faq4A": "Nein. Alle Operationen laufen lokal im Speicher Ihres Browsers mithilfe nativer Schnittstellen ab, wodurch Ihre Daten vertraulich bleiben."
+      "faq1Q": "Wie maskiere ich Sonderzeichen mit diesem Online-Encoder?",
+      "faq1A": "Wähle den Modus zum Kodieren und füge deinen Klartext oder Code-Ausschnitt in das Eingabefeld ein. Die Anwendung wandelt reservierte Symbole wie <, >, &, \" und ' unmittelbar in normierte Entitäten (&lt;, &gt;, &amp;, &quot;, &#39;) um, sodass der Code sicher im Web veröffentlicht werden kann.",
+      "faq2Q": "Wie lassen sich HTML-Entitäten in JavaScript programmatisch dekodieren?",
+      "faq2A": "In JavaScript kannst du Entitäten über die DOMParser-Schnittstelle des Browsers dekodieren: const decodeHTML = (html) => new DOMParser().parseFromString(html, 'text/html').body.textContent;. Alternativ lässt sich ein temporäres Textareafeld nutzen: const txt = document.createElement('textarea'); txt.innerHTML = str; return txt.value;. Beide Wege stellen aus Entitäten wie &amp;quot; zuverlässig das Originalzeichen her.",
+      "faq3Q": "Ist dieses Werkzeug ein gleichwertiger Ersatz für W3Schools-Tabellen oder PDF-Übersichten?",
+      "faq3A": "Ja! Anstatt mühsam in langen W3Schools-Listen zu blättern oder statische PDF-Spickzettel zu durchsuchen, ermittelt dieses interaktive System alle benannten, dezimalen und hexadezimalen Entitäten während des Tippens automatisch.",
+      "faq4Q": "Unterstützt das Werkzeug sowohl das Kodieren als auch das Dekodieren?",
+      "faq4A": "Ja! Die Anwendung arbeitet vollständig bidirektional. Du kannst jederzeit zwischen dem Maskieren von Sonderzeichen in HTML-Entitäten und dem Wiederherstellen von Sequenzen wie &lt;div&gt; oder Zahlenwerten (z. B. &#169;) in lesbaren Klartext umschalten."
     },
     "httpHeaderInspector": {
       "title": "HTTP-Header-Inspektor & Parser",
