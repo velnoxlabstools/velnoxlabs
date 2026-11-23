@@ -509,8 +509,8 @@
       "description": "Konvertiert Jahresgehalt in Stunden-, Wochen-, Monats- und Zweiwochenlohn."
     },
     "grade-calculator": {
-      "name": "Notenrechner",
-      "description": "Berechnet gewichtete Noten, Buchstabennote und GPA."
+      "name": "Endnoten-Rechner – Notenberechnung & Notenprognose für Schule und Studium",
+      "description": "Kostenloser Endnoten-Rechner und Notenprognose-Rechner. Semester- und Quartalsnoten, Prüfungspunkte, Notendurchschnitte und gewichtete Leistungen berechnen."
     },
     "fix-my-speaker": {
       "name": "Lautsprecher-Reiniger – Wasser ausstoßen & 10000 Hz Staub-Ton",
@@ -668,9 +668,9 @@
       "faq4A": "Ja. Es läuft unmittelbar im mobilen Webbrowser, benötigt keine Speicherplatzbelegung durch Downloads aus App-Stores und verarbeitet alle Angaben direkt im Arbeitsspeicher deines Geräts."
     },
     "gradeCalculator": {
-      "title": "Gewichteter Notenrechner & Abschlussprüfungs-Rechner",
-      "subtitle": "Berechnen Sie gewichtete Gesamtnoten, Notendurchschnitte, GPA und die erforderliche Note in der Abschlussprüfung.",
-      "aboutText": "Der Gewichtete Notenrechner hilft Schülern, Studierenden und Lehrkräften, präzise Gesamtergebnisse anhand der prozentualen Gewichtung im Lehrplan zu ermitteln. Mit Unterstützung für Hausarbeiten, Klausuren, Tests und Projekte errechnet das Tool gewichtete Durchschnitte, Notenstufen und GPA-Werte auf der 4.0-Skala. Die integrierte Hochrechnung zeigt zudem genau an, welche Punktzahl in den verbleibenden Prüfungen nötig ist, um das Wunschziel zu erreichen.",
+      "title": "Endnoten-Rechner – Notenberechnung & Notenprognose für Schule und Studium",
+      "subtitle": "Kostenloser Endnoten-Rechner und Notenprognose-Rechner. Semester- und Quartalsnoten, Prüfungspunkte, Notendurchschnitte und gewichtete Leistungen berechnen.",
+      "aboutText": "Unser Endnoten-Rechner und Notenprognose-Werkzeug ist ein vielseitiger Studien- und Schulbegleiter für Gymnasiasten, Studierende, Lehrkräfte und Eltern. Ganz gleich, ob Lehrpersonen eine zuverlässige Hilfe zur Benotung von Unterrichtsleistungen suchen oder Schüler eine präzise Notenermittlung für Klausuren benötigen: Dieses System erleichtert die schulische Notenverwaltung erheblich. Lernende können ihre Leistungen über volle Semester oder einzelne Quartale lückenlos überwachen. Der Rechner eignet sich ideal für das Notensystem an weiterführenden Schulen sowie für Studienfächer mit Gesamtpunktzahlen oder gewichteten Prozentanteilen. Dank der integrierten Zielnoten-Prognose lässt sich exakt bestimmen, welche Punktzahl in der Abschlussprüfung erforderlich ist, um die Wunschzensur zu sichern.",
       "feature1": "Flexible Prüfungskategorien: Fügen Sie beliebig viele Aufgaben und Klausuren mit individuellen Prozentgewichtungen hinzu",
       "feature2": "Zielnoten-Hochrechnung: Berechnet automatisch die erforderliche Prüfungsnote für eine 1,0 oder einen Zielprozentsatz",
       "feature3": "Automatische Notenstufen- & GPA-Zuordnung: Konvertiert Prozentwerte zuverlässig in Standard-Notensysteme und GPA",
@@ -681,14 +681,14 @@
       "step2Body": "Tragen Sie im Bereich für die Zielrechnung den gewünschten Gesamtprozentsatz für den Kurs ein.",
       "step3Title": "Benötigte Note prüfen und kopieren",
       "step3Body": "Sehen Sie Ihren aktuellen Zwischenstand und die in ausstehenden Prüfungen geforderte Note ein und kopieren Sie die Übersicht.",
-      "faq1Q": "Wie funktioniert ein gewichtetes Notensystem?",
-      "faq1A": "In einem gewichteten System tragen einzelne Leistungsnachweise unterschiedlich stark zur Gesamtnote bei. Die Note jeder Kategorie wird mit ihrem prozentualen Gewicht multipliziert und die Teilergebnisse werden aufsummiert.",
-      "faq2Q": "Was geschieht, wenn die eingetragenen Gewichte noch keine 100% ergeben?",
-      "faq2A": "Der Rechner zeigt Ihren aktuellen Zwischenstand auf Basis der bisher erbrachten Leistungen an und beziffert den verbleibenden Prozentanteil für kommende Prüfungen.",
-      "faq3Q": "Wie ermittelt der Rechner die benötigte Prüfungsnote?",
-      "faq3A": "Anhand der Formel: Benötigte Note = (Wunschnote - Bisherige Punkte) / Restgewichtung wird ermittelt, ob und wie das Ziel mathematisch erreichbar ist.",
-      "faq4Q": "Werden meine Noten auf Servern gespeichert?",
-      "faq4A": "Nein. Alle Berechnungen erfolgen ausschließlich lokal in Ihrer Browsersitzung; persönliche Daten und Noten werden nicht übertragen."
+      "faq1Q": "Wie berechne ich meine Endnote mit diesem Notenrechner?",
+      "faq1A": "Füge alle bewerteten Unterrichtsbestandteile (wie Hausarbeiten, Tests, Referate und Zwischenklausuren) samt deiner prozentualen Punktzahl und der Lehrplangewichtung hinzu. Das Werkzeug ermittelt in Echtzeit deinen gewichteten Notendurchschnitt, die entsprechende Zensur und den Notenwert auf der 4.0-Skala.",
+      "faq2Q": "Wie funktioniert die Zielnoten-Prognose (What-If)?",
+      "faq2A": "Die Notenprognose ermittelt, welche Leistung in der verbleibenden Abschlussprüfung nötig ist, um dein Ziel zu erreichen. Auf Basis deiner Wunschprozentzahl errechnet das System: Benötigte Punktzahl = (Zielnote - bisherige gewichtete Punkte) / verbleibende Gewichtung. Du erfährst sofort, ob das Ziel bereits gesichert, realistisch machbar oder mathematisch unerreichbar ist.",
+      "faq3Q": "Können Lehrkräfte diesen Rechner für Quartals- oder Semesterzensuren nutzen?",
+      "faq3A": "Ja, absolut! Viele Lehrpersonen nutzen dieses Programm, um Noten für Halbjahre, Semester oder Trimester zu ermitteln. Sie können beliebige Leistungskategorien anlegen, prüfen, ob die Gewichtungssumme 100 % ergibt, und übersichtliche Aufstellungen für Zeugniskonferenzen erstellen.",
+      "faq4Q": "Werden sowohl gewichtete Notenkategorien als auch Gesamtpunktesysteme unterstützt?",
+      "faq4A": "Ja! Bei gewichteten Fächern trägst du die prozentualen Anteile direkt ein (z. B. Mitarbeit 30 %, Prüfungen 70 %). Bei Systemen mit reiner Punkteakkumulation rechnest du erreichte Punkte in Prozentwerte um oder gewichtest die Aufgaben entsprechend ihrem Punktwert."
     },
     "hashGenerator": {
       "title": "Kryptografischer Hash-Generator (SHA-256, SHA-512, MD5)",

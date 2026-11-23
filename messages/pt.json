@@ -509,8 +509,8 @@
       "description": "Converte salário anual em pagamento horário, semanal, mensal e quinzenal."
     },
     "grade-calculator": {
-      "name": "Calculadora de Notas",
-      "description": "Calcula notas ponderadas, nota em letra e GPA."
+      "name": "Calculadora de Nota Final – Simulador de Médias e Desempenho Escolar",
+      "description": "Calculadora de nota final e simulador de metas gratuita. Calcule médias de semestre, notas bimestrais, pontuações de provas e GPA para ensino médio e superior."
     },
     "fix-my-speaker": {
       "name": "Limpador de Alto-Falante – Ejetar Água e Som de 10000 Hz",
@@ -668,9 +668,9 @@
       "faq4A": "Sim. Por rodar diretamente no navegador do celular, dispensa downloads de lojas virtuais, não requer permissões e opera com total leveza na memória do aparelho, sem cobranças ou anúncios intrusivos."
     },
     "gradeCalculator": {
-      "title": "Calculadora de Notas Ponderadas e Prova Final",
-      "subtitle": "Calcule médias ponderadas de disciplinas, notas em letras, GPA e descubra a pontuação exigida na prova final.",
-      "aboutText": "A Calculadora de Notas Ponderadas e Prova Final ajuda alunos e professores a calcular a média acumulada exata de um curso com base nos pesos estipulados no plano de ensino. Suportando trabalhos, provas intermediárias, testes e projetos, o utilitário calcula a média ponderada percentual, a letra correspondente e o GPA na escala 4.0. Além disso, a simulação da prova final revela exatamente quanto você precisa tirar nas avaliações restantes para alcançar a nota desejada.",
+      "title": "Calculadora de Nota Final – Simulador de Médias e Desempenho Escolar",
+      "subtitle": "Calculadora de nota final e simulador de metas gratuita. Calcule médias de semestre, notas bimestrais, pontuações de provas e GPA para ensino médio e superior.",
+      "aboutText": "Nossa calculadora de nota final e simulador de médias acadêmicas é uma solução completa desenvolvida para estudantes do ensino médio, universitários, professores e responsáveis. Seja para auxiliar educadores na apuração de notas de atividades ou para servir como aferidor preciso de avaliações, a plataforma simplifica a gestão do boletim escolar. Alunos podem acompanhar o progresso de semestres inteiros ou bimestres individuais. O utilitário atende com facilidade às demandas de cálculo de notas no ensino secundário e a sistemas baseados em soma de pontos ou porcentagens ponderadas. Equipado com um simulador preditivo, calcula com precisão a pontuação necessária no exame final para garantir a média desejada.",
       "feature1": "Categorias de avaliação flexíveis: adicione trabalhos e provas sem limites, definindo o peso percentual de cada item",
       "feature2": "Simulação de meta para a prova final: descobre a pontuação necessária para atingir uma nota A, B ou média desejada",
       "feature3": "Conversão em letras e escala GPA: mapeia o desempenho percentual em conceitos e na escala acadêmica padrão de 4.0",
@@ -681,14 +681,14 @@
       "step2Body": "No módulo de simulação, informe a média final percentual que você deseja conquistar na disciplina.",
       "step3Title": "Verifique a nota necessária e copie",
       "step3Body": "Veja a nota necessária nas provas futuras para atingir sua meta e copie o resumo completo do seu desempenho.",
-      "faq1Q": "O que é uma média ponderada?",
-      "faq1A": "É um cálculo em que cada avaliação possui um peso diferente no resultado final. Multiplica-se a nota de cada atividade pelo seu respectivo peso e somam-se esses produtos para obter a média do curso.",
-      "faq2Q": "O que acontece se a soma dos pesos ainda não atingir 100%?",
-      "faq2A": "A calculadora exibirá a média parcial com base no conteúdo avaliado até o momento e informará o percentual restante referente às próximas provas.",
-      "faq3Q": "Como a calculadora descobre a nota necessária na prova final?",
-      "faq3A": "A ferramenta utiliza a fórmula: Nota Necessária = (Média Desejada - Pontos Ponderados Obtidos) / Peso Restante, indicando inclusive se o objetivo é viável matematicamente.",
-      "faq4Q": "As minhas notas são salvas em algum servidor?",
-      "faq4A": "Não. Todos os cálculos são processados apenas na sessão do seu navegador; nenhuma nota ou dado pessoal é transmitido."
+      "faq1Q": "Como posso apurar a minha nota final através desta ferramenta?",
+      "faq1A": "Basta inserir cada atividade realizada (como tarefas, trabalhos em grupo, seminários e provas parciais) com sua respectiva nota percentual e o peso correspondente no plano pedagógico. O sistema computa imediatamente a sua média ponderada, o conceito equivalente e a classificação na escala GPA.",
+      "faq2Q": "De que forma funciona o simulador preditivo de notas?",
+      "faq2A": "O recurso calcula a pontuação exata que você precisa obter na prova final para alcançar a média almejada. Ao definir a sua nota pretendida, o cálculo utiliza a fórmula: Nota Necessária = (Média Pretendida - Pontuação Ponderada Atual) / Peso Restante, indicando na hora se a meta já foi conquistada, se é viável ou inatingível.",
+      "faq3Q": "Professores podem usar o sistema para fechar médias semestrais ou bimestrais?",
+      "faq3A": "Com certeza! Vários educadores utilizam esta página para consolidar notas de turmas em períodos bimestrais e semestrais. É possível organizar critérios de avaliação, conferir se a soma dos pesos atinge 100% e obter um relatório claro para conselhos de classe.",
+      "faq4Q": "A ferramenta aceita tanto pesos ponderados quanto contagem por pontos totais?",
+      "faq4A": "Sim! Em cursos com média ponderada, digite as porcentagens de cada critério diretamente (ex: Trabalhos 30%, Provas 70%). Se o curso adota pontuação cumulativa, converta os pontos obtidos em valores percentuais equivalentes ou distribua os pesos proporcionalmente."
     },
     "hashGenerator": {
       "title": "Gerador de Hash Criptográfico (SHA-256, SHA-512, MD5)",

@@ -509,8 +509,8 @@
       "description": "Convertit le salaire annuel en paiement horaire, hebdomadaire, mensuel et bimensuel."
     },
     "grade-calculator": {
-      "name": "Calculatrice de Notes",
-      "description": "Calcule les notes pondérées, lettres et GPA."
+      "name": "Calculateur de Note Finale – Simulateur d'Examens et Moyennes Scolaires",
+      "description": "Calculateur de note finale et simulateur d'objectifs académiques gratuit. Calculez vos moyennes de semestre, trimestres, examens scolaires et barèmes pondérés."
     },
     "fix-my-speaker": {
       "name": "Nettoyeur de Haut-Parleur – Éjecter l'Eau et Son de 10000 Hz",
@@ -668,9 +668,9 @@
       "faq4A": "Absolument. Fonctionnant directement au sein du navigateur web de votre smartphone, il ne nécessite aucun enregistrement ni espace de stockage applicatif, effectuant chaque étape dans la mémoire locale."
     },
     "gradeCalculator": {
-      "title": "Calculateur de Moyenne Pondérée et Objectif d'Examen",
-      "subtitle": "Calculez votre moyenne pondérée, vos équivalences de notes, votre GPA et déterminez le score requis à l'examen final.",
-      "aboutText": "Le Calculateur de Moyenne Pondérée et Objectif d'Examen accompagne étudiants et enseignants pour évaluer avec exactitude les résultats scolaires ou universitaires selon les coefficients du cursus. Prenant en charge devoirs, examens partiels, contrôles continus et projets, il détermine la moyenne pondérée, les équivalences de lettres et le GPA sur une échelle de 4.0. Sa projection d'examen calcule la note exacte indispensable pour décrocher la mention souhaitée.",
+      "title": "Calculateur de Note Finale – Simulateur d'Examens et Moyennes Scolaires",
+      "subtitle": "Calculateur de note finale et simulateur d'objectifs académiques gratuit. Calculez vos moyennes de semestre, trimestres, examens scolaires et barèmes pondérés.",
+      "aboutText": "Notre calculateur de note finale et simulateur d'examens est un instrument pédagogique complet pensé pour les lycéens, étudiants universitaires, enseignants et parents. Que vous cherchiez une solution pratique pour évaluer les travaux de classe ou un outil d'estimation précise pour vos épreuves, cette plateforme simplifie le suivi scolaire. Les apprenants peuvent analyser leurs résultats semestriels ou trimestriels pour mesurer leur progression. L'outil s'adapte aussi bien aux exigences du lycée qu'aux barèmes universitaires basés sur l'accumulation de points ou sur des coefficients pondérés. Grâce à son simulateur de projection, il détermine le score exact requis lors de l'examen final pour décrocher la moyenne visée.",
       "feature1": "Pondérations personnalisables : ajoutez autant d'épreuves que nécessaire en configurant le pourcentage de chaque tâche",
       "feature2": "Objectif pour l'examen final : détermine automatiquement la note indispensable pour obtenir une mention ou une moyenne cible",
       "feature3": "Correspondance en lettres et GPA : convertit les pourcentages en mentions universitaires et échelle GPA standard",
@@ -681,14 +681,14 @@
       "step2Body": "Indiquez dans le module de simulation le pourcentage final moyen que vous souhaitez atteindre dans l'enseignement.",
       "step3Title": "Vérifiez la note nécessaire et copiez",
       "step3Body": "Découvrez la note requise lors des prochaines évaluations pour réussir votre objectif, puis copiez le bilan académique.",
-      "faq1Q": "Qu'est-ce qu'une moyenne pondérée ?",
-      "faq1A": "Dans un système pondéré, chaque travail possède un coefficient différent dans le résultat global. On multiplie la note de chaque travail par son coefficient et on additionne les résultats pour former la moyenne globale.",
-      "faq2Q": "Que se passe-t-il si le total des coefficients n'atteint pas encore 100% ?",
-      "faq2A": "Le calculateur présente votre moyenne intermédiaire sur les éléments déjà corrigés et affiche le pourcentage restant alloué aux examens futurs.",
-      "faq3Q": "Comment est calculée la note nécessaire lors de l'examen final ?",
-      "faq3A": "La formule appliquée est : Note requise = (Moyenne visée - Points pondérés acquis) / Coefficient restant, en confirmant si l'objectif est mathématiquement réalisable.",
-      "faq4Q": "Mes notes d'examen sont-elles enregistrées sur vos serveurs ?",
-      "faq4A": "Non. Tous les calculs s'effectuent strictement dans la session de votre navigateur ; aucun dossier universitaire n'est transmis à l'extérieur."
+      "faq1Q": "Comment calculer ma note finale sur cette plateforme ?",
+      "faq1A": "Saisissez les évaluations réalisées (devoirs, contrôles continus, travaux pratiques et examens partiels) avec votre note en pourcentage et son coefficient selon le programme d'études. L'outil établit immédiatement votre moyenne pondérée, l'appréciation correspondante et l'équivalent sur échelle GPA.",
+      "faq2Q": "Quel est le principe de fonctionnement du simulateur d'examens ?",
+      "faq2A": "Le simulateur identifie la note minimale indispensable lors de votre examen final pour atteindre l'objectif fixé. En indiquant votre moyenne globale souhaitée, il applique la relation : Note Requise = (Moyenne Visée - Points Actuels Obtenus) / Coefficient Restant. Vous savez aussitôt si la mention est garantie, envisageable ou hors de portée.",
+      "faq3Q": "Les enseignants peuvent-ils évaluer des trimestres ou semestres entiers avec cet outil ?",
+      "faq3A": "Tout à fait ! De nombreux professeurs s'appuient sur cette page pour clore les bulletins trimestriels ou semestriels de leurs élèves. Il est aisé de définir les catégories de travaux, de contrôler que le total des coefficients fait bien 100 % et d'imprimer une synthèse claire.",
+      "faq4Q": "L'application prend-elle en compte les coefficients et les barèmes en points cumulés ?",
+      "faq4A": "Oui ! Pour les cours à coefficients, renseignez directement les parts relatives (par exemple : Devoirs 30 %, Examen 70 %). Si le cours utilise un barème par cumul de points, transposez les points obtenus en pourcentages ou attribuez des pondérations proportionnelles à l'importance de chaque épreuve."
     },
     "hashGenerator": {
       "title": "Générateur de Hash Cryptographique (SHA-256, SHA-512, MD5)",
