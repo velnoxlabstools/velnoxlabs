@@ -1976,8 +1976,8 @@
       "faq4A": "No, l'analisi lessicale e i conteggi hanno luogo unicamente nella memoria locale del browser in uso."
     },
     "fixMySpeaker": {
-      "title": "Pulisci Altoparlante (Fix My Speaker)",
-      "subtitle": "Espelli l'acqua e rimuovi la polvere dagli altoparlanti del telefono con onde sonore e vibrazioni.",
+      "title": "Pulisci Altoparlante Smartphone – Espellere Acqua e Suono da 10000 Hz",
+      "subtitle": "Pulisci altoparlante online gratuito con frequenza da 10000 Hz. Espelli acqua intrappolata, rimuovi polvere e ripristina l'audio dell'auricolare superiore delle chiamate.",
       "modeSound": "Modalità Suono",
       "modeVibrate": "Modalità Vibrazione",
       "soundDescription": "Riproduce frequenze acustiche calibrate per espellere le gocce d'acqua intrappolate nella griglia.",
@@ -1996,7 +1996,7 @@
       "tip2": "Tieni il telefono con gli altoparlanti rivolti verso il basso per favorire la fuoriuscita con la gravità.",
       "tip3": "Esegui da 2 a 3 cicli completi se il telefono è caduto in acqua o l'audio risulta ancora ovattato.",
       "tip4": "Asciuga delicatamente con un panno assorbente le goccioline espulse sulla superficie.",
-      "aboutText": "Fix My Speaker è un'utilità web gratuita sviluppata per rimuovere l'acqua intrappolata e liberare dalla polvere gli altoparlanti di smartphone, auricolari e smartwatch. A seguito di contatti con liquidi, piccole gocce si depositano nella griglia sottile della cassa, rendendo l'audio soffocato. Emettendo frequenze mirate tra 165 Hz e 250 Hz combinate con vibrazioni, questo strumento genera una pressione d'aria che spinge i liquidi all'esterno senza rischi per l'hardware.",
+      "aboutText": "Il nostro strumento per pulire l'altoparlante del telefono e dispositivo di espulsione acustica è progettato per salvare l'audio ovattato dei dispositivi mobili caduti in acqua o impolverati. Sia che il tuo smartphone sia caduto nel lavandino, sia stato esposto alla pioggia o presenti polvere sulla griglia, il programma emette frequenze acustiche accordate e un suono di purificazione da 10000 Hz per rimuovere detriti ed espellere gocce d'acqua tramite onde di pressione. Coniugando onde basse a forte spostamento d'aria e un ciclo di armoniche da 10000 Hz, il sistema fa oscillare la membrana del diffusore per staccare le impurità. Agisce efficacemente sia sull'altoparlante inferiore sia sull'altoparlante superiore delle chiamate, spesso occluso da residui cutanei e polvere sottile. Se riscontri un volume soffocato e desideri ripristinare il livello audio originale, la rimozione degli ostacoli restituirà la nitidezza sonora di fabbrica. Nel caso in cui siano presenti sostanze oleose o grasso denso, le onde sonore non possono dissolvere l'unto, rendendo necessaria una pulizia manuale con panno asciutto. Funziona nel browser in totale sicurezza.",
       "feature1": "Frequenze acustiche calibrate tra 165Hz e 250Hz per la massima forza di spinta",
       "feature2": "Doppia azione pulente con modalità Suono e Vibrazione fisica",
       "feature3": "Completamente nel browser, senza installare alcuna applicazione",
@@ -2007,14 +2007,14 @@
       "step2Body": "La Modalità Suono muove l'aria mediante onde acustiche, mentre la vibrazione scuote il corpo del telefono. Puoi alternarle.",
       "step3Title": "Avvia con l'altoparlante verso il basso",
       "step3Body": "Orienta le aperture degli speaker verso il basso e premi avvia per compiere il ciclo da 30 secondi.",
-      "faq1Q": "Questo strumento può danneggiare l'altoparlante del telefono?",
-      "faq1A": "No. I toni e i volumi adoperati rientrano pienamente nei parametri di sicurezza specificati dai costruttori di dispositivi mobili.",
-      "faq2Q": "Quante volte conviene ripetere la pulizia?",
-      "faq2A": "Un ciclo dura 30 secondi. Per umidità lieve bastano 1 o 2 cicli. In caso di caduta in acqua, effettua dai 3 ai 5 cicli fino al ripristino dell'audio limpido.",
-      "faq3Q": "Perché il suono continua a sentirsi ovattato?",
-      "faq3A": "Se l'audio non è ancora nitido, potrebbe esserci umidità residua all'interno. Lascia il telefono capovolto in un ambiente asciutto per 20 minuti e riesegui la Modalità Suono.",
-      "faq4Q": "Funziona su iPhone, Android e altri terminali?",
-      "faq4A": "Sì! Fix My Speaker è compatibile con tutti i moderni browser per iPhone, smartphone Android, tablet, smartwatch e portatili."
+      "faq1Q": "In che modo questo programma pulisce l'altoparlante da acqua e polvere?",
+      "faq1A": "Il sistema sfrutta le potenzialità audio del browser per generare onde acustiche tra 165 Hz e 250 Hz. Il movimento continuo della membrana genera una pressione d'aria che spinge le goccioline d'acqua fuori dalla griglia. Nello stesso tempo, la vibrazione costante scolla le particelle di polvere asciutta depositate sulla retina protettiva.",
+      "faq2Q": "A cosa serve l'emissione del suono speciale a 10000 Hz?",
+      "faq2A": "L'emissione a 10000 Hz è studiata per la rimozione delle polveri sottili mediante micro-oscillazioni. Mentre i bassi profondi muovono l'acqua grazie alla spinta d'aria, il tono a 10000 Hz scuote rapidamente la griglia metallica, staccando residui microscopici che causano suoni gracchianti.",
+      "faq3Q": "Il metodo funziona anche per l'altoparlante superiore delle telefonate?",
+      "faq3A": "Certamente! L'auricolare superiore per le telefonate ha fori molto piccoli che si otturano facilmente a contatto con umidità e polvere. Riproducendo il suono al massimo volume consentito, la compressione acustica attraversa tutte le uscite dell'apparecchio, liberando anche la capsula auricolare per conversazioni nitide.",
+      "faq4Q": "Aiuta a risolvere il volume basso e può eliminare l'olio dall'altoparlante?",
+      "faq4A": "Aiuta a ripristinare il volume massimo originale eliminando le barriere di liquidi e polvere che soffocano il canale sonoro (senza oltrepassare i limiti fisici dell'hardware). Per quanto riguarda l'olio o i grassi, le onde fisiche non possono sciogliere sostanze oleose. Se è entrato olio, detergi con cautela la fessura con un panno in microfibra asciutto."
     },
     "imageCompressor": {
       "title": "Compressore di Immagini Online",

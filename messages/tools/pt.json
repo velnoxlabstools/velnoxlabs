@@ -1960,8 +1960,8 @@
       "faq4A": "Não, toda a análise lexical e contagem decorre unicamente na memória local do seu navegador."
     },
     "fixMySpeaker": {
-      "title": "Reparar Altifalante (Fix My Speaker)",
-      "subtitle": "Ejete água e remova poeiras dos altifalantes do telemóvel usando ondas sonoras e vibração.",
+      "title": "Limpador de Alto-Falante – Ejetar Água e Som de 10000 Hz",
+      "subtitle": "Limpador online gratuito de alto-falante com som de 10000 Hz. Ejete água retida, remova poeira e recupere o áudio abafado no alto-falante superior de chamadas.",
       "modeSound": "Modo Som",
       "modeVibrate": "Modo Vibração",
       "soundDescription": "Reproduz frequências sonoras otimizadas para expelir gotas de água presas na malha do altifalante.",
@@ -1980,7 +1980,7 @@
       "tip2": "Segure ou apoie o telemóvel com as saídas de som viradas para baixo para que a gravidade ajude.",
       "tip3": "Execute 2 a 3 ciclos completos se o telemóvel tiver caído na água ou o som continuar abafado.",
       "tip4": "Limpe cuidadosamente com um pano absorvente as gotículas expelidas para a superfície.",
-      "aboutText": "O Fix My Speaker é uma ferramenta online concebida para retirar água retida e poeiras de altifalantes de smartphones, auscultadores e relógios inteligentes. Após contacto com líquidos, a água fica retida na grelha milimétrica do aparelho, tornando o áudio distorcido. Através de frequências calculadas entre 165 Hz e 250 Hz combinadas com impulsos vibratórios, este utilitário empurra fisicamente o líquido para o exterior sem colocar o hardware em risco.",
+      "aboutText": "Nosso limpador de alto-falante online e sistema de ejeção acústica foi desenvolvido para socorrer aparelhos telefônicos que entraram em contato com líquidos ou acumularam poeira na grade acústica. Caso seu celular tenha caído na água, molhado na chuva ou acumulado resíduos ao longo do tempo, nossa ferramenta emite pulsos sonoros ajustados e um tom de 10000 Hz para soltar sujeiras e expelir gotas retidas por meio de ondas de pressão. Ao harmonizar frequências graves de alto deslocamento com um ciclo sonoro agudo de 10000 Hz, o sistema agita o diafragma interno, soltando detritos finos. É altamente eficaz tanto para o som principal quanto para o alto-falante superior de chamadas, frequentemente obstruído por poeira de bolso e oleosidade facial. Se você nota áudio excessivamente baixo e deseja restabelecer o volume original, a desobstrução das saídas restabelece a nitidez de fábrica. No entanto, em casos de óleo espesso ou graxa, a vibração acústica não dissolve o óleo, exigindo limpeza manual com flanela seca. Tudo roda direto no navegador com máxima segurança.",
       "feature1": "Ondas acústicas sintonizadas entre 165Hz e 250Hz com elevada força de ejeção",
       "feature2": "Limpeza de dupla ação com modos de Som e Vibração tátil",
       "feature3": "Execução local no navegador sem necessidade de instalar aplicações",
@@ -1991,14 +1991,14 @@
       "step2Body": "O Modo Som atua através de pressão de ar, enquanto a vibração sacode o aparelho. Pode alternar entre ambos.",
       "step3Title": "Prima Iniciar com o altifalante virado para baixo",
       "step3Body": "Mantenha o telemóvel inclinado com as aberturas do altifalante viradas para baixo e deixe decorrer o ciclo de 30 segundos.",
-      "faq1Q": "Esta ferramenta pode estragar o altifalante do telemóvel?",
-      "faq1A": "Não. Os tons e intensidades sonoras operam dentro dos limites seguros da engenharia acústica dos dispositivos modernos.",
-      "faq2Q": "Quanto tempo devo executar a limpeza?",
-      "faq2A": "Cada ciclo decorre durante 30 segundos. Para humidade ligeira, 1 a 2 ciclos são suficientes; em submersões profundas, realize entre 3 e 5 ciclos.",
-      "faq3Q": "Porque é que o som continua abafado após a limpeza?",
-      "faq3A": "Se o som não ficar logo nítido, ainda restam partículas de água no interior. Mantenha o aparelho virado para baixo numa divisão seca por 20 minutos e repita o ciclo.",
-      "faq4Q": "Funciona em iPhone, Android e outros equipamentos?",
-      "faq4A": "Sim! O utilitário funciona diretamente em qualquer navegador atual em iPhone, Android, tablets, smartwatches e computadores portáteis."
+      "faq1Q": "Como este limpador atua para expulsar água e poeira do aparelho?",
+      "faq1A": "Ele utiliza recursos sonoros do navegador para emitir frequências variando entre 165 Hz e 250 Hz. Esse movimento do cone cria uma pressão de ar constante que força as gotículas de água para fora dos orifícios. Simultaneamente, a oscilação rápida descola a poeira e fiapos secos retidos na tela de proteção.",
+      "faq2Q": "Qual é o papel do som na frequência de 10000 Hz?",
+      "faq2A": "A frequência de 10000 Hz foi desenvolvida para a remoção de poeira microscópica e vibração fina da membrana. Enquanto as frequências graves movem as gotas d'água mais pesadas, a vibração aguda de 10000 Hz agita a tela protetora em alta velocidade, descolando grãos de terra ressecados que provocam ruídos e chiados.",
+      "faq3Q": "A ferramenta funciona para desentupir o alto-falante superior de ligações?",
+      "faq3A": "Sim! O pequeno auricular superior usado em chamadas telefônicas possui orifícios minúsculos suscetíveis a entupimento por suor e poeira. Ao acionar o som com o volume no máximo, a pressão acústica atinge todas as vias ativas do telefone, incluindo o auricular superior, restabelecendo a clareza nas conversas.",
+      "faq4Q": "O procedimento soluciona sons abafados e consegue retirar óleo do aparelho?",
+      "faq4A": "Ele ajuda a recuperar o volume original do smartphone ao eliminar as barreiras líquidas e sólidas que abafam o som (sem ultrapassar a potência máxima do aparelho). Já no que tange ao óleo, as ondas sonoras descolam água e poeira, mas não dissolvem substâncias gordurosas. Se houver óleo na grade, recomenda-se passar suavemente um pano de microfibra seco."
     },
     "imageCompressor": {
       "title": "Compressor de Imagens Online",

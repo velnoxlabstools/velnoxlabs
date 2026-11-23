@@ -1958,8 +1958,8 @@
       "faq4A": "Nein, alle Zählungen und Textanalysen finden ausschließlich lokal im Speicher Ihres Browsers statt."
     },
     "fixMySpeaker": {
-      "title": "Lautsprecher Reinigen (Fix My Speaker)",
-      "subtitle": "Wasser und Staub aus Handy-Lautsprechern mit gezielten Schallwellen und Vibrationen entfernen.",
+      "title": "Lautsprecher-Reiniger – Wasser ausstoßen & 10000 Hz Staub-Ton",
+      "subtitle": "Kostenloser Lautsprecher-Reiniger mit 10000 Hz Schallfrequenz. Entferne Wasser, beseitige Staub und behebe gedämpften Klang an Hörmuschel und Hauptlautsprecher.",
       "modeSound": "Ton-Modus",
       "modeVibrate": "Vibrations-Modus",
       "soundDescription": "Erzeugt spezielle Hochfrequenz-Schallwellen, um Wassertropfen wirkungsvoll aus dem Lautsprechergitter zu drücken.",
@@ -1978,7 +1978,7 @@
       "tip2": "Halten oder platzieren Sie das Smartphone so, dass die Lautsprecheröffnungen nach unten zeigen.",
       "tip3": "Führen Sie 2 bis 3 Durchläufe durch, falls das Gerät unter Wasser war oder der Klang noch dumpf wirkt.",
       "tip4": "Wischen Sie austretende Wassertropfen vorsichtig mit einem trockenen Tuch ab.",
-      "aboutText": "Fix My Speaker ist ein kostenloses Web-Dienstprogramm, mit dem eingeschlossenes Wasser und feiner Staub aus Lautsprechern von Smartphones, Smartwatches und Kopfhörern ausgeworfen werden können. Gelangt Feuchtigkeit in das Gerät, setzen sich Tropfen in der Lautsprechermembran fest und dämpfen den Ton. Durch speziell abgestimmte Schallwellen zwischen 165 Hz und 250 Hz in Verbindung mit Vibrationen entsteht ein Luftdruck, der Flüssigkeiten sanft und effektiv nach außen befördert.",
+      "aboutText": "Unser Lautsprecher-Reiniger für Smartphones und Mobilgeräte wurde konzipiert, um dumpfen Klang nach Wasserschäden oder Staubansammlungen zu beheben. Ob dein Telefon ins Waschbecken gefallen ist, im Regen nass wurde oder Schmutz das Lautsprechergitter verstopft: Unser Werkzeug erzeugt modulierte akustische Druckwellen und einen effektiven 10000 Hz Ton zur Staubbeseitigung, um Flüssigkeitströpfchen und Schmutzteilchen mechanisch aus den Öffnungen zu drücken. Durch die Kombination kraftvoller Basswellen mit einem 10000 Hz Hochfrequenz-Intervall wird die Lautsprechermembran gezielt in Schwingung versetzt. Dies funktioniert gleichermaßen für den Hauptlautsprecher als auch für den oberen Telefonie-Lautsprecher an der Hörmuschel, der oft durch Schweiß oder Make-up blockiert wird. Wenn der Ton zu leise klingt und du die ursprüngliche Lautstärke wiederherstellen möchtest, sorgt das Freiblasen der Kanäle für klare Sprachwiedergabe. Sollte jedoch dickflüssiges Öl ins Gerät gelangt sein, können Schallwellen ölige Rückstände nicht auflösen; hier hilft nur ein sanftes Tuch. Komplett browserbasiert und ohne Installation sicher anwendbar.",
       "feature1": "Abgestimmte Frequenzen zwischen 165Hz und 250Hz für starke Auswurfkraft",
       "feature2": "Kombinierte Doppelreinigung mit Schallwellen und taktiler Vibration",
       "feature3": "Vollständig browserbasiert – keine App-Installation oder Anmeldung nötig",
@@ -1989,14 +1989,14 @@
       "step2Body": "Wählen Sie den Ton-Modus zur akustischen Austreibung oder den Vibrationsmodus zum Lösen von Partikeln.",
       "step3Title": "Start drücken und Lautsprecher nach unten halten",
       "step3Body": "Richten Sie die Lautsprecheröffnungen nach unten und starten Sie den 30-sekündigen Durchlauf.",
-      "faq1Q": "Kann dieser Vorgang meine Lautsprecher beschädigen?",
-      "faq1A": "Nein. Die verwendeten Tonfrequenzen und Lautstärken bewegen sich im sicheren Betriebsbereich moderner mobiler Lautsprecherkomponenten.",
-      "faq2Q": "Wie oft sollte die Reinigung durchgeführt werden?",
-      "faq2A": "Ein Durchlauf dauert 30 Sekunden. Bei leichten Spritzern genügen 1 bis 2 Durchläufe. War das Gerät im Wasser, empfehlen sich 3 bis 5 Zyklen.",
-      "faq3Q": "Warum klingt der Lautsprecher danach noch dumpf?",
-      "faq3A": "Bleibt der Klang gedämpft, befindet sich noch Restfeuchtigkeit tiefer im Gehäuse. Lassen Sie das Gerät mit der Öffnung nach unten 20 Minuten ruhen und wiederholen Sie den Ton-Modus.",
-      "faq4Q": "Funktioniert das Tool auf iPhone, Android und anderen Geräten?",
-      "faq4A": "Ja! Fix My Speaker läuft problemlos in allen gängigen Webbrowsern auf iPhone, Android-Smartphones, Tablets, Smartwatches und Laptops."
+      "faq1Q": "Wie funktioniert dieser Lautsprecher-Reiniger bei Wasser und Staub?",
+      "faq1A": "Das Werkzeug nutzt die Web-Audio-Technologie, um tiefe Frequenzen zwischen 165 Hz und 250 Hz zusammen mit Rechteckschwingungen abzuspielen. Die Bewegung der Membran baut einen spürbaren Luftdruck auf, der im Schutzgitter festsitzende Wassertropfen nach außen stößt. Zeitgleich lockert die stetige Schwingung trockene Staubpartikel aus der Textil- und Metallbespannung.",
+      "faq2Q": "Wozu dient der spezielle 10000 Hz Ton?",
+      "faq2A": "Die hohe 10000 Hz Frequenz dient der Beseitigung feiner Staubpartikel und der Mikrovibration des Schutzgitters. Während tiefe Frequenzen durch hohes Luftvolumen schwere Wassertropfen verdrängen, rüttelt der 10000 Hz Ton mikroskopische Fusseln und Sandkörner los, die für Verzerrungen oder Knistern verantwortlich sind.",
+      "faq3Q": "Lässt sich damit auch der obere Hörmuschel-Lautsprecher reinigen?",
+      "faq3A": "Ja! Der obere Lautsprecher für Telefonate besitzt ein besonders engmaschiges Gitter, das leicht durch Feuchtigkeit oder Hautkontakt verstopft. Wenn du den Signalton bei voller Lautstärke abspielst, wird der Schalldruck durch alle aktiven Gehäuseöffnungen geleitet, was den Klang bei Telefonaten spürbar aufklart.",
+      "faq4Q": "Hilft die Anwendung bei leiser Wiedergabe und entfernt sie auch Öl?",
+      "faq4A": "Sie behebt Lautstärkeverluste, indem sie Flüssigkeitsfilme und Staubschichten beseitigt, die den Schall dämpfen, wodurch die volle Werkslautstärke wiederkehrt (ohne die Hardware-Grenzwerte zu überschreiten). Ölige Flüssigkeiten können durch Schallwellen hingegen nicht zersetzt werden. Bei fettigen Rückständen sollte das Gitter vorsichtig mit einem trockenen Mikrofasertuch gereinigt werden."
     },
     "imageCompressor": {
       "title": "Online-Bildkompressor",

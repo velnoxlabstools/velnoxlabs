@@ -1960,8 +1960,8 @@
       "faq4A": "Non, tous les calculs d'analyse et de comptage sont exécutés exclusivement dans la mémoire de votre navigateur."
     },
     "fixMySpeaker": {
-      "title": "Nettoyer Haut-Parleur (Fix My Speaker)",
-      "subtitle": "Éjectez l'eau et éliminez la poussière des haut-parleurs de smartphone grâce aux ondes sonores et aux vibrations.",
+      "title": "Nettoyeur de Haut-Parleur – Éjecter l'Eau et Son de 10000 Hz",
+      "subtitle": "Nettoyeur gratuit de haut-parleur avec son de 10000 Hz. Éjectez l'eau coincée, retirez la poussière et réparez le son étouffé de l'écouteur supérieur.",
       "modeSound": "Mode Sonore",
       "modeVibrate": "Mode Vibration",
       "soundDescription": "Diffuse des ondes acoustiques calibrées pour chasser les gouttelettes d'eau incrustées dans la grille audio.",
@@ -1980,7 +1980,7 @@
       "tip2": "Tenez ou posez le smartphone avec les haut-parleurs orientés vers le bas pour profiter de la gravité.",
       "tip3": "Effectuez 2 à 3 cycles complets si l'appareil a été immergé ou si le son reste étouffé.",
       "tip4": "Essuyez délicatement les gouttelettes expulsées avec un chiffon sec ou un mouchoir absorbant.",
-      "aboutText": "Fix My Speaker est un utilitaire en ligne conçu pour évacuer l'eau accumulée et déloger la poussière des haut-parleurs de téléphones portables, écouteurs et montres connectées. Lorsqu'un smartphone entre en contact avec l'eau, des micro-gouttes se logent dans la grille du transducteur, étouffant le son. En émettant des fréquences sonores précises entre 165 Hz et 250 Hz combinées à des vibrations rythmées, cet outil crée une surpression d'air qui propulse le liquide à l'extérieur.",
+      "aboutText": "Notre nettoyeur de haut-parleur en ligne et utilitaire d'éjection acoustique est spécialement conçu pour restaurer le son étouffé d'un smartphone tombé dans l'eau ou encrassé par la poussière. Que votre téléphone ait subi une averse ou une immersion accidentelle, notre module génère des impulsions acoustiques et une tonalité de 10000 Hz pour détacher les impuretés et chasser les gouttelettes d'eau par onde de pression. En associant des fréquences basses à un cycle d'harmoniques de 10000 Hz, le système fait vibrer la membrane acoustique pour déloger les particules incrustées. Cette action s'avère particulièrement efficace pour le haut-parleur principal ainsi que pour l'écouteur supérieur d'appel, souvent obstrué par le maquillage et les résidus de poche. Si votre volume sonore semble diminué et que vous désirez retrouver la clarté initiale, le dégagement de la grille rétablit le niveau sonore d'origine. En revanche, si de l'huile épaisse a pénétré dans l'appareil, les ondes sonores ne peuvent pas dissoudre les corps gras ; un essuyage avec un chiffon doux reste nécessaire. Tout fonctionne dans le navigateur sans aucun risque.",
       "feature1": "Fréquences sonores calibrées entre 165Hz et 250Hz à forte poussée acoustique",
       "feature2": "Double action combinant flux acoustique et vibrations physiques",
       "feature3": "100% dans le navigateur web, sans aucune application à installer",
@@ -1991,14 +1991,14 @@
       "step2Body": "Le Mode Sonore génère une pression d'air tandis que le Mode Vibration secoue le boîtier. Vous pouvez alterner les deux.",
       "step3Title": "Lancez la lecture haut-parleur orienté vers le bas",
       "step3Body": "Positionnez les sorties audio vers le bas et appuyez sur lecture pour déclencher le cycle de 30 secondes.",
-      "faq1Q": "Ce processus risque-t-il d'abîmer le haut-parleur ?",
-      "faq1A": "Non. Les fréquences et les niveaux sonores employés respectent scrupuleusement les plages de fonctionnement normales des haut-parleurs mobiles.",
-      "faq2Q": "Combien de cycles faut-il exécuter ?",
-      "faq2A": "Chaque cycle dure 30 secondes. Pour de légères éclaboussures, 1 ou 2 cycles suffisent. En cas d'immersion complète, répétez 3 à 5 fois.",
-      "faq3Q": "Pourquoi le son reste-t-il voilé après le nettoyage ?",
-      "faq3A": "Si le son manque encore de netteté, de l'humidité résiduelle subsiste en profondeur. Laissez le smartphone tête en bas dans une pièce sèche pendant 20 minutes, puis relancez le cycle.",
-      "faq4Q": "Est-ce compatible avec iPhone, Android et autres appareils ?",
-      "faq4A": "Oui ! Fix My Speaker fonctionne directement sur tous les navigateurs modernes sur iPhone, téléphones Android, tablettes et ordinateurs portables."
+      "faq1Q": "Comment fonctionne ce nettoyeur acoustique face à l'eau et à la poussière ?",
+      "faq1A": "L'application produit des balayages acoustiques entre 165 Hz et 250 Hz. Le va-et-vient de la membrane génère une pression d'air constante qui expulse les gouttelettes d'eau hors de la grille. Parallèlement, l'oscillation mécanique décolle la poussière sèche et les peluches logées dans le tamis protecteur.",
+      "faq2Q": "À quoi sert la fréquence sonore spécifique de 10000 Hz ?",
+      "faq2A": "L'onde aiguë de 10000 Hz est dédiée à l'élimination des poussières fines par micro-vibrations de la membrane. Alors que les sons graves chassent les gouttes volumineuses par poussée d'air, le signal de 10000 Hz secoue le tamis métallique à haute vitesse pour détacher les résidus microscopiques responsables des grésillements.",
+      "faq3Q": "L'outil permet-il de déboucher le haut-parleur supérieur utilisé pour les appels ?",
+      "faq3A": "Oui ! L'écouteur situé en haut du smartphone possède une grille miniature très sensible à la sueur et aux poussières. Lorsque vous activez l'onde sonore à plein volume, la pression acoustique se diffuse à travers toutes les sorties du téléphone, dégageant ainsi l'écouteur supérieur pour des appels clairs.",
+      "faq4Q": "Le son étouffé sera-t-il restauré et l'outil peut-il éliminer l'huile ?",
+      "faq4A": "Il restaure l'intensité sonore d'origine en supprimant les bouchons d'eau et de poussière qui étouffent le conduit acoustique (sans dépasser les capacités matérielles). En revanche, les ondes physiques n'ont aucun effet dissolvant sur l'huile ou la graisse. Si de l'huile s'est infiltrée, tamponnez délicatement avec un tissu en microfibre propre."
     },
     "imageCompressor": {
       "title": "Compresseur d'Images en Ligne",

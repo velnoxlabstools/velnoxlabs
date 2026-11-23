@@ -1958,8 +1958,8 @@
       "faq4A": "No, todo el recuento y procesamiento del contenido tiene lugar únicamente en la memoria local de tu equipo."
     },
     "fixMySpeaker": {
-      "title": "Reparar Altavoz (Fix My Speaker)",
-      "subtitle": "Expulsa agua y elimina polvo de los altavoces de tu móvil mediante ondas de sonido y vibración.",
+      "title": "Limpiador de Altavoces Móviles – Expulsar Agua y Sonido de 10000 Hz",
+      "subtitle": "Limpiador online gratuito de altavoces móviles con sonido de 10000 Hz. Expulsa agua acumulada, retira polvo y soluciona el audio apagado en el altavoz superior.",
       "modeSound": "Modo Sonido",
       "modeVibrate": "Modo Vibración",
       "soundDescription": "Emite ondas sonoras de frecuencia optimizada para desalojar gotas de agua acumuladas en la rejilla.",
@@ -1978,7 +1978,7 @@
       "tip2": "Coloca o sujeta el teléfono con el altavoz orientado hacia abajo para que la gravedad ayude a evacuar el líquido.",
       "tip3": "Realiza de 2 a 3 ciclos completos si el dispositivo se sumergió por completo o el sonido sigue amortiguado.",
       "tip4": "Seca cuidadosamente con un paño absorbente o papel suave las gotas que salgan despedidas.",
-      "aboutText": "Fix My Speaker es una utilidad web gratuita diseñada para desalojar agua retenida y eliminar impurezas de los altavoces de teléfonos móviles, auriculares y relojes inteligentes. Cuando un smartphone sufre salpicaduras o inmersión, el agua queda atrapada en la malla milimétrica del diafragma, enturbiando el sonido. Al generar frecuencias sonoras sintonizadas entre 165 Hz y 250 Hz junto con vibraciones pulsadas, crea una presión de aire que expulsa el líquido al exterior sin dañar el dispositivo.",
+      "aboutText": "Nuestro limpiador de altavoces móviles y sistema de expulsión acústica es una solución pensada para recuperar el audio de teléfonos empapados o con acumulación de suciedad. Ya sea que tu smartphone haya caído al agua, sufrido salpicaduras o acumulado suciedad en la rejilla, este módulo emite impulsos acústicos modulados y un sonido de limpieza de 10000 Hz para desalojar partículas y expulsar gotas atrapadas mediante ondas de presión. Al integrar frecuencias graves de desahogo y un ciclo armónico de 10000 Hz, el sistema hace oscilar la membrana del transductor para aflojar la suciedad adherida. Funciona de manera excelente tanto para el altavoz principal como para el altavoz superior de llamadas, que suele atascarse con polvo y restos de maquillaje. Si tu teléfono suena bajo y buscas recuperar el volumen adecuado, despejar la rejilla devolverá la claridad acústica inicial. No obstante, ante la presencia de grasa o aceites densos, las ondas sonoras no disuelven la sustancia oleosa, por lo que se recomienda pasar un paño suave. Funciona directamente en el navegador sin descargas.",
       "feature1": "Frecuencias acústicas ajustadas entre 165Hz y 250Hz para máxima evacuación",
       "feature2": "Doble acción de limpieza combinando sonido y vibración física",
       "feature3": "100% en el navegador: sin descargas de aplicaciones ni registros",
@@ -1989,14 +1989,14 @@
       "step2Body": "Selecciona Modo Sonido para desplazamiento por aire o Modo Vibración para desprendimiento mecánico.",
       "step3Title": "Pulsa Iniciar con el altavoz boca abajo",
       "step3Body": "Orienta las rejillas de audio hacia el suelo y pulsa el botón de inicio para completar el ciclo de 30 segundos.",
-      "faq1Q": "¿Puede este método dañar el altavoz del teléfono?",
-      "faq1A": "No. Las frecuencias y patrones de audio aplicados se encuentran dentro de las especificaciones acústicas de seguridad de cualquier teléfono móvil moderno.",
-      "faq2Q": "¿Cuántas veces se debe repetir el proceso?",
-      "faq2A": "Cada ciclo dura 30 segundos. Para condensación leve bastan 1 o 2 ciclos. Si hubo inmersión en agua, repite entre 3 y 5 veces hasta recuperar el sonido limpio.",
-      "faq3Q": "¿Por qué el sonido se escucha apagado tras la expulsión?",
-      "faq3A": "Si el audio sigue sonando apagado, puede quedar humedad residual en el interior. Deja el móvil en reposo boca abajo en un lugar ventilado durante 20 minutos y repite el proceso.",
-      "faq4Q": "¿Es compatible con iPhone, Android y otros aparatos?",
-      "faq4A": "Sí, funciona de forma nativa e inmediata en cualquier navegador de iPhone, teléfonos Android, tablets, smartwatches y ordenadores portátiles."
+      "faq1Q": "¿Cómo funciona este limpiador de altavoces para expulsar agua y polvo?",
+      "faq1A": "Este servicio aprovecha el motor de audio web para emitir barridos de sonido en frecuencias de 165 Hz a 250 Hz junto con ondas acústicas alternas. Esta vibración crea una compresión de aire continua que empuja las gotas de agua hacia el exterior de la rejilla. Al mismo tiempo, la oscilación despega las partículas secas de polvo incrustadas en la malla protectora.",
+      "faq2Q": "¿Para qué se utiliza el sonido especial de 10000 Hz?",
+      "faq2A": "La frecuencia aguda de 10000 Hz está pensada para la micropurificación de polvo fino y la agitación de la membrana. Mientras que los tonos graves desplazan el agua gracias a su volumen de aire, las vibraciones de 10000 Hz desprenden las motas microscópicas de pelusa y tierra seca que causan chasquidos o sonido áspero.",
+      "faq3Q": "¿Sirve para arreglar el altavoz superior o el auricular de llamadas?",
+      "faq3A": "¡Sí! En los smartphones actuales, el auricular superior para llamadas tiene una malla muy reducida que se tapa con facilidad ante la humedad o la suciedad superficial. Al reproducir el tono acústico al volumen más alto, la vibración se transmite por todas las salidas sonoras activas, liberando el auricular superior para recuperar llamadas nítidas.",
+      "faq4Q": "¿Ayuda a elevar el volumen apagado y sirve para eliminar aceite?",
+      "faq4A": "Ayuda a solventar pérdidas de volumen al expulsar el agua y el polvo que atenúan el sonido, recuperando la sonoridad óptima del dispositivo (sin sobrepasar los límites de fábrica). Respecto al aceite, las ondas físicas expulsan líquidos acuosos y polvo, pero no eliminan la grasa densa. Si entró aceite en el altavoz, límpialo suavemente con un paño de microfibra seco o acude a un servicio técnico."
     },
     "imageCompressor": {
       "title": "Compresor de Imágenes Online",
