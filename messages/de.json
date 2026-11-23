@@ -521,8 +521,8 @@
       "description": "Konvertiere Bilder zwischen JPG, PNG und WebP direkt im Browser mit vollständigem Datenschutz und Stapelverarbeitung."
     },
     "image-cropper": {
-      "name": "Bilder zuschneiden",
-      "description": "Schneiden Sie JPG-, PNG- und WebP-Bilder direkt im Browser auf feste Seitenverhältnisse oder Wunschmaße zu."
+      "name": "Online-Bilderzuschneider (nach Pixeln & CM) – Kostenloser Foto-Zuschneide-Editor",
+      "description": "Fotos online nach exakten Pixelmaßen, Seitenverhältnissen oder Zentimetern zuschneiden. Kostenloser Editor mit kreisförmigem Beschnitt und Drehung ohne Software-Installation."
     },
     "image-to-pdf": {
       "name": "Bilder in PDF Konverter",
@@ -1569,8 +1569,8 @@
       "faq4A": "Ja. Die Dokumente entsprechen der Spezifikation ISO 32000-1, enthalten standardkonforme Querverweistabellen und Bild-XObjects für maximale Kompatibilität mit Adobe Acrobat und allen Web-Readern."
     },
     "imageCropper": {
-      "title": "Bilder zuschneiden",
-      "subtitle": "Schneiden Sie JPG-, PNG- und WebP-Bilder direkt im Browser auf feste Seitenverhältnisse oder Wunschmaße zu.",
+      "title": "Online-Bilderzuschneider (nach Pixeln & CM) – Kostenloser Foto-Zuschneide-Editor",
+      "subtitle": "Fotos online nach exakten Pixelmaßen, Seitenverhältnissen oder Zentimetern zuschneiden. Kostenloser Editor mit kreisförmigem Beschnitt und Drehung ohne Software-Installation.",
       "dropTitle": "Bild hierher ziehen und ablegen",
       "dropSubtitle": "Unterstützt JPG, PNG, WebP • 100% lokale Browserverarbeitung",
       "browseFiles": "Bild auswählen",
@@ -1597,25 +1597,25 @@
       "formatJpeg": "JPEG (Standard)",
       "formatWebp": "WebP (Hohe Kompression)",
       "downloadFilename": "zugeschnittenes-bild",
-      "aboutText": "Das Werkzeug Bilder zuschneiden ist ein browserbasiertes Präzisionsprogramm zur präzisen Bearbeitung, Drehung, Spiegelung und Beschneidung von Rastergrafiken (JPEG, PNG, WebP). Das Werkzeug operiert vollständig im lokalen Arbeitsspeicher unter Einsatz des HTML5 Canvas 2D-Rendering-Kontexts und Subpixel-Koordinatenmappings. Durch exakte Skalierungsfaktoren (scaleX = naturalWidth / renderedWidth, scaleY = naturalHeight / renderedHeight) wird der gewählte Ausschnitt in nativer Quellauflösung ohne Interpolationsunschärfen extrahiert. Das Programm unterstützt feste geometrische Verhältnisse (1:1 Quadrat, 4:3, 16:9), freie Zuschnittsrahmen und kreisförmige Maskierungen für Profilbilder mittels nativer Pfadbeschneidung (arc() und clip()). Da keine Daten an externe Server übertragen werden, bleibt Ihre Privatsphäre bei Fotos und Dokumenten zu 100% gewahrt.",
-      "feature1": "Präzise Subpixel-Canvas-Extraktion: Rechnet Vorschaukoordinaten verlustfrei in native Bildpixel um und erhält so die maximale Schärfe des Originals.",
-      "feature2": "Feste Seitenverhältnisse & Kreiszuschnitt: Schnelles Umschalten zwischen freiem Zuschnitt, 1:1, 4:3, 16:9 und nativer Kreispfadmaskierung (arc() und clip()) für Avatare.",
-      "feature3": "Transparenzschutz & Mehrformat-Export: Erhält Alphakanäle in PNG- und WebP-Dateien transparent oder füllt JPEG-Bilder sauber mit weißem Hintergrund auf.",
-      "feature4": "100% lokale Datensicherheit: Alle Bildtransformationen, Drehmatrizen und Dateispeicherungen finden ausschließlich im Browser-Speicher statt.",
-      "step1Title": "Quellbild hochladen",
-      "step1Body": "Ziehen Sie ein JPG-, PNG- oder WebP-Bild in den Upload-Bereich oder wählen Sie eine Datei über Bild auswählen auf Ihrem Gerät aus.",
-      "step2Title": "Ausschnitt, Seitenverhältnis & Drehung anpassen",
-      "step2Body": "Ziehen Sie den Auswahlrahmen auf den gewünschten Bereich, wählen Sie ein Seitenverhältnis (1:1, 4:3, 16:9 oder Kreis) und nutzen Sie bei Bedarf die Drehknöpfe.",
-      "step3Title": "Zuschneiden und Datei sichern",
-      "step3Body": "Wählen Sie den gewünschten Dateityp (PNG, JPEG oder WebP) und klicken Sie auf Zuschneiden und herunterladen, um die Datei direkt zu speichern.",
-      "faq1Q": "Wird mein Bild während des Zuschneidens an einen externen Server gesendet?",
-      "faq1A": "Nein. Alle Bildberechnungen, Drehungen und der Zuschnitt finden zu 100% lokal in Ihrem Browser über HTML5 Canvas statt. Es werden keinerlei Bilddaten über das Internet übertragen.",
-      "faq2Q": "Verliert das Bild durch das Zuschneiden an Qualität oder Schärfe?",
-      "faq2A": "Nein. Das Tool berechnet das exakte Verhältnis zwischen der Anzeige und den tatsächlichen Bildpixeln (scaleX = naturalWidth / imageWidth) und schneidet direkt aus der hochauflösenden Originaldatei aus.",
-      "faq3Q": "Wie funktioniert der Kreiszuschnitt für Profilbilder und Avatare?",
-      "faq3A": "Beim Kreiszuschnitt wird ein 1:1-Quadrat fixiert und eine kreisförmige Canvas-Pfadmaske (arc() und clip()) angewendet. Beim Speichern als PNG oder WebP bleibt der Bereich außerhalb des Kreises transparent.",
-      "faq4Q": "Welche Exportformate werden unterstützt und wie wird Transparenz gehandhabt?",
-      "faq4A": "Sie können in PNG, JPEG und WebP speichern. PNG und WebP behalten transparente Alphakanäle vollständig bei, während JPEG transparente Bereiche automatisch mit weißer Farbe auffüllt."
+      "aboutText": "Unser kostenloser Online-Bilderzuschneider ist eine hochpräzise Suite zur Fotobearbeitung im Browser, konzipiert als sichere Alternative zu installierbaren Fotoprogrammen. Ob Sie Bilder pixelgenau für Web-Elemente zuschneiden, Zentimeter-Vorgaben für Passbilder und Ausweise einhalten oder runde Avatare erstellen möchten: Unsere Canvas-Engine liefert fehlerfreie Ergebnisse in voller Auflösung. Frontend- und App-Entwickler, die mit Angular oder Flutter arbeiten, nutzen dieses Werkzeug regelmäßig zur Prüfung von Bildmaßen und Koordinaten vor der Implementierung mobiler Plugins. Während manche Anwender nach automatischen KI-Zuschnitten suchen, bietet Ihnen unser Werkzeug volle manuelle Kontrolle mit stufenlosen Ziehpunkten, festen Seitenverhältnissen (1:1, 4:3, 16:9), Kreismasken und verlustfreier Drehung – vollständig privat in Ihrem Browser.",
+      "feature1": "Subpixel-Präzision in voller Auflösung: Überträgt Koordinaten ohne Weichzeichnungsartefakte direkt auf die Originalauflösung des Quellbilds",
+      "feature2": "Feste Seitenverhältnisse & Kreisschnitt: Wechseln Sie schnell zwischen Freihand, 1:1 Quadrat, 4:3, 16:9 oder echter Kreismaskierung für Profilbilder",
+      "feature3": "Transparenz & vielseitige Bildtypen: Unterstützt transparente Alphakanäle bei PNG und WebP oder wählt einen sauberen weißen Hintergrund für JPEG",
+      "feature4": "100% private lokale Verarbeitung: Drehungen, Spiegelungen und Bildberechnungen laufen im Browserspeicher ohne jegliche Serverübertragung",
+      "step1Title": "Bild auswählen oder ablegen",
+      "step1Body": "Ziehen Sie eine JPG-, PNG- oder WebP-Datei in das Bearbeitungsfeld oder wählen Sie ein Foto von Ihrem Gerät aus.",
+      "step2Title": "Rahmen & Seitenverhältnis anpassen",
+      "step2Body": "Verschieben Sie die Ziehpunkte auf den gewünschten Bildausschnitt, wählen Sie ein festes Verhältnis (1:1, 4:3, 16:9 oder Kreis) und drehen Sie das Bild nach Bedarf.",
+      "step3Title": "Zuschneiden & hochauflösendes Bild sichern",
+      "step3Body": "Wählen Sie den gewünschten Ausgabetyp (PNG, JPEG oder WebP) und speichern Sie das zugeschnittene Bild in voller Qualität auf Ihrem Gerät.",
+      "faq1Q": "Wie schneidet man ein Bild exakt nach Pixeln oder in Zentimetern zu?",
+      "faq1A": "Laden Sie Ihr Foto hoch und bewegen Sie den Zuschneiderahmen; das Abmessungsfeld zeigt Breite und Höhe in Echtzeit in Pixeln an. Für Zentimeter-Angaben bei Drucksachen oder Ausweisfotos rechnen Sie die Zentimeter anhand der Druckauflösung in Pixel um (bei 300 DPI Druckauflösung: Pixel = cm × 118,11; bei 72 DPI Bildschirmdarstellung: Pixel = cm × 28,35) und passen den Rahmen an diese Pixelwerte an.",
+      "faq2Q": "Ist dieses Werkzeug eine vollwertige Alternative zu Fotoprogrammen zum Herunterladen?",
+      "faq2A": "Ja! Anstatt Software aus dem Internet herunterzuladen, die Speicherplatz belegt oder Registrierungen erfordert, bietet unser Online-Dienst sofort einsatzbereite Profi-Funktionen direkt im Browser. Sie erhalten Seitenverhältnis-Sperren, Kreiszuschnitte, 90-Grad-Drehungen und moderne Bildtypen ohne Programminstallation.",
+      "faq3Q": "Eignet sich das Werkzeug zum Testen von Bildzuschnitten in Angular oder Flutter?",
+      "faq3A": "Sehr gut sogar! Entwickler, die Bibliotheken wie ngx-image-cropper in Angular oder image_cropper in Flutter einsetzen, testen mit diesem Editor Quellbilder, Seitenverhältnisse und Rundmasken, bevor sie entsprechende Komponenten in ihren Web- oder Mobilanwendungen konfigurieren.",
+      "faq4Q": "Handelt es sich hierbei um ein KI-Zuschneidewerkzeug?",
+      "faq4A": "Automatische KI-Zuschnitte schneiden oft wichtige Bildbereiche oder Ränder ungewollt ab. Unser Online-Werkzeug setzt bewusst auf manuelle Präzision: Mit pixelgenauen Anfassern, festen Proportionen und runden Schnittpfaden behalten Sie die volle Kontrolle über den Bildausschnitt und vermeiden unvorhersehbare KI-Fehler."
     },
     "fancyTextGenerator": {
       "title": "Schriftarten-Ersteller für WhatsApp – Schöne Schriften und Schriftstile",

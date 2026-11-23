@@ -514,8 +514,8 @@
       "description": "Convert images between JPEG, PNG, and WebP formats instantly in your browser with complete privacy."
     },
     "image-cropper": {
-      "name": "Image Cropper",
-      "description": "Crop JPG, PNG, and WebP images to exact aspect ratios or custom dimensions client-side."
+      "name": "Image Cropper Online (By Pixel & CM) – Free Photo Crop Editor",
+      "description": "Crop photos online to exact pixel dimensions, aspect ratios, or cm sizes. A free photo crop editor with circular avatar clipping, rotation, and zero software download."
     },
     "image-to-pdf": {
       "name": "Image to PDF Converter",
@@ -1475,8 +1475,8 @@
       "faq4A": "Yes. Documents are compiled following ISO 32000-1 specification standards, generating standard cross-reference tables and fontless image XObjects compatible with Adobe Acrobat, modern web browsers, mobile PDF readers, and archival systems."
     },
     "imageCropper": {
-      "title": "Image Cropper",
-      "subtitle": "Crop JPG, PNG, and WebP images to exact aspect ratios or custom dimensions client-side.",
+      "title": "Image Cropper Online (By Pixel & CM) – Free Photo Crop Editor",
+      "subtitle": "Crop photos online to exact pixel dimensions, aspect ratios, or cm sizes. A free photo crop editor with circular avatar clipping, rotation, and zero software download.",
       "dropTitle": "Drag & drop image here",
       "dropSubtitle": "Supports JPG, PNG, WebP • 100% Client-side processing",
       "browseFiles": "Browse Image",
@@ -1503,7 +1503,7 @@
       "formatJpeg": "JPEG (Standard)",
       "formatWebp": "WebP (High Compression)",
       "downloadFilename": "cropped-image",
-      "aboutText": "The Image Cropper is a high-precision, client-side image editing utility designed to crop, rotate, flip, and transform raster graphics (JPEG, PNG, WebP) directly within the browser. Operating entirely in local memory using the HTML5 Canvas 2D Rendering Context and sub-pixel coordinate mapping, the engine computes precise natural-to-rendered scaling factors (scaleX = naturalWidth / renderedWidth, scaleY = naturalHeight / renderedHeight) to extract cropped regions at maximum source resolution without interpolation blur. The tool supports standard fixed aspect ratios (1:1 square, 4:3 standard, 16:9 widescreen), freeform bounding boxes, and circular avatar clipping using native canvas path clipping (arc() and clip()). By retaining complete client-side execution with zero network transmission, your personal photos, identity scans, and proprietary design assets remain 100% private.",
+      "aboutText": "Our Image cropper free utility is a versatile browser-based Image cropper online designed as a powerful alternative to any Photo crop Editor free download. Whether you need an Image cropper by pixel for responsive UI banners, an Image cropper in cm for passport photos and official document printing, or an interactive bounding box to crop avatars, our canvas engine guarantees 100% precision. Frontend and mobile engineers frequently use it as an Image cropper Angular and Image cropper Flutter testbed to preview aspect ratios and verify asset dimensions before integrating mobile plugins. While some users search for an automated Image cropper AI tool, our editor gives you complete manual control with sub-pixel drag handles, 1:1, 4:3, 16:9 aspect ratios, circular clipping, and lossless rotation—all processed locally with total privacy.",
       "feature1": "High-Resolution Sub-Pixel Canvas Extraction: Maps rendered crop coordinates back to native image dimensions using floating-point scaling vectors, ensuring zero loss of source detail.",
       "feature2": "Mathematical Aspect Ratio Presets & Circular Clipping: Switch instantly between Freeform, 1:1 Square, 4:3, 16:9, or true circular path masking (arc() and clip()) for social avatars.",
       "feature3": "Alpha Channel & Multi-Format Serialization: Preserves transparent PNG and WebP alpha channels, or flattens JPEG exports against an opaque white background.",
@@ -1514,14 +1514,14 @@
       "step2Body": "Drag the bounding box handles to frame your subject, select a fixed aspect ratio (1:1, 4:3, 16:9, or Circle), and use the rotate and flip buttons if needed.",
       "step3Title": "Crop & Download High-Res Output",
       "step3Body": "Select your desired export format (PNG, JPEG, or WebP) and click Crop & Download to synthesize and save your high-resolution cropped image immediately.",
-      "faq1Q": "Is my image uploaded to an external server during cropping?",
-      "faq1A": "No. All image decoding, affine rotation matrices, canvas coordinate clipping, and blob generation execute 100% locally in your browser memory using HTML5 Canvas APIs. No file data is ever transmitted across the network.",
-      "faq2Q": "Does cropping reduce the resolution or blur my original photo?",
-      "faq2A": "No. The cropping algorithm computes the exact ratio between the displayed preview dimensions and the uncompressed natural source pixels (scaleX = naturalWidth / imageWidth). The canvas extracts the pixel crop directly from the full-resolution source image, preserving maximum sharpness.",
-      "faq3Q": "How does the Circle Crop work for avatars and profile pictures?",
-      "faq3A": "When Circle Crop is selected, the tool enforces a 1:1 square aspect ratio and utilizes a 2D canvas clipping path (ctx.arc() and ctx.clip()) to mask the crop boundary into a circle. Exporting as PNG or WebP maintains transparency outside the circular perimeter.",
-      "faq4Q": "What export formats are supported and how is transparency handled?",
-      "faq4A": "You can export cropped images in PNG, JPEG, or WebP formats. PNG and WebP fully preserve alpha transparency (ideal for circular avatars and graphics with transparent backgrounds), while JPEG automatically flattens transparent pixels over a solid white background."
+      "faq1Q": "How do I use this image cropper by pixel or in cm?",
+      "faq1A": "To crop with our Image cropper by pixel, upload your image and drag the interactive cropping handles. The live dimensions panel displays the exact width and height in pixels in real time. For users needing an Image cropper in cm for physical prints, IDs, or passport photos, convert your target centimeters to pixels using your document's print DPI (for standard 300 DPI: pixels = cm × 118.11; for 72 DPI screen: pixels = cm × 28.35) and adjust the bounding box to match those exact pixel numbers.",
+      "faq2Q": "Is this a free alternative to a Photo crop Editor free download?",
+      "faq2A": "Yes! Rather than risking malware, bloatware, or paid paywalls with a Photo crop Editor free download, our Image cropper free tool operates entirely within your browser. You get professional features—including custom aspect ratio locking, circular avatar clipping, 90-degree rotations, horizontal/vertical flipping, and PNG/JPEG/WebP export—with zero installation, zero registration, and complete data privacy.",
+      "faq3Q": "Can I use this tool to test image cropping for Angular or Flutter apps?",
+      "faq3A": "Yes! Developers integrating libraries like ngx-image-cropper in Angular or the image_cropper package in Flutter frequently use our online editor as an interactive reference. You can test source image aspect ratios, evaluate coordinate boundaries, verify circular avatar masks, and preview exported image quality in WebP, PNG, or JPEG before configuring client-side UI crop widgets in your Image cropper Angular or Image cropper Flutter codebase.",
+      "faq4Q": "Is this an AI Image Cropper?",
+      "faq4A": "While many search for an Image cropper AI to automatically guess focal points, automated AI cropping often cuts off essential edges, text, or human subjects incorrectly. Our Image cropper online platform focuses on high-precision manual control: you get pixel-accurate drag handles, preset aspect ratios (1:1, 4:3, 16:9), freeform framing, and circular clipping paths, ensuring you always get the exact framing and resolution you want without unexpected AI distortions."
     },
     "fancyTextGenerator": {
       "title": "Fancy Text Generator for WhatsApp – Fancy Font Generator",

@@ -521,8 +521,8 @@
       "description": "Converti immagini tra JPG, PNG e WebP direttamente nel browser con massima privacy ed elaborazione in serie."
     },
     "image-cropper": {
-      "name": "Strumento Ritaglia Immagini",
-      "description": "Ritaglia immagini JPG, PNG e WebP in proporzioni esatte o dimensioni personalizzate direttamente nel browser."
+      "name": "Ritaglio Immagini Online (Per Pixel e CM) – Editor Fotografico Gratuito",
+      "description": "Ritaglia foto online con dimensioni esatte in pixel, proporzioni o centimetri. Editor gratuito con ritaglio circolare e rotazione senza installare software."
     },
     "image-to-pdf": {
       "name": "Convertitore da Immagini a PDF",
@@ -1569,8 +1569,8 @@
       "faq4A": "Sì. I documenti rispettano fedelmente lo standard ISO 32000-1 e includono tabelle di riferimento incrociato e oggetti immagine XObject compatibili con Adobe Acrobat e con tutti i visori moderni."
     },
     "imageCropper": {
-      "title": "Strumento Ritaglia Immagini",
-      "subtitle": "Ritaglia immagini JPG, PNG e WebP in proporzioni esatte o dimensioni personalizzate direttamente nel browser.",
+      "title": "Ritaglio Immagini Online (Per Pixel e CM) – Editor Fotografico Gratuito",
+      "subtitle": "Ritaglia foto online con dimensioni esatte in pixel, proporzioni o centimetri. Editor gratuito con ritaglio circolare e rotazione senza installare software.",
       "dropTitle": "Trascina e rilascia la tua immagine qui",
       "dropSubtitle": "Supporta JPG, PNG, WebP • 100% Elaborazione locale nel browser",
       "browseFiles": "Sfoglia immagine",
@@ -1597,25 +1597,25 @@
       "formatJpeg": "JPEG (Standard)",
       "formatWebp": "WebP (Alta compressione)",
       "downloadFilename": "immagine-ritagliata",
-      "aboutText": "Lo Strumento Ritaglia Immagini è un'utilità di ritocco fotografico ad alta definizione operante interamente all'interno del browser, studiata per ritagliare, ruotare, riflettere e modellare immagini raster (JPEG, PNG, WebP) direttamente sul tuo dispositivo. Sfruttando la memoria locale, il contesto grafico 2D di HTML5 Canvas e algoritmi di mappatura sub-pixel, il motore calcola precisi fattori di scala (scaleX = naturalWidth / renderedWidth, scaleY = naturalHeight / renderedHeight) per estrarre la porzione desiderata alla massima risoluzione originale senza artefatti di sfocatura. Offre proporzioni fisse matematiche (1:1 quadrato, 4:3 standard, 16:9 panoramico), selezione libera e mascheramento circolare tramite tracciati nativi (arc() e clip()) per avatar social. L'assenza totale di trasmissioni a server remoti preserva la completa riservatezza di immagini private e documenti riservati.",
-      "feature1": "Estrazione precisa su Canvas ad alta definizione: Riconverte le coordinate a schermo nella matrice nativa dei pixel sorgente, mantenendo intatti i dettagli.",
-      "feature2": "Proporzioni fisse e mascheramento circolare: Passa con un tocco tra proporzioni libere, 1:1, 4:3, 16:9 e ritaglio circolare nativo (arc() e clip()) perfetto per fototessere e profili.",
-      "feature3": "Supporto canale alfa e trasparenza: Preserva la trasparenza trasparente nei file PNG e WebP oppure applica una base bianca uniforme per il salvataggio in JPEG.",
-      "feature4": "Sicurezza e riservatezza lato client: Decodifica, rotazioni mediante matrici affini e salvataggio dei file avvengono esclusivamente nella memoria locale del browser.",
-      "step1Title": "Carica l'immagine sorgente",
-      "step1Body": "Trascina il file JPG, PNG o WebP nell'area designata oppure premi Sfoglia immagine per selezionarlo dal tuo dispositivo.",
-      "step2Title": "Regola riquadro, proporzione e orientamento",
-      "step2Body": "Sposta i bordi del riquadro per inquadrare il soggetto, scegli la proporzione (1:1, 4:3, 16:9 o circolare) e usa i pulsanti di rotazione se necessario.",
-      "step3Title": "Ritaglia e salva il file",
-      "step3Body": "Scegli il tipo di file desiderato (PNG, JPEG o WebP) e premi Ritaglia e salva per generare e archiviare subito la tua immagine ritagliata.",
-      "faq1Q": "La mia immagine viene trasferita a server remoti durante il ritaglio?",
-      "faq1A": "No. L'intera elaborazione grafica, le rotazioni e l'estrazione dei pixel avvengono localmente nel browser tramite HTML5 Canvas, senza alcun passaggio su rete.",
-      "faq2Q": "Il ritaglio diminuisce la nitidezza o degrada la risoluzione della foto?",
-      "faq2A": "No. L'algoritmo calcola il rapporto esatto tra l'anteprima a video e i pixel reali della foto originale (scaleX = naturalWidth / imageWidth), estraendo i dati direttamente dall'immagine originale non compressa.",
-      "faq3Q": "Come opera il ritaglio circolare per le immagini del profilo?",
-      "faq3A": "Con il ritaglio circolare viene applicata una proporzione quadrata 1:1 e un tracciato di ritaglio circolare in Canvas (arc() e clip()). Salvando in PNG o WebP, l'esterno del cerchio rimane perfettamente trasparente.",
-      "faq4Q": "Quali tipi di file posso salvare e come viene gestita la trasparenza?",
-      "faq4A": "Puoi salvare in PNG, JPEG o WebP. PNG e WebP conservano integralmente la trasparenza alfa, mentre il formato JPEG converte le parti trasparenti su fondo bianco uniforme."
+      "aboutText": "Il nostro strumento gratuito per ritagliare immagini è una suite di ritocco fotografico nel browser ideata come alternativa pratica ed efficiente ai programmi da installare su computer. Che tu debba ritagliare immagini al pixel per banner web, impostare dimensioni in centimetri per fototessere e documenti, oppure creare immagini profilo circolari, il nostro motore garantisce massima fedeltà. Gli sviluppatori che realizzano applicazioni con Angular o Flutter lo utilizzano spesso per verificare proporzioni e coordinate prima di integrare widget di ritaglio nei loro progetti. Rispetto alle soluzioni automatiche con intelligenza artificiale che talvolta tagliano porzioni rilevanti, il nostro strumento offre un controllo manuale impeccabile con cursori millimetrici, proporzioni 1:1, 4:3, 16:9, maschera circolare e rotazione senza alcuna perdita di nitidezza.",
+      "feature1": "Estrazione precisa in alta risoluzione: Applica le coordinate alle dimensioni native dell'immagine originale senza artefatti di sfocatura",
+      "feature2": "Proporzioni bloccate e ritaglio circolare: Passa con facilità da forma libera a 1:1 quadrato, 4:3, 16:9 o maschera circolare per avatar",
+      "feature3": "Supporto per trasparenze e file moderni: Mantiene il canale trasparente in PNG e WebP, oppure applica uno sfondo bianco uniforme per JPEG",
+      "feature4": "Elaborazione 100% privata e locale: Rotazioni, inversioni e ritagli vengono elaborati nella memoria del browser senza inviare dati al web",
+      "step1Title": "Caricare o trascinare la foto",
+      "step1Body": "Trascina qualsiasi file JPG, PNG o WebP nell'area di modifica, oppure seleziona una foto dal tuo dispositivo.",
+      "step2Title": "Regolare inquadratura e proporzione",
+      "step2Body": "Muovi i punti di ancoraggio per delimitare la zona desiderata, scegli una proporzione fissa (1:1, 4:3, 16:9 o circolare) e ruota se serve.",
+      "step3Title": "Ritagliare e salvare l'immagine",
+      "step3Body": "Seleziona il tipo di file desiderato (PNG, JPEG o WebP) e conferma per salvare la tua foto ad alta risoluzione.",
+      "faq1Q": "Come ritagliare una foto per pixel o in centimetri?",
+      "faq1A": "Per ritagliare in base ai pixel, carica l'immagine e muovi i punti di controllo; la schermata indica larghezza e altezza in tempo reale. Se ti servono misure in centimetri per documenti cartacei, converti i centimetri in pixel in base alla densità di stampa (per stampa a 300 DPI: pixel = cm × 118,11; per monitor a 72 DPI: pixel = cm × 28,35) e regola il rettangolo fino a far coincidere i valori.",
+      "faq2Q": "Questo strumento sostituisce i programmi di fotoritocco da scaricare?",
+      "faq2A": "Certamente! Invece di occupare spazio sul computer con software pesanti o versioni a pagamento, la nostra applicazione web offre funzioni avanzate direttamente nel browser. Trovi blocco delle proporzioni, ritaglio circolare, rotazione e vari tipi di file senza installazioni né registrazioni.",
+      "faq3Q": "Posso usare questa applicazione per testare dimensioni per Angular o Flutter?",
+      "faq3A": "Assolutamente sì! Gli sviluppatori che impiegano pacchetti come ngx-image-cropper su Angular o image_cropper su Flutter usano questo strumento per simulare inquadrature, verificare maschere rotonde e controllare la resa visiva in WebP, PNG o JPEG prima del rilascio.",
+      "faq4Q": "Si tratta di uno strumento basato su intelligenza artificiale?",
+      "faq4A": "I ritagli automatici con IA possono sbagliare il soggetto ed eliminare dettagli importanti. Il nostro strumento privilegia la precisione del controllo manuale: hai a disposizione maniglie regolabili al singolo pixel, proporzioni esatte e mascheratura circolare per ottenere un risultato perfetto senza imprevisti."
     },
     "fancyTextGenerator": {
       "title": "Generatore di Testo Particolare per WhatsApp – Caratteri e Scritte Belle",

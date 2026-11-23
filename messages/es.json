@@ -521,8 +521,8 @@
       "description": "Convierte imágenes entre JPG, PNG y WebP directamente en el navegador con total privacidad y procesamiento por lotes."
     },
     "image-cropper": {
-      "name": "Recortador de Imágenes",
-      "description": "Recorta imágenes JPG, PNG y WebP a proporciones exactas o tamaños personalizados en tu navegador."
+      "name": "Recortador de Imágenes Online (Por Píxeles y CM) – Editor de Fotos Gratuito",
+      "description": "Recorte fotos online con dimensiones exactas en píxeles, proporciones o centímetros. Editor fotográfico sin descargas con recorte circular y giros."
     },
     "image-to-pdf": {
       "name": "Convertidor de Imágenes a PDF",
@@ -1569,8 +1569,8 @@
       "faq4A": "Sí. Los documentos se compilan bajo el estándar ISO 32000-1, generando tablas de referencias cruzadas estándar y objetos de imagen compatibles con Adobe Acrobat, visores web y lectores móviles."
     },
     "imageCropper": {
-      "title": "Recortador de Imágenes",
-      "subtitle": "Recorta imágenes JPG, PNG y WebP a proporciones exactas o tamaños personalizados en tu navegador.",
+      "title": "Recortador de Imágenes Online (Por Píxeles y CM) – Editor de Fotos Gratuito",
+      "subtitle": "Recorte fotos online con dimensiones exactas en píxeles, proporciones o centímetros. Editor fotográfico sin descargas con recorte circular y giros.",
       "dropTitle": "Arrastra y suelta tu imagen aquí",
       "dropSubtitle": "Compatible con JPG, PNG, WebP • 100% Procesamiento local",
       "browseFiles": "Explorar imagen",
@@ -1597,25 +1597,25 @@
       "formatJpeg": "JPEG (Estándar)",
       "formatWebp": "WebP (Alta compresión)",
       "downloadFilename": "imagen-recortada",
-      "aboutText": "El Recortador de Imágenes es una herramienta de edición fotográfica de alta precisión ejecutada íntegramente en el navegador, creada para recortar, rotar, voltear y transformar gráficos rasterizados (JPEG, PNG, WebP) directamente en tu dispositivo. Operando en la memoria local mediante el contexto 2D de Canvas HTML5 y algoritmos de mapeo de subpíxeles, el motor calcula vectores de escala flotantes (scaleX = naturalWidth / renderedWidth, scaleY = naturalHeight / renderedHeight) para aislar la región seleccionada conservando la resolución nativa sin pérdida de nitidez ni desenfoque por interpolación. Incluye ajustes de proporciones matemáticas fijas (1:1 cuadrado, 4:3 estándar, 16:9 panorámico), marco libre y recorte circular de avatares mediante trazados nativos (arc() y clip()). Al no transferir datos a servidores remotos, garantiza la absoluta privacidad de tus fotos y documentos.",
-      "feature1": "Extracción precisa en lienzo: Mapea las coordenadas visibles a la matriz de píxeles original para obtener el recorte a máxima resolución.",
-      "feature2": "Proporciones fijas y recorte circular: Cambia fácilmente entre formato libre, 1:1, 4:3, 16:9 y máscara circular nativa (arc() y clip()) para perfiles y redes sociales.",
-      "feature3": "Conservación de transparencia alfa: Mantiene canales alfa transparentes en PNG y WebP, o acopla imágenes JPEG sobre un fondo blanco nítido.",
-      "feature4": "Privacidad criptográfica local: La decodificación, rotación afín, volteo y exportación de archivos suceden 100% en la memoria de tu navegador.",
-      "step1Title": "Cargar imagen de origen",
-      "step1Body": "Arrastra y suelta tu archivo JPG, PNG o WebP en la zona designada, o pulsa Explorar imagen para seleccionarlo desde tu equipo.",
-      "step2Title": "Definir encuadre, proporción y giro",
-      "step2Body": "Mueve el marco de recorte para enfocar el motivo deseado, elige una proporción fija (1:1, 4:3, 16:9 o circular) y ajusta la orientación.",
-      "step3Title": "Recortar y descargar resultado",
-      "step3Body": "Selecciona el tipo de archivo deseado (PNG, JPEG o WebP) y haz clic en Recortar y descargar para generar y guardar el archivo inmediatamente.",
-      "faq1Q": "¿Se envía mi foto o imagen a algún servidor externo durante el proceso?",
-      "faq1A": "No. Toda la decodificación, transformación matricial y generación binaria del archivo se realiza exclusivamente en tu navegador mediante HTML5 Canvas, sin conexión a servidores.",
-      "faq2Q": "¿El recorte reduce la resolución o vuelve borrosa la fotografía?",
-      "faq2A": "No. El algoritmo calcula la proporción exacta entre las dimensiones previsualizadas y los píxeles reales originales (scaleX = naturalWidth / imageWidth), extrayendo la imagen directamente de la fuente en su máxima calidad.",
-      "faq3Q": "¿Cómo funciona el recorte circular para fotos de perfil y avatares?",
-      "faq3A": "Al seleccionar recorte circular, se fija una proporción cuadrada 1:1 y se aplica una máscara de trazado circular en Canvas (ctx.arc() y ctx.clip()). Al guardarlo en PNG o WebP, el área fuera del círculo queda totalmente transparente.",
-      "faq4Q": "¿Qué formatos de exportación se admiten y cómo se gestiona la transparencia?",
-      "faq4A": "Puedes exportar en PNG, JPEG y WebP. PNG y WebP conservan íntegramente la transparencia alfa, mientras que JPEG rellena automáticamente las zonas transparentes con fondo blanco puro."
+      "aboutText": "Nuestra herramienta gratuita para recortar imágenes es una suite de edición en el navegador creada como una potente alternativa a cualquier programa descargable para recortar fotos. Ya sea que necesite recortar imágenes por píxeles para banners web, recortar en centímetros para pasaportes e impresiones de documentos, o encuadrar avatares circulares, nuestro motor garantiza máxima exactitud. Los ingenieros de frontend y móviles que trabajan con Angular o Flutter lo utilizan con frecuencia para validar proporciones de aspecto y dimensiones antes de integrar complementos en sus aplicaciones. A diferencia de las soluciones automáticas basadas en IA que suelen cortar bordes importantes, nuestra herramienta le otorga control manual absoluto con tiradores de precisión milimétrica, proporciones 1:1, 4:3, 16:9, recorte circular y giros sin pérdida de nitidez, todo procesado localmente con absoluta confidencialidad.",
+      "feature1": "Extracción precisa de alta resolución: Mapea las coordenadas a las dimensiones nativas originales sin distorsión ni pérdida de nitidez",
+      "feature2": "Proporciones fijas y corte circular: Alterne entre libre, 1:1 cuadrado, 4:3, 16:9 o silueta circular auténtica para fotos de perfil",
+      "feature3": "Preservación de canales transparentes: Mantiene fondos transparentes en PNG y WebP, o aplica fondo blanco limpio al guardar en JPEG",
+      "feature4": "Seguridad 100% en el navegador: Giros de matriz, transformaciones y generación de archivos se ejecutan en memoria local sin enviar datos a la red",
+      "step1Title": "Cargar o arrastrar imagen",
+      "step1Body": "Arrastre cualquier archivo JPG, PNG o WebP al área de trabajo, o elija una foto desde su dispositivo.",
+      "step2Title": "Ajustar encuadre y proporción",
+      "step2Body": "Mueva los tiradores para delimitar el área deseada, seleccione una proporción fija (1:1, 4:3, 16:9 o circular) y rote si es necesario.",
+      "step3Title": "Recortar y guardar imagen",
+      "step3Body": "Elija el tipo de archivo de salida (PNG, JPEG o WebP) y presione el botón para generar y guardar su imagen en alta resolución.",
+      "faq1Q": "¿Cómo recortar una imagen por píxeles o en centímetros?",
+      "faq1A": "Para recortar por píxeles, suba su imagen y mueva los tiradores del marco; el panel muestra las dimensiones exactas en tiempo real. Si necesita medidas en centímetros para documentos o impresión, convierta los centímetros a píxeles según la resolución deseada (para impresión profesional a 300 DPI: píxeles = cm × 118.11; para pantalla a 72 DPI: píxeles = cm × 28.35) y ajuste los tiradores hasta alcanzar el tamaño exacto.",
+      "faq2Q": "¿Es esta herramienta una alternativa gratuita a instalar editores de fotos?",
+      "faq2A": "¡Sí! En lugar de arriesgarse con programas pesados de escritorio que requieren descargas o suscripciones, nuestra herramienta online funciona de inmediato en su navegador. Obtiene opciones avanzadas como bloqueo de proporciones, recorte circular, rotaciones y exportación en PNG/JPEG/WebP sin instalar nada ni crear cuentas.",
+      "faq3Q": "¿Puedo usar esta herramienta para comprobar dimensiones en Angular o Flutter?",
+      "faq3A": "¡Totalmente! Los desarrolladores que configuran bibliotecas como ngx-image-cropper en Angular o image_cropper en Flutter usan esta herramienta para validar proporciones de origen, verificar máscaras circulares y comprobar la compresión en WebP, PNG o JPEG antes de desplegar código en sus proyectos móviles o web.",
+      "faq4Q": "¿Es este un recortador de imágenes con inteligencia artificial?",
+      "faq4A": "Muchos buscan recortadores basados en IA, pero los algoritmos automáticos suelen recortar erróneamente caras, textos o elementos clave. Nuestra plataforma online prioriza la precisión manual: le proporciona tiradores ajustables al píxel, proporciones predefinidas y máscaras circulares para asegurar que el encuadre final sea exactamente el que usted desea sin alteraciones imprevistas."
     },
     "fancyTextGenerator": {
       "title": "Generador de Letras Bonitas para WhatsApp – Fuentes Elegantes y Estilos",
