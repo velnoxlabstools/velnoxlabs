@@ -266,8 +266,8 @@
       "description": "Ajuste imágenes a 20KB, 50KB, 100KB o centímetros para pasaportes, impresión y formularios online."
     },
     "invoice-generator": {
-      "name": "Generador de Facturas",
-      "description": "Crea facturas profesionales con impuestos, descuentos y soporte multimoneda."
+      "name": "Generador de Facturas Gratis (INR y Euro)",
+      "description": "Cree facturas profesionales en PDF en INR, Euro y USD. Alternativa gratuita sin registro a Zoho e Invoice-Generator.com."
     },
     "base64-encoder": {
       "name": "Codificador y Decodificador Base64 en Línea – Codificar Archivo a Base64",

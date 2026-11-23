@@ -259,8 +259,8 @@
       "description": "在线调整图片至20KB、50KB、100KB或指定厘米尺寸，专为证件照、冲印及各类报名上传设计。"
     },
     "invoice-generator": {
-      "name": "在线发票生成器",
-      "description": "支持税率、折扣及多币种的高颜值专业发票生成工具。"
+      "name": "免费发票生成器 (支持INR与欧元)",
+      "description": "免费在线开具支持INR卢比、欧元与美元的专业PDF发票，无需登录，Zoho与Invoice-Generator的理想替代。"
     },
     "base64-encoder": {
       "name": "在线 Base64 编码与解码工具 – 文件转 Base64 编码",

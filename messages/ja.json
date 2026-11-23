@@ -259,8 +259,8 @@
       "description": "画像を20KB、50KB、100KBや指定cm寸法へ安全に縮小。証明写真、印刷、Webエントリーに最適。"
     },
     "invoice-generator": {
-      "name": "オンライン請求書作成ツール",
-      "description": "税率、割引、複数通貨に対応したプロ仕様の請求書を素早く作成できます。"
+      "name": "無料請求書作成ツール (INR & ユーロ対応)",
+      "description": "INR、ユーロ、USDに対応したPDF請求書を無料で作成。ログイン不要で使えるZohoおよびInvoice-Generator代替。"
     },
     "base64-encoder": {
       "name": "オンライン Base64 エンコード & デコード – ファイルを Base64 化",

@@ -266,8 +266,8 @@
       "description": "Bilder auf 20KB, 50KB, 100KB oder Zentimeter für Passfotos, Druck und Uploads im Browser skalieren."
     },
     "invoice-generator": {
-      "name": "Rechnungsgenerator",
-      "description": "Erstellen Sie professionelle Rechnungen mit Steuern, Rabatten und Multi-Währungs-Unterstützung."
+      "name": "Kostenloser Rechnungsgenerator (INR & Euro)",
+      "description": "Professionelle PDF-Rechnungen in INR, Euro und USD erstellen. Kostenlose Alternative ohne Anmeldung zu Zoho und Invoice-Generator.com."
     },
     "base64-encoder": {
       "name": "Base64-Encoder & Decoder Online – Datei in Base64 kodieren",
