@@ -518,8 +518,8 @@
       "description": "Crop photos online to exact pixel dimensions, aspect ratios, or cm sizes. A free photo crop editor with circular avatar clipping, rotation, and zero software download."
     },
     "image-to-pdf": {
-      "name": "Image to PDF Converter",
-      "description": "Convert JPG, PNG, and WebP images into a single clean PDF document client-side."
+      "name": "Image to PDF Converter (100KB, 200KB & iLovePDF Alternative)",
+      "description": "Free online image to PDF converter to merge and compress JPG, PNG, and WebP into PDFs under 100KB or 200KB."
     },
     "fancy-text-generator": {
       "name": "Fancy Text Generator for WhatsApp – Fancy Font Generator",

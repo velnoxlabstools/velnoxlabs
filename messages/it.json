@@ -525,8 +525,8 @@
       "description": "Ritaglia foto online con dimensioni esatte in pixel, proporzioni o centimetri. Editor gratuito con ritaglio circolare e rotazione senza installare software."
     },
     "image-to-pdf": {
-      "name": "Convertitore da Immagini a PDF",
-      "description": "Converti immagini JPG, PNG e WebP in un unico documento PDF professionale ad alta definizione direttamente nel browser."
+      "name": "Convertitore da Immagini a PDF (100KB, 200KB e Alternativa a iLovePDF)",
+      "description": "Convertitore online gratuito per unire e comprimere immagini JPG, PNG e WebP in PDF sotto i 100KB o 200KB."
     },
     "fancy-text-generator": {
       "name": "Generatore di Testo Particolare per WhatsApp – Caratteri e Scritte Belle",

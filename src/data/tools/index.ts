@@ -101,10 +101,23 @@ export const tools: Tool[] = [
   {
     id: 'tool-image-to-pdf',
     slug: 'image-to-pdf',
-    name: 'Image to PDF Converter',
-    description: 'Convert JPG, PNG, and WebP images to high-quality PDF documents client-side.',
+    name: 'Image to PDF Converter (100KB, 200KB & iLovePDF Alternative)',
+    description:
+      'Free online image to PDF converter (100KB, 200KB & iLovePDF alternative). Convert JPG, PNG, and WebP images to compressed PDF documents client-side without software downloads.',
     categoryId: 'cat-media',
-    tags: ['image', 'pdf', 'converter', 'jpg-to-pdf', 'png-to-pdf', 'media'],
+    tags: [
+      'image',
+      'pdf',
+      'converter',
+      'image to pdf converter free',
+      'image to pdf converter i love pdf',
+      'image to pdf converter free download',
+      'image to pdf converter 200 kb',
+      'image to pdf converter 100 kb',
+      'pdf to jpg',
+      'best image to pdf converter online',
+      'image to pdf converter compressor',
+    ],
     status: 'published',
     featured: true,
     trending: true,
@@ -112,7 +125,7 @@ export const tools: Tool[] = [
     isNew: true,
     usageCount: 250,
     createdAt: '2026-10-31T00:00:00.000Z',
-    updatedAt: '2026-10-31T00:00:00.000Z',
+    updatedAt: '2026-11-23T00:00:00.000Z',
   },
   // ============ SEPTEMBER 2026 (Latest 4) ============
   {

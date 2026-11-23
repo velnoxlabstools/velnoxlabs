@@ -518,8 +518,8 @@
       "description": "ピクセル単位や cm 指定、縦横比に合わせてブラウザ上で正確に画像をトリミング。円形アバター切り抜きや回転にも対応した無料ツールです。"
     },
     "image-to-pdf": {
-      "name": "画像 PDF 変換ツール",
-      "description": "ブラウザ上で JPG、PNG、WebP 画像を高品質な単一の PDF ドキュメントに直接統合・変換します。"
+      "name": "画像PDF変換ツール (100KB・200KB対応 & iLovePDF代替)",
+      "description": "JPG、PNG、WebPを100KBや200KB以下のコンパクトなPDFに結合・圧縮する無料オンライン変換ツール。"
     },
     "fancy-text-generator": {
       "name": "WhatsApp向けおしゃれ文字フォントジェネレーター – 特殊文字・可愛いフォント作成",

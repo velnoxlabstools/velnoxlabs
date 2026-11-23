@@ -518,8 +518,8 @@
       "description": "在浏览器中按精准像素、厘米或预设比例裁切图片。提供圆形头像裁切、角度微调与翻转功能，无需下载任何软件。"
     },
     "image-to-pdf": {
-      "name": "图片转 PDF 转换器",
-      "description": "在浏览器端即时将 JPG、PNG 和 WebP 图片合并转换为高质量的标准 PDF 文档。"
+      "name": "图片转PDF转换器 (支持100KB、200KB与iLovePDF替代)",
+      "description": "免费在线图片转PDF工具，将JPG、PNG、WebP合并并压缩为100KB或200KB以内的PDF，iLovePDF的理想替代。"
     },
     "fancy-text-generator": {
       "name": "WhatsApp 花样花式字体生成器 – 个性艺术字与特殊符号排版工具",

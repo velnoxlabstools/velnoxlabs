@@ -525,8 +525,8 @@
       "description": "Corte fotos online com dimensões exatas em pixels, proporções ou centímetros. Editor fotográfico sem downloads com recorte circular e giros."
     },
     "image-to-pdf": {
-      "name": "Conversor de Imagem para PDF",
-      "description": "Converta imagens JPG, PNG e WebP em um único documento PDF profissional de alta qualidade diretamente no navegador."
+      "name": "Conversor de Imagens para PDF (100KB, 200KB e Alternativa ao iLovePDF)",
+      "description": "Conversor online gratuito para unir e comprimir imagens JPG, PNG e WebP em PDF com menos de 100KB ou 200KB."
     },
     "fancy-text-generator": {
       "name": "Gerador de Letras Diferentes para WhatsApp – Fontes Bonitas e Estilos",

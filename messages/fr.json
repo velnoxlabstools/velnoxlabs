@@ -525,8 +525,8 @@
       "description": "Recadrez vos photos en ligne selon des dimensions exactes en pixels, proportions ou centimètres. Éditeur gratuit avec découpe circulaire et rotation sans aucun logiciel."
     },
     "image-to-pdf": {
-      "name": "Convertisseur Image en PDF",
-      "description": "Convertissez vos images JPG, PNG et WebP en un document PDF professionnel unique directement dans votre navigateur."
+      "name": "Convertir Image en PDF (100KB, 200KB et Alternative à iLovePDF)",
+      "description": "Outil en ligne gratuit pour assembler et compresser des images JPG, PNG et WebP en PDF de moins de 100KB ou 200KB."
     },
     "fancy-text-generator": {
       "name": "Générateur de Texte Stylé pour WhatsApp – Polices d'Écriture et Styles",
