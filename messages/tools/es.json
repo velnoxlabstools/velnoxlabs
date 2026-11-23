@@ -2278,8 +2278,8 @@
       "faq4A": "Sí. La mayoría de redes y plataformas de videojuegos actuales admiten codificación UTF-8 completa. Simplemente copia el estilo que prefieras y pégalo en tu perfil o nombre de usuario."
     },
     "emojiCopy": {
-      "title": "Teclado de Emojis y Copiar",
-      "subtitle": "Busca y copia emoticonos y símbolos Unicode con un solo clic para biografías de Instagram, Discord, WhatsApp y redes sociales.",
+      "title": "10000 Emojis para Copiar y Pegar – Teclado de Emojis Tiernos y Estéticos",
+      "subtitle": "Teclado online gratuito de emojis tiernos con 10000 combinaciones para copiar y pegar. Encuentra caracteres estéticos y emoticonos para Android, iOS y redes sociales.",
       "searchPlaceholder": "Buscar emojis por nombre o palabra clave (ej. fuego, sonrisa, corazón)...",
       "categoryAll": "Todos los emojis",
       "categorySmileys": "Emoticonos y emociones",
@@ -2305,7 +2305,7 @@
       "noRecent": "No hay emojis recientes. Haz clic en cualquiera para empezar a copiar.",
       "copiedBadge": "¡Copiado!",
       "totalEmojis": "emojis",
-      "aboutText": "El Teclado de Emojis y Copiar es una herramienta que se ejecuta íntegramente en el navegador para buscar, organizar y transferir al portapapeles símbolos emoji oficiales de Unicode al instante. Sin necesidad de extensiones externas y con un procesamiento en memoria local mediante JavaScript, esta utilidad ofrece una experiencia moderna frente a los teclados virtuales convencionales. Ya sea para redactar biografías atractivas en redes sociales (Instagram, TikTok, Twitter/X), comunicarse en plataformas de equipo (Discord, Slack, Microsoft Teams) o enviar mensajes en aplicaciones de chat (WhatsApp, Telegram), nuestro catálogo organiza cientos de símbolos UTF-8 en secciones claras como emoticonos, naturaleza, gastronomía, lugares, actividades, objetos y banderas. Incorpora una bandeja de combinaciones, filtrado dinámico en tiempo real, historial reciente y favoritos persistentes en el almacenamiento del navegador, garantizando privacidad total y rapidez absoluta.",
+      "aboutText": "Nuestro teclado de emojis tiernos es una herramienta Unicode ágil y visual pensada para creadores de contenido, aficionados a los videojuegos y usuarios móviles que buscan miles de combinaciones para copiar y pegar. Funcionando como un rápido atajo de teclado virtual sin instalaciones, se adapta a la perfección tanto en dispositivos Android como en iOS y ordenadores. Si buscas una selección estética para decorar perfiles de Instagram, estados de TikTok o servidores de Discord, o un flujo práctico para transferir texto al portapapeles, nuestro catálogo reúne miles de expresiones alegres, corazones, animales y caracteres decorativos. Ante las dudas sobre la descarga en imagen PNG, aclaramos que aquí se transfieren caracteres de texto UTF-8 genuinos, ligeros y compatibles con cualquier app sin depender de archivos pesados. Con bandeja colectora, filtrado instantáneo y privacidad total en tu navegador, expresarte nunca fue tan fácil.",
       "feature1": "Codificación universal Unicode UTF-8: Cada glifo utiliza puntos de código estandarizados (incluyendo Emoji 15.1 y secuencias compuestas ZWJ) compatibles de manera nativa con iOS, Android, macOS, Windows y Linux.",
       "feature2": "Representación vectorial de banderas y símbolos: Integra gráficos vectoriales de alta definición para evitar las limitaciones tipográficas de Windows y asegurar una visualización nítida, conservando los caracteres Unicode auténticos al copiar.",
       "feature3": "Bandeja interactiva y selección múltiple: Permite acumular varios símbolos consecutivamente para crear frases o composiciones decorativas y copiarlas al portapapeles con una sola pulsación.",
@@ -2316,14 +2316,14 @@
       "step2Body": "Toca cualquier icono para copiarlo directamente en tu sistema y añadirlo a la bandeja superior; activa el icono de corazón para guardarlo en favoritos.",
       "step3Title": "Pega en cualquier aplicación",
       "step3Body": "Inserta los símbolos copiados en publicaciones, conversaciones de mensajería, descripciones de perfil o títulos de documentos.",
-      "faq1Q": "¿Por qué utilizar este teclado web en lugar del teclado del sistema operativo?",
-      "faq1A": "Ofrece búsqueda inmediata por palabras clave, bandeja para acumular secuencias de emojis, favoritos sin registro y visualización vectorial de banderas que evita los recuadros de texto habituales en Windows.",
-      "faq2Q": "¿Los emojis copiados se ven correctamente en Discord, WhatsApp y teléfonos móviles?",
-      "faq2A": "Sí. Toda la colección sigue las pautas oficiales del Consorcio Unicode. Al copiar, se transfiere la secuencia de caracteres estándar compatible con cualquier dispositivo actual.",
-      "faq3Q": "¿El texto que copio o busco se almacena en algún servidor?",
-      "faq3A": "No. VelnoxLabs diseña utilidades que funcionan en el lado del cliente. Toda la información permanece guardada en el almacenamiento local de tu propio navegador.",
-      "faq4Q": "¿Cómo se gestionan las banderas y los emojis compuestos?",
-      "faq4A": "Se componen mediante secuencias de unión de ancho cero (ZWJ) e indicadores regionales. Nuestra plataforma preserva intactos estos códigos estándar para que funcionen con total fidelidad al pegarlos."
+      "faq1Q": "¿Cómo utilizar este recurso como un atajo de teclado rápido en Android?",
+      "faq1A": "Abre la página en Chrome o en tu navegador móvil en Android, pulsa el menú de navegación y elige 'Añadir a la pantalla de inicio'. Esto creará un icono de acceso directo. Al redactar mensajes o publicaciones, toca el icono, pulsa los emoticonos deseados para llevarlos al portapapeles y pégalos en WhatsApp, Instagram o tus chats favoritos.",
+      "faq2Q": "¿Es posible obtener estos emoticonos en archivos de imagen PNG?",
+      "faq2A": "Por ahora el sistema actúa como un práctico asistente para copiar caracteres de texto Unicode. Al ser texto nativo, los emoticonos se ajustan a cualquier tamaño de letra y fondo sin consumir datos de imagen. No obstante, nuestro equipo está evaluando incorporar la exportación en mapas de bits PNG de alta resolución en futuras versiones.",
+      "faq3Q": "¿Dispone de secciones con temáticas tiernas y estéticas?",
+      "faq3A": "Sí. Nuestro catálogo cuenta con recopilaciones de estrellas brillantes, corazones pasteles, caritas adorables y figuras encantadoras. Basta con escribir términos como 'estrella', 'corazón' o 'tierno' en el buscador para hallar los caracteres perfectos para biografías y nombres de usuario.",
+      "faq4Q": "¿Existen realmente más de 10000 emojis disponibles para copiar?",
+      "faq4A": "Aunque el estándar Unicode básico abarca unas 3.700 figuras, las variantes de tono de piel, combinaciones compuestas y mezclas en la bandeja acumuladora permiten crear más de 10.000 composiciones únicas listas para transferir en un clic."
     },
     "barcodeGenerator": {
       "title": "Generador de Códigos de Barras",

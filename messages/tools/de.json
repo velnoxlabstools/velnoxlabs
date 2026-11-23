@@ -2278,8 +2278,8 @@
       "faq4A": "Ja. Nahezu alle modernen Gaming-Netzwerke unterstützen UTF-8-codierten Text uneingeschränkt. Kopiere einfach deinen bevorzugten Schriftstil und füge ihn in deine Profileinstellungen ein."
     },
     "emojiCopy": {
-      "title": "Emoji-Tastatur & Kopieren",
-      "subtitle": "Finde und kopiere Unicode-Emojis mit einem Klick für Instagram-Biografien, Discord, WhatsApp und soziale Netzwerke.",
+      "title": "10000 Emojis zum Kopieren und Einfügen – Süße Emoji-Tastatur",
+      "subtitle": "Kostenlose süße Emoji-Tastatur mit 10000 Emojis zum Kopieren und Einfügen. Finde ästhetische Emoticons, Kaomojis und Schriftzeichen für Android, iOS und Chats.",
       "searchPlaceholder": "Emojis nach Namen oder Stichwort suchen (z. B. Feuer, Lachen, Herz)...",
       "categoryAll": "Alle Emojis",
       "categorySmileys": "Smileys & Gefühle",
@@ -2305,7 +2305,7 @@
       "noRecent": "Keine zuletzt genutzten Emojis. Klicke auf ein Symbol, um zu beginnen.",
       "copiedBadge": "Kopiert!",
       "totalEmojis": "Emojis",
-      "aboutText": "Die Emoji-Tastatur ist ein clientseitiges Online-Werkzeug, mit dem standardisierte Unicode-Emojis blitzschnell gesucht, gesammelt und in die Zwischenablage übertragen werden können. Dank direkter Ausführung im Browser ohne Serverabhängigkeiten arbeitet die Anwendung wesentlich schneller als schwerfällige Systemmenüs. Ob für aussagekräftige Profile in sozialen Medien (Instagram, TikTok, Twitter/X), Team-Unterhaltungen (Discord, Slack, Teams) oder private Nachrichten (WhatsApp, Telegram): Die Sammlung unterteilt Hunderte von UTF-8-Zeichen in übersichtliche Rubriken wie Gesichter, Tiere, Speisen, Reiseziele, Sport, Gegenstände und Flaggen. Ausgestattet mit einer praktischen Sammelleiste für Emoji-Kombinationen, Echtzeit-Suche, lokaler Verlaufsspeicherung und Favoritenfunktion bietet das Werkzeug höchsten Bedienkomfort bei absolutem Schutz der Privatsphäre.",
+      "aboutText": "Unsere süße Emoji-Tastatur ist ein interaktives Unicode-Verzeichnis für Content-Ersteller, Gamer und Smartphone-Nutzer, die nach tausenden Emojis zum Kopieren und Einfügen suchen. Als blitzschnelle Tastatur-Verknüpfung im Browser konzipiert, benötigt sie keine Software-Installation und läuft einwandfrei auf Android, iOS sowie Desktop-Systemen. Ganz gleich, ob du nach ästhetischen Motiven für Instagram-Bios, TikTok-Beiträge oder Discord-Server suchst oder einen unkomplizierten Ablauf für Sofortnachrichten wünschst: Unser Katalog bündelt tausende ausdrucksstarke Smileys, Herzen, Tiere und dekorative Schriftzeichen. Auch wenn manche Besucher nach einem PNG-Bilderexport suchen, werden alle Elemente als echtes, ressourcenschonendes UTF-8-Textformat übertragen, das sich auf jeder Plattform sauber einfügt. Mit Zwischenablage-Sammelleiste, Echtzeitsuche und vollständiger Privatsphäre im Browser wird kreatives Schreiben zum Kinderspiel.",
       "feature1": "Universelle Unicode-UTF-8-Codierung: Jedes Symbol nutzt offizielle Zeichenwerte (einschließlich Emoji 15.1 und mehrteiliger ZWJ-Verbindungen), die unter iOS, Android, macOS, Windows und Linux nativ dargestellt werden.",
       "feature2": "Vektorbasierte Flaggen-Darstellung: Behebt Darstellungsprobleme unter Windows durch gestochen scharfe Vektorgrafiken und stellt sicher, dass beim Kopiervorgang die echten Unicode-Zeichen übertragen werden.",
       "feature3": "Interaktive Sammelleiste für Kombinationen: Sammle mehrere Symbole nacheinander in einer Leiste, um individuelle Emoji-Texte zusammenzustellen und mit einem Klick zu übernehmen.",
@@ -2316,14 +2316,14 @@
       "step2Body": "Ein Klick übernimmt das gewünschte Emoji in die Zwischenablage und fügt es der Sammelleiste hinzu; über das Herzsymbol sicherst du es in deinen Favoriten.",
       "step3Title": "Überall bequem einfügen",
       "step3Body": "Füge die übernommenen Symbole direkt in Social-Media-Beiträge, Messenger-Nachrichten, Profilbeschreibungen oder Dokumente ein.",
-      "faq1Q": "Welche Vorteile bietet diese Emoji-Tastatur gegenüber der integrierten Tastatur des Betriebssystems?",
-      "faq1A": "Sie bietet eine rasante Stichwortsuche, das Zusammenstellen mehrteiliger Emoji-Reihen, Favoriten ohne Benutzerkonto und eine saubere Vektordarstellung von Flaggen, die auf Windows-PCs oft fehlen.",
-      "faq2Q": "Funktionieren die kopierten Emojis zuverlässig auf Smartphones, Discord und WhatsApp?",
-      "faq2A": "Ja. Sämtliche Zeichen basieren auf den Richtlinien des Unicode-Konsortiums. Nach dem Kopiervorgang steht der echte Zeichenwert bereit, der von allen gängigen Plattformen verstanden wird.",
-      "faq3Q": "Werden meine Texteingaben oder Zwischenablagedaten gespeichert?",
-      "faq3A": "Nein. VelnoxLabs setzt auf reine Client-Verarbeitung. Chronik und Favoriten verbleiben ausschließlich im Speicher deines eigenen Webbrowsers.",
-      "faq4Q": "Wie werden Länderflaggen und mehrteilige Emojis gehandhabt?",
-      "faq4A": "Sie bestehen aus Verknüpfungen von Regionalindikatoren und ZWJ-Steuerzeichen. Unsere Anwendung belässt diese Zeichenfolgen beim Kopiervorgang intakt, sodass sie beim Einfügen exakt dargestellt werden."
+      "faq1Q": "Wie lässt sich die Seite als praktische Tastatur-Verknüpfung unter Android nutzen?",
+      "faq1A": "Öffne die Seite im mobilen Chrome-Browser auf deinem Android-Gerät, tippe auf das Browsermenü und wähle 'Zum Startbildschirm hinzufügen'. Dadurch entsteht ein Schnellzugriff-Symbol neben deinen regulären Apps. Tippe beim Chatten einfach darauf, wähle deine bevorzugten Motive mit einem Klick aus und füge sie direkt in WhatsApp, Instagram oder Textfelder ein.",
+      "faq2Q": "Können die Motive als PNG-Grafiken abgespeichert werden?",
+      "faq2A": "Aktuell arbeitet das Werkzeug als reine textbasierte Lösung zum Kopieren von Unicode-Zeichen. Da Emojis standardisierter Fließtext sind, passen sie sich nahtlos jeder Schriftgröße und Farbgebung an, ohne Ladezeiten durch Bilddateien zu verursachen. Unser Team prüft jedoch die Bereitstellung hochauflösender PNG-Grafiken in einer kommenden Aktualisierung.",
+      "faq3Q": "Gibt es spezielle Kategorien für süße und ästhetische Motive?",
+      "faq3A": "Ja! Unsere Tastatur bietet eigene Zusammenstellungen mit funkelnden Sternen, Pastellherzen, niedlichen Tiergesichtern und Zierzeichen. Gib Begriffe wie 'Stern', 'Herz' oder 'süß' in das Suchfeld ein, um rasch passende Gestaltungselemente für Profiltexte und Namen zu finden.",
+      "faq4Q": "Stehen tatsächlich über 10000 Emojis zur Verfügung?",
+      "faq4A": "Während der offizielle Unicode-Kern rund 3.700 Grundelemente umfasst, ermöglichen Hauttonvarianten, Personen-Kombinationen und selbst zusammengestellte Reihen in unserer Sammelleiste weit mehr als 10.000 einzigartige Ausdrucksmöglichkeiten auf Knopfdruck."
     },
     "barcodeGenerator": {
       "title": "Barcode-Generator für Strichcodes",

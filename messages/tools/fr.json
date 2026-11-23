@@ -2280,8 +2280,8 @@
       "faq4A": "Tout à fait. La plupart des réseaux de jeu et plateformes sociales acceptent pleinement les chaînes encodées en UTF-8. Copiez simplement votre variante préférée et appliquez-la dans les réglages de votre profil ou de votre pseudonyme."
     },
     "emojiCopy": {
-      "title": "Clavier Emoji & Copier-Coller",
-      "subtitle": "Trouvez et copiez des symboles emoji Unicode en un clic pour vos profils Instagram, Discord, WhatsApp et réseaux sociaux.",
+      "title": "10000 Emojis à Copier et Coller – Clavier d'Emojis Mignons et Esthétiques",
+      "subtitle": "Clavier d'emojis mignons en ligne avec 10000 combinaisons à copier et coller. Trouvez des caractères esthétiques et des émoticônes pour Android, iOS et réseaux.",
       "searchPlaceholder": "Rechercher des emojis par nom ou mot-clé (ex. flamme, sourire, cœur)...",
       "categoryAll": "Tous les emojis",
       "categorySmileys": "Sourires et émotions",
@@ -2307,7 +2307,7 @@
       "noRecent": "Aucun emoji récent. Cliquez sur un symbole pour commencer.",
       "copiedBadge": "Copié !",
       "totalEmojis": "emojis",
-      "aboutText": "Le Clavier Emoji & Copier-Coller est un utilitaire fonctionnant intégralement au sein du navigateur web, pensé pour rechercher, agencer et copier des symboles emoji officiels Unicode de manière instantanée. Conçu sans dépendances externes et exécuté exclusivement en JavaScript dans la mémoire locale, il propose une ergonomie bien supérieure aux fenêtres de sélection des systèmes d'exploitation. Que ce soit pour personnaliser vos biographies sur les réseaux sociaux (Instagram, TikTok, Twitter/X), animer des discussions professionnelles (Discord, Slack, Teams) ou échanger des messages privés (WhatsApp, Telegram), la sélection regroupe des centaines de glyphes UTF-8 répartis entre visages, faune, délices, itinéraires, sports, ustensiles et drapeaux nationaux. Grâce à sa zone d'assemblage, sa recherche dynamique par mots-clés, son historique local et son onglet de favoris, cet outil allie réactivité et respect absolu des données privées.",
+      "aboutText": "Notre clavier d'emojis mignons est un répertoire Unicode réactif pensé pour les créateurs, joueurs et utilisateurs mobiles en quête de milliers d'emojis à copier et coller. Conçu comme un raccourci de saisie virtuel immédiat sans la moindre installation, il fonctionne parfaitement sous Android, iOS et sur ordinateur. Que vous recherchiez une sélection esthétique pour vos biographies Instagram, vos légendes TikTok ou vos salons Discord, ou une méthode fluide pour vos échanges quotidiens, notre répertoire regroupe des milliers de visages expressifs, cœurs, animaux et caractères décoratifs. Bien que certains recherchent un export d'images PNG, nos éléments se copient directement sous la forme de texte UTF-8 authentique et léger, s'adaptant à toutes les applications sans charger d'images externes. Doté d'un bac de collecte, d'une recherche instantanée et d'une confidentialité totale dans le navigateur, il embellit vos textes sans effort.",
       "feature1": "Encodage universel Unicode UTF-8 : Chaque symbole respecte les spécifications internationales (dont Emoji 15.1 et les liaisons ZWJ complexes), assurant un rendu fidèle sur iOS, Android, macOS, Windows et Linux.",
       "feature2": "Rendu vectoriel des drapeaux et emblèmes : Intègre des visuels vectoriels nets pour pallier les absences de polices sous Windows, tout en transmettant les vrais caractères Unicode lors de la copie.",
       "feature3": "Zone d'assemblage et copie groupée : Permet d'aligner plusieurs emojis pour concevoir des messages visuels originaux et de copier l'intégralité de la composition d'un seul geste.",
@@ -2318,14 +2318,14 @@
       "step2Body": "Touchez un symbole pour l'envoyer dans le presse-papiers et l'ajouter à la zone d'assemblage ; cliquez sur le cœur pour l'inscrire dans vos favoris.",
       "step3Title": "Collez où vous le souhaitez",
       "step3Body": "Insérez vos emojis au cœur de vos publications, messages instantanés, profils en ligne ou documents.",
-      "faq1Q": "Pourquoi privilégier ce clavier web face au panneau de saisie habituel de l'ordinateur ?",
-      "faq1A": "Il procure une recherche instantanée par mots-clés, une zone pratique pour combiner plusieurs emojis, la mémorisation de favoris et un affichage vectoriel des drapeaux souvent indisponibles sous Windows.",
-      "faq2Q": "Les emojis copiés s'affichent-ils normalement sur smartphone, Discord et WhatsApp ?",
-      "faq2A": "Oui. L'ensemble des symboles répond aux critères du consortium Unicode. La séquence copiée est universelle et s'interprète sans encombre sur tous les appareils modernes.",
-      "faq3Q": "Mes recherches ou mon presse-papiers sont-ils conservés sur vos serveurs ?",
-      "faq3A": "Non. VelnoxLabs applique une stricte politique de traitement local. Toutes les données demeurent exclusivement sur votre propre ordinateur ou téléphone.",
-      "faq4Q": "De quelle façon les drapeaux et emojis combinés sont-ils traités ?",
-      "faq4A": "Ils sont constitués de codets multiples reliés par des caractères de jonction ZWJ. Notre outil préserve scrupuleusement ces séquences lors de la copie pour garantir leur affichage à l'arrivée."
+      "faq1Q": "Comment employer ce site comme raccourci clavier pratique sur Android ?",
+      "faq1A": "Consultez la page sur Chrome ou votre navigateur mobile Android, appuyez sur le menu du navigateur et sélectionnez 'Ajouter à l'écran d'accueil'. Une icône d'accès rapide apparaîtra sur votre écran. Lors de la rédaction de vos messages, touchez l'icône, choisissez vos émoticônes préférées pour les placer dans le presse-papiers et collez-les dans WhatsApp ou Instagram.",
+      "faq2Q": "Est-il possible d'enregistrer ces émoticônes en fichiers image PNG ?",
+      "faq2A": "Pour le moment, cet outil est dédié au transfert de texte Unicode pur. Les émoticônes étant des caractères textuels natifs, ils s'ajustent à toutes les tailles de police et couleurs d'affichage sans bande passante superflue. Notre équipe étudie toutefois la possibilité d'ajouter des fichiers images PNG haute définition dans une prochaine mise à jour.",
+      "faq3Q": "Le répertoire propose-t-il des collections mignonnes et esthétiques ?",
+      "faq3A": "Oui ! Notre catalogue comprend des étoiles scintillantes, des cœurs pastel, d'adorables visages d'animaux et des éléments décoratifs. Tapez simplement 'étoile', 'cœur' ou 'mignon' dans la barre de recherche pour trouver les ornements idéaux pour vos profils.",
+      "faq4Q": "Peut-on réellement composer plus de 10000 emojis à copier ?",
+      "faq4A": "Bien que le standard Unicode de base contienne environ 3 700 caractères, les variations de teint, les associations de personnages et les assemblages libres dans notre bac permettent de créer plus de 10 000 combinaisons expressives prêtes à l'emploi."
     },
     "barcodeGenerator": {
       "title": "Générateur de Codes-Barres",
