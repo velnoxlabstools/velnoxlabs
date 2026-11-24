@@ -501,8 +501,8 @@
       "description": "Estime prestações mensais de crédito imobiliário, financiamento auto, pessoal, empresarial e estudantil com cronograma completo."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calculadora de Salário para Horário",
-      "description": "Converte salário anual em pagamento horário, semanal, mensal e quinzenal."
+      "name": "Calculadora de Salário para Valor por Hora – Líquido e Mensal",
+      "description": "Converta salário anual em valor por hora, mensal e semanal com estimativa de salário líquido pós-impostos e horas extras."
     },
     "grade-calculator": {
       "name": "Calculadora de Nota Final – Simulador de Médias e Desempenho Escolar",

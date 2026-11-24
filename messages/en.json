@@ -494,8 +494,8 @@
       "description": "Calculate monthly payments with our Home Loan, Car Loan & Personal Loan EMI Calculator. Includes SBI personal loan, business, education, and auto loan breakdowns."
     },
     "salary-to-hourly-calculator": {
-      "name": "Salary to Hourly Calculator",
-      "description": "Convert annual salary to hourly, weekly, monthly, biweekly pay."
+      "name": "Salary to Hourly Calculator – Annual, Monthly & After-Tax",
+      "description": "Convert between annual salary, monthly pay, bi-weekly, weekly, and hourly rates with after-tax take-home pay and overtime calculation."
     },
     "grade-calculator": {
       "name": "Final Grade Calculator – What If Grade Calculator & Test Grader",

@@ -1524,10 +1524,21 @@ export const tools: Tool[] = [
   {
     id: 'tool-salary',
     slug: 'salary-to-hourly-calculator',
-    name: 'Salary to Hourly Calculator',
-    description: 'Convert annual salary to hourly, weekly, monthly, biweekly pay.',
+    name: 'AI Salary to Hourly Calculator – Annual, Monthly, Weekly & After-Tax Pay Converter',
+    description:
+      'Convert between annual salary, monthly pay, bi-weekly, weekly, and hourly rates with after-tax take-home pay, overtime (1.5x), popular presets ($50k, $52k, $55k), and job offer comparison.',
     categoryId: 'cat-finance',
-    tags: ['salary', 'hourly', 'finance'],
+    tags: [
+      'salary',
+      'hourly',
+      'monthly-salary',
+      'after-tax',
+      'calculator',
+      'overtime',
+      'paycheck',
+      'finance',
+      'take-home',
+    ],
     status: 'published',
     featured: false,
     trending: false,
@@ -1535,7 +1546,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 4300,
     createdAt: '2025-08-10T00:00:00.000Z',
-    updatedAt: '2026-05-15T00:00:00.000Z',
+    updatedAt: '2026-11-24T00:00:00.000Z',
   },
 
   // ============ EDUCATION ============

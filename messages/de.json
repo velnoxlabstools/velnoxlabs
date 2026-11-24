@@ -501,8 +501,8 @@
       "description": "Berechnet monatliche Kreditraten für Baufinanzierung, Kfz, Privatkredit, Gewerbedarlehen und Ausbildung mit Tilgungsplan."
     },
     "salary-to-hourly-calculator": {
-      "name": "Gehalt-zu-Stundenlohn-Rechner",
-      "description": "Konvertiert Jahresgehalt in Stunden-, Wochen-, Monats- und Zweiwochenlohn."
+      "name": "Gehaltsrechner auf Stundenlohn – Netto & Monatslohn",
+      "description": "Jahresgehalt in Stundenlohn, Monats- und Wochenlohn umrechnen mit Netto-Schätzung nach Steuern und Überstundensimulation."
     },
     "grade-calculator": {
       "name": "Endnoten-Rechner – Notenberechnung & Notenprognose für Schule und Studium",

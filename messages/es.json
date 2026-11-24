@@ -501,8 +501,8 @@
       "description": "Calcula pagos mensuales de hipotecas, préstamos de automóviles, personales, comerciales y de educación con cronograma completo."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calculadora de Salario a Por Hora",
-      "description": "Convierte salario anual a pago por hora, semanal, mensual y quincenal."
+      "name": "Calculadora de Salario a Horas – Mensual y Neto",
+      "description": "Convierte salario anual en tarifa por hora, mensual, quincenal y semanal con cálculo de sueldo neto y horas extras."
     },
     "grade-calculator": {
       "name": "Calculadora de Calificación Final – Simulador de Notas y Promedios",
