@@ -291,8 +291,8 @@
       "description": "JSON 데이터를 json 태그와 중첩 타입을 포함한 Golang 구조체 코드로 브라우저에서 즉시 변환."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON to Pydantic 및 Dataclass 변환기",
-      "description": "JSON 데이터를 Python Pydantic 모델 및 Dataclass 클래스로 변환합니다."
+      "name": "JSON to Pydantic BaseModel 및 Dataclass 생성기 – model_validate_json",
+      "description": "JSON을 Pydantic 스키마 및 Python dataclass로 온라인 변환합니다. JSON 기반 Pydantic BaseModel 생성, model_validate_json 파싱 및 model_dump 지원."
     },
     "json-to-typescript-interface-generator": {
       "name": "JSON to TypeScript 인터페이스 변환기",

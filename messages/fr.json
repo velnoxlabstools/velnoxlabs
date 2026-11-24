@@ -298,8 +298,8 @@
       "description": "Transformez du JSON en structures Go avec balises de champ et types imbriqués directement dans votre navigateur."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON vers Pydantic et Dataclass",
-      "description": "Génère des modèles Pydantic à partir de JSON."
+      "name": "Générateur Pydantic BaseModel et Dataclass depuis JSON – model_validate_json",
+      "description": "Transformez vos structures JSON en schémas Pydantic et dataclasses Python en ligne. Créez des Pydantic BaseModel depuis JSON avec support de model_validate_json et model_dump."
     },
     "json-to-typescript-interface-generator": {
       "name": "JSON vers Interface TypeScript",

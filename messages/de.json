@@ -298,8 +298,8 @@
       "description": "JSON-Daten im Browser in Go-Strukturen mit json-Tags und verschachtelten Typen umwandeln."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON zu Pydantic & Dataclass",
-      "description": "Generiert Pydantic-Modelle aus JSON."
+      "name": "JSON zu Pydantic BaseModel & Dataclass – model_validate_json",
+      "description": "Erstellen Sie Pydantic-Schemata und Python-Dataclasses online aus JSON. Erzeugen Sie Pydantic BaseModel aus JSON mit Unterstützung für model_validate_json und model_dump."
     },
     "json-to-typescript-interface-generator": {
       "name": "JSON-zu-TypeScript-Interface",

@@ -291,8 +291,8 @@
       "description": "JSONデータをjsonタグおよびネスト型付きのGolang構造体定義へブラウザ上で即座に変換。"
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON から Pydantic & Dataclass 変換ツール",
-      "description": "JSON から Python の Pydantic モデルおよび Dataclass を生成します。"
+      "name": "JSON から Pydantic BaseModel ＆ Dataclass 生成ツール – model_validate_json",
+      "description": "JSON を Pydantic スキーマや Python dataclass にオンラインで変換。JSON からの Pydantic BaseModel 生成、model_validate_json 解析、model_dump をサポート。"
     },
     "json-to-typescript-interface-generator": {
       "name": "JSON から TypeScript 型定義変換ツール",

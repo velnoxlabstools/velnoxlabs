@@ -291,8 +291,8 @@
       "description": "Преобразование данных JSON в структуры Go с тегами полей и вложенными типами прямо в браузере."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "Генератор моделей Pydantic и Dataclass из JSON",
-      "description": "Создание классов Python Dataclass и моделей Pydantic на основе JSON."
+      "name": "Генератор Pydantic BaseModel и Dataclass из JSON – model_validate_json",
+      "description": "Онлайн-преобразование JSON в схемы Pydantic и Python dataclass. Создание Pydantic BaseModel из JSON с поддержкой model_validate_json и model_dump."
     },
     "json-to-typescript-interface-generator": {
       "name": "Генератор интерфейсов TypeScript из JSON",

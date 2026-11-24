@@ -291,8 +291,8 @@
       "description": "Free online JSON to Go struct generator with Golang struct tags and nested type inference."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON to Pydantic & Dataclass",
-      "description": "Generate Pydantic models from JSON."
+      "name": "JSON to Pydantic BaseModel & Dataclass Generator – model_validate_json",
+      "description": "Convert JSON to Pydantic schema and Python dataclasses online. Generate Pydantic BaseModel from JSON with support for model_validate_json, model_dump, and types."
     },
     "json-to-typescript-interface-generator": {
       "name": "JSON to TypeScript Interface",
