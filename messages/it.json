@@ -386,8 +386,8 @@
       "description": "Strumento gratuito online per cambiare maiuscole e minuscole. Modifica lettere minuscole in maiuscole in Excel, sistema frasi e testi senza alcuna estensione."
     },
     "lorem-ipsum": {
-      "name": "Generatore Lorem Ipsum",
-      "description": "Genera testo segnaposto per design e mockup."
+      "name": "Generatore di Lorem Ipsum (1000 Characters & Word)",
+      "description": "Crea testo fittizio in latino per documenti Word, bozzetti grafici e mockup con conteggio di paragrafi."
     },
     "text-diff-checker": {
       "name": "Comparatore di Differenze Testo",

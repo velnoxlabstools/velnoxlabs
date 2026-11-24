@@ -379,8 +379,8 @@
       "description": "無料のオンライン大文字・小文字変換ツール。Excelで小文字を大文字に一括変換し、拡張機能なしで文章やタイトルの表記を即座に最適化。"
     },
     "lorem-ipsum": {
-      "name": "Lorem Ipsum ダミーテキスト生成ツール",
-      "description": "デザインやモックアップ作成に役立つダミーテキストを生成します。"
+      "name": "Lorem Ipsum ダミーテキスト生成ツール (1000 Characters & Word)",
+      "description": "Word文書、Webデザイン、UIモックアップ作成に役立つ古典ラテン語ダミーテキストを段落・文字数に応じて瞬時に作成。"
     },
     "text-diff-checker": {
       "name": "テキスト差分チェッカー",

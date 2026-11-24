@@ -386,8 +386,8 @@
       "description": "Ferramenta gratuita para alterar maiúsculas e minúsculas online. Altere letras minúsculas para maiúsculas no Excel, ajuste frases e textos sem precisar de extensão."
     },
     "lorem-ipsum": {
-      "name": "Gerador Lorem Ipsum",
-      "description": "Gera texto de preenchimento para designs e mockups."
+      "name": "Gerador de Lorem Ipsum (1000 Characters & Word)",
+      "description": "Crie texto clássico de preenchimento para documentos do Word, protótipos e diagramações visuais."
     },
     "text-diff-checker": {
       "name": "Comparador de Diferenças de Texto",

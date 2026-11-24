@@ -379,8 +379,8 @@
       "description": "무료 온라인 텍스트 대소문자 변환기. Excel에서 소문자를 대문자로 손쉽게 바꾸고, 확장 프로그램 설치 없이 문장 첫 글자와 제목을 즉시 변환하세요."
     },
     "lorem-ipsum": {
-      "name": "로렘 입숨(Lorem Ipsum) 생성기",
-      "description": "디자인 및 프로토타입 작업을 위한 임시 자리채움 텍스트를 만듭니다."
+      "name": "로렘 입숨(Lorem Ipsum) 생성기 (1000 Characters & Word)",
+      "description": "Word 문서, 디자인 시안 및 UI 목업을 위한 표준 라틴어 더미 텍스트를 문단 및 글자 수에 맞춰 즉시 생성."
     },
     "text-diff-checker": {
       "name": "텍스트 차이 비교기 (Diff)",

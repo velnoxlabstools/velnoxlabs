@@ -386,8 +386,8 @@
       "description": "Outil en ligne sans frais pour modifier la casse. Modifiez les minuscules en majuscules dans Excel, ajustez vos phrases et vos textes sans aucune extension."
     },
     "lorem-ipsum": {
-      "name": "Générateur Lorem Ipsum",
-      "description": "Génère du texte de remplissage pour les maquettes et designs."
+      "name": "Générateur de Faux Texte Lorem Ipsum (1000 Characters & Word)",
+      "description": "Créez du texte de remplissage classique en latin pour documents Word, maquettes visuelles et mises en page."
     },
     "text-diff-checker": {
       "name": "Comparateur de Différences de Texte",

@@ -379,8 +379,8 @@
       "description": "免费在线句首大写与标题大小写转换工具。支持在 Excel 中将小写字母转换为大写、批量排版句子文本，无需安装任何扩展程序即可即时完成转换。"
     },
     "lorem-ipsum": {
-      "name": "Lorem Ipsum 假文生成器",
-      "description": "为排版设计与原型快速生成占位假文段落。"
+      "name": "Lorem Ipsum 假文生成器 (1000 Characters & Word)",
+      "description": "为 Word 文档、排版设计及原型界面快速生成标准拉丁占位假文，支持自定义段落与字符量控制。"
     },
     "text-diff-checker": {
       "name": "文本差异比对工具",

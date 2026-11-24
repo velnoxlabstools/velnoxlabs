@@ -386,8 +386,8 @@
       "description": "Kostenloser Online-Helfer für Groß- und Kleinschreibung. Wandeln Sie Kleinbuchstaben in Excel in Großbuchstaben um und passen Sie Texte ohne Browser-Erweiterung an."
     },
     "lorem-ipsum": {
-      "name": "Lorem-Ipsum-Generator",
-      "description": "Generiert Platzhaltertext für Designs und Mockups."
+      "name": "Lorem-Ipsum-Generator (1000 Characters & Word)",
+      "description": "Erstellen Sie klassischen Blindtext für Word-Dokumente, Mockups und Web-Layouts mit flexibler Absatzanzahl."
     },
     "text-diff-checker": {
       "name": "Textunterschieds-Prüfer",
