@@ -342,8 +342,8 @@
       "description": "Convierte marcas de tiempo Unix a fechas legibles, tiempo Epoch y hora UTC local al instante."
     },
     "markdown-to-html-live-converter": {
-      "name": "Convertidor de Markdown a HTML",
-      "description": "Convierte Markdown a HTML en vivo."
+      "name": "Convertidor de Markdown a HTML Online – Alternativa a Pandoc",
+      "description": "Transforma texto Markdown a código HTML limpio en tiempo real para GitHub, blogs y sitios web."
     },
     "url-encoder-decoder": {
       "name": "Codificador y Decodificador de URL",

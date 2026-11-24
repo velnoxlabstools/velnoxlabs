@@ -335,8 +335,8 @@
       "description": "在线进行 Unix 时间戳、Epoch 纪元时间与北京时间/UTC 的双向转换。"
     },
     "markdown-to-html-live-converter": {
-      "name": "Markdown 转 HTML 实时转换工具",
-      "description": "即时将 Markdown 语法渲染并转换为干净的 HTML 标记。"
+      "name": "Markdown 转 HTML 在线转换工具 – 实时渲染与标记解析 (Pandoc 替代方案)",
+      "description": "在线实时将 Markdown 语法渲染为干净语义化的 HTML 代码，适用于 GitHub 文档、博客发布与静态排版。"
     },
     "url-encoder-decoder": {
       "name": "URL 编码与解码工具",

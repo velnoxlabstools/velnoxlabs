@@ -335,8 +335,8 @@
       "description": "Unix タイムスタンプを日本時間・UTC や Epoch 時刻と瞬時に双方向変換。"
     },
     "markdown-to-html-live-converter": {
-      "name": "Markdown から HTML リアルタイム変換ツール",
-      "description": "Markdown 記法をクリーンな HTML コードにリアルタイム変換します。"
+      "name": "Markdown から HTML へのオンライン変換ツール – Pandoc 代替 (Real-Time)",
+      "description": "GitHub 文書、ブログ記事、技術ドキュメント向けの Markdown 記法をクリーンな HTML にリアルタイム変換。"
     },
     "url-encoder-decoder": {
       "name": "URL エンコーダ & デコーダ",

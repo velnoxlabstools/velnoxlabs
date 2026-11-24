@@ -342,8 +342,8 @@
       "description": "Unix-Zeitstempel in lesbare Datumsangaben, Epoch-Werte und UTC-Zeiten sekundenschnell umwandeln."
     },
     "markdown-to-html-live-converter": {
-      "name": "Markdown-zu-HTML-Konverter",
-      "description": "Konvertiert Markdown live in HTML."
+      "name": "Markdown-zu-HTML-Online-Konverter – Pandoc-Alternative",
+      "description": "Wandeln Sie Markdown-Texte in Echtzeit in sauberen HTML-Code für GitHub, Blogs und Dokumentationen um."
     },
     "url-encoder-decoder": {
       "name": "URL-Encoder & Decoder",

@@ -335,8 +335,8 @@
       "description": "Мгновенный перевод меток времени Unix в понятные даты, значения Epoch и время по UTC."
     },
     "markdown-to-html-live-converter": {
-      "name": "Живой конвертер Markdown в HTML",
-      "description": "Мгновенная компиляция разметки Markdown в чистый HTML-код."
+      "name": "Онлайн-конвертер Markdown в HTML – Альтернатива Pandoc",
+      "description": "Мгновенное преобразование разметки Markdown в чистый HTML-код для GitHub, блогов и документации."
     },
     "url-encoder-decoder": {
       "name": "Кодировщик и декодер URL",

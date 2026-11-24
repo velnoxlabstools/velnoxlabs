@@ -335,8 +335,8 @@
       "description": "Convert unix timestamp to human-readable date and time or epoch time to UTC and local timezone."
     },
     "markdown-to-html-live-converter": {
-      "name": "Markdown to HTML Converter",
-      "description": "Convert Markdown to HTML live."
+      "name": "Markdown to HTML Converter Online – Best Free Markdown Converter (Pandoc Alternative)",
+      "description": "Fast Markdown to HTML converter online and best free Markdown converter (Pandoc alternative). Transform GitHub README, Linux, and JavaScript docs into clean HTML."
     },
     "url-encoder-decoder": {
       "name": "URL Encoder & Decoder",
