@@ -283,7 +283,7 @@
     },
     "csv-to-json": {
       "name": "Convertitore da CSV a JSON per File Grandi – Array JSON Online",
-      "description": "Applicativo gratuito per convertire grandi file CSV in JSON. Trasforma tabelle CSV, fogli TSV ed esportazioni Excel in array JSON puliti senza limiti di dimensione."
+      "description": "Applicativo gratuito per convertire grandi file CSV in JSON e viceversa. Trasforma fogli Excel ed elenchi GSTR1 senza limiti."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertitore da cURL a Python Requests Online – Riferimento cURL per Postman",

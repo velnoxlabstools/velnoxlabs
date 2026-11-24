@@ -275,8 +275,8 @@
       "description": "实时字数统计、字符数检查、单词长度检测器与关键词密度分析。"
     },
     "csv-to-json": {
-      "name": "海量大文件 CSV 转 JSON 转换工具 – 在线生成结构化 JSON 数组",
-      "description": "免费在线大文件 CSV 转 JSON 转换工具。将 CSV 表格、TSV 数据及 Excel 导出文件快速转换为结构化 JSON 数组，无文件体积限制。"
+      "name": "海量大文件 CSV 转 JSON 转换工具 – 在线生成结构化 JSON 数组 (CSV to Array Online)",
+      "description": "免费在线大文件 CSV 转 JSON 与 JSON 转 CSV 互转利器。将 CSV 表格及 Excel 导出文件转为结构化 JSON 数组，无体积限制。"
     },
     "curl-to-python-requests-converter": {
       "name": "cURL 转 Python Requests 代码生成器在线版 – cURL 转 Postman 参考",

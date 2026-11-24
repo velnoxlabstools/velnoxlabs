@@ -276,7 +276,7 @@
     },
     "csv-to-json": {
       "name": "Конвертер больших файлов CSV в JSON – Массив JSON онлайн",
-      "description": "Бесплатный онлайн-инструмент для конвертации больших файлов CSV в JSON. Преобразуйте таблицы CSV, TSV и книги Excel в структурированные массивы JSON без ограничений."
+      "description": "Бесплатный онлайн-инструмент для конвертации больших файлов CSV в JSON и JSON в CSV. Преобразуйте таблицы Excel без ограничений."
     },
     "curl-to-python-requests-converter": {
       "name": "Конвертер cURL в Python Requests онлайн – cURL в Postman справочник",

@@ -283,7 +283,7 @@
     },
     "csv-to-json": {
       "name": "Conversor de CSV a JSON para Archivos Grandes – Matriz JSON Online",
-      "description": "Herramienta online gratuita para convertir archivos CSV grandes a JSON. Transforma hojas de cálculo CSV, TSV y exportaciones de Excel en matrices JSON sin límites."
+      "description": "Herramienta online gratuita para transformar archivos CSV grandes a JSON y JSON a CSV. Convierta tablas de Excel sin límites."
     },
     "curl-to-python-requests-converter": {
       "name": "Conversor de cURL a Python Requests Online – Referencia de cURL a Postman",

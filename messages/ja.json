@@ -275,8 +275,8 @@
       "description": "リアルタイムの単語数カウント、文字数チェック、単語長チェッカー、キーワード出現頻度分析。"
     },
     "csv-to-json": {
-      "name": "大容量CSVからJSONへの変換ツール – 構造化JSON配列オンライン生成",
-      "description": "無料の大容量CSV対応JSON変換ツール。CSVスプレッドシート、TSVデータ、Excel出力ファイルを容量無制限で構造化JSON配列へ即座に変換。"
+      "name": "大容量CSVからJSONへの変換ツール – 構造化JSON配列オンライン生成 (CSV to Array Online)",
+      "description": "無料の大容量CSV対応JSON変換ツール。CSVスプレッドシートやExcel出力ファイルを容量無制限で構造化JSON配列へ即座に変換。"
     },
     "curl-to-python-requests-converter": {
       "name": "cURL から Python Requests コード変換オンライン – cURL から Postman への移行",

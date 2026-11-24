@@ -275,8 +275,8 @@
       "description": "Real-time word count, character count, word length checker, and keyword count tool."
     },
     "csv-to-json": {
-      "name": "Large CSV to JSON Converter – Convert CSV to JSON Array Online",
-      "description": "Free online Large CSV to JSON converter. Convert CSV to JSON array structures, TSV spreadsheets, and Excel exports into clean JSON without file size limits."
+      "name": "Large CSV to JSON Converter – Convert CSV to Array Online",
+      "description": "Free CSV to JSON converter and JSON to CSV utility to convert CSV to array online without limits. Perfect for GSTR1, Excel, Java, and Python developers."
     },
     "curl-to-python-requests-converter": {
       "name": "cURL to Python Requests Converter (Online) – cURL to Postman",

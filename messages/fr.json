@@ -283,7 +283,7 @@
     },
     "csv-to-json": {
       "name": "Convertisseur de Grands Fichiers CSV en JSON – Tableaux JSON en Ligne",
-      "description": "Outil gratuit pour volumineux fichiers CSV en JSON. Transformez vos feuilles de calcul CSV, TSV et classeurs Excel en tableaux JSON structurés sans limite de taille."
+      "description": "Outil gratuit pour volumineux fichiers CSV en JSON et JSON en CSV. Transformez vos classeurs Excel en tableaux structurés sans limite."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertisseur cURL vers Python Requests en Ligne – Référence cURL vers Postman",

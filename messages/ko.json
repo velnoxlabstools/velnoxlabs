@@ -275,8 +275,8 @@
       "description": "실시간 단어 수 세기, 글자 수 세기, 단어 길이 검사기 및 키워드 빈도 분석."
     },
     "csv-to-json": {
-      "name": "대용량 CSV to JSON 변환기 – 구조화된 JSON 배열 온라인 생성",
-      "description": "무료 대용량 CSV to JSON 변환기. CSV 스프레드시트, TSV 표 및 Excel 내보내기 파일을 용량 제한 없이 구조화된 JSON 배열로 손쉽게 변환하세요."
+      "name": "대용량 CSV to JSON 변환기 – 구조화된 JSON 배열 온라인 생성 (CSV to Array Online)",
+      "description": "무료 대용량 CSV to JSON 및 JSON to CSV 변환기. CSV 스프레드시트와 Excel 파일을 용량 제한 없이 구조화된 JSON 배열로 변환."
     },
     "curl-to-python-requests-converter": {
       "name": "cURL to Python Requests 변환기 온라인 – cURL to Postman 연동 안내",
