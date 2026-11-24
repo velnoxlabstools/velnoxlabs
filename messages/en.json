@@ -303,8 +303,8 @@
       "description": "Generate Zod validation schemas from JSON."
     },
     "json-yaml-converter": {
-      "name": "JSON to YAML Converter",
-      "description": "Convert between JSON and YAML formats."
+      "name": "JSON to YAML Converter Online – JSON to YAML Formatter for Swagger",
+      "description": "Free JSON to YAML converter online and JSON to YAML formatter for Swagger and OpenAPI. Convert JSON to YAML in seconds with zero install or CLI overhead."
     },
     "url-parser-and-query-string-extractor": {
       "name": "URL Parser & Query Extractor",

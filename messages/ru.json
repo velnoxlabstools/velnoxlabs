@@ -303,8 +303,8 @@
       "description": "Автоматическая генерация схем валидации Zod для TypeScript из JSON."
     },
     "json-yaml-converter": {
-      "name": "Конвертер JSON и YAML",
-      "description": "Двусторонняя конвертация между форматами конфигураций JSON и YAML."
+      "name": "JSON в YAML онлайн – Структурирование JSON в YAML для Swagger",
+      "description": "Бесплатный онлайн-инструмент для перевода JSON в YAML и спецификаций Swagger/OpenAPI за секунды без установки утилит командной строки."
     },
     "url-parser-and-query-string-extractor": {
       "name": "Парсер URL и параметров запроса",

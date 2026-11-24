@@ -303,8 +303,8 @@
       "description": "JSON をもとに TypeScript の実行時バリデーション用 Zod スキーマを生成します。"
     },
     "json-yaml-converter": {
-      "name": "JSON と YAML 相互変換ツール",
-      "description": "JSON 形式と YAML 形式の間で双方向に素早く変換します。"
+      "name": "JSON と YAML オンライン変換ツール – Swagger 向け YAML 整形",
+      "description": "Swagger や OpenAPI 向けに最適化された無料の JSON・YAML 相互変換ツール。CLI ツールのインストール不要で素早く整形可能。"
     },
     "url-parser-and-query-string-extractor": {
       "name": "URL 解析 & クエリパラメータ抽出ツール",

@@ -303,8 +303,8 @@
       "description": "由 JSON 自动推导并生成用于 TypeScript 运行时校验的 Zod Schema。"
     },
     "json-yaml-converter": {
-      "name": "JSON 与 YAML 互转工具",
-      "description": "支持双向无缝转换 JSON 与 YAML 配置文件格式。"
+      "name": "JSON 转 YAML 在线工具 – 针对 Swagger 的 JSON 转 YAML 排版工具",
+      "description": "免费在线 JSON 与 YAML 互转及排版工具，专为 Swagger 和 OpenAPI 规范设计。无需安装命令行工具，数秒完成数据序列化。"
     },
     "url-parser-and-query-string-extractor": {
       "name": "URL 解析与查询参数提取工具",

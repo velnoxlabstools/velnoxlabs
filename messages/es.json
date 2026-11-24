@@ -310,8 +310,8 @@
       "description": "Genera esquemas de validación Zod desde JSON."
     },
     "json-yaml-converter": {
-      "name": "Convertidor de JSON a YAML",
-      "description": "Convierte entre formatos JSON y YAML."
+      "name": "JSON a YAML en Línea – Estructurador JSON a YAML para Swagger",
+      "description": "Utilidad gratuita en línea para trasladar JSON a YAML y estructurar especificaciones Swagger y OpenAPI en segundos sin instalar paquetes CLI."
     },
     "url-parser-and-query-string-extractor": {
       "name": "Analizador de URL y Extractor de Consultas",
