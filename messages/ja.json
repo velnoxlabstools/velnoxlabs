@@ -299,8 +299,8 @@
       "description": "JSON を TypeScript の interface 型定義にオンラインで即座に変換。VSCode 拡張機能や NPM パッケージ不要で、オブジェクトやスキーマから型定義を生成。"
     },
     "json-to-zod-schema-generator": {
-      "name": "JSON から Zod スキーマ変換ツール",
-      "description": "JSON をもとに TypeScript の実行時バリデーション用 Zod スキーマを生成します。"
+      "name": "JSON から Zod スキーマ オンライン生成ツール – Zod スキーマビルダー",
+      "description": "JSON から TypeScript 実行時検証用の Zod スキーマをオンラインで即座に作成。型推論と双方向のスキーマ変換に対応。"
     },
     "json-yaml-converter": {
       "name": "JSON と YAML オンライン変換ツール – Swagger 向け YAML 整形",

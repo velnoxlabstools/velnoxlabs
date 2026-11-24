@@ -299,8 +299,8 @@
       "description": "Convert JSON to TypeScript interface online instantly. Transform raw objects and JSON schema to TypeScript interfaces with zero install—a free alternative to VSCode and NPM."
     },
     "json-to-zod-schema-generator": {
-      "name": "JSON to Zod Schema Generator",
-      "description": "Generate Zod validation schemas from JSON."
+      "name": "JSON to Zod Schema Generator Online – Zod Schema Builder",
+      "description": "Convert JSON to Zod schema generator online with our visual Zod schema builder. Generate TypeScript runtime validators and explore Zod to JSON schema online."
     },
     "json-yaml-converter": {
       "name": "JSON to YAML Converter Online – JSON to YAML Formatter for Swagger",

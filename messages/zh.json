@@ -299,8 +299,8 @@
       "description": "在线将 JSON 转换为严格的 TypeScript 接口。支持将原始对象与 JSON Schema 解析为 TypeScript interface，无需安装 VSCode 插件或 NPM 包。"
     },
     "json-to-zod-schema-generator": {
-      "name": "JSON 转 Zod Schema 校验器工具",
-      "description": "由 JSON 自动推导并生成用于 TypeScript 运行时校验的 Zod Schema。"
+      "name": "JSON 转 Zod Schema 在线生成器 – Zod Schema 构建工具",
+      "description": "免费在线将 JSON 转换为 Zod Schema 校验器。自动推导 TypeScript 运行时类型并支持逆向推导 JSON Schema。"
     },
     "json-yaml-converter": {
       "name": "JSON 转 YAML 在线工具 – 针对 Swagger 的 JSON 转 YAML 排版工具",

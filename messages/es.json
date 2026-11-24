@@ -306,8 +306,8 @@
       "description": "Transforme JSON en interfaces TypeScript en línea al instante. Lleve objetos y esquemas JSON a TypeScript sin instalar complementos de VSCode ni paquetes de NPM."
     },
     "json-to-zod-schema-generator": {
-      "name": "Generador de Esquema Zod desde JSON",
-      "description": "Genera esquemas de validación Zod desde JSON."
+      "name": "Generador de Esquema Zod desde JSON en Línea – Creador de Esquemas Zod",
+      "description": "Transforme JSON en esquemas Zod en línea con nuestro diseñador visual. Produzca validadores de TypeScript y explore esquemas JSON sin dependencias."
     },
     "json-yaml-converter": {
       "name": "JSON a YAML en Línea – Estructurador JSON a YAML para Swagger",

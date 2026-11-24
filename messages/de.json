@@ -306,8 +306,8 @@
       "description": "Erstellen Sie TypeScript-Interfaces online aus JSON. Übertragen Sie Objekte und JSON-Schemata direkt in TypeScript-Definitionen ohne VSCode-Plugins oder NPM-Pakete."
     },
     "json-to-zod-schema-generator": {
-      "name": "JSON-zu-Zod-Schema-Generator",
-      "description": "Generiert Zod-Validierungsschemata aus JSON."
+      "name": "JSON zu Zod Schema Generator Online – Zod Schema Builder",
+      "description": "Erstellen Sie Zod-Validierungsschemata online aus JSON. Produzieren Sie TypeScript-Laufzeitprüfungen und binden Sie Schemata plattformübergreifend ein."
     },
     "json-yaml-converter": {
       "name": "JSON zu YAML Online – JSON zu YAML Strukturierung für Swagger",

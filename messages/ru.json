@@ -299,8 +299,8 @@
       "description": "Мгновенное создание интерфейсов TypeScript из JSON онлайн. Перевод объектов и схем JSON в интерфейсы TypeScript без плагинов VSCode и пакетов NPM."
     },
     "json-to-zod-schema-generator": {
-      "name": "Генератор схем Zod из JSON",
-      "description": "Автоматическая генерация схем валидации Zod для TypeScript из JSON."
+      "name": "Генератор схем Zod из JSON онлайн – Конструктор схем Zod",
+      "description": "Онлайн-генератор схем Zod из JSON для TypeScript. Создание валидаторов времени выполнения и сопоставление схем данных без установки пакетов."
     },
     "json-yaml-converter": {
       "name": "JSON в YAML онлайн – Структурирование JSON в YAML для Swagger",
