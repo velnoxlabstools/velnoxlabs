@@ -311,8 +311,8 @@
       "description": "URL을 각 구성 요소로 분해하고 쿼리 매개변수를 추출합니다."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME 타입 및 확장자 조회 도구",
-      "description": "파일 확장자와 표준 MIME 미디어 타입을 상호 검색합니다."
+      "name": "MIME 타입 및 확장자 온라인 조회 도구 – 미디어 규격 검색기 (PDF 대응)",
+      "description": "확장자로 MIME 타입을 검색하거나 IANA 표준에 따른 확장자를 상호 조회할 수 있는 100여 종의 미디어 타입 데이터베이스."
     },
     "systemd-service-file-generator": {
       "name": "Systemd 서비스 파일 생성기",

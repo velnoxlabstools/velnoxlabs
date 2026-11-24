@@ -311,8 +311,8 @@
       "description": "URL の構成要素を分解し、クエリパラメータを一覧化・抽出します。"
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME タイプ & 拡張子検索ツール",
-      "description": "ファイル拡張子に対応する標準的な MIME タイプを検索できます。"
+      "name": "MIME タイプ & 拡張子オンライン検索ツール – メディア種別早見表 (PDF 対応)",
+      "description": "拡張子から MIME タイプを検索、または IANA 規格からファイル拡張子を逆引きできる 100 種類以上の総合データベース。"
     },
     "systemd-service-file-generator": {
       "name": "Systemd サービス設定ファイル生成ツール",

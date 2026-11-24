@@ -318,8 +318,8 @@
       "description": "Décompose les URL en composants et paramètres de requête."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "Recherche de Types MIME et d'Extensions",
-      "description": "Trouve les types MIME et les extensions de fichiers."
+      "name": "Recherche de Types MIME et Extensions en Ligne – Vérificateur de Médias",
+      "description": "Identifiez les types MIME par extension ou retrouvez les extensions selon la norme IANA parmi plus de 100 types de fichiers."
     },
     "systemd-service-file-generator": {
       "name": "Générateur de Fichiers de Service Systemd",

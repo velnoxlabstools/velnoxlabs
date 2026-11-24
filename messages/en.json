@@ -311,8 +311,8 @@
       "description": "Deconstruct URLs into components and query params."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME Type Lookup & Extension Finder",
-      "description": "Find MIME types and file extensions."
+      "name": "MIME Type Lookup & Extension Finder Online – MIME Type Checker",
+      "description": "Free MIME type lookup & extension finder online and MIME type checker. Get mime type for PDF, images, video, and code files across Windows, Python, and JavaScript."
     },
     "systemd-service-file-generator": {
       "name": "Systemd Service File Generator",

@@ -311,8 +311,8 @@
       "description": "拆解 URL 组成部分，自动提取与解码 Query 查询参数。"
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME 类型与文件扩展名查询工具",
-      "description": "便捷检索文件扩展名与对应的标准 MIME 媒体类型。"
+      "name": "MIME 类型与文件扩展名在线查询工具 – 快速检索与校验",
+      "description": "快速检索文件扩展名与对应的标准 IANA MIME 媒体类型，覆盖 100 余种主流文件格式。"
     },
     "systemd-service-file-generator": {
       "name": "Systemd 服务配置文件生成器",
