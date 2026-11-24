@@ -295,8 +295,8 @@
       "description": "JSON を Pydantic スキーマや Python dataclass にオンラインで変換。JSON からの Pydantic BaseModel 生成、model_validate_json 解析、model_dump をサポート。"
     },
     "json-to-typescript-interface-generator": {
-      "name": "JSON から TypeScript 型定義変換ツール",
-      "description": "JSON データから TypeScript の interface 型定義を即時生成します。"
+      "name": "JSON から TypeScript 型定義オンライン変換 – JSON Schema から TypeScript",
+      "description": "JSON を TypeScript の interface 型定義にオンラインで即座に変換。VSCode 拡張機能や NPM パッケージ不要で、オブジェクトやスキーマから型定義を生成。"
     },
     "json-to-zod-schema-generator": {
       "name": "JSON から Zod スキーマ変換ツール",

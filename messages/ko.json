@@ -295,8 +295,8 @@
       "description": "JSON을 Pydantic 스키마 및 Python dataclass로 온라인 변환합니다. JSON 기반 Pydantic BaseModel 생성, model_validate_json 파싱 및 model_dump 지원."
     },
     "json-to-typescript-interface-generator": {
-      "name": "JSON to TypeScript 인터페이스 변환기",
-      "description": "JSON 데이터 구조로부터 엄격한 TypeScript 타입 인터페이스를 생성합니다."
+      "name": "JSON to TypeScript 인터페이스 온라인 변환기 – JSON Schema to TypeScript",
+      "description": "JSON 데이터를 TypeScript 인터페이스로 온라인에서 즉시 변환합니다. VSCode 확장 프로그램이나 NPM 패키지 없이 객체와 스키마를 인터페이스로 변환."
     },
     "json-to-zod-schema-generator": {
       "name": "JSON to Zod 스키마 생성기",

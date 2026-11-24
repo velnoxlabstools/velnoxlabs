@@ -302,8 +302,8 @@
       "description": "Trasforma JSON in schemi Pydantic e dataclass Python online. Crea Pydantic BaseModel da JSON con supporto per model_validate_json e model_dump."
     },
     "json-to-typescript-interface-generator": {
-      "name": "JSON in Interfaccia TypeScript",
-      "description": "Converte JSON in interfacce TypeScript."
+      "name": "JSON in Interfaccia TypeScript Online – JSON Schema in TypeScript",
+      "description": "Trasforma JSON in interfacce TypeScript online all'istante. Trasponi oggetti e schemi JSON in TypeScript senza estensioni VSCode né pacchetti NPM."
     },
     "json-to-zod-schema-generator": {
       "name": "Generatore di Schema Zod da JSON",
