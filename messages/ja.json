@@ -287,8 +287,8 @@
       "description": "無料の cURL から Fetch & Axios 変換ツール。ターミナルの cURL コマンドを JavaScript の Fetch API および Axios リクエストコードへ即座に生成。"
     },
     "json-to-go-struct-generator": {
-      "name": "JSON から Go Struct 変換ツール",
-      "description": "JSON データから Go 言語の構造体 (struct) 定義を自動生成します。"
+      "name": "JSONからGo構造体へのオンライン生成ツール",
+      "description": "JSONデータをjsonタグおよびネスト型付きのGolang構造体定義へブラウザ上で即座に変換。"
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON から Pydantic & Dataclass 変換ツール",

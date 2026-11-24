@@ -287,8 +287,8 @@
       "description": "免费 cURL 转 Fetch 与 Axios 代码生成工具。一键将任何终端 cURL 命令行即时转换为标准的 JavaScript Fetch 或 Axios HTTP 请求代码。"
     },
     "json-to-go-struct-generator": {
-      "name": "JSON 转 Go Struct 结构体工具",
-      "description": "根据 JSON 数据自动生成带 Tag 标注的 Go 结构体定义代码。"
+      "name": "在线JSON转Go结构体生成器",
+      "description": "在线将JSON数据转换为带有json标签和嵌套类型的Golang结构体代码。"
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON 转 Pydantic 与 Dataclass 工具",

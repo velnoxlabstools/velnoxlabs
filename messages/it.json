@@ -294,8 +294,8 @@
       "description": "Applicativo gratuito per tradurre comandi cURL in Fetch e Axios. Trasforma le istruzioni del terminale in chiamate HTTP per JavaScript in un attimo."
     },
     "json-to-go-struct-generator": {
-      "name": "Generatore JSON in Struct Go",
-      "description": "Converte payload JSON in definizioni di struct Go."
+      "name": "Generatore da JSON a Go Struct Online",
+      "description": "Converti dati JSON in strutture Go con tag json e tipi nidificati direttamente nel browser."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON in Pydantic e Dataclass",

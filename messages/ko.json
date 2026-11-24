@@ -287,8 +287,8 @@
       "description": "무료 cURL to Fetch 및 Axios 변환기. 터미널의 cURL 명령어를 표준 JavaScript Fetch API 및 Axios HTTP 요청 코드로 즉시 변환하세요."
     },
     "json-to-go-struct-generator": {
-      "name": "JSON to Go Struct 변환기",
-      "description": "JSON 구조를 분석하여 태그가 포함된 Go 구조체 코드를 자동 생성합니다."
+      "name": "온라인 JSON to Go 구조체 생성기",
+      "description": "JSON 데이터를 json 태그와 중첩 타입을 포함한 Golang 구조체 코드로 브라우저에서 즉시 변환."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON to Pydantic 및 Dataclass 변환기",

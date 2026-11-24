@@ -294,8 +294,8 @@
       "description": "Utilitário gratuito para transformar cURL em Fetch e Axios. Converta comandos cURL do terminal em requisições HTTP modernas em JavaScript."
     },
     "json-to-go-struct-generator": {
-      "name": "Gerador de JSON para Struct Go",
-      "description": "Converte payloads JSON em definições de struct Go."
+      "name": "Gerador de Estruturas Go a partir de JSON",
+      "description": "Transforme dados JSON em estruturas de Go com tags estruturais e tipos aninhados no navegador."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON para Pydantic e Dataclass",

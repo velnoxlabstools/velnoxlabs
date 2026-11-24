@@ -294,8 +294,8 @@
       "description": "Kostenloser cURL-zu-Fetch-und-Axios-Konverter. Wandle cURL-Befehle direkt in sauberen JavaScript Fetch- oder Axios-HTTP-Code um."
     },
     "json-to-go-struct-generator": {
-      "name": "JSON-zu-Go-Struct-Generator",
-      "description": "Konvertiert JSON-Payloads in Go-Struct-Definitionen."
+      "name": "JSON in Go Struct Generator Online",
+      "description": "JSON-Daten im Browser in Go-Strukturen mit json-Tags und verschachtelten Typen umwandeln."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON zu Pydantic & Dataclass",

@@ -287,8 +287,8 @@
       "description": "Бесплатный инструмент для перевода cURL в Fetch и Axios. Мгновенно преобразуйте команды cURL из терминала в готовые HTTP-запросы JavaScript."
     },
     "json-to-go-struct-generator": {
-      "name": "Генератор структур Go из JSON",
-      "description": "Автоматическая генерация описания структур Go (struct) с тегами из JSON."
+      "name": "Генератор структур Go из JSON онлайн",
+      "description": "Преобразование данных JSON в структуры Go с тегами полей и вложенными типами прямо в браузере."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "Генератор моделей Pydantic и Dataclass из JSON",

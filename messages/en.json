@@ -287,8 +287,8 @@
       "description": "Free cURL to Fetch & Axios Converter and cURL to Axios code generator. Convert any cURL command into JavaScript Fetch or Axios HTTP requests instantly."
     },
     "json-to-go-struct-generator": {
-      "name": "JSON to Go Struct Generator",
-      "description": "Convert JSON payloads into Go struct definitions."
+      "name": "JSON to Go Struct Generator Online",
+      "description": "Free online JSON to Go struct generator with Golang struct tags and nested type inference."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
       "name": "JSON to Pydantic & Dataclass",
