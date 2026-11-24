@@ -319,8 +319,8 @@
       "description": "Linux systemd のユニット設定ファイルをウィザード形式で生成します。"
     },
     "regex-tester": {
-      "name": "正規表現テスター",
-      "description": "テキストに対する正規表現のパターンマッチングをリアルタイムでテストします。"
+      "name": "AI正規表現チェッカー – Python・Java・C#・JS対応",
+      "description": "AIによる正規表現自動作成、Python、Java、C#、JS向けコード出力、グループ位置解析、リアルタイム置換に対応。"
     },
     "qr-code-generator": {
       "name": "ロゴ対応・スキャナー搭載 AI QRコード作成ツール – 無料 UPI・一括生成",

@@ -319,8 +319,8 @@
       "description": "Linux systemd 데몬 구동을 위한 서비스 유닛 설정 파일을 생성합니다."
     },
     "regex-tester": {
-      "name": "정규표현식 테스트 도구",
-      "description": "텍스트에 대해 정규표현식(Regex) 매칭 결과를 실시간으로 확인합니다."
+      "name": "AI 정규식 검사기 – Python, Java, C#, JS 지원",
+      "description": "자연어로 AI 정규식을 생성하고 Python, Java, C#, JS 소스코드 추출, 실시간 치환 및 캡처 그룹 분석을 지원합니다."
     },
     "qr-code-generator": {
       "name": "로고 및 스캐너 지원 AI QR코드 생성기 – 무료 UPI 및 대량 제작 도구",

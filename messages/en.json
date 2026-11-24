@@ -319,8 +319,8 @@
       "description": "Create Linux systemd service files."
     },
     "regex-tester": {
-      "name": "RegEx Tester",
-      "description": "Test regular expressions against text."
+      "name": "AI RegEx Tester Online – Python, Java, C# & JS",
+      "description": "Test, debug, and generate regular expressions with AI generator, multi-language code snippets (Python, Java, C#), capture groups, and replacement."
     },
     "qr-code-generator": {
       "name": "AI QR Code Generator with Logo & Scanner – Free UPI & Bulk QR Maker",

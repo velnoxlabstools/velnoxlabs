@@ -326,8 +326,8 @@
       "description": "Crée des fichiers de service systemd Linux."
     },
     "regex-tester": {
-      "name": "Testeur RegEx",
-      "description": "Teste des expressions régulières sur du texte."
+      "name": "Testeur RegEx avec IA – Python, Java, C# et JS",
+      "description": "Testez, déboguez et créez des expressions régulières avec l’IA, extraits de code (Python, Java, C#), groupes et substitution."
     },
     "qr-code-generator": {
       "name": "Générateur de QR Code IA avec Logo et Lecteur – Créateur UPI et en Lot",

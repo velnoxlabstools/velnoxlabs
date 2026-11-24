@@ -798,10 +798,21 @@ export const tools: Tool[] = [
   {
     id: 'tool-regex-tester',
     slug: 'regex-tester',
-    name: 'RegEx Tester',
-    description: 'Test regular expressions against text.',
+    name: 'AI RegEx Tester Online – JavaScript, Python, Java & C# Regular Expression Generator',
+    description:
+      'Test, debug, and generate regular expressions online with AI generator from text, multi-language code snippets (Python, Java, C#, JS), capture groups breakdown, substitution, and instant export.',
     categoryId: 'cat-dev',
-    tags: ['regex', 'tester', 'developer'],
+    tags: [
+      'regex',
+      'tester',
+      'python',
+      'java',
+      'csharp',
+      'dotnet',
+      'ai-generator',
+      'developer',
+      'online',
+    ],
     status: 'published',
     featured: false,
     trending: false,
@@ -809,7 +820,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 6200,
     createdAt: '2026-01-20T00:00:00.000Z',
-    updatedAt: '2026-06-01T00:00:00.000Z',
+    updatedAt: '2026-11-24T00:00:00.000Z',
   },
   {
     id: 'tool-qr-code',

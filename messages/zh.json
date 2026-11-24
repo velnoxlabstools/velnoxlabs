@@ -319,8 +319,8 @@
       "description": "快速生成标准的 Linux systemd 守护进程服务配置文件。"
     },
     "regex-tester": {
-      "name": "正则表达式测试工具",
-      "description": "实时测试与调试 Regex 正则表达式匹配及捕获组。"
+      "name": "AI在线正则表达式测试器 – 支持Python、Java、C#与JS",
+      "description": "使用AI自然语言生成正则表达式，支持Python、Java、C#和JS多语言代码片段、捕获组分解与实时替换。"
     },
     "qr-code-generator": {
       "name": "AI 二维码生成器带 Logo 与扫描器 – 免费 UPI 与批量制作工具",

@@ -326,8 +326,8 @@
       "description": "Erstellt Linux-Systemd-Service-Dateien."
     },
     "regex-tester": {
-      "name": "RegEx-Tester",
-      "description": "Testet reguläre Ausdrücke gegen Text."
+      "name": "KI RegEx-Tester – Python, Java, C# und JS",
+      "description": "Reguläre Ausdrücke prüfen und mit KI erstellen, Code-Beispiele für Python, Java, C# und JS, Erfassungsgruppen und Ersetzungen."
     },
     "qr-code-generator": {
       "name": "KI-QR-Code-Generator mit Logo und Scanner – Kostenloser UPI- & Stapel-Ersteller",
