@@ -363,8 +363,8 @@
       "description": "무료 온라인 HMAC-SHA256 생성기. 브라우저에서 안전하게 SHA256, SHA512, MD5 메시지 서명을 즉시 계산하고 16진수 및 Base64로 검증하세요."
     },
     "jwt-decoder-&-inspector": {
-      "name": "JWT 디코더 및 검사기",
-      "description": "JSON Web Token (JWT)의 헤더와 페이로드를 안전하게 확인합니다."
+      "name": "JWT 온라인 디코더 – JWT 디버거 (JWT.io 대안)",
+      "description": "클라이언트 측에서 헤더, 페이로드 및 서명을 안전하게 분석하는 무료 JWT 디코더 및 디버거. 데이터 전송 없는 JWT.io 대안."
     },
     "html-encoder-decoder": {
       "name": "온라인 HTML 인코더 및 디코더 – HTML 특수문자 엔티티 변환 도구",

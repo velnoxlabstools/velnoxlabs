@@ -370,8 +370,8 @@
       "description": "Generador HMAC-SHA256 en línea gratuito. Crea firmas seguras para SHA256, SHA512 y MD5 al instante con codificación hexadecimal y Base64."
     },
     "jwt-decoder-&-inspector": {
-      "name": "Decodificador e Inspector de JWT",
-      "description": "Decodifica e inspecciona tokens JWT."
+      "name": "Decodificador de JWT en Línea – Depurador de JWT (Alternativa a JWT.io)",
+      "description": "Decodificador de JWT y depurador en línea para examinar cabeceras, cargas útiles y firmas en el cliente sin rastreo."
     },
     "html-encoder-decoder": {
       "name": "Codificador y Decodificador HTML en Línea – Entidades HTML y Caracteres Especiales",

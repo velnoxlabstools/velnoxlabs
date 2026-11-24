@@ -987,10 +987,23 @@ export const tools: Tool[] = [
   {
     id: 'tool-jwt-decoder',
     slug: 'jwt-decoder-&-inspector',
-    name: 'JWT Decoder & Inspector',
-    description: 'Decode and inspect JWT tokens.',
+    name: 'JWT Decoder Online – JWT Debugger & Inspector (JWT.io Alternative)',
+    description:
+      'Free JWT decoder online and JWT debugger to inspect header, payload, and signature claims client-side. The ultimate private JWT.io alternative with zero tracking.',
     categoryId: 'cat-security',
-    tags: ['jwt', 'decoder', 'security'],
+    tags: [
+      'jwt',
+      'decoder',
+      'security',
+      'jwt decoder online',
+      'jwt decoder & inspector github',
+      'jwt io',
+      'jwt encoder/decoder',
+      'decode token online',
+      'jwt token example',
+      'jwt secret key generator',
+      'jwt debugger',
+    ],
     status: 'published',
     featured: false,
     trending: true,
@@ -998,7 +1011,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 7500,
     createdAt: '2025-08-01T00:00:00.000Z',
-    updatedAt: '2026-07-15T00:00:00.000Z',
+    updatedAt: '2026-11-24T00:00:00.000Z',
   },
 
   // ============ CONVERTERS ============

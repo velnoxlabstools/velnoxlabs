@@ -363,8 +363,8 @@
       "description": "免费在线 HMAC-SHA256 签名生成器。即时计算 SHA256、SHA512 与 MD5 消息认证码，支持十六进制与 Base64 编码。"
     },
     "jwt-decoder-&-inspector": {
-      "name": "JWT 解码与分析工具",
-      "description": "免密钥快速解析并检查 JSON Web Token (JWT) 的 Header 与 Payload。"
+      "name": "JWT 在线解码与分析工具 – JWT 调试器 (JWT.io 替代方案)",
+      "description": "免费在线 JWT 解码与调试工具，支持在本地解析 Header、Payload 和 Signature，100% 保护隐私且无需发送数据至服务器。"
     },
     "html-encoder-decoder": {
       "name": "在线 HTML 实体编码与解码工具 – 转义符与实体字符解析",

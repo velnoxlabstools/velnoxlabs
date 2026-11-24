@@ -370,8 +370,8 @@
       "description": "Kostenloser Online-HMAC-SHA256-Ersteller. Sichere SHA256-, SHA512- und MD5-Signaturen sofort im Browser berechnen mit Hexadezimal- und Base64-Unterstützung."
     },
     "jwt-decoder-&-inspector": {
-      "name": "JWT-Decoder & Inspektor",
-      "description": "Dekodiert und inspiziert JWT-Token."
+      "name": "JWT Decoder Online – JWT Debugger (JWT.io Alternative)",
+      "description": "Kostenloser JWT-Decoder und Debugger zur lokalen Analyse von Header, Payload und Signatur im Browser ohne externe Datenübertragung."
     },
     "html-encoder-decoder": {
       "name": "Online-HTML-Encoder & Decoder – HTML-Entitäten und Sonderzeichen dekodieren",

@@ -370,8 +370,8 @@
       "description": "Générateur HMAC-SHA256 en ligne gratuit. Calculez des signatures sécurisées pour SHA256, SHA512 et MD5 instantanément avec codage hexadécimal et Base64."
     },
     "jwt-decoder-&-inspector": {
-      "name": "Décodeur et Inspecteur JWT",
-      "description": "Décode et inspecte les jetons JWT."
+      "name": "Décodeur JWT en Ligne – Débogueur JWT (Alternative à JWT.io)",
+      "description": "Décodeur et débogueur JWT en ligne gratuit pour examiner les en-têtes, charges utiles et signatures localement sans traçage."
     },
     "html-encoder-decoder": {
       "name": "Encodeur et Décodeur HTML en Ligne – Décodage d'Entités HTML",

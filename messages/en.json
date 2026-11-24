@@ -363,8 +363,8 @@
       "description": "Free HMAC-SHA256 Generator Online and HMAC Secret Key Generator. Compute secure SHA256, SHA512, and MD5 message signatures with hexadecimal and Base64 output."
     },
     "jwt-decoder-&-inspector": {
-      "name": "JWT Decoder & Inspector",
-      "description": "Decode and inspect JWT tokens."
+      "name": "JWT Decoder Online – JWT Debugger & Inspector (JWT.io Alternative)",
+      "description": "Free JWT decoder online and JWT debugger to inspect header, payload, and signature claims client-side. The ultimate private JWT.io alternative with zero tracking."
     },
     "html-encoder-decoder": {
       "name": "HTML Encoder & Decoder Online – Decode HTML Entities",

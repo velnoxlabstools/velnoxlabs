@@ -363,8 +363,8 @@
       "description": "無料オンライン HMAC-SHA256 署名生成器。SHA256、SHA512、MD5 の認証コードを即座に計算。16進数および Base64 形式の検証に対応。"
     },
     "jwt-decoder-&-inspector": {
-      "name": "JWT デコーダ & インスペクタ",
-      "description": "JSON Web Token (JWT) のヘッダーとペイロードを署名検証なしで安全に確認できます。"
+      "name": "JWT オンラインデコーダ – JWT デバッガ (JWT.io 代替ツール)",
+      "description": "完全クライアントサイドで動作する無料の JWT デコーダ＆デバッガ。ヘッダー、ペイロード、署名をブラウザ内で安全に解析。"
     },
     "html-encoder-decoder": {
       "name": "オンライン HTML エンコーダー＆デコーダー – HTML 特殊文字変換ツール",

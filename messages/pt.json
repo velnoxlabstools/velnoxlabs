@@ -370,8 +370,8 @@
       "description": "Gerador HMAC-SHA256 online gratuito. Calcule códigos de autenticação seguros para SHA256, SHA512 e MD5 instantaneamente com suporte a Base64."
     },
     "jwt-decoder-&-inspector": {
-      "name": "Decodificador e Inspetor JWT",
-      "description": "Decodifica e inspeciona tokens JWT."
+      "name": "Decodificador de JWT Online – Depurador JWT (Alternativa ao JWT.io)",
+      "description": "Decodificador de JWT e depurador online para examinar cabeçalhos, payloads e assinaturas localmente sem rastreamento."
     },
     "html-encoder-decoder": {
       "name": "Codificador e Decodificador HTML Online – Entidades HTML e Caracteres Especiais",

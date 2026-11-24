@@ -370,8 +370,8 @@
       "description": "Generatore HMAC-SHA256 online gratuito. Ricava firme di autenticazione per SHA256, SHA512 e MD5 all'istante con supporto per codifica esadecimale e Base64."
     },
     "jwt-decoder-&-inspector": {
-      "name": "Decoder e Ispettore JWT",
-      "description": "Decodifica e ispeziona token JWT."
+      "name": "Decoder JWT Online – Debugger JWT (Alternativa a JWT.io)",
+      "description": "Decoder e debugger JWT gratuito online per esaminare intestazioni, payload e firme localmente senza tracciamento."
     },
     "html-encoder-decoder": {
       "name": "Codificatore e Decodificatore HTML Online – Decodifica Entità HTML",
