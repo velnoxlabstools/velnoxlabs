@@ -497,8 +497,8 @@
       "description": "Calculadora gratuita de juros compostos para a Índia. Simule retornos em depósitos do SBI, apólices da HDFC Life e planos de investimento SIP com capitalização diária, mensal e anual."
     },
     "loan-emi-calculator": {
-      "name": "Calculadora de EMI de Empréstimo",
-      "description": "Calcula pagamentos mensais de empréstimo com cronograma completo de amortização."
+      "name": "Calculadora de Parcelas de Empréstimo – Imobiliário, Auto e Pessoal",
+      "description": "Estime prestações mensais de crédito imobiliário, financiamento auto, pessoal, empresarial e estudantil com cronograma completo."
     },
     "salary-to-hourly-calculator": {
       "name": "Calculadora de Salário para Horário",

@@ -497,8 +497,8 @@
       "description": "Calculateur gratuit d'intérêts composés pour l'Inde. Estimez vos rendements sur les dépôts SBI, contrats HDFC Life et plans SIP avec capitalisation quotidienne, mensuelle et annuelle."
     },
     "loan-emi-calculator": {
-      "name": "Calculatrice d'EMI de Prêt",
-      "description": "Calcule les mensualités de prêt avec tableau d'amortissement complet."
+      "name": "Calculateur d'Échéances de Prêt – Immobilier, Auto et Personnel",
+      "description": "Calculez vos mensualités pour prêt immobilier, auto, personnel, professionnel et études avec tableau d'amortissement."
     },
     "salary-to-hourly-calculator": {
       "name": "Calculatrice Salaire vers Horaire",
