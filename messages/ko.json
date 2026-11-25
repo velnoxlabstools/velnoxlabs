@@ -327,8 +327,8 @@
       "description": "맞춤형 로고 삽입, UPI 결제 QR, 대량 일괄 생성, 와이파이, vCard 명함, 이미지 스캐너 및 초고화질 PNG/SVG 다운로드를 지원합니다."
     },
     "user-agent": {
-      "name": "User-Agent 파서",
-      "description": "브라우저 User-Agent 문자열을 간단하게 파싱합니다."
+      "name": "온라인 User-Agent 파서 및 식별기 – JS, Python, Java, PHP",
+      "description": "브라우저, 버전, 렌더링 엔진, OS, CPU 아키텍처 및 봇/크롤러 여부를 즉시 분석하고 JSON 내보내기와 ua-parser-js, Python, Java, PHP 코드를 제공합니다."
     },
     "unix-timestamp-converter": {
       "name": "AI Unix 타임스탬프 변환기 및 에포크 날짜 계산 – Python, Excel & Windows",

@@ -334,8 +334,8 @@
       "description": "Crie códigos QR personalizados com logotipo, pagamentos UPI, criação em lote, WiFi, vCard, leitor e exportação em PNG/SVG de alta definição."
     },
     "user-agent": {
-      "name": "Analisador de User-Agent",
-      "description": "Analisa strings User-Agent."
+      "name": "Analisador e Identificador de User-Agent Online – JS, Python, Java e PHP",
+      "description": "Decodifique strings User-Agent online para identificar navegador, versão, motor de renderização, sistema operacional, arquitetura de CPU e bots com JSON e snippets."
     },
     "unix-timestamp-converter": {
       "name": "Conversor de Timestamp Unix IA e Época – Python, Excel e Windows",

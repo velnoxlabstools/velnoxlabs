@@ -334,8 +334,8 @@
       "description": "Erstellen Sie individuelle QR-Codes mit Logo, UPI-Zahlungscodes, Stapelerstellung, WLAN, vCard, Scanner und hochauflösendem PNG/SVG-Export."
     },
     "user-agent": {
-      "name": "User-Agent-Parser",
-      "description": "Analysiert User-Agent-Strings."
+      "name": "Online User-Agent-Parser & -Identifier – JS, Python, Java & PHP",
+      "description": "Analysieren Sie User-Agent-Strings online nach Browser, Version, Rendering-Engine, Betriebssystem, CPU-Architektur und Bots samt JSON-Export und Codebeispielen."
     },
     "unix-timestamp-converter": {
       "name": "KI Unix-Zeitstempel-Umwandler & Epoche-Rechner – Python, Excel & Windows",

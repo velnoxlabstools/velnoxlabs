@@ -327,8 +327,8 @@
       "description": "ロゴ挿入、UPI決済QR、一括作成、WiFi接続、vCard連絡先、画像読み取りスキャナー、高解像度PNG/SVG保存に対応した高機能ツールです。"
     },
     "user-agent": {
-      "name": "User-Agent 解析ツール",
-      "description": "ブラウザの User-Agent 文字列を簡単に解析します。"
+      "name": "オンライン User-Agent 解析・識別ツール – JS / Python / Java / PHP",
+      "description": "ブラウザ・バージョン・レンダリングエンジン・OS・CPU アーキテクチャ・ボット判定を瞬時に解析し、JSON 出力と ua-parser-js・Python・Java・PHP のコード例を提供します。"
     },
     "unix-timestamp-converter": {
       "name": "AI Unix タイムスタンプ変換＆エポック日時計算 – Python・Excel・Windows",
