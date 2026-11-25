@@ -338,8 +338,8 @@
       "description": "Analyse les chaînes User-Agent."
     },
     "unix-timestamp-converter": {
-      "name": "Convertisseur de Timestamp Unix et Calculateur Epoch",
-      "description": "Convertissez les timestamps Unix en dates lisibles, temps Epoch et heures UTC instantanément."
+      "name": "Convertisseur Timestamp Unix IA & Époque – Python, Excel & Windows",
+      "description": "Convertisseur gratuit d'horodatage Unix et calculateur epoch en ligne. Convertissez secondes, millisecondes, 17 chiffres Chrome et Windows FILETIME avec formules Python et Excel."
     },
     "markdown-to-html-live-converter": {
       "name": "Convertisseur Markdown en HTML en Ligne – Alternative à Pandoc",

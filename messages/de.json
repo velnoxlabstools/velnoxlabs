@@ -338,8 +338,8 @@
       "description": "Analysiert User-Agent-Strings."
     },
     "unix-timestamp-converter": {
-      "name": "Unix-Zeitstempel-Konverter & Epoch-Rechner",
-      "description": "Unix-Zeitstempel in lesbare Datumsangaben, Epoch-Werte und UTC-Zeiten sekundenschnell umwandeln."
+      "name": "KI Unix-Zeitstempel-Umwandler & Epoche-Rechner – Python, Excel & Windows",
+      "description": "Kostenloser KI Unix-Zeitstempel- & Epoche-Umwandler online. Wandelt Sekunden, Millisekunden, 17-stellige Chrome- und Windows-FILETIME-Werte samt Python- & Excel-Formeln."
     },
     "markdown-to-html-live-converter": {
       "name": "Markdown-zu-HTML-Online-Konverter – Pandoc-Alternative",

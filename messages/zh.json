@@ -331,8 +331,8 @@
       "description": "快速提取并分析浏览器 User-Agent 信息。"
     },
     "unix-timestamp-converter": {
-      "name": "Unix 时间戳与 Epoch 转换计算器",
-      "description": "在线进行 Unix 时间戳、Epoch 纪元时间与北京时间/UTC 的双向转换。"
+      "name": "AI Unix 时间戳转换器与纪元日期计算器 – Python、Excel 与 Windows",
+      "description": "免费在线 AI Unix 时间戳与纪元时间转换器。支持自动识别秒、毫秒、17 位 Chrome 时间戳和 Windows FILETIME 转 UTC/本地时间，内置 Python 与 Excel 转换公式。"
     },
     "markdown-to-html-live-converter": {
       "name": "Markdown 转 HTML 在线转换工具 – 实时渲染与标记解析 (Pandoc 替代方案)",

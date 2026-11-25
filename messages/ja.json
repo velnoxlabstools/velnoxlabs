@@ -331,8 +331,8 @@
       "description": "ブラウザの User-Agent 文字列を簡単に解析します。"
     },
     "unix-timestamp-converter": {
-      "name": "Unix タイムスタンプ & Epoch 変換計算ツール",
-      "description": "Unix タイムスタンプを日本時間・UTC や Epoch 時刻と瞬時に双方向変換。"
+      "name": "AI Unix タイムスタンプ変換＆エポック日時計算 – Python・Excel・Windows",
+      "description": "無料のオンライン AI Unix タイムスタンプ変換ツール。秒・ミリ秒・17桁 Chrome・Windows FILETIME を自動判定し UTC/現地時刻へ変換、Python や Excel 数式も掲載。"
     },
     "markdown-to-html-live-converter": {
       "name": "Markdown から HTML へのオンライン変換ツール – Pandoc 代替 (Real-Time)",

@@ -331,8 +331,8 @@
       "description": "Базовый анализ строки User-Agent браузера."
     },
     "unix-timestamp-converter": {
-      "name": "Конвертер времени Unix Timestamp и калькулятор Epoch",
-      "description": "Мгновенный перевод меток времени Unix в понятные даты, значения Epoch и время по UTC."
+      "name": "ИИ Конвертер Unix Timestamp и Эпохи – Python, Excel и Windows",
+      "description": "Бесплатный онлайн ИИ-конвертер Unix-времени и калькулятор дат. Переводит секунды, миллисекунды, 17-значные метки и Windows FILETIME в дату с формулами для Python и Excel."
     },
     "markdown-to-html-live-converter": {
       "name": "Онлайн-конвертер Markdown в HTML – Альтернатива Pandoc",

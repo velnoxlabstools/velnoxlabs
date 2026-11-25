@@ -331,8 +331,8 @@
       "description": "Parse User-Agent strings."
     },
     "unix-timestamp-converter": {
-      "name": "Unix Timestamp Converter & Epoch Date Calculator",
-      "description": "Convert unix timestamp to human-readable date and time or epoch time to UTC and local timezone."
+      "name": "AI Unix Timestamp Converter & Epoch Date Calculator – Python, Excel & Windows",
+      "description": "Free AI Unix timestamp converter and epoch date calculator online. Convert epoch seconds, milliseconds, 17-digit Chrome, and Windows FILETIME timestamps to UTC/local date with Python and Excel formulas."
     },
     "markdown-to-html-live-converter": {
       "name": "Markdown to HTML Converter Online – Best Free Markdown Converter (Pandoc Alternative)",
