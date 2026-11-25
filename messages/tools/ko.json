@@ -3167,8 +3167,8 @@
       "faq6A": "트위모지(Twemoji) 고화질 벡터 그래픽 엔진을 적용하여 윈도우 환경에서도 선명한 컬러 국기를 미리 확인할 수 있습니다."
     },
     "barcodeGenerator": {
-      "title": "바코드 생성기 (Barcode Generator)",
-      "subtitle": "Code 128, EAN-13, UPC-A 등 다양한 표준 규격의 바코드를 손쉽게 제작하고 SVG 및 고해상도 PNG로 즉시 저장하세요.",
+      "title": "무료 AI 바코드 생성기 – Code 128, EAN-13 및 상품 라벨 제작",
+      "subtitle": "Code 128, EAN-13, UPC-A를 지원하는 무료 온라인 바코드 생성기입니다. 체크 디지트 자동 수정, 상품 가격 라벨, 투명 PNG/SVG 저장 및 대량 ZIP 다운로드를 제공합니다.",
       "singleMode": "개별 생성",
       "bulkMode": "일괄 생성",
       "formatLabel": "바코드 표준 규격",
@@ -3223,7 +3223,31 @@
       "faq3Q": "무료로 이용할 수 있나요? 사내 기밀 품번 데이터는 안전한가요?",
       "faq3A": "본 도구는 영구히 무료이며 사용량 제한이 없습니다. 또한 모든 처리가 사용자의 브라우저 메모리 안에서만 수행되므로 사내 시리얼 번호나 기밀 SKU가 인터넷으로 전송되지 않습니다.",
       "faq4Q": "산업 현장에서 Code 128이 가장 널리 쓰이는 이유는 무엇인가요?",
-      "faq4A": "Code 128은 모든 128개의 ASCII 문자를 높은 압축 밀도로 표현할 수 있어 전 세계 운송 라벨, 자산 관리 및 물류 자동화의 표준 규격으로 가장 널리 채택되고 있습니다."
+      "faq4A": "Code 128은 모든 128개의 ASCII 문자를 높은 압축 밀도로 표현할 수 있어 전 세계 운송 라벨, 자산 관리 및 물류 자동화의 표준 규격으로 가장 널리 채택되고 있습니다.",
+      "colorsLabel": "색상 및 배경",
+      "barColorLabel": "바코드 색상",
+      "bgColorLabel": "배경 색상",
+      "transparentLabel": "투명 배경",
+      "productLabelToggle": "상품명 / 가격 스티커",
+      "productTitleLabel": "상품명 / 제목",
+      "productTitlePlaceholder": "예: 유기농 꿀 500g",
+      "productPriceLabel": "가격 / SKU",
+      "productPricePlaceholder": "예: ₩14,900",
+      "aiCheckDigitHint": "GS1 체크 디지트가 누락되었습니다. 추천 코드: {fixed}",
+      "aiSwitch128Hint": "문자가 감지되었습니다. Code 128 형식으로 전환하세요.",
+      "aiAutoFixBtn": "체크 디지트 자동 수정",
+      "aiSwitch128Btn": "Code 128로 전환",
+      "copyPng": "PNG 복사",
+      "printLabel": "라벨 인쇄",
+      "printAllLabels": "전체 인쇄",
+      "compressingZip": "압축 중...",
+      "seqGeneratorTitle": "일련번호 자동 생성 및 CSV 업로드",
+      "uploadCsvBtn": "CSV / TXT 업로드",
+      "seqPrefix": "접두사",
+      "seqStart": "시작 번호",
+      "seqCount": "개수",
+      "seqPad": "자릿수",
+      "seqFillBtn": "일련번호 채우기"
     }
   }
 }

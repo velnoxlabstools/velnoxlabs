@@ -3171,8 +3171,8 @@
       "faq6A": "Utilizziamo icone vettoriali per garantire la visualizzazione corretta dei colori su qualsiasi monitor."
     },
     "barcodeGenerator": {
-      "title": "Generatore di Codici a Barre",
-      "subtitle": "Crea codici a barre professionali negli standard Code 128, EAN-13, UPC-A e molti altri con salvataggio immediato in SVG e PNG.",
+      "title": "Generatore di Codici a Barre IA Gratis – Code 128, EAN-13 ed Etichette",
+      "subtitle": "Generatore di codici a barre online gratuito. Crea codici Code 128, EAN-13, UPC-A con cifra di controllo automatica, etichette prezzi ed esportazione ZIP.",
       "singleMode": "Codice Singolo",
       "bulkMode": "Produzione Multipla",
       "formatLabel": "Tipologia di Codifica",
@@ -3227,7 +3227,31 @@
       "faq3Q": "Il servizio prevede costi o condivisione di dati riservati?",
       "faq3A": "Il programma è gratuito e fruibile senza registrazione. Poiché l'elaborazione risiede nel browser locale, nessun numero di serie aziendale viene trasmesso in rete.",
       "faq4Q": "Per quale motivo il Code 128 è lo standard più diffuso?",
-      "faq4A": "Il Code 128 include l'intero repertorio dei 128 caratteri ASCII con una densità eccezionale, rappresentando la base per la logistica e la tracciabilità delle merci a livello mondiale."
+      "faq4A": "Il Code 128 include l'intero repertorio dei 128 caratteri ASCII con una densità eccezionale, rappresentando la base per la logistica e la tracciabilità delle merci a livello mondiale.",
+      "colorsLabel": "Colori e Sfondo",
+      "barColorLabel": "Colore Barre",
+      "bgColorLabel": "Colore Sfondo",
+      "transparentLabel": "Trasparente",
+      "productLabelToggle": "Etichetta Prodotto / Prezzo",
+      "productTitleLabel": "Nome Prodotto",
+      "productTitlePlaceholder": "es. Miele Biologico 500g",
+      "productPriceLabel": "Prezzo / SKU",
+      "productPricePlaceholder": "es. €14,99",
+      "aiCheckDigitHint": "Cifra di controllo GS1 mancante. Suggerimento: {fixed}",
+      "aiSwitch128Hint": "Lettere rilevate. Passa a Code 128 per testo alfanumerico.",
+      "aiAutoFixBtn": "Correggi Cifra",
+      "aiSwitch128Btn": "Passa a Code 128",
+      "copyPng": "Copia PNG",
+      "printLabel": "Stampa Etichetta",
+      "printAllLabels": "Stampa Tutto",
+      "compressingZip": "Compressione...",
+      "seqGeneratorTitle": "Generatore Sequenziale e Importa CSV",
+      "uploadCsvBtn": "Carica CSV / TXT",
+      "seqPrefix": "Prefisso",
+      "seqStart": "Inizio",
+      "seqCount": "Quantità",
+      "seqPad": "Cifre",
+      "seqFillBtn": "Genera Sequenza"
     }
   }
 }

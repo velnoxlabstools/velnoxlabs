@@ -13,10 +13,14 @@ import {
   Check,
   Barcode as BarcodeIcon,
   Layers,
-  Settings,
   AlertCircle,
   FileArchive,
   RefreshCw,
+  Wand2,
+  Printer,
+  Tag,
+  Upload,
+  Image as ImageIcon,
 } from 'lucide-react';
 
 const FORMAT_SAMPLES: Record<string, string> = {
@@ -29,10 +33,20 @@ const FORMAT_SAMPLES: Record<string, string> = {
   pharmacode: '1234',
 };
 
+function computeGs1CheckDigit(digits: string): string {
+  const arr = digits.split('').map(Number);
+  let sum = 0;
+  // Traverse from right to left; rightmost digit has weight 3
+  for (let i = arr.length - 1, pos = 0; i >= 0; i--, pos++) {
+    sum += arr[i] * (pos % 2 === 0 ? 3 : 1);
+  }
+  const mod = sum % 10;
+  return String(mod === 0 ? 0 : 10 - mod);
+}
+
 interface BulkBarcodeItem {
   id: string;
   value: string;
-  svgDataUrl?: string;
   pngDataUrl?: string;
   error?: string;
   valid: boolean;
@@ -52,17 +66,55 @@ export default function BarcodeGeneratorPage() {
   const [showText, setShowText] = useState(true);
   const [barColor, setBarColor] = useState('#000000');
   const [bgColor, setBgColor] = useState('#ffffff');
+  const [transparentBg, setTransparentBg] = useState(false);
+
+  // Product Sticker / Label mode
+  const [showLabelOptions, setShowLabelOptions] = useState(false);
+  const [productTitle, setProductTitle] = useState('');
+  const [productPrice, setProductPrice] = useState('');
+
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [copiedSvg, setCopiedSvg] = useState(false);
+  const [copiedPng, setCopiedPng] = useState(false);
 
   // Bulk mode state
   const [bulkInput, setBulkInput] = useState('PROD-001\nPROD-002\nPROD-003');
   const [bulkItems, setBulkItems] = useState<BulkBarcodeItem[]>([]);
   const [isZipping, setIsZipping] = useState(false);
 
-  const svgRef = useRef<SVGSVGElement | null>(null);
+  // Sequential generator state
+  const [seqPrefix, setSeqPrefix] = useState('SKU-');
+  const [seqStart, setSeqStart] = useState(1);
+  const [seqCount, setSeqCount] = useState(10);
+  const [seqPad, setSeqPad] = useState(3);
 
-  // Render Single Barcode
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const effectiveBg = transparentBg ? 'transparent' : bgColor;
+
+  // Smart AI Check-Digit & Format Suggestion
+  const smartSuggestion = useMemo(() => {
+    const val = barcodeValue.trim();
+    if (!val) return null;
+
+    const isNumericOnly = /^\d+$/.test(val);
+    if (format === 'EAN13' && isNumericOnly && val.length === 12) {
+      return { type: 'checkdigit' as const, fixed: val + computeGs1CheckDigit(val) };
+    }
+    if (format === 'UPC' && isNumericOnly && val.length === 11) {
+      return { type: 'checkdigit' as const, fixed: val + computeGs1CheckDigit(val) };
+    }
+    if (format === 'ITF14' && isNumericOnly && val.length === 13) {
+      return { type: 'checkdigit' as const, fixed: val + computeGs1CheckDigit(val) };
+    }
+    if (['EAN13', 'UPC', 'ITF14', 'MSI', 'pharmacode'].includes(format) && !isNumericOnly) {
+      return { type: 'switch128' as const };
+    }
+    return null;
+  }, [barcodeValue, format]);
+
+  // Render Single Barcode SVG
   const renderSingleBarcode = useCallback(() => {
     if (!svgRef.current) return;
     if (!barcodeValue.trim()) {
@@ -72,7 +124,6 @@ export default function BarcodeGeneratorPage() {
     }
 
     try {
-      // Clear previous content
       svgRef.current.innerHTML = '';
       JsBarcode(svgRef.current, barcodeValue.trim(), {
         format: format,
@@ -80,7 +131,7 @@ export default function BarcodeGeneratorPage() {
         width: barWidth,
         height: barHeight,
         displayValue: showText,
-        background: bgColor,
+        background: effectiveBg,
         margin: 12,
         fontSize: 16,
         textMargin: 6,
@@ -99,7 +150,7 @@ export default function BarcodeGeneratorPage() {
         svgRef.current.innerHTML = '';
       }
     }
-  }, [barcodeValue, format, barWidth, barHeight, showText, barColor, bgColor]);
+  }, [barcodeValue, format, barWidth, barHeight, showText, barColor, effectiveBg]);
 
   useEffect(() => {
     if (mode === 'single') {
@@ -107,32 +158,105 @@ export default function BarcodeGeneratorPage() {
     }
   }, [mode, renderSingleBarcode]);
 
-  // Download Single PNG
-  const downloadSinglePng = () => {
-    if (!barcodeValue.trim() || error) return;
+  // Build high-res canvas (including optional product label header)
+  const buildSingleCanvas = useCallback((): HTMLCanvasElement | null => {
+    if (!barcodeValue.trim() || error) return null;
     try {
-      const canvas = document.createElement('canvas');
-      JsBarcode(canvas, barcodeValue.trim(), {
+      const barcodeCanvas = document.createElement('canvas');
+      JsBarcode(barcodeCanvas, barcodeValue.trim(), {
         format: format,
         lineColor: barColor,
-        width: barWidth * 2, // 2x high resolution
+        width: barWidth * 2,
         height: barHeight * 2,
         displayValue: showText,
-        background: bgColor,
+        background: transparentBg ? 'rgba(0,0,0,0)' : bgColor,
         margin: 20,
         fontSize: 28,
         textMargin: 8,
       });
 
-      const url = canvas.toDataURL('image/png');
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `barcode-${barcodeValue.trim()}-${format.toLowerCase()}.png`;
-      a.click();
+      const hasHeader = showLabelOptions && (productTitle.trim() || productPrice.trim());
+      if (!hasHeader) return barcodeCanvas;
+
+      const headerHeight = 56;
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = Math.max(barcodeCanvas.width, 320);
+      finalCanvas.height = barcodeCanvas.height + headerHeight;
+
+      const ctx = finalCanvas.getContext('2d');
+      if (!ctx) return barcodeCanvas;
+
+      if (!transparentBg) {
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+      }
+
+      ctx.fillStyle = barColor;
+      ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
+      ctx.textBaseline = 'middle';
+
+      const title = productTitle.trim();
+      const price = productPrice.trim();
+
+      if (title && price) {
+        ctx.textAlign = 'left';
+        ctx.fillText(title, 20, 32, finalCanvas.width - 130);
+        ctx.textAlign = 'right';
+        ctx.fillText(price, finalCanvas.width - 20, 32);
+      } else {
+        ctx.textAlign = 'center';
+        ctx.fillText(title || price, finalCanvas.width / 2, 32, finalCanvas.width - 40);
+      }
+
+      const xOffset = Math.floor((finalCanvas.width - barcodeCanvas.width) / 2);
+      ctx.drawImage(barcodeCanvas, xOffset, headerHeight);
+      return finalCanvas;
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(msg);
+      return null;
     }
+  }, [
+    barcodeValue,
+    error,
+    format,
+    barColor,
+    barWidth,
+    barHeight,
+    showText,
+    transparentBg,
+    bgColor,
+    showLabelOptions,
+    productTitle,
+    productPrice,
+  ]);
+
+  // Download Single PNG
+  const downloadSinglePng = () => {
+    const canvas = buildSingleCanvas();
+    if (!canvas) return;
+    const url = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `barcode-${barcodeValue.trim()}-${format.toLowerCase()}.png`;
+    a.click();
+  };
+
+  // Copy Single PNG to Clipboard
+  const copySinglePng = async () => {
+    const canvas = buildSingleCanvas();
+    if (!canvas) return;
+    canvas.toBlob(async (blob) => {
+      if (!blob) return;
+      try {
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        setCopiedPng(true);
+        setTimeout(() => setCopiedPng(false), 2000);
+      } catch {
+        // Fallback if ClipboardItem is unsupported
+        downloadSinglePng();
+      }
+    }, 'image/png');
   };
 
   // Download Single SVG
@@ -156,11 +280,82 @@ export default function BarcodeGeneratorPage() {
       const serializer = new XMLSerializer();
       const svgStr = serializer.serializeToString(svgRef.current);
       await navigator.clipboard.writeText(svgStr);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopiedSvg(true);
+      setTimeout(() => setCopiedSvg(false), 2000);
     } catch {
       // fallback
     }
+  };
+
+  // Print Single or Bulk Labels cleanly
+  const handlePrintLabels = (items: { title?: string; price?: string; dataUrl: string }[]) => {
+    if (items.length === 0) return;
+    const printWin = window.open('', '_blank', 'width=800,height=600');
+    if (!printWin) return;
+
+    const cardsHtml = items
+      .map(
+        (it) => `
+      <div style="border: 1px dashed #cbd5e1; padding: 12px; display: inline-flex; flex-direction: column; align-items: center; margin: 8px; page-break-inside: avoid; background: #fff;">
+        ${
+          it.title || it.price
+            ? `<div style="width:100%; display:flex; justify-content:space-between; font-family:sans-serif; font-size:12px; font-weight:700; margin-bottom:4px; color:#000;">
+                <span>${it.title || ''}</span><span>${it.price || ''}</span>
+               </div>`
+            : ''
+        }
+        <img src="${it.dataUrl}" style="max-width: 240px; height: auto;" />
+      </div>
+    `
+      )
+      .join('');
+
+    printWin.document.write(`
+      <!doctype html>
+      <html>
+        <head><title>Barcode Labels</title></head>
+        <body style="margin: 16px; font-family: sans-serif; display: flex; flex-wrap: wrap; align-items: flex-start;">
+          ${cardsHtml}
+          <script>window.onload = function() { window.print(); }</script>
+        </body>
+      </html>
+    `);
+    printWin.document.close();
+  };
+
+  const printSingleLabel = () => {
+    const canvas = buildSingleCanvas();
+    if (!canvas) return;
+    handlePrintLabels([{ dataUrl: canvas.toDataURL('image/png') }]);
+  };
+
+  // Generate Sequential Bulk Values
+  const handleGenerateSequence = () => {
+    const safeCount = Math.min(Math.max(seqCount, 1), 200);
+    const lines: string[] = [];
+    for (let i = 0; i < safeCount; i++) {
+      const numStr = String(seqStart + i).padStart(seqPad, '0');
+      lines.push(`${seqPrefix}${numStr}`);
+    }
+    setBulkInput(lines.join('\n'));
+  };
+
+  // Handle CSV / TXT upload
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const content = String(ev.target?.result || '');
+      const lines = content
+        .split(/[\r\n,;]+/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .slice(0, 500);
+      setBulkInput(lines.join('\n'));
+    };
+    reader.readAsText(file);
+    e.target.value = '';
   };
 
   // Generate Bulk Barcodes
@@ -172,8 +367,6 @@ export default function BarcodeGeneratorPage() {
 
     const results: BulkBarcodeItem[] = lines.map((val, idx) => {
       const itemCanvas = document.createElement('canvas');
-      const itemSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
       try {
         JsBarcode(itemCanvas, val, {
           format: format,
@@ -181,32 +374,15 @@ export default function BarcodeGeneratorPage() {
           width: barWidth * 2,
           height: barHeight * 2,
           displayValue: showText,
-          background: bgColor,
+          background: transparentBg ? 'rgba(0,0,0,0)' : bgColor,
           margin: 16,
           fontSize: 24,
         });
-
-        JsBarcode(itemSvg, val, {
-          format: format,
-          lineColor: barColor,
-          width: barWidth,
-          height: barHeight,
-          displayValue: showText,
-          background: bgColor,
-          margin: 10,
-          fontSize: 14,
-        });
-
-        const serializer = new XMLSerializer();
-        const svgStr = serializer.serializeToString(itemSvg);
-        const svgBlob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
-        const svgDataUrl = URL.createObjectURL(svgBlob);
 
         return {
           id: `${idx}-${val}`,
           value: val,
           pngDataUrl: itemCanvas.toDataURL('image/png'),
-          svgDataUrl: svgDataUrl,
           valid: true,
         };
       } catch (err: unknown) {
@@ -275,7 +451,11 @@ export default function BarcodeGeneratorPage() {
   return (
     <GlobalContainer maxWidth="2xl">
       <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
-        <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
+        <SectionHeading
+          toolSlug="barcode-generator"
+          title={tUI('title')}
+          subtitle={tUI('subtitle')}
+        />
 
         {/* MODE SWITCHER PILLS */}
         <div
@@ -291,6 +471,7 @@ export default function BarcodeGeneratorPage() {
           }}
         >
           <button
+            type="button"
             onClick={() => setMode('single')}
             style={{
               display: 'flex',
@@ -311,6 +492,7 @@ export default function BarcodeGeneratorPage() {
             {tUI('singleMode')}
           </button>
           <button
+            type="button"
             onClick={() => setMode('bulk')}
             style={{
               display: 'flex',
@@ -345,7 +527,7 @@ export default function BarcodeGeneratorPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
               gap: '16px',
               marginBottom: '20px',
               paddingBottom: '20px',
@@ -370,7 +552,10 @@ export default function BarcodeGeneratorPage() {
                 onChange={(e) => {
                   const nextFormat = e.target.value;
                   setFormat(nextFormat);
-                  if (!barcodeValue.trim() || Object.values(FORMAT_SAMPLES).includes(barcodeValue.trim())) {
+                  if (
+                    !barcodeValue.trim() ||
+                    Object.values(FORMAT_SAMPLES).includes(barcodeValue.trim())
+                  ) {
                     setBarcodeValue(FORMAT_SAMPLES[nextFormat] || 'VELNOX-128');
                   }
                 }}
@@ -444,34 +629,211 @@ export default function BarcodeGeneratorPage() {
               />
             </div>
 
-            {/* Show Text Toggle */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            {/* Colors */}
+            <div>
+              <label
+                style={{
+                  display: 'block',
+                  fontSize: '0.825rem',
+                  fontWeight: 600,
+                  color: 'var(--text-main)',
+                  marginBottom: '6px',
+                }}
+              >
+                {tUI('colorsLabel')}
+              </label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <input
+                  type="color"
+                  value={barColor}
+                  onChange={(e) => setBarColor(e.target.value)}
+                  title={tUI('barColorLabel')}
+                  style={{
+                    width: '36px',
+                    height: '32px',
+                    border: 'none',
+                    background: 'none',
+                    cursor: 'pointer',
+                  }}
+                />
+                <input
+                  type="color"
+                  value={bgColor}
+                  disabled={transparentBg}
+                  onChange={(e) => setBgColor(e.target.value)}
+                  title={tUI('bgColorLabel')}
+                  style={{
+                    width: '36px',
+                    height: '32px',
+                    border: 'none',
+                    background: 'none',
+                    cursor: transparentBg ? 'not-allowed' : 'pointer',
+                    opacity: transparentBg ? 0.4 : 1,
+                  }}
+                />
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    fontSize: '0.78rem',
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={transparentBg}
+                    onChange={(e) => setTransparentBg(e.target.checked)}
+                    style={{ accentColor: 'var(--color-primary, #3b82f6)' }}
+                  />
+                  {tUI('transparentLabel')}
+                </label>
+              </div>
+            </div>
+
+            {/* Toggles */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: '8px',
+              }}
+            >
               <label
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  fontSize: '0.85rem',
+                  fontSize: '0.82rem',
                   fontWeight: 600,
                   color: 'var(--text-main)',
                   cursor: 'pointer',
-                  marginTop: '18px',
                 }}
               >
                 <input
                   type="checkbox"
                   checked={showText}
                   onChange={(e) => setShowText(e.target.checked)}
-                  style={{ width: '16px', height: '16px', accentColor: 'var(--color-primary, #3b82f6)' }}
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    accentColor: 'var(--color-primary, #3b82f6)',
+                  }}
                 />
                 {tUI('showTextLabel')}
               </label>
+
+              {mode === 'single' && (
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={showLabelOptions}
+                    onChange={(e) => setShowLabelOptions(e.target.checked)}
+                    style={{
+                      width: '16px',
+                      height: '16px',
+                      accentColor: 'var(--color-primary, #3b82f6)',
+                    }}
+                  />
+                  {tUI('productLabelToggle')}
+                </label>
+              )}
             </div>
           </div>
 
           {/* SINGLE MODE */}
           {mode === 'single' ? (
             <div>
+              {/* Optional Product Sticker Fields */}
+              {showLabelOptions && (
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gap: '12px',
+                    marginBottom: '16px',
+                    padding: '14px',
+                    backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                    border: '1px solid rgba(59, 130, 246, 0.2)',
+                    borderRadius: '10px',
+                  }}
+                >
+                  <div>
+                    <label
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        color: 'var(--text-main)',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      <Tag size={14} />
+                      {tUI('productTitleLabel')}
+                    </label>
+                    <input
+                      type="text"
+                      value={productTitle}
+                      onChange={(e) => setProductTitle(e.target.value)}
+                      placeholder={tUI('productTitlePlaceholder')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        padding: '8px 12px',
+                        color: 'var(--text-main)',
+                        fontSize: '0.875rem',
+                        outline: 'none',
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        color: 'var(--text-main)',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      {tUI('productPriceLabel')}
+                    </label>
+                    <input
+                      type="text"
+                      value={productPrice}
+                      onChange={(e) => setProductPrice(e.target.value)}
+                      placeholder={tUI('productPricePlaceholder')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '8px',
+                        padding: '8px 12px',
+                        color: 'var(--text-main)',
+                        fontSize: '0.875rem',
+                        outline: 'none',
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Input Row */}
               <div style={{ marginBottom: '16px' }}>
                 <label
@@ -485,7 +847,7 @@ export default function BarcodeGeneratorPage() {
                 >
                   {tUI('barcodeValueLabel')}
                 </label>
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                   <input
                     type="text"
                     value={barcodeValue}
@@ -493,6 +855,7 @@ export default function BarcodeGeneratorPage() {
                     placeholder={tUI('barcodeValuePlaceholder')}
                     style={{
                       flex: 1,
+                      minWidth: '220px',
                       backgroundColor: 'var(--bg-page)',
                       border: '1px solid var(--border-color)',
                       borderRadius: '8px',
@@ -504,6 +867,7 @@ export default function BarcodeGeneratorPage() {
                     }}
                   />
                   <button
+                    type="button"
                     onClick={renderSingleBarcode}
                     style={{
                       display: 'flex',
@@ -513,7 +877,7 @@ export default function BarcodeGeneratorPage() {
                       color: '#ffffff',
                       border: 'none',
                       borderRadius: '8px',
-                      padding: '0 20px',
+                      padding: '12px 20px',
                       fontWeight: 600,
                       fontSize: '0.9rem',
                       cursor: 'pointer',
@@ -532,6 +896,66 @@ export default function BarcodeGeneratorPage() {
                   {formatHint}
                 </p>
               </div>
+
+              {/* AI Smart Auto-Fix / Format Suggestion Banner */}
+              {smartSuggestion && (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                    padding: '12px 16px',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    border: '1px solid rgba(139, 92, 246, 0.3)',
+                    marginBottom: '16px',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      color: '#8b5cf6',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                    }}
+                  >
+                    <Wand2 size={16} />
+                    <span>
+                      {smartSuggestion.type === 'checkdigit'
+                        ? tUI('aiCheckDigitHint', { fixed: smartSuggestion.fixed })
+                        : tUI('aiSwitch128Hint')}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (smartSuggestion.type === 'checkdigit') {
+                        setBarcodeValue(smartSuggestion.fixed);
+                      } else {
+                        setFormat('CODE128');
+                      }
+                    }}
+                    style={{
+                      padding: '6px 14px',
+                      borderRadius: '6px',
+                      border: 'none',
+                      backgroundColor: '#8b5cf6',
+                      color: '#ffffff',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {smartSuggestion.type === 'checkdigit'
+                      ? tUI('aiAutoFixBtn')
+                      : tUI('aiSwitch128Btn')}
+                  </button>
+                </div>
+              )}
 
               {/* Error Box */}
               {error && (
@@ -583,10 +1007,14 @@ export default function BarcodeGeneratorPage() {
                   {tUI('previewHeading')} ({format})
                 </p>
 
-                {/* Barcode SVG Container with crisp white backing */}
+                {/* Barcode SVG Container */}
                 <div
                   style={{
-                    backgroundColor: bgColor,
+                    backgroundColor: transparentBg ? 'transparent' : bgColor,
+                    backgroundImage: transparentBg
+                      ? 'repeating-conic-gradient(#e2e8f0 0% 25%, transparent 0% 50%)'
+                      : undefined,
+                    backgroundSize: transparentBg ? '16px 16px' : undefined,
                     padding: '16px 24px',
                     borderRadius: '8px',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
@@ -595,7 +1023,27 @@ export default function BarcodeGeneratorPage() {
                     overflowX: 'auto',
                   }}
                 >
-                  <svg ref={svgRef} id="barcode-svg" style={{ display: 'block', margin: '0 auto' }} />
+                  {showLabelOptions && (productTitle.trim() || productPrice.trim()) && (
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        gap: '16px',
+                        color: barColor,
+                        fontWeight: 700,
+                        fontSize: '0.95rem',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      <span>{productTitle.trim()}</span>
+                      <span>{productPrice.trim()}</span>
+                    </div>
+                  )}
+                  <svg
+                    ref={svgRef}
+                    id="barcode-svg"
+                    style={{ display: 'block', margin: '0 auto' }}
+                  />
                 </div>
               </div>
 
@@ -604,11 +1052,12 @@ export default function BarcodeGeneratorPage() {
                 style={{
                   display: 'flex',
                   flexWrap: 'wrap',
-                  gap: '12px',
+                  gap: '10px',
                   justifyContent: 'center',
                 }}
               >
                 <button
+                  type="button"
                   onClick={downloadSinglePng}
                   disabled={!!error || !barcodeValue.trim()}
                   style={{
@@ -616,15 +1065,14 @@ export default function BarcodeGeneratorPage() {
                     alignItems: 'center',
                     gap: '8px',
                     backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                    color: '#60a5fa',
+                    color: '#3b82f6',
                     border: '1px solid rgba(59, 130, 246, 0.3)',
                     borderRadius: '8px',
-                    padding: '10px 18px',
+                    padding: '10px 16px',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     cursor: error || !barcodeValue.trim() ? 'not-allowed' : 'pointer',
                     opacity: error || !barcodeValue.trim() ? 0.5 : 1,
-                    transition: 'all 0.2s',
                   }}
                 >
                   <Download size={16} />
@@ -632,6 +1080,7 @@ export default function BarcodeGeneratorPage() {
                 </button>
 
                 <button
+                  type="button"
                   onClick={downloadSingleSvg}
                   disabled={!!error || !barcodeValue.trim()}
                   style={{
@@ -639,15 +1088,14 @@ export default function BarcodeGeneratorPage() {
                     alignItems: 'center',
                     gap: '8px',
                     backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                    color: '#34d399',
+                    color: '#10b981',
                     border: '1px solid rgba(16, 185, 129, 0.3)',
                     borderRadius: '8px',
-                    padding: '10px 18px',
+                    padding: '10px 16px',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     cursor: error || !barcodeValue.trim() ? 'not-allowed' : 'pointer',
                     opacity: error || !barcodeValue.trim() ? 0.5 : 1,
-                    transition: 'all 0.2s',
                   }}
                 >
                   <Download size={16} />
@@ -655,32 +1103,273 @@ export default function BarcodeGeneratorPage() {
                 </button>
 
                 <button
+                  type="button"
+                  onClick={copySinglePng}
+                  disabled={!!error || !barcodeValue.trim()}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    backgroundColor: copiedPng
+                      ? 'rgba(16, 185, 129, 0.2)'
+                      : 'rgba(255, 255, 255, 0.05)',
+                    color: copiedPng ? '#10b981' : 'var(--text-main)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '8px',
+                    padding: '10px 16px',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    cursor: error || !barcodeValue.trim() ? 'not-allowed' : 'pointer',
+                    opacity: error || !barcodeValue.trim() ? 0.5 : 1,
+                  }}
+                >
+                  {copiedPng ? <Check size={16} /> : <ImageIcon size={16} />}
+                  {copiedPng ? tUI('copied') : tUI('copyPng')}
+                </button>
+
+                <button
+                  type="button"
                   onClick={copySingleSvg}
                   disabled={!!error || !barcodeValue.trim()}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
-                    backgroundColor: copied ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                    color: copied ? '#34d399' : 'var(--text-main)',
+                    backgroundColor: copiedSvg
+                      ? 'rgba(16, 185, 129, 0.2)'
+                      : 'rgba(255, 255, 255, 0.05)',
+                    color: copiedSvg ? '#10b981' : 'var(--text-main)',
                     border: '1px solid var(--border-color)',
                     borderRadius: '8px',
-                    padding: '10px 18px',
+                    padding: '10px 16px',
                     fontSize: '0.875rem',
                     fontWeight: 600,
                     cursor: error || !barcodeValue.trim() ? 'not-allowed' : 'pointer',
                     opacity: error || !barcodeValue.trim() ? 0.5 : 1,
-                    transition: 'all 0.2s',
                   }}
                 >
-                  {copied ? <Check size={16} /> : <Copy size={16} />}
-                  {copied ? tUI('copied') : tUI('copySvg')}
+                  {copiedSvg ? <Check size={16} /> : <Copy size={16} />}
+                  {copiedSvg ? tUI('copied') : tUI('copySvg')}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={printSingleLabel}
+                  disabled={!!error || !barcodeValue.trim()}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    backgroundColor: 'rgba(234, 179, 8, 0.15)',
+                    color: '#ca8a04',
+                    border: '1px solid rgba(234, 179, 8, 0.3)',
+                    borderRadius: '8px',
+                    padding: '10px 16px',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    cursor: error || !barcodeValue.trim() ? 'not-allowed' : 'pointer',
+                    opacity: error || !barcodeValue.trim() ? 0.5 : 1,
+                  }}
+                >
+                  <Printer size={16} />
+                  {tUI('printLabel')}
                 </button>
               </div>
             </div>
           ) : (
             /* BULK MODE */
             <div>
+              {/* Sequential Generator & CSV Upload */}
+              <div
+                style={{
+                  backgroundColor: 'rgba(0,0,0,0.02)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '10px',
+                  padding: '14px',
+                  marginBottom: '16px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                    marginBottom: '10px',
+                  }}
+                >
+                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                    {tUI('seqGeneratorTitle')}
+                  </span>
+
+                  <div>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".csv,.txt"
+                      onChange={handleFileUpload}
+                      style={{ display: 'none' }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '6px 12px',
+                        borderRadius: '6px',
+                        border: '1px solid var(--border-color)',
+                        backgroundColor: 'var(--bg-card)',
+                        color: 'var(--text-main)',
+                        fontSize: '0.78rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <Upload size={14} />
+                      {tUI('uploadCsvBtn')}
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
+                    gap: '8px',
+                    alignItems: 'end',
+                  }}
+                >
+                  <div>
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: '0.72rem',
+                        color: 'var(--text-muted)',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {tUI('seqPrefix')}
+                    </label>
+                    <input
+                      type="text"
+                      value={seqPrefix}
+                      onChange={(e) => setSeqPrefix(e.target.value)}
+                      style={{
+                        width: '100%',
+                        padding: '6px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid var(--border-color)',
+                        backgroundColor: 'var(--bg-page)',
+                        color: 'var(--text-main)',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: '0.72rem',
+                        color: 'var(--text-muted)',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {tUI('seqStart')}
+                    </label>
+                    <input
+                      type="number"
+                      min={0}
+                      value={seqStart}
+                      onChange={(e) => setSeqStart(Number(e.target.value) || 0)}
+                      style={{
+                        width: '100%',
+                        padding: '6px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid var(--border-color)',
+                        backgroundColor: 'var(--bg-page)',
+                        color: 'var(--text-main)',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: '0.72rem',
+                        color: 'var(--text-muted)',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {tUI('seqCount')}
+                    </label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={200}
+                      value={seqCount}
+                      onChange={(e) => setSeqCount(Number(e.target.value) || 1)}
+                      style={{
+                        width: '100%',
+                        padding: '6px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid var(--border-color)',
+                        backgroundColor: 'var(--bg-page)',
+                        color: 'var(--text-main)',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: '0.72rem',
+                        color: 'var(--text-muted)',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {tUI('seqPad')}
+                    </label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={10}
+                      value={seqPad}
+                      onChange={(e) => setSeqPad(Number(e.target.value) || 1)}
+                      style={{
+                        width: '100%',
+                        padding: '6px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid var(--border-color)',
+                        backgroundColor: 'var(--bg-page)',
+                        color: 'var(--text-main)',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleGenerateSequence}
+                    style={{
+                      padding: '8px 14px',
+                      borderRadius: '6px',
+                      border: 'none',
+                      backgroundColor: '#3b82f6',
+                      color: '#ffffff',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {tUI('seqFillBtn')}
+                  </button>
+                </div>
+              </div>
+
               <div style={{ marginBottom: '16px' }}>
                 <label
                   style={{
@@ -716,6 +1405,7 @@ export default function BarcodeGeneratorPage() {
               {/* Bulk Actions */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
                 <button
+                  type="button"
                   onClick={generateBulkBarcodes}
                   style={{
                     display: 'flex',
@@ -729,7 +1419,6 @@ export default function BarcodeGeneratorPage() {
                     fontWeight: 600,
                     fontSize: '0.9rem',
                     cursor: 'pointer',
-                    transition: 'opacity 0.2s',
                   }}
                 >
                   <RefreshCw size={16} />
@@ -737,31 +1426,61 @@ export default function BarcodeGeneratorPage() {
                 </button>
 
                 {bulkItems.filter((i) => i.valid).length > 0 && (
-                  <button
-                    onClick={downloadAllZip}
-                    disabled={isZipping}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                      color: '#34d399',
-                      border: '1px solid rgba(16, 185, 129, 0.3)',
-                      borderRadius: '8px',
-                      padding: '10px 18px',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      cursor: isZipping ? 'wait' : 'pointer',
-                      transition: 'all 0.2s',
-                    }}
-                  >
-                    <FileArchive size={16} />
-                    {isZipping ? 'Compressing...' : tUI('bulkDownloadZip')}
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      onClick={downloadAllZip}
+                      disabled={isZipping}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                        color: '#10b981',
+                        border: '1px solid rgba(16, 185, 129, 0.3)',
+                        borderRadius: '8px',
+                        padding: '10px 18px',
+                        fontSize: '0.875rem',
+                        fontWeight: 600,
+                        cursor: isZipping ? 'wait' : 'pointer',
+                      }}
+                    >
+                      <FileArchive size={16} />
+                      {isZipping ? tUI('compressingZip') : tUI('bulkDownloadZip')}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handlePrintLabels(
+                          bulkItems
+                            .filter((i) => i.valid && i.pngDataUrl)
+                            .map((i) => ({ dataUrl: i.pngDataUrl! }))
+                        )
+                      }
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        backgroundColor: 'rgba(234, 179, 8, 0.15)',
+                        color: '#ca8a04',
+                        border: '1px solid rgba(234, 179, 8, 0.3)',
+                        borderRadius: '8px',
+                        padding: '10px 18px',
+                        fontSize: '0.875rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <Printer size={16} />
+                      {tUI('printAllLabels')}
+                    </button>
+                  </>
                 )}
 
                 {bulkItems.length > 0 && (
                   <button
+                    type="button"
                     onClick={() => {
                       setBulkItems([]);
                       setBulkInput('');
@@ -820,7 +1539,7 @@ export default function BarcodeGeneratorPage() {
                         <>
                           <div
                             style={{
-                              backgroundColor: bgColor,
+                              backgroundColor: transparentBg ? 'transparent' : bgColor,
                               padding: '10px 12px',
                               borderRadius: '6px',
                               width: '100%',
@@ -866,7 +1585,7 @@ export default function BarcodeGeneratorPage() {
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 gap: '4px',
-                                color: '#60a5fa',
+                                color: '#3b82f6',
                                 fontSize: '0.8rem',
                                 fontWeight: 600,
                                 textDecoration: 'none',
@@ -887,7 +1606,9 @@ export default function BarcodeGeneratorPage() {
                           }}
                         >
                           <AlertCircle size={20} style={{ margin: '0 auto 6px auto' }} />
-                          <p style={{ fontWeight: 600 }}>{tUI('formatMismatchWarning', { value: item.value })}</p>
+                          <p style={{ fontWeight: 600 }}>
+                            {tUI('formatMismatchWarning', { value: item.value })}
+                          </p>
                         </div>
                       )}
                     </div>
@@ -897,7 +1618,7 @@ export default function BarcodeGeneratorPage() {
             </div>
           )}
         </div>
-      
+
         {/* Centralized SEO & FAQ Section */}
         <ToolSeoContent
           toolSlug="barcode-generator"

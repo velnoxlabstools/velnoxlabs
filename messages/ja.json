@@ -530,8 +530,8 @@
       "description": "10000個の絵文字を1クリックで連続複製してコピーできる無料ツール。世界280カ国以上の国旗、話題の𓆉ヒエログリフ、かわいい顔文字、おしゃれな絵文字の組み合わせをiPhone、Android、SNSですぐに使えます。"
     },
     "barcode-generator": {
-      "name": "バーコード作成・生成ツール (Barcode Generator)",
-      "description": "Code 128、EAN-13 (JAN)、UPC-Aなど多彩な規格のバーコードを即座に作成し、高品質なSVG・PNGで保存。"
+      "name": "AIバーコード生成ツール無料 – Code 128・EAN-13・値札シール作成",
+      "description": "Code 128、EAN-13、UPC-A対応の無料オンラインバーコード作成ツール。チェックデジット自動計算、商品名・価格ラベル、透過PNG/SVG保存、一括ZIP出力に対応。"
     },
     "http-header-inspector-parser": {
       "name": "HTTP ヘッダーアナライザー＆セキュリティヘッダー検査",

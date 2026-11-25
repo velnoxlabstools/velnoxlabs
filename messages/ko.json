@@ -530,8 +530,8 @@
       "description": "10000개 이모티콘 1클릭 복사 리피터, 세계 280개 이상의 국기, 화제의 𓆉 이집트 상형문자, 일본 카오모지 및 감성 조합을 제공하는 무료 이모지 키보드입니다."
     },
     "barcode-generator": {
-      "name": "바코드 생성기 (Barcode Generator)",
-      "description": "Code 128, EAN-13, UPC-A 등 다양한 표준 규격의 바코드를 손쉽게 제작하고 SVG 및 고해상도 PNG로 즉시 저장하세요."
+      "name": "무료 AI 바코드 생성기 – Code 128, EAN-13 및 상품 라벨 제작",
+      "description": "Code 128, EAN-13, UPC-A를 지원하는 무료 온라인 바코드 생성기입니다. 체크 디지트 자동 수정, 상품 가격 라벨, 투명 PNG/SVG 저장 및 대량 ZIP 다운로드를 제공합니다."
     },
     "http-header-inspector-parser": {
       "name": "HTTP 헤더 분석기 및 보안 헤더 검사",

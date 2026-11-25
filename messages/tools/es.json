@@ -3166,8 +3166,8 @@
       "faq6A": "Las fuentes nativas de Windows a veces muestran texto en lugar de banderas de colores. Nuestro visor utiliza gráficos vectoriales para que veas la bandera real antes de copiarla."
     },
     "barcodeGenerator": {
-      "title": "Generador de Códigos de Barras",
-      "subtitle": "Crea códigos de barras profesionales en Code 128, EAN-13, UPC-A y más normas con descarga inmediata en SVG y PNG.",
+      "title": "Generador de Códigos de Barras IA Gratis – Code 128, EAN-13 y Etiquetas",
+      "subtitle": "Generador de códigos de barras en línea gratuito. Crea códigos Code 128, EAN-13, UPC-A con dígito de control automático, etiquetas de precios y exportación ZIP.",
       "singleMode": "Código Individual",
       "bulkMode": "Producción por Lote",
       "formatLabel": "Tipología de Código",
@@ -3222,7 +3222,31 @@
       "faq3Q": "¿Es un servicio sin coste y seguro para datos de empresa?",
       "faq3A": "Es totalmente gratuito y sin registros. Además, al procesarse enteramente en la memoria del navegador, ningún número de serie ni referencia confidencial sale de tu dispositivo.",
       "faq4Q": "¿Por qué el estándar Code 128 es el más utilizado?",
-      "faq4A": "Code 128 destaca por admitir los 128 caracteres del código ASCII con una alta densidad de compresión, lo que lo convierte en la opción predilecta en logística y control interno."
+      "faq4A": "Code 128 destaca por admitir los 128 caracteres del código ASCII con una alta densidad de compresión, lo que lo convierte en la opción predilecta en logística y control interno.",
+      "colorsLabel": "Colores y Fondo",
+      "barColorLabel": "Color de Barras",
+      "bgColorLabel": "Color de Fondo",
+      "transparentLabel": "Transparente",
+      "productLabelToggle": "Etiqueta de Producto / Precio",
+      "productTitleLabel": "Nombre del Producto",
+      "productTitlePlaceholder": "ej. Miel Orgánica 500g",
+      "productPriceLabel": "Precio / Etiqueta",
+      "productPricePlaceholder": "ej. $14.99 o 12€",
+      "aiCheckDigitHint": "Falta el dígito de control GS1. Sugerencia válida: {fixed}",
+      "aiSwitch128Hint": "Letras detectadas. Cambia a Code 128 para códigos alfanuméricos.",
+      "aiAutoFixBtn": "Corregir Dígito",
+      "aiSwitch128Btn": "Cambiar a Code 128",
+      "copyPng": "Copiar PNG",
+      "printLabel": "Imprimir Etiqueta",
+      "printAllLabels": "Imprimir Todas",
+      "compressingZip": "Comprimiendo...",
+      "seqGeneratorTitle": "Generador Secuencial e Importación CSV",
+      "uploadCsvBtn": "Subir CSV / TXT",
+      "seqPrefix": "Prefijo",
+      "seqStart": "Inicio",
+      "seqCount": "Cantidad",
+      "seqPad": "Dígitos",
+      "seqFillBtn": "Llenar Secuencia"
     }
   }
 }

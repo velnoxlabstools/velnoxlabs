@@ -530,8 +530,8 @@
       "description": "免费Emoji表情键盘，提供10000个表情符号一键批量复制、280多个国家与地区国旗、爆火𓆉象形符号、日系可爱颜文字及精致美学组合，完美适配iPhone、安卓与社交网络。"
     },
     "barcode-generator": {
-      "name": "条形码生成器 (Barcode Generator)",
-      "description": "在线制作 Code 128、EAN-13、UPC-A 等多种编码的条形码，支持矢量 SVG 与高清 PNG 极速保存。"
+      "name": "免费AI条形码生成器 – Code 128、EAN-13与商品标签批量制作",
+      "description": "免费在线条形码生成器，支持Code 128、EAN-13、UPC-A等格式，具备校验位自动修复、商品名称与价格标签、透明背景PNG/SVG下载及批量ZIP导出功能。"
     },
     "http-header-inspector-parser": {
       "name": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",

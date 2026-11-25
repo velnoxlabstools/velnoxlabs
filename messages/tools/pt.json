@@ -3166,8 +3166,8 @@
       "faq6A": "Nós usamos ícones vetoriais modernos para contornar limitações de fontes antigas do sistema."
     },
     "barcodeGenerator": {
-      "title": "Gerador de Códigos de Barras",
-      "subtitle": "Crie códigos de barras profissionais em Code 128, EAN-13, UPC-A e outros padrões com exportação imediata em SVG e PNG.",
+      "title": "Gerador de Código de Barras IA Grátis – Code 128, EAN-13 e Etiquetas",
+      "subtitle": "Gerador de código de barras online gratuito. Crie códigos Code 128, EAN-13, UPC-A com dígito verificador automático, etiquetas de preço e exportação ZIP.",
       "singleMode": "Código Único",
       "bulkMode": "Produção em Lote",
       "formatLabel": "Padrão de Codificação",
@@ -3222,7 +3222,31 @@
       "faq3Q": "O serviço é gratuito e seguro para dados empresariais?",
       "faq3A": "É totalmente gratuito, sem cadastros ou limitações. Por ser processado localmente no navegador, nenhum código de produto ou número de série é transmitido pela internet.",
       "faq4Q": "Por que o modelo Code 128 é o mais popular no setor?",
-      "faq4A": "O Code 128 comporta todos os 128 caracteres da tabela ASCII com altíssima densidade de informação, tornando-se a base da logística global e da identificação de ativos."
+      "faq4A": "O Code 128 comporta todos os 128 caracteres da tabela ASCII com altíssima densidade de informação, tornando-se a base da logística global e da identificação de ativos.",
+      "colorsLabel": "Cores e Fundo",
+      "barColorLabel": "Cor das Barras",
+      "bgColorLabel": "Cor de Fundo",
+      "transparentLabel": "Transparente",
+      "productLabelToggle": "Etiqueta de Produto / Preço",
+      "productTitleLabel": "Nome do Produto",
+      "productTitlePlaceholder": "ex. Mel Orgânico 500g",
+      "productPriceLabel": "Preço / SKU",
+      "productPricePlaceholder": "ex. R$ 29,90",
+      "aiCheckDigitHint": "Dígito verificador GS1 ausente. Sugestão válida: {fixed}",
+      "aiSwitch128Hint": "Letras detectadas. Mude para Code 128 para texto alfanumérico.",
+      "aiAutoFixBtn": "Corrigir Dígito",
+      "aiSwitch128Btn": "Mudar para Code 128",
+      "copyPng": "Copiar PNG",
+      "printLabel": "Imprimir Etiqueta",
+      "printAllLabels": "Imprimir Todas",
+      "compressingZip": "Compactando...",
+      "seqGeneratorTitle": "Gerador Sequencial e Importação CSV",
+      "uploadCsvBtn": "Enviar CSV / TXT",
+      "seqPrefix": "Prefixo",
+      "seqStart": "Início",
+      "seqCount": "Qtd",
+      "seqPad": "Dígitos",
+      "seqFillBtn": "Preencher Sequência"
     }
   }
 }

@@ -3166,8 +3166,8 @@
       "faq6A": "Windows zeigt Flaggen oft nur als Buchstaben an. Unsere Anwendung rendert hochwertige Vektorgrafiken für perfekte Vorschau."
     },
     "barcodeGenerator": {
-      "title": "Barcode-Generator für Strichcodes",
-      "subtitle": "Erstelle Strichcodes in den Standards Code 128, EAN-13, UPC-A und weiteren Typen mit sofortigem SVG- und PNG-Export.",
+      "title": "KI Barcode Generator Kostenlos – Code 128, EAN-13 & Etiketten-Ersteller",
+      "subtitle": "Kostenloser Online-Barcode-Generator für Code 128, EAN-13, UPC-A mit automatischer Prüfziffer, Preisetiketten, transparentem PNG/SVG-Export und Stapel-ZIP.",
       "singleMode": "Einzeletikett",
       "bulkMode": "Stapelverarbeitung",
       "formatLabel": "Strichcode-Typ",
@@ -3222,7 +3222,31 @@
       "faq3Q": "Ist der Dienst dauerhaft kostenlos und geschützt?",
       "faq3A": "Die Nutzung ist vollkommen kostenfrei und ohne Registrierung möglich. Da alle Berechnungen direkt im Browser ablaufen, bleiben interne SKU-Daten vollständig privat.",
       "faq4Q": "Warum ist Code 128 im gewerblichen Bereich so verbreitet?",
-      "faq4A": "Code 128 kann alle 128 ASCII-Zeichen bei hoher Informationsdichte darstellen und gilt weltweit als unverzichtbarer Standard in Versand und Lagerhaltung."
+      "faq4A": "Code 128 kann alle 128 ASCII-Zeichen bei hoher Informationsdichte darstellen und gilt weltweit als unverzichtbarer Standard in Versand und Lagerhaltung.",
+      "colorsLabel": "Farben & Hintergrund",
+      "barColorLabel": "Strichfarbe",
+      "bgColorLabel": "Hintergrundfarbe",
+      "transparentLabel": "Transparent",
+      "productLabelToggle": "Produkt- & Preisetikett",
+      "productTitleLabel": "Produktname",
+      "productTitlePlaceholder": "z. B. Bio-Honig 500g",
+      "productPriceLabel": "Preis / SKU",
+      "productPricePlaceholder": "z. B. 14,99 €",
+      "aiCheckDigitHint": "GS1-Prüfziffer fehlt. Gültiger Vorschlag: {fixed}",
+      "aiSwitch128Hint": "Buchstaben erkannt. Für Text zu Code 128 wechseln.",
+      "aiAutoFixBtn": "Prüfziffer ergänzen",
+      "aiSwitch128Btn": "Zu Code 128 wechseln",
+      "copyPng": "PNG kopieren",
+      "printLabel": "Etikett drucken",
+      "printAllLabels": "Alle drucken",
+      "compressingZip": "Komprimiere...",
+      "seqGeneratorTitle": "Sequenz-Generator & CSV-Import",
+      "uploadCsvBtn": "CSV / TXT laden",
+      "seqPrefix": "Präfix",
+      "seqStart": "Start",
+      "seqCount": "Anzahl",
+      "seqPad": "Stellen",
+      "seqFillBtn": "Sequenz füllen"
     }
   }
 }

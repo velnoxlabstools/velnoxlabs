@@ -3166,8 +3166,8 @@
       "faq6A": "Nous intégrons un moteur de rendu vectoriel pour afficher les drapeaux en haute définition sur tous les écrans."
     },
     "barcodeGenerator": {
-      "title": "Générateur de Codes-Barres",
-      "subtitle": "Créez des codes-barres conformes aux normes Code 128, EAN-13, UPC-A et bien d'autres avec export immédiat en SVG et PNG.",
+      "title": "Générateur de Codes-Barres IA Gratuit – Code 128, EAN-13 & Étiquettes",
+      "subtitle": "Générateur de codes-barres en ligne gratuit. Créez des codes Code 128, EAN-13, UPC-A avec chiffre de contrôle automatique, étiquettes prix et export ZIP.",
       "singleMode": "Code Unique",
       "bulkMode": "Traitement par Lot",
       "formatLabel": "Norme de Codage",
@@ -3222,7 +3222,31 @@
       "faq3Q": "L'outil est-il gratuit et confidentiel pour des données d'entreprise ?",
       "faq3A": "L'accès est entièrement gratuit et sans compte. Comme le moteur tourne directement sur votre machine, aucun numéro d'article ou identifiant interne n'est transmis sur le web.",
       "faq4Q": "Pourquoi le Code 128 est-il si largement plébiscité ?",
-      "faq4A": "Le Code 128 permet de coder l'ensemble des 128 caractères de la table ASCII avec une excellente compacité, constituant le standard roi du suivi logistique et industriel."
+      "faq4A": "Le Code 128 permet de coder l'ensemble des 128 caractères de la table ASCII avec une excellente compacité, constituant le standard roi du suivi logistique et industriel.",
+      "colorsLabel": "Couleurs et Fond",
+      "barColorLabel": "Couleur des Barres",
+      "bgColorLabel": "Couleur de Fond",
+      "transparentLabel": "Transparent",
+      "productLabelToggle": "Étiquette Produit / Prix",
+      "productTitleLabel": "Nom du Produit",
+      "productTitlePlaceholder": "ex. Miel Bio 500g",
+      "productPriceLabel": "Prix / Réf",
+      "productPricePlaceholder": "ex. 14,99 €",
+      "aiCheckDigitHint": "Chiffre de contrôle GS1 manquant. Suggestion : {fixed}",
+      "aiSwitch128Hint": "Lettres détectées. Passez au Code 128 pour le texte.",
+      "aiAutoFixBtn": "Corriger le chiffre",
+      "aiSwitch128Btn": "Passer au Code 128",
+      "copyPng": "Copier PNG",
+      "printLabel": "Imprimer l'étiquette",
+      "printAllLabels": "Tout imprimer",
+      "compressingZip": "Compression...",
+      "seqGeneratorTitle": "Générateur Séquentiel & Import CSV",
+      "uploadCsvBtn": "Importer CSV / TXT",
+      "seqPrefix": "Préfixe",
+      "seqStart": "Début",
+      "seqCount": "Nombre",
+      "seqPad": "Chiffres",
+      "seqFillBtn": "Remplir la séquence"
     }
   }
 }

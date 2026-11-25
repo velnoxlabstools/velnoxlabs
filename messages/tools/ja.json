@@ -3166,8 +3166,8 @@
       "faq6A": "高精細なTwemojiベクター表示を組み込んでいるため、Windowsでも鮮やかなカラーで事前確認できます。"
     },
     "barcodeGenerator": {
-      "title": "バーコード作成・生成ツール (Barcode Generator)",
-      "subtitle": "Code 128、EAN-13 (JAN)、UPC-Aなど多彩な規格のバーコードを即座に作成し、高品質なSVG・PNGで保存。",
+      "title": "AIバーコード生成ツール無料 – Code 128・EAN-13・値札シール作成",
+      "subtitle": "Code 128、EAN-13、UPC-A対応の無料オンラインバーコード作成ツール。チェックデジット自動計算、商品名・価格ラベル、透過PNG/SVG保存、一括ZIP出力に対応。",
       "singleMode": "個別作成",
       "bulkMode": "一括作成",
       "formatLabel": "規格・コード種別",
@@ -3222,7 +3222,31 @@
       "faq3Q": "商用利用は無料ですか？ 機密コードが外部に漏れる心配はありませんか？",
       "faq3A": "完全無料で制限なくご利用いただけます。また、すべての画像処理はお手元のブラウザ内部でのみ実行されるため、社内の機密型番やシリアル番号がサーバーへ送信されることはありません。",
       "faq4Q": "なぜCode 128が物流や現場で最も推奨されるのですか？",
-      "faq4A": "Code 128はアスキー全128文字を表現できる柔軟性と優れたデータ圧縮密度を備えており、国際的な配送伝票や社内資産管理の標準規格として最も広く採用されています。"
+      "faq4A": "Code 128はアスキー全128文字を表現できる柔軟性と優れたデータ圧縮密度を備えており、国際的な配送伝票や社内資産管理の標準規格として最も広く採用されています。",
+      "colorsLabel": "配色・背景",
+      "barColorLabel": "バーの色",
+      "bgColorLabel": "背景色",
+      "transparentLabel": "透過背景",
+      "productLabelToggle": "商品名・価格ラベル追加",
+      "productTitleLabel": "商品名・タイトル",
+      "productTitlePlaceholder": "例: オーガニック蜂蜜 500g",
+      "productPriceLabel": "価格・SKU",
+      "productPricePlaceholder": "例: ¥1,480",
+      "aiCheckDigitHint": "チェックデジットが不足しています。有効な候補: {fixed}",
+      "aiSwitch128Hint": "英字が含まれています。Code 128への切り替えをおすすめします。",
+      "aiAutoFixBtn": "自動補正する",
+      "aiSwitch128Btn": "Code 128へ切替",
+      "copyPng": "PNGをコピー",
+      "printLabel": "ラベル印刷",
+      "printAllLabels": "すべて印刷",
+      "compressingZip": "圧縮中...",
+      "seqGeneratorTitle": "連番自動生成 & CSV読み込み",
+      "uploadCsvBtn": "CSV / TXT読込",
+      "seqPrefix": "接頭辞",
+      "seqStart": "開始番号",
+      "seqCount": "個数",
+      "seqPad": "桁数",
+      "seqFillBtn": "連番を作成"
     }
   }
 }

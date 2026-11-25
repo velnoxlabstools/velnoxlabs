@@ -3167,8 +3167,8 @@
       "faq6A": "我们引入了高清矢量Twemoji图像引擎，使Windows桌面用户也能看到色彩绚丽的国家旗帜。"
     },
     "barcodeGenerator": {
-      "title": "条形码生成器 (Barcode Generator)",
-      "subtitle": "在线制作 Code 128、EAN-13、UPC-A 等多种编码的条形码，支持矢量 SVG 与高清 PNG 极速保存。",
+      "title": "免费AI条形码生成器 – Code 128、EAN-13与商品标签批量制作",
+      "subtitle": "免费在线条形码生成器，支持Code 128、EAN-13、UPC-A等格式，具备校验位自动修复、商品名称与价格标签、透明背景PNG/SVG下载及批量ZIP导出功能。",
       "singleMode": "单张制作",
       "bulkMode": "批量制作",
       "formatLabel": "编码体系",
@@ -3223,7 +3223,31 @@
       "faq3Q": "使用本工具是否收费？商业数据的私密性如何保障？",
       "faq3A": "本工具永久免费且无额度限制。由于核心计算引擎采用 100% 浏览器客户端渲染架构，所有物料号与商业 SKU 均只存留在您的电脑内存中，不会上传至任何远程服务器。",
       "faq4Q": "为何 Code 128 成为各行业中最通用的条形码首选？",
-      "faq4A": "Code 128 能够完整编码全部 128 个 ASCII 字符（包含大小写字母、数字与符号），并且拥有极高的数据密度与容错冗余度，是现代全球航运面单、资产追踪与企业内控系统的通用基石。"
+      "faq4A": "Code 128 能够完整编码全部 128 个 ASCII 字符（包含大小写字母、数字与符号），并且拥有极高的数据密度与容错冗余度，是现代全球航运面单、资产追踪与企业内控系统的通用基石。",
+      "colorsLabel": "颜色与背景",
+      "barColorLabel": "条码颜色",
+      "bgColorLabel": "背景颜色",
+      "transparentLabel": "透明背景",
+      "productLabelToggle": "商品名称 / 价格标签",
+      "productTitleLabel": "商品名称 / 标题",
+      "productTitlePlaceholder": "例如：有机蜂蜜 500g",
+      "productPriceLabel": "价格 / 货号",
+      "productPricePlaceholder": "例如：¥49.90",
+      "aiCheckDigitHint": "缺少GS1校验位。建议有效编码：{fixed}",
+      "aiSwitch128Hint": "检测到字母，建议切换至 Code 128 格式。",
+      "aiAutoFixBtn": "自动补全校验位",
+      "aiSwitch128Btn": "切换至 Code 128",
+      "copyPng": "复制 PNG",
+      "printLabel": "打印标签",
+      "printAllLabels": "批量打印",
+      "compressingZip": "正在打包...",
+      "seqGeneratorTitle": "自动序列号生成与 CSV 导入",
+      "uploadCsvBtn": "上传 CSV / TXT",
+      "seqPrefix": "前缀",
+      "seqStart": "起始号",
+      "seqCount": "数量",
+      "seqPad": "位数",
+      "seqFillBtn": "生成序列"
     }
   }
 }
