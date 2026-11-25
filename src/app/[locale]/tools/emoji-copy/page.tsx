@@ -5,18 +5,7 @@ import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
-import {
-  Search,
-  Copy,
-  Check,
-  Heart,
-  Clock,
-  Trash2,
-  X,
-  Sparkles,
-  Smile,
-  ArrowRight,
-} from 'lucide-react';
+import { Search, Copy, Check, Heart, Clock, Trash2, X, Smile, Zap, Type } from 'lucide-react';
 import { EMOJIS, EMOJI_CATEGORIES, EmojiItem } from '@/data/emojis';
 
 const RECENT_STORAGE_KEY = 'velnox_emoji_recent_v1';
@@ -46,6 +35,7 @@ function EmojiGlyph({
   if (isFlag && !hasError) {
     const url = getTwemojiUrl(emoji);
     return (
+      /* eslint-disable-next-line @next/next/no-img-element */
       <img
         src={url}
         alt={emoji}
@@ -66,13 +56,24 @@ function EmojiGlyph({
     );
   }
 
+  let computedSize = size;
+  if (emoji.length > 8) {
+    computedSize = Math.min(size, 14);
+  } else if (emoji.length > 4) {
+    computedSize = Math.min(size, 18);
+  } else if (emoji.length > 2) {
+    computedSize = Math.min(size, 22);
+  }
+
   return (
     <span
       style={{
-        fontSize: `${size}px`,
-        lineHeight: 1,
+        fontSize: `${computedSize}px`,
+        lineHeight: 1.2,
         display: 'inline-block',
         userSelect: 'none',
+        textAlign: 'center',
+        wordBreak: 'break-word',
       }}
     >
       {emoji}
@@ -89,6 +90,9 @@ function getFallbackEmojiItem(char: string, name: string): EmojiItem {
   };
 }
 
+const QUICK_PICK_EMOJIS = ['😂', '❤️', '🔥', '✨', '𓆉', '🥺', '💀', '🎉', '🌷', '🥰'];
+const REPEAT_PRESETS = [100, 500, 1000, 5000, 10000];
+
 export default function EmojiCopyPage() {
   const t = useTranslations('ToolUI.emojiCopy');
 
@@ -100,6 +104,16 @@ export default function EmojiCopyPage() {
   const [copiedDeck, setCopiedDeck] = useState<boolean>(false);
   const [copiedEmoji, setCopiedEmoji] = useState<string | null>(null);
   const [toast, setToast] = useState<{ emoji: string; name: string } | null>(null);
+
+  // 10,000 Repeater State
+  const [repeaterEmoji, setRepeaterEmoji] = useState('😂');
+  const [repeatCount, setRepeatCount] = useState<number>(10000);
+  const [separator, setSeparator] = useState<'none' | 'space' | 'newline'>('none');
+  const [copiedRepeater, setCopiedRepeater] = useState(false);
+
+  // AI Text Decorator State
+  const [decoratorInput, setDecoratorInput] = useState('');
+  const [copiedDecoratorIdx, setCopiedDecoratorIdx] = useState<number | null>(null);
 
   const toastTimerRef = useRef<NodeJS.Timeout | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -163,47 +177,38 @@ export default function EmojiCopyPage() {
   }, [searchQuery, selectedCategory, recent, favorites, emojiMap]);
 
   // Copy single emoji to clipboard & add to deck & recents
-  const handleCopyEmoji = useCallback(
-    async (item: EmojiItem) => {
+  const handleCopyEmoji = useCallback(async (item: EmojiItem) => {
+    try {
+      await navigator.clipboard.writeText(item.emoji);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = item.emoji;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
+    setDeck((prev) => prev + item.emoji);
+    setCopiedEmoji(item.emoji);
+    setTimeout(() => setCopiedEmoji(null), 1200);
+
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    setToast({ emoji: item.emoji, name: item.name });
+    toastTimerRef.current = setTimeout(() => {
+      setToast(null);
+    }, 2000);
+
+    setRecent((prev) => {
+      const next = [item.emoji, ...prev.filter((e) => e !== item.emoji)].slice(0, 24);
       try {
-        await navigator.clipboard.writeText(item.emoji);
+        localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(next));
       } catch {
-        // Fallback for older browsers
-        const textarea = document.createElement('textarea');
-        textarea.value = item.emoji;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
+        // ignore
       }
-
-      // Add to deck
-      setDeck((prev) => prev + item.emoji);
-
-      // Flash copied indicator on the card
-      setCopiedEmoji(item.emoji);
-      setTimeout(() => setCopiedEmoji(null), 1200);
-
-      // Trigger floating toast
-      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-      setToast({ emoji: item.emoji, name: item.name });
-      toastTimerRef.current = setTimeout(() => {
-        setToast(null);
-      }, 2000);
-
-      // Update recent in state & localStorage
-      setRecent((prev) => {
-        const next = [item.emoji, ...prev.filter((e) => e !== item.emoji)].slice(0, 24);
-        try {
-          localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(next));
-        } catch {
-          // ignore
-        }
-        return next;
-      });
-    },
-    []
-  );
+      return next;
+    });
+  }, []);
 
   // Toggle favorite
   const handleToggleFavorite = useCallback((emoji: string, e: React.MouseEvent) => {
@@ -237,6 +242,13 @@ export default function EmojiCopyPage() {
     setDeck('');
   }, []);
 
+  // Transfer deck to repeater
+  const handleSendDeckToRepeater = useCallback(() => {
+    if (!deck) return;
+    setRepeaterEmoji(deck);
+    setSelectedCategory('repeater');
+  }, [deck]);
+
   // Clear recents
   const handleClearRecent = useCallback(() => {
     setRecent([]);
@@ -247,15 +259,74 @@ export default function EmojiCopyPage() {
     }
   }, []);
 
-  // Split deck into graphemes so each emoji (including multi-codepoint flags) renders cleanly
+  // Split deck into graphemes so each emoji renders cleanly
   const deckSegments = useMemo(() => {
     if (!deck) return [];
-    if (typeof Intl !== 'undefined' && (Intl as any).Segmenter) {
-      const segmenter = new (Intl as any).Segmenter('en', { granularity: 'grapheme' });
-      return [...segmenter.segment(deck)].map((s: any) => s.segment as string);
+    const IntlWithSegmenter = Intl as unknown as {
+      Segmenter?: new (
+        locale: string,
+        options: { granularity: 'grapheme' }
+      ) => {
+        segment: (input: string) => Iterable<{ segment: string }>;
+      };
+    };
+    if (typeof Intl !== 'undefined' && IntlWithSegmenter.Segmenter) {
+      const segmenter = new IntlWithSegmenter.Segmenter('en', { granularity: 'grapheme' });
+      return [...segmenter.segment(deck)].map((s) => s.segment);
     }
     return Array.from(deck);
   }, [deck]);
+
+  // Generate 10,000 Repeater String
+  const generatedRepeaterText = useMemo(() => {
+    const char = repeaterEmoji.trim() || '😂';
+    const sep = separator === 'space' ? ' ' : separator === 'newline' ? '\n' : '';
+    const safeCount = Math.min(Math.max(repeatCount, 1), 10000);
+    return Array(safeCount).fill(char).join(sep);
+  }, [repeaterEmoji, repeatCount, separator]);
+
+  // Copy Repeater
+  const handleCopyRepeater = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(generatedRepeaterText);
+      setCopiedRepeater(true);
+      setTimeout(() => setCopiedRepeater(false), 2000);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = generatedRepeaterText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopiedRepeater(true);
+      setTimeout(() => setCopiedRepeater(false), 2000);
+    }
+  }, [generatedRepeaterText]);
+
+  // AI Text Decorator Styles
+  const decoratorStyles = useMemo(() => {
+    const text = decoratorInput.trim() || 'Aesthetic';
+    return [
+      { label: 'Sparkle Stars', value: `✨ ${text} ✨` },
+      { label: 'Winged Heart', value: `𓆩♡𓆪 ${text} 𓆩♡𓆪` },
+      { label: 'Coquette Bow', value: `୨୧ ${text} ୨୧` },
+      { label: 'Aesthetic Stars', value: `⋆｡°✩ ${text} ⋆｡°✩` },
+      { label: 'Winged Cross', value: `𓆩♰𓆪 ${text} 𓆩♰𓆪` },
+      { label: 'Kaomoji Hug', value: `⸜(｡˃ ᵕ ˂ )⸝♡ ${text} ♡` },
+    ];
+  }, [decoratorInput]);
+
+  const handleCopyDecorator = useCallback(async (val: string, idx: number) => {
+    try {
+      await navigator.clipboard.writeText(val);
+      setCopiedDecoratorIdx(idx);
+      setTimeout(() => setCopiedDecoratorIdx(null), 1500);
+    } catch {
+      // fallback
+    }
+  }, []);
+
+  const isWideCategory = selectedCategory === 'kaomoji' || selectedCategory === 'combos';
 
   return (
     <GlobalContainer maxWidth="2xl">
@@ -385,27 +456,52 @@ export default function EmojiCopyPage() {
               </button>
 
               {deck && (
-                <button
-                  type="button"
-                  onClick={handleClearDeck}
-                  title={t('clearDeck')}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '10px 14px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                    color: '#ef4444',
-                    border: '1px solid rgba(239, 68, 68, 0.2)',
-                    fontWeight: 600,
-                    fontSize: '0.85rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                  }}
-                >
-                  <Trash2 size={16} />
-                </button>
+                <>
+                  <button
+                    type="button"
+                    onClick={handleSendDeckToRepeater}
+                    title={t('repeatInGenerator')}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '10px 14px',
+                      borderRadius: '10px',
+                      backgroundColor: 'rgba(234, 179, 8, 0.15)',
+                      color: '#ca8a04',
+                      border: '1px solid rgba(234, 179, 8, 0.3)',
+                      fontWeight: 600,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    <Zap size={15} />
+                    <span>{t('repeatInGenerator')}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleClearDeck}
+                    title={t('clearDeck')}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '10px 14px',
+                      borderRadius: '10px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#ef4444',
+                      border: '1px solid rgba(239, 68, 68, 0.2)',
+                      fontWeight: 600,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </>
               )}
             </div>
           </div>
@@ -511,8 +607,8 @@ export default function EmojiCopyPage() {
                 cat.id === 'recent'
                   ? recent.length
                   : cat.id === 'favorites'
-                  ? favorites.length
-                  : null;
+                    ? favorites.length
+                    : null;
 
               return (
                 <button
@@ -533,12 +629,8 @@ export default function EmojiCopyPage() {
                     whiteSpace: 'nowrap',
                     cursor: 'pointer',
                     transition: 'all 0.18s ease',
-                    border: isActive
-                      ? '1px solid #3b82f6'
-                      : '1px solid var(--border-color)',
-                    backgroundColor: isActive
-                      ? '#3b82f6'
-                      : 'rgba(0, 0, 0, 0.02)',
+                    border: isActive ? '1px solid #3b82f6' : '1px solid var(--border-color)',
+                    backgroundColor: isActive ? '#3b82f6' : 'rgba(0, 0, 0, 0.02)',
                     color: isActive ? '#ffffff' : 'var(--text-main)',
                   }}
                 >
@@ -565,6 +657,367 @@ export default function EmojiCopyPage() {
             })}
           </div>
         </div>
+
+        {/* 10,000 EMOJI REPEATER / MULTIPLIER (ACTIVE WHEN SELECTED OR FEATURED) */}
+        {selectedCategory === 'repeater' && (
+          <div
+            style={{
+              marginBottom: '32px',
+              padding: '24px',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '20px',
+              boxShadow: '0 6px 20px rgba(0, 0, 0, 0.06)',
+            }}
+          >
+            <div
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '10px',
+                  backgroundColor: 'rgba(234, 179, 8, 0.15)',
+                  color: '#eab308',
+                }}
+              >
+                <Zap size={20} />
+              </div>
+              <div>
+                <h3
+                  style={{
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    color: 'var(--text-main)',
+                    margin: 0,
+                  }}
+                >
+                  {t('repeaterTitle')}
+                </h3>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0 }}>
+                  {t('repeaterSubtitle')}
+                </p>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: '16px',
+                marginTop: '20px',
+                marginBottom: '20px',
+              }}
+            >
+              {/* Emoji Input & Quick Pick */}
+              <div>
+                <label
+                  style={{
+                    display: 'block',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    marginBottom: '8px',
+                  }}
+                >
+                  {t('repeaterEmojiLabel')}
+                </label>
+                <input
+                  type="text"
+                  value={repeaterEmoji}
+                  onChange={(e) => setRepeaterEmoji(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '10px 14px',
+                    fontSize: '1.2rem',
+                    backgroundColor: 'rgba(0, 0, 0, 0.02)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '10px',
+                    color: 'var(--text-main)',
+                    outline: 'none',
+                    marginBottom: '10px',
+                  }}
+                />
+
+                <div
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}
+                >
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                    {t('quickPickTitle')}:
+                  </span>
+                  {QUICK_PICK_EMOJIS.map((em) => (
+                    <button
+                      key={`quick-${em}`}
+                      type="button"
+                      onClick={() => setRepeaterEmoji(em)}
+                      style={{
+                        background: 'rgba(0, 0, 0, 0.03)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '6px',
+                        padding: '4px 8px',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        transition: 'transform 0.1s ease',
+                      }}
+                    >
+                      {em}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Count & Separator */}
+              <div>
+                <label
+                  style={{
+                    display: 'block',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    marginBottom: '8px',
+                  }}
+                >
+                  {t('repeaterCountLabel')}:{' '}
+                  <strong style={{ color: '#3b82f6' }}>{repeatCount}</strong>
+                </label>
+                <div
+                  style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}
+                >
+                  {REPEAT_PRESETS.map((cnt) => (
+                    <button
+                      key={`preset-${cnt}`}
+                      type="button"
+                      onClick={() => setRepeatCount(cnt)}
+                      style={{
+                        padding: '6px 12px',
+                        borderRadius: '8px',
+                        fontSize: '0.82rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        border:
+                          repeatCount === cnt
+                            ? '1px solid #3b82f6'
+                            : '1px solid var(--border-color)',
+                        backgroundColor: repeatCount === cnt ? '#3b82f6' : 'rgba(0, 0, 0, 0.02)',
+                        color: repeatCount === cnt ? '#ffffff' : 'var(--text-main)',
+                        transition: 'all 0.15s ease',
+                      }}
+                    >
+                      {cnt.toLocaleString()}
+                    </button>
+                  ))}
+                </div>
+
+                <label
+                  style={{
+                    display: 'block',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    marginBottom: '8px',
+                  }}
+                >
+                  {t('repeaterSeparatorLabel')}
+                </label>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  {(['none', 'space', 'newline'] as const).map((sep) => (
+                    <button
+                      key={sep}
+                      type="button"
+                      onClick={() => setSeparator(sep)}
+                      style={{
+                        flex: 1,
+                        padding: '6px 10px',
+                        borderRadius: '8px',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        border:
+                          separator === sep ? '1px solid #3b82f6' : '1px solid var(--border-color)',
+                        backgroundColor:
+                          separator === sep ? 'rgba(59, 130, 246, 0.1)' : 'rgba(0, 0, 0, 0.02)',
+                        color: separator === sep ? '#3b82f6' : 'var(--text-main)',
+                      }}
+                    >
+                      {sep === 'none'
+                        ? t('sepNone')
+                        : sep === 'space'
+                          ? t('sepSpace')
+                          : t('sepNewline')}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Preview Box & Action */}
+            <div
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.02)',
+                border: '1px solid var(--border-color)',
+                borderRadius: '12px',
+                padding: '14px',
+                marginBottom: '16px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                  marginBottom: '6px',
+                }}
+              >
+                <span>{t('repeaterPreviewTitle')}</span>
+                <span>
+                  {repeatCount.toLocaleString()} {t('totalEmojis')}
+                </span>
+              </div>
+              <div
+                style={{
+                  maxHeight: '100px',
+                  overflowY: 'auto',
+                  fontSize: '1rem',
+                  lineHeight: 1.5,
+                  wordBreak: 'break-all',
+                  fontFamily: 'monospace',
+                }}
+              >
+                {generatedRepeaterText.slice(0, 300)}
+                {generatedRepeaterText.length > 300 && '...'}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleCopyRepeater}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                width: '100%',
+                padding: '14px',
+                borderRadius: '12px',
+                backgroundColor: copiedRepeater ? '#10b981' : '#3b82f6',
+                color: '#ffffff',
+                fontWeight: 700,
+                fontSize: '1rem',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s ease, transform 0.1s ease',
+              }}
+            >
+              {copiedRepeater ? <Check size={20} /> : <Copy size={20} />}
+              <span>
+                {copiedRepeater
+                  ? t('copiedRepeater', { count: repeatCount })
+                  : t('repeatBtn', { count: repeatCount })}
+              </span>
+            </button>
+          </div>
+        )}
+
+        {/* AI TEXT DECORATOR & BIO STYLER */}
+        {(selectedCategory === 'combos' || selectedCategory === 'hieroglyphs') && (
+          <div
+            style={{
+              marginBottom: '28px',
+              padding: '20px',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '16px',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+              <Type size={18} style={{ color: '#8b5cf6' }} />
+              <h4
+                style={{ margin: 0, fontSize: '1rem', fontWeight: 700, color: 'var(--text-main)' }}
+              >
+                {t('textDecoratorTitle')}
+              </h4>
+            </div>
+            <p style={{ margin: '0 0 14px 0', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+              {t('textDecoratorSubtitle')}
+            </p>
+
+            <div style={{ position: 'relative', marginBottom: '16px' }}>
+              <input
+                type="text"
+                value={decoratorInput}
+                onChange={(e) => setDecoratorInput(e.target.value)}
+                placeholder={t('textDecoratorPlaceholder')}
+                style={{
+                  width: '100%',
+                  padding: '10px 14px',
+                  fontSize: '0.95rem',
+                  backgroundColor: 'rgba(0, 0, 0, 0.02)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '10px',
+                  color: 'var(--text-main)',
+                  outline: 'none',
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gap: '10px',
+              }}
+            >
+              {decoratorStyles.map((item, idx) => {
+                const isCopied = copiedDecoratorIdx === idx;
+                return (
+                  <div
+                    key={`dec-${idx}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '10px 14px',
+                      backgroundColor: 'rgba(0, 0, 0, 0.02)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '10px',
+                    }}
+                  >
+                    <span
+                      style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-main)' }}
+                    >
+                      {item.value}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyDecorator(item.value, idx)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        padding: '4px 8px',
+                        borderRadius: '6px',
+                        border: 'none',
+                        backgroundColor: isCopied ? '#10b981' : '#3b82f6',
+                        color: '#ffffff',
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {isCopied ? <Check size={12} /> : <Copy size={12} />}
+                      <span>{isCopied ? t('copiedText') : t('copyText')}</span>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* EMOJI GRID & LIST */}
         <div style={{ minHeight: '360px' }}>
@@ -649,7 +1102,6 @@ export default function EmojiCopyPage() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        fontSize: '1.9rem',
                         backgroundColor: isJustCopied
                           ? 'rgba(16, 185, 129, 0.15)'
                           : 'rgba(0, 0, 0, 0.02)',
@@ -706,15 +1158,28 @@ export default function EmojiCopyPage() {
               }}
             >
               <Smile size={42} style={{ color: 'var(--text-muted)', marginBottom: '12px' }} />
-              <p style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '1rem', marginBottom: '6px' }}>
-                {searchQuery ? `${t('noResults')} "${searchQuery}"` : selectedCategory === 'favorites' ? t('noFavorites') : t('noRecent')}
+              <p
+                style={{
+                  color: 'var(--text-main)',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  marginBottom: '6px',
+                }}
+              >
+                {searchQuery
+                  ? `${t('noResults')} "${searchQuery}"`
+                  : selectedCategory === 'favorites'
+                    ? t('noFavorites')
+                    : t('noRecent')}
               </p>
             </div>
           ) : (
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(68px, 1fr))',
+                gridTemplateColumns: isWideCategory
+                  ? 'repeat(auto-fill, minmax(130px, 1fr))'
+                  : 'repeat(auto-fill, minmax(68px, 1fr))',
                 gap: '10px',
               }}
             >
@@ -724,7 +1189,7 @@ export default function EmojiCopyPage() {
 
                 return (
                   <div
-                    key={item.emoji}
+                    key={`${item.category}-${item.emoji}`}
                     role="button"
                     tabIndex={0}
                     onClick={() => handleCopyEmoji(item)}
@@ -734,28 +1199,28 @@ export default function EmojiCopyPage() {
                         handleCopyEmoji(item);
                       }
                     }}
-                    aria-label={item.emoji}
+                    aria-label={item.name || item.emoji}
+                    title={item.name}
                     style={{
                       position: 'relative',
-                      aspectRatio: '1',
+                      minHeight: isWideCategory ? '64px' : undefined,
+                      aspectRatio: isWideCategory ? undefined : '1',
+                      padding: isWideCategory ? '8px 12px' : '6px',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      backgroundColor: isJustCopied
-                        ? 'rgba(16, 185, 129, 0.15)'
-                        : 'var(--bg-card)',
-                      border: isJustCopied
-                        ? '1px solid #10b981'
-                        : '1px solid var(--border-color)',
+                      backgroundColor: isJustCopied ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-card)',
+                      border: isJustCopied ? '1px solid #10b981' : '1px solid var(--border-color)',
                       borderRadius: '14px',
                       cursor: 'pointer',
                       userSelect: 'none',
                       boxShadow: '0 2px 6px rgba(0, 0, 0, 0.02)',
-                      transition: 'transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease',
+                      transition:
+                        'transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'scale(1.12)';
+                      e.currentTarget.style.transform = 'scale(1.08)';
                       e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.08)';
                     }}
                     onMouseLeave={(e) => {
@@ -764,6 +1229,24 @@ export default function EmojiCopyPage() {
                     }}
                   >
                     <EmojiGlyph emoji={item.emoji} category={item.category} size={32} />
+
+                    {/* Optional small label for wide categories */}
+                    {isWideCategory && (
+                      <span
+                        style={{
+                          fontSize: '0.68rem',
+                          color: 'var(--text-muted)',
+                          marginTop: '4px',
+                          textAlign: 'center',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          maxWidth: '100%',
+                        }}
+                      >
+                        {item.name}
+                      </span>
+                    )}
 
                     {/* Favorite Heart Pin */}
                     <button
@@ -834,7 +1317,15 @@ export default function EmojiCopyPage() {
             <EmojiGlyph emoji={toast.emoji} size={24} />
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>{toast.name}</span>
-              <span style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.85rem' }}>
+              <span
+                style={{
+                  color: '#10b981',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '0.85rem',
+                }}
+              >
                 <Check size={14} />
                 {t('toastCopied')}
               </span>
@@ -859,6 +1350,8 @@ export default function EmojiCopyPage() {
             { q: t('faq2Q'), a: t('faq2A') },
             { q: t('faq3Q'), a: t('faq3A') },
             { q: t('faq4Q'), a: t('faq4A') },
+            { q: t('faq5Q'), a: t('faq5A') },
+            { q: t('faq6Q'), a: t('faq6A') },
           ]}
         />
       </div>

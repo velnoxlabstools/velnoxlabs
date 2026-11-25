@@ -1,0 +1,136 @@
+import type { EmojiItem } from './types';
+
+export const KAOMOJI_LIST: EmojiItem[] = [
+  {
+    emoji: '(｡♥‿♥｡)',
+    name: 'In Love Kaomoji',
+    category: 'kaomoji',
+    keywords: ['love', 'happy', 'blush', 'cute', 'japan'],
+  },
+  {
+    emoji: '(✿◠‿◠)',
+    name: 'Flower Girl Smile',
+    category: 'kaomoji',
+    keywords: ['smile', 'flower', 'happy', 'cute', 'peaceful'],
+  },
+  {
+    emoji: '⸜(｡˃ ᵕ ˂ )⸝♡',
+    name: 'Excited Yay with Heart',
+    category: 'kaomoji',
+    keywords: ['yay', 'excited', 'heart', 'happy', 'cute'],
+  },
+  {
+    emoji: 'ʕ•ᴥ•ʔ',
+    name: 'Cute Teddy Bear',
+    category: 'kaomoji',
+    keywords: ['bear', 'animal', 'teddy', 'cute'],
+  },
+  {
+    emoji: '₍ᐢ. .ᐢ₎',
+    name: 'Bunny Face',
+    category: 'kaomoji',
+    keywords: ['bunny', 'rabbit', 'cute', 'animal'],
+  },
+  {
+    emoji: '૮꒰ ˶• ༝ •˶꒱ა',
+    name: 'Puppy Doggy Ears',
+    category: 'kaomoji',
+    keywords: ['puppy', 'dog', 'cute', 'soft'],
+  },
+  {
+    emoji: '(づ｡◕‿‿◕｡)づ',
+    name: 'Big Hug Kaomoji',
+    category: 'kaomoji',
+    keywords: ['hug', 'embrace', 'cuddle', 'love'],
+  },
+  {
+    emoji: '(⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)',
+    name: 'Extremely Blushing',
+    category: 'kaomoji',
+    keywords: ['blush', 'shy', 'flustered', 'cute'],
+  },
+  {
+    emoji: '( ˘ ³˘)♥',
+    name: 'Blowing Kiss with Heart',
+    category: 'kaomoji',
+    keywords: ['kiss', 'love', 'smooch'],
+  },
+  {
+    emoji: '¯\\_(ツ)_/¯',
+    name: 'Shrug Whatever',
+    category: 'kaomoji',
+    keywords: ['shrug', 'whatever', 'dont know', 'idc'],
+  },
+  {
+    emoji: '(╯°□°)╯︵ ┻━┻',
+    name: 'Table Flip Rage',
+    category: 'kaomoji',
+    keywords: ['rage', 'table flip', 'angry', 'mad'],
+  },
+  {
+    emoji: '┬─┬ノ( º _ ºノ)',
+    name: 'Putting Table Back',
+    category: 'kaomoji',
+    keywords: ['calm', 'table', 'peace'],
+  },
+  {
+    emoji: "(ง'̀-'́)ง",
+    name: 'Ready to Fight Boxer',
+    category: 'kaomoji',
+    keywords: ['fight', 'punch', 'boxing', 'determined'],
+  },
+  {
+    emoji: '(•ㅅ•)',
+    name: 'Cat / Kitty Face',
+    category: 'kaomoji',
+    keywords: ['cat', 'kitty', 'cute'],
+  },
+  {
+    emoji: '(=^･ω･^=)',
+    name: 'Smiling Kitty with Whiskers',
+    category: 'kaomoji',
+    keywords: ['cat', 'whiskers', 'meow'],
+  },
+  {
+    emoji: '(╥﹏╥)',
+    name: 'Crying Flowing Tears',
+    category: 'kaomoji',
+    keywords: ['cry', 'sad', 'tears', 'upset'],
+  },
+  {
+    emoji: '(ಥ﹏ಥ)',
+    name: 'Emotional Tearing Up',
+    category: 'kaomoji',
+    keywords: ['cry', 'emotional', 'proud'],
+  },
+  {
+    emoji: '(*ᴗ͈ˬᴗ͈)ꕤ*.ﾟ',
+    name: 'Polite Bow with Flowers',
+    category: 'kaomoji',
+    keywords: ['bow', 'thank you', 'polite', 'cute'],
+  },
+  {
+    emoji: '(☞ﾟヮﾟ)☞',
+    name: 'Ayy Pointing Finger',
+    category: 'kaomoji',
+    keywords: ['point', 'cool', 'bro', 'finger guns'],
+  },
+  {
+    emoji: '(｡•́︿•̀｡)',
+    name: 'Pouting Sad Face',
+    category: 'kaomoji',
+    keywords: ['sad', 'pout', 'upset'],
+  },
+  {
+    emoji: '(°ロ°) !',
+    name: 'Shocked / Astonished',
+    category: 'kaomoji',
+    keywords: ['shocked', 'gasp', 'surprised'],
+  },
+  {
+    emoji: '(¬_¬ )',
+    name: 'Side Eye Suspicious',
+    category: 'kaomoji',
+    keywords: ['side eye', 'suspicious', 'doubt'],
+  },
+];
