@@ -358,8 +358,8 @@
       "description": "Gerador de hash online gratuito (MD5, SHA256, Bcrypt e arquivos). Obtenha digests criptográficos SHA-256, MD5 e SHA-512 instantaneamente no navegador com total privacidade."
     },
     "secure-password-generator": {
-      "name": "Gerador de Senhas Seguras",
-      "description": "Gera senhas criptograficamente fortes."
+      "name": "Gerador de Senhas Seguras IA – Criador de Senhas Fortes e Cofre Gratuito",
+      "description": "Gerador gratuito de senhas seguras com IA online. Crie senhas muito fortes (12, 14, 16, 18 caracteres), frases memoráveis com nome, códigos PIN e listas em massa com privacidade total no cliente."
     },
     "checksum-calculator": {
       "name": "Calculadora de Checksum Online (MD5, SHA256, Binário e 16 bits)",

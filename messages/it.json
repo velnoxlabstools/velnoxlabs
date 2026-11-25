@@ -358,8 +358,8 @@
       "description": "Generatore di hash online gratuito (MD5, SHA256, Bcrypt e file). Ricava impronte crittografiche SHA-256, MD5 e SHA-512 all'istante nel browser senza alcuna condivisione di dati."
     },
     "secure-password-generator": {
-      "name": "Generatore di Password Sicure",
-      "description": "Genera password crittograficamente forti."
+      "name": "Generatore di Password Sicure IA – Creazione Password Forti e Vault Gratuito",
+      "description": "Generatore di password sicure con IA online gratuito. Crea password molto robuste (12, 14, 16, 18 caratteri), passphrase memorabili con nome, PIN e liste multiple con sicurezza locale completa."
     },
     "checksum-calculator": {
       "name": "Calcolatore di Checksum Online (MD5, SHA256, Binario e 16 bit)",

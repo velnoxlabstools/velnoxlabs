@@ -358,8 +358,8 @@
       "description": "Kostenloser Online-Hash-Ersteller (MD5, SHA256, Bcrypt & Datei). Berechne SHA-256-, MD5- und SHA-512-Prüfsummen sofort im Browser mit lückenloser Sicherheit."
     },
     "secure-password-generator": {
-      "name": "Sicherer Passwort-Generator",
-      "description": "Generiert kryptografisch starke Passwörter."
+      "name": "KI Sicherer Passwort-Generator – Tresor für sehr starke Passwörter",
+      "description": "Kostenloser sicherer KI-Passwort-Generator online. Erstellen Sie sehr starke Passwörter (12, 14, 16, 18 Zeichen), einprägsame Passphrasen mit Namen, PINs und Massenlisten mit vollständiger clientseitiger Sicherheit."
     },
     "checksum-calculator": {
       "name": "Online-Prüfsummen-Rechner (MD5, SHA256, Binär & 16-Bit)",
