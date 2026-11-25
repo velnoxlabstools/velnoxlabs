@@ -339,8 +339,8 @@
       "description": "GitHub 文書、ブログ記事、技術ドキュメント向けの Markdown 記法をクリーンな HTML にリアルタイム変換。"
     },
     "url-encoder-decoder": {
-      "name": "URL エンコーダ & デコーダ",
-      "description": "URL 文字列やクエリパラメータのパーセントエンコード・デコードを行います。"
+      "name": "AI 無料 URL エンコード＆デコード – Python・Java・C#・JS",
+      "description": "無料のオンライン AI URL エンコード＆デコードツール。encodeURIComponent と encodeURI（%20 と + 切替）、クエリパラメータ解析に加え C#・Python・Java・JS コード例を収録。"
     },
     "uuid-generator": {
       "name": "UUID v4 生成ツール",

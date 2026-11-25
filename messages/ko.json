@@ -339,8 +339,8 @@
       "description": "GitHub 문서, 블로그 작성 및 웹페이지를 위한 Markdown 문법을 표준 HTML 코드로 실시간 변환."
     },
     "url-encoder-decoder": {
-      "name": "URL 인코더 및 디코더",
-      "description": "URI 구성 요소 및 URL 문자열을 안전하게 퍼센트 인코딩/디코딩합니다."
+      "name": "AI 무료 URL 인코더 및 디코더 – Python, Java, C# & JS",
+      "description": "무료 온라인 AI URL 인코더·디코더 도구. encodeURIComponent 및 encodeURI(%20 vs +) 전환, 쿼리 매개변수 추출과 함께 C#, Python, Java, JS, HTML 코드를 제공합니다."
     },
     "uuid-generator": {
       "name": "UUID v4 생성기",

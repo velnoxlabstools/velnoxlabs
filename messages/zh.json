@@ -339,8 +339,8 @@
       "description": "在线实时将 Markdown 语法渲染为干净语义化的 HTML 代码，适用于 GitHub 文档、博客发布与静态排版。"
     },
     "url-encoder-decoder": {
-      "name": "URL 编码与解码工具",
-      "description": "一键完成 URI 与 URL 参数的百分比编码与解码。"
+      "name": "AI 免费在线 URL 编码与解码器 – Python、Java、C# 与 JS",
+      "description": "免费在线 AI URL 百分号编码与解码工具。支持 encodeURIComponent 与 encodeURI 模式（%20 与 + 切换）、查询参数拆解，并附带 C#、Python、Java、JS 及 HTML 代码参考。"
     },
     "uuid-generator": {
       "name": "UUID v4 生成器",

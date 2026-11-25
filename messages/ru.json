@@ -339,8 +339,8 @@
       "description": "Мгновенное преобразование разметки Markdown в чистый HTML-код для GitHub, блогов и документации."
     },
     "url-encoder-decoder": {
-      "name": "Кодировщик и декодер URL",
-      "description": "Процентное кодирование и декодирование URL-адресов и параметров."
+      "name": "ИИ URL Кодировщик и Декодер Бесплатно – Python, Java, C# и JS",
+      "description": "Бесплатный онлайн ИИ-инструмент для URL-кодирования и декодирования. Поддержка encodeURIComponent и encodeURI (%20 vs +), разбор параметров и примеры для C#, Python, Java и JS."
     },
     "uuid-generator": {
       "name": "Генератор UUID v4",

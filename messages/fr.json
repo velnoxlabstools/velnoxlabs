@@ -346,8 +346,8 @@
       "description": "Transformez vos textes Markdown en balisage HTML propre en temps réel pour GitHub, blogs et documentations."
     },
     "url-encoder-decoder": {
-      "name": "Encodeur et Décodeur d'URL",
-      "description": "Encode et décode les composants URI."
+      "name": "Encodeur & Décodeur URL IA Gratuit – Python, Java, C# et JS",
+      "description": "Encodeur et décodeur d'URL IA gratuit en ligne. Choisissez encodeURIComponent ou encodeURI (%20 vs +), inspectez les paramètres et copiez les extraits C#, Python, Java et JS."
     },
     "uuid-generator": {
       "name": "Générateur UUID v4",
