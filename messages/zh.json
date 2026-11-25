@@ -375,8 +375,8 @@
       "description": "免费在线颜色转换器 (HEX, RGB, CMYK, LAB 与 Pantone)。在浏览器内快速互转色值并获取配色建议。"
     },
     "case-converter": {
-      "name": "句首大写转换与标题大小写 (Sentence Case & Title Case)",
-      "description": "免费在线句首大写与标题大小写转换工具。支持在 Excel 中将小写字母转换为大写、批量排版句子文本，无需安装任何扩展程序即可即时完成转换。"
+      "name": "AI 句首大写与标题大小写转换器 – 免费在线文本大小写工具",
+      "description": "免费在线 AI 句首大写与标题大小写转换工具。支持 Excel 小写转大写、Word 大写转小写，并可一键转换 12 种以上文本与编程命名格式。"
     },
     "lorem-ipsum": {
       "name": "Lorem Ipsum 假文生成器 (1000 Characters & Word)",

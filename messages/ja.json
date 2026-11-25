@@ -375,8 +375,8 @@
       "description": "無料のオンライン カラーコード変換ツール (HEX, RGB, CMYK, LAB & Pantone)。色コードの相互変換と近似色照合に対応。"
     },
     "case-converter": {
-      "name": "文頭大文字・タイトル大文字変換 (Sentence Case & Title Case)",
-      "description": "無料のオンライン大文字・小文字変換ツール。Excelで小文字を大文字に一括変換し、拡張機能なしで文章やタイトルの表記を即座に最適化。"
+      "name": "AI 英文大文字・小文字＆タイトルケース変換 – 無料オンラインツール",
+      "description": "無料のオンライン AI テキスト変換ツール。文頭大文字、タイトルケース、Excel での大文字化、Word での小文字化など 12 種類以上の形式に即座に切り替えられます。"
     },
     "lorem-ipsum": {
       "name": "Lorem Ipsum ダミーテキスト生成ツール (1000 Characters & Word)",
