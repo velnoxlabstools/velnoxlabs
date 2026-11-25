@@ -314,8 +314,8 @@
       "description": "Utilidad gratuita en línea para trasladar JSON a YAML y estructurar especificaciones Swagger y OpenAPI en segundos sin instalar paquetes CLI."
     },
     "url-parser-and-query-string-extractor": {
-      "name": "Analizador de URL y Extractor de Consultas",
-      "description": "Descompone URLs en componentes y parámetros de consulta."
+      "name": "Analizador de URL y Extractor de Parámetros Online",
+      "description": "Analice URLs completas o cadenas de consulta en origen, ruta, parámetros editables, exportación JSON y ejemplos en JavaScript, Python y .NET."
     },
     "mime-type-lookup-and-extension-finder": {
       "name": "Búsqueda de Tipos MIME y Extensiones Online – Verificador de Medios",

@@ -307,8 +307,8 @@
       "description": "Swagger や OpenAPI 向けに最適化された無料の JSON・YAML 相互変換ツール。CLI ツールのインストール不要で素早く整形可能。"
     },
     "url-parser-and-query-string-extractor": {
-      "name": "URL 解析 & クエリパラメータ抽出ツール",
-      "description": "URL の構成要素を分解し、クエリパラメータを一覧化・抽出します。"
+      "name": "オンライン URL パーサー＆クエリ抽出ツール",
+      "description": "URL やクエリ文字列をオリジン・パス・編集可能なクエリパラメータに分解し、JSON出力や JavaScript・Python・.NET のコード例も提供します。"
     },
     "mime-type-lookup-and-extension-finder": {
       "name": "MIME タイプ & 拡張子オンライン検索ツール – メディア種別早見表 (PDF 対応)",
