@@ -315,8 +315,8 @@
       "description": "확장자로 MIME 타입을 검색하거나 IANA 표준에 따른 확장자를 상호 조회할 수 있는 100여 종의 미디어 타입 데이터베이스."
     },
     "systemd-service-file-generator": {
-      "name": "Systemd 서비스 파일 생성기",
-      "description": "Linux systemd 데몬 구동을 위한 서비스 유닛 설정 파일을 생성합니다."
+      "name": "AI 무료 Systemd 서비스 파일 생성기 – Ubuntu 및 Debian 유닛 도구",
+      "description": "Ubuntu, Debian 및 Linux용 무료 AI Systemd 서비스 파일 생성기. 시각적 양식 또는 명령줄 방식으로 보안이 강화된 .service 파일과 systemctl 실행 명령을 손쉽게 만드세요."
     },
     "regex-tester": {
       "name": "AI 정규식 검사기 – Python, Java, C#, JS 지원",

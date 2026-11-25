@@ -315,8 +315,8 @@
       "description": "快速检索文件扩展名与对应的标准 IANA MIME 媒体类型，覆盖 100 余种主流文件格式。"
     },
     "systemd-service-file-generator": {
-      "name": "Systemd 服务配置文件生成器",
-      "description": "快速生成标准的 Linux systemd 守护进程服务配置文件。"
+      "name": "AI 免费 Systemd 服务文件生成器 – Ubuntu 与 Debian 单元配置工具",
+      "description": "适用于 Ubuntu、Debian 与 Linux 的免费 AI Systemd 服务文件生成器。通过可视化表单或命令行一键创建加固的 .service 配置、浏览范例并复制 systemctl 启动命令。"
     },
     "regex-tester": {
       "name": "AI在线正则表达式测试器 – 支持Python、Java、C#与JS",

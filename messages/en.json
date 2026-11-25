@@ -315,8 +315,8 @@
       "description": "Free MIME type lookup & extension finder online and MIME type checker. Get mime type for PDF, images, video, and code files across Windows, Python, and JavaScript."
     },
     "systemd-service-file-generator": {
-      "name": "Systemd Service File Generator",
-      "description": "Create Linux systemd service files."
+      "name": "AI Systemd Service File Generator Free – Ubuntu & Debian Unit Maker",
+      "description": "Free AI systemd service file generator for Ubuntu, Debian & Linux. Build hardened .service unit files visually or via command line, explore systemd examples, and copy systemctl start commands instantly."
     },
     "regex-tester": {
       "name": "AI RegEx Tester Online – Python, Java, C# & JS",

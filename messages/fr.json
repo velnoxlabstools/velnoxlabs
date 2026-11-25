@@ -322,8 +322,8 @@
       "description": "Identifiez les types MIME par extension ou retrouvez les extensions selon la norme IANA parmi plus de 100 types de fichiers."
     },
     "systemd-service-file-generator": {
-      "name": "Générateur de Fichiers de Service Systemd",
-      "description": "Crée des fichiers de service systemd Linux."
+      "name": "Générateur de Fichiers Systemd IA Gratuit – Unités Ubuntu & Debian",
+      "description": "Générateur gratuit de fichiers de service systemd par IA pour Ubuntu, Debian et Linux. Créez des unités .service sécurisées visuellement ou en ligne de commande avec commandes systemctl prêtes."
     },
     "regex-tester": {
       "name": "Testeur RegEx avec IA – Python, Java, C# et JS",

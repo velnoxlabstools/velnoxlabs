@@ -315,8 +315,8 @@
       "description": "拡張子から MIME タイプを検索、または IANA 規格からファイル拡張子を逆引きできる 100 種類以上の総合データベース。"
     },
     "systemd-service-file-generator": {
-      "name": "Systemd サービス設定ファイル生成ツール",
-      "description": "Linux systemd のユニット設定ファイルをウィザード形式で生成します。"
+      "name": "AI 無料 Systemd サービスファイル生成器 – Ubuntu・Debian 対応",
+      "description": "Ubuntu、Debian、Linux 向けの無料 AI Systemd サービス設定ツール。GUI フォームやコマンドライン形式で安全な .service ユニットを作成し、systemctl 起動コマンドを即コピーできます。"
     },
     "regex-tester": {
       "name": "AI正規表現チェッカー – Python・Java・C#・JS対応",

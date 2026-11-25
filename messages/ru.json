@@ -315,8 +315,8 @@
       "description": "Поиск MIME-типов по расширениям файлов и поиск расширений по спецификациям IANA для более чем 100 типов файлов."
     },
     "systemd-service-file-generator": {
-      "name": "Генератор файлов служб Systemd",
-      "description": "Создание конфигурационных файлов сервисов Linux systemd с помощью мастера."
+      "name": "ИИ Генератор Файлов Systemd Бесплатно – Конфигуратор Ubuntu и Debian",
+      "description": "Бесплатный ИИ-генератор файлов служб systemd для Ubuntu, Debian и Linux. Создавайте защищённые .service юниты визуально или через командную строку вместе с командами systemctl."
     },
     "regex-tester": {
       "name": "ИИ Тестер RegEx – Python, Java, C# и JS",

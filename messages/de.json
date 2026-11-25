@@ -322,8 +322,8 @@
       "description": "Finden Sie MIME-Typen nach Dateiendung oder suchen Sie Dateiendungen nach IANA-Typen – über 100 Dateitypen."
     },
     "systemd-service-file-generator": {
-      "name": "Systemd-Service-Datei-Generator",
-      "description": "Erstellt Linux-Systemd-Service-Dateien."
+      "name": "KI Systemd-Service-Generator Kostenlos – Ubuntu & Debian Unit-Editor",
+      "description": "Kostenloser KI-Generator für Systemd-Service-Dateien unter Ubuntu, Debian und Linux. Erstellen Sie gehärtete .service-Dateien visuell oder per Befehlszeile inklusive systemctl-Startbefehlen."
     },
     "regex-tester": {
       "name": "KI RegEx-Tester – Python, Java, C# und JS",
