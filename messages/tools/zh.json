@@ -504,7 +504,21 @@
       "faq3Q": "本工具如何实现定时表达式的人性化排版与解读？",
       "faq3A": "本工具能将晦涩抽象的特殊字符自动解析并翻译为结构清晰、易于理解的自然语言短句。例如将 '*/15 9-17 * * 1-5' 即时翻译为'每周一至周五，上午 9:00 至下午 5:59 期间每隔 15 分钟执行一次'。同时将时间单元分列呈现，让定时逻辑清晰明了。",
       "faq4Q": "本工具是否完美支持 Java、Spring 和 Quartz 框架语法？",
-      "faq4A": "完全支持。本工具针对企业级 Java 生态进行了深度适配，不仅支持 Spring 框架 @Scheduled 注解所需的含秒级 6 字段语法，还完美兼容 Quartz 调度引擎及 Salesforce Apex 异步定时任务，助您快速完成跨平台调度规则的生成与验证。"
+      "faq4A": "完全支持。本工具针对企业级 Java 生态进行了深度适配，不仅支持 Spring 框架 @Scheduled 注解所需的含秒级 6 字段语法，还完美兼容 Quartz 调度引擎及 Salesforce Apex 异步定时任务，助您快速完成跨平台调度规则的生成与验证。",
+      "aiPromptTitle": "AI 自然语言转 Cron（英文描述转换）",
+      "aiPromptPlaceholder": "输入英文调度描述（例如 Every weekday at 9:30 AM）...",
+      "aiGenerateBtn": "创建 Cron",
+      "aiUnrecognizedHint": "未能识别该短语，请尝试 \"Every 5 minutes\" 或直接使用下方字段构建器。",
+      "dialectLinux": "Linux / Crontab (5字段)",
+      "dialectSpring": "Spring / Quartz (6字段)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "粘贴 Cron 表达式以验证...",
+      "second": "秒",
+      "yearLabel": "年",
+      "validSyntaxBadge": "Cron 表达式有效",
+      "invalidFieldsError": "以下字段范围或语法无效：{fields}",
+      "nextRunsTitle": "接下来 5 次运行时间：",
+      "noUpcomingRuns": "未来一年内无匹配运行时间。"
     },
     "cspHeaderBuilder": {
       "directivesLabel": "指令（按换行符或分号分隔）：",

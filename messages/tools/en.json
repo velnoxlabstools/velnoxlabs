@@ -504,7 +504,21 @@
       "faq3Q": "How does this tool function as a free formatter cron expression decoder?",
       "faq3A": "Our utility serves as an interactive Free formatter cron expression tool by breaking down cryptic asterisk strings into structured, human-readable sentences. Instead of guessing what '*/15 9-17 * * 1-5' means, the formatter translates it into 'Every 15 minutes, between 09:00 AM and 05:59 PM, Monday through Friday'. It also structures each individual time unit into distinct fields, making complex cron editing intuitive.",
       "faq4Q": "Does this support Java developers with Spring, Quartz, and Salesforce cron syntax?",
-      "faq4A": "Yes! Our Free cron expression generator & validator java utility is fully equipped for enterprise Java backends. It supports the 6-field Spring cron expression used in @Scheduled annotations (which includes seconds), functions as a dedicated Quartz cron expression generator for Quartz Scheduler jobs, and acts as a Salesforce cron expression generator for Apex asynchronous schedules. You can quickly generate and verify schedules across all Java and enterprise frameworks."
+      "faq4A": "Yes! Our Free cron expression generator & validator java utility is fully equipped for enterprise Java backends. It supports the 6-field Spring cron expression used in @Scheduled annotations (which includes seconds), functions as a dedicated Quartz cron expression generator for Quartz Scheduler jobs, and acts as a Salesforce cron expression generator for Apex asynchronous schedules. You can quickly generate and verify schedules across all Java and enterprise frameworks.",
+      "aiPromptTitle": "AI Natural Language to Cron (English to Cron)",
+      "aiPromptPlaceholder": "Describe your schedule in plain English (e.g., Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Generate Cron",
+      "aiUnrecognizedHint": "Could not match that phrase automatically. Try phrases like \"Every 5 minutes\" or \"Every Monday at 8 AM\", or use the visual builder below.",
+      "dialectLinux": "Linux / Crontab (5-field)",
+      "dialectSpring": "Spring / Quartz (6-field)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Paste cron expression to validate...",
+      "second": "Second",
+      "yearLabel": "Year",
+      "validSyntaxBadge": "Valid cron expression",
+      "invalidFieldsError": "Invalid range or syntax in: {fields}",
+      "nextRunsTitle": "Next 5 Upcoming Run Times:",
+      "noUpcomingRuns": "No matching run times found within the next year."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Directives (newline or semicolon separated):",

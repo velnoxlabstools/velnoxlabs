@@ -504,7 +504,21 @@
       "faq3Q": "Cron 式を分かりやすい日本語に整形・翻訳する仕組みは？",
       "faq3A": "本ツールはアスタリスクやスラッシュなどの記号列を構文解析し、直感的な日本語の文章として表示します。例えば '*/15 9-17 * * 1-5' と入力すると、「月曜日から金曜日の 09:00 から 17:59 の間、15 分ごと」のように分かりやすく解説されます。各時間単位が個別の枠に整理されるため、手動調整も直感的に行えます。",
       "faq4Q": "Java、Spring、Quartz、Salesforce のスケジュール構文に対応していますか？",
-      "faq4A": "はい、エンタープライズ Java 開発を完全にサポートしています。秒単位を含む Spring の @Scheduled アノテーション用 6 フィールド構文、Quartz Scheduler 用のジョブ定義、そして Salesforce Apex の非同期スケジュール設定に対応しており、主要なバックエンド基盤の定期実行設定を迅速に作成・検証できます。"
+      "faq4A": "はい、エンタープライズ Java 開発を完全にサポートしています。秒単位を含む Spring の @Scheduled アノテーション用 6 フィールド構文、Quartz Scheduler 用のジョブ定義、そして Salesforce Apex の非同期スケジュール設定に対応しており、主要なバックエンド基盤の定期実行設定を迅速に作成・検証できます。",
+      "aiPromptTitle": "AI自然言語からCron生成（英語入力）",
+      "aiPromptPlaceholder": "英語でスケジュールを入力（例: Every weekday at 9:30 AM）...",
+      "aiGenerateBtn": "Cronを作成",
+      "aiUnrecognizedHint": "自動解釈できませんでした。\"Every 5 minutes\" などを試すか下の各欄で調整してください。",
+      "dialectLinux": "Linux / Crontab (5項目)",
+      "dialectSpring": "Spring / Quartz (6項目)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Cron式を貼り付けて検証...",
+      "second": "秒",
+      "yearLabel": "年",
+      "validSyntaxBadge": "有効なCron式です",
+      "invalidFieldsError": "範囲または構文が無効です: {fields}",
+      "nextRunsTitle": "次回実行予定（直近5回）:",
+      "noUpcomingRuns": "今後1年間の実行予定が見つかりません。"
     },
     "cspHeaderBuilder": {
       "directivesLabel": "ディレクティブ（改行またはセミコロン区切り）:",

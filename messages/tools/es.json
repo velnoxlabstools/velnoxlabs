@@ -504,7 +504,21 @@
       "faq3Q": "¿De qué manera funciona como un decodificador y organizador de sintaxis cron?",
       "faq3A": "Traduce cadenas complejas de asteriscos y barras a explicaciones descriptivas en lenguaje natural. En vez de descifrar '*/15 9-17 * * 1-5', el asistente explica: 'Cada 15 minutos, entre las 09:00 y las 17:59, de lunes a viernes'. Además, muestra cada unidad temporal en casillas independientes para facilitar su ajuste.",
       "faq4Q": "¿Es compatible con los estándares de Java, Spring, Quartz y Salesforce?",
-      "faq4A": "Sí. La herramienta está adaptada para entornos Java empresariales. Admite la variante con segundos empleada en las anotaciones @Scheduled de Spring, proporciona compatibilidad con el programador Quartz y facilita secuencias compatibles con el método System.schedule de Salesforce Apex."
+      "faq4A": "Sí. La herramienta está adaptada para entornos Java empresariales. Admite la variante con segundos empleada en las anotaciones @Scheduled de Spring, proporciona compatibilidad con el programador Quartz y facilita secuencias compatibles con el método System.schedule de Salesforce Apex.",
+      "aiPromptTitle": "IA de Lenguaje Natural a Cron (Inglés a Cron)",
+      "aiPromptPlaceholder": "Describe tu horario en inglés simple (ej. Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Crear Cron",
+      "aiUnrecognizedHint": "No se pudo interpretar esa frase. Prueba \"Every 5 minutes\" o usa el constructor visual abajo.",
+      "dialectLinux": "Linux / Crontab (5 campos)",
+      "dialectSpring": "Spring / Quartz (6 campos)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Pega una expresión cron para validar...",
+      "second": "Segundo",
+      "yearLabel": "Año",
+      "validSyntaxBadge": "Expresión cron válida",
+      "invalidFieldsError": "Rango o sintaxis inválida en: {fields}",
+      "nextRunsTitle": "Próximas 5 Ejecuciones:",
+      "noUpcomingRuns": "No hay ejecuciones próximas en el próximo año."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Directivas (separadas por salto de línea o punto y coma):",

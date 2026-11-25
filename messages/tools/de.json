@@ -504,7 +504,21 @@
       "faq3Q": "Wie funktioniert die automatische Übersetzung in verständliche Sprache?",
       "faq3A": "Das Werkzeug entschlüsselt verschachtelte Sternchen-Kombinationen in klare Textaussagen. Aus einer Zeichenfolge wie '*/15 9-17 * * 1-5' wird verständlich: 'Alle 15 Minuten, zwischen 09:00 und 17:59 Uhr, Montag bis Freitag'. Zudem werden alle Einheiten in separaten Feldern aufbereitet, was Anpassungen besonders übersichtlich macht.",
       "faq4Q": "Werden Entwicklungs-Frameworks wie Java, Spring, Quartz und Salesforce unterstützt?",
-      "faq4A": "Ja. Das Werkzeug ist für anspruchsvolle Java-Umgebungen optimiert. Es unterstützt die 6-Felder-Syntax mit Sekundenangabe für die @Scheduled-Annotation in Spring, erstellt Zeitpläne für den Quartz-Scheduler und bereitet Ausdrücke für das System.schedule-Verfahren in Salesforce Apex passgenau vor."
+      "faq4A": "Ja. Das Werkzeug ist für anspruchsvolle Java-Umgebungen optimiert. Es unterstützt die 6-Felder-Syntax mit Sekundenangabe für die @Scheduled-Annotation in Spring, erstellt Zeitpläne für den Quartz-Scheduler und bereitet Ausdrücke für das System.schedule-Verfahren in Salesforce Apex passgenau vor.",
+      "aiPromptTitle": "KI Natürliche Sprache zu Cron (Englisch zu Cron)",
+      "aiPromptPlaceholder": "Zeitplan auf Englisch beschreiben (z. B. Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Cron erstellen",
+      "aiUnrecognizedHint": "Ausdruck nicht erkannt. Versuchen Sie \"Every 5 minutes\" oder nutzen Sie die Felder unten.",
+      "dialectLinux": "Linux / Crontab (5 Felder)",
+      "dialectSpring": "Spring / Quartz (6 Felder)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Cron-Ausdruck zum Prüfen einfügen...",
+      "second": "Sekunde",
+      "yearLabel": "Jahr",
+      "validSyntaxBadge": "Gültiger Cron-Ausdruck",
+      "invalidFieldsError": "Ungültiger Bereich oder Syntax in: {fields}",
+      "nextRunsTitle": "Nächste 5 Ausführungszeiten:",
+      "noUpcomingRuns": "Keine passenden Zeiten im nächsten Jahr gefunden."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Direktiven (durch Zeilenumbruch oder Semikolon getrennt):",

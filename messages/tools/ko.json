@@ -504,7 +504,21 @@
       "faq3Q": "크론 표현식을 알기 쉬운 한글 문장으로 해독하고 정리하는 기능은 어떻게 작동하나요?",
       "faq3A": "본 도구는 복잡한 별표와 슬래시 기호를 분석하여 자연스러운 한글 문장으로 즉시 번역해 줍니다. 예를 들어 '*/15 9-17 * * 1-5'라는 수식을 '월요일부터 금요일까지, 오전 09:00부터 오후 05:59 사이 15분마다 실행'과 같이 직관적으로 풀이해 주며, 각 시간 단위를 개별 항목으로 구분하여 편집을 매우 편리하게 만들어 줍니다.",
       "faq4Q": "자바(Java), Spring, Quartz 및 세일즈포스 스케줄 문법을 모두 지원하나요?",
-      "faq4A": "네, 완벽히 지원합니다! 초 단위를 포함하여 Spring @Scheduled 어노테이션에서 사용되는 6자리 구문은 물론, Quartz Scheduler 전용 표현식 생성과 Salesforce Apex의 System.schedule 메서드에 즉시 대입할 수 있는 규칙까지 폭넓게 처리하여 엔터프라이즈 개발 생산성을 극대화합니다."
+      "faq4A": "네, 완벽히 지원합니다! 초 단위를 포함하여 Spring @Scheduled 어노테이션에서 사용되는 6자리 구문은 물론, Quartz Scheduler 전용 표현식 생성과 Salesforce Apex의 System.schedule 메서드에 즉시 대입할 수 있는 규칙까지 폭넓게 처리하여 엔터프라이즈 개발 생산성을 극대화합니다.",
+      "aiPromptTitle": "AI 자연어 Cron 변환 (영어 문장 입력)",
+      "aiPromptPlaceholder": "영어로 일정을 입력하세요 (예: Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Cron 만들기",
+      "aiUnrecognizedHint": "문장을 인식하지 못했습니다. \"Every 5 minutes\" 등을 입력하거나 아래 필드를 사용하세요.",
+      "dialectLinux": "Linux / Crontab (5필드)",
+      "dialectSpring": "Spring / Quartz (6필드)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "검증할 Cron 식을 붙여넣으세요...",
+      "second": "초",
+      "yearLabel": "연도",
+      "validSyntaxBadge": "유효한 Cron 표현식",
+      "invalidFieldsError": "잘못된 범위 또는 구문: {fields}",
+      "nextRunsTitle": "다음 5회 실행 예정 시간:",
+      "noUpcomingRuns": "향후 1년 내 일치하는 실행 시간이 없습니다."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "지시문 (줄바꿈 또는 세미콜론으로 구분):",

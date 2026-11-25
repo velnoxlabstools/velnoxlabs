@@ -504,7 +504,21 @@
       "faq3Q": "Como esta ferramenta atua como um decodificador amigável de sintaxe cron?",
       "faq3A": "Ela decifra sequências complexas de caracteres em explicações gramaticais claras. Em vez de interpretar '*/15 9-17 * * 1-5', o sistema esclarece: 'A cada 15 minutos, entre 09:00 e 17:59, de segunda a sexta-feira'. Além disso, separa visualmente cada unidade de tempo para facilitar ajustes manuais.",
       "faq4Q": "Existe suporte completo para os padrões Java, Spring, Quartz e Salesforce?",
-      "faq4A": "Sim! O utilitário atende com precisão aos ecossistemas Java corporativos. Ele reconhece a sintaxe de 6 campos com segundos usada na anotação @Scheduled do Spring, integra-se às diretrizes do Quartz Scheduler e gera agendamentos compatíveis com o comando System.schedule do Salesforce Apex."
+      "faq4A": "Sim! O utilitário atende com precisão aos ecossistemas Java corporativos. Ele reconhece a sintaxe de 6 campos com segundos usada na anotação @Scheduled do Spring, integra-se às diretrizes do Quartz Scheduler e gera agendamentos compatíveis com o comando System.schedule do Salesforce Apex.",
+      "aiPromptTitle": "IA Linguagem Natural para Cron (Inglês para Cron)",
+      "aiPromptPlaceholder": "Descreva o horário em inglês (ex. Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Criar Cron",
+      "aiUnrecognizedHint": "Frase não reconhecida. Tente \"Every 5 minutes\" ou use os campos abaixo.",
+      "dialectLinux": "Linux / Crontab (5 campos)",
+      "dialectSpring": "Spring / Quartz (6 campos)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Cole a expressão cron para validar...",
+      "second": "Segundo",
+      "yearLabel": "Ano",
+      "validSyntaxBadge": "Expressão cron válida",
+      "invalidFieldsError": "Intervalo ou sintaxe inválida em: {fields}",
+      "nextRunsTitle": "Próximas 5 Execuções:",
+      "noUpcomingRuns": "Nenhuma execução encontrada no próximo ano."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Diretivas (separadas por nova linha ou ponto e vírgula):",

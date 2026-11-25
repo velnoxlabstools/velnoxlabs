@@ -504,7 +504,21 @@
       "faq3Q": "Comment l'outil fonctionne-t-il pour clarifier la lecture d'une expression cron ?",
       "faq3A": "Il transforme les successions d'astérisques et de chiffres en phrases descriptives fluides. Au lieu de déchiffrer '*/15 9-17 * * 1-5', il indique : 'Toutes les 15 minutes, entre 09:00 et 17:59, du lundi au vendredi'. De plus, chaque unité temporelle est isolée pour faciliter les modifications.",
       "faq4Q": "L'outil prend-il en charge les environnements Java, Spring, Quartz et Salesforce ?",
-      "faq4A": "Oui ! L'application est conçue pour les architectures Java. Elle prend en charge la syntaxe avec secondes requise par l'annotation @Scheduled de Spring, génère des configurations prêtes pour Quartz Scheduler et prépare les chaînes adaptées à la méthode System.schedule de Salesforce Apex."
+      "faq4A": "Oui ! L'application est conçue pour les architectures Java. Elle prend en charge la syntaxe avec secondes requise par l'annotation @Scheduled de Spring, génère des configurations prêtes pour Quartz Scheduler et prépare les chaînes adaptées à la méthode System.schedule de Salesforce Apex.",
+      "aiPromptTitle": "IA Langage Naturel vers Cron (Anglais vers Cron)",
+      "aiPromptPlaceholder": "Décrivez votre horaire en anglais (ex. Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Créer Cron",
+      "aiUnrecognizedHint": "Phrase non reconnue automatiquement. Essayez \"Every 5 minutes\" ou modifiez les champs.",
+      "dialectLinux": "Linux / Crontab (5 champs)",
+      "dialectSpring": "Spring / Quartz (6 champs)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Collez une expression cron à valider...",
+      "second": "Seconde",
+      "yearLabel": "Année",
+      "validSyntaxBadge": "Expression cron valide",
+      "invalidFieldsError": "Plage ou syntaxe invalide dans : {fields}",
+      "nextRunsTitle": "5 Prochaines Exécutions :",
+      "noUpcomingRuns": "Aucune exécution trouvée dans l'année à venir."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Directives (séparées par saut de ligne ou point-virgule) :",

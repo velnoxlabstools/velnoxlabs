@@ -506,7 +506,21 @@
       "faq3Q": "Come agisce questo strumento per decodificare in modo chiaro la sintassi cron?",
       "faq3A": "Riorganizza sequenze complesse di asterischi in descrizioni discorsive comprensibili. Anziché decifrare '*/15 9-17 * * 1-5', il sistema spiega: 'Ogni 15 minuti, dalle 09:00 alle 17:59, da lunedì a venerdì'. Inoltre, suddivide ogni segmento temporale in caselle separate per una gestione comoda e intuitiva.",
       "faq4Q": "Offre pieno supporto agli standard Java, Spring, Quartz e Salesforce?",
-      "faq4A": "Certamente! La procedura risponde alle esigenze delle applicazioni Java aziendali. Supporta la sintassi con secondi usata nell'annotazione @Scheduled di Spring, si adatta alle specifiche di Quartz Scheduler e fornisce istruzioni compatibili con il metodo System.schedule di Salesforce Apex."
+      "faq4A": "Certamente! La procedura risponde alle esigenze delle applicazioni Java aziendali. Supporta la sintassi con secondi usata nell'annotazione @Scheduled di Spring, si adatta alle specifiche di Quartz Scheduler e fornisce istruzioni compatibili con il metodo System.schedule di Salesforce Apex.",
+      "aiPromptTitle": "IA Linguaggio Naturale a Cron (Inglese a Cron)",
+      "aiPromptPlaceholder": "Descrivi l'orario in inglese (es. Every weekday at 9:30 AM)...",
+      "aiGenerateBtn": "Crea Cron",
+      "aiUnrecognizedHint": "Frase non riconosciuta. Prova \"Every 5 minutes\" o usa i campi visivi sotto.",
+      "dialectLinux": "Linux / Crontab (5 campi)",
+      "dialectSpring": "Spring / Quartz (6 campi)",
+      "dialectAws": "AWS EventBridge",
+      "pasteCronPlaceholder": "Incolla espressione cron da validare...",
+      "second": "Secondo",
+      "yearLabel": "Anno",
+      "validSyntaxBadge": "Espressione cron valida",
+      "invalidFieldsError": "Intervallo o sintassi non valida in: {fields}",
+      "nextRunsTitle": "Prossime 5 Esecuzioni:",
+      "noUpcomingRuns": "Nessuna esecuzione trovata nel prossimo anno."
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Direttive (separate da nuova riga o punto e virgola):",
