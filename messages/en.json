@@ -263,8 +263,8 @@
       "description": "Create professional PDF invoices in INR, Euro, and USD. A free, no-login alternative to Zoho and Invoice-Generator.com."
     },
     "base64-encoder": {
-      "name": "Base64 Encoder & Decoder Online – Encode File to Base64",
-      "description": "Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 strings, images, and URL-safe data."
+      "name": "Base64 Encoder & Decoder Online – File to Base64 & Base64 to PDF",
+      "description": "Free Base64 encode decode tool online. Convert file to Base64 online, decode Base64 to PDF or images with live preview, toggle URL-safe Base64, and view Windows/Linux command line snippets."
     },
     "cron-expression-generator": {
       "name": "Best Free Cron Expression Generator & Validator – Cron Expression Formatter",

@@ -263,8 +263,8 @@
       "description": "INR, 유로, USD로 전문 PDF 송장을 무료 발행. 로그인 없는 Zoho 및 Invoice-Generator.com 대안."
     },
     "base64-encoder": {
-      "name": "온라인 Base64 인코더 및 디코더 – 파일 Base64 인코딩",
-      "description": "무료 온라인 Base64 인코더 및 디코더. 파일을 Base64로 인코딩하고 이미지 및 URL 안전 데이터를 즉시 디코딩합니다."
+      "name": "온라인 Base64 인코더 및 디코더 – 파일 Base64 변환 및 PDF 디코딩",
+      "description": "무료 온라인 Base64 인코딩 및 디코딩 도구입니다. 파일을 Base64로 변환하고, Base64를 PDF 또는 이미지로 디코딩 및 미리보기하며 URL 안전 모드를 지원합니다."
     },
     "cron-expression-generator": {
       "name": "크론 표현식 생성기 및 유효성 검사기 – Cron 스케줄 구문 분석기",

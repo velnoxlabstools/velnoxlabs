@@ -410,9 +410,9 @@ export const tools: Tool[] = [
   {
     id: 'tool-base64',
     slug: 'base64-encoder',
-    name: 'Base64 Encoder & Decoder Online – Encode File to Base64',
+    name: 'Base64 Encoder & Decoder Online – File to Base64 & Base64 to PDF',
     description:
-      'Free Base64 encoder & decoder online. Encode file to Base64, decode Base64 strings, images, and URL-safe data.',
+      'Free Base64 encode decode tool online. Convert file to Base64 online, decode Base64 to PDF or images with live preview, toggle URL-safe Base64, and view Windows/Linux command line snippets.',
     categoryId: 'cat-converters',
     tags: [
       'base64',
@@ -420,6 +420,13 @@ export const tools: Tool[] = [
       'decode',
       'base64 encoder & decoder online',
       'base64 decode',
+      'decode base64 online',
+      'file to base64 online',
+      'base64 to pdf',
+      'base64 encode decode',
+      'encode to base64',
+      'base64 encode file command line',
+      'file to base64 windows',
       'base64 decoder online',
       'base64 image decoder',
       'base64 encode online',

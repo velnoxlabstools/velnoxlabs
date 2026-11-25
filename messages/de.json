@@ -270,8 +270,8 @@
       "description": "Professionelle PDF-Rechnungen in INR, Euro und USD erstellen. Kostenlose Alternative ohne Anmeldung zu Zoho und Invoice-Generator.com."
     },
     "base64-encoder": {
-      "name": "Base64-Encoder & Decoder Online – Datei in Base64 kodieren",
-      "description": "Kostenloser Online-Base64-Encoder und Decoder. Dateien in Base64 kodieren, Bilder decodieren und URL-sichere Daten verarbeiten."
+      "name": "Base64 Encoder & Decoder Online – Datei zu Base64 & Base64 zu PDF",
+      "description": "Kostenloses Online-Tool zum Base64-Kodieren und Dekodieren. Dateien in Base64 umwandeln, Base64 als PDF oder Bild mit Vorschau dekodieren und URL-safe aktivieren."
     },
     "cron-expression-generator": {
       "name": "Cron-Ausdruck-Ersteller & Validator – Syntax-Übersetzer für Cronjobs",
