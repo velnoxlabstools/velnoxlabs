@@ -350,8 +350,8 @@
       "description": "Kostenloser KI URL-Encoder & Decoder im Browser. Unterstützt encodeURIComponent vs. encodeURI (%20 vs. +), Parameter-Ansicht sowie Code-Vorlagen für C#, Python, Java, JS und HTML."
     },
     "uuid-generator": {
-      "name": "UUID-v4-Generator",
-      "description": "Generiert Version-4-UUIDs."
+      "name": "Kostenloser AI UUID v4 & v7 Generator Online – Validator & Short UUID",
+      "description": "Erzeugen Sie bis zu 1.000 RFC 4122/9562 UUID v4 & v7 IDs, 22-stellige Short UUIDs, prüfen Sie UUID-Formate inkl. v7-Zeitstempel und exportieren Sie als TXT oder JSON."
     },
     "hash-generator": {
       "name": "Online-Hash-Ersteller (MD5, SHA256, Bcrypt & Datei-Prüfsummen)",

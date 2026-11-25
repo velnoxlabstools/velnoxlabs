@@ -343,8 +343,8 @@
       "description": "無料のオンライン AI URL エンコード＆デコードツール。encodeURIComponent と encodeURI（%20 と + 切替）、クエリパラメータ解析に加え C#・Python・Java・JS コード例を収録。"
     },
     "uuid-generator": {
-      "name": "UUID v4 生成ツール",
-      "description": "RFC 準拠の暗号学的に安全な Version 4 UUID を一括生成します。"
+      "name": "AI 無料オンライン UUID v4・v7 生成＆検証ツール – Short UUID 対応",
+      "description": "RFC 4122/9562 準拠の UUID v4 および時系列ソート可能な UUID v7 を最大 1,000 件一括生成。22文字の Short UUID 変換、検証、v7 時刻抽出、TXT/JSON 出力に対応。"
     },
     "hash-generator": {
       "name": "オンラインハッシュ生成＆検証ツール (MD5, SHA256, Bcrypt, ファイル対応)",

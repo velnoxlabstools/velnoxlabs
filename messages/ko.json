@@ -343,8 +343,8 @@
       "description": "무료 온라인 AI URL 인코더·디코더 도구. encodeURIComponent 및 encodeURI(%20 vs +) 전환, 쿼리 매개변수 추출과 함께 C#, Python, Java, JS, HTML 코드를 제공합니다."
     },
     "uuid-generator": {
-      "name": "UUID v4 생성기",
-      "description": "RFC 표준을 준수하는 암호학적으로 안전한 버전 4 UUID를 생성합니다."
+      "name": "무료 온라인 AI UUID v4 & v7 생성기 – 검증기 및 Short UUID",
+      "description": "RFC 4122/9562 기반 UUID v4와 시간순 정렬 가능한 UUID v7을 최대 1,000개 생성하고 22자 Short UUID 변환, 형식 검증, TXT/JSON 내보내기를 지원합니다."
     },
     "hash-generator": {
       "name": "온라인 해시 생성기 (MD5, SHA256, Bcrypt 및 파일 체크섬)",

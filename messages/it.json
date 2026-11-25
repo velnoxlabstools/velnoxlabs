@@ -350,8 +350,8 @@
       "description": "Strumento gratuito IA online per codificare e decodificare URL. Alterna encodeURIComponent ed encodeURI (%20 vs +), analizza i parametri e copia codice C#, Python, Java e JS."
     },
     "uuid-generator": {
-      "name": "Generatore UUID v4",
-      "description": "Genera UUID Versione 4."
+      "name": "Generatore AI UUID v4 e v7 Online Gratis – Validatore e Short UUID",
+      "description": "Genera fino a 1.000 UUID v4 e v7 ordinabili (RFC 4122/9562), converti in Short UUID da 22 caratteri, valida il formato e i timestamp v7 ed esporta TXT/JSON."
     },
     "hash-generator": {
       "name": "Generatore di Hash Online (MD5, SHA256, Bcrypt e File)",

@@ -343,8 +343,8 @@
       "description": "Бесплатный онлайн ИИ-инструмент для URL-кодирования и декодирования. Поддержка encodeURIComponent и encodeURI (%20 vs +), разбор параметров и примеры для C#, Python, Java и JS."
     },
     "uuid-generator": {
-      "name": "Генератор UUID v4",
-      "description": "Пакетная генерация криптографически стойких идентификаторов UUID версии 4."
+      "name": "Бесплатный AI генератор UUID v4 и v7 – Валидатор и Short UUID",
+      "description": "Создавайте до 1000 UUID v4 и сортируемых UUID v7 (RFC 4122/9562), 22-символьные Short UUID, проверяйте формат и метку времени v7, скачивайте TXT/JSON."
     },
     "hash-generator": {
       "name": "Онлайн генератор хешей (MD5, SHA256, Bcrypt и файлов)",

@@ -343,8 +343,8 @@
       "description": "免费在线 AI URL 百分号编码与解码工具。支持 encodeURIComponent 与 encodeURI 模式（%20 与 + 切换）、查询参数拆解，并附带 C#、Python、Java、JS 及 HTML 代码参考。"
     },
     "uuid-generator": {
-      "name": "UUID v4 生成器",
-      "description": "批量生成符合 RFC 规范的加密级 UUID v4 唯一识别码。"
+      "name": "AI 在线免费 UUID v4 与 v7 生成器 – 校验器与短 UUID",
+      "description": "免费在线生成最多 1000 个符合 RFC 4122/9562 标准的 UUID v4 与时间有序 UUID v7，支持 22 位短 UUID 转换、格式校验、v7 时间戳解析与 TXT/JSON 导出。"
     },
     "hash-generator": {
       "name": "在线哈希值生成与校验器 (MD5, SHA256, Bcrypt 与文件校验)",

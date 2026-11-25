@@ -343,8 +343,8 @@
       "description": "Free AI URL encoder & decoder online. Percent-encode with encodeURIComponent or encodeURI (%20 vs +), decode URLs, inspect query params, and copy C#, Python, Java, JS & HTML snippets."
     },
     "uuid-generator": {
-      "name": "UUID v4 Generator",
-      "description": "Generate Version 4 UUIDs."
+      "name": "AI UUID v4 & v7 Generator Online Free – Validator & Short UUID",
+      "description": "Free AI UUID v4 & v7 generator online. Generate up to 1,000 RFC 4122/9562 UUIDs, create 22-char Short UUIDs, validate UUID v4 format & v7 timestamps, compare v4 vs v7, and export TXT/JSON."
     },
     "hash-generator": {
       "name": "Hash Generator Online (MD5, SHA256, Bcrypt & File)",
