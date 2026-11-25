@@ -271,8 +271,8 @@
       "description": "最高峰の無料 Cron 式ジェネレーター＆バリデーター。AWS、Spring、Quartz、Linux の定期実行スケジュールを自然な日本語解説付きで作成・検証・解読。"
     },
     "word-counter": {
-      "name": "文字数・単語数カウント & テキスト統計ツール",
-      "description": "リアルタイムの単語数カウント、文字数チェック、単語長チェッカー、キーワード出現頻度分析。"
+      "name": "AI 無料オンライン文字数・単語数カウントツール – レポート・PDF・A-Z分析",
+      "description": "無料のオンライン文字数・単語数カウンター。単語数、文字数、ページ数換算、可読性スコア、A-Zキーワード密度、Word/Google Docsショートカットを即座に表示。"
     },
     "csv-to-json": {
       "name": "大容量CSVからJSONへの変換ツール – 構造化JSON配列オンライン生成 (CSV to Array Online)",

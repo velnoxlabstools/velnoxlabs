@@ -271,8 +271,8 @@
       "description": "免费在线优质 Cron 表达式生成与校验器。轻松创建、校验并解析 AWS、Spring、Quartz 及 Linux 定时调度指令，提供直观易懂的人性化中文释义。"
     },
     "word-counter": {
-      "name": "在线字数统计与文本分析工具",
-      "description": "实时字数统计、字符数检查、单词长度检测器与关键词密度分析。"
+      "name": "AI 在线字数统计与文本分析工具 – 免费论文、PDF 与词频分析",
+      "description": "免费在线字数与字符统计工具。实时统计字数、字符数、预估页数、可读性评分、A-Z 关键词密度、社交媒体字数限制及 Word 和 Google 文档快捷键。"
     },
     "csv-to-json": {
       "name": "海量大文件 CSV 转 JSON 转换工具 – 在线生成结构化 JSON 数组 (CSV to Array Online)",
