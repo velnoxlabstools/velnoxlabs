@@ -217,8 +217,8 @@
       "description": "深度解析客户端 User-Agent 字符串特征与设备属性。"
     },
     "ulid-generator-and-parser": {
-      "name": "ULID 生成与解析工具",
-      "description": "快速生成并解析按时间排序的唯一标识符 (ULID)。"
+      "name": "AI ULID 生成器、解码器与校验器 – ULID 转 UUID 互转工具",
+      "description": "免费在线 AI ULID 生成器、解码器与格式验证器。支持严格单调递增 ULID 生成、提取时间戳、ULID 与 UUID 双向无损互转、ULID vs UUID 对比及 Java / npm 代码示例。"
     },
     "nanoid-generator": {
       "name": "NanoID 在线生成器 – 碰撞概率计算器与自定义字符集",

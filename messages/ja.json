@@ -217,8 +217,8 @@
       "description": "ブラウザやデバイスの User-Agent 情報を詳細に分析します。"
     },
     "ulid-generator-and-parser": {
-      "name": "ULID 生成 & 解析ツール",
-      "description": "ミリ秒単位でソート可能な一意識別子 (ULID) の生成とパースを行います。"
+      "name": "AI ULID 生成・デコード＆検証ツール – ULID から UUID 相互変換",
+      "description": "無料のオンライン AI ULID 生成・解析・検証ツール。厳密な単調増加 ULID 作成、タイムスタンプ抽出、ULID と UUID の相互変換、ULID vs UUID 比較表、Java・npm コード例に対応。"
     },
     "nanoid-generator": {
       "name": "NanoID オンライン生成ツール – 衝突確率計算機 & カスタム文字セット",

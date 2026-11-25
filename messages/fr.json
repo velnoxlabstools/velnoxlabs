@@ -224,8 +224,8 @@
       "description": "Analyse avancée de User-Agent."
     },
     "ulid-generator-and-parser": {
-      "name": "Générateur et Analyseur ULID",
-      "description": "Génère et analyse des ULID."
+      "name": "Générateur, Décodeur et Validateur ULID IA – Convertisseur ULID vers UUID",
+      "description": "Outil IA gratuit en ligne pour créer, décoder et valider des ULID. Génération monotone triable, extraction d'horodatage, conversion ULID vers UUID, comparatif ULID vs UUID et extraits Java/npm."
     },
     "nanoid-generator": {
       "name": "Générateur de NanoID en Ligne – Estimateur de Collision et Alphabet Dédié",
