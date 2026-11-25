@@ -1477,9 +1477,9 @@ export const tools: Tool[] = [
   {
     id: 'tool-age',
     slug: 'age-calculator',
-    name: 'Age Calculator by Date of Birth',
+    name: 'Age Calculator by Date of Birth – Year, Month & Day Calculator',
     description:
-      'Free online age calculator by date of birth. Calculate your exact age in years, months, days, and total time lived.',
+      'Free online AI age calculator by date of birth for India & worldwide. Calculate exact age in years, months, days, decimal age, target cutoff date eligibility, life milestones, planetary age, and compare two ages.',
     categoryId: 'cat-utility',
     tags: [
       'age',
@@ -1487,6 +1487,13 @@ export const tools: Tool[] = [
       'date',
       'age calculator by date of birth',
       'date of birth calculator',
+      'age calculator by date of birth free online',
+      'ai age calculator by date of birth free',
+      'ai age calculator by date of birth india',
+      'age calculator google',
+      'date of birth calculator year',
+      'date of birth calculator year, month-day',
+      'date of birth calculator year in india',
       'age calculator formula',
       'decimal age calculator',
       'age calculator nepali',
