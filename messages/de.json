@@ -374,7 +374,7 @@
       "description": "Kostenloser JWT-Decoder und Debugger zur lokalen Analyse von Header, Payload und Signatur im Browser ohne externe Datenübertragung."
     },
     "html-encoder-decoder": {
-      "name": "Online-HTML-Encoder & Decoder – HTML-Entitäten und Sonderzeichen dekodieren",
+      "name": "KI-HTML-Encoder & -Decoder Online – HTML-Entitäten in Klartext decodieren",
       "description": "Kostenloser Online-HTML-Encoder und Decoder. Dekodiere HTML-Entitäten in Klartext oder maskiere reservierte Sonderzeichen sofort im Browser ohne Wartezeit."
     },
     "color-converter": {
@@ -827,7 +827,7 @@
       "codeSnippetsSubtitle": "Produktionsbereite kryptografische Codebeispiele zum Signieren und Prüfen von Webhooks."
     },
     "htmlEncoderDecoder": {
-      "title": "Online-HTML-Encoder & Decoder – HTML-Entitäten und Sonderzeichen dekodieren",
+      "title": "KI-HTML-Encoder & -Decoder Online – HTML-Entitäten in Klartext decodieren",
       "subtitle": "Kostenloser Online-HTML-Encoder und Decoder. Dekodiere HTML-Entitäten in Klartext oder maskiere reservierte Sonderzeichen sofort im Browser ohne Wartezeit.",
       "aboutText": "Unser Online-HTML-Encoder und Decoder ist ein vielseitiges Werkzeug für Webentwickler zum Maskieren reservierter Sonderzeichen und Entschlüsseln kodierter Markup-Strings. Als schnelle browserbasierte Lösung wandelt er Zeichen wie &lt;, &gt;, &amp;, &quot; und &#39; in sichere HTML-Entitäten um und stellt ursprüngliche Texte originalgetreu wieder her. Das Werkzeug dient als zeitgemäßer Ersatz für unhandliche Tabellen auf W3Schools oder statische PDF-Übersichten. Ob du Benutzereingaben zur Vermeidung von Cross-Site-Scripting (XSS) absichern, Quellcode in technischen Dokumentationen darstellen oder JavaScript-Aufrufe beim Verarbeiten von DOM-Daten analysieren willst: Dieses Werkzeug arbeitet ohne Server-Umwege direkt im lokalen Speicher.",
       "feature1": "Reibungslose Zwei-Wege-Umwandlung: Wechseln Sie einfach zwischen Kodieren (Text zu Entitäten) und Dekodieren (Entitäten zu Text)",
@@ -847,7 +847,36 @@
       "faq3Q": "Ist dieses Werkzeug ein gleichwertiger Ersatz für W3Schools-Tabellen oder PDF-Übersichten?",
       "faq3A": "Ja! Anstatt mühsam in langen W3Schools-Listen zu blättern oder statische PDF-Spickzettel zu durchsuchen, ermittelt dieses interaktive System alle benannten, dezimalen und hexadezimalen Entitäten während des Tippens automatisch.",
       "faq4Q": "Unterstützt das Werkzeug sowohl das Kodieren als auch das Dekodieren?",
-      "faq4A": "Ja! Die Anwendung arbeitet vollständig bidirektional. Du kannst jederzeit zwischen dem Maskieren von Sonderzeichen in HTML-Entitäten und dem Wiederherstellen von Sequenzen wie &lt;div&gt; oder Zahlenwerten (z. B. &#169;) in lesbaren Klartext umschalten."
+      "faq4A": "Ja! Die Anwendung arbeitet vollständig bidirektional. Du kannst jederzeit zwischen dem Maskieren von Sonderzeichen in HTML-Entitäten und dem Wiederherstellen von Sequenzen wie &lt;div&gt; oder Zahlenwerten (z. B. &#169;) in lesbaren Klartext umschalten.",
+      "clientSideBadge": "100% Lokale Verarbeitung im Browser",
+      "clientSideSubtitle": "Echtzeit-Konvertierung • HTML5-Entitäten-Standard • Keine Serverübertragung",
+      "zeroServerLog": "Keine Protokolle: Ihr HTML bleibt privat im Arbeitsspeicher Ihres Browsers",
+      "tabConverter": "Encoder & Decoder",
+      "tabPlainText": "HTML zu Klartext",
+      "tabPreview": "Visuelle HTML-Vorschau",
+      "tabCode": "JavaScript & Code-Beispiele",
+      "tabCheatsheet": "Entitäten-Übersichtstabelle",
+      "quickPresets": "Schnellvorlagen",
+      "clearBtn": "Leeren",
+      "formatLabel": "Entitäten-Format",
+      "scopeLabel": "Umfang",
+      "scopeSpecial": "Nur Sonderzeichen (< > & \" ')",
+      "scopeNonAscii": "Sonderzeichen + Nicht-ASCII (Symbole & Akzente)",
+      "scopeAll": "Alle Zeichen (Vollständige Verschleierung)",
+      "swapBtn": "Tauschen",
+      "swapTooltip": "Eingabe und Ausgabe vertauschen",
+      "plainTextTitle": "HTML in sauberen Klartext umwandeln",
+      "plainTextSubtitle": "Entfernt alle HTML/XML-Tags, Skripte und Formatierungen, decodiert Entitäten und behält Absätze bei.",
+      "rawHtmlLabel": "HTML-Quelltext / Markup:",
+      "cleanPlainTextLabel": "Bereinigter decodierter Klartext:",
+      "previewTitle": "Live-HTML-Vorschau im Browser",
+      "previewSubtitle": "Überprüfen Sie visuell, wie die decodierten HTML-Elemente im Browser dargestellt werden.",
+      "previewSandboxNote": "Die Vorschau ist sicher isoliert. Externe Netzwerkanfragen und Skripte sind eingeschränkt.",
+      "codeSnippetsTitle": "JavaScript & Mehrsprachige Implementierungscodes",
+      "codeSnippetsSubtitle": "Produktionsbereite Codebeispiele zur sicheren Codierung und Decodierung von HTML-Entitäten in JS, Python und PHP.",
+      "cheatsheetTitle": "HTML-Entitäten-Referenztabelle",
+      "cheatsheetSubtitle": "Durchsuchbares Verzeichnis von HTML5-Entitäten, Dezimal- und Hexadezimal-Codes mit 1-Klick-Kopierfunktion.",
+      "searchEntitiesPlaceholder": "Symbol, Name, Entität oder Code suchen..."
     },
     "httpHeaderInspector": {
       "title": "HTTP-Header-Analysator & Sicherheitsheader-Prüfung",

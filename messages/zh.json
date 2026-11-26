@@ -367,7 +367,7 @@
       "description": "免费在线 JWT 解码与调试工具，支持在本地解析 Header、Payload 和 Signature，100% 保护隐私且无需发送数据至服务器。"
     },
     "html-encoder-decoder": {
-      "name": "在线 HTML 实体编码与解码工具 – 转义符与实体字符解析",
+      "name": "AI 在线 HTML 编码与解码器 – HTML 实体转换与纯文本提取",
       "description": "免费在线 HTML 实体编码与解码工具。在浏览器本地即时转义特殊保留字符或将实体符号还原为纯文本，毫秒级响应。"
     },
     "color-converter": {
@@ -820,7 +820,7 @@
       "codeSnippetsSubtitle": "开箱即用、经过生产验证的代码片段，用于服务端 Webhook 请求签名与安全校验。"
     },
     "htmlEncoderDecoder": {
-      "title": "在线 HTML 实体编码与解码工具 – 转义符与实体字符解析",
+      "title": "AI 在线 HTML 编码与解码器 – HTML 实体转换与纯文本提取",
       "subtitle": "免费在线 HTML 实体编码与解码工具。在浏览器本地即时转义特殊保留字符或将实体符号还原为纯文本，毫秒级响应。",
       "aboutText": "我们的在线 HTML 实体编码与解码工具是一款专为网页开发者打造的高性能浏览器端实用程序。作为一款极速运行且免除服务器延迟的免费转义与解码利器，它可将保留字符（如 &lt;, &gt;, &amp;, &quot;, &#39;）转换为安全标准的实体代码，并能将编码标记还原为纯文本。许多开发者将其作为传统 W3Schools 参考手册及静态 PDF 速查表的现代化替代工具。无论是需要对用户输入内容进行转义以防御跨站脚本漏洞（XSS）、为技术文档编制实体文本，还是需要处理 JavaScript 开发中常见的 DOM 实体解析流程，本平台均可在本地内存中提供万无一失的即时处理。",
       "feature1": "双向极速转换：无缝在“编码”（普通文本转实体）与“解码”（实体还原为文本）之间一键切换",
@@ -840,7 +840,36 @@
       "faq3Q": "本工具是否可作为替代 W3Schools 实体对照表或 PDF 速查表的免费助手？",
       "faq3A": "是的！相比于在 W3Schools 翻阅多页表格或查阅静态 PDF 备忘单，这款交互式在线工具能够在您输入时自动识别并处理全部命名实体、十进制与十六进制数字字符引用，无需刻意死记实体编号或符号名称。",
       "faq4Q": "本工具是否完整支持双向的编码与解码处理？",
-      "faq4A": "完全支持！本平台具备双向功能。您可以随时切换模式，既能将原始文本中的特殊字符转换为安全的 HTML 实体代码，也能将含有 &lt;div&gt; 或数字编号（如 &#169;）的转义文本完整还原为清晰易读的自然文本。"
+      "faq4A": "完全支持！本平台具备双向功能。您可以随时切换模式，既能将原始文本中的特殊字符转换为安全的 HTML 实体代码，也能将含有 &lt;div&gt; 或数字编号（如 &#169;）的转义文本完整还原为清晰易读的自然文本。",
+      "clientSideBadge": "100% 浏览器本地运算（零服务器传输）",
+      "clientSideSubtitle": "即时本地双向转换 • 兼容 HTML5 工业标准 • 零服务器延迟",
+      "zeroServerLog": "无服务器日志：所有 HTML 数据仅在本地浏览器内存中处理",
+      "tabConverter": "编码与解码转换",
+      "tabPlainText": "HTML 提取纯文本",
+      "tabPreview": "HTML 网页即时预览",
+      "tabCode": "JavaScript 核心代码示例",
+      "tabCheatsheet": "HTML 字符实体速查表",
+      "quickPresets": "常用预设",
+      "clearBtn": "清空",
+      "formatLabel": "实体输出格式",
+      "scopeLabel": "转义范围",
+      "scopeSpecial": "仅保留字符 (< > & \" ')",
+      "scopeNonAscii": "保留字符 + 非 ASCII（符号与变音符）",
+      "scopeAll": "全部字符（完全代码混淆）",
+      "swapBtn": "互换",
+      "swapTooltip": "互换输入与输出内容",
+      "plainTextTitle": "HTML 标签剥离与纯文本提取器",
+      "plainTextSubtitle": "彻底清除所有 HTML/XML 标签、脚本及样式，智能解码全部字符实体并保留原始自然换行。",
+      "rawHtmlLabel": "原始 HTML 源码 / 网页标签：",
+      "cleanPlainTextLabel": "提取出的纯文本结果：",
+      "previewTitle": "HTML 网页即时渲染视图",
+      "previewSubtitle": "直观查看解码后的 HTML 网页结构、文字排版及元素在浏览器中的实际渲染效果。",
+      "previewSandboxNote": "预览容器受安全隔离保护，已拦截外部网络请求与潜在危险脚本。",
+      "codeSnippetsTitle": "JavaScript 与主流语言 HTML 实体编解码代码",
+      "codeSnippetsSubtitle": "开箱即用的实用代码，用于在 JavaScript、Node.js、Python 及 PHP 中安全编解码 HTML 实体。",
+      "cheatsheetTitle": "HTML 常用字符实体速查表（W3Schools 风格）",
+      "cheatsheetSubtitle": "支持即时搜索的 HTML5 实体字典，汇集实体名称、十进制及十六进制代码，支持一键快速复制。",
+      "searchEntitiesPlaceholder": "搜索字符、名称、实体或代码..."
     },
     "httpHeaderInspector": {
       "title": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",

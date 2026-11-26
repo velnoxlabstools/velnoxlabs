@@ -367,7 +367,7 @@
       "description": "Free JWT decoder online and JWT debugger to inspect header, payload, and signature claims client-side. The ultimate private JWT.io alternative with zero tracking."
     },
     "html-encoder-decoder": {
-      "name": "HTML Encoder & Decoder Online – Decode HTML Entities",
+      "name": "AI HTML Encoder & Decoder Online – Decode HTML Entities to Plain Text & JavaScript Code",
       "description": "Free HTML Encoder & Decoder Online to decode HTML entities, escape reserved characters, and format HTML entities in your browser with zero latency."
     },
     "color-converter": {
@@ -797,7 +797,7 @@
       "codeSnippetsSubtitle": "Production-ready, battle-tested cryptographic snippets for verifying and signing webhook requests."
     },
     "htmlEncoderDecoder": {
-      "title": "HTML Encoder & Decoder Online – Decode HTML Entities",
+      "title": "AI HTML Encoder & Decoder Online – Decode HTML Entities to Plain Text & JavaScript Code",
       "subtitle": "Free HTML Encoder & Decoder Online to decode HTML entities, escape reserved characters, and format HTML entities in your browser with zero latency.",
       "aboutText": "Our Html decoder & entity encoder online is a versatile, browser-based developer utility engineered to escape special symbols and unescape encoded markup. Functioning as a fast Html decoder & entity encoder online free tool, it converts reserved characters (&lt;, &gt;, &amp;, &quot;, &#39;) into safe character references and restores raw text with 100% fidelity. Many developers use it as a Free html decoder & entity encoder alternative to traditional Html decoder & entity encoder W3Schools reference tables and static Html decoder & entity encoder PDF cheat sheets. Whether you need a dedicated HTML encoder to sanitize user inputs against Cross-Site Scripting (XSS), want to HTML encode online for documentation, or need to decode HTML entities JavaScript developers encounter when parsing DOM payloads, this platform processes everything instantly in local memory.",
       "feature1": "Bi-Directional Conversion: Seamlessly toggle between Encode (Text to HTML Entities) and Decode (Entities to Plaintext)",
@@ -817,7 +817,36 @@
       "faq3Q": "Is this a free alternative to W3Schools HTML entity references or PDF cheat sheets?",
       "faq3A": "Yes! Rather than searching through multi-page tables on W3Schools or searching through static PDF entity cheat sheets, this interactive tool automatically matches, converts, and verifies all named, decimal, and hexadecimal HTML5 entities on the fly without memorizing entity numbers or character names.",
       "faq4Q": "Can I use this tool for both encoding and decoding HTML entities?",
-      "faq4A": "Yes! This tool provides bi-directional functionality. You can switch between 'Encode' mode to escape raw text into HTML entities, and 'Decode' mode to unescape entities like &lt;div&gt; or numeric entities (such as &#169; and &#xA9;) back into clean, human-readable plaintext."
+      "faq4A": "Yes! This tool provides bi-directional functionality. You can switch between 'Encode' mode to escape raw text into HTML entities, and 'Decode' mode to unescape entities like &lt;div&gt; or numeric entities (such as &#169; and &#xA9;) back into clean, human-readable plaintext.",
+      "clientSideBadge": "100% Client-Side Processing",
+      "clientSideSubtitle": "Instant Real-Time Conversion • HTML5 Entity Standard • Zero Server Latency",
+      "zeroServerLog": "Zero Logs: Your HTML remains private in your browser memory",
+      "tabConverter": "Encoder & Decoder",
+      "tabPlainText": "HTML to Plain Text",
+      "tabPreview": "Visual HTML Preview",
+      "tabCode": "JavaScript & Code Snippets",
+      "tabCheatsheet": "Entity Cheatsheet",
+      "quickPresets": "Quick Presets",
+      "clearBtn": "Clear",
+      "formatLabel": "Entity Format",
+      "scopeLabel": "Scope",
+      "scopeSpecial": "Special Only (< > & \" ')",
+      "scopeNonAscii": "Special + Non-ASCII (Symbols & Accents)",
+      "scopeAll": "All Characters (Full Obfuscation)",
+      "swapBtn": "Swap",
+      "swapTooltip": "Swap input and output",
+      "plainTextTitle": "Decode HTML to Clean Plain Text",
+      "plainTextSubtitle": "Strips all HTML/XML tags, scripts, and styles while decoding all entities and preserving natural line breaks.",
+      "rawHtmlLabel": "Raw HTML / Markup Source:",
+      "cleanPlainTextLabel": "Clean Decoded Plain Text:",
+      "previewTitle": "Live Sandboxed HTML Preview",
+      "previewSubtitle": "Inspect how decoded HTML elements and typography render visually in a browser viewport.",
+      "previewSandboxNote": "Preview is safely isolated. External network requests and scripts are restricted.",
+      "codeSnippetsTitle": "JavaScript & Multi-Language Implementation Code",
+      "codeSnippetsSubtitle": "Production-ready code snippets to encode and decode HTML entities safely in JavaScript, Node.js, Python, and PHP.",
+      "cheatsheetTitle": "HTML Entities Reference Cheatsheet (W3Schools Style)",
+      "cheatsheetSubtitle": "Quick searchable dictionary of HTML5 named entities, decimal codes, and hexadecimal references with 1-click copy.",
+      "searchEntitiesPlaceholder": "Search symbol, name, entity or code..."
     },
     "httpHeaderInspector": {
       "title": "HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check",

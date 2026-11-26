@@ -374,7 +374,7 @@
       "description": "Decoder e debugger JWT gratuito online per esaminare intestazioni, payload e firme localmente senza tracciamento."
     },
     "html-encoder-decoder": {
-      "name": "Codificatore e Decodificatore HTML Online – Decodifica Entità HTML",
+      "name": "Codificatore e Decodificatore HTML IA Online – Decodifica Entità HTML in Testo Normale",
       "description": "Codificatore e decodificatore HTML online gratuito. Decodifica entità HTML in testo semplice ed esegui l'escape dei caratteri riservati all'istante nel browser."
     },
     "color-converter": {
@@ -827,7 +827,7 @@
       "codeSnippetsSubtitle": "Esempi crittografici pronti per la produzione per firmare e verificare richieste webhook."
     },
     "htmlEncoderDecoder": {
-      "title": "Codificatore e Decodificatore HTML Online – Decodifica Entità HTML",
+      "title": "Codificatore e Decodificatore HTML IA Online – Decodifica Entità HTML in Testo Normale",
       "subtitle": "Codificatore e decodificatore HTML online gratuito. Decodifica entità HTML in testo semplice ed esegui l'escape dei caratteri riservati all'istante nel browser.",
       "aboutText": "Il nostro decodificatore e codificatore di entità HTML online è uno strumento flessibile per programmatori web ideato per effettuare l'escape dei caratteri speciali e decodificare stringhe marcate. Funzionando come risorsa web gratuita senza comunicazioni di rete verso server remoti, traspone simboli riservati (&lt;, &gt;, &amp;, &quot;, &#39;) in entità protette e rispristina il testo in chiaro con la massima accuratezza. Rappresenta una comoda alternativa rispetto ai repertori di W3Schools e alle tabelle riassuntive in PDF. Sia per bonificare testi utente e prevenire attacchi XSS, sia per inserire codice in guide tecniche o gestire chiamate in JavaScript per manipolare il DOM, la nostra piattaforma elabora ogni stringa in tempo reale nella memoria locale.",
       "feature1": "Conversione bidirezionale fluida: passa rapidamente dalla codifica (testo in entità) alla decodifica (entità in testo normale)",
@@ -847,7 +847,36 @@
       "faq3Q": "Questo strumento sostituisce le tabelle di W3Schools o i prospetti PDF?",
       "faq3A": "Certamente! Anziché cercare attraverso le pagine informative di W3Schools o consultare schede PDF statiche, questa interfaccia riconosce e traduce qualsiasi entità con nome o notazione numerica decimale ed esadecimale senza dover memorizzare lunghi elenchi.",
       "faq4Q": "Posso adoperare lo strumento sia per codificare sia per decodificare entità?",
-      "faq4A": "Sì! Il programma è completamente bidirezionale. Puoi passare in qualsiasi momento dalla modalità di codifica per proteggere testo in chiaro alla modalità di decodifica per ripristinare codici come &lt;div&gt; o riferimenti numerici (quali &#169;) in testo leggibile."
+      "faq4A": "Sì! Il programma è completamente bidirezionale. Puoi passare in qualsiasi momento dalla modalità di codifica per proteggere testo in chiaro alla modalità di decodifica per ripristinare codici come &lt;div&gt; o riferimenti numerici (quali &#169;) in testo leggibile.",
+      "clientSideBadge": "Elaborazione 100% nel Browser",
+      "clientSideSubtitle": "Conversione Istantanea in Tempo Reale • Standard HTML5 • Nessun Invio al Server",
+      "zeroServerLog": "Nessun Registro: Il tuo HTML rimane privato nella memoria del browser",
+      "tabConverter": "Codificatore e Decodificatore",
+      "tabPlainText": "HTML in Testo Normale",
+      "tabPreview": "Anteprima Visiva HTML",
+      "tabCode": "Esempi di Codice JavaScript",
+      "tabCheatsheet": "Tabella delle Entità HTML",
+      "quickPresets": "Preimpostazioni Rapide",
+      "clearBtn": "Cancella",
+      "formatLabel": "Formato Entità",
+      "scopeLabel": "Ambito",
+      "scopeSpecial": "Solo Speciali (< > & \" ')",
+      "scopeNonAscii": "Speciali + Non-ASCII (Simboli e Accenti)",
+      "scopeAll": "Tutti i Caratteri (Offuscamento Completo)",
+      "swapBtn": "Inverti",
+      "swapTooltip": "Inverti input e output",
+      "plainTextTitle": "Decodifica HTML in Testo Normale Pulito",
+      "plainTextSubtitle": "Rimuove tutti i tag HTML/XML, script e stili decodificando tutte le entità e preservando le interruzioni di riga.",
+      "rawHtmlLabel": "Codice Sorgente HTML o Markup:",
+      "cleanPlainTextLabel": "Testo Normale Pulito Decodificato:",
+      "previewTitle": "Anteprima Visiva HTML Sicura",
+      "previewSubtitle": "Verifica visivamente come vengono visualizzati gli elementi HTML decodificati nel browser.",
+      "previewSandboxNote": "L'anteprima è isolata in modo sicuro. Script e richieste di rete esterne sono limitati.",
+      "codeSnippetsTitle": "Codice di Implementazione in JavaScript e Multilingua",
+      "codeSnippetsSubtitle": "Esempi di codice pronti per la produzione per codificare e decodificare le entità HTML in modo sicuro.",
+      "cheatsheetTitle": "Tabella di Riferimento delle Entità HTML",
+      "cheatsheetSubtitle": "Dizionario ricercabile delle entità HTML5 con codici decimali, esadecimali e copia con un clic.",
+      "searchEntitiesPlaceholder": "Cerca simbolo, nome, entità o codice..."
     },
     "httpHeaderInspector": {
       "title": "Analizzatore di Intestazioni HTTP e Verifica di Sicurezza",
