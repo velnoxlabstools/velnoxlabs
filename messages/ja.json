@@ -518,8 +518,8 @@
       "description": "無料のAIオンライン画像切り抜きツール。ピクセル、センチメートル(cm)、300 DPI指定に対応。AI余白自動カット、被写体フォーカス、円形・星・ハート切り抜き、パスポート規定、Flutter/Angularコード出力を搭載。"
     },
     "image-to-pdf": {
-      "name": "画像PDF変換ツール (100KB・200KB対応 & iLovePDF代替)",
-      "description": "JPG、PNG、WebPを100KBや200KB以下のコンパクトなPDFに結合・圧縮する無料オンライン変換ツール。"
+      "name": "AI画像PDF変換ツール オンライン – JPG・PNGをPDFに (100KB・200KB圧縮対応)",
+      "description": "無料のAIオンライン画像PDF変換ツール。JPG、PNG、WebP、AI生成画像をサーバー送信なしでブラウザ上で100KBや200KB以下の圧縮PDFへ一括変換。"
     },
     "fancy-text-generator": {
       "name": "WhatsApp向けおしゃれ文字フォントジェネレーター – 特殊文字・可愛いフォント作成",

@@ -518,8 +518,8 @@
       "description": "무료 AI 온라인 이미지 자르기 도구. 픽셀, 센티미터(cm), 300 DPI 지정 지원. AI 자동 여백 제거, 피사체 포커스, 원형·별·하트 모양 자르기, 여권 사진 규격 및 Flutter/Angular 코드 내보내기 제공."
     },
     "image-to-pdf": {
-      "name": "이미지 PDF 변환기 (100KB, 200KB 및 iLovePDF 무료 대안)",
-      "description": "JPG, PNG, WebP 이미지를 100KB 또는 200KB 이하의 단일 PDF로 결합 및 압축하는 무료 온라인 변환기."
+      "name": "AI 이미지 PDF 변환기 온라인 – JPG, PNG를 PDF로 (100KB & 200KB 압축)",
+      "description": "무료 AI 온라인 이미지 PDF 변환기. 서버 업로드 없이 브라우저에서 직접 JPG, PNG, WebP 및 AI 이미지를 100KB 또는 200KB 이하의 압축 PDF 문서로 변환하세요."
     },
     "fancy-text-generator": {
       "name": "왓츠앱 예쁜 글씨체 폰트 텍스트 생성기 – 인스타 감성 특수문자 변환",

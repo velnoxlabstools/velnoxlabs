@@ -518,8 +518,8 @@
       "description": "免费AI在线图片裁剪器，支持按像素、厘米(cm)及300 DPI精确裁剪。具备AI自动去白边、智能主体对焦、圆形与星形/心形异形裁剪、证件照预设及Flutter/Angular代码导出。"
     },
     "image-to-pdf": {
-      "name": "图片转PDF转换器 (支持100KB、200KB与iLovePDF替代)",
-      "description": "免费在线图片转PDF工具，将JPG、PNG、WebP合并并压缩为100KB或200KB以内的PDF，iLovePDF的理想替代。"
+      "name": "AI图片转PDF转换器在线 – JPG、PNG转PDF (支持100KB与200KB压缩)",
+      "description": "免费AI在线图片转PDF工具。直接在浏览器本地将JPG、PNG、WebP及AI绘图合并并压缩为100KB或200KB以内的多页PDF文档，零上传、零泄露风险。"
     },
     "fancy-text-generator": {
       "name": "WhatsApp 花样花式字体生成器 – 个性艺术字与特殊符号排版工具",

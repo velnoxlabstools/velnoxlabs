@@ -525,8 +525,8 @@
       "description": "Cortador de imagens gratuito com IA por pixel, cm e 300 DPI. Inclui remoção automática de bordas, foco no assunto, máscaras circulares e irregulares, formatos de passaporte e código para Flutter e Angular."
     },
     "image-to-pdf": {
-      "name": "Conversor de Imagens para PDF (100KB, 200KB e Alternativa ao iLovePDF)",
-      "description": "Conversor online gratuito para unir e comprimir imagens JPG, PNG e WebP em PDF com menos de 100KB ou 200KB."
+      "name": "Conversor de Imagem para PDF IA Online – JPG, PNG para PDF (100KB & 200KB)",
+      "description": "Conversor gratuito de imagem para PDF com IA. Converta imagens JPG, PNG, WebP e de IA em documentos PDF compactados de 100KB ou 200KB no navegador sem envios."
     },
     "fancy-text-generator": {
       "name": "Gerador de Letras Diferentes para WhatsApp – Fontes Bonitas e Estilos",
