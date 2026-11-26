@@ -1,255 +1,429 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { GlobalContainer } from '@/components/layout';
-import { SectionHeading } from '@/components/ui';
-import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 import {
+  Volume2,
+  Vibrate,
+  Sparkles,
+  Sliders,
   Play,
   Pause,
   Square,
-  RotateCcw,
-  Volume2,
-  Smartphone,
-  Sparkles,
   CheckCircle2,
+  Speaker,
+  ShieldCheck,
+  Lightbulb,
+  Activity,
 } from 'lucide-react';
+import { GlobalContainer } from '@/components/layout';
+import { SectionHeading } from '@/components/ui';
+import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
-type Mode = 'sound' | 'vibrate';
+type Mode = 'sound' | 'vibrate' | 'dust10k' | 'custom';
+type Channel = 'both' | 'left' | 'right';
+type PlayState = 'idle' | 'playing' | 'paused' | 'completed';
+type TestChannel = 'left' | 'right' | 'both' | null;
 
 const TOTAL_SECONDS = 30;
+const RING_RADIUS = 96;
+const CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+const PRESET_FREQS = [165, 250, 440, 2000, 10000];
+const VISUALIZER_BARS = [35, 60, 85, 50, 95, 70, 45, 90, 65, 80, 55, 100, 60, 75, 45, 70];
+
+function getAudioContextClass(): typeof AudioContext | null {
+  if (typeof window === 'undefined') return null;
+  const win = window as unknown as {
+    AudioContext?: typeof AudioContext;
+    webkitAudioContext?: typeof AudioContext;
+  };
+  return win.AudioContext || win.webkitAudioContext || null;
+}
 
 export default function FixMySpeakerPage() {
   const tUI = useTranslations('ToolUI.fixMySpeaker');
 
   const [mode, setMode] = useState<Mode>('sound');
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(TOTAL_SECONDS);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [channel, setChannel] = useState<Channel>('both');
+  const [customFreq, setCustomFreq] = useState<number>(165);
+  const [autoSweep, setAutoSweep] = useState<boolean>(false);
+  const [playState, setPlayState] = useState<PlayState>('idle');
+  const [secondsLeft, setSecondsLeft] = useState<number>(TOTAL_SECONDS);
+  const [testingChannel, setTestingChannel] = useState<TestChannel>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const vibrateIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const vibrateIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const sweepIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Audio paths
-  const getAudioPath = (currentMode: Mode) => {
-    return currentMode === 'sound' ? '/sounds/sound.mp3' : '/sounds/vibrate.mp3';
-  };
+  // Web Audio refs for 10,000 Hz & Custom Frequency modes
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const oscRef = useRef<OscillatorNode | null>(null);
+  const gainRef = useRef<GainNode | null>(null);
+  const pannerRef = useRef<StereoPannerNode | null>(null);
 
-  // Vibration trigger helper for mobile devices
-  const startVibration = () => {
-    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-      try {
-        navigator.vibrate([300, 100, 300, 100]);
-        if (!vibrateIntervalRef.current) {
-          vibrateIntervalRef.current = setInterval(() => {
-            try {
-              navigator.vibrate([300, 100, 300, 100]);
-            } catch {}
-          }, 800);
-        }
-      } catch {}
+  const stopWebAudio = useCallback(() => {
+    if (sweepIntervalRef.current) {
+      clearInterval(sweepIntervalRef.current);
+      sweepIntervalRef.current = null;
     }
-  };
+    if (oscRef.current) {
+      try {
+        oscRef.current.stop();
+        oscRef.current.disconnect();
+      } catch {
+        // Ignore already stopped oscillator
+      }
+      oscRef.current = null;
+    }
+    if (gainRef.current) {
+      try {
+        gainRef.current.disconnect();
+      } catch {
+        // Ignore
+      }
+      gainRef.current = null;
+    }
+    if (pannerRef.current) {
+      try {
+        pannerRef.current.disconnect();
+      } catch {
+        // Ignore
+      }
+      pannerRef.current = null;
+    }
+    if (audioCtxRef.current) {
+      try {
+        void audioCtxRef.current.close();
+      } catch {
+        // Ignore
+      }
+      audioCtxRef.current = null;
+    }
+  }, []);
 
-  const stopVibration = () => {
+  const stopMediaAndTimers = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
     if (vibrateIntervalRef.current) {
       clearInterval(vibrateIntervalRef.current);
       vibrateIntervalRef.current = null;
     }
     if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-      try {
-        navigator.vibrate(0);
-      } catch {}
+      navigator.vibrate(0);
     }
-  };
+    stopWebAudio();
+  }, [stopWebAudio]);
 
-  // Switch mode
-  const handleModeChange = (newMode: Mode) => {
-    if (mode === newMode) return;
-    setMode(newMode);
+  useEffect(() => {
+    return () => {
+      stopMediaAndTimers();
+    };
+  }, [stopMediaAndTimers]);
 
-    if (isPlaying) {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.src = getAudioPath(newMode);
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(() => {});
-      }
-      if (newMode === 'vibrate') {
-        startVibration();
+  // Update stereo panner live if changed during playback
+  useEffect(() => {
+    if (pannerRef.current && audioCtxRef.current) {
+      const panVal = channel === 'left' ? -1 : channel === 'right' ? 1 : 0;
+      pannerRef.current.pan.setValueAtTime(panVal, audioCtxRef.current.currentTime);
+    }
+  }, [channel]);
+
+  // Update custom frequency live if slider changes while playing
+  useEffect(() => {
+    if (
+      mode === 'custom' &&
+      !autoSweep &&
+      oscRef.current &&
+      audioCtxRef.current &&
+      playState === 'playing'
+    ) {
+      oscRef.current.frequency.setValueAtTime(customFreq, audioCtxRef.current.currentTime);
+    }
+  }, [customFreq, mode, autoSweep, playState]);
+
+  const startWebAudioTone = useCallback(
+    (targetMode: 'dust10k' | 'custom', startSecondsRemaining: number) => {
+      stopWebAudio();
+      const Ctx = getAudioContextClass();
+      if (!Ctx) return;
+
+      const ctx = new Ctx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const panner = ctx.createStereoPanner();
+
+      const panVal = channel === 'left' ? -1 : channel === 'right' ? 1 : 0;
+      panner.pan.setValueAtTime(panVal, ctx.currentTime);
+
+      if (targetMode === 'dust10k') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(10000, ctx.currentTime);
+        gain.gain.setValueAtTime(0.85, ctx.currentTime);
       } else {
-        stopVibration();
+        osc.type = 'sine';
+        const initialFreq = autoSweep ? 165 : customFreq;
+        osc.frequency.setValueAtTime(initialFreq, ctx.currentTime);
+        gain.gain.setValueAtTime(0.85, ctx.currentTime);
+
+        if (autoSweep) {
+          const startTs = Date.now();
+          const durationMs = Math.max(startSecondsRemaining, 1) * 1000;
+          sweepIntervalRef.current = setInterval(() => {
+            if (!oscRef.current || !audioCtxRef.current) return;
+            const elapsed = Date.now() - startTs;
+            const ratio = Math.min(elapsed / durationMs, 1);
+            const swept = Math.round(165 + (10000 - 165) * ratio);
+            oscRef.current.frequency.setValueAtTime(swept, audioCtxRef.current.currentTime);
+            setCustomFreq(swept);
+          }, 120);
+        }
       }
-    }
-  };
 
-  // Start / Play
-  const handlePlay = () => {
-    if (isCompleted || secondsLeft <= 0) {
-      setSecondsLeft(TOTAL_SECONDS);
-      setIsCompleted(false);
-    }
-    setIsPlaying(true);
-    setIsPaused(false);
+      osc.connect(gain);
+      gain.connect(panner);
+      panner.connect(ctx.destination);
+      osc.start();
 
-    if (!audioRef.current) {
-      audioRef.current = new Audio(getAudioPath(mode));
-      audioRef.current.loop = true;
-    } else {
-      audioRef.current.src = getAudioPath(mode);
-      audioRef.current.loop = true;
-    }
+      audioCtxRef.current = ctx;
+      oscRef.current = osc;
+      gainRef.current = gain;
+      pannerRef.current = panner;
+    },
+    [autoSweep, channel, customFreq, stopWebAudio]
+  );
 
-    audioRef.current.play().catch((err) => {
-      console.warn('Audio play request interrupted or blocked:', err);
-    });
-
-    if (mode === 'vibrate') {
-      startVibration();
-    }
-  };
-
-  // Pause
-  const handlePause = () => {
-    setIsPlaying(false);
-    setIsPaused(true);
-
-    if (audioRef.current) {
-      audioRef.current.pause();
-    }
-    stopVibration();
-  };
-
-  // Resume
-  const handleResume = () => {
-    setIsPlaying(true);
-    setIsPaused(false);
-
-    if (audioRef.current) {
-      audioRef.current.play().catch(() => {});
-    }
-    if (mode === 'vibrate') {
-      startVibration();
-    }
-  };
-
-  // Stop & Reset
-  const handleStop = () => {
-    setIsPlaying(false);
-    setIsPaused(false);
-    setIsCompleted(false);
-    setSecondsLeft(TOTAL_SECONDS);
-
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    stopVibration();
-  };
-
-  // Timer interval
-  useEffect(() => {
-    if (isPlaying) {
+  const startTimer = useCallback(
+    (initialSeconds: number) => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      let remaining = initialSeconds;
       timerRef.current = setInterval(() => {
-        setSecondsLeft((prev) => {
-          if (prev <= 1) {
-            // Completed 30s cycle
-            if (audioRef.current) {
-              audioRef.current.pause();
-              audioRef.current.currentTime = 0;
-            }
-            stopVibration();
-            setIsPlaying(false);
-            setIsPaused(false);
-            setIsCompleted(true);
-            return 0;
-          }
-          return prev - 1;
-        });
+        remaining -= 1;
+        setSecondsLeft(remaining);
+        if (remaining <= 0) {
+          stopMediaAndTimers();
+          setPlayState('completed');
+        }
       }, 1000);
-    } else {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+    },
+    [stopMediaAndTimers]
+  );
+
+  const startVibrateLoop = useCallback(() => {
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate([300, 100, 300, 100]);
+      vibrateIntervalRef.current = setInterval(() => {
+        navigator.vibrate([300, 100, 300, 100]);
+      }, 900);
     }
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, [isPlaying]);
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-      stopVibration();
-    };
   }, []);
 
-  // Gauge calculations
-  const elapsed = TOTAL_SECONDS - secondsLeft;
-  const progress = isCompleted ? 100 : Math.min(100, Math.max(0, (elapsed / TOTAL_SECONDS) * 100));
+  const handleStart = () => {
+    stopMediaAndTimers();
+    setSecondsLeft(TOTAL_SECONDS);
+    setPlayState('playing');
 
-  const ringRadius = 96;
-  const circumference = 2 * Math.PI * ringRadius;
-  const strokeDashoffset = circumference - (progress / 100) * circumference;
+    if (mode === 'sound' || mode === 'vibrate') {
+      const audioSrc = mode === 'sound' ? '/sounds/sound.mp3' : '/sounds/vibrate.mp3';
+      const audio = new Audio(audioSrc);
+      audio.loop = true;
+      audioRef.current = audio;
+      audio.play().catch(() => {});
+      if (mode === 'vibrate') {
+        startVibrateLoop();
+      }
+    } else {
+      startWebAudioTone(mode, TOTAL_SECONDS);
+    }
+
+    startTimer(TOTAL_SECONDS);
+  };
+
+  const handlePause = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    if (vibrateIntervalRef.current) {
+      clearInterval(vibrateIntervalRef.current);
+      vibrateIntervalRef.current = null;
+    }
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate(0);
+    }
+    stopWebAudio();
+    setPlayState('paused');
+  };
+
+  const handleResume = () => {
+    setPlayState('playing');
+    if (mode === 'sound' || mode === 'vibrate') {
+      if (audioRef.current) {
+        audioRef.current.play().catch(() => {});
+      }
+      if (mode === 'vibrate') {
+        startVibrateLoop();
+      }
+    } else {
+      startWebAudioTone(mode, secondsLeft);
+    }
+    startTimer(secondsLeft);
+  };
+
+  const handleStop = () => {
+    stopMediaAndTimers();
+    setPlayState('idle');
+    setSecondsLeft(TOTAL_SECONDS);
+  };
+
+  const handleModeChange = (newMode: Mode) => {
+    if (newMode === mode) return;
+    stopMediaAndTimers();
+    setMode(newMode);
+    setPlayState('idle');
+    setSecondsLeft(TOTAL_SECONDS);
+    if (newMode === 'dust10k') {
+      setAutoSweep(false);
+    }
+  };
+
+  const runSpeakerTest = (target: 'left' | 'right' | 'both') => {
+    const Ctx = getAudioContextClass();
+    if (!Ctx) return;
+
+    setTestingChannel(target);
+    const ctx = new Ctx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const panner = ctx.createStereoPanner();
+
+    panner.pan.setValueAtTime(target === 'left' ? -1 : target === 'right' ? 1 : 0, ctx.currentTime);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(440, ctx.currentTime);
+    osc.frequency.setValueAtTime(660, ctx.currentTime + 0.35);
+
+    gain.gain.setValueAtTime(0.01, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.4, ctx.currentTime + 0.08);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.78);
+
+    osc.connect(gain);
+    gain.connect(panner);
+    panner.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.8);
+
+    setTimeout(() => {
+      try {
+        void ctx.close();
+      } catch {
+        // Ignore
+      }
+      setTestingChannel((prev) => (prev === target ? null : prev));
+    }, 820);
+  };
+
+  const progress = ((TOTAL_SECONDS - secondsLeft) / TOTAL_SECONDS) * 100;
+  const strokeDashoffset = CIRCUMFERENCE - (progress / 100) * CIRCUMFERENCE;
+
+  const statusText =
+    playState === 'playing'
+      ? tUI('cleaning')
+      : playState === 'paused'
+        ? tUI('paused')
+        : playState === 'completed'
+          ? tUI('completed')
+          : tUI('ready');
+
+  const activeModeDescription =
+    mode === 'sound'
+      ? tUI('soundDescription')
+      : mode === 'vibrate'
+        ? tUI('vibrateDescription')
+        : mode === 'dust10k'
+          ? tUI('dust10kDescription')
+          : tUI('customDescription');
+
+  const activeBadgeText =
+    mode === 'sound'
+      ? '165–250 Hz'
+      : mode === 'vibrate'
+        ? 'Haptic + Audio'
+        : mode === 'dust10k'
+          ? '10,000 Hz'
+          : `${customFreq} Hz`;
 
   const schemaData = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'SoftwareApplication',
-        name: 'VelnoxLabs Fix My Speaker',
-        operatingSystem: 'All',
-        applicationCategory: 'UtilityApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description:
-          'Eject water and clear dust from phone, tablet, and laptop speakers using tuned acoustic sound waves and vibration pulses.',
+        name: tUI('title'),
+        operatingSystem: 'All (iOS, Android, Windows, macOS)',
+        applicationCategory: 'UtilitiesApplication',
+        url: 'https://www.velnoxlabs.com/tools/fix-my-speaker',
+        description: tUI('subtitle'),
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        featureList: [
+          'Water Eject Sound Wave (165–250 Hz)',
+          'Haptic Vibrate & Acoustic Cleaning',
+          '10,000 Hz Dust Cleaning Frequency',
+          'Custom Frequency Generator & Auto-Sweep (100–12000 Hz)',
+          'Left / Right / Stereo Channel Control & Speaker Test',
+        ],
       },
       {
         '@type': 'FAQPage',
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'How does Fix My Speaker eject water from phone speakers?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Fix My Speaker plays low-frequency and high-frequency sound waves that create strong acoustic air vibrations. These vibrations push trapped water droplets and dust particles out of the speaker grills.',
-            },
+            name: tUI('faq1Q'),
+            acceptedAnswer: { '@type': 'Answer', text: tUI('faq1A') },
           },
           {
             '@type': 'Question',
-            name: 'What volume should I use while running the speaker cleaner?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Turn your device volume all the way up to 100% to generate the maximum acoustic vibration necessary to dislodge water.',
-            },
+            name: tUI('faq2Q'),
+            acceptedAnswer: { '@type': 'Answer', text: tUI('faq2A') },
           },
           {
             '@type': 'Question',
-            name: 'Is Fix My Speaker free to use?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes, VelnoxLabs Fix My Speaker is 100% free with no app download or sign-up required. It works directly in any web browser.',
-            },
+            name: tUI('faq3Q'),
+            acceptedAnswer: { '@type': 'Answer', text: tUI('faq3A') },
+          },
+          {
+            '@type': 'Question',
+            name: tUI('faq4Q'),
+            acceptedAnswer: { '@type': 'Answer', text: tUI('faq4A') },
           },
         ],
       },
     ],
   };
+
+  const modes: { id: Mode; label: string; icon: React.ReactNode }[] = [
+    { id: 'sound', label: tUI('modeSound'), icon: <Volume2 size={16} /> },
+    { id: 'vibrate', label: tUI('modeVibrate'), icon: <Vibrate size={16} /> },
+    { id: 'dust10k', label: tUI('modeDust10k'), icon: <Sparkles size={16} /> },
+    { id: 'custom', label: tUI('modeCustom'), icon: <Sliders size={16} /> },
+  ];
+
+  const channels: { id: Channel; label: string }[] = [
+    { id: 'both', label: tUI('channelBoth') },
+    { id: 'left', label: tUI('channelLeft') },
+    { id: 'right', label: tUI('channelRight') },
+  ];
 
   return (
     <>
@@ -258,397 +432,590 @@ export default function FixMySpeakerPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      <GlobalContainer maxWidth="2xl">
-        <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-16)' }}>
+      <GlobalContainer>
+        <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-12)' }}>
           <SectionHeading title={tUI('title')} subtitle={tUI('subtitle')} />
 
-          {/* Centered Main Card */}
+          {/* Main Interactive Cleaner Card */}
           <div
             style={{
+              maxWidth: '640px',
+              margin: 'var(--space-6) auto 0',
               backgroundColor: 'var(--bg-card)',
               border: '1px solid var(--border-color)',
-              borderRadius: '16px',
-              padding: '36px 24px',
-              marginTop: 'var(--space-6)',
-              maxWidth: '540px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              textAlign: 'center',
-              boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+              borderRadius: '20px',
+              padding: '28px 24px',
+              boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)',
             }}
           >
-            {/* Mode Toggle: Sleek pill-shaped switch */}
+            {/* 4-Mode Selector */}
             <div
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                backgroundColor: 'var(--bg-page)',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                gap: '8px',
+                marginBottom: '18px',
+              }}
+            >
+              {modes.map((m) => {
+                const active = mode === m.id;
+                return (
+                  <button
+                    key={m.id}
+                    type="button"
+                    onClick={() => handleModeChange(m.id)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '6px',
+                      padding: '10px 12px',
+                      borderRadius: '12px',
+                      border: active
+                        ? '1px solid var(--accent-primary)'
+                        : '1px solid var(--border-color)',
+                      backgroundColor: active ? 'var(--accent-primary)' : 'var(--bg-secondary)',
+                      color: active ? '#ffffff' : 'var(--text-main)',
+                      fontWeight: 600,
+                      fontSize: '0.84rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    {m.icon}
+                    <span>{m.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Mode Description + Frequency Badge */}
+            <div
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
                 border: '1px solid var(--border-color)',
-                borderRadius: '9999px',
-                padding: '4px',
-                gap: '4px',
+                borderRadius: '12px',
+                padding: '12px 16px',
+                marginBottom: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '12px',
+                flexWrap: 'wrap',
               }}
             >
-              <button
-                type="button"
-                onClick={() => handleModeChange('sound')}
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '0.86rem',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.5,
+                  flex: '1 1 260px',
+                }}
+              >
+                {activeModeDescription}
+              </p>
+              <span
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '8px 20px',
-                  borderRadius: '9999px',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  transition: 'all 0.2s ease',
-                  cursor: 'pointer',
-                  backgroundColor: mode === 'sound' ? '#2563eb' : 'transparent',
-                  color: mode === 'sound' ? '#ffffff' : 'var(--text-muted)',
-                  border: 'none',
-                  boxShadow: mode === 'sound' ? '0 2px 8px rgba(37, 99, 235, 0.35)' : 'none',
-                }}
-              >
-                <Volume2 style={{ width: '16px', height: '16px' }} />
-                <span>{tUI('modeSound')}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleModeChange('vibrate')}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '8px 20px',
-                  borderRadius: '9999px',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  transition: 'all 0.2s ease',
-                  cursor: 'pointer',
-                  backgroundColor: mode === 'vibrate' ? '#2563eb' : 'transparent',
-                  color: mode === 'vibrate' ? '#ffffff' : 'var(--text-muted)',
-                  border: 'none',
-                  boxShadow: mode === 'vibrate' ? '0 2px 8px rgba(37, 99, 235, 0.35)' : 'none',
-                }}
-              >
-                <Smartphone style={{ width: '16px', height: '16px' }} />
-                <span>{tUI('modeVibrate')}</span>
-              </button>
-            </div>
-
-            {/* Mode Description */}
-            <p
-              style={{
-                color: 'var(--text-muted)',
-                fontSize: '0.825rem',
-                marginTop: '12px',
-                marginBottom: '28px',
-                minHeight: '36px',
-                lineHeight: 1.5,
-              }}
-            >
-              {mode === 'sound' ? tUI('soundDescription') : tUI('vibrateDescription')}
-            </p>
-
-            {/* Circular Gauge Progress Ring */}
-            <div
-              style={{
-                position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '12px 0 28px',
-              }}
-            >
-              {/* Dark Mode Soft Neon Glow */}
-              <div
-                className="hidden dark:block"
-                style={{
-                  position: 'absolute',
-                  width: '200px',
-                  height: '200px',
-                  borderRadius: '50%',
-                  pointerEvents: 'none',
-                  transition: 'all 0.4s ease',
-                  boxShadow: isPlaying
-                    ? '0 0 50px 14px rgba(99, 102, 241, 0.55), 0 0 80px 24px rgba(59, 130, 246, 0.3)'
-                    : '0 0 30px 6px rgba(99, 102, 241, 0.3)',
-                }}
-              />
-
-              {/* Progress SVG */}
-              <svg
-                width={240}
-                height={240}
-                viewBox="0 0 240 240"
-                style={{
-                  transform: 'rotate(-90deg)',
-                  overflow: 'visible',
-                }}
-              >
-                <defs>
-                  <linearGradient id="speakerRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3b82f6" />
-                    <stop offset="50%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#8b5cf6" />
-                  </linearGradient>
-                </defs>
-
-                {/* Background Ring Track */}
-                <circle
-                  cx={120}
-                  cy={120}
-                  r={ringRadius}
-                  fill="transparent"
-                  stroke="var(--border-color)"
-                  strokeWidth={12}
-                  opacity={0.35}
-                />
-
-                {/* Active Progress Ring */}
-                <circle
-                  cx={120}
-                  cy={120}
-                  r={ringRadius}
-                  fill="transparent"
-                  stroke="url(#speakerRingGradient)"
-                  strokeWidth={12}
-                  strokeLinecap="round"
-                  strokeDasharray={circumference}
-                  strokeDashoffset={strokeDashoffset}
-                  style={{
-                    transition: 'stroke-dashoffset 0.25s linear',
-                  }}
-                />
-              </svg>
-
-              {/* Center Content: Percentage & Status */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  pointerEvents: 'none',
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: '3.25rem',
-                    fontWeight: 800,
-                    fontFamily: 'monospace',
-                    letterSpacing: '-0.03em',
-                    lineHeight: 1,
-                    color: 'var(--text-main)',
-                  }}
-                >
-                  {Math.round(progress)}%
-                </span>
-
-                <span
-                  style={{
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    marginTop: '8px',
-                    color: isCompleted ? '#10b981' : isPlaying ? '#60a5fa' : 'var(--text-muted)',
-                    transition: 'color 0.2s ease',
-                  }}
-                >
-                  {isCompleted
-                    ? tUI('completed')
-                    : isPlaying
-                      ? `${secondsLeft}s`
-                      : isPaused
-                        ? tUI('paused')
-                        : tUI('ready')}
-                </span>
-              </div>
-            </div>
-
-            {/* Play, Pause, and Stop Controls */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '24px',
-                marginTop: '12px',
-              }}
-            >
-              {/* Stop Button */}
-              <button
-                type="button"
-                onClick={handleStop}
-                disabled={!isPlaying && !isPaused && secondsLeft === TOTAL_SECONDS}
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'var(--bg-page)',
+                  gap: '6px',
+                  padding: '4px 10px',
+                  borderRadius: '999px',
+                  backgroundColor: 'var(--bg-card)',
                   border: '1px solid var(--border-color)',
-                  color:
-                    !isPlaying && !isPaused && secondsLeft === TOTAL_SECONDS
-                      ? 'var(--text-muted)'
-                      : '#ef4444',
-                  cursor:
-                    !isPlaying && !isPaused && secondsLeft === TOTAL_SECONDS
-                      ? 'not-allowed'
-                      : 'pointer',
-                  opacity: !isPlaying && !isPaused && secondsLeft === TOTAL_SECONDS ? 0.35 : 1,
-                  transition: 'all 0.2s ease',
+                  color: 'var(--accent-primary)',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
                 }}
-                title={tUI('stop')}
-                aria-label={tUI('stop')}
               >
-                <Square style={{ width: '18px', height: '18px', fill: 'currentColor' }} />
-              </button>
+                <Activity size={13} />
+                {activeBadgeText}
+              </span>
+            </div>
 
-              {/* Large Circular Play Button with Pulsing Ripple Effect */}
+            {/* Web Audio Controls (Channel Selector + Custom Hz Controls) */}
+            {(mode === 'dust10k' || mode === 'custom') && (
               <div
                 style={{
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  backgroundColor: 'var(--bg-secondary)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '14px',
+                  padding: '14px 16px',
+                  marginBottom: '22px',
                 }}
               >
-                {/* Subtle Pulsing Ripple Waves */}
-                {isPlaying && (
-                  <>
-                    <span
-                      className="animate-ping"
-                      style={{
-                        position: 'absolute',
-                        inset: '-10px',
-                        borderRadius: '50%',
-                        backgroundColor: 'rgba(37, 99, 235, 0.4)',
-                        pointerEvents: 'none',
-                      }}
-                    />
-                    <span
-                      className="animate-pulse"
-                      style={{
-                        position: 'absolute',
-                        inset: '-20px',
-                        borderRadius: '50%',
-                        border: '2px solid rgba(99, 102, 241, 0.45)',
-                        pointerEvents: 'none',
-                      }}
-                    />
-                  </>
-                )}
-
-                <button
-                  type="button"
-                  onClick={isPlaying ? handlePause : isPaused ? handleResume : handlePlay}
+                {/* Stereo Channel Selector */}
+                <div
                   style={{
-                    width: '74px',
-                    height: '74px',
-                    borderRadius: '50%',
-                    backgroundColor: '#2563eb',
-                    color: '#ffffff',
-                    border: 'none',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    boxShadow: isPlaying
-                      ? '0 0 28px rgba(37, 99, 235, 0.65), 0 4px 14px rgba(0, 0, 0, 0.25)'
-                      : '0 4px 16px rgba(37, 99, 235, 0.4)',
-                    transition: 'transform 0.15s ease, box-shadow 0.2s ease',
-                    zIndex: 2,
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                    marginBottom: mode === 'custom' ? '14px' : 0,
                   }}
-                  aria-label={
-                    isPlaying ? tUI('pause') : isPaused ? tUI('resume') : tUI('startCleaning')
-                  }
-                  title={isPlaying ? tUI('pause') : isPaused ? tUI('resume') : tUI('startCleaning')}
                 >
-                  {isCompleted ? (
-                    <RotateCcw style={{ width: '28px', height: '28px' }} />
-                  ) : isPlaying ? (
-                    <Pause style={{ width: '30px', height: '30px', fill: 'currentColor' }} />
-                  ) : (
-                    <Play
+                  <span
+                    style={{
+                      fontSize: '0.82rem',
+                      fontWeight: 600,
+                      color: 'var(--text-main)',
+                    }}
+                  >
+                    {tUI('channelLabel')}
+                  </span>
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                    {channels.map((ch) => {
+                      const selected = channel === ch.id;
+                      return (
+                        <button
+                          key={ch.id}
+                          type="button"
+                          onClick={() => setChannel(ch.id)}
+                          style={{
+                            padding: '6px 12px',
+                            borderRadius: '8px',
+                            border: selected
+                              ? '1px solid var(--accent-primary)'
+                              : '1px solid var(--border-color)',
+                            backgroundColor: selected ? 'var(--accent-primary)' : 'var(--bg-card)',
+                            color: selected ? '#ffffff' : 'var(--text-muted)',
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {ch.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Custom Hz Slider + Presets + Auto-Sweep */}
+                {mode === 'custom' && (
+                  <div
+                    style={{
+                      borderTop: '1px solid var(--border-color)',
+                      paddingTop: '14px',
+                    }}
+                  >
+                    <div
                       style={{
-                        width: '32px',
-                        height: '32px',
-                        fill: 'currentColor',
-                        marginLeft: '3px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px',
+                      }}
+                    >
+                      <label
+                        htmlFor="custom-hz-slider"
+                        style={{
+                          fontSize: '0.82rem',
+                          fontWeight: 600,
+                          color: 'var(--text-main)',
+                        }}
+                      >
+                        {tUI('frequencyLabel')}:{' '}
+                        <strong style={{ color: 'var(--accent-primary)' }}>{customFreq} Hz</strong>
+                      </label>
+                      <label
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          color: 'var(--text-main)',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={autoSweep}
+                          onChange={(e) => setAutoSweep(e.target.checked)}
+                        />
+                        {tUI('autoSweepLabel')}
+                      </label>
+                    </div>
+
+                    <input
+                      id="custom-hz-slider"
+                      type="range"
+                      min={100}
+                      max={12000}
+                      step={5}
+                      value={customFreq}
+                      disabled={autoSweep}
+                      onChange={(e) => setCustomFreq(Number(e.target.value))}
+                      style={{
+                        width: '100%',
+                        accentColor: 'var(--accent-primary)',
+                        cursor: autoSweep ? 'not-allowed' : 'pointer',
                       }}
                     />
-                  )}
-                </button>
-              </div>
 
-              {/* Pause / Resume Button */}
-              <button
-                type="button"
-                onClick={isPlaying ? handlePause : handleResume}
-                disabled={!isPlaying && !isPaused}
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'var(--bg-page)',
-                  border: '1px solid var(--border-color)',
-                  color: !isPlaying && !isPaused ? 'var(--text-muted)' : '#60a5fa',
-                  cursor: !isPlaying && !isPaused ? 'not-allowed' : 'pointer',
-                  opacity: !isPlaying && !isPaused ? 0.35 : 1,
-                  transition: 'all 0.2s ease',
-                }}
-                title={isPlaying ? tUI('pause') : tUI('resume')}
-                aria-label={isPlaying ? tUI('pause') : tUI('resume')}
-              >
-                {isPlaying ? (
-                  <Pause style={{ width: '18px', height: '18px' }} />
-                ) : (
-                  <Play style={{ width: '18px', height: '18px', marginLeft: '2px' }} />
+                    <div
+                      style={{
+                        display: 'flex',
+                        gap: '6px',
+                        flexWrap: 'wrap',
+                        marginTop: '10px',
+                      }}
+                    >
+                      {PRESET_FREQS.map((freq) => (
+                        <button
+                          key={freq}
+                          type="button"
+                          onClick={() => {
+                            setAutoSweep(false);
+                            setCustomFreq(freq);
+                          }}
+                          style={{
+                            padding: '4px 10px',
+                            borderRadius: '999px',
+                            border:
+                              !autoSweep && customFreq === freq
+                                ? '1px solid var(--accent-primary)'
+                                : '1px solid var(--border-color)',
+                            backgroundColor:
+                              !autoSweep && customFreq === freq
+                                ? 'var(--accent-primary)'
+                                : 'var(--bg-card)',
+                            color:
+                              !autoSweep && customFreq === freq ? '#ffffff' : 'var(--text-muted)',
+                            fontSize: '0.76rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {freq >= 1000 ? `${freq / 1000} kHz` : `${freq} Hz`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 )}
-              </button>
-            </div>
+              </div>
+            )}
 
-            {/* Status indicator line */}
+            {/* Circular Timer Ring */}
             <div
               style={{
-                marginTop: '20px',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: isPlaying ? '#3b82f6' : isCompleted ? '#10b981' : 'var(--text-muted)',
+                margin: '10px 0 18px',
               }}
             >
-              {isCompleted ? (
-                <>
-                  <CheckCircle2 style={{ width: '16px', height: '16px', color: '#10b981' }} />
-                  <span>{tUI('completed')}</span>
-                </>
-              ) : isPlaying ? (
-                <>
-                  <Sparkles style={{ width: '16px', height: '16px', color: '#3b82f6' }} />
-                  <span>
-                    {tUI('cleaning')} ({secondsLeft}s)
+              <div style={{ position: 'relative', width: '220px', height: '220px' }}>
+                <svg
+                  width="220"
+                  height="220"
+                  viewBox="0 0 220 220"
+                  style={{ transform: 'rotate(-90deg)' }}
+                >
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r={RING_RADIUS}
+                    fill="none"
+                    stroke="var(--border-color)"
+                    strokeWidth="12"
+                  />
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r={RING_RADIUS}
+                    fill="none"
+                    stroke={playState === 'completed' ? '#10b981' : 'var(--accent-primary)'}
+                    strokeWidth="12"
+                    strokeLinecap="round"
+                    strokeDasharray={CIRCUMFERENCE}
+                    strokeDashoffset={strokeDashoffset}
+                    style={{ transition: 'stroke-dashoffset 0.35s linear' }}
+                  />
+                </svg>
+
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    padding: '16px',
+                  }}
+                >
+                  {playState === 'completed' ? (
+                    <CheckCircle2 size={44} color="#10b981" style={{ marginBottom: '6px' }} />
+                  ) : (
+                    <span
+                      style={{
+                        fontSize: '2.5rem',
+                        fontWeight: 800,
+                        color: 'var(--text-main)',
+                        lineHeight: 1,
+                        fontVariantNumeric: 'tabular-nums',
+                      }}
+                    >
+                      {secondsLeft}s
+                    </span>
+                  )}
+                  <span
+                    style={{
+                      fontSize: '0.82rem',
+                      fontWeight: 600,
+                      color:
+                        playState === 'completed'
+                          ? '#10b981'
+                          : playState === 'playing'
+                            ? 'var(--accent-primary)'
+                            : 'var(--text-muted)',
+                      marginTop: '8px',
+                    }}
+                  >
+                    {statusText}
                   </span>
-                </>
-              ) : isPaused ? (
-                <span>{tUI('paused')}</span>
-              ) : (
-                <span>{tUI('startCleaning')}</span>
+                </div>
+              </div>
+
+              {/* Acoustic Visualizer Bars */}
+              <div
+                aria-hidden="true"
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  gap: '5px',
+                  height: '32px',
+                  marginTop: '12px',
+                }}
+              >
+                {VISUALIZER_BARS.map((heightPct, idx) => (
+                  <span
+                    key={idx}
+                    style={{
+                      width: '5px',
+                      height: playState === 'playing' ? `${heightPct}%` : '22%',
+                      borderRadius: '999px',
+                      backgroundColor:
+                        playState === 'playing' ? 'var(--accent-primary)' : 'var(--border-color)',
+                      transition: `height ${0.18 + (idx % 4) * 0.08}s ease`,
+                      opacity: playState === 'playing' ? 0.9 : 0.5,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Playback Controls */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '12px',
+                flexWrap: 'wrap',
+              }}
+            >
+              {(playState === 'idle' || playState === 'completed') && (
+                <button
+                  type="button"
+                  onClick={handleStart}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '13px 28px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: 'var(--accent-primary)',
+                    color: '#ffffff',
+                    fontWeight: 700,
+                    fontSize: '0.98rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <Play size={18} />
+                  {tUI('startCleaning')}
+                </button>
               )}
+
+              {playState === 'playing' && (
+                <>
+                  <button
+                    type="button"
+                    onClick={handlePause}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 22px',
+                      borderRadius: '12px',
+                      border: '1px solid var(--border-color)',
+                      backgroundColor: 'var(--bg-secondary)',
+                      color: 'var(--text-main)',
+                      fontWeight: 600,
+                      fontSize: '0.92rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Pause size={17} />
+                    {tUI('pause')}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleStop}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 22px',
+                      borderRadius: '12px',
+                      border: '1px solid rgba(239, 68, 68, 0.35)',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#ef4444',
+                      fontWeight: 600,
+                      fontSize: '0.92rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Square size={16} />
+                    {tUI('stop')}
+                  </button>
+                </>
+              )}
+
+              {playState === 'paused' && (
+                <>
+                  <button
+                    type="button"
+                    onClick={handleResume}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 22px',
+                      borderRadius: '12px',
+                      border: 'none',
+                      backgroundColor: 'var(--accent-primary)',
+                      color: '#ffffff',
+                      fontWeight: 700,
+                      fontSize: '0.92rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Play size={17} />
+                    {tUI('resume')}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleStop}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 22px',
+                      borderRadius: '12px',
+                      border: '1px solid rgba(239, 68, 68, 0.35)',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#ef4444',
+                      fontWeight: 600,
+                      fontSize: '0.92rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Square size={16} />
+                    {tUI('stop')}
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Post-Cleaning Stereo Speaker Test Bar */}
+            <div
+              style={{
+                marginTop: '24px',
+                paddingTop: '18px',
+                borderTop: '1px solid var(--border-color)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '10px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.84rem',
+                  fontWeight: 700,
+                  color: 'var(--text-main)',
+                }}
+              >
+                <Speaker size={15} />
+                <span>{tUI('speakerTestTitle')}</span>
+              </div>
+              <div
+                style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}
+              >
+                {(['left', 'both', 'right'] as const).map((target) => {
+                  const active = testingChannel === target;
+                  const label =
+                    target === 'left'
+                      ? tUI('testLeft')
+                      : target === 'right'
+                        ? tUI('testRight')
+                        : tUI('testStereo');
+                  return (
+                    <button
+                      key={target}
+                      type="button"
+                      onClick={() => runSpeakerTest(target)}
+                      style={{
+                        padding: '8px 14px',
+                        borderRadius: '10px',
+                        border: active
+                          ? '1px solid var(--accent-primary)'
+                          : '1px solid var(--border-color)',
+                        backgroundColor: active ? 'var(--accent-primary)' : 'var(--bg-secondary)',
+                        color: active ? '#ffffff' : 'var(--text-main)',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Tips Section */}
+          {/* Privacy Trust Pill */}
+          <div
+            style={{
+              maxWidth: '640px',
+              margin: '16px auto 0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              fontSize: '0.82rem',
+              color: 'var(--text-muted)',
+            }}
+          >
+            <ShieldCheck size={16} color="#10b981" />
+            <span>{tUI('privacyNotice')}</span>
+          </div>
+
+          {/* Pro Tips Card */}
           <div
             style={{
               backgroundColor: 'var(--bg-card)',
@@ -656,7 +1023,7 @@ export default function FixMySpeakerPage() {
               borderRadius: '16px',
               padding: '24px 28px',
               marginTop: 'var(--space-6)',
-              maxWidth: '540px',
+              maxWidth: '640px',
               marginLeft: 'auto',
               marginRight: 'auto',
             }}
@@ -672,12 +1039,13 @@ export default function FixMySpeakerPage() {
                 gap: '8px',
               }}
             >
-              <span>💡</span> {tUI('tipsTitle')}
+              <Lightbulb size={18} color="var(--accent-primary)" />
+              {tUI('tipsTitle')}
             </h3>
             <ul
               style={{
                 color: 'var(--text-muted)',
-                fontSize: '0.85rem',
+                fontSize: '0.86rem',
                 lineHeight: 1.7,
                 paddingLeft: '20px',
                 margin: 0,
@@ -691,6 +1059,114 @@ export default function FixMySpeakerPage() {
               <li>{tUI('tip3')}</li>
               <li>{tUI('tip4')}</li>
             </ul>
+          </div>
+
+          {/* Clean Comparison Table */}
+          <div
+            style={{
+              maxWidth: '780px',
+              margin: 'var(--space-8) auto 0',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '16px',
+              padding: '24px',
+              overflowX: 'auto',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '16px',
+                textAlign: 'center',
+              }}
+            >
+              {tUI('compareTitle')}
+            </h3>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontSize: '0.86rem',
+                textAlign: 'left',
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                  <th style={{ padding: '12px', color: 'var(--text-main)', fontWeight: 700 }}>
+                    {tUI('compareColFeature')}
+                  </th>
+                  <th style={{ padding: '12px', color: 'var(--accent-primary)', fontWeight: 700 }}>
+                    VelnoxLabs
+                  </th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    FixMySpeaker.com
+                  </th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    {tUI('compareColApps')}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow1Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#10b981', fontWeight: 600 }}>
+                    {tUI('compareRow1Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Fms')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Apps')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow2Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#10b981', fontWeight: 600 }}>
+                    {tUI('compareRow2Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Fms')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Apps')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow3Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#10b981', fontWeight: 600 }}>
+                    {tUI('compareRow3Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Fms')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Apps')}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow4Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#10b981', fontWeight: 600 }}>
+                    {tUI('compareRow4Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Fms')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Apps')}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           {/* SEO Content Component */}

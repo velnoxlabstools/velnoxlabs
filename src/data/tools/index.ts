@@ -1551,9 +1551,9 @@ export const tools: Tool[] = [
   {
     id: 'tool-fix-my-speaker',
     slug: 'fix-my-speaker',
-    name: 'Speaker Cleaner – Fix My Speaker & 10000 Hz Dust Cleaning Sound',
+    name: 'Speaker Cleaner – Fix My Speaker (Water Eject & 10000 Hz Dust Sound)',
     description:
-      'Free online Speaker Cleaner with 10000 Hz Dust Cleaning Sound. Eject trapped water, dislodge speaker dust, and restore muffled sound on Android, iPhone, and upper call speakers.',
+      'Free online Speaker Cleaner with Water Eject, 10000 Hz Dust Cleaning Sound, custom frequency sweep (100–12000 Hz), and Left/Right stereo speaker test for Android, iPhone, and call speakers.',
     categoryId: 'cat-utility',
     tags: [
       'speaker',
