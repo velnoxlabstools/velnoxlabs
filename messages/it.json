@@ -501,8 +501,8 @@
       "description": "Calcola rate mensili per mutui casa, auto, prestiti personali, aziendali e per studio con piano di ammortamento completo."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calcolatore da Stipendio a Paga Oraria – Netto e Mensile",
-      "description": "Converti stipendio annuo in compenso orario, mensile e settimanale con stima del netto e calcolo straordinari."
+      "name": "Calcolatore Stipendio a Paga Oraria – Annuale, Mensile e Netto",
+      "description": "Calcolatore gratuito da stipendio annuale a paga oraria. Converti retribuzioni annuali, mensili, quindicinali e settimanali con stima netta, straordinari (1.5x/2x) e confronto offerte di lavoro."
     },
     "grade-calculator": {
       "name": "Calcolatore Voto Finale – Simulatore Medie Esami e Rendimento Scolastico",

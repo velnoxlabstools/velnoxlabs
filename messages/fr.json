@@ -501,8 +501,8 @@
       "description": "Calculez vos mensualités pour prêt immobilier, auto, personnel, professionnel et études avec tableau d'amortissement."
     },
     "salary-to-hourly-calculator": {
-      "name": "Convertisseur Salaire en Taux Horaire – Net et Mensuel",
-      "description": "Convertissez un salaire annuel en taux horaire, mensuel et hebdomadaire avec calcul du net après impôts et heures sup."
+      "name": "Calculateur Salaire en Taux Horaire – Annuel, Mensuel et Net",
+      "description": "Calculateur gratuit de salaire annuel en taux horaire et inversement. Convertissez salaire annuel, mensuel, bimensuel et hebdomadaire avec estimation après impôts, heures supplémentaires et comparateur d'offres."
     },
     "grade-calculator": {
       "name": "Calculateur de Note Finale – Simulateur d'Examens et Moyennes Scolaires",

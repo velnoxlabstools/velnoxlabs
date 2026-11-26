@@ -8,7 +8,7 @@ import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 import { Calculator, Percent, Clock, Scale, Copy, Check } from 'lucide-react';
 
 type TabMode = 'converter' | 'afterTax' | 'overtime' | 'compare';
-type PeriodType = 'annual' | 'monthly' | 'biweekly' | 'weekly' | 'daily' | 'hourly';
+type PeriodType = 'annual' | 'monthly' | 'semiMonthly' | 'biweekly' | 'weekly' | 'daily' | 'hourly';
 type CurrencyType = 'USD' | 'EUR' | 'GBP' | 'INR' | 'CAD' | 'AUD';
 
 const CURRENCY_SYMBOLS: Record<CurrencyType, string> = {
@@ -20,9 +20,14 @@ const CURRENCY_SYMBOLS: Record<CurrencyType, string> = {
   AUD: 'A$',
 };
 
+const REFERENCE_SALARIES = [
+  30000, 40000, 50000, 52000, 55000, 60000, 75000, 85000, 100000, 120000, 150000,
+];
+
 function formatMoney(amount: number, currency: CurrencyType): string {
   const sym = CURRENCY_SYMBOLS[currency] || '$';
-  return `${sym}${amount.toLocaleString('en-US', {
+  const locale = currency === 'INR' ? 'en-IN' : 'en-US';
+  return `${sym}${amount.toLocaleString(locale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })}`;
@@ -47,38 +52,42 @@ export default function SalaryToHourlyCalculatorPage() {
   const [copiedBreakdown, setCopiedBreakdown] = useState(false);
 
   // Derived base annual earnings
-  const { annual, monthly, biweekly, weekly, daily, hourly, totalAnnualHours } = useMemo(() => {
-    const hpw = Math.max(1, parseFloat(hoursPerWeek) || 40);
-    const wpy = Math.max(1, parseFloat(weeksPerYear) || 52);
-    const totalH = hpw * wpy;
-    const val = Math.max(0, parseFloat(inputAmount) || 0);
+  const { annual, monthly, semiMonthly, biweekly, weekly, daily, hourly, totalAnnualHours } =
+    useMemo(() => {
+      const hpw = Math.max(1, parseFloat(hoursPerWeek) || 40);
+      const wpy = Math.max(1, parseFloat(weeksPerYear) || 52);
+      const totalH = hpw * wpy;
+      const val = Math.max(0, parseFloat(inputAmount) || 0);
 
-    let baseAnnual = 0;
-    if (inputPeriod === 'annual') baseAnnual = val;
-    else if (inputPeriod === 'monthly') baseAnnual = val * 12;
-    else if (inputPeriod === 'biweekly') baseAnnual = val * (wpy / 2);
-    else if (inputPeriod === 'weekly') baseAnnual = val * wpy;
-    else if (inputPeriod === 'daily') baseAnnual = (val / (hpw / 5)) * totalH;
-    else if (inputPeriod === 'hourly') baseAnnual = val * totalH;
+      let baseAnnual = 0;
+      if (inputPeriod === 'annual') baseAnnual = val;
+      else if (inputPeriod === 'monthly') baseAnnual = val * 12;
+      else if (inputPeriod === 'semiMonthly') baseAnnual = val * 24;
+      else if (inputPeriod === 'biweekly') baseAnnual = val * (wpy / 2);
+      else if (inputPeriod === 'weekly') baseAnnual = val * wpy;
+      else if (inputPeriod === 'daily') baseAnnual = (val / (hpw / 5)) * totalH;
+      else if (inputPeriod === 'hourly') baseAnnual = val * totalH;
 
-    const baseHourly = totalH > 0 ? baseAnnual / totalH : 0;
+      const baseHourly = totalH > 0 ? baseAnnual / totalH : 0;
 
-    return {
-      annual: baseAnnual,
-      monthly: baseAnnual / 12,
-      biweekly: (baseAnnual / wpy) * 2,
-      weekly: baseAnnual / wpy,
-      daily: baseHourly * (hpw / 5),
-      hourly: baseHourly,
-      totalAnnualHours: totalH,
-    };
-  }, [inputPeriod, inputAmount, hoursPerWeek, weeksPerYear]);
+      return {
+        annual: baseAnnual,
+        monthly: baseAnnual / 12,
+        semiMonthly: baseAnnual / 24,
+        biweekly: (baseAnnual / wpy) * 2,
+        weekly: baseAnnual / wpy,
+        daily: baseHourly * (hpw / 5),
+        hourly: baseHourly,
+        totalAnnualHours: totalH,
+      };
+    }, [inputPeriod, inputAmount, hoursPerWeek, weeksPerYear]);
 
   // Copy full breakdown handler
   const handleCopyBreakdown = () => {
     const text = `--- ${tUI('title')} ---
 ${tUI('annual')}: ${formatMoney(annual, currency)}
 ${tUI('monthly')}: ${formatMoney(monthly, currency)}
+${tUI('semiMonthly')}: ${formatMoney(semiMonthly, currency)}
 ${tUI('biweekly')}: ${formatMoney(biweekly, currency)}
 ${tUI('weekly')}: ${formatMoney(weekly, currency)}
 ${tUI('daily')}: ${formatMoney(daily, currency)}
@@ -95,8 +104,8 @@ ${tUI('basedOnCalculation', {
   };
 
   // Quick preset apply
-  const applyPreset = (amount: number) => {
-    setInputPeriod('annual');
+  const applyPreset = (amount: number, period: PeriodType = 'annual') => {
+    setInputPeriod(period);
     setInputAmount(String(amount));
   };
 
@@ -390,7 +399,7 @@ ${tUI('basedOnCalculation', {
                     ].map((p) => (
                       <button
                         key={p.key}
-                        onClick={() => applyPreset(p.amount)}
+                        onClick={() => applyPreset(p.amount, 'annual')}
                         style={{
                           padding: '6px 12px',
                           borderRadius: '6px',
@@ -412,6 +421,51 @@ ${tUI('basedOnCalculation', {
                         }}
                       >
                         {tUI(p.key)}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Hourly-to-Salary Reverse Presets */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      alignItems: 'center',
+                      gap: '8px',
+                      marginTop: '10px',
+                    }}
+                  >
+                    <span
+                      style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}
+                    >
+                      {tUI('hourlyPresetsLabel')}
+                    </span>
+                    {[20, 25, 30, 40, 50].map((hr) => (
+                      <button
+                        key={hr}
+                        onClick={() => applyPreset(hr, 'hourly')}
+                        style={{
+                          padding: '5px 10px',
+                          borderRadius: '6px',
+                          fontSize: '0.78rem',
+                          fontWeight: 600,
+                          backgroundColor:
+                            inputPeriod === 'hourly' && inputAmount === String(hr)
+                              ? 'rgba(16, 185, 129, 0.2)'
+                              : 'var(--bg-page)',
+                          border:
+                            inputPeriod === 'hourly' && inputAmount === String(hr)
+                              ? '1px solid #10b981'
+                              : '1px solid var(--border-color)',
+                          color:
+                            inputPeriod === 'hourly' && inputAmount === String(hr)
+                              ? '#34d399'
+                              : 'var(--text-main)',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {CURRENCY_SYMBOLS[currency]}
+                        {hr}/hr
                       </button>
                     ))}
                   </div>
@@ -455,6 +509,7 @@ ${tUI('basedOnCalculation', {
                     >
                       <option value="annual">{tUI('periodAnnual')}</option>
                       <option value="monthly">{tUI('periodMonthly')}</option>
+                      <option value="semiMonthly">{tUI('periodSemiMonthly')}</option>
                       <option value="biweekly">{tUI('periodBiweekly')}</option>
                       <option value="weekly">{tUI('periodWeekly')}</option>
                       <option value="daily">{tUI('periodDaily')}</option>
@@ -565,6 +620,11 @@ ${tUI('basedOnCalculation', {
                         label: tUI('biweekly'),
                         val: biweekly,
                         highlight: inputPeriod === 'biweekly',
+                      },
+                      {
+                        label: tUI('semiMonthly'),
+                        val: semiMonthly,
+                        highlight: inputPeriod === 'semiMonthly',
                       },
                       { label: tUI('monthly'), val: monthly, highlight: inputPeriod === 'monthly' },
                       { label: tUI('annual'), val: annual, highlight: inputPeriod === 'annual' },
@@ -814,17 +874,41 @@ ${tUI('basedOnCalculation', {
                   }}
                 >
                   <div>
-                    <label
+                    <div
                       style={{
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        color: 'var(--text-main)',
-                        display: 'block',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                         marginBottom: '6px',
+                        gap: '6px',
                       }}
                     >
-                      {tUI('regularRateLabel')}
-                    </label>
+                      <label
+                        style={{
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          color: 'var(--text-main)',
+                        }}
+                      >
+                        {tUI('regularRateLabel')}
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => setOtBaseHourlyRate(hourly.toFixed(2))}
+                        style={{
+                          fontSize: '0.72rem',
+                          fontWeight: 600,
+                          padding: '2px 8px',
+                          borderRadius: '4px',
+                          border: '1px solid #3b82f6',
+                          backgroundColor: 'rgba(59, 130, 246, 0.12)',
+                          color: '#60a5fa',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {tUI('syncHourlyBtn')}
+                      </button>
+                    </div>
                     <input
                       type="number"
                       step="any"
@@ -1318,6 +1402,235 @@ ${tUI('basedOnCalculation', {
                 </div>
               </div>
             )}
+          </div>
+
+          {/* Quick Reference Salary-to-Hourly Conversion Chart ($30k - $150k) */}
+          <div
+            style={{
+              marginTop: 'var(--space-8)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '12px',
+              padding: '24px',
+              overflowX: 'auto',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '6px',
+              }}
+            >
+              {tUI('chartTitle')}
+            </h3>
+            <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
+              {tUI('chartSubtitle')}
+            </p>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontSize: '0.85rem',
+                textAlign: 'right',
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                  <th
+                    style={{ padding: '10px 12px', textAlign: 'left', color: 'var(--text-main)' }}
+                  >
+                    {tUI('annual')}
+                  </th>
+                  <th style={{ padding: '10px 12px', color: 'var(--text-main)' }}>
+                    {tUI('monthly')}
+                  </th>
+                  <th style={{ padding: '10px 12px', color: 'var(--text-main)' }}>
+                    {tUI('biweekly')}
+                  </th>
+                  <th style={{ padding: '10px 12px', color: 'var(--text-main)' }}>
+                    {tUI('weekly')}
+                  </th>
+                  <th style={{ padding: '10px 12px', color: '#34d399' }}>{tUI('hourly')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {REFERENCE_SALARIES.map((sal) => {
+                  const hpw = Math.max(1, parseFloat(hoursPerWeek) || 40);
+                  const wpy = Math.max(1, parseFloat(weeksPerYear) || 52);
+                  const hr = sal / (hpw * wpy);
+                  return (
+                    <tr
+                      key={sal}
+                      onClick={() => {
+                        applyPreset(sal, 'annual');
+                        setActiveTab('converter');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      style={{
+                        borderBottom: '1px solid var(--border-color)',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <td
+                        style={{
+                          padding: '10px 12px',
+                          textAlign: 'left',
+                          fontWeight: 700,
+                          color: '#60a5fa',
+                          fontFamily: 'monospace',
+                        }}
+                      >
+                        {formatMoney(sal, currency)}
+                      </td>
+                      <td
+                        style={{
+                          padding: '10px 12px',
+                          color: 'var(--text-muted)',
+                          fontFamily: 'monospace',
+                        }}
+                      >
+                        {formatMoney(sal / 12, currency)}
+                      </td>
+                      <td
+                        style={{
+                          padding: '10px 12px',
+                          color: 'var(--text-muted)',
+                          fontFamily: 'monospace',
+                        }}
+                      >
+                        {formatMoney((sal / wpy) * 2, currency)}
+                      </td>
+                      <td
+                        style={{
+                          padding: '10px 12px',
+                          color: 'var(--text-muted)',
+                          fontFamily: 'monospace',
+                        }}
+                      >
+                        {formatMoney(sal / wpy, currency)}
+                      </td>
+                      <td
+                        style={{
+                          padding: '10px 12px',
+                          fontWeight: 700,
+                          color: '#34d399',
+                          fontFamily: 'monospace',
+                        }}
+                      >
+                        {formatMoney(hr, currency)}/hr
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Clean Comparison Table */}
+          <div
+            style={{
+              marginTop: 'var(--space-8)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '12px',
+              padding: '24px',
+              overflowX: 'auto',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '16px',
+                textAlign: 'center',
+              }}
+            >
+              {tUI('compareTableTitle')}
+            </h3>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontSize: '0.86rem',
+                textAlign: 'left',
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                  <th style={{ padding: '12px', color: 'var(--text-main)', fontWeight: 700 }}>
+                    {tUI('compareColFeature')}
+                  </th>
+                  <th style={{ padding: '12px', color: '#60a5fa', fontWeight: 700 }}>VelnoxLabs</th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    Talent.com
+                  </th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    ADP / CalculatorSoup
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow1Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow1Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Talent')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Adp')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow2Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow2Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Talent')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Adp')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow3Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow3Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Talent')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Adp')}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow4Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow4Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Talent')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Adp')}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           {/* Centralized SEO & Structured Schema - Zero Duplicate Inline JSON-LD */}
