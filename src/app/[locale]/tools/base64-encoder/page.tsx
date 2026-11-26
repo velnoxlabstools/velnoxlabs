@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
@@ -16,9 +16,11 @@ import {
   FileText,
   Lock,
   Unlock,
+  Wand2,
+  Code2,
 } from 'lucide-react';
 
-function utf8ToBase64(str: string, urlSafe: boolean): string {
+function utf8ToBase64(str: string, urlSafe: boolean, wrap76: boolean): string {
   const bytes = new TextEncoder().encode(str);
   let binary = '';
   const chunkSize = 0x8000;
@@ -28,6 +30,8 @@ function utf8ToBase64(str: string, urlSafe: boolean): string {
   let b64 = btoa(binary);
   if (urlSafe) {
     b64 = b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  } else if (wrap76) {
+    b64 = b64.replace(/(.{76})/g, '$1\n').trim();
   }
   return b64;
 }
@@ -36,7 +40,10 @@ function parseBase64Input(rawInput: string): {
   bytes: Uint8Array;
   declaredMime: string | null;
 } {
-  let clean = rawInput.trim();
+  let clean = rawInput
+    .trim()
+    .replace(/^["']|["']$/g, '')
+    .replace(/\\n|\\r/g, '');
   let declaredMime: string | null = null;
 
   const dataUriMatch = clean.match(/^data:([^;]+);base64,([\s\S]*)$/i);
@@ -62,17 +69,20 @@ function parseBase64Input(rawInput: string): {
 function detectMimeAndExt(
   bytes: Uint8Array,
   declaredMime: string | null
-): { mime: string; ext: string; isBinaryPreviewable: 'pdf' | 'image' | 'binary' | 'text' } {
+): { mime: string; ext: string; kind: 'pdf' | 'image' | 'audio' | 'video' | 'binary' | 'text' } {
   if (declaredMime) {
-    if (declaredMime === 'application/pdf')
-      return { mime: declaredMime, ext: 'pdf', isBinaryPreviewable: 'pdf' };
+    if (declaredMime === 'application/pdf') return { mime: declaredMime, ext: 'pdf', kind: 'pdf' };
     if (declaredMime.startsWith('image/')) {
       const sub = declaredMime.split('/')[1]?.split('+')[0] || 'png';
-      return {
-        mime: declaredMime,
-        ext: sub === 'jpeg' ? 'jpg' : sub,
-        isBinaryPreviewable: 'image',
-      };
+      return { mime: declaredMime, ext: sub === 'jpeg' ? 'jpg' : sub, kind: 'image' };
+    }
+    if (declaredMime.startsWith('audio/')) {
+      const sub = declaredMime.split('/')[1] || 'mp3';
+      return { mime: declaredMime, ext: sub === 'mpeg' ? 'mp3' : sub, kind: 'audio' };
+    }
+    if (declaredMime.startsWith('video/')) {
+      const sub = declaredMime.split('/')[1] || 'mp4';
+      return { mime: declaredMime, ext: sub, kind: 'video' };
     }
   }
 
@@ -84,7 +94,7 @@ function detectMimeAndExt(
     bytes[2] === 0x44 &&
     bytes[3] === 0x46
   ) {
-    return { mime: 'application/pdf', ext: 'pdf', isBinaryPreviewable: 'pdf' };
+    return { mime: 'application/pdf', ext: 'pdf', kind: 'pdf' };
   }
   if (
     bytes.length >= 4 &&
@@ -93,10 +103,10 @@ function detectMimeAndExt(
     bytes[2] === 0x4e &&
     bytes[3] === 0x47
   ) {
-    return { mime: 'image/png', ext: 'png', isBinaryPreviewable: 'image' };
+    return { mime: 'image/png', ext: 'png', kind: 'image' };
   }
   if (bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) {
-    return { mime: 'image/jpeg', ext: 'jpg', isBinaryPreviewable: 'image' };
+    return { mime: 'image/jpeg', ext: 'jpg', kind: 'image' };
   }
   if (
     bytes.length >= 4 &&
@@ -105,7 +115,7 @@ function detectMimeAndExt(
     bytes[2] === 0x46 &&
     bytes[3] === 0x38
   ) {
-    return { mime: 'image/gif', ext: 'gif', isBinaryPreviewable: 'image' };
+    return { mime: 'image/gif', ext: 'gif', kind: 'image' };
   }
   if (
     bytes.length >= 12 &&
@@ -118,7 +128,24 @@ function detectMimeAndExt(
     bytes[10] === 0x42 &&
     bytes[11] === 0x50
   ) {
-    return { mime: 'image/webp', ext: 'webp', isBinaryPreviewable: 'image' };
+    return { mime: 'image/webp', ext: 'webp', kind: 'image' };
+  }
+  // MP3 (ID3 or frame sync)
+  if (
+    (bytes.length >= 3 && bytes[0] === 0x49 && bytes[1] === 0x44 && bytes[2] === 0x33) ||
+    (bytes.length >= 2 && bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0)
+  ) {
+    return { mime: 'audio/mpeg', ext: 'mp3', kind: 'audio' };
+  }
+  // MP4 (ftyp)
+  if (
+    bytes.length >= 8 &&
+    bytes[4] === 0x66 &&
+    bytes[5] === 0x74 &&
+    bytes[6] === 0x79 &&
+    bytes[7] === 0x70
+  ) {
+    return { mime: 'video/mp4', ext: 'mp4', kind: 'video' };
   }
   if (
     bytes.length >= 4 &&
@@ -127,22 +154,38 @@ function detectMimeAndExt(
     bytes[2] === 0x03 &&
     bytes[3] === 0x04
   ) {
-    return { mime: 'application/zip', ext: 'zip', isBinaryPreviewable: 'binary' };
+    return { mime: 'application/zip', ext: 'zip', kind: 'binary' };
   }
 
-  // Check if SVG text
   const head = new TextDecoder('utf-8', { fatal: false }).decode(bytes.subarray(0, 120)).trim();
   if (head.startsWith('<svg') || (head.startsWith('<?xml') && head.includes('<svg'))) {
-    return { mime: 'image/svg+xml', ext: 'svg', isBinaryPreviewable: 'image' };
+    return { mime: 'image/svg+xml', ext: 'svg', kind: 'image' };
   }
 
-  return { mime: declaredMime || 'text/plain', ext: 'txt', isBinaryPreviewable: 'text' };
+  return { mime: declaredMime || 'text/plain', ext: 'txt', kind: 'text' };
 }
 
 function formatBytes(n: number): string {
   if (n < 1024) return `${n} B`;
   if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
   return `${(n / (1024 * 1024)).toFixed(2)} MB`;
+}
+
+function looksLikeBase64(text: string): boolean {
+  const t = text.trim();
+  if (t.length < 16) return false;
+  if (/^data:[^;]+;base64,/i.test(t)) return true;
+  if (/^(JVBERi0|iVBORw0KGgo|\/9j\/|R0lGOD)/.test(t)) return true;
+  if (/^[A-Za-z0-9+/=_-]{24,}$/.test(t.replace(/\s+/g, '')) && t.length % 4 === 0) return true;
+  return false;
+}
+
+interface EncodedFileItem {
+  name: string;
+  mime: string;
+  size: number;
+  rawBase64: string;
+  dataUri: string;
 }
 
 export default function Base64EncoderPage() {
@@ -152,33 +195,26 @@ export default function Base64EncoderPage() {
   const [input, setInput] = useState('Hello VelnoxLabs!');
   const [output, setOutput] = useState('');
   const [urlSafe, setUrlSafe] = useState(false);
+  const [wrap76, setWrap76] = useState(false);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Decoded binary/preview state
   const [decodedPreview, setDecodedPreview] = useState<{
     url: string;
     mime: string;
     ext: string;
-    kind: 'pdf' | 'image' | 'binary' | 'text';
+    kind: 'pdf' | 'image' | 'audio' | 'video' | 'binary' | 'text';
     size: number;
   } | null>(null);
 
-  // File to Base64 state
-  const [fileInfo, setFileInfo] = useState<{
-    name: string;
-    mime: string;
-    size: number;
-    rawBase64: string;
-    dataUri: string;
-  } | null>(null);
+  const [fileItems, setFileItems] = useState<EncodedFileItem[]>([]);
   const [includeDataUri, setIncludeDataUri] = useState(false);
-  const [copiedFile, setCopiedFile] = useState(false);
+  const [copiedFileIdx, setCopiedFileIdx] = useState<number | null>(null);
+  const [copiedSnippetKey, setCopiedSnippetKey] = useState<string | null>(null);
   const [copiedCliIdx, setCopiedCliIdx] = useState<number | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  // Clean up blob URLs
   useEffect(() => {
     return () => {
       if (decodedPreview?.url) {
@@ -187,8 +223,12 @@ export default function Base64EncoderPage() {
     };
   }, [decodedPreview]);
 
+  const showAiSwitchToDecode = useMemo(() => {
+    return mode === 'encode' && looksLikeBase64(input);
+  }, [mode, input]);
+
   const processText = useCallback(
-    (text: string, currentMode: 'encode' | 'decode', isUrlSafe: boolean) => {
+    (text: string, currentMode: 'encode' | 'decode', isUrlSafe: boolean, isWrap76: boolean) => {
       setError('');
       setDecodedPreview((prev) => {
         if (prev?.url) URL.revokeObjectURL(prev.url);
@@ -202,19 +242,19 @@ export default function Base64EncoderPage() {
 
       try {
         if (currentMode === 'encode') {
-          setOutput(utf8ToBase64(text, isUrlSafe));
+          setOutput(utf8ToBase64(text, isUrlSafe, isWrap76));
         } else {
           const { bytes, declaredMime } = parseBase64Input(text);
           const detected = detectMimeAndExt(bytes, declaredMime);
 
-          if (detected.isBinaryPreviewable !== 'text') {
+          if (detected.kind !== 'text') {
             const blob = new Blob([new Uint8Array(bytes)], { type: detected.mime });
             const url = URL.createObjectURL(blob);
             setDecodedPreview({
               url,
               mime: detected.mime,
               ext: detected.ext,
-              kind: detected.isBinaryPreviewable,
+              kind: detected.kind,
               size: bytes.length,
             });
             setOutput(`[${detected.mime.toUpperCase()} — ${formatBytes(bytes.length)}]`);
@@ -233,9 +273,9 @@ export default function Base64EncoderPage() {
 
   useEffect(() => {
     if (mode === 'encode' || mode === 'decode') {
-      processText(input, mode, urlSafe);
+      processText(input, mode, urlSafe, wrap76);
     }
-  }, [input, mode, urlSafe, processText]);
+  }, [input, mode, urlSafe, wrap76, processText]);
 
   const handleCopy = async () => {
     if (!output) return;
@@ -251,12 +291,9 @@ export default function Base64EncoderPage() {
   const handleSwap = () => {
     if (mode === 'file') return;
     const nextMode = mode === 'encode' ? 'decode' : 'encode';
-    const nextInput = decodedPreview ? input : output;
     setMode(nextMode);
     if (!decodedPreview && output) {
       setInput(output);
-    } else {
-      setInput(nextInput);
     }
   };
 
@@ -267,45 +304,75 @@ export default function Base64EncoderPage() {
     setDecodedPreview(null);
   };
 
-  const handleFileSelect = (file: File) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUri = String(reader.result || '');
-      const commaIdx = dataUri.indexOf(',');
-      const rawBase64 = commaIdx !== -1 ? dataUri.slice(commaIdx + 1) : dataUri;
-      setFileInfo({
-        name: file.name,
-        mime: file.type || 'application/octet-stream',
-        size: file.size,
-        rawBase64,
-        dataUri,
-      });
-    };
-    reader.readAsDataURL(file);
+  const handleFilesSelected = (files: FileList | File[]) => {
+    const fileArr = Array.from(files).slice(0, 20);
+    fileArr.forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const dataUri = String(reader.result || '');
+        const commaIdx = dataUri.indexOf(',');
+        const rawBase64 = commaIdx !== -1 ? dataUri.slice(commaIdx + 1) : dataUri;
+        setFileItems((prev) => [
+          ...prev,
+          {
+            name: file.name,
+            mime: file.type || 'application/octet-stream',
+            size: file.size,
+            rawBase64,
+            dataUri,
+          },
+        ]);
+      };
+      reader.readAsDataURL(file);
+    });
   };
 
-  const activeFileOutput = fileInfo ? (includeDataUri ? fileInfo.dataUri : fileInfo.rawBase64) : '';
-
-  const handleCopyFileBase64 = async () => {
-    if (!activeFileOutput) return;
+  const handleCopyFileBase64 = async (val: string, idx: number) => {
     try {
-      await navigator.clipboard.writeText(activeFileOutput);
-      setCopiedFile(true);
-      setTimeout(() => setCopiedFile(false), 2000);
+      await navigator.clipboard.writeText(val);
+      setCopiedFileIdx(idx);
+      setTimeout(() => setCopiedFileIdx(null), 1800);
     } catch {
       // ignore
     }
   };
 
-  const handleDownloadFileBase64Txt = () => {
-    if (!activeFileOutput || !fileInfo) return;
-    const blob = new Blob([activeFileOutput], { type: 'text/plain;charset=utf-8' });
+  const handleDownloadFileBase64Txt = (item: EncodedFileItem) => {
+    const content = includeDataUri ? item.dataUri : item.rawBase64;
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${fileInfo.name}.base64.txt`;
+    a.download = `${item.name}.base64.txt`;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  const handleExportBatchJson = () => {
+    if (fileItems.length === 0) return;
+    const payload = fileItems.map((it) => ({
+      filename: it.name,
+      mime: it.mime,
+      sizeBytes: it.size,
+      base64: includeDataUri ? it.dataUri : it.rawBase64,
+    }));
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'base64-batch.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleCopySnippet = async (val: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(val);
+      setCopiedSnippetKey(key);
+      setTimeout(() => setCopiedSnippetKey(null), 1600);
+    } catch {
+      // ignore
+    }
   };
 
   const cliCommands = [
@@ -332,6 +399,9 @@ export default function Base64EncoderPage() {
       // ignore
     }
   };
+
+  const inputBytes = new TextEncoder().encode(input).length;
+  const outputBytes = new TextEncoder().encode(output).length;
 
   return (
     <GlobalContainer maxWidth="2xl">
@@ -427,29 +497,100 @@ export default function Base64EncoderPage() {
             </div>
 
             {mode === 'encode' && (
-              <label
+              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={urlSafe}
+                    onChange={(e) => setUrlSafe(e.target.checked)}
+                    style={{ width: '15px', height: '15px', accentColor: '#3b82f6' }}
+                  />
+                  {t('urlSafeToggle')}
+                </label>
+
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={wrap76}
+                    disabled={urlSafe}
+                    onChange={(e) => setWrap76(e.target.checked)}
+                    style={{ width: '15px', height: '15px', accentColor: '#3b82f6' }}
+                  />
+                  {t('wrap76Toggle')}
+                </label>
+              </div>
+            )}
+          </div>
+
+          {/* AI Auto-Detect Banner */}
+          {showAiSwitchToDecode && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '10px',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
+                marginBottom: '16px',
+              }}
+            >
+              <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  fontSize: '0.85rem',
+                  color: '#8b5cf6',
+                  fontSize: '0.84rem',
                   fontWeight: 600,
-                  color: 'var(--text-main)',
+                }}
+              >
+                <Wand2 size={16} />
+                <span>{t('aiDetectedBase64Hint')}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMode('decode')}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: '#8b5cf6',
+                  color: '#ffffff',
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
                   cursor: 'pointer',
                 }}
               >
-                <input
-                  type="checkbox"
-                  checked={urlSafe}
-                  onChange={(e) => setUrlSafe(e.target.checked)}
-                  style={{ width: '16px', height: '16px', accentColor: '#3b82f6' }}
-                />
-                {t('urlSafeToggle')}
-              </label>
-            )}
-          </div>
+                {t('aiSwitchDecodeBtn')}
+              </button>
+            </div>
+          )}
 
-          {/* ENCODE / DECODE TEXT OR PDF/IMAGE DECODE */}
+          {/* ENCODE / DECODE TEXT OR BINARY */}
           {mode !== 'file' ? (
             <div>
               <div
@@ -475,7 +616,7 @@ export default function Base64EncoderPage() {
                       {mode === 'encode' ? t('textInput') : t('base64Input')}
                     </label>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                      {input.length} {t('charsLabel')}
+                      {input.length} {t('charsLabel')} ({formatBytes(inputBytes)})
                     </span>
                   </div>
                   <textarea
@@ -515,31 +656,38 @@ export default function Base64EncoderPage() {
                     >
                       {mode === 'encode' ? t('base64Output') : t('decodedOutput')}
                     </label>
-                    <button
-                      type="button"
-                      onClick={handleCopy}
-                      disabled={!output}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '5px',
-                        backgroundColor: copied
-                          ? '#10b981'
-                          : output
-                            ? 'rgba(59, 130, 246, 0.15)'
-                            : 'var(--bg-card)',
-                        color: copied ? '#ffffff' : output ? '#3b82f6' : 'var(--text-muted)',
-                        border: '1px solid rgba(59, 130, 246, 0.3)',
-                        borderRadius: '6px',
-                        padding: '4px 12px',
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        cursor: output ? 'pointer' : 'not-allowed',
-                      }}
-                    >
-                      {copied ? <Check size={13} /> : <Copy size={13} />}
-                      {copied ? t('copied') : t('copy')}
-                    </button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      {output && (
+                        <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                          {formatBytes(outputBytes)}
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={handleCopy}
+                        disabled={!output}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                          backgroundColor: copied
+                            ? '#10b981'
+                            : output
+                              ? 'rgba(59, 130, 246, 0.15)'
+                              : 'var(--bg-card)',
+                          color: copied ? '#ffffff' : output ? '#3b82f6' : 'var(--text-muted)',
+                          border: '1px solid rgba(59, 130, 246, 0.3)',
+                          borderRadius: '6px',
+                          padding: '4px 12px',
+                          fontSize: '0.75rem',
+                          fontWeight: 600,
+                          cursor: output ? 'pointer' : 'not-allowed',
+                        }}
+                      >
+                        {copied ? <Check size={13} /> : <Copy size={13} />}
+                        {copied ? t('copied') : t('copy')}
+                      </button>
+                    </div>
                   </div>
                   <textarea
                     value={output}
@@ -562,7 +710,7 @@ export default function Base64EncoderPage() {
                 </div>
               </div>
 
-              {/* Decoded Binary / PDF / Image Preview Box */}
+              {/* Decoded Binary / PDF / Image / Audio / Video Preview Box */}
               {decodedPreview && (
                 <div
                   style={{
@@ -648,6 +796,18 @@ export default function Base64EncoderPage() {
                       }}
                     />
                   )}
+
+                  {decodedPreview.kind === 'audio' && (
+                    <audio controls src={decodedPreview.url} style={{ width: '100%' }} />
+                  )}
+
+                  {decodedPreview.kind === 'video' && (
+                    <video
+                      controls
+                      src={decodedPreview.url}
+                      style={{ width: '100%', maxHeight: '340px', borderRadius: '8px' }}
+                    />
+                  )}
                 </div>
               )}
 
@@ -713,14 +873,14 @@ export default function Base64EncoderPage() {
               </div>
             </div>
           ) : (
-            /* FILE TO BASE64 MODE */
+            /* MULTI-FILE TO BASE64 MODE */
             <div>
               <input
                 ref={fileInputRef}
                 type="file"
+                multiple
                 onChange={(e) => {
-                  const f = e.target.files?.[0];
-                  if (f) handleFileSelect(f);
+                  if (e.target.files?.length) handleFilesSelected(e.target.files);
                   e.target.value = '';
                 }}
                 style={{ display: 'none' }}
@@ -739,13 +899,12 @@ export default function Base64EncoderPage() {
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => {
                   e.preventDefault();
-                  const f = e.dataTransfer.files?.[0];
-                  if (f) handleFileSelect(f);
+                  if (e.dataTransfer.files?.length) handleFilesSelected(e.dataTransfer.files);
                 }}
                 style={{
                   border: '2px dashed var(--border-color)',
                   borderRadius: '12px',
-                  padding: '36px 20px',
+                  padding: '32px 20px',
                   textAlign: 'center',
                   cursor: 'pointer',
                   backgroundColor: 'rgba(59, 130, 246, 0.03)',
@@ -768,7 +927,7 @@ export default function Base64EncoderPage() {
                 </p>
               </div>
 
-              {fileInfo && (
+              {fileItems.length > 0 && (
                 <div>
                   <div
                     style={{
@@ -777,21 +936,15 @@ export default function Base64EncoderPage() {
                       alignItems: 'center',
                       flexWrap: 'wrap',
                       gap: '12px',
-                      marginBottom: '12px',
+                      marginBottom: '16px',
                     }}
                   >
-                    <div
-                      style={{ fontSize: '0.85rem', color: 'var(--text-main)', fontWeight: 600 }}
-                    >
-                      {fileInfo.name} ({fileInfo.mime} — {formatBytes(fileInfo.size)})
-                    </div>
-
                     <label
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px',
-                        fontSize: '0.82rem',
+                        fontSize: '0.84rem',
                         fontWeight: 600,
                         color: 'var(--text-main)',
                         cursor: 'pointer',
@@ -805,69 +958,209 @@ export default function Base64EncoderPage() {
                       />
                       {t('includeDataUriLabel')}
                     </label>
+
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button
+                        type="button"
+                        onClick={handleExportBatchJson}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                          color: '#10b981',
+                          border: '1px solid rgba(16, 185, 129, 0.3)',
+                          borderRadius: '8px',
+                          padding: '6px 14px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <Download size={14} />
+                        {t('exportBatchJsonBtn')}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setFileItems([])}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          backgroundColor: 'var(--bg-page)',
+                          color: 'var(--text-muted)',
+                          border: '1px solid var(--border-color)',
+                          borderRadius: '8px',
+                          padding: '6px 12px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <Trash2 size={14} />
+                        {t('clear')}
+                      </button>
+                    </div>
                   </div>
 
-                  <textarea
-                    value={activeFileOutput}
-                    readOnly
-                    rows={8}
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '8px',
-                      color: '#10b981',
-                      padding: '12px',
-                      fontFamily: 'monospace',
-                      fontSize: '0.8rem',
-                      outline: 'none',
-                      resize: 'vertical',
-                      marginBottom: '14px',
-                    }}
-                  />
+                  <div style={{ display: 'grid', gap: '16px' }}>
+                    {fileItems.map((item, idx) => {
+                      const activeText = includeDataUri ? item.dataUri : item.rawBase64;
+                      const htmlSnippet = `<img src="${item.dataUri}" alt="${item.name}" />`;
+                      const cssSnippet = `background-image: url('${item.dataUri}');`;
+                      return (
+                        <div
+                          key={`${item.name}-${idx}`}
+                          style={{
+                            padding: '16px',
+                            backgroundColor: 'var(--bg-page)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '10px',
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                              flexWrap: 'wrap',
+                              gap: '8px',
+                              marginBottom: '10px',
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontSize: '0.88rem',
+                                fontWeight: 700,
+                                color: 'var(--text-main)',
+                              }}
+                            >
+                              {item.name} ({item.mime} — {formatBytes(item.size)})
+                            </span>
+                            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                              <button
+                                type="button"
+                                onClick={() => handleCopyFileBase64(activeText, idx)}
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px',
+                                  padding: '5px 12px',
+                                  borderRadius: '6px',
+                                  border: 'none',
+                                  backgroundColor: copiedFileIdx === idx ? '#10b981' : '#3b82f6',
+                                  color: '#ffffff',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 600,
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                {copiedFileIdx === idx ? <Check size={13} /> : <Copy size={13} />}
+                                {copiedFileIdx === idx ? t('copied') : t('copy')}
+                              </button>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                    <button
-                      type="button"
-                      onClick={handleCopyFileBase64}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        backgroundColor: copiedFile ? '#10b981' : '#3b82f6',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '10px 18px',
-                        fontSize: '0.88rem',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                      }}
-                    >
-                      {copiedFile ? <Check size={16} /> : <Copy size={16} />}
-                      {copiedFile ? t('copied') : t('copy')}
-                    </button>
+                              <button
+                                type="button"
+                                onClick={() => handleDownloadFileBase64Txt(item)}
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px',
+                                  padding: '5px 12px',
+                                  borderRadius: '6px',
+                                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                                  backgroundColor: 'rgba(16, 185, 129, 0.12)',
+                                  color: '#10b981',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 600,
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                <Download size={13} />
+                                {t('downloadBase64Txt')}
+                              </button>
 
-                    <button
-                      type="button"
-                      onClick={handleDownloadFileBase64Txt}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                        color: '#10b981',
-                        border: '1px solid rgba(16, 185, 129, 0.3)',
-                        borderRadius: '8px',
-                        padding: '10px 18px',
-                        fontSize: '0.88rem',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                      }}
-                    >
-                      <Download size={16} />
-                      {t('downloadBase64Txt')}
-                    </button>
+                              {item.mime.startsWith('image/') && (
+                                <>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleCopySnippet(htmlSnippet, `html-${idx}`)}
+                                    style={{
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '4px',
+                                      padding: '5px 10px',
+                                      borderRadius: '6px',
+                                      border: '1px solid var(--border-color)',
+                                      backgroundColor:
+                                        copiedSnippetKey === `html-${idx}`
+                                          ? '#10b981'
+                                          : 'var(--bg-card)',
+                                      color:
+                                        copiedSnippetKey === `html-${idx}`
+                                          ? '#ffffff'
+                                          : 'var(--text-main)',
+                                      fontSize: '0.75rem',
+                                      fontWeight: 600,
+                                      cursor: 'pointer',
+                                    }}
+                                  >
+                                    <Code2 size={12} />
+                                    {copiedSnippetKey === `html-${idx}` ? t('copied') : 'HTML'}
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleCopySnippet(cssSnippet, `css-${idx}`)}
+                                    style={{
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '4px',
+                                      padding: '5px 10px',
+                                      borderRadius: '6px',
+                                      border: '1px solid var(--border-color)',
+                                      backgroundColor:
+                                        copiedSnippetKey === `css-${idx}`
+                                          ? '#10b981'
+                                          : 'var(--bg-card)',
+                                      color:
+                                        copiedSnippetKey === `css-${idx}`
+                                          ? '#ffffff'
+                                          : 'var(--text-main)',
+                                      fontSize: '0.75rem',
+                                      fontWeight: 600,
+                                      cursor: 'pointer',
+                                    }}
+                                  >
+                                    <Code2 size={12} />
+                                    {copiedSnippetKey === `css-${idx}` ? t('copied') : 'CSS'}
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                          <textarea
+                            value={
+                              activeText.slice(0, 1000) + (activeText.length > 1000 ? '...' : '')
+                            }
+                            readOnly
+                            rows={3}
+                            style={{
+                              width: '100%',
+                              backgroundColor: 'var(--bg-card)',
+                              border: '1px solid var(--border-color)',
+                              borderRadius: '6px',
+                              color: '#10b981',
+                              padding: '8px',
+                              fontFamily: 'monospace',
+                              fontSize: '0.76rem',
+                              outline: 'none',
+                              resize: 'none',
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}

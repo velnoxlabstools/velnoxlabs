@@ -100,8 +100,8 @@
       "faq4A": "No, i dati rimangono confinati nella memoria locale della sessione di navigazione."
     },
     "base64Encoder": {
-      "title": "Codificatore e Decodificatore Base64 – File in Base64 e Base64 in PDF",
-      "subtitle": "Strumento gratuito online per codificare e decodificare Base64. Converti file in Base64, decodifica Base64 in PDF o immagini con anteprima e URL-safe.",
+      "title": "Codificatore e Decodificatore Base64 IA – File in Base64 e Base64 in PDF",
+      "subtitle": "Strumento IA gratuito online per codificare e decodificare Base64. Converti file e immagini in Base64, decodifica Base64 in PDF, audio o video con riparazione automatica.",
       "encode": "Codifica Testo",
       "decode": "Decodifica Base64",
       "fileToBase64Tab": "File in Base64",
@@ -153,7 +153,11 @@
       "outputLabel": "Risultato Base64:",
       "copy": "Copia",
       "copied": "Copiato!",
-      "clear": "Cancella"
+      "clear": "Cancella",
+      "wrap76Toggle": "A capo MIME 76 caratteri",
+      "aiDetectedBase64Hint": "IA ha rilevato Base64. Passare alla modalità Decodifica?",
+      "aiSwitchDecodeBtn": "Vai a Decodifica",
+      "exportBatchJsonBtn": "Esporta Lotto JSON"
     },
     "jsonFormatter": {
       "inputLabel": "Dati JSON:",

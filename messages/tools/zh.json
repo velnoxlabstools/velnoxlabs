@@ -100,8 +100,8 @@
       "faq4A": "不会，所有数学公式解析均在您本地浏览器中即时执行，不会发送至任何服务器。"
     },
     "base64Encoder": {
-      "title": "在线 Base64 编码与解码 – 文件转 Base64 及 Base64 转 PDF",
-      "subtitle": "免费在线Base64编解码工具。支持文件拖拽转Base64、Base64还原为PDF或图片实时预览与下载、URL安全编码及Windows/Linux命令行参考。",
+      "title": "AI 在线 Base64 编码与解码 – 图片/文件转 Base64 及 Base64 转 PDF",
+      "subtitle": "免费AI在线Base64编解码工具。支持多文件与图片批量转Base64、Base64还原为PDF/图片/音视频预览、76字符MIME换行、HTML/CSS代码片段及JSON批量导出。",
       "encode": "编码文本",
       "decode": "解码 Base64",
       "fileToBase64Tab": "文件转 Base64",
@@ -151,7 +151,11 @@
       "faq6A": "支持 PDF、PNG、JPG、SVG、JSON、TXT、ZIP（纯本地浏览器处理）",
       "copy": "复制",
       "copied": "已复制！",
-      "clear": "清空"
+      "clear": "清空",
+      "wrap76Toggle": "MIME 76字符换行",
+      "aiDetectedBase64Hint": "AI 检测到 Base64 内容，是否切换到解码模式？",
+      "aiSwitchDecodeBtn": "切换至解码",
+      "exportBatchJsonBtn": "导出批量 JSON"
     },
     "jsonFormatter": {
       "inputLabel": "JSON 输入：",

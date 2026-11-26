@@ -263,8 +263,8 @@
       "description": "INR、ユーロ、USDに対応したPDF請求書を無料で作成。ログイン不要で使えるZohoおよびInvoice-Generator代替。"
     },
     "base64-encoder": {
-      "name": "Base64 エンコード・デコード – ファイル変換・PDF/画像プレビュー対応",
-      "description": "無料のオンラインBase64変換ツール。ファイルのBase64化、Base64からPDFや画像のデコード＆プレビュー、URLセーフ変換、Windows/Linuxコマンドに対応。"
+      "name": "AI Base64 エンコード・デコード – 画像/ファイル変換・PDF・音声プレビュー",
+      "description": "無料のAIオンラインBase64変換ツール。複数ファイルや画像のBase64化、PDF・画像・音声・動画のデコード＆プレビュー、76文字MIME折り返し、HTML/CSSスニペットに対応。"
     },
     "cron-expression-generator": {
       "name": "高機能無料 Cron 式ジェネレーター＆バリデーター – クーロン構文解説ツール",

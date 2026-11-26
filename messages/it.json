@@ -270,8 +270,8 @@
       "description": "Crea fatture professionali in PDF in INR, Euro e USD. Alternativa gratuita senza registrazione a Zoho e Invoice-Generator.com."
     },
     "base64-encoder": {
-      "name": "Codificatore e Decodificatore Base64 – File in Base64 e Base64 in PDF",
-      "description": "Strumento gratuito online per codificare e decodificare Base64. Converti file in Base64, decodifica Base64 in PDF o immagini con anteprima, URL-safe e comandi CLI."
+      "name": "Codificatore e Decodificatore Base64 IA – File in Base64 e Base64 in PDF",
+      "description": "Strumento IA gratuito online per codificare e decodificare Base64. Converti file e immagini in Base64, decodifica Base64 in PDF, audio o video con riparazione automatica."
     },
     "cron-expression-generator": {
       "name": "Generatore e Validatore di Espressioni Cron – Decodificatore di Sintassi Cron",

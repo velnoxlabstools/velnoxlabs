@@ -100,8 +100,8 @@
       "faq4A": "Non, toutes les opérations mathématiques se déroulent localement dans votre navigateur."
     },
     "base64Encoder": {
-      "title": "Encodeur et Décodeur Base64 – Fichier vers Base64 & Base64 vers PDF",
-      "subtitle": "Outil en ligne gratuit d'encodage et décodage Base64. Convertissez des fichiers en Base64, décodez Base64 en PDF ou images avec aperçu et mode URL-safe.",
+      "title": "Encodeur et Décodeur Base64 IA – Fichier vers Base64 & Base64 vers PDF",
+      "subtitle": "Outil IA gratuit en ligne d'encodage et décodage Base64. Convertissez fichiers et images en Base64, décodez Base64 en PDF, audio ou vidéo avec réparation automatique.",
       "encode": "Encoder Texte",
       "decode": "Décoder Base64",
       "fileToBase64Tab": "Fichier vers Base64",
@@ -151,7 +151,11 @@
       "faq6A": "PDF, PNG, JPG, SVG, JSON, TXT, ZIP (100% local, sans envoi serveur)",
       "copy": "Copier",
       "copied": "Copié !",
-      "clear": "Effacer"
+      "clear": "Effacer",
+      "wrap76Toggle": "Retour ligne MIME 76 car.",
+      "aiDetectedBase64Hint": "IA a détecté du Base64. Passer en mode Décoder ?",
+      "aiSwitchDecodeBtn": "Passer à Décoder",
+      "exportBatchJsonBtn": "Exporter Lot JSON"
     },
     "jsonFormatter": {
       "inputLabel": "Entrée JSON :",

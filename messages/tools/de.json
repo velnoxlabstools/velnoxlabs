@@ -100,8 +100,8 @@
       "faq4A": "Nein, sämtliche Berechnungen laufen lokal in Ihrem Browser ab."
     },
     "base64Encoder": {
-      "title": "Base64 Encoder & Decoder Online – Datei zu Base64 & Base64 zu PDF",
-      "subtitle": "Kostenloses Online-Tool zum Base64-Kodieren und Dekodieren. Dateien in Base64 umwandeln, Base64 als PDF oder Bild mit Vorschau dekodieren und URL-safe aktivieren.",
+      "title": "KI Base64 Encoder & Decoder Online – Datei zu Base64 & Base64 zu PDF",
+      "subtitle": "Kostenloses KI-Online-Tool für Base64-Kodierung und Dekodierung. Dateien und Bilder in Base64 umwandeln, Base64 als PDF, Audio, Video oder Bild mit Auto-Reparatur dekodieren.",
       "encode": "Text Kodieren",
       "decode": "Base64 Dekodieren",
       "fileToBase64Tab": "Datei zu Base64",
@@ -151,7 +151,11 @@
       "faq6A": "Unterstützt PDF, PNG, JPG, SVG, JSON, TXT, ZIP (100% lokal im Browser)",
       "copy": "Kopieren",
       "copied": "Kopiert!",
-      "clear": "Löschen"
+      "clear": "Löschen",
+      "wrap76Toggle": "MIME 76-Zeichen-Umbruch",
+      "aiDetectedBase64Hint": "KI hat Base64 erkannt. Zum Dekodieren wechseln?",
+      "aiSwitchDecodeBtn": "Zu Dekodieren wechseln",
+      "exportBatchJsonBtn": "Stapel als JSON sichern"
     },
     "jsonFormatter": {
       "inputLabel": "JSON-Eingabe:",

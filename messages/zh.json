@@ -263,8 +263,8 @@
       "description": "免费在线开具支持INR卢比、欧元与美元的专业PDF发票，无需登录，Zoho与Invoice-Generator的理想替代。"
     },
     "base64-encoder": {
-      "name": "在线 Base64 编码与解码 – 文件转 Base64 及 Base64 转 PDF",
-      "description": "免费在线Base64编解码工具。支持文件拖拽转Base64、Base64还原为PDF或图片实时预览与下载、URL安全编码及Windows/Linux命令行参考。"
+      "name": "AI 在线 Base64 编码与解码 – 图片/文件转 Base64 及 Base64 转 PDF",
+      "description": "免费AI在线Base64编解码工具。支持多文件与图片批量转Base64、Base64还原为PDF/图片/音视频预览、76字符MIME换行、HTML/CSS代码片段及JSON批量导出。"
     },
     "cron-expression-generator": {
       "name": "优质免费 Cron 表达式生成与校验器 – 定时任务表达式语法美化排版工具",

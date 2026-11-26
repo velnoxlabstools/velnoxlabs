@@ -100,8 +100,8 @@
       "faq4A": "Não, o processamento matemático é realizado estritamente no seu navegador."
     },
     "base64Encoder": {
-      "title": "Codificador e Decodificador Base64 – Arquivo para Base64 e Base64 para PDF",
-      "subtitle": "Ferramenta gratuita online para codificar e decodificar Base64. Converta arquivos para Base64, decodifique Base64 para PDF ou imagens com prévia e opção URL-safe.",
+      "title": "Codificador e Decodificador Base64 IA – Arquivo para Base64 e Base64 para PDF",
+      "subtitle": "Ferramenta IA gratuita online para codificar e decodificar Base64. Converta arquivos e imagens para Base64, decodifique Base64 para PDF, áudio ou vídeo com reparo automático.",
       "encode": "Codificar Texto",
       "decode": "Decodificar Base64",
       "fileToBase64Tab": "Arquivo para Base64",
@@ -151,7 +151,11 @@
       "faq6A": "Suporta PDF, PNG, JPG, SVG, JSON, TXT, ZIP (100% local)",
       "copy": "Copiar",
       "copied": "Copiado!",
-      "clear": "Limpar"
+      "clear": "Limpar",
+      "wrap76Toggle": "Quebra MIME 76 caracteres",
+      "aiDetectedBase64Hint": "IA detectou entrada Base64. Mudar para Decodificar?",
+      "aiSwitchDecodeBtn": "Ir para Decodificar",
+      "exportBatchJsonBtn": "Exportar Lote JSON"
     },
     "jsonFormatter": {
       "inputLabel": "Entrada JSON:",

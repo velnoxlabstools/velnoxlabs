@@ -100,8 +100,8 @@
       "faq4A": "いいえ、すべての演算処理はお使いのブラウザ内部で完結するため、外部サーバーへの通信は一切発生しません。"
     },
     "base64Encoder": {
-      "title": "Base64 エンコード・デコード – ファイル変換・PDF/画像プレビュー対応",
-      "subtitle": "無料のオンラインBase64変換ツール。ファイルのBase64化、Base64からPDFや画像のデコード＆プレビュー、URLセーフ変換、Windows/Linuxコマンドに対応。",
+      "title": "AI Base64 エンコード・デコード – 画像/ファイル変換・PDF・音声プレビュー",
+      "subtitle": "無料のAIオンラインBase64変換ツール。複数ファイルや画像のBase64化、PDF・画像・音声・動画のデコード＆プレビュー、76文字MIME折り返し、HTML/CSSスニペットに対応。",
       "encode": "テキストをエンコード",
       "decode": "Base64をデコード",
       "fileToBase64Tab": "ファイルをBase64に変換",
@@ -151,7 +151,11 @@
       "faq6A": "PDF、PNG、JPG、SVG、JSON、TXT、ZIP対応（ブラウザ内で安全に完結）",
       "copy": "コピー",
       "copied": "コピーしました！",
-      "clear": "クリア"
+      "clear": "クリア",
+      "wrap76Toggle": "MIME 76文字折り返し",
+      "aiDetectedBase64Hint": "AIがBase64を検出しました。デコードへ切り替えますか？",
+      "aiSwitchDecodeBtn": "デコードへ切替",
+      "exportBatchJsonBtn": "一括JSON書き出し"
     },
     "jsonFormatter": {
       "inputLabel": "JSON 入力:",
