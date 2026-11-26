@@ -314,8 +314,8 @@
       "description": "Kostenloses Online-Werkzeug zur Übertragung von JSON in YAML für Swagger und OpenAPI Spezifikationen ohne zusätzliche Konsolenprogramme."
     },
     "url-parser-and-query-string-extractor": {
-      "name": "Online URL-Parser & Query-Parameter-Extraktor",
-      "description": "Zerlegen Sie URLs oder reine Query-Strings in Origin, Pfadsegmente und editierbare Parameter samt JSON-Export sowie JS-, Python- und .NET-Beispielen."
+      "name": "KI URL-Parser & Query-String-Extraktor – UTM bereinigen, Parameter & Sicherheit prüfen",
+      "description": "Kostenloser KI URL-Parser, UTM-Bereiniger und Query-String-Extraktor online. Zerlegt URLs, entfernt Tracking-Parameter, prüft Sicherheitsrisiken und liefert JS-, Python-, .NET-, PHP- & Go-Code."
     },
     "mime-type-lookup-and-extension-finder": {
       "name": "MIME-Typ-Suche & Dateiendungs-Finder Online – Medientyp-Prüfer",

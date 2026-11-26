@@ -307,8 +307,8 @@
       "description": "免费在线 JSON 与 YAML 互转及排版工具，专为 Swagger 和 OpenAPI 规范设计。无需安装命令行工具，数秒完成数据序列化。"
     },
     "url-parser-and-query-string-extractor": {
-      "name": "在线 URL 解析器与查询参数提取器",
-      "description": "免费在线解析完整网址与查询字符串，拆解协议、认证信息、路径分段与可编辑参数对照表，支持一键导出 JSON 及 JS、Python、.NET 示例。"
+      "name": "AI URL 解析器与参数提取器 – 清理 UTM 参数、编辑与安全检测",
+      "description": "免费在线 AI URL 解析与 UTM 清理工具。一键拆解网址结构、清除追踪参数、检测安全风险、解码嵌套链接/Base64，并提供 JS、Python、.NET、PHP 与 Go 代码示例。"
     },
     "mime-type-lookup-and-extension-finder": {
       "name": "MIME 类型与文件扩展名在线查询工具 – 快速检索与校验",

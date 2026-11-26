@@ -307,8 +307,8 @@
       "description": "Swagger 및 OpenAPI 스펙에 최적화된 무료 JSON 및 YAML 상호 변환기. CLI 도구 설치 없이 브라우저에서 몇 초 만에 데이터 직렬화 완료."
     },
     "url-parser-and-query-string-extractor": {
-      "name": "온라인 URL 파서 및 쿼리 파라미터 추출기",
-      "description": "URL과 쿼리 문자열을 오리진, 경로 세그먼트, 편집 가능한 쿼리 파라미터와 JSON 내보내기로 분해하고 JS, Python, .NET 코드를 제공합니다."
+      "name": "AI URL 파서 & 쿼리 추출기 – UTM 제거, 파라미터 편집 & 보안 검사",
+      "description": "무료 온라인 AI URL 파서, UTM 클리너 및 쿼리 문자열 추출기. URL 구성 요소 분석, 추적 태그 제거, 보안 위험 탐지, 중첩 URL/Base64 해독 및 JS, Python, .NET, PHP, Go 코드 제공."
     },
     "mime-type-lookup-and-extension-finder": {
       "name": "MIME 타입 및 확장자 온라인 조회 도구 – 미디어 규격 검색기 (PDF 대응)",

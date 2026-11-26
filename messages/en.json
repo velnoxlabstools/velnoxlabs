@@ -307,8 +307,8 @@
       "description": "Free JSON to YAML converter online and JSON to YAML formatter for Swagger and OpenAPI. Convert JSON to YAML in seconds with zero install or CLI overhead."
     },
     "url-parser-and-query-string-extractor": {
-      "name": "URL Parser & Query Extractor Online – Parse Query String & URL Params",
-      "description": "Free URL parser online & query string parser. Break down URLs or raw query strings into origin, auth, path segments, editable query params, JSON export, plus JS, Python & .NET snippets."
+      "name": "AI URL Parser & Query String Extractor – Clean UTM, Edit Params & Security Check",
+      "description": "Free AI URL parser, UTM cleaner, and query string extractor online. Inspect URL components, strip tracking parameters, detect security risks, edit params, and copy JS, Python, .NET, PHP & Go snippets."
     },
     "mime-type-lookup-and-extension-finder": {
       "name": "MIME Type Lookup & Extension Finder Online – MIME Type Checker",
