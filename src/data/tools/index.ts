@@ -581,14 +581,19 @@ export const tools: Tool[] = [
   {
     id: 'tool-curl-fetch',
     slug: 'curl-to-fetch-and-axios-converter',
-    name: 'cURL to Fetch & Axios Converter – Convert cURL to Axios Online',
+    name: 'AI cURL to Fetch & Axios Converter – Convert cURL to Python, Java, JS & JSON',
     description:
-      'Free cURL to Fetch & Axios Converter and cURL to Axios code generator. Convert any cURL command into JavaScript Fetch or Axios HTTP requests instantly.',
+      'Free AI cURL to Fetch & Axios Converter. Convert cURL to JavaScript (Fetch & Axios), Python (requests), Java (HttpClient), and pretty-printed JSON payloads with 1-click presets and request inspector.',
     categoryId: 'cat-dev',
     tags: [
       'curl',
       'fetch',
       'axios',
+      'ai curl to fetch and axios converter python',
+      'ai curl to fetch and axios converter json',
+      'ai curl to fetch and axios converter javascript',
+      'ai curl to fetch and axios converter example',
+      'ai curl to fetch and axios converter java',
       'curl to fetch and axios converter python',
       'curl to fetch and axios converter json',
       'curl to fetch and axios converter github',
@@ -605,7 +610,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 5400,
     createdAt: '2025-08-15T00:00:00.000Z',
-    updatedAt: '2026-11-23T00:00:00.000Z',
+    updatedAt: '2026-11-26T00:00:00.000Z',
   },
   {
     id: 'tool-http-inspector',

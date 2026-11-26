@@ -686,8 +686,8 @@
       "copied": "コピー完了！",
       "errNoUrl": "cURL コマンド内に URL が見つかりませんでした。",
       "errParseFailed": "cURL コマンドの解析に失敗しました",
-      "title": "cURL から Fetch & Axios コード生成ツール – cURL から Axios への変換",
-      "subtitle": "無料の cURL から Fetch & Axios 変換ツール。ターミナルの cURL コマンドを JavaScript の Fetch API および Axios リクエストコードへ即座に生成。",
+      "title": "AI cURLからFetch＆Axios変換ツール – Python・Java・JSON対応",
+      "subtitle": "cURLコマンドをJavaScript (Fetch/Axios)、Python (requests)、Java (HttpClient)、JSONに一括変換。ワンクリックのサンプルとリクエスト検証機能を搭載。",
       "aboutText": "本オンライン cURL から Fetch & Axios 変換ツールは、現代のフロントエンドおよびバックエンド開発者向けに設計された軽量Webツールです。JavaScriptおよびTypeScript環境に特化し、ターミナルコマンド、カスタムヘッダー、認証トークン、JSONデータペイロードを正確に解析して本番水準のコードを出力します。開発者は公式APIドキュメントやGitHub上のサンプルからcURLを取得し、Axiosや標準のwindow.fetch構文へ手軽に変換しています。PythonのrequestsやJavaのHttpClient向けの参考として活用したい場合でも、ブラウザローカル環境で通信遅延なく安全にリクエスト構造を確認できます。",
       "feature1": "包括的なcURL構文解析：ヘッダー、クエリパラメータ、Cookie、Basic認証、フォームデータを高精度に解析",
       "feature2": "2つの主要フォーマット出力：ブラウザ標準のFetch APIとAxiosクライアント構文をワンクリックで切り替え",
@@ -706,7 +706,11 @@
       "faq3Q": "GitHub 上で Fetch や Axios の cURL 実装サンプルを探すには？",
       "faq3A": "GitHub 上で #curl、#fetch、#axios といったタグが付いたAPIドキュメントリポジトリや変換プロジェクトを検索してください。GitHub REST API、Stripe、Twilio などの大手プラットフォームでは、cURL コマンドと JavaScript コード例が並記されています。",
       "faq4Q": "複雑な JSON ペイロードや認証ヘッダーもそのまま扱えますか？",
-      "faq4A": "はい、JSONペイロード (--data, -d, --data-raw)、URLエンコードフォーム、Bearer トークン、Basic認証 (-u ユーザー名:パスワード) に完全対応しています。すべての処理はブラウザのメモリ内で安全に完結し、秘密鍵が外部に漏れることはありません。"
+      "faq4A": "はい、JSONペイロード (--data, -d, --data-raw)、URLエンコードフォーム、Bearer トークン、Basic認証 (-u ユーザー名:パスワード) に完全対応しています。すべての処理はブラウザのメモリ内で安全に完結し、秘密鍵が外部に漏れることはありません。",
+      "examplePresets": "サンプル",
+      "clear": "消去",
+      "requestInspector": "リクエスト検査",
+      "headersCount": "ヘッダー ({count})"
     },
     "curlToPython": {
       "curlCommand": "cURL コマンド:",

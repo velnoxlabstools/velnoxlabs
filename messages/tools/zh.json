@@ -686,8 +686,8 @@
       "copied": "已复制！",
       "errNoUrl": "在 cURL 命令中未找到 URL。",
       "errParseFailed": "解析 cURL 命令失败",
-      "title": "cURL 转 Fetch 与 Axios 代码生成工具 – 在线 cURL 转换器",
-      "subtitle": "免费 cURL 转 Fetch 与 Axios 代码生成工具。一键将任何终端 cURL 命令行即时转换为标准的 JavaScript Fetch 或 Axios HTTP 请求代码。",
+      "title": "AI cURL 转 Fetch 与 Axios 转换器 – 支持 Python、Java 与 JSON",
+      "subtitle": "免费在线 AI 工具，将 cURL 命令转换为 JavaScript (Fetch 与 Axios)、Python (requests)、Java (HttpClient) 及 JSON，提供一键示例与请求参数分析。",
       "aboutText": "我们的在线 cURL 转 Fetch 与 Axios 工具是一款专为现代前端与全栈开发者打造的纯本地转换器。作为专业的 JavaScript 请求转换解决方案，它能精准解析终端指令、自定义请求头、鉴权令牌以及复杂的 JSON 数据负载，输出符合工业标准的规范代码。开发者常常从开发文档或 GitHub 开源项目中提取 cURL 指令，借助本工具一键转为 Axios 或原生的 window.fetch 语法。无论工程师是需要参考 Python requests 或 Java HttpClient 的请求构造，还是寻找直观的 JavaScript 请求示范，本工具都能在浏览器本地提供零延迟、高安全的数据转译体验。",
       "feature1": "全面支持主流cURL语法：精准解析各类标头、查询参数、Cookies、基本认证及多部分表单数据",
       "feature2": "支持Fetch与Axios双格式：一键在浏览器原生Fetch API与Axios客户端调用语法之间自由切换",
@@ -706,7 +706,11 @@
       "faq3Q": "在 GitHub 上哪里可以找到 cURL 转 Fetch/Axios 的实际参考范例？",
       "faq3A": "您可以在 GitHub 上搜索标有 #curl、#fetch 或 #axios 标签的公共 API 文档仓库、代码转换项目及官方 SDK。诸如 GitHub REST API、Stripe 和 Twilio 等知名开放平台的官方开发者中心均提供了配套的 cURL 示范与 JavaScript 请求源码。",
       "faq4Q": "本工具是否支持带身份凭证或复杂 JSON 负载的指令转换？",
-      "faq4A": "完全支持。本工具能够解析 raw 原始数据负载 (--data、-d、--data-raw)、URL 编码表单、Bearer Token 以及基础认证 (-u 用户名:密码)。所有逻辑均在浏览器本地安全运行，绝不会向远程服务器传输任何密钥信息。"
+      "faq4A": "完全支持。本工具能够解析 raw 原始数据负载 (--data、-d、--data-raw)、URL 编码表单、Bearer Token 以及基础认证 (-u 用户名:密码)。所有逻辑均在浏览器本地安全运行，绝不会向远程服务器传输任何密钥信息。",
+      "examplePresets": "示例",
+      "clear": "清空",
+      "requestInspector": "请求分析",
+      "headersCount": "请求头 ({count})"
     },
     "curlToPython": {
       "curlCommand": "cURL 命令：",

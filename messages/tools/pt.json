@@ -686,8 +686,8 @@
       "copied": "Copiado!",
       "errNoUrl": "Não foi possível encontrar uma URL no comando cURL.",
       "errParseFailed": "Falha ao analisar o comando cURL",
-      "title": "Conversor de cURL para Fetch e Axios – Código cURL para Axios Online",
-      "subtitle": "Utilitário gratuito para transformar cURL em Fetch e Axios. Converta comandos cURL do terminal em requisições HTTP modernas em JavaScript.",
+      "title": "Conversor cURL para Fetch e Axios com IA – cURL para Python, Java e JSON",
+      "subtitle": "Converta comandos cURL para JavaScript (Fetch e Axios), Python (requests), Java (HttpClient) e JSON com exemplos em um clique e inspetor de requisições.",
       "aboutText": "Nosso conversor online de cURL para Fetch e Axios é uma ferramenta ágil criada para agilizar o desenvolvimento web. Como utilitário dedicado ao ecossistema JavaScript, ele interpreta comandos do terminal, cabeçalhos customizados, tokens de acesso e dados JSON para gerar código pronto para uso. Desenvolvedores costumam importar instruções encontradas em documentações de APIs ou repositórios do GitHub para adaptá-las ao Axios ou à Fetch API nativa. Mesmo quando há necessidade de consultar equivalências em Python ou Java, nossa plataforma entrega a melhor referência para JavaScript com proteção total no navegador.",
       "feature1": "Análise abrangente de sintaxe cURL: processa cabeçalhos, parâmetros de busca, cookies, autenticação básica e formulários",
       "feature2": "Suporte a dois formatos modernos: alterne facilmente entre a API Fetch nativa do navegador e a sintaxe do Axios",
@@ -706,7 +706,11 @@
       "faq3Q": "Onde encontrar modelos de cURL adaptados para Fetch e Axios no GitHub?",
       "faq3A": "É possível localizar repositórios de documentação e SDKs no GitHub pesquisando pelas marcações #curl, #fetch e #axios. Serviços renomados como GitHub REST API, Stripe e Twilio oferecem rotineiramente comandos cURL ao lado dos exemplos em código JavaScript.",
       "faq4Q": "A ferramenta oferece suporte a cargas JSON e chaves de autorização?",
-      "faq4A": "Sim. O sistema analisa dados em JSON (--data, -d, --data-raw), parâmetros de URL, tokens de portador e autenticação básica (-u usuario:senha). O processamento ocorre exclusivamente na memória do navegador sem envio a servidores remotos."
+      "faq4A": "Sim. O sistema analisa dados em JSON (--data, -d, --data-raw), parâmetros de URL, tokens de portador e autenticação básica (-u usuario:senha). O processamento ocorre exclusivamente na memória do navegador sem envio a servidores remotos.",
+      "examplePresets": "Exemplos",
+      "clear": "Limpar",
+      "requestInspector": "Inspetor de requisição",
+      "headersCount": "Cabeçalhos ({count})"
     },
     "curlToPython": {
       "curlCommand": "Comando cURL:",

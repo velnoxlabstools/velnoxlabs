@@ -686,8 +686,8 @@
       "copied": "Kopiert!",
       "errNoUrl": "Konnte keine URL im cURL-Befehl finden.",
       "errParseFailed": "Fehler beim Parsen des cURL-Befehls",
-      "title": "cURL-zu-Fetch-und-Axios-Konverter – cURL in Axios Online Umwandeln",
-      "subtitle": "Kostenloser cURL-zu-Fetch-und-Axios-Konverter. Wandle cURL-Befehle direkt in sauberen JavaScript Fetch- oder Axios-HTTP-Code um.",
+      "title": "KI cURL zu Fetch & Axios Konverter – cURL zu Python, Java & JSON",
+      "subtitle": "Kostenloser KI-Konverter für cURL zu JavaScript (Fetch & Axios), Python (requests), Java (HttpClient) und JSON mit 1-Klick-Beispielen und Anfrage-Inspektor.",
       "aboutText": "Unser webbasierter cURL-zu-Fetch-und-Axios-Konverter ist ein praktisches Werkzeug für moderne Webentwickler. Er überträgt Terminalbefehle, HTTP-Header, Berechtigungsschlüssel und JSON-Nutzlasten zielsicher in JavaScript-Quelltext für Frontend- und Backend-Anwendungen. Programmierer übernehmen häufig Codebeispiele aus API-Leitfäden oder GitHub-Projekten, um daraus Axios- oder Fetch-Aufrufe zu erzeugen. Auch wenn gelegentlich Umsetzungen für Python oder Java gesucht werden, liefert dieser Dienst die schnellste und sicherste Lösung für JavaScript-Architekturen.",
       "feature1": "Umfassende cURL-Syntaxanalyse: Verarbeitet Header, URL-Parameter, Cookies, Basic Auth und Formulardaten zuverlässig",
       "feature2": "Zwei moderne Ausgabeformate: Wechseln Sie blitzschnell zwischen nativer Browser-Fetch-API und Axios-Clientsyntax",
@@ -706,7 +706,11 @@
       "faq3Q": "Wo findet man cURL-Beispiele für Fetch und Axios auf GitHub?",
       "faq3A": "Auf GitHub bieten zahlreiche Dokumentations- und SDK-Repositories passende Anschauungsbeispiele unter Suchbegriffen wie #curl, #fetch oder #axios. Große Plattformen wie Stripe, Twilio oder die GitHub REST API stellen cURL-Befehlen stets fertige JavaScript-Codeblöcke gegenüber.",
       "faq4Q": "Werden komplexe JSON-Daten und Sicherheits-Header unterstützt?",
-      "faq4A": "Ja. Das System liest JSON-Inhalte (--data, -d, --data-raw), Formulardaten, Bearer-Tokens und Basic-Auth (-u Benutzer:Passwort) zuverlässig ein. Da alle Schritte clientseitig im Webbrowser ablaufen, bleiben deine Zugangsdaten vertraulich."
+      "faq4A": "Ja. Das System liest JSON-Inhalte (--data, -d, --data-raw), Formulardaten, Bearer-Tokens und Basic-Auth (-u Benutzer:Passwort) zuverlässig ein. Da alle Schritte clientseitig im Webbrowser ablaufen, bleiben deine Zugangsdaten vertraulich.",
+      "examplePresets": "Beispiele",
+      "clear": "Löschen",
+      "requestInspector": "Anfrage-Inspektor",
+      "headersCount": "Kopfzeilen ({count})"
     },
     "curlToPython": {
       "curlCommand": "cURL-Befehl:",

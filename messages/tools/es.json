@@ -686,8 +686,8 @@
       "copied": "¡Copiado!",
       "errNoUrl": "No se pudo encontrar una URL en el comando cURL.",
       "errParseFailed": "Error al analizar el comando cURL",
-      "title": "Conversor de cURL a Fetch y Axios – Código cURL a Axios Online",
-      "subtitle": "Herramienta gratuita para transformar cURL a Fetch y Axios. Transforma cualquier instrucción cURL en solicitudes HTTP de JavaScript al instante.",
+      "title": "Conversor cURL a Fetch y Axios con IA – cURL a Python, Java y JSON",
+      "subtitle": "Convierte cURL a JavaScript (Fetch y Axios), Python (requests), Java (HttpClient) y JSON con ejemplos en un clic e inspección de peticiones.",
       "aboutText": "Nuestro conversor online de cURL a Fetch y Axios es una utilidad web ágil diseñada para desarrolladores. Como solución enfocada en JavaScript, interpreta comandos de terminal, cabeceras personalizadas, credenciales y cargas JSON complejas para producir código listo para producción. Los programadores extraen con frecuencia ejemplos de documentación o repositorios de GitHub para pasarlos a Axios o a la API Fetch nativa. Aunque a menudo se busquen referencias en Python o Java, nuestra aplicación proporciona el método más directo para proyectos web con absoluta privacidad local.",
       "feature1": "Análisis exhaustivo de sintaxis cURL: admite con precisión encabezados, parámetros de URL, cookies, autenticación básica y datos multipart",
       "feature2": "Dos formatos modernos de salida: alterne al instante entre la API Fetch nativa del navegador y la sintaxis de cliente Axios",
@@ -706,7 +706,11 @@
       "faq3Q": "¿Dónde hallar ejemplos de llamadas cURL a Fetch o Axios en GitHub?",
       "faq3A": "Puedes consultar repositorios de documentación de APIs públicas en GitHub buscando etiquetas como #curl, #fetch y #axios. Plataformas como la API de GitHub, Stripe o Twilio incluyen comandos cURL acompañados de sus equivalencias en JavaScript.",
       "faq4Q": "¿Admite este transformador autenticaciones y cargas de datos en JSON?",
-      "faq4A": "Sí. Reconoce datos JSON (--data, -d, --data-raw), formularios codificados, tokens de portador y autenticación básica (-u usuario:clave). Todo el procesamiento se realiza en la memoria local del navegador sin enviar credenciales a servidores externos."
+      "faq4A": "Sí. Reconoce datos JSON (--data, -d, --data-raw), formularios codificados, tokens de portador y autenticación básica (-u usuario:clave). Todo el procesamiento se realiza en la memoria local del navegador sin enviar credenciales a servidores externos.",
+      "examplePresets": "Ejemplos",
+      "clear": "Borrar",
+      "requestInspector": "Inspector de petición",
+      "headersCount": "Cabeceras ({count})"
     },
     "curlToPython": {
       "curlCommand": "Comando cURL:",

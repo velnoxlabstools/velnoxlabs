@@ -686,8 +686,8 @@
       "copied": "Copied!",
       "errNoUrl": "Could not find a URL in the cURL command.",
       "errParseFailed": "Failed to parse cURL command",
-      "title": "cURL to Fetch & Axios Converter – Convert cURL to Axios Online",
-      "subtitle": "Free cURL to Fetch & Axios Converter and cURL to Axios code generator. Convert any cURL command into JavaScript Fetch or Axios HTTP requests instantly.",
+      "title": "AI cURL to Fetch & Axios Converter – Convert cURL to Python, Java, JS & JSON",
+      "subtitle": "Free AI cURL to Fetch & Axios Converter. Convert cURL to JavaScript (Fetch & Axios), Python (requests), Java (HttpClient), and JSON payloads with 1-click examples and request inspection.",
       "aboutText": "Our online cURL to Fetch & Axios Converter is an intuitive, browser-based Curl converter engineered to simplify modern web development. As a dedicated Curl to fetch and axios converter javascript utility, it accurately translates terminal commands, custom headers, auth tokens, and Curl to fetch and axios converter json data payloads into production-ready code. Developers frequently import snippets found in developer documentation or open-source Curl to fetch and axios converter github repositories to convert cURL to Axios and native window.fetch syntax. While engineers often look for a Curl to fetch and axios converter python alternative or a Curl to fetch and axios converter java reference, this tool delivers the fastest, zero-latency Curl to fetch and axios converter example for JavaScript and TypeScript projects with complete client-side security.",
       "feature1": "Comprehensive cURL Syntax Parsing: Accurately handles headers, query params, cookies, basic auth, and multipart form-data",
       "feature2": "Dual Modern Output Formats: Instantly toggle between browser-native Fetch API (async/await) and Axios client syntax",
@@ -706,7 +706,11 @@
       "faq3Q": "Where can I find cURL to Fetch/Axios examples on GitHub?",
       "faq3A": "You can find extensive cURL to Fetch and Axios examples on GitHub within public API documentation repositories, postman-to-code converter projects, and SDK repositories. Search for repositories or gists tagged with #curl, #fetch, and #axios, or view official API docs from providers like GitHub REST API, Stripe, and Twilio, which provide both cURL commands and JavaScript examples.",
       "faq4Q": "Does this cURL converter support complex JSON payloads and authentication?",
-      "faq4A": "Yes. Our cURL converter parses raw JSON payloads (--data, -d, --data-raw), query parameters, URL-encoded forms, Bearer tokens, and Basic Authentication (-u username:password). All parsing runs 100% locally in your browser memory via JavaScript, ensuring sensitive API keys and secrets are never sent to external servers."
+      "faq4A": "Yes. Our cURL converter parses raw JSON payloads (--data, -d, --data-raw), query parameters, URL-encoded forms, Bearer tokens, and Basic Authentication (-u username:password). All parsing runs 100% locally in your browser memory via JavaScript, ensuring sensitive API keys and secrets are never sent to external servers.",
+      "examplePresets": "Examples",
+      "clear": "Clear",
+      "requestInspector": "Request Inspector",
+      "headersCount": "Headers ({count})"
     },
     "curlToPython": {
       "curlCommand": "cURL Command:",

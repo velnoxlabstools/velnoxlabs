@@ -686,8 +686,8 @@
       "copied": "Copié !",
       "errNoUrl": "Impossible de trouver une URL dans la commande cURL.",
       "errParseFailed": "Échec de l'analyse de la commande cURL",
-      "title": "Convertisseur cURL vers Fetch et Axios – Code cURL vers Axios en Ligne",
-      "subtitle": "Outil gratuit de conversion cURL vers Fetch et Axios. Transformez instantanément vos lignes de commande cURL en requêtes JavaScript Fetch ou Axios.",
+      "title": "Convertisseur cURL vers Fetch et Axios IA – cURL vers Python, Java & JSON",
+      "subtitle": "Convertissez cURL en JavaScript (Fetch et Axios), Python (requests), Java (HttpClient) et JSON avec exemples en un clic et inspecteur de requête.",
       "aboutText": "Notre convertisseur cURL vers Fetch et Axios est un outil web rapide destiné aux développeurs. Conçu spécifiquement pour l'écosystème JavaScript, il déchiffre les lignes de commande, en-têtes d'autorisation et contenus JSON pour produire un code propre et prêt à l'emploi. Les équipes techniques copient régulièrement des commandes issues de documentations techniques ou de dépôts GitHub pour les intégrer à Axios ou à l'API Fetch native. Même si des équivalences existent pour Python ou Java, cet outil offre la référence la plus rapide et confidentielle pour vos projets JavaScript.",
       "feature1": "Analyse syntaxique complète de cURL : prend en charge les en-têtes, paramètres d'URL, cookies, authentification et formulaires",
       "feature2": "Deux formats modernes disponibles : basculez aisément entre l'API Fetch native du navigateur et la syntaxe client Axios",
@@ -706,7 +706,11 @@
       "faq3Q": "Où trouver des modèles cURL pour Fetch et Axios sur GitHub ?",
       "faq3A": "Explorez les dépôts de documentation d'APIs publiques sur GitHub via les mots-clés #curl, #fetch ou #axios. De nombreuses plateformes d'envergure telles que Stripe, Twilio ou l'API REST de GitHub fournissent des commandes cURL accompagnées de leurs équivalents en JavaScript.",
       "faq4Q": "Ce système gère-t-il les données JSON et les jetons d'authentification ?",
-      "faq4A": "Oui. Il prend en charge les charges utiles JSON (--data, -d, --data-raw), formulaires encodés, jetons Bearer et l'authentification de base (-u identifiant:motdepasse). L'exécution se déroule entièrement dans le navigateur sans transmission sur le réseau."
+      "faq4A": "Oui. Il prend en charge les charges utiles JSON (--data, -d, --data-raw), formulaires encodés, jetons Bearer et l'authentification de base (-u identifiant:motdepasse). L'exécution se déroule entièrement dans le navigateur sans transmission sur le réseau.",
+      "examplePresets": "Exemples",
+      "clear": "Effacer",
+      "requestInspector": "Inspecteur de requête",
+      "headersCount": "En-têtes ({count})"
     },
     "curlToPython": {
       "curlCommand": "Commande cURL :",

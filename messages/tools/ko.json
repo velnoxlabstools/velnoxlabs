@@ -683,11 +683,11 @@
       "jsCode": "JavaScript 코드:",
       "jsPlaceholder": "생성된 JavaScript 코드가 여기에 표시됩니다...",
       "copy": "복사",
-      "copied": "복사완료!",
+      "copied": "복사 완료!",
       "errNoUrl": "cURL 명령어에서 URL을 찾을 수 없습니다.",
       "errParseFailed": "cURL 명령어 파싱에 실패했습니다",
-      "title": "cURL to Fetch 및 Axios 변환기 – cURL to Axios 온라인 코드 생성",
-      "subtitle": "무료 cURL to Fetch 및 Axios 변환기. 터미널의 cURL 명령어를 표준 JavaScript Fetch API 및 Axios HTTP 요청 코드로 즉시 변환하세요.",
+      "title": "AI cURL을 Fetch 및 Axios로 변환 – Python, Java, JSON 지원",
+      "subtitle": "cURL 명령을 JavaScript(Fetch 및 Axios), Python(requests), Java(HttpClient) 및 JSON으로 변환합니다. 원클릭 예제 및 요청 분석기를 제공합니다.",
       "aboutText": "본 온라인 cURL to Fetch 및 Axios 변환기는 모던 웹 개발자를 위한 실시간 코드 생성 도구입니다. JavaScript 및 TypeScript 환경에 최적화되어 터미널 명령어, 사용자 정의 헤더, 인증 토큰 및 복잡한 JSON 페이로드를 프로덕션 수준의 깔끔한 코드로 도출합니다. 개발자들은 API 공식 문서나 GitHub 오픈소스 저장소의 cURL 예제를 복사하여 Axios나 표준 window.fetch 코드로 신속하게 옮겨 사용합니다. Python requests 라이브러리나 Java 환경과의 연동 방법을 검토할 때에도 브라우저 로컬 메모리에서 즉각적이고 안전하게 요청 규격을 확인할 수 있습니다.",
       "feature1": "포괄적인 cURL 구문 분석: 헤더, 쿼리 매개변수, 쿠키, 기본 인증, 멀티파트 폼 데이터를 정확하게 처리",
       "feature2": "두 가지 최신 코드 출력 지원: 브라우저 기본 Fetch API와 Axios 클라이언트 문법을 원클릭으로 손쉽게 전환",
@@ -706,7 +706,11 @@
       "faq3Q": "GitHub에서 cURL to Fetch/Axios 예제와 오픈소스 코드를 찾는 방법은?",
       "faq3A": "GitHub에서 #curl, #fetch, #axios 태그가 달린 공용 API 명세 저장소나 코드 변환 프로젝트를 검색해 보세요. GitHub REST API, Stripe, Twilio 등 글로벌 플랫폼들은 cURL 명령어와 함께 동작 가능한 JavaScript 예제를 나란히 제공하고 있습니다.",
       "faq4Q": "복잡한 JSON 데이터와 인증 토큰도 안전하게 처리되나요?",
-      "faq4A": "네, 원시 JSON 데이터(--data, -d, --data-raw), 폼 데이터, Bearer 토큰 및 Basic 인증(-u 사용자:비밀번호)을 완벽하게 지원합니다. 모든 변환 과정이 사용자 브라우저 내부에서만 수행되므로 민감한 API 키와 인증 정보가 외부 서버로 전송되지 않습니다."
+      "faq4A": "네, 원시 JSON 데이터(--data, -d, --data-raw), 폼 데이터, Bearer 토큰 및 Basic 인증(-u 사용자:비밀번호)을 완벽하게 지원합니다. 모든 변환 과정이 사용자 브라우저 내부에서만 수행되므로 민감한 API 키와 인증 정보가 외부 서버로 전송되지 않습니다.",
+      "examplePresets": "예제",
+      "clear": "지우기",
+      "requestInspector": "요청 분석기",
+      "headersCount": "헤더 ({count})"
     },
     "curlToPython": {
       "curlCommand": "cURL 명령어:",
