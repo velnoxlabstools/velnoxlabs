@@ -521,8 +521,8 @@
       "description": "Convertitore gratuito di immagini con IA in JPG, Word (.docx), PDF, PNG & WebP. Converti foto in documenti Word, JPG sotto i 50KB/20KB per concorsi e immagini IA con totale privacy."
     },
     "image-cropper": {
-      "name": "Ritaglio Immagini Online (Per Pixel e CM) – Editor Fotografico Gratuito",
-      "description": "Ritaglia foto online con dimensioni esatte in pixel, proporzioni o centimetri. Editor gratuito con ritaglio circolare e rotazione senza installare software."
+      "name": "Ritaglio Immagini IA Online (Per Pixel, CM e Forme) – Ritaglio Automatico e Editor Foto",
+      "description": "Strumento gratuito con IA per ritagliare immagini in pixel, cm e 300 DPI. Include ritaglio bordi automatico, messa a fuoco del soggetto, forme circolari e irregolari, formati passaporto ed esportazione codice Flutter/Angular."
     },
     "image-to-pdf": {
       "name": "Convertitore da Immagini a PDF (100KB, 200KB e Alternativa a iLovePDF)",

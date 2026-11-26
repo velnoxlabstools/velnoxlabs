@@ -514,8 +514,8 @@
       "description": "무료 온라인 AI 이미지 변환기. JPG, Word 문서 (.docx), PDF, PNG, WebP 변환 완벽 지원. 사진을 Word 문서로 변환, 원서 접수용 50KB/20KB JPG 변환, ChatGPT 이미지 변환을 브라우저 로컬에서 안전하게 처리."
     },
     "image-cropper": {
-      "name": "온라인 이미지 자르기 (픽셀 및 cm 단위 지원) – 무료 사진 편집기",
-      "description": "픽셀 크기, 가로세로 비율, cm 단위에 맞춰 브라우저에서 직접 이미지를 자르세요. 원형 프로필 자르기와 회전 기능을 지원하는 무료 웹 도구입니다."
+      "name": "AI 온라인 이미지 자르기 (픽셀, CM & 도형 지정) – 자동 크롭 및 사진 편집기",
+      "description": "무료 AI 온라인 이미지 자르기 도구. 픽셀, 센티미터(cm), 300 DPI 지정 지원. AI 자동 여백 제거, 피사체 포커스, 원형·별·하트 모양 자르기, 여권 사진 규격 및 Flutter/Angular 코드 내보내기 제공."
     },
     "image-to-pdf": {
       "name": "이미지 PDF 변환기 (100KB, 200KB 및 iLovePDF 무료 대안)",

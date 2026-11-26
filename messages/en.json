@@ -514,8 +514,8 @@
       "description": "Free online AI image converter to JPG, Word (.docx), PDF, PNG & WebP. Convert photos to Word documents, JPG under 50KB/20KB for govt portals, and ChatGPT/AI images with 100% browser privacy."
     },
     "image-cropper": {
-      "name": "Image Cropper Online (By Pixel & CM) – Free Photo Crop Editor",
-      "description": "Crop photos online to exact pixel dimensions, aspect ratios, or cm sizes. A free photo crop editor with circular avatar clipping, rotation, and zero software download."
+      "name": "AI Image Cropper Online (By Pixel, CM & Shape) – Auto Crop & Photo Editor",
+      "description": "Free AI online image cropper by pixel, cm, and 300 DPI. Features AI auto-trim, subject focus, circular & irregular shape masks, passport photo presets, and Flutter/Angular code export."
     },
     "image-to-pdf": {
       "name": "Image to PDF Converter (100KB, 200KB & iLovePDF Alternative)",

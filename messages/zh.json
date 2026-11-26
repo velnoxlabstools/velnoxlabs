@@ -514,8 +514,8 @@
       "description": "免费AI在线图片格式转换工具，支持转JPG、Word文档 (.docx)、PDF、PNG及WebP。一键将图片生成Word报告、公考国考50KB/20KB JPG格式转换及ChatGPT AI配图转换，浏览器本地处理，100%隐私安全。"
     },
     "image-cropper": {
-      "name": "在线图片裁切工具（支持像素与厘米尺寸）- 免费照片裁切编辑器",
-      "description": "在浏览器中按精准像素、厘米或预设比例裁切图片。提供圆形头像裁切、角度微调与翻转功能，无需下载任何软件。"
+      "name": "AI在线图片裁剪工具 (按像素、厘米与异形形状) – 智能自动裁剪与照片编辑",
+      "description": "免费AI在线图片裁剪器，支持按像素、厘米(cm)及300 DPI精确裁剪。具备AI自动去白边、智能主体对焦、圆形与星形/心形异形裁剪、证件照预设及Flutter/Angular代码导出。"
     },
     "image-to-pdf": {
       "name": "图片转PDF转换器 (支持100KB、200KB与iLovePDF替代)",

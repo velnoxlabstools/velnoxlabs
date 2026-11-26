@@ -521,8 +521,8 @@
       "description": "Convertisseur d'image gratuit par IA en JPG, Word (.docx), PDF, PNG & WebP. Convertissez vos photos en documents Word, JPG sous 50KB/20KB pour concours et démarches, et images IA en toute confidentialité."
     },
     "image-cropper": {
-      "name": "Recadreur d'Images en Ligne (Par Pixels et CM) – Éditeur de Photos Gratuit",
-      "description": "Recadrez vos photos en ligne selon des dimensions exactes en pixels, proportions ou centimètres. Éditeur gratuit avec découpe circulaire et rotation sans aucun logiciel."
+      "name": "Recadreur d'Image IA en Ligne (Par Pixel, CM & Forme) – Recadrage Auto & Éditeur Photo",
+      "description": "Recadreur d'image gratuit par IA en pixels, cm et 300 DPI. Inclut le détourage automatique des bords, mise au point sujet, masques circulaires et irréguliers, formats passeport et export de code Flutter/Angular."
     },
     "image-to-pdf": {
       "name": "Convertir Image en PDF (100KB, 200KB et Alternative à iLovePDF)",

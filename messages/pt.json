@@ -521,8 +521,8 @@
       "description": "Conversor gratuito de imagens com IA para JPG, Word (.docx), PDF, PNG e WebP. Converta fotos em documentos do Word, JPG abaixo de 50KB/20KB para editais e imagens de IA com sigilo total."
     },
     "image-cropper": {
-      "name": "Cortador de Imagens Online (Por Pixels e CM) – Editor de Fotos Gratuito",
-      "description": "Corte fotos online com dimensões exatas em pixels, proporções ou centímetros. Editor fotográfico sem downloads com recorte circular e giros."
+      "name": "Cortador de Imagens IA Online (Por Pixel, CM e Formas) – Corte Automático e Editor",
+      "description": "Cortador de imagens gratuito com IA por pixel, cm e 300 DPI. Inclui remoção automática de bordas, foco no assunto, máscaras circulares e irregulares, formatos de passaporte e código para Flutter e Angular."
     },
     "image-to-pdf": {
       "name": "Conversor de Imagens para PDF (100KB, 200KB e Alternativa ao iLovePDF)",

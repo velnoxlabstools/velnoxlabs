@@ -521,8 +521,8 @@
       "description": "Kostenloser Online-KI-Bildkonverter in JPG, Word (.docx), PDF, PNG & WebP. Fotos in Word-Dokumente umwandeln, JPG unter 50KB/20KB für Behördenformulare und KI-Bilder mit absolutem Datenschutz."
     },
     "image-cropper": {
-      "name": "Online-Bilderzuschneider (nach Pixeln & CM) – Kostenloser Foto-Zuschneide-Editor",
-      "description": "Fotos online nach exakten Pixelmaßen, Seitenverhältnissen oder Zentimetern zuschneiden. Kostenloser Editor mit kreisförmigem Beschnitt und Drehung ohne Software-Installation."
+      "name": "KI-Bildzuschneider Online (Nach Pixel, CM & Form) – Auto-Zuschnitt & Foto-Editor",
+      "description": "Kostenloser Online-KI-Bildzuschneider nach Pixel, cm und 300 DPI. Mit KI-Randentfernung, Fokus-Zuschnitt, Kreis- & Sonderformen, Passfoto-Vorgaben sowie Flutter/Angular-Code-Export."
     },
     "image-to-pdf": {
       "name": "Bilder in PDF umwandeln (100KB, 200KB & iLovePDF-Alternative)",
