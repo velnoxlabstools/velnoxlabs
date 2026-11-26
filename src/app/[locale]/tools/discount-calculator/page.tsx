@@ -1,39 +1,202 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
-import { Receipt, Calculator, Copy, Check, Sparkles, Coins } from 'lucide-react';
+import { Receipt, Calculator, Copy, Check, Sparkles, Globe } from 'lucide-react';
 
 type Mode = 'discount-gst' | 'mrp-percent' | 'original' | 'stack';
-type CurrencyType = 'INR' | 'USD' | 'EUR' | 'GBP';
 
-const CURRENCY_CONFIG: Record<CurrencyType, { symbol: string; label: string; localeCode: string }> =
-  {
-    INR: { symbol: '₹', label: 'INR (₹)', localeCode: 'en-IN' },
-    USD: { symbol: '$', label: 'USD ($)', localeCode: 'en-US' },
-    EUR: { symbol: '€', label: 'EUR (€)', localeCode: 'de-DE' },
-    GBP: { symbol: '£', label: 'GBP (£)', localeCode: 'en-GB' },
-  };
+type CurrencyType = 'INR' | 'USD' | 'EUR' | 'GBP' | 'BRL' | 'JPY' | 'CNY' | 'RUB' | 'KRW';
 
-const GST_SLABS = [
-  { rate: '0', label: '0% (Exempt)' },
-  { rate: '5', label: '5%' },
-  { rate: '12', label: '12%' },
-  { rate: '18', label: '18%' },
-  { rate: '28', label: '28%' },
-];
+interface CurrencyItem {
+  code: CurrencyType;
+  symbol: string;
+  name: string;
+  flag: string;
+  localeCode: string;
+  taxName: string;
+  defaultTax: string;
+  taxSlabs: Array<{ rate: string; label: string }>;
+  noDecimals?: boolean;
+}
+
+const ALL_CURRENCIES: Record<CurrencyType, CurrencyItem> = {
+  INR: {
+    code: 'INR',
+    symbol: '₹',
+    name: 'Indian Rupee (₹)',
+    flag: '🇮🇳',
+    localeCode: 'en-IN',
+    taxName: 'GST',
+    defaultTax: '18',
+    taxSlabs: [
+      { rate: '0', label: '0% (Exempt)' },
+      { rate: '5', label: '5%' },
+      { rate: '12', label: '12%' },
+      { rate: '18', label: '18%' },
+      { rate: '28', label: '28%' },
+    ],
+  },
+  USD: {
+    code: 'USD',
+    symbol: '$',
+    name: 'US Dollar ($)',
+    flag: '🇺🇸',
+    localeCode: 'en-US',
+    taxName: 'Sales Tax',
+    defaultTax: '8',
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '5', label: '5%' },
+      { rate: '7', label: '7%' },
+      { rate: '8.5', label: '8.5%' },
+      { rate: '10', label: '10%' },
+    ],
+  },
+  EUR: {
+    code: 'EUR',
+    symbol: '€',
+    name: 'Euro (€)',
+    flag: '🇪🇺',
+    localeCode: 'de-DE',
+    taxName: 'VAT / MwSt.',
+    defaultTax: '19',
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '7', label: '7%' },
+      { rate: '10', label: '10%' },
+      { rate: '19', label: '19%' },
+      { rate: '21', label: '21%' },
+    ],
+  },
+  GBP: {
+    code: 'GBP',
+    symbol: '£',
+    name: 'British Pound (£)',
+    flag: '🇬🇧',
+    localeCode: 'en-GB',
+    taxName: 'VAT',
+    defaultTax: '20',
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '5', label: '5%' },
+      { rate: '20', label: '20%' },
+    ],
+  },
+  BRL: {
+    code: 'BRL',
+    symbol: 'R$',
+    name: 'Brazilian Real (R$)',
+    flag: '🇧🇷',
+    localeCode: 'pt-BR',
+    taxName: 'ICMS / Imposto',
+    defaultTax: '18',
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '7', label: '7%' },
+      { rate: '12', label: '12%' },
+      { rate: '18', label: '18%' },
+      { rate: '25', label: '25%' },
+    ],
+  },
+  JPY: {
+    code: 'JPY',
+    symbol: '¥',
+    name: 'Japanese Yen (¥)',
+    flag: '🇯🇵',
+    localeCode: 'ja-JP',
+    taxName: '消費税',
+    defaultTax: '10',
+    noDecimals: true,
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '8', label: '8% (軽減)' },
+      { rate: '10', label: '10% (標準)' },
+    ],
+  },
+  CNY: {
+    code: 'CNY',
+    symbol: '¥',
+    name: 'Chinese Yuan (¥)',
+    flag: '🇨🇳',
+    localeCode: 'zh-CN',
+    taxName: '增值税',
+    defaultTax: '13',
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '6', label: '6%' },
+      { rate: '9', label: '9%' },
+      { rate: '13', label: '13%' },
+    ],
+  },
+  RUB: {
+    code: 'RUB',
+    symbol: '₽',
+    name: 'Russian Ruble (₽)',
+    flag: '🇷🇺',
+    localeCode: 'ru-RU',
+    taxName: 'НДС',
+    defaultTax: '20',
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '10', label: '10%' },
+      { rate: '20', label: '20%' },
+    ],
+  },
+  KRW: {
+    code: 'KRW',
+    symbol: '₩',
+    name: 'Korean Won (₩)',
+    flag: '🇰🇷',
+    localeCode: 'ko-KR',
+    taxName: '부가세',
+    defaultTax: '10',
+    noDecimals: true,
+    taxSlabs: [
+      { rate: '0', label: '0%' },
+      { rate: '10', label: '10%' },
+    ],
+  },
+};
+
+function getInitialCurrency(locale: string): CurrencyType {
+  const base = (locale || 'en').toLowerCase().split('-')[0];
+  switch (base) {
+    case 'zh':
+      return 'CNY';
+    case 'ja':
+      return 'JPY';
+    case 'ko':
+      return 'KRW';
+    case 'de':
+    case 'fr':
+    case 'es':
+    case 'it':
+      return 'EUR';
+    case 'ru':
+      return 'RUB';
+    case 'pt':
+      return 'BRL';
+    case 'en':
+    default:
+      return 'INR';
+  }
+}
 
 const QUICK_DISCOUNTS = ['5', '10', '15', '20', '25', '30', '40', '50', '70'];
 
 export default function DiscountCalculatorPage() {
+  const locale = useLocale();
   const tUI = useTranslations('ToolUI.discountCalculator');
 
-  // Mode and Currency State
+  // Mode State
   const [mode, setMode] = useState<Mode>('discount-gst');
-  const [currency, setCurrency] = useState<CurrencyType>('INR');
+
+  // Currency State (automatically mapped to active locale, or user choice)
+  const [currency, setCurrency] = useState<CurrencyType>(() => getInitialCurrency(locale));
 
   // Mode 1: Discount + GST inputs
   const [price, setPrice] = useState('2000');
@@ -55,17 +218,25 @@ export default function DiscountCalculatorPage() {
 
   const [copied, setCopied] = useState(false);
 
+  // Automatically update currency & tax default when user switches language
+  useEffect(() => {
+    const detected = getInitialCurrency(locale);
+    setCurrency(detected);
+    setGstRate(ALL_CURRENCIES[detected].defaultTax);
+  }, [locale]);
+
+  const currConfig = ALL_CURRENCIES[currency];
+  const currSymbol = currConfig.symbol;
+
   // Currency Formatter Helper
   const formatMoney = (val: number): string => {
-    const config = CURRENCY_CONFIG[currency];
-    const formatted = val.toLocaleString(config.localeCode, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+    const fractionDigits = currConfig.noDecimals ? 0 : 2;
+    const formatted = val.toLocaleString(currConfig.localeCode, {
+      minimumFractionDigits: fractionDigits,
+      maximumFractionDigits: fractionDigits,
     });
-    return `${config.symbol}${formatted}`;
+    return `${currConfig.symbol}${formatted}`;
   };
-
-  const currSymbol = CURRENCY_CONFIG[currency].symbol;
 
   // Calculations for Mode 1: Discount + GST
   const discountGstCalc = useMemo(() => {
@@ -158,10 +329,14 @@ export default function DiscountCalculatorPage() {
 ${tUI('originalPrice')}: ${formatMoney(discountGstCalc.mrp)}
 ${tUI('discount')}: ${discountGstCalc.discPercent}% (-${formatMoney(discountGstCalc.discountAmount)})
 ${tUI('taxableAmount')}: ${formatMoney(discountGstCalc.taxablePrice)}
-${tUI('gstAmount')} (${discountGstCalc.gstPercent}%): +${formatMoney(discountGstCalc.totalGstAmount)}
-  - ${tUI('cgst')} (${(discountGstCalc.gstPercent / 2).toFixed(1)}%): ${formatMoney(discountGstCalc.cgstAmount)}
-  - ${tUI('sgst')} (${(discountGstCalc.gstPercent / 2).toFixed(1)}%): ${formatMoney(discountGstCalc.sgstAmount)}
----------------------------------
+${currConfig.taxName} (${discountGstCalc.gstPercent}%): +${formatMoney(discountGstCalc.totalGstAmount)}`;
+
+      if (currency === 'INR') {
+        text += `\n  - ${tUI('cgst')} (${(discountGstCalc.gstPercent / 2).toFixed(1)}%): ${formatMoney(discountGstCalc.cgstAmount)}`;
+        text += `\n  - ${tUI('sgst')} (${(discountGstCalc.gstPercent / 2).toFixed(1)}%): ${formatMoney(discountGstCalc.sgstAmount)}`;
+      }
+
+      text += `\n---------------------------------
 ${tUI('totalPayable')}: ${formatMoney(discountGstCalc.finalPayable)}
 ${tUI('youSave')}: ${formatMoney(discountGstCalc.discountAmount)} (Net: ${formatMoney(discountGstCalc.netSavings)})`;
     } else if (mode === 'mrp-percent') {
@@ -201,7 +376,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
             toolSlug="discount-calculator"
           />
 
-          {/* Top Bar: Currency Switcher & Mode Tabs */}
+          {/* Top Bar: Mode Tabs & Full International Currency Selector */}
           <div
             style={{
               display: 'flex',
@@ -244,42 +419,82 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
               ))}
             </div>
 
-            {/* Currency Selector */}
+            {/* Currency Selector Supporting All 10 Locales */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '8px',
                 backgroundColor: 'var(--bg-card)',
                 border: '1px solid var(--border-color)',
                 borderRadius: '8px',
-                padding: '4px 8px',
+                padding: '4px 10px',
               }}
             >
-              <Coins size={14} color="var(--primary-color)" />
-              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                {tUI('currencyLabel')}
-              </span>
-              <div style={{ display: 'flex', gap: '4px' }}>
-                {(['INR', 'USD', 'EUR', 'GBP'] as CurrencyType[]).map((c) => (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <Globe size={15} color="var(--primary-color)" />
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  {tUI('currencyLabel')}
+                </span>
+              </div>
+
+              {/* Full Currency Dropdown */}
+              <select
+                value={currency}
+                onChange={(e) => {
+                  const newCurr = e.target.value as CurrencyType;
+                  setCurrency(newCurr);
+                  setGstRate(ALL_CURRENCIES[newCurr].defaultTax);
+                }}
+                style={{
+                  backgroundColor: 'var(--bg-page)',
+                  color: 'var(--text-main)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '6px',
+                  padding: '4px 8px',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  outline: 'none',
+                  fontFamily: 'inherit',
+                }}
+              >
+                <option value="INR">🇮🇳 INR - Indian Rupee (₹)</option>
+                <option value="USD">🇺🇸 USD - US Dollar ($)</option>
+                <option value="EUR">🇪🇺 EUR - Euro (€)</option>
+                <option value="GBP">🇬🇧 GBP - British Pound (£)</option>
+                <option value="BRL">🇧🇷 BRL - Brazilian Real (R$)</option>
+                <option value="JPY">🇯🇵 JPY - Japanese Yen (¥)</option>
+                <option value="CNY">🇨🇳 CNY - Chinese Yuan (¥)</option>
+                <option value="RUB">🇷🇺 RUB - Russian Ruble (₽)</option>
+                <option value="KRW">🇰🇷 KRW - Korean Won (₩)</option>
+              </select>
+
+              {/* Quick 1-click popular pills */}
+              <div style={{ display: 'flex', gap: '3px' }}>
+                {(['INR', 'USD', 'EUR'] as CurrencyType[]).map((c) => (
                   <button
                     key={c}
-                    onClick={() => setCurrency(c)}
+                    onClick={() => {
+                      setCurrency(c);
+                      setGstRate(ALL_CURRENCIES[c].defaultTax);
+                    }}
+                    title={ALL_CURRENCIES[c].name}
                     style={{
-                      backgroundColor: currency === c ? 'rgba(59, 130, 246, 0.2)' : 'transparent',
+                      backgroundColor: currency === c ? 'rgba(59, 130, 246, 0.25)' : 'transparent',
                       color: currency === c ? '#60a5fa' : 'var(--text-muted)',
                       border:
                         currency === c
                           ? '1px solid rgba(59, 130, 246, 0.4)'
                           : '1px solid transparent',
                       borderRadius: '4px',
-                      padding: '2px 7px',
-                      fontSize: '0.75rem',
+                      padding: '2px 6px',
+                      fontSize: '0.72rem',
                       fontWeight: 700,
                       cursor: 'pointer',
                     }}
                   >
-                    {CURRENCY_CONFIG[c].symbol}
+                    {ALL_CURRENCIES[c].symbol}
                   </button>
                 ))}
               </div>
@@ -399,7 +614,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                         border: '1px solid var(--border-color)',
                         borderRadius: '8px',
                         color: 'var(--text-main)',
-                        padding: '12px 12px 12px 30px',
+                        padding: `12px 12px 12px ${currSymbol.length > 1 ? '38px' : '30px'}`,
                         fontSize: '1.05rem',
                         fontWeight: 700,
                         outline: 'none',
@@ -458,7 +673,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                   </div>
                 </div>
 
-                {/* GST Rate % with Slabs */}
+                {/* GST / Tax Rate % with Currency-Specific Slabs */}
                 <div>
                   <label
                     style={{
@@ -469,7 +684,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                       marginBottom: '8px',
                     }}
                   >
-                    {tUI('gstRate')}
+                    {currConfig.taxName} {tUI('gstRate')}
                   </label>
                   <div style={{ position: 'relative', marginBottom: '8px' }}>
                     <span
@@ -489,7 +704,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                       min="0"
                       value={gstRate}
                       onChange={(e) => setGstRate(e.target.value)}
-                      placeholder="18"
+                      placeholder={currConfig.defaultTax}
                       style={{
                         width: '100%',
                         backgroundColor: 'var(--bg-page)',
@@ -504,9 +719,9 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                       }}
                     />
                   </div>
-                  {/* Slabs Buttons */}
+                  {/* Currency Slabs Buttons */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-                    {GST_SLABS.map((s) => (
+                    {currConfig.taxSlabs.map((s) => (
                       <button
                         key={s.rate}
                         onClick={() => setGstRate(s.rate)}
@@ -583,7 +798,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                         border: '1px solid var(--border-color)',
                         borderRadius: '8px',
                         color: 'var(--text-main)',
-                        padding: '12px 12px 12px 30px',
+                        padding: `12px 12px 12px ${currSymbol.length > 1 ? '38px' : '30px'}`,
                         fontSize: '1.05rem',
                         fontWeight: 700,
                         outline: 'none',
@@ -630,7 +845,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                         border: '1px solid var(--border-color)',
                         borderRadius: '8px',
                         color: 'var(--text-main)',
-                        padding: '12px 12px 12px 30px',
+                        padding: `12px 12px 12px ${currSymbol.length > 1 ? '38px' : '30px'}`,
                         fontSize: '1.05rem',
                         fontWeight: 700,
                         outline: 'none',
@@ -690,7 +905,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                         border: '1px solid var(--border-color)',
                         borderRadius: '8px',
                         color: 'var(--text-main)',
-                        padding: '12px 12px 12px 30px',
+                        padding: `12px 12px 12px ${currSymbol.length > 1 ? '38px' : '30px'}`,
                         fontSize: '1.05rem',
                         fontWeight: 700,
                         outline: 'none',
@@ -797,7 +1012,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                         border: '1px solid var(--border-color)',
                         borderRadius: '8px',
                         color: 'var(--text-main)',
-                        padding: '12px 12px 12px 30px',
+                        padding: `12px 12px 12px ${currSymbol.length > 1 ? '38px' : '30px'}`,
                         fontSize: '1.05rem',
                         fontWeight: 700,
                         outline: 'none',
@@ -991,7 +1206,7 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
                       marginBottom: '4px',
                     }}
                   >
-                    {tUI('gstAmount')} ({discountGstCalc.gstPercent}%)
+                    {currConfig.taxName} ({discountGstCalc.gstPercent}%)
                   </div>
                   <div
                     style={{
@@ -1129,36 +1344,56 @@ ${tUI('youSave')}: ${formatMoney(stackCalc.savings)}`;
 
                   {discountGstCalc.gstPercent > 0 && (
                     <>
-                      <div
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          color: '#fbbf24',
-                          paddingLeft: '10px',
-                        }}
-                      >
-                        <span>
-                          • {tUI('cgst')} ({(discountGstCalc.gstPercent / 2).toFixed(1)}%)
-                        </span>
-                        <span style={{ fontFamily: 'monospace' }}>
-                          +{formatMoney(discountGstCalc.cgstAmount)}
-                        </span>
-                      </div>
-                      <div
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          color: '#fbbf24',
-                          paddingLeft: '10px',
-                        }}
-                      >
-                        <span>
-                          • {tUI('sgst')} ({(discountGstCalc.gstPercent / 2).toFixed(1)}%)
-                        </span>
-                        <span style={{ fontFamily: 'monospace' }}>
-                          +{formatMoney(discountGstCalc.sgstAmount)}
-                        </span>
-                      </div>
+                      {currency === 'INR' ? (
+                        <>
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              color: '#fbbf24',
+                              paddingLeft: '10px',
+                            }}
+                          >
+                            <span>
+                              • {tUI('cgst')} ({(discountGstCalc.gstPercent / 2).toFixed(1)}%)
+                            </span>
+                            <span style={{ fontFamily: 'monospace' }}>
+                              +{formatMoney(discountGstCalc.cgstAmount)}
+                            </span>
+                          </div>
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              color: '#fbbf24',
+                              paddingLeft: '10px',
+                            }}
+                          >
+                            <span>
+                              • {tUI('sgst')} ({(discountGstCalc.gstPercent / 2).toFixed(1)}%)
+                            </span>
+                            <span style={{ fontFamily: 'monospace' }}>
+                              +{formatMoney(discountGstCalc.sgstAmount)}
+                            </span>
+                          </div>
+                        </>
+                      ) : (
+                        <div
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            color: '#fbbf24',
+                            paddingLeft: '10px',
+                          }}
+                        >
+                          <span>
+                            • {currConfig.taxName} ({discountGstCalc.gstPercent}%)
+                          </span>
+                          <span style={{ fontFamily: 'monospace' }}>
+                            +{formatMoney(discountGstCalc.totalGstAmount)}
+                          </span>
+                        </div>
+                      )}
                     </>
                   )}
 
