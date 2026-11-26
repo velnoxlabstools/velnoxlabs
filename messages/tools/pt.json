@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "Detalhamento byte a byte"
     },
     "colorConverter": {
-      "title": "Conversor de Cores Online (HEX, RGB, CMYK, LAB e Pantone)",
-      "subtitle": "Conversor de cores gratuito online. Traduza valores entre HEX, RGB, CMYK, HSL e encontre equivalências nas escalas LAB e Pantone com pré-visualização.",
+      "title": "Conversor de Cores IA Grátis (HEX, RGB, CMYK, LAB & Pantone)",
+      "subtitle": "Converta entre HEX, RGB, HSL, CMYK, CIE LAB e Pantone, verifique contraste WCAG, gere harmonias IA e extraia paletas de imagens.",
       "colorPreview": "Pré-visualização da cor:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -449,7 +449,20 @@
       "faq3Q": "Como posso capturar uma cor de uma imagem e obter seu código HEX?",
       "faq3A": "Você pode capturar cores de arquivos visuais utilizando a função de conta-gotas nativa do navegador ou apontando para qualquer elemento gráfico na tela. O tom selecionado preenche instantaneamente os campos HEX e RGB, permitindo a consulta imediata em todos os padrões.",
       "faq4Q": "Por que as cores exibidas em telas RGB diferem das impressões em CMYK?",
-      "faq4A": "O RGB é um modelo aditivo baseado na emissão de luz por telas eletrônicas, enquanto o CMYK é um modelo subtrativo que opera com tintas absorvendo luz no papel. Como a gama do padrão RGB é mais ampla, cores muito saturadas no monitor costumam parecer mais sóbrias quando impressas fisicamente."
+      "faq4A": "O RGB é um modelo aditivo baseado na emissão de luz por telas eletrônicas, enquanto o CMYK é um modelo subtrativo que opera com tintas absorvendo luz no papel. Como a gama do padrão RGB é mais ampla, cores muito saturadas no monitor costumam parecer mais sóbrias quando impressas fisicamente.",
+      "pickColor": "Escolher cor",
+      "pantoneLabel": "Pantone próximo",
+      "wcagTitle": "Contraste WCAG 2.1",
+      "onWhiteText": "Texto branco",
+      "onBlackText": "Texto preto",
+      "aiHarmonyTitle": "Harmonias de cor IA",
+      "harmonyComp": "Complementar",
+      "harmonyAnalog1": "Análogo -30°",
+      "harmonyAnalog2": "Análogo +30°",
+      "harmonyTriad1": "Triádico +120°",
+      "harmonyTriad2": "Triádico +240°",
+      "imageExtractTitle": "Extrator de cores IA",
+      "uploadImageBtn": "Enviar imagem"
     },
     "compoundInterestCalculator": {
       "title": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",

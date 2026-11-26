@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "バイト単位の計算内訳"
     },
     "colorConverter": {
-      "title": "オンライン カラーコード変換ツール (HEX, RGB, CMYK, LAB & Pantone)",
-      "subtitle": "無料のオンライン カラーコード変換ツール。HEX、RGB、CMYK、HSL間の即時変換に加え、LAB色空間やPantone近似色の照合プレビューに対応。",
+      "title": "AI カラー変換ツール 無料オンライン (HEX, RGB, CMYK, LAB, Pantone)",
+      "subtitle": "HEX、RGB、HSL、CMYK、CIE LAB、近似Pantoneを相互変換。WCAGコントラスト比、AI配色ハーモニー、画像からのカラー抽出に対応。",
       "colorPreview": "カラープレビュー:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -449,7 +449,20 @@
       "faq3Q": "画像から好みの色を抽出してHEXコードを取得するにはどうすればよいですか？",
       "faq3A": "ブラウザに搭載されたスポイト機能（EyeDropper）を用いて画面や画像上のピクセルを直接クリックするか、画像ファイルを読み込ませて任意の位置を指定するだけで抽出可能です。抽出された色コードは自動的にHEXおよびRGB入力枠へ反映され、各種形式へ即座に展開されます。",
       "faq4Q": "画面表示のRGBカラーと印刷されたCMYKカラーに差が出るのはなぜですか？",
-      "faq4A": "RGBはモニター画面の発光を利用した「加法混色」であるのに対し、CMYKは紙に塗布されたインクが光を吸収する「減法混色」だからです。RGBの方が表現可能な色域（ガマット）が広いため、極めて鮮やかな発色や蛍光色は印刷用インクに置き換えた際にやや落ち着いた風合いに仕上がります。"
+      "faq4A": "RGBはモニター画面の発光を利用した「加法混色」であるのに対し、CMYKは紙に塗布されたインクが光を吸収する「減法混色」だからです。RGBの方が表現可能な色域（ガマット）が広いため、極めて鮮やかな発色や蛍光色は印刷用インクに置き換えた際にやや落ち着いた風合いに仕上がります。",
+      "pickColor": "色を選択",
+      "pantoneLabel": "近似 Pantone",
+      "wcagTitle": "WCAG 2.1 コントラスト比",
+      "onWhiteText": "白文字",
+      "onBlackText": "黒文字",
+      "aiHarmonyTitle": "AI 配色ハーモニー",
+      "harmonyComp": "補色",
+      "harmonyAnalog1": "類似色 -30°",
+      "harmonyAnalog2": "類似色 +30°",
+      "harmonyTriad1": "トライアド +120°",
+      "harmonyTriad2": "トライアド +240°",
+      "imageExtractTitle": "AI 画像カラー抽出",
+      "uploadImageBtn": "画像をアップロード"
     },
     "compoundInterestCalculator": {
       "title": "インド複利計算シミュレーター (SBI, 積立 SIP, 毎月 & 毎日複利)",

@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "逐字节计算过程"
     },
     "colorConverter": {
-      "title": "在线颜色转换器 (HEX, RGB, CMYK, LAB 与 Pantone)",
-      "subtitle": "免费在线颜色转换器。在 HEX、RGB、CMYK、HSL 之间快速互转，并获取相近的 LAB 空间坐标与 Pantone 配色建议。",
+      "title": "免费在线 AI 颜色转换器 (HEX, RGB, CMYK, LAB 与 Pantone)",
+      "subtitle": "免费在线转换 HEX、RGB、HSL、CMYK、CIE LAB 与相近 Pantone 色号，支持 WCAG 对比度检测、AI 配色方案与图片主色提取。",
       "colorPreview": "颜色预览:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -449,7 +449,20 @@
       "faq3Q": "如何从图片中取色并提取 HEX 颜色代码？",
       "faq3A": "您可以利用图片色彩提取能力轻松获取色值：使用现代浏览器内置的吸管工具（EyeDropper）直接吸取屏幕或图片上的任意像素，或直接载入图片采样。吸取到的颜色将自动填充至 HEX 与 RGB 字段中，实现一键转换与调配。",
       "faq4Q": "为什么屏幕上的 RGB 颜色与印刷出来的 CMYK 颜色会有视觉差异？",
-      "faq4A": "RGB 属于发光显示器（如电脑屏幕、手机）采用的加色法模型，而 CMYK 属于纸张油墨反射光线的减色法模型。由于数字屏幕的 RGB 色域范围明显大于油墨的 CMYK 色域，部分极其明亮的荧光色或鲜艳色彩在转为印刷油墨时会显得稍显暗淡。"
+      "faq4A": "RGB 属于发光显示器（如电脑屏幕、手机）采用的加色法模型，而 CMYK 属于纸张油墨反射光线的减色法模型。由于数字屏幕的 RGB 色域范围明显大于油墨的 CMYK 色域，部分极其明亮的荧光色或鲜艳色彩在转为印刷油墨时会显得稍显暗淡。",
+      "pickColor": "选择颜色",
+      "pantoneLabel": "相近 Pantone",
+      "wcagTitle": "WCAG 2.1 对比度",
+      "onWhiteText": "白色文字",
+      "onBlackText": "黑色文字",
+      "aiHarmonyTitle": "AI 配色方案",
+      "harmonyComp": "互补色",
+      "harmonyAnalog1": "邻近色 -30°",
+      "harmonyAnalog2": "邻近色 +30°",
+      "harmonyTriad1": "三色组 +120°",
+      "harmonyTriad2": "三色组 +240°",
+      "imageExtractTitle": "AI 图片取色器",
+      "uploadImageBtn": "上传图片"
     },
     "compoundInterestCalculator": {
       "title": "印度复利计算器 (SBI, 定投 SIP, 按月与按日计息)",

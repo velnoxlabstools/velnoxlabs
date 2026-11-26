@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "Byte-für-Byte-Aufschlüsselung"
     },
     "colorConverter": {
-      "title": "Online-Farbkonverter (HEX, RGB, CMYK, LAB & Pantone)",
-      "subtitle": "Kostenloser Online-Farbkonverter. Wandeln Sie Farbcodes zwischen HEX, RGB, CMYK und HSL um und finden Sie passende Farbtöne in LAB und Pantone mit Vorschau.",
+      "title": "KI Farbkonverter Kostenlos (HEX, RGB, CMYK, LAB & Pantone)",
+      "subtitle": "Konvertiere Farben zwischen HEX, RGB, HSL, CMYK, CIE LAB & Pantone, prüfe WCAG-Kontraste, erstelle KI-Harmonien und extrahiere Farbpaletten aus Bildern.",
       "colorPreview": "Farbvorschau:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -449,7 +449,20 @@
       "faq3Q": "Wie kann ich eine Farbe aus einem Bild auswählen und den HEX-Code auslesen?",
       "faq3A": "Sie können Farbtöne direkt aus Grafiken übernehmen, indem Sie die Pipetten-Funktion des Browsers nutzen, um beliebige Bildpunkte auf Ihrem Bildschirm abzutasten. Der gewählte Ton wird sofort in die HEX- und RGB-Felder übertragen und steht zur weiteren Abstimmung bereit.",
       "faq4Q": "Warum weichen Farben auf RGB-Monitoren vom CMYK-Druck ab?",
-      "faq4A": "RGB ist ein additives Farbmodell leuchtender Bildschirme, während CMYK ein subtraktives Farbmodell physischer Druckfarben auf Papier darstellt. Da der RGB-Farbraum intensivere Nuancen darstellen kann als Drucktinten, wirken manche extrem leuchtenden Töne auf gedruckten Erzeugnissen etwas matter."
+      "faq4A": "RGB ist ein additives Farbmodell leuchtender Bildschirme, während CMYK ein subtraktives Farbmodell physischer Druckfarben auf Papier darstellt. Da der RGB-Farbraum intensivere Nuancen darstellen kann als Drucktinten, wirken manche extrem leuchtenden Töne auf gedruckten Erzeugnissen etwas matter.",
+      "pickColor": "Farbe wählen",
+      "pantoneLabel": "Nächstes Pantone",
+      "wcagTitle": "WCAG 2.1 Kontrast",
+      "onWhiteText": "Weißer Text",
+      "onBlackText": "Schwarzer Text",
+      "aiHarmonyTitle": "KI-Farbharmonien",
+      "harmonyComp": "Komplementär",
+      "harmonyAnalog1": "Analog -30°",
+      "harmonyAnalog2": "Analog +30°",
+      "harmonyTriad1": "Triadisch +120°",
+      "harmonyTriad2": "Triadisch +240°",
+      "imageExtractTitle": "KI-Bildfarbextraktor",
+      "uploadImageBtn": "Bild hochladen"
     },
     "compoundInterestCalculator": {
       "title": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",

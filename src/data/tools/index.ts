@@ -1287,14 +1287,19 @@ export const tools: Tool[] = [
   {
     id: 'tool-color',
     slug: 'color-converter',
-    name: 'Color Converter Online (HEX, RGB, CMYK, LAB & Pantone)',
+    name: 'AI Color Converter Online Free (HEX, RGB, CMYK, LAB & Pantone)',
     description:
-      'Free Color Converter Online (HEX, RGB, CMYK, LAB & Pantone). Convert RGB to HEX, HEX to CMYK, and inspect LAB and Pantone color values in your browser.',
+      'Free AI Color Converter Online (HEX, RGB, CMYK, LAB & Pantone). Convert RGB to HEX, HEX to CMYK, check WCAG contrast, generate AI color harmonies, and extract dominant colors from any image.',
     categoryId: 'cat-converters',
     tags: [
       'color',
       'converter',
       'hex',
+      'ai color converter online free',
+      'ai color converter online',
+      'ai color converter free',
+      'ai color converter app',
+      'ai color image',
       'color converter image',
       'color converter to pantone',
       'color converter online',
@@ -1311,7 +1316,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 3400,
     createdAt: '2026-06-20T00:00:00.000Z',
-    updatedAt: '2026-07-20T00:00:00.000Z',
+    updatedAt: '2026-11-26T00:00:00.000Z',
   },
 
   // ============ TEXT & CONTENT ============

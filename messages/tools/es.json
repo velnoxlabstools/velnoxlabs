@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "Desglose byte a byte"
     },
     "colorConverter": {
-      "title": "Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone)",
-      "subtitle": "Conversor de color en línea gratuito. Traduce códigos de color entre HEX, RGB, CMYK, HSL y descubre tonos equivalentes en LAB y Pantone con vista previa.",
+      "title": "Conversor de Colores IA Gratis (HEX, RGB, CMYK, LAB y Pantone)",
+      "subtitle": "Convierte colores entre HEX, RGB, HSL, CMYK, CIE LAB y Pantone, verifica contraste WCAG, genera armonías IA y extrae paletas de imágenes.",
       "colorPreview": "Vista previa del color:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -449,7 +449,20 @@
       "faq3Q": "¿Cómo puedo extraer un color de una imagen para obtener su código HEX?",
       "faq3A": "Puedes capturar tonos de imágenes utilizando la herramienta de cuentagotas integrada del navegador o cargando un archivo gráfico para seleccionar cualquier píxel. La tonalidad elegida se transfiere automáticamente a los campos HEX y RGB para su conversión inmediata.",
       "faq4Q": "¿Por qué los colores se ven distintos en pantallas RGB frente a impresiones en CMYK?",
-      "faq4A": "El modelo RGB es un sistema aditivo que emite luz en pantallas digitales, mientras que el CMYK es un sistema sustractivo basado en tintas sobre papel. Debido a que el espacio de color RGB abarca tonos más vivos que las tintas convencionales, las tonalidades muy brillantes pueden verse más suaves al imprimirse."
+      "faq4A": "El modelo RGB es un sistema aditivo que emite luz en pantallas digitales, mientras que el CMYK es un sistema sustractivo basado en tintas sobre papel. Debido a que el espacio de color RGB abarca tonos más vivos que las tintas convencionales, las tonalidades muy brillantes pueden verse más suaves al imprimirse.",
+      "pickColor": "Elegir color",
+      "pantoneLabel": "Pantone cercano",
+      "wcagTitle": "Contraste WCAG 2.1",
+      "onWhiteText": "Texto blanco",
+      "onBlackText": "Texto negro",
+      "aiHarmonyTitle": "Armonías de color IA",
+      "harmonyComp": "Complementario",
+      "harmonyAnalog1": "Análogo -30°",
+      "harmonyAnalog2": "Análogo +30°",
+      "harmonyTriad1": "Triádico +120°",
+      "harmonyTriad2": "Triádico +240°",
+      "imageExtractTitle": "Extractor de colores IA",
+      "uploadImageBtn": "Subir imagen"
     },
     "compoundInterestCalculator": {
       "title": "Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario)",

@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "Byte-by-Byte Checksum Breakdown"
     },
     "colorConverter": {
-      "title": "Color Converter Online (HEX, RGB, CMYK, LAB & Pantone)",
-      "subtitle": "Free color converter online. Seamlessly translate color codes between HEX, RGB, CMYK, HSL, and discover matching LAB and Pantone equivalents with live preview.",
+      "title": "AI Color Converter Online Free (HEX, RGB, CMYK, LAB & Pantone)",
+      "subtitle": "Free AI color converter online. Translate between HEX, RGB, HSL, CMYK, CIE LAB & nearest Pantone, check WCAG contrast, generate AI harmonies, and extract colors from images.",
       "colorPreview": "Color Preview:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -449,7 +449,20 @@
       "faq3Q": "How can I pick a color from an image or extract HEX codes?",
       "faq3A": "You can extract color codes using our Color Converter image capabilities: either use the browser's native EyeDropper API to sample any pixel directly from an image or web element on your screen, or upload an image to sample pixel coordinates. The sampled color automatically populates the Hex color converter and RGB fields for instant conversion.",
       "faq4Q": "Why do colors look different between RGB screen display and CMYK print?",
-      "faq4A": "RGB is an additive color model used by glowing digital displays (monitors and smartphones), while CMYK is a subtractive color model used by physical ink on paper. Because the digital RGB gamut is wider than standard printing ink gamuts, converting bright neon RGB colors to CMYK may result in slightly more subdued tones."
+      "faq4A": "RGB is an additive color model used by glowing digital displays (monitors and smartphones), while CMYK is a subtractive color model used by physical ink on paper. Because the digital RGB gamut is wider than standard printing ink gamuts, converting bright neon RGB colors to CMYK may result in slightly more subdued tones.",
+      "pickColor": "Pick Color",
+      "pantoneLabel": "Nearest Pantone",
+      "wcagTitle": "WCAG 2.1 Contrast Ratio",
+      "onWhiteText": "White Text",
+      "onBlackText": "Black Text",
+      "aiHarmonyTitle": "AI Color Harmonies",
+      "harmonyComp": "Complementary",
+      "harmonyAnalog1": "Analogous -30°",
+      "harmonyAnalog2": "Analogous +30°",
+      "harmonyTriad1": "Triadic +120°",
+      "harmonyTriad2": "Triadic +240°",
+      "imageExtractTitle": "AI Image Color Extractor",
+      "uploadImageBtn": "Upload Image"
     },
     "compoundInterestCalculator": {
       "title": "Compound Interest Calculator India (SBI, SIP, Monthly & Daily)",

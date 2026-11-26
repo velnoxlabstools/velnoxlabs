@@ -422,8 +422,8 @@
       "byteBreakdownTitle": "Dettaglio byte per byte"
     },
     "colorConverter": {
-      "title": "Convertitore Colori Online (HEX, RGB, CMYK, LAB e Pantone)",
-      "subtitle": "Convertitore di colori online gratuito. Traduci codici colore tra HEX, RGB, CMYK, HSL e scopri le tinte corrispondenti in LAB e Pantone con anteprima dal vivo.",
+      "title": "Convertitore Colori IA Gratis (HEX, RGB, CMYK, LAB & Pantone)",
+      "subtitle": "Converti tra HEX, RGB, HSL, CMYK, CIE LAB e Pantone, verifica il contrasto WCAG, genera armonie IA ed estrai colori dalle immagini.",
       "colorPreview": "Anteprima colore:",
       "hexLabel": "HEX:",
       "rgbLabel": "RGB:",
@@ -451,7 +451,20 @@
       "faq3Q": "Come posso estrapolare un colore da un'immagine per ricavarne il codice HEX?",
       "faq3A": "Puoi prelevare tonalità dai tuoi file grafici adoperando lo strumento contagocce integrato nel browser oppure puntando sui pixel desiderati all'interno della schermata. Il colore campionato viene inserito in automatico nei campi HEX e RGB per una consultazione immediata.",
       "faq4Q": "Per quale motivo i colori su schermo RGB appaiono diversi dalla stampa in CMYK?",
-      "faq4A": "Il modello RGB è un sistema additivo che sfrutta la luce emessa dai display digitali, mentre il CMYK è un sistema sottrattivo basato sulle proprietà fisiche dei pigmenti di inchiostro sulla carta. Poiché lo spettro visibile RGB è più ampio, tonalità particolarmente sature o brillanti tendono a risultare più attenuate una volta stampate."
+      "faq4A": "Il modello RGB è un sistema additivo che sfrutta la luce emessa dai display digitali, mentre il CMYK è un sistema sottrattivo basato sulle proprietà fisiche dei pigmenti di inchiostro sulla carta. Poiché lo spettro visibile RGB è più ampio, tonalità particolarmente sature o brillanti tendono a risultare più attenuate una volta stampate.",
+      "pickColor": "Scegli colore",
+      "pantoneLabel": "Pantone vicino",
+      "wcagTitle": "Contrasto WCAG 2.1",
+      "onWhiteText": "Testo bianco",
+      "onBlackText": "Testo nero",
+      "aiHarmonyTitle": "Armonie colore IA",
+      "harmonyComp": "Complementare",
+      "harmonyAnalog1": "Analogo -30°",
+      "harmonyAnalog2": "Analogo +30°",
+      "harmonyTriad1": "Triadico +120°",
+      "harmonyTriad2": "Triadico +240°",
+      "imageExtractTitle": "Estrattore colori IA",
+      "uploadImageBtn": "Carica immagine"
     },
     "compoundInterestCalculator": {
       "title": "Calcolatore di Interesse Composto India (SBI, SIP, Mensile e Giornaliero)",

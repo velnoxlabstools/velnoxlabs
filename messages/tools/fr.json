@@ -420,8 +420,8 @@
       "byteBreakdownTitle": "Détail octet par octet"
     },
     "colorConverter": {
-      "title": "Convertisseur de Couleur en Ligne (HEX, RGB, CMYK, LAB et Pantone)",
-      "subtitle": "Convertisseur de couleurs gratuit en ligne. Traduisez vos nuances entre HEX, RGB, CMYK, HSL et découvrez les teintes équivalentes en LAB et Pantone avec aperçu.",
+      "title": "Convertisseur de Couleurs IA Gratuit (HEX, RGB, CMYK, LAB & Pantone)",
+      "subtitle": "Convertissez entre HEX, RGB, HSL, CMYK, CIE LAB et Pantone, vérifiez le contraste WCAG, générez des harmonies IA et extrayez les couleurs d'une image.",
       "colorPreview": "Aperçu de la couleur :",
       "hexLabel": "HEX :",
       "rgbLabel": "RGB :",
@@ -449,7 +449,20 @@
       "faq3Q": "Comment extraire la couleur exacte d'une image pour obtenir son code HEX ?",
       "faq3A": "Vous pouvez prélever une nuance sur un visuel grâce à l'outil pipette intégré du navigateur ou en chargeant une image pour pointer un pixel précis. La teinte retenue s'inscrit immédiatement dans les zones HEX et RGB pour vous faire gagner du temps.",
       "faq4Q": "Pour quelle raison observe-t-on un écart entre un écran RGB et une impression CMYK ?",
-      "faq4A": "Le modèle RGB est un système additif fonctionnant par émission lumineuse sur les écrans numériques, alors que le CMYK est un système soustractif fondé sur l'absorption de la lumière par les encres sur papier. Le gamut RGB étant plus étendu, les teintes très vives ou fluorescentes perdent légèrement de leur intensité lors de l'impression physique."
+      "faq4A": "Le modèle RGB est un système additif fonctionnant par émission lumineuse sur les écrans numériques, alors que le CMYK est un système soustractif fondé sur l'absorption de la lumière par les encres sur papier. Le gamut RGB étant plus étendu, les teintes très vives ou fluorescentes perdent légèrement de leur intensité lors de l'impression physique.",
+      "pickColor": "Choisir couleur",
+      "pantoneLabel": "Pantone proche",
+      "wcagTitle": "Contraste WCAG 2.1",
+      "onWhiteText": "Texte blanc",
+      "onBlackText": "Texte noir",
+      "aiHarmonyTitle": "Harmonies IA",
+      "harmonyComp": "Complémentaire",
+      "harmonyAnalog1": "Analogue -30°",
+      "harmonyAnalog2": "Analogue +30°",
+      "harmonyTriad1": "Triadique +120°",
+      "harmonyTriad2": "Triadique +240°",
+      "imageExtractTitle": "Extracteur de couleurs IA",
+      "uploadImageBtn": "Importer image"
     },
     "compoundInterestCalculator": {
       "title": "Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien)",
