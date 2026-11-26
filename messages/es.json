@@ -541,7 +541,7 @@
       "description": "Generador de códigos de barras en línea gratuito. Crea códigos Code 128, EAN-13, UPC-A con dígito de control automático, etiquetas de precios, PNG transparente y exportación masiva ZIP."
     },
     "http-header-inspector-parser": {
-      "name": "Analizador de Cabeceras HTTP y Verificación de Seguridad",
+      "name": "Inspector y Analizador de Encabezados HTTP con IA – Auditoría de Seguridad OWASP",
       "description": "Examine y evalúe encabezados de solicitud y respuesta con nuestro analizador de cabeceras HTTP y verificación de seguridad. Estructure datos en JSON y revise configuraciones de protección al instante."
     }
   },
@@ -879,7 +879,7 @@
       "searchEntitiesPlaceholder": "Buscar símbolo, nombre, entidad o código..."
     },
     "httpHeaderInspector": {
-      "title": "Analizador de Cabeceras HTTP y Verificación de Seguridad",
+      "title": "Inspector y Analizador de Encabezados HTTP con IA – Auditoría de Seguridad OWASP",
       "subtitle": "Examine y evalúe encabezados de solicitud y respuesta con nuestro analizador de cabeceras HTTP y verificación de seguridad. Estructure datos en JSON y revise configuraciones de protección al instante.",
       "aboutText": "Nuestro analizador de cabeceras HTTP es una eficaz herramienta cliente para la visualización y diagnóstico de encabezados, diseñada para desarrolladores web, especialistas en DevSecOps y administradores de sistemas. Ya sea que necesite una verificación de seguridad automatizada según las mejores prácticas o desee evaluar encabezados en flujos de JavaScript, esta utilidad organiza las líneas sin procesar en tablas de clave y valor bien estructuradas. Los desarrolladores a menudo requieren comprobar los encabezados que Chrome captura durante las sesiones de depuración en red o efectuar una verificación de seguridad para auditar la configuración del servidor frente a referencias recomendadas por Snyk. Ya sea que evalúe un ejemplo de encabezado HTTP de respuestas de API, revise directivas de caché o compruebe un ejemplo con metadatos personalizados, nuestra solución en JavaScript analiza todo localmente con total privacidad y sin latencia externa.",
       "feature1": "Desglose inmediato de texto: Elimina líneas de estado y organiza los encabezados en claras parejas de clave y valor",
@@ -899,7 +899,37 @@
       "faq3Q": "¿Puede mostrar un ejemplo estándar de encabezado HTTP?",
       "faq3A": "¡Por supuesto! A continuación se muestra un ejemplo estándar de respuesta de API segura:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nEste ejemplo ilustra directivas de protocolo, almacenamiento en caché y refuerzo de seguridad que nuestra herramienta desglosa automáticamente en filas organizadas de clave y valor.",
       "faq4Q": "¿De qué manera ayuda esta herramienta en entornos JavaScript y APIs?",
-      "faq4A": "Al trabajar con encabezados en Node.js, Fetch o XMLHttpRequest (como xhr.getAllResponseHeaders()), los datos se reciben como una única cadena de texto delimitada por saltos CRLF (\\r\\n). Nuestra utilidad de procesamiento en JavaScript separa las líneas mediante los dos puntos (:), depura espacios en blanco, preserva entradas repetidas como Set-Cookie y las transforma en un mapa JSON ordenado. Esto facilita enormemente la simulación de respuestas de API, la depuración y la incorporación directa en su código de JavaScript."
+      "faq4A": "Al trabajar con encabezados en Node.js, Fetch o XMLHttpRequest (como xhr.getAllResponseHeaders()), los datos se reciben como una única cadena de texto delimitada por saltos CRLF (\\r\\n). Nuestra utilidad de procesamiento en JavaScript separa las líneas mediante los dos puntos (:), depura espacios en blanco, preserva entradas repetidas como Set-Cookie y las transforma en un mapa JSON ordenado. Esto facilita enormemente la simulación de respuestas de API, la depuración y la incorporación directa en su código de JavaScript.",
+      "clientSideBadge": "Privacidad 100% en el Navegador",
+      "clientSideSubtitle": "Conforme a OWASP Top 10 y RFC 9110 • Análisis en Memoria • Encabezados Nunca Guardados",
+      "zeroServerLog": "Sin Registros en Servidor: Todo el análisis se ejecuta localmente en su navegador",
+      "tabParser": "Analizador de Encabezados y JSON",
+      "tabSecurity": "Auditoría de Seguridad OWASP",
+      "tabClient": "Encabezados de Mi Navegador",
+      "tabCode": "Pasar Encabezados en Código",
+      "tabDictionary": "Diccionario de Encabezados",
+      "presetsLabel": "Plantillas",
+      "clearBtn": "Limpiar",
+      "copyRawBtn": "Copiar Texto",
+      "copyJsonBtn": "Exportar JSON",
+      "copy": "Copiar",
+      "rawHeadersLabel": "Entrada de Encabezados HTTP (Respuesta o Solicitud):",
+      "rawHeadersPlaceholder": "Pegue encabezados de curl, Postman o Chrome DevTools...",
+      "searchPlaceholder": "Buscar nombre o valor de encabezado...",
+      "infoLeakWarningTitle": "Advertencias de Revelación de Información Detectadas",
+      "serverFixTitle": "Generador de Configuración de Seguridad para Servidores",
+      "myHeadersTitle": "Información de Encabezados de su Navegador Actual",
+      "myHeadersSubtitle": "Estos encabezados y atributos del dispositivo se envían automáticamente por su navegador en cada solicitud.",
+      "chromeGuideTitle": "Cómo Inspeccionar y Copiar Encabezados HTTP en Google Chrome",
+      "chromeStep1": "Presione F12 (o clic derecho y seleccione 'Inspeccionar') para abrir las Herramientas para desarrolladores.",
+      "chromeStep2": "Haga clic en la pestaña 'Red' (Network) en el panel superior.",
+      "chromeStep3": "Recargue la página (F5 o Ctrl+R) para capturar todas las solicitudes de red.",
+      "chromeStep4": "Haga clic en la solicitud principal, abra la pestaña 'Headers' y copie los encabezados en esta herramienta.",
+      "passHeadersTitle": "Cómo Enviar Encabezados HTTP en Solicitudes",
+      "passHeadersSubtitle": "Ejemplos de código listos para producción para enviar encabezados personalizados en lenguajes populares.",
+      "dictTitle": "Diccionario de Encabezados HTTP y Sintaxis",
+      "dictSubtitle": "Busque encabezados de solicitud y respuesta conformes a los estándares RFC con ejemplos de sintaxis.",
+      "searchDictPlaceholder": "Buscar encabezado (ej. Cache-Control, HSTS, CORS)..."
     },
     "invoiceGenerator": {
       "title": "Generador de Facturas con IA Gratuito – PDF Sin Marcas de Agua",

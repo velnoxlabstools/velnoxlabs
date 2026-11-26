@@ -541,7 +541,7 @@
       "description": "Gerador de código de barras online gratuito. Crie códigos Code 128, EAN-13, UPC-A com dígito verificador automático, etiquetas de preço, PNG transparente e exportação em massa ZIP."
     },
     "http-header-inspector-parser": {
-      "name": "Analisador de Cabeçalhos HTTP e Verificação de Segurança",
+      "name": "Inspetor e Analisador de Cabeçalhos HTTP com IA – Auditoria de Segurança OWASP",
       "description": "Examine e avalie cabeçalhos de requisição e resposta com nosso analisador de cabeçalhos HTTP e verificação de segurança. Estruture dados em JSON e revise configurações de proteção instantaneamente."
     }
   },
@@ -879,7 +879,7 @@
       "searchEntitiesPlaceholder": "Pesquisar símbolo, nome, entidade ou código..."
     },
     "httpHeaderInspector": {
-      "title": "Analisador de Cabeçalhos HTTP e Verificação de Segurança",
+      "title": "Inspetor e Analisador de Cabeçalhos HTTP com IA – Auditoria de Segurança OWASP",
       "subtitle": "Examine e avalie cabeçalhos de requisição e resposta com nosso analisador de cabeçalhos HTTP e verificação de segurança. Estruture dados em JSON e revise configurações de proteção instantaneamente.",
       "aboutText": "Nosso analisador de cabeçalhos HTTP é uma suíte robusta no navegador para visualização e diagnóstico de cabeçalhos, desenvolvida para profissionais da web, engenharia DevSecOps e administração de sistemas. Seja para conduzir uma verificação de segurança automatizada alinhada às melhores práticas ou para avaliar dados em rotinas JavaScript, esta ferramenta decompõe linhas brutas em tabelas estruturadas de chave e valor. Desenvolvedores com frequência precisam verificar os cabeçalhos que o Chrome registra durante a depuração de tráfego de rede ou executar uma verificação de segurança para auditar servidores com base nas diretrizes recomendadas pela Snyk. Seja ao analisar um exemplo de cabeçalho HTTP de uma API, checar parâmetros de cache ou experimentar exemplos com metadados personalizados, nosso utilitário em JavaScript processa tudo localmente com total privacidade e sem latência de servidores remotos.",
       "feature1": "Divisão instantânea de texto: Remove linhas de status e organiza os dados em pares de chave e valor claros",
@@ -899,7 +899,37 @@
       "faq3Q": "Poderia fornecer um exemplo prático de cabeçalho HTTP?",
       "faq3A": "Com certeza! Veja a seguir um exemplo prático de cabeçalho vindo de uma API protegida:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nEste exemplo demonstra cabeçalhos de protocolo, cache e proteção que nossa ferramenta decompõe automaticamente em linhas organizadas de chave e valor.",
       "faq4Q": "Como esta ferramenta auxilia na integração e manipulação em JavaScript?",
-      "faq4A": "Ao manipular respostas brutas em Node.js, Fetch ou XMLHttpRequest (como xhr.getAllResponseHeaders()), os dados chegam em formato de texto delimitado por quebras CRLF (\\r\\n). Nosso mecanismo em JavaScript divide as linhas no primeiro caractere de dois pontos (:), ajusta espaçamentos, preserva registros duplicados como Set-Cookie e gera um dicionário JSON limpo. Isso torna simples validar dados simulados de API, depurar serviços e transferir estruturas JSON para suas aplicações em JavaScript."
+      "faq4A": "Ao manipular respostas brutas em Node.js, Fetch ou XMLHttpRequest (como xhr.getAllResponseHeaders()), os dados chegam em formato de texto delimitado por quebras CRLF (\\r\\n). Nosso mecanismo em JavaScript divide as linhas no primeiro caractere de dois pontos (:), ajusta espaçamentos, preserva registros duplicados como Set-Cookie e gera um dicionário JSON limpo. Isso torna simples validar dados simulados de API, depurar serviços e transferir estruturas JSON para suas aplicações em JavaScript.",
+      "clientSideBadge": "Privacidade 100% no Navegador",
+      "clientSideSubtitle": "Conforme OWASP Top 10 e RFC 9110 • Análise em Memória • Cabeçalhos Nunca Armazenados",
+      "zeroServerLog": "Sem Registros no Servidor: Toda a análise é executada localmente no navegador",
+      "tabParser": "Analisador de Cabeçalhos e JSON",
+      "tabSecurity": "Auditoria de Segurança OWASP",
+      "tabClient": "Cabeçalhos do Meu Navegador",
+      "tabCode": "Enviar Cabeçalhos no Código",
+      "tabDictionary": "Dicionário de Cabeçalhos",
+      "presetsLabel": "Modelos",
+      "clearBtn": "Limpar",
+      "copyRawBtn": "Copiar Texto",
+      "copyJsonBtn": "Exportar JSON",
+      "copy": "Copiar",
+      "rawHeadersLabel": "Entrada de Cabeçalhos HTTP (Resposta ou Requisição):",
+      "rawHeadersPlaceholder": "Cole os cabeçalhos de cURL, Postman ou Chrome DevTools...",
+      "searchPlaceholder": "Pesquisar nome ou valor de cabeçalho...",
+      "infoLeakWarningTitle": "Avisos de Divulgação de Informações Detectados",
+      "serverFixTitle": "Gerador de Configuração de Segurança para Servidores",
+      "myHeadersTitle": "Informações de Cabeçalho do Seu Navegador Atual",
+      "myHeadersSubtitle": "Esses cabeçalhos e atributos do dispositivo são enviados automaticamente pelo seu navegador a cada requisição.",
+      "chromeGuideTitle": "Como Inspecionar e Copiar Cabeçalhos HTTP no Google Chrome",
+      "chromeStep1": "Pressione F12 (ou clique com o botão direito e 'Inspecionar') para abrir o Chrome DevTools.",
+      "chromeStep2": "Clique na aba 'Rede' (Network) no painel superior.",
+      "chromeStep3": "Recarregue a página (F5 ou Ctrl+R) para capturar todas as requisições de rede.",
+      "chromeStep4": "Clique na requisição principal, acesse 'Headers' e cole os cabeçalhos brutos nesta ferramenta.",
+      "passHeadersTitle": "Como Enviar Cabeçalhos HTTP em Requisições",
+      "passHeadersSubtitle": "Exemplos de código prontos para produção para enviar cabeçalhos personalizados nas linguagens populares.",
+      "dictTitle": "Dicionário de Cabeçalhos HTTP e Sintaxe",
+      "dictSubtitle": "Pesquise cabeçalhos compatíveis com os padrões RFC com exemplos de sintaxe e boas práticas.",
+      "searchDictPlaceholder": "Pesquisar cabeçalho (ex. Cache-Control, HSTS, CORS)..."
     },
     "invoiceGenerator": {
       "title": "Gerador de Faturas com IA Gratuito – PDF Sem Marca d'Água",

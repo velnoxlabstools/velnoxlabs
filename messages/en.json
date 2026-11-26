@@ -534,7 +534,7 @@
       "description": "Free AI online barcode generator & text to barcode generator. Create Code 128, EAN-13, UPC-A barcodes with auto check-digit fix, product price labels, transparent PNG/SVG download, and bulk ZIP export."
     },
     "http-header-inspector-parser": {
-      "name": "HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check",
+      "name": "AI HTTP Header Inspector & Parser – Security Headers Analyzer & OWASP Check",
       "description": "Inspect, parse, and analyze HTTP request and response headers with our online HTTP header analyzer & Security headers check. Format headers into JSON and inspect security configurations instantly."
     }
   },
@@ -849,7 +849,7 @@
       "searchEntitiesPlaceholder": "Search symbol, name, entity or code..."
     },
     "httpHeaderInspector": {
-      "title": "HTTP Header Inspector & Parser – HTTP Header Analyzer & Security Headers Check",
+      "title": "AI HTTP Header Inspector & Parser – Security Headers Analyzer & OWASP Check",
       "subtitle": "Inspect, parse, and analyze HTTP request and response headers with our online HTTP header analyzer & Security headers check. Format headers into JSON and inspect security configurations instantly.",
       "aboutText": "Our HTTP header analyzer is a powerful, client-side HTTP header Viewer and diagnostic suite engineered for web developers, DevSecOps engineers, and sysadmins. Whether you need an automated Security headers check against best practices or want to inspect headers in JavaScript workflows, this tool parses raw multiline headers into structured key-value maps. Developers frequently need to Check HTTP headers Chrome captures during network debugging sessions or run a Security headers check to audit server configurations against industry benchmarks like Security headers by Snyk. Whether evaluating an HTTP header example from API responses, verifying caching directives, or testing an Http header inspector & parser example with custom metadata, our Http header inspector & parser javascript utility analyzes response headers locally with total privacy and zero server-side latency.",
       "feature1": "Instant Raw Header Parsing: Automatically strips status lines and tokenizes multiline headers into structured key-value pairs",
@@ -869,7 +869,37 @@
       "faq3Q": "Can you provide an HTTP header example for requests and responses?",
       "faq3A": "Yes! Here is a standard HTTP header example from a production API response:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nx-content-type-options: nosniff\nx-frame-options: DENY\nThis Http header inspector & parser example demonstrates standard protocol, caching, and hardening headers that our tool automatically deconstructs into searchable key-value rows.",
       "faq4Q": "How does this tool help with JavaScript parsing and API integration?",
-      "faq4A": "When working with raw HTTP headers in Node.js, Fetch responses, or XMLHttpRequest (such as xhr.getAllResponseHeaders()), headers arrive as a single multiline string delimited by CRLF (\\r\\n). Our Http header inspector & parser javascript workflow splits headers on the first colon (:), trims whitespace, preserves duplicate headers like Set-Cookie, and converts the raw string into an organized JSON dictionary. This makes it effortless to validate mock API responses, debug endpoints, and export structured JSON directly into your JavaScript codebase."
+      "faq4A": "When working with raw HTTP headers in Node.js, Fetch responses, or XMLHttpRequest (such as xhr.getAllResponseHeaders()), headers arrive as a single multiline string delimited by CRLF (\\r\\n). Our Http header inspector & parser javascript workflow splits headers on the first colon (:), trims whitespace, preserves duplicate headers like Set-Cookie, and converts the raw string into an organized JSON dictionary. This makes it effortless to validate mock API responses, debug endpoints, and export structured JSON directly into your JavaScript codebase.",
+      "clientSideBadge": "100% Client-Side Privacy",
+      "clientSideSubtitle": "OWASP Top 10 & RFC 9110 Compliant • In-Memory Parsing • Pasted Headers Never Stored or Sent",
+      "zeroServerLog": "Zero Server Logs: All analysis executes locally in browser memory",
+      "tabParser": "Header Parser & JSON",
+      "tabSecurity": "OWASP Security Audit",
+      "tabClient": "My Browser Headers",
+      "tabCode": "Pass Headers in Code",
+      "tabDictionary": "Headers Dictionary",
+      "presetsLabel": "Presets",
+      "clearBtn": "Clear",
+      "copyRawBtn": "Copy Raw",
+      "copyJsonBtn": "Export JSON",
+      "copy": "Copy",
+      "rawHeadersLabel": "Raw HTTP Headers Input (Response or Request):",
+      "rawHeadersPlaceholder": "Paste raw headers from curl, Postman, or Chrome DevTools...",
+      "searchPlaceholder": "Search header name or value...",
+      "infoLeakWarningTitle": "Information Disclosure Warnings Detected",
+      "serverFixTitle": "Server Remediation Configuration Generator",
+      "myHeadersTitle": "Current Client Browser Request Information",
+      "myHeadersSubtitle": "These client headers and device attributes are sent automatically by your browser with every HTTP request.",
+      "chromeGuideTitle": "How to Inspect & Copy HTTP Headers in Google Chrome",
+      "chromeStep1": "Press F12 (or right-click anywhere and select 'Inspect') to open Chrome DevTools.",
+      "chromeStep2": "Click on the 'Network' tab in the top navigation panel.",
+      "chromeStep3": "Reload the web page (F5 or Ctrl+R) to capture all network requests.",
+      "chromeStep4": "Click on the main document request, view the 'Headers' tab, and copy raw response headers into this tool.",
+      "passHeadersTitle": "How to Pass HTTP Headers in Requests",
+      "passHeadersSubtitle": "Copy-paste production code to pass custom Authorization, Content-Type, and API headers across popular languages.",
+      "dictTitle": "Standard HTTP Headers Dictionary & Syntax",
+      "dictSubtitle": "Search RFC-compliant request and response headers with syntax examples and usage guidelines.",
+      "searchDictPlaceholder": "Search header (e.g. Cache-Control, HSTS, CORS)..."
     },
     "invoiceGenerator": {
       "title": "AI Free Invoice Generator – No Watermark PDF, India GST & Templates",

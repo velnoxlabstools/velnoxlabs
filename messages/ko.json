@@ -534,7 +534,7 @@
       "description": "Code 128, EAN-13, UPC-A를 지원하는 무료 온라인 바코드 생성기입니다. 체크 디지트 자동 수정, 상품 가격 라벨, 투명 PNG/SVG 저장 및 대량 ZIP 다운로드를 제공합니다."
     },
     "http-header-inspector-parser": {
-      "name": "HTTP 헤더 분석기 및 보안 헤더 검사",
+      "name": "AI HTTP 헤더 파서 및 인스펙터 – OWASP 보안 헤더 분석 및 검증기",
       "description": "온라인 HTTP 헤더 분석기 및 보안 헤더 검사를 통해 요청과 응답 헤더를 정밀 분석하세요. 헤더를 구조화된 JSON 데이터로 정리하고 보안 보호 구성을 즉시 점검할 수 있습니다."
     }
   },
@@ -872,7 +872,7 @@
       "searchEntitiesPlaceholder": "기호, 명칭, 코드 검색..."
     },
     "httpHeaderInspector": {
-      "title": "HTTP 헤더 분석기 및 보안 헤더 검사",
+      "title": "AI HTTP 헤더 파서 및 인스펙터 – OWASP 보안 헤더 분석 및 검증기",
       "subtitle": "온라인 HTTP 헤더 분석기 및 보안 헤더 검사를 통해 요청과 응답 헤더를 정밀 분석하세요. 헤더를 구조화된 JSON 데이터로 정리하고 보안 보호 구성을 즉시 점검할 수 있습니다.",
       "aboutText": "당사의 HTTP 헤더 분석기는 웹 개발자, DevSecOps 엔지니어 및 시스템 관리자를 위해 제작된 브라우저 기반 고성능 헤더 진단 도구입니다. 보안 모범 사례에 따른 자동화된 보안 헤더 검사가 필요하거나 JavaScript 작업 환경에서 헤더를 체계적으로 분석하려는 경우, 여러 줄로 된 원시 텍스트를 직관적인 키-값 테이블로 신속하게 분류합니다. 개발자들은 네트워크 디버깅 중 Chrome 브라우저에서 캡처한 HTTP 헤더를 확인하거나 Snyk와 같은 보안 표준을 기준으로 서버 구성을 점검하기 위해 보안 헤더 검사를 자주 활용합니다. API 응답의 HTTP 헤더 예시를 평가하거나 캐시 디렉티브를 검증할 때도, 당사의 JavaScript 유틸리티는 외부 네트워크 전송 없이 100% 로컬 환경에서 신속하고 안전하게 분석을 수행합니다.",
       "feature1": "원시 텍스트 즉시 분해: 상태 라인을 자동 제거하고 원시 헤더를 명확한 키-값 쌍으로 정돈",
@@ -892,7 +892,37 @@
       "faq3Q": "대표적인 HTTP 헤더 예시를 볼 수 있나요?",
       "faq3A": "네, 안전한 운영 API 응답에서 볼 수 있는 대표적인 HTTP 헤더 예시는 다음과 같습니다:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\n이 헤더 분석 예시는 표준 프로토콜, 캐시 제어 및 보안 강화 디렉티브를 포함하고 있으며, 당사 도구는 이를 체계적인 행 단위 키-값 데이터로 자동 분류합니다.",
       "faq4Q": "이 도구가 JavaScript 환경의 분석 및 API 연동에 어떤 도움이 되나요?",
-      "faq4A": "Node.js, Fetch 응답 또는 XMLHttpRequest(예: xhr.getAllResponseHeaders())에서 원시 헤더를 처리할 때 데이터는 줄바꿈 문자(\\r\\n)로 구분된 단일 문자열로 전달됩니다. 당사의 JavaScript 분석 로직은 첫 번째 콜론(:)을 기준으로 키와 값을 분리하고, 불필요한 공백을 제거하며, Set-Cookie와 같은 다중 헤더를 보존하여 정돈된 JSON 객체로 변환합니다. 이를 통해 목업(Mock) API 응답 검증, 엔드포인트 디버깅 및 JavaScript 코드 내 데이터 활용이 매우 편리해집니다."
+      "faq4A": "Node.js, Fetch 응답 또는 XMLHttpRequest(예: xhr.getAllResponseHeaders())에서 원시 헤더를 처리할 때 데이터는 줄바꿈 문자(\\r\\n)로 구분된 단일 문자열로 전달됩니다. 당사의 JavaScript 분석 로직은 첫 번째 콜론(:)을 기준으로 키와 값을 분리하고, 불필요한 공백을 제거하며, Set-Cookie와 같은 다중 헤더를 보존하여 정돈된 JSON 객체로 변환합니다. 이를 통해 목업(Mock) API 응답 검증, 엔드포인트 디버깅 및 JavaScript 코드 내 데이터 활용이 매우 편리해집니다.",
+      "clientSideBadge": "100% 브라우저 로컬 연산 (개인정보 보호)",
+      "clientSideSubtitle": "OWASP Top 10 및 RFC 9110 표준 준수 • 메모리 내 실시간 파싱 • 외부 저장 및 전송 없음",
+      "zeroServerLog": "서버 로그 없음: 모든 분석은 브라우저 메모리 내에서 안전하게 로컬로 실행됩니다",
+      "tabParser": "헤더 파서 및 JSON 내보내기",
+      "tabSecurity": "OWASP 보안 점검 및 평가",
+      "tabClient": "내 브라우저 클라이언트 헤더",
+      "tabCode": "코드에서 HTTP 헤더 전달하기",
+      "tabDictionary": "HTTP 헤더 표준 사전",
+      "presetsLabel": "프리셋",
+      "clearBtn": "비우기",
+      "copyRawBtn": "원문 복사",
+      "copyJsonBtn": "JSON 내보내기",
+      "copy": "복사",
+      "rawHeadersLabel": "HTTP 헤더 원문 입력 (응답 또는 요청 헤더):",
+      "rawHeadersPlaceholder": "cURL, Postman, Chrome 개발자 도구의 헤더를 붙여넣으세요...",
+      "searchPlaceholder": "헤더 이름 또는 값 검색...",
+      "infoLeakWarningTitle": "서버 민감 소프트웨어 및 버전 정보 유출 경고",
+      "serverFixTitle": "웹 서버 보안 헤더 설정 코드 생성기",
+      "myHeadersTitle": "현재 브라우저의 클라이언트 요청 속성 정보",
+      "myHeadersSubtitle": "이 클라이언트 헤더와 디바이스 속성은 브라우저가 HTTP 요청을 보낼 때마다 자동으로 포함됩니다.",
+      "chromeGuideTitle": "Google Chrome 개발자 도구에서 HTTP 헤더를 확인하고 복사하는 방법",
+      "chromeStep1": "F12 키를 누르거나 마우스 우클릭 후 '검사'를 선택하여 Chrome 개발자 도구를 엽니다.",
+      "chromeStep2": "상단 메뉴에서 'Network (네트워크)' 탭을 클릭합니다.",
+      "chromeStep3": "페이지를 새로고침(F5 또는 Ctrl+R)하여 모든 네트워크 통신을 캡처합니다.",
+      "chromeStep4": "목록에서 주 요청을 클릭하고 'Headers' 탭에서 헤더 원문을 복사하여 본 도구에 붙여넣습니다.",
+      "passHeadersTitle": "HTTP 요청에서 커스텀 헤더 전달하는 방법",
+      "passHeadersSubtitle": "주요 개발 언어에서 Authorization, Content-Type 등 커스텀 헤더를 올바르게 전달하는 실무 코드입니다.",
+      "dictTitle": "표준 HTTP 헤더 규격 및 문법 사전",
+      "dictSubtitle": "RFC 표준 규격을 준수하는 요청 및 응답 헤더의 문법 예시와 활용 가이드를 검색하세요.",
+      "searchDictPlaceholder": "헤더 검색 (예: Cache-Control, HSTS, CORS)..."
     },
     "invoiceGenerator": {
       "title": "무료 AI 전자 인보이스 청구서 생성기 – 워터마크 없는 PDF",

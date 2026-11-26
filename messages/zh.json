@@ -534,7 +534,7 @@
       "description": "免费在线条形码生成器，支持Code 128、EAN-13、UPC-A等格式，具备校验位自动修复、商品名称与价格标签、透明背景PNG/SVG下载及批量ZIP导出功能。"
     },
     "http-header-inspector-parser": {
-      "name": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",
+      "name": "AI HTTP 标头解析与安全检测器 – OWASP 安全响应头审查工具",
       "description": "使用在线 HTTP 标头分析器与安全标头检测，快速分解并分析 HTTP 请求与响应报文。即刻将标头整理为清晰的 JSON 映射并审查安全防护策略。"
     }
   },
@@ -872,7 +872,7 @@
       "searchEntitiesPlaceholder": "搜索字符、名称、实体或代码..."
     },
     "httpHeaderInspector": {
-      "title": "HTTP 标头分析器与安全标头检测 - HTTP 标头检查器",
+      "title": "AI HTTP 标头解析与安全检测器 – OWASP 安全响应头审查工具",
       "subtitle": "使用在线 HTTP 标头分析器与安全标头检测，快速分解并分析 HTTP 请求与响应报文。即刻将标头整理为清晰的 JSON 映射并审查安全防护策略。",
       "aboutText": "我们的 HTTP 标头分析器是一款功能强大的客户端 HTTP 标头查看与诊断套件，专为前端开发者、DevSecOps 工程师与系统管理员打造。无论您需要针对行业最佳实践执行自动化安全标头检测，还是希望在 JavaScript 业务流中解析标头，本工具都能将原始多行报文快速转化为结构化的键值对表格。开发者经常需要审查 Chrome 浏览器在网络调试期间捕获的 HTTP 标头，或运行安全标头检测以对照 Snyk 等权威机构制定的安全基准评估服务器配置。无论是审查来自 API 响应的 HTTP 标头示例、验证浏览器缓存指令，还是使用自定义元数据测试标头分析范例，我们的客户端 JavaScript 工具都能在本地以零延迟和完整隐私保障完成分析。",
       "feature1": "多行报文即时拆解：自动去除状态行，将多行原始标头转化为整齐的键值映射",
@@ -892,7 +892,37 @@
       "faq3Q": "能提供一个典型的 HTTP 标头示例吗？",
       "faq3A": "当然可以！以下是来自标准生产环境 API 响应的 HTTP 标头示例：\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\n此标头分析示例展示了标准网络协议、缓存控制和安全防御标头，本工具会自动将它们拆分为清晰的键值对表格行。",
       "faq4Q": "本工具对 JavaScript 解析与 API 对接有何帮助？",
-      "faq4A": "在 Node.js、Fetch 响应或 XMLHttpRequest（例如 xhr.getAllResponseHeaders()）中处理标头时，它们通常以回车换行符（\\r\\n）分隔的单行或多行原始字符串形式呈现。我们的客户端 JavaScript 解析方案依据冒号（:）分隔键值，自动去除空白字符，保留 Set-Cookie 等重复标头，并将原始文本转化为整洁的 JSON 映射字典。这使得调试接口、验证模拟响应以及将标头直接导入 JavaScript 代码变得极为便捷。"
+      "faq4A": "在 Node.js、Fetch 响应或 XMLHttpRequest（例如 xhr.getAllResponseHeaders()）中处理标头时，它们通常以回车换行符（\\r\\n）分隔的单行或多行原始字符串形式呈现。我们的客户端 JavaScript 解析方案依据冒号（:）分隔键值，自动去除空白字符，保留 Set-Cookie 等重复标头，并将原始文本转化为整洁的 JSON 映射字典。这使得调试接口、验证模拟响应以及将标头直接导入 JavaScript 代码变得极为便捷。",
+      "clientSideBadge": "100% 浏览器本地运算（零隐私泄露）",
+      "clientSideSubtitle": "符合 OWASP Top 10 与 RFC 9110 标准 • 内存即时解析 • 绝不上传或存储标头数据",
+      "zeroServerLog": "无服务器日志：所有解析与安全评估均在您的浏览器本地完成",
+      "tabParser": "标头解析与 JSON 导出",
+      "tabSecurity": "OWASP 安全响应头审查",
+      "tabClient": "客户端浏览器标头探测",
+      "tabCode": "代码中传递 HTTP 标头",
+      "tabDictionary": "HTTP 标头标准释义辞典",
+      "presetsLabel": "常用示例",
+      "clearBtn": "清空",
+      "copyRawBtn": "复制原始文本",
+      "copyJsonBtn": "导出 JSON",
+      "copy": "复制",
+      "rawHeadersLabel": "原始 HTTP 标头输入（响应头或请求头）：",
+      "rawHeadersPlaceholder": "粘贴来自 cURL、Postman 或 Chrome 开发者工具的原始标头...",
+      "searchPlaceholder": "搜索标头名称或值...",
+      "infoLeakWarningTitle": "检测到服务器敏感软件与版本信息泄露",
+      "serverFixTitle": "Web 服务器安全响应头配置生成器",
+      "myHeadersTitle": "您当前浏览器向服务器发送的客户端请求属性",
+      "myHeadersSubtitle": "每当您的浏览器发起 HTTP 请求时，都会在请求头中自动附带这些客户端与设备指纹属性。",
+      "chromeGuideTitle": "如何在 Google Chrome 开发者工具中查看并复制 HTTP 标头",
+      "chromeStep1": "按下 F12（或右键点击页面任意位置选择“检查”）打开 Chrome 开发者工具。",
+      "chromeStep2": "在顶部工具栏中切换到“Network”（网络）选项卡。",
+      "chromeStep3": "刷新网页（按 F5 或 Ctrl+R）以捕获所有发送与接收的网络请求。",
+      "chromeStep4": "点击主页面请求，在右侧面板的“Headers”中复制原始响应头并粘贴到本工具中分析。",
+      "passHeadersTitle": "如何在网络请求中传递自定义 HTTP 标头",
+      "passHeadersSubtitle": "开箱即用的实用代码，展示如何在主流编程语言中正确配置 Authorization、Content-Type 等标头。",
+      "dictTitle": "标准 HTTP 标头规范释义与语法参考",
+      "dictSubtitle": "检索符合 IETF RFC 标准规范的请求与响应标头，提供语法实例及最佳实践说明。",
+      "searchDictPlaceholder": "搜索标头（例如 Cache-Control、HSTS、CORS）..."
     },
     "invoiceGenerator": {
       "title": "免费AI发票生成器 – 无水印PDF导出与税务模板",

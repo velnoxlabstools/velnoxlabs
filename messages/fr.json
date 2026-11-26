@@ -541,7 +541,7 @@
       "description": "Générateur de codes-barres en ligne gratuit. Créez des codes Code 128, EAN-13, UPC-A avec chiffre de contrôle automatique, étiquettes prix, PNG transparent et export ZIP en masse."
     },
     "http-header-inspector-parser": {
-      "name": "Analyseur d'En-têtes HTTP et Vérification de Sécurité",
+      "name": "Inspecteur et Analyseur d'En-têtes HTTP IA – Audit de Sécurité OWASP",
       "description": "Examinez et évaluez les en-têtes de requête et de réponse avec notre analyseur d'en-têtes HTTP et vérification de sécurité. Structurez les données en JSON et vérifiez immédiatement les configurations de protection."
     }
   },
@@ -879,7 +879,7 @@
       "searchEntitiesPlaceholder": "Rechercher un symbole, nom, entité ou code..."
     },
     "httpHeaderInspector": {
-      "title": "Analyseur d'En-têtes HTTP et Vérification de Sécurité",
+      "title": "Inspecteur et Analyseur d'En-têtes HTTP IA – Audit de Sécurité OWASP",
       "subtitle": "Examinez et évaluez les en-têtes de requête et de réponse avec notre analyseur d'en-têtes HTTP et vérification de sécurité. Structurez les données en JSON et vérifiez immédiatement les configurations de protection.",
       "aboutText": "Notre analyseur d'en-têtes HTTP est une solution client dédiée à la visualisation et au diagnostic des en-têtes réseau, conçue pour les développeurs web, les ingénieurs DevSecOps et les administrateurs système. Que vous ayez besoin d'une vérification de sécurité automatisée selon les meilleures pratiques ou que vous souhaitiez inspecter des paramètres dans vos flux JavaScript, cet outil transforme les lignes brutes en tableaux structurés de clés et valeurs. Les développeurs doivent régulièrement analyser les en-têtes capturés par Chrome lors des phases de débogage réseau ou exécuter une vérification de sécurité pour auditer leurs serveurs par rapport aux critères recommandés par Snyk. Qu'il s'agisse d'évaluer un exemple d'en-tête HTTP issu d'une API, de valider des règles de mise en cache ou d'analyser des métadonnées sur mesure, notre utilitaire JavaScript traite l'ensemble localement avec une confidentialité absolue et sans délai distant.",
       "feature1": "Découpage instantané du texte brut : Supprime les lignes d'état et organise les en-têtes en paires de clés et valeurs lisibles",
@@ -899,7 +899,37 @@
       "faq3Q": "Pouvez-vous fournir un exemple classique d'en-tête HTTP ?",
       "faq3A": "Absolument ! Voici un exemple classique provenant d'une réponse d'API sécurisée :\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nCet exemple met en évidence les directives de protocole, de cache et de protection que notre outil classe automatiquement en lignes structurées de clés et valeurs.",
       "faq4Q": "En quoi cet outil facilite-t-il le travail en JavaScript et avec les APIs ?",
-      "faq4A": "Lors du traitement de flux bruts avec Node.js, Fetch ou XMLHttpRequest (comme avec xhr.getAllResponseHeaders()), les en-têtes sont transmis sous forme de texte continu délimité par des retours chariot CRLF (\\r\\n). Notre utilitaire JavaScript scinde les lignes dès le premier deux-points (:), nettoie les espaces superflus, gère les entrées répétées comme Set-Cookie et génère un dictionnaire JSON organisé. Cela simplifie la simulation de réponses d'API, le débogage et l'intégration directe de données structurées dans votre code JavaScript."
+      "faq4A": "Lors du traitement de flux bruts avec Node.js, Fetch ou XMLHttpRequest (comme avec xhr.getAllResponseHeaders()), les en-têtes sont transmis sous forme de texte continu délimité par des retours chariot CRLF (\\r\\n). Notre utilitaire JavaScript scinde les lignes dès le premier deux-points (:), nettoie les espaces superflus, gère les entrées répétées comme Set-Cookie et génère un dictionnaire JSON organisé. Cela simplifie la simulation de réponses d'API, le débogage et l'intégration directe de données structurées dans votre code JavaScript.",
+      "clientSideBadge": "Confidentialité 100% Côté Navigateur",
+      "clientSideSubtitle": "Conforme aux Normes OWASP Top 10 et RFC 9110 • Analyse en Mémoire • En-têtes Jamais Stockés",
+      "zeroServerLog": "Zéro Journal Serveur: Toute l'analyse s'exécute localement dans le navigateur",
+      "tabParser": "Analyseur d'En-têtes et JSON",
+      "tabSecurity": "Audit de Sécurité OWASP",
+      "tabClient": "En-têtes de Mon Navigateur",
+      "tabCode": "Passer des En-têtes dans le Code",
+      "tabDictionary": "Dictionnaire des En-têtes",
+      "presetsLabel": "Modèles",
+      "clearBtn": "Effacer",
+      "copyRawBtn": "Copier Brut",
+      "copyJsonBtn": "Exporter JSON",
+      "copy": "Copier",
+      "rawHeadersLabel": "Saisie des En-têtes HTTP (Réponse ou Requête) :",
+      "rawHeadersPlaceholder": "Collez les en-têtes bruts depuis cURL, Postman ou Chrome DevTools...",
+      "searchPlaceholder": "Rechercher un nom ou une valeur d'en-tête...",
+      "infoLeakWarningTitle": "Avertissement : Divulgation d'Informations Détectée",
+      "serverFixTitle": "Générateur de Configuration de Sécurité pour Serveurs",
+      "myHeadersTitle": "Informations d'En-tête de Votre Navigateur Actuel",
+      "myHeadersSubtitle": "Ces en-têtes et attributs d'appareil sont envoyés automatiquement par votre navigateur à chaque requête HTTP.",
+      "chromeGuideTitle": "Comment Inspecter et Copier les En-têtes HTTP dans Google Chrome",
+      "chromeStep1": "Appuyez sur F12 (ou clic droit et 'Inspecter') pour ouvrir les Outils de développement Chrome.",
+      "chromeStep2": "Cliquez sur l'onglet 'Réseau' (Network) dans le panneau supérieur.",
+      "chromeStep3": "Rechargez la page (F5 ou Ctrl+R) pour capturer toutes les requêtes réseau.",
+      "chromeStep4": "Cliquez sur la requête principale, ouvrez l'onglet 'Headers' et collez les en-têtes dans cet outil.",
+      "passHeadersTitle": "Comment Passer des En-têtes HTTP dans des Requêtes",
+      "passHeadersSubtitle": "Code prêt pour la production pour passer des en-têtes personnalisés dans les langages populaires.",
+      "dictTitle": "Dictionnaire des En-têtes HTTP et Syntaxe",
+      "dictSubtitle": "Recherchez des en-têtes conformes aux RFC avec exemples de syntaxe et cas d'usage.",
+      "searchDictPlaceholder": "Rechercher un en-tête (ex. Cache-Control, HSTS, CORS)..."
     },
     "invoiceGenerator": {
       "title": "Générateur de Factures avec IA Gratuit – PDF Sans Filigrane",

@@ -541,7 +541,7 @@
       "description": "Generatore di codici a barre online gratuito. Crea codici Code 128, EAN-13, UPC-A con cifra di controllo automatica, etichette prezzi, PNG trasparente ed esportazione ZIP in blocco."
     },
     "http-header-inspector-parser": {
-      "name": "Analizzatore di Intestazioni HTTP e Verifica di Sicurezza",
+      "name": "Ispettore e Analizzatore di Intestazioni HTTP IA – Controllo Sicurezza OWASP",
       "description": "Esamina e valuta le intestazioni di richiesta e risposta con il nostro analizzatore di intestazioni HTTP e verifica di sicurezza. Struttura i dati in JSON e controlla subito le configurazioni di protezione."
     }
   },
@@ -879,7 +879,7 @@
       "searchEntitiesPlaceholder": "Cerca simbolo, nome, entità o codice..."
     },
     "httpHeaderInspector": {
-      "title": "Analizzatore di Intestazioni HTTP e Verifica di Sicurezza",
+      "title": "Ispettore e Analizzatore di Intestazioni HTTP IA – Controllo Sicurezza OWASP",
       "subtitle": "Esamina e valuta le intestazioni di richiesta e risposta con il nostro analizzatore di intestazioni HTTP e verifica di sicurezza. Struttura i dati in JSON e controlla subito le configurazioni di protezione.",
       "aboutText": "Il nostro analizzatore di intestazioni HTTP è uno strumento client avanzato per la visualizzazione e la diagnosi delle intestazioni, ideato per sviluppatori web, specialisti DevSecOps e amministratori di sistema. Sia che tu abbia bisogno di una verifica di sicurezza automatizzata secondo le migliori pratiche, sia che desideri esaminare parametri nei flussi JavaScript, questo strumento organizza le righe grezze in chiare tabelle strutturate di chiavi e valori. Gli sviluppatori hanno spesso la necessità di verificare le intestazioni registrate da Chrome durante le sessioni di analisi di rete o di eseguire una verifica di sicurezza per confrontare i parametri del server con le linee guida consigliate da Snyk. Che si tratti di valutare un esempio di intestazione HTTP proveniente da una risposta API, verificare direttive di cache o sperimentare metadati personalizzati, la nostra soluzione in JavaScript elabora ogni informazione localmente con massima riservatezza e senza attese esterne.",
       "feature1": "Scomposizione immediata del testo: Elimina le righe di stato e raggruppa le intestazioni in coppie ben definite di chiavi e valori",
@@ -899,7 +899,37 @@
       "faq3Q": "È possibile visualizzare un esempio pratico di intestazione HTTP?",
       "faq3A": "Certamente! Ecco un esempio pratico proveniente da una risposta API protetta:\nHTTP/2 200 OK\ncontent-type: application/json; charset=utf-8\ncache-control: no-cache, no-store, must-revalidate\nstrict-transport-security: max-age=63072000; includeSubDomains\ncontent-security-policy: default-src 'self'\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nQuesto esempio illustra le direttive di protocollo, cache e rafforzamento che la nostra applicazione scompone automaticamente in righe ordinate di chiavi e valori.",
       "faq4Q": "In che modo questo strumento facilita l'elaborazione in JavaScript e l'uso di API?",
-      "faq4A": "Quando si gestiscono intestazioni grezze in Node.js, chiamate Fetch o XMLHttpRequest (ad esempio con xhr.getAllResponseHeaders()), i dati arrivano come stringa continua separata da sequenze CRLF (\\r\\n). Il nostro meccanismo di elaborazione in JavaScript divide le righe in corrispondenza del primo carattere di due punti (:), rimuove gli spazi superflui, conserva voci multiple come Set-Cookie e compone una mappa JSON ordinata. In questo modo è facilissimo testare risposte simulate, correggere endpoint e integrare dati strutturati direttamente nei propri progetti JavaScript."
+      "faq4A": "Quando si gestiscono intestazioni grezze in Node.js, chiamate Fetch o XMLHttpRequest (ad esempio con xhr.getAllResponseHeaders()), i dati arrivano come stringa continua separata da sequenze CRLF (\\r\\n). Il nostro meccanismo di elaborazione in JavaScript divide le righe in corrispondenza del primo carattere di due punti (:), rimuove gli spazi superflui, conserva voci multiple come Set-Cookie e compone una mappa JSON ordinata. In questo modo è facilissimo testare risposte simulate, correggere endpoint e integrare dati strutturati direttamente nei propri progetti JavaScript.",
+      "clientSideBadge": "Privacy 100% nel Browser",
+      "clientSideSubtitle": "Conforme a OWASP Top 10 e RFC 9110 • Analisi in Memoria • Intestazioni Mai Inviate",
+      "zeroServerLog": "Nessun Registro sul Server: Tutte le analisi avvengono localmente nel browser",
+      "tabParser": "Analizzatore Intestazioni e JSON",
+      "tabSecurity": "Controllo di Sicurezza OWASP",
+      "tabClient": "Intestazioni del Mio Browser",
+      "tabCode": "Inviare Intestazioni nel Codice",
+      "tabDictionary": "Dizionario delle Intestazioni",
+      "presetsLabel": "Modelli",
+      "clearBtn": "Cancella",
+      "copyRawBtn": "Copia Testo",
+      "copyJsonBtn": "Esporta JSON",
+      "copy": "Copia",
+      "rawHeadersLabel": "Inserimento Intestazioni HTTP (Risposta o Richiesta):",
+      "rawHeadersPlaceholder": "Incolla le intestazioni da cURL, Postman o Chrome DevTools...",
+      "searchPlaceholder": "Cerca nome o valore dell'intestazione...",
+      "infoLeakWarningTitle": "Avviso di Divulgazione di Informazioni Rilevato",
+      "serverFixTitle": "Generatore di Configurazione di Sicurezza per Server",
+      "myHeadersTitle": "Informazioni sull'Intestazione del Tuo Browser Attuale",
+      "myHeadersSubtitle": "Queste intestazioni e attributi del dispositivo vengono inviati automaticamente dal tuo browser ad ogni richiesta.",
+      "chromeGuideTitle": "Come Esaminare e Copiare le Intestazioni HTTP in Google Chrome",
+      "chromeStep1": "Premi F12 (oppure clic destro e 'Ispeziona') per aprire i Chrome DevTools.",
+      "chromeStep2": "Fai clic sulla scheda 'Rete' (Network) nel pannello superiore.",
+      "chromeStep3": "Ricarica la pagina (F5 o Ctrl+R) per registrare tutte le richieste di rete.",
+      "chromeStep4": "Fai clic sulla richiesta principale, visualizza 'Headers' e copia le intestazioni in questo strumento.",
+      "passHeadersTitle": "Come Inviare Intestazioni HTTP nelle Richieste",
+      "passHeadersSubtitle": "Esempi di codice pronti per la produzione per inviare intestazioni personalizzate nei linguaggi più diffusi.",
+      "dictTitle": "Dizionario delle Intestazioni HTTP e Sintassi",
+      "dictSubtitle": "Cerca intestazioni conformi agli standard RFC con esempi di sintassi e linee guida.",
+      "searchDictPlaceholder": "Cerca intestazione (es. Cache-Control, HSTS, CORS)..."
     },
     "invoiceGenerator": {
       "title": "Generatore di Fatture con IA Gratuito – PDF Senza Filigrana",
