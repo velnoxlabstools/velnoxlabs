@@ -6,7 +6,16 @@ import cronstrue from 'cronstrue/i18n';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
-import { Sparkles, Copy, Check, Clock, AlertCircle, CheckCircle2, Terminal } from 'lucide-react';
+import {
+  Sparkles,
+  Copy,
+  Check,
+  Clock,
+  AlertCircle,
+  CheckCircle2,
+  Terminal,
+  Globe,
+} from 'lucide-react';
 
 const CRONSTRUE_LOCALE_MAP: Record<string, string> = {
   en: 'en',
@@ -286,6 +295,11 @@ export default function CronExpressionGeneratorPage() {
   const [pasteInput, setPasteInput] = useState('');
   const [pasteError, setPasteError] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [timezone, setTimezone] = useState<string>('local');
+  const [exportTarget, setExportTarget] = useState<'crontab' | 'github' | 'k8s' | 'vercel'>(
+    'crontab'
+  );
+  const [copiedConfig, setCopiedConfig] = useState(false);
 
   // Formatted expression according to dialect
   const cronExpression = useMemo(() => {
@@ -412,6 +426,35 @@ export default function CronExpressionGeneratorPage() {
       await navigator.clipboard.writeText(cronExpression);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // ignore
+    }
+  };
+
+  const fiveFieldForExport = useMemo(
+    () =>
+      `${minute} ${hour} ${day === '?' ? '*' : day} ${month} ${weekday === '?' ? '*' : weekday}`,
+    [minute, hour, day, month, weekday]
+  );
+
+  const exportConfigSnippet = useMemo(() => {
+    if (exportTarget === 'github') {
+      return `on:\n  schedule:\n    - cron: '${fiveFieldForExport}'`;
+    }
+    if (exportTarget === 'k8s') {
+      return `apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: scheduled-job\nspec:\n  schedule: "${fiveFieldForExport}"`;
+    }
+    if (exportTarget === 'vercel') {
+      return `{\n  "crons": [\n    {\n      "path": "/api/cron",\n      "schedule": "${fiveFieldForExport}"\n    }\n  ]\n}`;
+    }
+    return `${fiveFieldForExport} /usr/local/bin/run-job.sh`;
+  }, [exportTarget, fiveFieldForExport]);
+
+  const handleCopyConfig = async () => {
+    try {
+      await navigator.clipboard.writeText(exportConfigSnippet);
+      setCopiedConfig(true);
+      setTimeout(() => setCopiedConfig(false), 2000);
     } catch {
       // ignore
     }
@@ -958,6 +1001,41 @@ export default function CronExpressionGeneratorPage() {
             </div>
           </div>
 
+          {/* Field-by-Field Visual Breakdown */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '8px',
+              marginBottom: '16px',
+            }}
+          >
+            {[
+              { label: tUI('minute'), val: minute },
+              { label: tUI('hour'), val: hour },
+              { label: tUI('dayMonth'), val: day },
+              { label: tUI('month'), val: month },
+              { label: tUI('weekday'), val: weekday },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '5px 10px',
+                  borderRadius: '8px',
+                  backgroundColor: 'rgba(59, 130, 246, 0.08)',
+                  border: '1px solid rgba(59, 130, 246, 0.2)',
+                  fontSize: '0.78rem',
+                }}
+              >
+                <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{item.label}:</span>
+                <code style={{ color: '#3b82f6', fontWeight: 700 }}>{item.val || '*'}</code>
+              </div>
+            ))}
+          </div>
+
           {/* Explanation & Next 5 Execution Timestamps */}
           {isValid && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -989,20 +1067,54 @@ export default function CronExpressionGeneratorPage() {
               </div>
 
               <div>
-                <label
+                <div
                   style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '6px',
+                    justifyContent: 'space-between',
+                    gap: '8px',
+                    flexWrap: 'wrap',
                     marginBottom: '8px',
                   }}
                 >
-                  <Clock size={15} style={{ color: '#10b981' }} />
-                  {tUI('nextRunsTitle')}
-                </label>
+                  <label
+                    style={{
+                      color: 'var(--text-main)',
+                      fontSize: '0.875rem',
+                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                    }}
+                  >
+                    <Clock size={15} style={{ color: '#10b981' }} />
+                    {tUI('nextRunsTitle')}
+                  </label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Globe size={13} style={{ color: 'var(--text-muted)' }} />
+                    <select
+                      aria-label={tUI('timezoneLabel')}
+                      value={timezone}
+                      onChange={(e) => setTimezone(e.target.value)}
+                      style={{
+                        backgroundColor: 'var(--bg-page)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '6px',
+                        padding: '3px 8px',
+                        fontSize: '0.75rem',
+                        color: 'var(--text-main)',
+                        outline: 'none',
+                      }}
+                    >
+                      <option value="local">{tUI('tzLocal')}</option>
+                      <option value="UTC">UTC</option>
+                      <option value="Asia/Kolkata">IST (Asia/Kolkata)</option>
+                      <option value="America/New_York">EST (New York)</option>
+                      <option value="America/Los_Angeles">PST (Los Angeles)</option>
+                      <option value="Europe/London">GMT (London)</option>
+                    </select>
+                  </div>
+                </div>
                 <div
                   style={{
                     backgroundColor: 'var(--bg-page)',
@@ -1025,6 +1137,7 @@ export default function CronExpressionGeneratorPage() {
                             day: 'numeric',
                             hour: '2-digit',
                             minute: '2-digit',
+                            ...(timezone !== 'local' ? { timeZone: timezone } : {}),
                           })}
                         </li>
                       ))}
@@ -1033,6 +1146,106 @@ export default function CronExpressionGeneratorPage() {
                     <span style={{ color: 'var(--text-muted)' }}>{tUI('noUpcomingRuns')}</span>
                   )}
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* 1-Click Deployable Config Export */}
+          {isValid && (
+            <div
+              style={{
+                marginTop: '18px',
+                paddingTop: '16px',
+                borderTop: '1px solid var(--border-color)',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '8px',
+                  marginBottom: '10px',
+                }}
+              >
+                <span style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--text-main)' }}>
+                  {tUI('exportConfigTitle')}
+                </span>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                  {(
+                    [
+                      { id: 'crontab', label: 'Crontab' },
+                      { id: 'github', label: 'GitHub Actions' },
+                      { id: 'k8s', label: 'Kubernetes' },
+                      { id: 'vercel', label: 'Vercel JSON' },
+                    ] as const
+                  ).map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setExportTarget(item.id)}
+                      style={{
+                        padding: '5px 10px',
+                        borderRadius: '6px',
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        border: '1px solid var(--border-color)',
+                        backgroundColor: exportTarget === item.id ? '#3b82f6' : 'var(--bg-page)',
+                        color: exportTarget === item.id ? '#ffffff' : 'var(--text-main)',
+                      }}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div
+                style={{
+                  position: 'relative',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '8px',
+                  padding: '12px 14px',
+                  paddingRight: '100px',
+                }}
+              >
+                <pre
+                  style={{
+                    margin: 0,
+                    fontFamily: 'monospace',
+                    fontSize: '0.8rem',
+                    color: '#10b981',
+                    whiteSpace: 'pre-wrap',
+                    wordBreak: 'break-all',
+                  }}
+                >
+                  {exportConfigSnippet}
+                </pre>
+                <button
+                  type="button"
+                  onClick={handleCopyConfig}
+                  style={{
+                    position: 'absolute',
+                    right: '10px',
+                    top: '10px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    backgroundColor: copiedConfig ? '#10b981' : '#3b82f6',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '6px',
+                    padding: '5px 10px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                  }}
+                >
+                  {copiedConfig ? <Check size={12} /> : <Copy size={12} />}
+                  {copiedConfig ? tUI('copied') : tUI('copy')}
+                </button>
               </div>
             </div>
           )}

@@ -488,8 +488,8 @@
       "formatReference": "Cron Format Reference",
       "range": "Range: {range}",
       "rangeSunSat": "0-6 (Sun-Sat)",
-      "title": "Best Free Cron Expression Generator & Validator – Cron Expression Formatter",
-      "subtitle": "The Best Free Cron Expression Generator & Validator and Cron Expression Formatter. Build, validate, and decode AWS cron expression, Spring cron expression, Quartz, and Linux schedules with human-readable explanations.",
+      "title": "AI Cron Expression Generator & Validator Online Free – Cron Formatter",
+      "subtitle": "The Best Free AI Cron Expression Generator & Validator Online. Build, validate, and decode AWS, Spring, Quartz, and Linux cron schedules with natural-language AI, timezone run previews, and 1-click GitHub Actions/Kubernetes export.",
       "aboutText": "Our Best free cron expression generator & validator and Cron Expression Formatter is an indispensable DevOps and backend developer utility engineered to design, inspect, and decode automated recurring schedules. Operating as a fast, high-precision Cron expression validator, it parses both standard Linux 5-field crontab schedules and modern cloud formats without server round-trips. Whether you are configuring an AWS cron expression for AWS EventBridge and CloudWatch Events (utilizing 6 fields with year support), crafting a Spring cron expression for Java microservices, or relying on a Quartz cron expression generator for enterprise backend jobs, our tool translates complex cron strings into plain-English human-readable schedules. It also functions as a reliable Salesforce cron expression generator for Apex System.schedule jobs and serves as an intuitive Free formatter cron expression tool that organizes schedule components clearly. If you need a Free cron expression generator & validator java developers trust, our 100% client-side tool provides real-time schedule validation, next execution previews, and complete data privacy.",
       "feature1": "Visual Schedule Builder: Build complex recurring schedules using intuitive dropdowns and selectors without memorizing syntax",
       "feature2": "Human-Readable Schedule Translation: Instantly translates cryptic cron strings (like \"*/15 0-6 * * 1-5\") into clear English descriptions",
@@ -522,7 +522,10 @@
       "validSyntaxBadge": "Valid cron expression",
       "invalidFieldsError": "Invalid range or syntax in: {fields}",
       "nextRunsTitle": "Next 5 Upcoming Run Times:",
-      "noUpcomingRuns": "No matching run times found within the next year."
+      "noUpcomingRuns": "No matching run times found within the next year.",
+      "timezoneLabel": "Timezone",
+      "tzLocal": "Local Time",
+      "exportConfigTitle": "Export Schedule Config:"
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Directives (newline or semicolon separated):",
@@ -1767,7 +1770,7 @@
     },
     "regexTester": {
       "title": "AI RegEx Tester Online – JavaScript, Python, Java & C# Regular Expression Generator",
-      "subtitle": "Test, debug, and generate regular expressions with AI text-to-regex, multi-language code snippets, substitution, capture groups, and regex explainer.",
+      "subtitle": "Free AI expression generator & validator online. Generate regular expressions from text with Regex AI generator, Google Forms regex validation presets, multi-language code snippets, capture groups, and regex explainer.",
       "tabTester": "RegEx Tester",
       "tabReplace": "Replace & Substitute",
       "tabAiGenerator": "AI RegEx Generator",
@@ -1833,7 +1836,7 @@
       "loadPreset": "Load Preset",
       "aboutText": "The AI RegEx Tester Online & Generator Studio is an advanced regular expression evaluator and multi-dialect testing utility. Designed for developers working in JavaScript, Python, Java, C# / .NET, and Go, it pairs live interactive matching and replacement with an AI pattern generator, detailed capture group inspectors, plain-English syntax explanations, and one-click code generation. All testing runs securely client-side in the browser, guaranteeing 100% data privacy for sensitive tokens, proprietary logs, and corpora.",
       "feature1": "Multi-Flavored Code Generators: Instant production-ready code snippets for Python (re), Java (java.util.regex), C# (.NET Regex), JavaScript, and Go.",
-      "feature2": "AI Natural Language RegEx Generator: Automatically generate complex regular expressions from plain text descriptions with zero syntax errors.",
+      "feature2": "AI Natural Language & Google Forms RegEx Generator: Automatically generate regular expressions from plain text descriptions or load ready-to-use Google Forms validation presets.",
       "feature3": "Deep Capture Groups & Substitution: Inspect numbered and named capture groups with exact character index offsets and live string replacement.",
       "feature4": "RegEx Meaning & Explainer: Visual token-by-token breakdown converting cryptic expressions into understandable plain-English rules.",
       "step1Title": "Enter or Generate RegEx Pattern",

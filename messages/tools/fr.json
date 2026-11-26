@@ -488,8 +488,8 @@
       "formatReference": "Référence de Syntaxe Cron",
       "range": "Plage : {range}",
       "rangeSunSat": "0-6 (Dim-Sam)",
-      "title": "Générateur et Validateur d'Expressions Cron – Décodeur de Syntaxe Cron",
-      "subtitle": "Le meilleur générateur et validateur gratuit d'expressions cron. Créez, validez et décodez les planifications AWS, Spring, Quartz et Linux en langage clair.",
+      "title": "Générateur et Validateur d'Expressions Cron IA Gratuit – Formateur Cron",
+      "subtitle": "Créez, validez et décodez les expressions Cron AWS, Spring, Quartz et Linux avec l'IA en langage naturel, aperçu par fuseau horaire et exportation en un clic vers GitHub Actions et Kubernetes.",
       "aboutText": "Notre générateur et validateur d'expressions cron est un outil indispensable pour les ingénieurs DevOps et les développeurs backend souhaitant concevoir, auditer et comprendre les planifications récurrentes. Fonctionnant comme un validateur réactif de haute précision, il traite la syntaxe classique à 5 champs de crontab sous Linux ainsi que les configurations cloud sans aucun échange avec un serveur distant. Que vous prépariez des déclencheurs pour AWS EventBridge et CloudWatch (avec 6 champs incluant l'année), des annotations Spring pour des microservices Java ou des planifications Quartz pour des systèmes d'entreprise, notre outil traduit les astérisques complexes en explications claires et compréhensibles. Il constitue également un assistant fiable pour les tâches Salesforce Apex et sert de décodeur structuré de syntaxe cron pour organiser chaque unité de temps. Pour les développeurs Java en quête d'un outil d'analyse libre, il garantit une vérification instantanée et une confidentialité totale dans le navigateur.",
       "feature1": "Éditeur graphique interactif : élaborez des planifications périodiques grâce à des sélecteurs intuitifs sans apprendre de syntaxe ardue",
       "feature2": "Explication claire en français : décode les chaînes cron complexes (comme '*/15 0-6 * * 1-5') en descriptions compréhensibles",
@@ -522,7 +522,10 @@
       "validSyntaxBadge": "Expression cron valide",
       "invalidFieldsError": "Plage ou syntaxe invalide dans : {fields}",
       "nextRunsTitle": "5 Prochaines Exécutions :",
-      "noUpcomingRuns": "Aucune exécution trouvée dans l'année à venir."
+      "noUpcomingRuns": "Aucune exécution trouvée dans l'année à venir.",
+      "timezoneLabel": "Fuseau horaire",
+      "tzLocal": "Heure locale",
+      "exportConfigTitle": "Exporter la configuration :"
     },
     "cspHeaderBuilder": {
       "directivesLabel": "Directives (séparées par saut de ligne ou point-virgule) :",

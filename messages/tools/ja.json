@@ -488,8 +488,8 @@
       "formatReference": "Cron フォーマットリファレンス",
       "range": "範囲: {range}",
       "rangeSunSat": "0-6 (日-土)",
-      "title": "高機能無料 Cron 式ジェネレーター＆バリデーター – クーロン構文解説ツール",
-      "subtitle": "最高峰の無料 Cron 式ジェネレーター＆バリデーター。AWS、Spring、Quartz、Linux の定期実行スケジュールを自然な日本語解説付きで作成・検証・解読。",
+      "title": "AI Cron式ジェネレーター＆バリデーター 無料オンライン – Cronフォーマッター",
+      "subtitle": "自然言語AIによるCron生成、タイムゾーン別の実行予定時刻プレビュー、GitHub ActionsやKubernetesへのワンクリック出力に対応したAWS・Spring・Quartz・Linux対応Cronツール。",
       "aboutText": "当「高機能無料 Cron 式ジェネレーター＆バリデーター」は、DevOps エンジニアやバックエンド開発者が定期自動実行タスクを設計・検証・解読するために開発された専門ユーティリティです。高速かつ高精度な Cron 式検証ツールとして、サーバーとの通信を行わずにブラウザ上で標準的な Linux の 5 フィールド crontab 構文や最新のクラウド仕様を即座に解析します。年指定に対応した 6 フィールド構成の AWS EventBridge や CloudWatch Events 用の AWS スケジュール作成、Java マイクロサービスにおける Spring の @Scheduled 設定、Quartz Scheduler での大規模バッチ処理、さらには Salesforce Apex の System.schedule 登録に至るまで、難解な記号列を自然で分かりやすい日本語のスケジュール解説文に変換します。各時間要素を綺麗に整理する無料の Cron 構文整形・解読機能も備え、Java 開発現場で安心して使えるクライアント完結型ツールとして、リアルタイムのエラー検知と次回実行プレビュー、万全のプライバシー保護を提供します。",
       "feature1": "直感的なGUIビルダー：記法を暗記していなくても、ドロップダウン選択で複雑なスケジュール式を作成可能",
       "feature2": "自然な日本語による逆引き解説：「*/15 0-6 * * 1-5」などの複雑な式を分かりやすい日本語テキストに即座にデコード",
@@ -522,7 +522,10 @@
       "validSyntaxBadge": "有効なCron式です",
       "invalidFieldsError": "範囲または構文が無効です: {fields}",
       "nextRunsTitle": "次回実行予定（直近5回）:",
-      "noUpcomingRuns": "今後1年間の実行予定が見つかりません。"
+      "noUpcomingRuns": "今後1年間の実行予定が見つかりません。",
+      "timezoneLabel": "タイムゾーン",
+      "tzLocal": "現地時間",
+      "exportConfigTitle": "設定を出力:"
     },
     "cspHeaderBuilder": {
       "directivesLabel": "ディレクティブ（改行またはセミコロン区切り）:",

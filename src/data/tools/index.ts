@@ -450,9 +450,9 @@ export const tools: Tool[] = [
   {
     id: 'tool-cron',
     slug: 'cron-expression-generator',
-    name: 'Best Free Cron Expression Generator & Validator – Cron Expression Formatter',
+    name: 'AI Cron Expression Generator & Validator Online Free – Cron Formatter',
     description:
-      'The Best Free Cron Expression Generator & Validator and Cron Expression Formatter. Build, validate, and decode AWS cron expression, Spring cron expression, Quartz, and Linux schedules with human-readable explanations.',
+      'The Best Free AI Cron Expression Generator & Validator Online. Build, validate, and decode AWS cron expression, Spring cron expression, Quartz, and Linux schedules with natural-language AI, timezone run previews, and 1-click GitHub Actions/Kubernetes export.',
     categoryId: 'cat-dev',
     tags: [
       'cron',
@@ -474,6 +474,10 @@ export const tools: Tool[] = [
       'salesforce cron expression generator',
       'spring cron expression',
       'aws cron expression',
+      'ai expression generator & validator online free',
+      'ai expression generator & validator online',
+      'ai expression generator & validator free',
+      'ai cron expression generator',
     ],
     status: 'published',
     featured: true,
@@ -482,7 +486,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 11200,
     createdAt: '2025-03-01T00:00:00.000Z',
-    updatedAt: '2026-11-23T00:00:00.000Z',
+    updatedAt: '2026-11-26T00:00:00.000Z',
   },
   {
     id: 'tool-word-counter',
@@ -880,7 +884,7 @@ export const tools: Tool[] = [
     slug: 'regex-tester',
     name: 'AI RegEx Tester Online – JavaScript, Python, Java & C# Regular Expression Generator',
     description:
-      'Test, debug, and generate regular expressions online with AI generator from text, multi-language code snippets (Python, Java, C#, JS), capture groups breakdown, substitution, and instant export.',
+      'Free AI expression generator & validator online. Generate regular expressions from text with Regex AI generator, Google Forms regex validation presets, multi-language code snippets (Python, Java, C#, JS), capture groups, and instant export.',
     categoryId: 'cat-dev',
     tags: [
       'regex',
@@ -892,6 +896,14 @@ export const tools: Tool[] = [
       'ai-generator',
       'developer',
       'online',
+      'regex ai generator',
+      'regex generator from text',
+      'regular expression generator',
+      'regex generator online',
+      'google form regular expression generator',
+      'ai expression generator & validator online free',
+      'ai expression generator & validator online',
+      'ai expression generator & validator free',
     ],
     status: 'published',
     featured: false,
@@ -900,7 +912,7 @@ export const tools: Tool[] = [
     isNew: false,
     usageCount: 6200,
     createdAt: '2026-01-20T00:00:00.000Z',
-    updatedAt: '2026-11-24T00:00:00.000Z',
+    updatedAt: '2026-11-26T00:00:00.000Z',
   },
   {
     id: 'tool-qr-code',

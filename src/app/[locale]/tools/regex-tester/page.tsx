@@ -102,6 +102,56 @@ const COMMON_PRESETS = [
     sample: 'ai-regex-tester-online\nvalid-url-slug-2026\nInvalid_Slug!',
     description: 'Validates kebab-case URL slugs with lowercase letters, numbers, and hyphens.',
   },
+  {
+    id: 'gf-phone',
+    name: 'Google Forms: 10-Digit Mobile',
+    pattern: '^[6-9]\\d{9}$',
+    flags: 'm',
+    sample: '9876543210\n7012345678\n1234567890\n98765',
+    description:
+      'Google Forms response validation for 10-digit Indian mobile numbers starting with 6–9.',
+  },
+  {
+    id: 'gf-words',
+    name: 'Google Forms: Max 50 Words',
+    pattern: '^(?:\\b\\w+\\b[\\s\\r\\n]*){1,50}$',
+    flags: 'm',
+    sample: 'Short valid answer for a Google Form paragraph field.',
+    description: 'Restricts Google Forms text or paragraph responses to between 1 and 50 words.',
+  },
+  {
+    id: 'gf-nospace',
+    name: 'Google Forms: No Spaces / ID',
+    pattern: '^[A-Za-z0-9_.-]+$',
+    flags: 'm',
+    sample: 'user_2026\nEMP-4091\ninvalid user name',
+    description:
+      'Disallows spaces in Google Forms short answers such as usernames, roll numbers, or IDs.',
+  },
+  {
+    id: 'gf-pin',
+    name: 'Google Forms: 6-Digit PIN Code',
+    pattern: '^\\d{6}$',
+    flags: 'm',
+    sample: '110001\n560001\n12345\n1234567',
+    description: 'Validates exact 6-digit postal PIN codes in Google Forms.',
+  },
+  {
+    id: 'gf-domain',
+    name: 'Google Forms: Work Email Domain',
+    pattern: '^[A-Za-z0-9._%+-]+@company\\.com$',
+    flags: 'mi',
+    sample: 'alex@company.com\nhr@company.com\nuser@gmail.com',
+    description: 'Restricts Google Forms email field to a specific organization domain.',
+  },
+  {
+    id: 'gf-alpha',
+    name: 'Google Forms: Letters Only',
+    pattern: '^[A-Za-z\\s]+$',
+    flags: 'm',
+    sample: 'Aarav Sharma\nPriya Nair\nUser123',
+    description: 'Allows only alphabetic characters and spaces (ideal for full name fields).',
+  },
 ];
 
 export default function RegexTesterPage() {
@@ -356,6 +406,40 @@ export default function RegexTesterPage() {
       genExplanation =
         'Validates SEO-friendly kebab-case strings with lowercase letters and numbers separated by single hyphens.';
       genSample = 'ai-regex-tester\nquick-start-guide\nInvalid_Slug!';
+    } else if (
+      query.includes('word') &&
+      (query.includes('limit') || query.includes('max') || query.includes('google'))
+    ) {
+      genPattern = '^(?:\\b\\w+\\b[\\s\\r\\n]*){1,50}$';
+      genFlags = 'm';
+      genExplanation =
+        'Google Forms word-limit validator: matches responses containing 1 to 50 words.';
+      genSample = 'Valid short answer within fifty words.';
+    } else if (
+      query.includes('no space') ||
+      query.includes('without space') ||
+      query.includes('username')
+    ) {
+      genPattern = '^[A-Za-z0-9_.-]+$';
+      genFlags = 'm';
+      genExplanation =
+        'Matches alphanumeric IDs or usernames with underscores, dots, or hyphens and zero spaces.';
+      genSample = 'user_2026\nEMP-4091\ninvalid user';
+    } else if (query.includes('pin') || query.includes('zip') || query.includes('6 digit')) {
+      genPattern = '^\\d{6}$';
+      genFlags = 'm';
+      genExplanation = 'Validates exact 6-digit postal PIN or verification codes.';
+      genSample = '110001\n560001\n12345';
+    } else if (
+      query.includes('letter') ||
+      query.includes('alphabet') ||
+      query.includes('full name')
+    ) {
+      genPattern = '^[A-Za-z\\s]+$';
+      genFlags = 'm';
+      genExplanation =
+        'Allows only letters (A-Z, a-z) and spaces, ideal for Google Forms name fields.';
+      genSample = 'Aarav Sharma\nPriya Nair\nUser123';
     } else {
       // General heuristic generator
       genPattern = '\\b[A-Za-z0-9_-]+\\b';
