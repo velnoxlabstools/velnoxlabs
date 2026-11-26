@@ -255,8 +255,8 @@
       "faq3A": "是的，本工具采用全面自适应设计，完美兼容桌面端、平板及手机浏览器。"
     },
     "image-resizer": {
-      "name": "图片尺寸与KB/MB/CM调整工具",
-      "description": "在线调整图片至20KB、50KB、100KB或指定厘米尺寸，专为证件照、冲印及各类报名上传设计。"
+      "name": "AI图片大小调整工具 (KB、MB与厘米) – 无裁剪精准调整至20KB、50KB、100KB",
+      "description": "免费AI在线图片尺寸与体积调整器。精准缩小至20KB、50KB、100KB或200KB，支持300 DPI厘米证件照换算，并采用AI环境模糊填充实现Instagram等比例无裁剪缩放。"
     },
     "invoice-generator": {
       "name": "免费AI发票生成器 – 无水印PDF导出与税务模板",
