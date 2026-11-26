@@ -213,8 +213,8 @@
   },
   "Tools": {
     "user-agent-parser": {
-      "name": "User-Agent Parser (Advanced)",
-      "description": "Advanced User-Agent analysis."
+      "name": "AI User-Agent Parser Online (Advanced) – ua-parser-js, Python, Java & PHP",
+      "description": "Free AI User-Agent parser online. Decode browser, engine, OS, Client Hints, and AI crawlers (GPTBot, ClaudeBot, Googlebot) with Vanilla JS, ua-parser-js (npm), Python, Java & PHP snippets."
     },
     "ulid-generator-and-parser": {
       "name": "AI ULID Generator, Decoder & Validator – ULID to UUID Converter",

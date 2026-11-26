@@ -213,8 +213,8 @@
   },
   "Tools": {
     "user-agent-parser": {
-      "name": "User-Agent 解析ツール (高度版)",
-      "description": "ブラウザやデバイスの User-Agent 情報を詳細に分析します。"
+      "name": "AI User-Agent解析ツール オンライン (高機能版) – ua-parser-js・Python・Java・PHP",
+      "description": "無料のAIオンラインUser-Agent解析ツール。ブラウザ、エンジン、OS、Client Hints、AIクローラーを瞬時に解読し、標準JS、ua-parser-js (npm)、Python、Java、PHPコードを提供。"
     },
     "ulid-generator-and-parser": {
       "name": "AI ULID 生成・デコード＆検証ツール – ULID から UUID 相互変換",

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import {
   MonitorSmartphone,
   Copy,
@@ -24,7 +25,7 @@ import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
 
 type TabMode = 'parser' | 'generator' | 'bulk';
-type CodeLang = 'js' | 'python' | 'java' | 'php';
+type CodeLang = 'js' | 'vanilla' | 'python' | 'java' | 'php';
 
 interface ClientHintsInfo {
   brands: string[];
@@ -325,6 +326,8 @@ function parseUserAgent(uaRaw: string): ParsedUserAgent | null {
 export default function UserAgentParserPage() {
   const tUI = useTranslations('ToolUI.userAgentParser');
   const tTools = useTranslations('Tools');
+  const pathname = usePathname();
+  const activeSlug = pathname?.includes('user-agent-parser') ? 'user-agent-parser' : 'user-agent';
 
   const [activeTab, setActiveTab] = useState<TabMode>('parser');
   const [uaString, setUaString] = useState('');
@@ -410,6 +413,7 @@ export default function UserAgentParserPage() {
 
   const snippets: Record<CodeLang, { label: string; code: string }> = {
     js: { label: tUI('exJsLabel'), code: tUI('exJsVal') },
+    vanilla: { label: tUI('exVanillaLabel'), code: tUI('exVanillaVal') },
     python: { label: tUI('exPythonLabel'), code: tUI('exPythonVal') },
     java: { label: tUI('exJavaLabel'), code: tUI('exJavaVal') },
     php: { label: tUI('exPhpLabel'), code: tUI('exPhpVal') },
@@ -446,7 +450,7 @@ export default function UserAgentParserPage() {
       {
         '@type': 'WebApplication',
         name: 'AI User-Agent Parser, Bot Detector & Generator - VelnoxLabs',
-        url: 'https://velnoxlabs.com/tools/user-agent',
+        url: `https://velnoxlabs.com/tools/${activeSlug}`,
         description:
           'Free AI User-Agent parser, generator, and bot identifier online. Decode browser, engine, OS, CPU architecture, Client Hints, and AI crawlers (GPTBot, ClaudeBot, Googlebot) with JS, Python, Java & PHP snippets.',
         applicationCategory: 'DeveloperApplication',
@@ -1016,9 +1020,9 @@ export default function UserAgentParserPage() {
         </div>
 
         <ToolSeoContent
-          toolSlug="user-agent"
-          toolName={tTools('user-agent.name')}
-          description={tTools('user-agent.description')}
+          toolSlug={activeSlug}
+          toolName={tTools(`${activeSlug}.name`)}
+          description={tTools(`${activeSlug}.description`)}
           customAbout={tUI('aboutText')}
           customFeatures={[tUI('feature1'), tUI('feature2'), tUI('feature3'), tUI('feature4')]}
           customSteps={[

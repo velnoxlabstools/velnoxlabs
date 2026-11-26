@@ -213,8 +213,8 @@
   },
   "Tools": {
     "user-agent-parser": {
-      "name": "Парсер User-Agent (расширенный)",
-      "description": "Глубокий анализ строки User-Agent, браузера, ОС и устройства."
+      "name": "ИИ-парсер User-Agent онлайн (Продвинутый) – ua-parser-js, Python, Java и PHP",
+      "description": "Бесплатный онлайн ИИ-анализатор User-Agent. Расшифровка браузера, движка, ОС, Client Hints и ИИ-ботов с примерами на чистом JS, ua-parser-js (npm), Python, Java и PHP."
     },
     "ulid-generator-and-parser": {
       "name": "ИИ Генератор, Декодер и Валидатор ULID – Конвертер ULID в UUID",

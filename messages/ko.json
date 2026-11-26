@@ -213,8 +213,8 @@
   },
   "Tools": {
     "user-agent-parser": {
-      "name": "User-Agent 파서 (고급형)",
-      "description": "브라우저 및 기기의 User-Agent 문자열을 정밀하게 분석합니다."
+      "name": "AI User-Agent 파서 온라인 (고급형) – ua-parser-js, Python, Java & PHP",
+      "description": "무료 온라인 AI User-Agent 분석기. 브라우저, 엔진, OS, Client Hints 및 AI 크롤러를 해독하고 순수 JS, ua-parser-js (npm), Python, Java, PHP 코드 스니펫을 제공합니다."
     },
     "ulid-generator-and-parser": {
       "name": "AI ULID 생성기, 디코더 및 검증기 – ULID ↔ UUID 변환 도구",

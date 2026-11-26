@@ -3049,7 +3049,9 @@
       "exJsVal": "import { UAParser } from \"ua-parser-js\"; const res = new UAParser(ua).getResult(); // res.browser, res.os, res.engine",
       "exPythonVal": "from user_agents import parse; ua = parse(ua_string); print(ua.browser.family, ua.os.family)",
       "exJavaVal": "Parser uaParser = new Parser(); Client c = uaParser.parse(userAgentString); System.out.println(c.userAgent.family);",
-      "exPhpVal": "$ua = $_SERVER[\"HTTP_USER_AGENT\"] ?? \"\"; $info = get_browser($ua, true);"
+      "exPhpVal": "$ua = $_SERVER[\"HTTP_USER_AGENT\"] ?? \"\"; $info = get_browser($ua, true);",
+      "exVanillaLabel": "原生 JavaScript (无需 npm / 浏览器)",
+      "exVanillaVal": "const ua = navigator.userAgent; const isMobile = /Mobi|Android/i.test(ua); const browser = ua.match(/(Chrome|Firefox|Safari|Edg)\\/([\\d.]+)/);"
     },
     "uuidGenerator": {
       "title": "UUID v4 与 v7 生成器",

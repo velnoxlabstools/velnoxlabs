@@ -213,8 +213,8 @@
   },
   "Tools": {
     "user-agent-parser": {
-      "name": "User-Agent 解析工具 (高级版)",
-      "description": "深度解析客户端 User-Agent 字符串特征与设备属性。"
+      "name": "AI User-Agent 在线解析器 (高级版) – ua-parser-js、Python、Java 与 PHP",
+      "description": "免费在线 AI User-Agent 解析工具。解码浏览器、内核、操作系统、Client Hints 与 AI 爬虫，提供原生 JS、ua-parser-js (npm)、Python、Java 与 PHP 代码示例。"
     },
     "ulid-generator-and-parser": {
       "name": "AI ULID 生成器、解码器与校验器 – ULID 转 UUID 互转工具",

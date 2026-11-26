@@ -220,8 +220,8 @@
   },
   "Tools": {
     "user-agent-parser": {
-      "name": "User-Agent-Parser (Erweitert)",
-      "description": "Erweiterte User-Agent-Analyse."
+      "name": "KI User-Agent Parser Online (Erweitert) – ua-parser-js, Python, Java & PHP",
+      "description": "Kostenloser KI User-Agent Parser online. Dekodiert Browser, Engine, Betriebssystem, Client Hints und KI-Crawler mit Vanilla JS, ua-parser-js (npm), Python, Java & PHP."
     },
     "ulid-generator-and-parser": {
       "name": "KI ULID-Generator, Decoder & Validator – ULID-zu-UUID-Umwandler",
