@@ -266,7 +266,7 @@
       "description": "Ajuste fotos para 20KB, 50KB, 100KB ou centímetros para documentos, passaporte e cadastros online."
     },
     "invoice-generator": {
-      "name": "Gerador de Faturas Grátis (INR e Euro)",
+      "name": "Gerador de Faturas com IA Gratuito – PDF Sem Marca d'Água",
       "description": "Emita faturas profissionais em PDF em INR, Euro e USD. Alternativa gratuita e sem cadastro ao Zoho e Invoice-Generator.com."
     },
     "base64-encoder": {
@@ -783,7 +783,7 @@
       "faq4A": "Ao manipular respostas brutas em Node.js, Fetch ou XMLHttpRequest (como xhr.getAllResponseHeaders()), os dados chegam em formato de texto delimitado por quebras CRLF (\\r\\n). Nosso mecanismo em JavaScript divide as linhas no primeiro caractere de dois pontos (:), ajusta espaçamentos, preserva registros duplicados como Set-Cookie e gera um dicionário JSON limpo. Isso torna simples validar dados simulados de API, depurar serviços e transferir estruturas JSON para suas aplicações em JavaScript."
     },
     "invoiceGenerator": {
-      "title": "Gerador de Faturas Gratuito",
+      "title": "Gerador de Faturas com IA Gratuito – PDF Sem Marca d'Água",
       "subtitle": "Crie faturas comerciais elegantes em poucos segundos — gere em PDF sem marcas d'água, multimoeda e sem limites.",
       "aboutText": "O Gerador de Faturas Gratuito é uma solução completa de cobrança comercial que opera do lado do cliente, permitindo que autônomos, prestadores de serviços e pequenas empresas emitam faturas profissionais no navegador. Com cálculo automático de itens, alíquotas de impostos, descontos, fretes e prazos de pagamento, o sistema oferece visualização ao vivo e exportação em PDF vetorial limpo. Sem necessidade de cadastro, assinaturas ou armazenamento em servidores.",
       "feature1": "Cálculos contábeis automáticos: calcula subtotais de produtos, impostos, descontos e o valor líquido total a pagar",

@@ -266,7 +266,7 @@
       "description": "Riduci immagini a 20KB, 50KB, 100KB o centimetri per passaporti, stampa e portali online nel browser."
     },
     "invoice-generator": {
-      "name": "Generatore di Fatture Gratuito (INR ed Euro)",
+      "name": "Generatore di Fatture con IA Gratuito – PDF Senza Filigrana",
       "description": "Crea fatture professionali in PDF in INR, Euro e USD. Alternativa gratuita senza registrazione a Zoho e Invoice-Generator.com."
     },
     "base64-encoder": {
@@ -783,7 +783,7 @@
       "faq4A": "Quando si gestiscono intestazioni grezze in Node.js, chiamate Fetch o XMLHttpRequest (ad esempio con xhr.getAllResponseHeaders()), i dati arrivano come stringa continua separata da sequenze CRLF (\\r\\n). Il nostro meccanismo di elaborazione in JavaScript divide le righe in corrispondenza del primo carattere di due punti (:), rimuove gli spazi superflui, conserva voci multiple come Set-Cookie e compone una mappa JSON ordinata. In questo modo è facilissimo testare risposte simulate, correggere endpoint e integrare dati strutturati direttamente nei propri progetti JavaScript."
     },
     "invoiceGenerator": {
-      "title": "Generatore di Fatture Gratuito",
+      "title": "Generatore di Fatture con IA Gratuito – PDF Senza Filigrana",
       "subtitle": "Crea fatture aziendali professionali in pochi secondi: scarica in PDF senza filigrane, supporto multivaluta e senza limiti.",
       "aboutText": "Il Generatore di Fatture Gratuito è una soluzione di fatturazione operante lato client pensata per freelance, professionisti e piccole imprese che desiderano creare fatture impeccabili direttamente nel browser. Permette il calcolo automatico di articoli e prestazioni, percentuali di tasse, sconti, spese accessorie, condizioni di pagamento e annotazioni, offrendo un'anteprima visiva in tempo reale ed esportazione immediata in PDF vettoriale. Senza registrazione né costi.",
       "feature1": "Calcoli contabili automatici: calcola all'istante subtotali delle singole voci, aliquote fiscali, sconti e saldo netto dovuto",

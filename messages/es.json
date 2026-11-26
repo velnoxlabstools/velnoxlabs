@@ -266,7 +266,7 @@
       "description": "Ajuste imágenes a 20KB, 50KB, 100KB o centímetros para pasaportes, impresión y formularios online."
     },
     "invoice-generator": {
-      "name": "Generador de Facturas Gratis (INR y Euro)",
+      "name": "Generador de Facturas con IA Gratuito – PDF Sin Marcas de Agua",
       "description": "Cree facturas profesionales en PDF en INR, Euro y USD. Alternativa gratuita sin registro a Zoho e Invoice-Generator.com."
     },
     "base64-encoder": {
@@ -783,7 +783,7 @@
       "faq4A": "Al trabajar con encabezados en Node.js, Fetch o XMLHttpRequest (como xhr.getAllResponseHeaders()), los datos se reciben como una única cadena de texto delimitada por saltos CRLF (\\r\\n). Nuestra utilidad de procesamiento en JavaScript separa las líneas mediante los dos puntos (:), depura espacios en blanco, preserva entradas repetidas como Set-Cookie y las transforma en un mapa JSON ordenado. Esto facilita enormemente la simulación de respuestas de API, la depuración y la incorporación directa en su código de JavaScript."
     },
     "invoiceGenerator": {
-      "title": "Generador de Facturas Gratuito",
+      "title": "Generador de Facturas con IA Gratuito – PDF Sin Marcas de Agua",
       "subtitle": "Cree facturas profesionales en cuestión de segundos: descargue en PDF sin marcas de agua, multimoneda y sin límites.",
       "aboutText": "El Generador de Facturas Gratuito es una herramienta integral de facturación empresarial que opera del lado del cliente, permitiendo a trabajadores independientes, contratistas y pequeñas empresas crear facturas profesionales directamente en su navegador. Con cálculo automático de partidas, tasas de impuestos, porcentajes de descuento, gastos de envío, plazos de pago y notas personalizadas, genera facturas con vista previa dinámica en tiempo real y descarga en PDF con un solo clic. Sin registros ni costos ocultos.",
       "feature1": "Cálculos matemáticos automáticos: calcula subtotales por partida, importes de impuestos, descuentos y saldo total a pagar",

@@ -259,7 +259,7 @@
       "description": "Resize images to 20KB, 50KB, 100KB, or specific cm dimensions for passport photos, print, and portal uploads."
     },
     "invoice-generator": {
-      "name": "Free Invoice Generator (INR & Euro)",
+      "name": "AI Free Invoice Generator – No Watermark PDF, India GST & Templates",
       "description": "Create professional PDF invoices in INR, Euro, and USD. A free, no-login alternative to Zoho and Invoice-Generator.com."
     },
     "base64-encoder": {
@@ -753,7 +753,7 @@
       "faq4A": "When working with raw HTTP headers in Node.js, Fetch responses, or XMLHttpRequest (such as xhr.getAllResponseHeaders()), headers arrive as a single multiline string delimited by CRLF (\\r\\n). Our Http header inspector & parser javascript workflow splits headers on the first colon (:), trims whitespace, preserves duplicate headers like Set-Cookie, and converts the raw string into an organized JSON dictionary. This makes it effortless to validate mock API responses, debug endpoints, and export structured JSON directly into your JavaScript codebase."
     },
     "invoiceGenerator": {
-      "title": "Free Invoice Generator",
+      "title": "AI Free Invoice Generator – No Watermark PDF, India GST & Templates",
       "subtitle": "Create professional invoices in seconds — download as PDF, multi-currency support, zero limits.",
       "aboutText": "The Free Invoice Generator is a comprehensive, client-side business billing tool that lets freelancers, contractors, and small businesses create polished, professional invoices directly in their browser. Featuring multi-item line item calculation, customizable tax rates, discount percentages, shipping fees, payment terms, and notes, it compiles invoices instantly with live visual preview and one-click PDF generation. No account registration, subscriptions, or server storage required.",
       "feature1": "Dynamic Line Item Math: Automatically computes row totals, subtotals, tax amounts, applied discounts, and net balance due",

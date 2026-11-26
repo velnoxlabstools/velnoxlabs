@@ -266,7 +266,7 @@
       "description": "Ajustez des photos à 20KB, 50KB, 100KB ou en centimètres pour passeports, impression et inscriptions en ligne."
     },
     "invoice-generator": {
-      "name": "Générateur de Factures Gratuit (INR et Euro)",
+      "name": "Générateur de Factures avec IA Gratuit – PDF Sans Filigrane",
       "description": "Créez des factures professionnelles en PDF en INR, Euro et USD. Alternative gratuite sans inscription à Zoho et Invoice-Generator.com."
     },
     "base64-encoder": {
@@ -783,7 +783,7 @@
       "faq4A": "Lors du traitement de flux bruts avec Node.js, Fetch ou XMLHttpRequest (comme avec xhr.getAllResponseHeaders()), les en-têtes sont transmis sous forme de texte continu délimité par des retours chariot CRLF (\\r\\n). Notre utilitaire JavaScript scinde les lignes dès le premier deux-points (:), nettoie les espaces superflus, gère les entrées répétées comme Set-Cookie et génère un dictionnaire JSON organisé. Cela simplifie la simulation de réponses d'API, le débogage et l'intégration directe de données structurées dans votre code JavaScript."
     },
     "invoiceGenerator": {
-      "title": "Générateur de Factures Gratuit",
+      "title": "Générateur de Factures avec IA Gratuit – PDF Sans Filigrane",
       "subtitle": "Créez des factures professionnelles en quelques secondes — téléchargement PDF sans filigrane, multidevise, sans inscription.",
       "aboutText": "Le Générateur de Factures Gratuit est une solution complète de facturation professionnelle exécutée côté client. Destiné aux indépendants, auto-entrepreneurs et PME, il permet de créer des factures personnalisées directement dans le navigateur. Il comprend le calcul automatique des lignes d'articles, les taux de TVA, les remises, les frais de port, les délais de règlement et les remarques, avec aperçu dynamique en temps réel et création de PDF vectoriel sans filigrane.",
       "feature1": "Calculs automatiques intégrés : détermine les sous-totaux par ligne, les taxes, les réductions et le solde net dû",
