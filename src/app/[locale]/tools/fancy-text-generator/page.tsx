@@ -16,6 +16,10 @@ import {
   Heart,
   Palette,
   Layers,
+  Search,
+  PenTool,
+  Star,
+  Share2,
 } from 'lucide-react';
 
 // Character maps for unicode transformations
@@ -227,22 +231,33 @@ type StyleNameKey =
   | 'styleGamingStars'
   | 'styleAestheticHearts'
   | 'styleAestheticSparkles'
-  | 'styleGlitchZalgo';
+  | 'styleGlitchZalgo'
+  | 'styleCalligraphySwash'
+  | 'styleCalligraphyRoyal'
+  | 'styleCalligraphyWings'
+  | 'styleBlueButterfly'
+  | 'styleBlueOcean'
+  | 'styleBlueDiamond'
+  | 'styleBlueIce'
+  | 'styleBlueEvilEye'
+  | 'styleBlueTickSuper';
 
 interface StyleConfig {
   id: string;
   nameKey: StyleNameKey;
-  category: 'trending' | 'blue' | 'badges' | 'whatsapp' | 'gaming' | 'aesthetic';
+  category: 'trending' | 'calligraphy' | 'blue' | 'badges' | 'whatsapp' | 'gaming' | 'aesthetic';
+  isPopular21?: boolean;
   transform: (text: string) => string;
   badge?: string;
 }
 
 const STYLES_CONFIG: StyleConfig[] = [
-  // Trending / Core Styles
+  // Trending & Core Typography (PartOf 21 styles)
   {
     id: 'bold',
     nameKey: 'styleBold',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -256,6 +271,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'italic',
     nameKey: 'styleItalic',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -268,6 +284,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'boldItalic',
     nameKey: 'styleBoldItalic',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -279,13 +296,17 @@ const STYLES_CONFIG: StyleConfig[] = [
   {
     id: 'script',
     nameKey: 'styleScript',
-    category: 'trending',
+    category: 'calligraphy',
+    isPopular21: true,
+    badge: '✒️ Cursive',
     transform: (t) => transformText(t, (c) => SCRIPT_MAP[c] || c),
   },
   {
     id: 'boldScript',
     nameKey: 'styleBoldScript',
-    category: 'trending',
+    category: 'calligraphy',
+    isPopular21: true,
+    badge: '✒️ Bold',
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -295,9 +316,46 @@ const STYLES_CONFIG: StyleConfig[] = [
       }),
   },
   {
+    id: 'calligraphySwash',
+    nameKey: 'styleCalligraphySwash',
+    category: 'calligraphy',
+    isPopular21: true,
+    badge: '༺ ༻',
+    transform: (t) => `༺ ${transformText(t, (c) => SCRIPT_MAP[c] || c)} ༻`,
+  },
+  {
+    id: 'calligraphyRoyal',
+    nameKey: 'styleCalligraphyRoyal',
+    category: 'calligraphy',
+    isPopular21: true,
+    badge: '♕',
+    transform: (t) =>
+      `♕ ${transformText(t, (c) => {
+        const code = c.charCodeAt(0);
+        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1d4d0 + code - 65);
+        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1d4ea + code - 97);
+        return c;
+      })} ♕`,
+  },
+  {
+    id: 'calligraphyWings',
+    nameKey: 'styleCalligraphyWings',
+    category: 'calligraphy',
+    isPopular21: true,
+    badge: '🦋ྀ‍',
+    transform: (t) =>
+      `🦋ྀ‍ ${transformText(t, (c) => {
+        const code = c.charCodeAt(0);
+        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1d4d0 + code - 65);
+        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1d4ea + code - 97);
+        return c;
+      })} ྀ‍🦋`,
+  },
+  {
     id: 'fraktur',
     nameKey: 'styleFraktur',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         if (FRAKTUR_MAP[c]) return FRAKTUR_MAP[c];
@@ -311,6 +369,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'boldFraktur',
     nameKey: 'styleBoldFraktur',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -323,6 +382,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'doubleStruck',
     nameKey: 'styleDoubleStruck',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         if (DOUBLE_STRUCK_MAP[c]) return DOUBLE_STRUCK_MAP[c];
@@ -337,6 +397,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'sans',
     nameKey: 'styleSans',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -349,6 +410,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'monospace',
     nameKey: 'styleMonospace',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -362,6 +424,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'circled',
     nameKey: 'styleCircled',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       transformText(t, (c) => {
         const code = c.charCodeAt(0);
@@ -376,12 +439,14 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'smallCaps',
     nameKey: 'styleSmallCaps',
     category: 'trending',
+    isPopular21: true,
     transform: (t) => transformText(t, (c) => SMALL_CAPS_MAP[c.toLowerCase()] || c),
   },
   {
     id: 'strikethrough',
     nameKey: 'styleStrikethrough',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       t
         .split('')
@@ -392,6 +457,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'underline',
     nameKey: 'styleUnderline',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       t
         .split('')
@@ -402,6 +468,7 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'inverted',
     nameKey: 'styleInverted',
     category: 'trending',
+    isPopular21: true,
     transform: (t) =>
       t
         .split('')
@@ -432,34 +499,6 @@ const STYLES_CONFIG: StyleConfig[] = [
         return c;
       }),
   },
-
-  // Blue & Color Category
-  {
-    id: 'blueText',
-    nameKey: 'styleBlueText',
-    category: 'blue',
-    badge: '🔵',
-    transform: (t) =>
-      transformText(t.toUpperCase(), (c) => {
-        const code = c.charCodeAt(0);
-        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1f1e6 + code - 65) + ' ';
-        return c;
-      }).trim(),
-  },
-  {
-    id: 'blueSquared',
-    nameKey: 'styleBlueSquared',
-    category: 'blue',
-    badge: '🔷',
-    transform: (t) => `💙 ${t} 💙`,
-  },
-  {
-    id: 'blueDiamond',
-    nameKey: 'styleBlueSquared',
-    category: 'blue',
-    badge: '💎',
-    transform: (t) => `💎 ${t} 💎`,
-  },
   {
     id: 'glitchZalgo',
     nameKey: 'styleGlitchZalgo',
@@ -471,37 +510,109 @@ const STYLES_CONFIG: StyleConfig[] = [
         .join(''),
   },
 
-  // Blue Tick & Badges Category
+  // Blue & Color Category (Addresses 'Fancy text generator Blue colour')
+  {
+    id: 'blueText',
+    nameKey: 'styleBlueText',
+    category: 'blue',
+    isPopular21: true,
+    badge: '🔵 Regional',
+    transform: (t) =>
+      transformText(t.toUpperCase(), (c) => {
+        const code = c.charCodeAt(0);
+        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1f1e6 + code - 65) + ' ';
+        return c;
+      }).trim(),
+  },
+  {
+    id: 'blueButterfly',
+    nameKey: 'styleBlueButterfly',
+    category: 'blue',
+    isPopular21: true,
+    badge: '🦋 Emoji',
+    transform: (t) =>
+      `🦋 ${transformText(t, (c) => {
+        const code = c.charCodeAt(0);
+        if (code >= 65 && code <= 90) return String.fromCodePoint(0x1d4d0 + code - 65);
+        if (code >= 97 && code <= 122) return String.fromCodePoint(0x1d4ea + code - 97);
+        return c;
+      })} 🦋`,
+  },
+  {
+    id: 'blueOcean',
+    nameKey: 'styleBlueOcean',
+    category: 'blue',
+    badge: '🌊 Wave',
+    transform: (t) => `🌊 𓆝 𓆟 ${transformText(t, (c) => SCRIPT_MAP[c] || c)} 𓆞 🌊`,
+  },
+  {
+    id: 'blueSquared',
+    nameKey: 'styleBlueSquared',
+    category: 'blue',
+    badge: '💙 Heart',
+    transform: (t) => `💙 ${t} 💙`,
+  },
+  {
+    id: 'blueDiamond',
+    nameKey: 'styleBlueDiamond',
+    category: 'blue',
+    badge: '💎 Diamond',
+    transform: (t) => `💎 ${t} 💎`,
+  },
+  {
+    id: 'blueIce',
+    nameKey: 'styleBlueIce',
+    category: 'blue',
+    badge: '❄️ Frost',
+    transform: (t) => `❄️ 🧊 ${t} 🧊 ❄️`,
+  },
+  {
+    id: 'blueEvilEye',
+    nameKey: 'styleBlueEvilEye',
+    category: 'blue',
+    badge: '🧿 Nazar',
+    transform: (t) => `🧿 ${t} 🧿`,
+  },
+
+  // Blue Tick & Badges (Addresses 'Fancy text generator blue tick')
   {
     id: 'blueTickCheck',
     nameKey: 'styleBlueTick',
     category: 'badges',
-    badge: '✔️',
+    badge: '✔️ Tick',
     transform: (t) => `${t} ✔️`,
+  },
+  {
+    id: 'blueTickSuper',
+    nameKey: 'styleBlueTickSuper',
+    category: 'badges',
+    isPopular21: true,
+    badge: 'ᵛᵉʳᶦᶠᶦᵉᵈ',
+    transform: (t) => `${t} ᵛᵉʳᶦᶠᶦᵉᵈ 💙`,
   },
   {
     id: 'blueTickVerified',
     nameKey: 'styleBlueTick',
     category: 'badges',
-    badge: '✓',
+    badge: '𓆩✓𓆪',
     transform: (t) => `𓆩 ${t} 𓆪 ✓`,
   },
   {
-    id: 'blueTickSuper',
-    nameKey: 'styleBlueTick',
+    id: 'blueTickOfficial',
+    nameKey: 'styleBlueTickSuper',
     category: 'badges',
-    badge: 'ᵛᵉʳᶦᶠᶦᵉᵈ',
-    transform: (t) => `${t} ᵛᵉʳᶦᶠᶦᵉᵈ ✓`,
+    badge: '👑 Official',
+    transform: (t) => `👑 ${t} ✓`,
   },
   {
     id: 'blueTickCute',
     nameKey: 'styleBlueTick',
     category: 'badges',
-    badge: 'ᡣ𐭩',
+    badge: 'ᡣ𐭩 Cute',
     transform: (t) => `${t} ᡣ𐭩 ✓`,
   },
 
-  // WhatsApp Category
+  // WhatsApp Category (Addresses 'Fancy text generator for WhatsApp')
   {
     id: 'whatsAppBold',
     nameKey: 'styleWhatsAppBold',
@@ -550,21 +661,21 @@ const STYLES_CONFIG: StyleConfig[] = [
     id: 'gamingCrown',
     nameKey: 'styleGamingWings',
     category: 'gaming',
-    badge: '👑',
+    badge: '👑 Crown',
     transform: (t) => `👑 ${t} 👑`,
   },
   {
     id: 'gamingVip',
     nameKey: 'styleGamingWings',
     category: 'gaming',
-    badge: '亗',
+    badge: '亗 VIP',
     transform: (t) => `亗 ${t} 亗`,
   },
   {
     id: 'gamingLightning',
     nameKey: 'styleGamingStars',
     category: 'gaming',
-    badge: '⚡',
+    badge: '⚡ Electric',
     transform: (t) => `⚡ ${t} ⚡`,
   },
 
@@ -599,11 +710,36 @@ const STYLES_CONFIG: StyleConfig[] = [
   },
 ];
 
+// Interactive Click-to-Insert Symbols Palette
+const SYMBOL_CATEGORIES = [
+  {
+    titleKey: 'symbolGroupStars',
+    symbols: ['★', '✦', '✧', '✪', '✯', '✰', '✨', '⚡', '👑'],
+  },
+  {
+    titleKey: 'symbolGroupBlue',
+    symbols: ['✔️', '✓', '☑️', '💙', '💎', '🧊', '🧿', '💠', '🦋', 'ᵛᵉʳᶦᶠᶦᵉᵈ'],
+  },
+  {
+    titleKey: 'symbolGroupHearts',
+    symbols: ['♡', '♥', '❥', '❣', '❦', '❧', '💖', 'ᡣ𐭩', '🌸'],
+  },
+  {
+    titleKey: 'symbolGroupGaming',
+    symbols: ['亗', '☬', '࿐', '༒', '⚔', '✞', '𓆩', '𓆪'],
+  },
+  {
+    titleKey: 'symbolGroupBrackets',
+    symbols: ['『 』', '【 】', '〖 〗', '꧁ ꧂', '༺ ༻'],
+  },
+];
+
 export default function FancyTextGeneratorPage() {
   const t = useTranslations('ToolUI.fancyTextGenerator');
 
   const [input, setInput] = useState('VelnoxLabs Fancy Text');
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [allCopied, setAllCopied] = useState<boolean>(false);
 
@@ -614,18 +750,43 @@ export default function FancyTextGeneratorPage() {
     return trimmed ? trimmed.split(/\s+/).length : 0;
   }, [input]);
 
-  // Filter styles according to active category
+  // Insert symbol helper
+  const handleInsertSymbol = (sym: string) => {
+    setInput((prev) => (prev ? `${prev} ${sym}` : sym));
+  };
+
+  // Filter styles according to active category and search query
   const filteredStyles = useMemo(() => {
-    if (activeCategory === 'all') return STYLES_CONFIG;
-    if (activeCategory === 'blue') return STYLES_CONFIG.filter((s) => s.category === 'blue');
-    if (activeCategory === 'badges') return STYLES_CONFIG.filter((s) => s.category === 'badges');
-    if (activeCategory === 'whatsapp')
-      return STYLES_CONFIG.filter((s) => s.category === 'whatsapp');
-    if (activeCategory === 'gaming') return STYLES_CONFIG.filter((s) => s.category === 'gaming');
-    if (activeCategory === 'aesthetic')
-      return STYLES_CONFIG.filter((s) => s.category === 'aesthetic');
-    return STYLES_CONFIG;
-  }, [activeCategory]);
+    let styles = STYLES_CONFIG;
+
+    if (activeCategory === 'popular21') {
+      styles = styles.filter((s) => s.isPopular21);
+    } else if (activeCategory === 'calligraphy') {
+      styles = styles.filter((s) => s.category === 'calligraphy');
+    } else if (activeCategory === 'blue') {
+      styles = styles.filter((s) => s.category === 'blue');
+    } else if (activeCategory === 'badges') {
+      styles = styles.filter((s) => s.category === 'badges');
+    } else if (activeCategory === 'whatsapp') {
+      styles = styles.filter((s) => s.category === 'whatsapp');
+    } else if (activeCategory === 'gaming') {
+      styles = styles.filter((s) => s.category === 'gaming');
+    } else if (activeCategory === 'aesthetic') {
+      styles = styles.filter((s) => s.category === 'aesthetic');
+    }
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      styles = styles.filter(
+        (s) =>
+          s.id.toLowerCase().includes(q) ||
+          t(s.nameKey).toLowerCase().includes(q) ||
+          (s.badge && s.badge.toLowerCase().includes(q))
+      );
+    }
+
+    return styles;
+  }, [activeCategory, searchQuery, t]);
 
   // One-click copy for an individual style
   const handleCopy = useCallback((id: string, text: string) => {
@@ -636,6 +797,13 @@ export default function FancyTextGeneratorPage() {
       setCopiedId(null);
     }, 2000);
   }, []);
+
+  // WhatsApp Direct Share
+  const handleShareWhatsApp = (text: string) => {
+    if (!text) return;
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  };
 
   // Copy all rendered styles into clipboard
   const handleCopyAll = useCallback(() => {
@@ -758,6 +926,58 @@ export default function FancyTextGeneratorPage() {
             }}
           />
 
+          {/* INTERACTIVE SYMBOL PALETTE (Click-to-Insert) */}
+          <div
+            style={{
+              marginTop: '16px',
+              paddingTop: '14px',
+              borderTop: '1px dashed var(--border-color)',
+            }}
+          >
+            <div
+              style={{
+                fontSize: '0.78rem',
+                color: 'var(--text-muted)',
+                fontWeight: 600,
+                marginBottom: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}
+            >
+              <span>{t('symbolsTitle')}</span>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '6px',
+                alignItems: 'center',
+              }}
+            >
+              {SYMBOL_CATEGORIES.flatMap((c) => c.symbols).map((sym, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => handleInsertSymbol(sym)}
+                  style={{
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '6px',
+                    padding: '3px 8px',
+                    fontSize: '0.85rem',
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                  }}
+                  title={`Insert ${sym}`}
+                >
+                  {sym}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Action Row */}
           <div
             style={{
@@ -838,163 +1058,258 @@ export default function FancyTextGeneratorPage() {
           </div>
         </div>
 
-        {/* CATEGORY FILTER PILLS */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '8px',
-            flexWrap: 'wrap',
-            marginTop: '24px',
-            marginBottom: '16px',
-          }}
-        >
-          <button
-            type="button"
-            onClick={() => setActiveCategory('all')}
+        {/* CATEGORY FILTER PILLS & SEARCH BAR */}
+        <div style={{ marginTop: '24px', marginBottom: '16px' }}>
+          {/* Category Filter Pills */}
+          <div
             style={{
               display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                activeCategory === 'all' ? '1px solid #3b82f6' : '1px solid var(--border-color)',
-              backgroundColor:
-                activeCategory === 'all' ? 'rgba(59, 130, 246, 0.12)' : 'var(--bg-card)',
-              color: activeCategory === 'all' ? '#3b82f6' : 'var(--text-main)',
-              transition: 'all 0.15s ease',
+              gap: '8px',
+              flexWrap: 'wrap',
+              marginBottom: '12px',
             }}
           >
-            <Layers size={15} />
-            {t('categoryAll')}
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveCategory('all')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'all' ? '1px solid #3b82f6' : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'all' ? 'rgba(59, 130, 246, 0.12)' : 'var(--bg-card)',
+                color: activeCategory === 'all' ? '#3b82f6' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <Layers size={14} />
+              {t('categoryAll')}
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveCategory('blue')}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                activeCategory === 'blue' ? '1px solid #0284c7' : '1px solid var(--border-color)',
-              backgroundColor:
-                activeCategory === 'blue' ? 'rgba(2, 132, 199, 0.15)' : 'var(--bg-card)',
-              color: activeCategory === 'blue' ? '#0284c7' : 'var(--text-main)',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            <Palette size={15} />
-            {t('categoryBlue')}
-          </button>
+            {/* Top 21 Styles (Addresses '21 font style copy paste') */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('popular21')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'popular21'
+                    ? '1px solid #f59e0b'
+                    : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'popular21' ? 'rgba(245, 158, 11, 0.15)' : 'var(--bg-card)',
+                color: activeCategory === 'popular21' ? '#f59e0b' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <Star size={14} />
+              {t('categoryPopular21')}
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveCategory('badges')}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                activeCategory === 'badges' ? '1px solid #0ea5e9' : '1px solid var(--border-color)',
-              backgroundColor:
-                activeCategory === 'badges' ? 'rgba(14, 165, 233, 0.12)' : 'var(--bg-card)',
-              color: activeCategory === 'badges' ? '#0ea5e9' : 'var(--text-main)',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            <CheckCircle2 size={15} />
-            {t('categoryBlueTick')}
-          </button>
+            {/* Calligraphy Category (Addresses 'Calligraphy font generator') */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('calligraphy')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'calligraphy'
+                    ? '1px solid #a855f7'
+                    : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'calligraphy' ? 'rgba(168, 85, 247, 0.15)' : 'var(--bg-card)',
+                color: activeCategory === 'calligraphy' ? '#c084fc' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <PenTool size={14} />
+              {t('categoryCalligraphy')}
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveCategory('whatsapp')}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                activeCategory === 'whatsapp'
-                  ? '1px solid #10b981'
-                  : '1px solid var(--border-color)',
-              backgroundColor:
-                activeCategory === 'whatsapp' ? 'rgba(16, 185, 129, 0.12)' : 'var(--bg-card)',
-              color: activeCategory === 'whatsapp' ? '#10b981' : 'var(--text-main)',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            <MessageSquare size={15} />
-            {t('categoryWhatsApp')}
-          </button>
+            {/* Blue & Color Category (Addresses 'Fancy text generator Blue colour') */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('blue')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'blue' ? '1px solid #0284c7' : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'blue' ? 'rgba(2, 132, 199, 0.15)' : 'var(--bg-card)',
+                color: activeCategory === 'blue' ? '#0284c7' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <Palette size={14} />
+              {t('categoryBlue')}
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveCategory('gaming')}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                activeCategory === 'gaming' ? '1px solid #8b5cf6' : '1px solid var(--border-color)',
-              backgroundColor:
-                activeCategory === 'gaming' ? 'rgba(139, 92, 246, 0.12)' : 'var(--bg-card)',
-              color: activeCategory === 'gaming' ? '#8b5cf6' : 'var(--text-main)',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            <Gamepad2 size={15} />
-            {t('categoryGaming')}
-          </button>
+            {/* Badges / Blue Tick (Addresses 'Fancy text generator blue tick') */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('badges')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'badges'
+                    ? '1px solid #0ea5e9'
+                    : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'badges' ? 'rgba(14, 165, 233, 0.12)' : 'var(--bg-card)',
+                color: activeCategory === 'badges' ? '#0ea5e9' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <CheckCircle2 size={14} />
+              {t('categoryBlueTick')}
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveCategory('aesthetic')}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                activeCategory === 'aesthetic'
-                  ? '1px solid #ec4899'
-                  : '1px solid var(--border-color)',
-              backgroundColor:
-                activeCategory === 'aesthetic' ? 'rgba(236, 72, 153, 0.12)' : 'var(--bg-card)',
-              color: activeCategory === 'aesthetic' ? '#ec4899' : 'var(--text-main)',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            <Heart size={15} />
-            {t('categoryAesthetic')}
-          </button>
+            {/* WhatsApp */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('whatsapp')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'whatsapp'
+                    ? '1px solid #10b981'
+                    : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'whatsapp' ? 'rgba(16, 185, 129, 0.12)' : 'var(--bg-card)',
+                color: activeCategory === 'whatsapp' ? '#10b981' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <MessageSquare size={14} />
+              {t('categoryWhatsApp')}
+            </button>
+
+            {/* Gaming */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('gaming')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'gaming'
+                    ? '1px solid #8b5cf6'
+                    : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'gaming' ? 'rgba(139, 92, 246, 0.12)' : 'var(--bg-card)',
+                color: activeCategory === 'gaming' ? '#8b5cf6' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <Gamepad2 size={14} />
+              {t('categoryGaming')}
+            </button>
+
+            {/* Aesthetic */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory('aesthetic')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '24px',
+                fontSize: '0.825rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                border:
+                  activeCategory === 'aesthetic'
+                    ? '1px solid #ec4899'
+                    : '1px solid var(--border-color)',
+                backgroundColor:
+                  activeCategory === 'aesthetic' ? 'rgba(236, 72, 153, 0.12)' : 'var(--bg-card)',
+                color: activeCategory === 'aesthetic' ? '#ec4899' : 'var(--text-main)',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <Heart size={14} />
+              {t('categoryAesthetic')}
+            </button>
+          </div>
+
+          {/* Real-time Style Search Bar */}
+          <div style={{ position: 'relative' }}>
+            <Search
+              size={15}
+              style={{
+                position: 'absolute',
+                left: '12px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                color: 'var(--text-muted)',
+              }}
+            />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={t('searchStyles')}
+              style={{
+                width: '100%',
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
+                borderRadius: '8px',
+                color: 'var(--text-main)',
+                padding: '9px 12px 9px 34px',
+                fontSize: '0.85rem',
+                outline: 'none',
+              }}
+            />
+          </div>
         </div>
 
         {/* FONT STYLES LIST */}
@@ -1079,30 +1394,54 @@ export default function FancyTextGeneratorPage() {
                   </div>
                 </div>
 
-                {/* Right: Quick Copy Button */}
-                <button
-                  type="button"
-                  onClick={() => handleCopy(style.id, transformed)}
-                  disabled={!transformed}
-                  style={{
-                    flexShrink: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    backgroundColor: isCopied ? '#059669' : 'rgba(37, 99, 235, 0.1)',
-                    color: isCopied ? '#ffffff' : '#2563eb',
-                    border: isCopied ? '1px solid #059669' : '1px solid rgba(37, 99, 235, 0.25)',
-                    borderRadius: '8px',
-                    padding: '8px 16px',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    cursor: transformed ? 'pointer' : 'not-allowed',
-                    transition: 'all 0.15s ease',
-                  }}
-                >
-                  {isCopied ? <Check size={16} /> : <Copy size={16} />}
-                  {isCopied ? t('copied') : t('copy')}
-                </button>
+                {/* Right: Actions (Copy + WhatsApp Direct Share) */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+                  {/* WhatsApp Direct Share Button */}
+                  <button
+                    type="button"
+                    onClick={() => handleShareWhatsApp(transformed)}
+                    disabled={!transformed}
+                    title={t('shareWhatsApp')}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: 'rgba(16, 185, 129, 0.12)',
+                      color: '#34d399',
+                      border: '1px solid rgba(16, 185, 129, 0.3)',
+                      borderRadius: '8px',
+                      padding: '8px 12px',
+                      cursor: transformed ? 'pointer' : 'not-allowed',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    <Share2 size={15} />
+                  </button>
+
+                  {/* Copy Button */}
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(style.id, transformed)}
+                    disabled={!transformed}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      backgroundColor: isCopied ? '#059669' : 'rgba(37, 99, 235, 0.1)',
+                      color: isCopied ? '#ffffff' : '#2563eb',
+                      border: isCopied ? '1px solid #059669' : '1px solid rgba(37, 99, 235, 0.25)',
+                      borderRadius: '8px',
+                      padding: '8px 16px',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      cursor: transformed ? 'pointer' : 'not-allowed',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    {isCopied ? <Check size={16} /> : <Copy size={16} />}
+                    {isCopied ? t('copied') : t('copy')}
+                  </button>
+                </div>
               </div>
             );
           })}
