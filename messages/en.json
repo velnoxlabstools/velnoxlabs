@@ -474,8 +474,8 @@
       "description": "Calculate percentage of marks, SSLC exams, money, percentage increase, differences, and Excel formulas with AI."
     },
     "random-number-generator": {
-      "name": "Random Number Generator Wheel & List – Free AI No Repeats Picker",
-      "description": "Generate random numbers with spinning wheel, no repeats 1-100, name draw, lottery picks, decimals, and random pairing with cryptographic security."
+      "name": "Random Number Generator & Wheel – 1-100 No Repeats Picker",
+      "description": "Free Random Number Generator online with spinning wheel (with sound), no repeats 1-100, exclude numbers, name picker, lottery numbers, decimals, TXT/CSV export, and CSPRNG randomness."
     },
     "bmi-calculator": {
       "name": "BMI Calculator",

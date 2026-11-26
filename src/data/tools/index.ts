@@ -1676,9 +1676,9 @@ export const tools: Tool[] = [
   {
     id: 'tool-random',
     slug: 'random-number-generator',
-    name: 'Random Number Generator Wheel & List – Free AI No Repeats Picker',
+    name: 'Random Number Generator & Wheel – 1-100 No Repeats Picker',
     description:
-      'Free Random Number Generator online with spinning wheel, no repeats 1-100, name picker, lottery numbers, decimals, pairing generator, and CSPRNG randomness.',
+      'Free Random Number Generator online with spinning wheel (with sound), no repeats 1-100, exclude numbers, name picker, lottery numbers, decimals, TXT/CSV export, and CSPRNG randomness.',
     categoryId: 'cat-utility',
     tags: [
       'random',

@@ -481,8 +481,8 @@
       "description": "Calculez le pourcentage de notes scolaires, examens SSLC, opérations financières, hausses, écarts entre deux nombres et formules Excel avec l'IA."
     },
     "random-number-generator": {
-      "name": "Générateur de Nombres Aléatoires avec Roue & Tirage – Sélecteur IA Sans Répétition",
-      "description": "Obtenez des nombres au hasard avec roue animée, sans doublon de 1 à 100, tirage de noms, loteries, décimales et répartition en équipes."
+      "name": "Générateur de Nombres Aléatoires et Roue – 1-100 Sans Répétition",
+      "description": "Générateur gratuit de nombres aléatoires en ligne avec roue interactive sonore, tirage 1-100 sans répétition, exclusion de nombres, tirage au sort de noms et export TXT/CSV."
     },
     "bmi-calculator": {
       "name": "Calculatrice d'IMC",

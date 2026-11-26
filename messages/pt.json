@@ -481,8 +481,8 @@
       "description": "Calcule porcentagem de notas de exames, SSLC, dinheiro, aumento percentual, diferença entre dois valores e fórmulas do Excel com IA."
     },
     "random-number-generator": {
-      "name": "Gerador de Números Aleatórios com Roleta e Lista – Sorteador AI Sem Repetições",
-      "description": "Obtenha valores ao acaso com roleta animada, sem repetições de 1 a 100, sorteio de nomes, loterias, decimais e pareamento seguro."
+      "name": "Gerador de Números Aleatórios e Roleta – 1-100 Sem Repetição",
+      "description": "Gerador gratuito de números aleatórios online com roleta giratória com som, sorteio 1-100 sem repetições, exclusão de números, sorteador de nomes e exportação TXT/CSV."
     },
     "bmi-calculator": {
       "name": "Calculadora de IMC",

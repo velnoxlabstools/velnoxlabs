@@ -16,6 +16,10 @@ import {
   Check,
   Shuffle,
   RotateCcw,
+  Download,
+  Volume2,
+  VolumeX,
+  Trash2,
 } from 'lucide-react';
 
 type TabMode = 'numbers' | 'wheel' | 'names' | 'pairs' | 'lottery' | 'phone';
@@ -43,6 +47,37 @@ function secureShuffle<T>(array: T[]): T[] {
     [result[i], result[j]] = [result[j], result[i]];
   }
   return result;
+}
+
+function playWebAudioTone(freq: number, durationSec: number, vol = 0.08) {
+  if (typeof window === 'undefined') return;
+  const win = window as unknown as {
+    AudioContext?: typeof AudioContext;
+    webkitAudioContext?: typeof AudioContext;
+  };
+  const Ctx = win.AudioContext || win.webkitAudioContext;
+  if (!Ctx) return;
+  try {
+    const ctx = new Ctx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, ctx.currentTime);
+    gain.gain.setValueAtTime(vol, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + durationSec);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + durationSec);
+    setTimeout(
+      () => {
+        void ctx.close().catch(() => {});
+      },
+      durationSec * 1000 + 60
+    );
+  } catch {
+    // Ignore audio context restrictions
+  }
 }
 
 const WHEEL_COLORS = [
@@ -73,7 +108,9 @@ export default function RandomNumberGeneratorPage() {
   const [unique, setUnique] = useState(false);
   const [decimals, setDecimals] = useState<number>(0);
   const [sort, setSort] = useState<'none' | 'asc' | 'desc'>('none');
+  const [excludeInput, setExcludeInput] = useState('');
   const [numbers, setNumbers] = useState<number[]>([]);
+  const [drawHistory, setDrawHistory] = useState<number[][]>([]);
   const [numberError, setNumberError] = useState('');
   const [copiedNumbers, setCopiedNumbers] = useState(false);
 
@@ -81,6 +118,13 @@ export default function RandomNumberGeneratorPage() {
     const minVal = parseFloat(min);
     const maxVal = parseFloat(max);
     const countVal = Math.min(1000, Math.max(1, parseInt(count, 10) || 1));
+
+    const excludedSet = new Set(
+      excludeInput
+        .split(/[\s,]+/)
+        .map((s) => parseFloat(s.trim()))
+        .filter((n) => !isNaN(n))
+    );
 
     if (isNaN(minVal) || isNaN(maxVal)) {
       setNumberError(tUI('errorMinMax'));
@@ -95,9 +139,15 @@ export default function RandomNumberGeneratorPage() {
     }
 
     if (decimals === 0 && unique) {
-      const integerRange = Math.floor(maxVal) - Math.ceil(minVal) + 1;
-      if (countVal > integerRange) {
-        setNumberError(tUI('errorRange', { count: countVal, range: integerRange }));
+      const minInt = Math.ceil(minVal);
+      const maxInt = Math.floor(maxVal);
+      let excludedInRange = 0;
+      excludedSet.forEach((n) => {
+        if (Number.isInteger(n) && n >= minInt && n <= maxInt) excludedInRange++;
+      });
+      const availableRange = maxInt - minInt + 1 - excludedInRange;
+      if (countVal > availableRange) {
+        setNumberError(tUI('errorRange', { count: countVal, range: Math.max(0, availableRange) }));
         setNumbers([]);
         return;
       }
@@ -113,14 +163,18 @@ export default function RandomNumberGeneratorPage() {
       const integerRange = maxInt - minInt + 1;
 
       if (integerRange <= 10000) {
-        // Pool shuffle for optimal performance
-        const pool = Array.from({ length: integerRange }, (_, i) => minInt + i);
+        const pool = Array.from({ length: integerRange }, (_, i) => minInt + i).filter(
+          (n) => !excludedSet.has(n)
+        );
         const shuffled = secureShuffle(pool);
         result.push(...shuffled.slice(0, countVal));
       } else {
         const poolSet = new Set<number>();
-        while (poolSet.size < countVal) {
-          poolSet.add(secureRandomInt(minInt, maxInt));
+        let attempts = 0;
+        while (poolSet.size < countVal && attempts < countVal * 50) {
+          attempts++;
+          const candidate = secureRandomInt(minInt, maxInt);
+          if (!excludedSet.has(candidate)) poolSet.add(candidate);
         }
         result.push(...Array.from(poolSet));
       }
@@ -132,13 +186,21 @@ export default function RandomNumberGeneratorPage() {
         attempts++;
         const raw = minVal + secureRandom() * (maxVal - minVal);
         const rounded = Math.round(raw * factor) / factor;
-        poolSet.add(rounded);
+        if (!excludedSet.has(rounded)) poolSet.add(rounded);
       }
       result.push(...Array.from(poolSet));
     } else {
+      const minInt = Math.ceil(minVal);
+      const maxInt = Math.floor(maxVal);
       for (let i = 0; i < countVal; i++) {
         if (decimals === 0) {
-          result.push(secureRandomInt(Math.ceil(minVal), Math.floor(maxVal)));
+          let candidate = secureRandomInt(minInt, maxInt);
+          let guard = 0;
+          while (excludedSet.has(candidate) && guard < 100) {
+            candidate = secureRandomInt(minInt, maxInt);
+            guard++;
+          }
+          if (!excludedSet.has(candidate)) result.push(candidate);
         } else {
           const raw = minVal + secureRandom() * (maxVal - minVal);
           result.push(Math.round(raw * factor) / factor);
@@ -150,7 +212,10 @@ export default function RandomNumberGeneratorPage() {
     else if (sort === 'desc') result.sort((a, b) => b - a);
 
     setNumbers(result);
-  }, [min, max, count, unique, decimals, sort, tUI]);
+    if (result.length > 0) {
+      setDrawHistory((prev) => [result, ...prev].slice(0, 6));
+    }
+  }, [min, max, count, unique, decimals, sort, excludeInput, tUI]);
 
   useEffect(() => {
     handleGenerateNumbers();
@@ -162,6 +227,20 @@ export default function RandomNumberGeneratorPage() {
     navigator.clipboard.writeText(numbers.join(', '));
     setCopiedNumbers(true);
     setTimeout(() => setCopiedNumbers(false), 2000);
+  };
+
+  const handleDownloadNumbers = (format: 'txt' | 'csv') => {
+    if (numbers.length === 0) return;
+    const content = format === 'csv' ? numbers.join('\n') : numbers.join(', ');
+    const blob = new Blob([content], {
+      type: format === 'csv' ? 'text/csv;charset=utf-8;' : 'text/plain;charset=utf-8;',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `random-numbers.${format}`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const applyPreset = (
@@ -223,7 +302,9 @@ export default function RandomNumberGeneratorPage() {
   const [wheelItems, setWheelItems] = useState<string[]>([]);
   const [isSpinning, setIsSpinning] = useState(false);
   const [wheelWinner, setWheelWinner] = useState('');
+  const [wheelSoundEnabled, setWheelSoundEnabled] = useState(true);
   const wheelAngleRef = useRef(0);
+  const lastSliceIdxRef = useRef<number>(-1);
   const animationFrameRef = useRef<number | null>(null);
 
   // Initialize or update wheel items
@@ -342,6 +423,9 @@ export default function RandomNumberGeneratorPage() {
 
     let velocity = 0.38 + secureRandom() * 0.25; // Initial rotational speed
     const friction = 0.985; // Deceleration rate
+    const topPointer = 1.5 * Math.PI;
+    const totalSlices = wheelItems.length;
+    const sliceAngle = (2 * Math.PI) / totalSlices;
 
     const animate = () => {
       wheelAngleRef.current += velocity;
@@ -349,22 +433,35 @@ export default function RandomNumberGeneratorPage() {
 
       drawWheel(wheelAngleRef.current);
 
+      const normalized =
+        (((topPointer - wheelAngleRef.current) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      const currentIdx = Math.floor(normalized / sliceAngle) % totalSlices;
+      if (currentIdx !== lastSliceIdxRef.current) {
+        lastSliceIdxRef.current = currentIdx;
+        if (wheelSoundEnabled) {
+          playWebAudioTone(680, 0.025, 0.05);
+        }
+      }
+
       if (velocity > 0.0015) {
         animationFrameRef.current = requestAnimationFrame(animate);
       } else {
         setIsSpinning(false);
-        // Top pointer is at 1.5 * PI (270 degrees)
-        const topPointer = 1.5 * Math.PI;
-        const totalSlices = wheelItems.length;
-        const sliceAngle = (2 * Math.PI) / totalSlices;
-        const normalized =
-          (((topPointer - wheelAngleRef.current) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-        const winningIndex = Math.floor(normalized / sliceAngle) % totalSlices;
-        setWheelWinner(wheelItems[winningIndex]);
+        setWheelWinner(wheelItems[currentIdx]);
+        if (wheelSoundEnabled) {
+          playWebAudioTone(880, 0.18, 0.1);
+        }
       }
     };
 
     animationFrameRef.current = requestAnimationFrame(animate);
+  };
+
+  const handleRemoveWheelWinner = () => {
+    if (!wheelWinner || wheelItems.length <= 2) return;
+    const remaining = wheelItems.filter((item, idx) => idx !== wheelItems.indexOf(wheelWinner));
+    setCustomWheelInput(remaining.join(', '));
+    setWheelWinner('');
   };
 
   const resetWheelToNumbers = () => {
@@ -970,6 +1067,38 @@ export default function RandomNumberGeneratorPage() {
                   </div>
                 </div>
 
+                {/* Exclude Specific Numbers */}
+                <div style={{ marginBottom: '18px' }}>
+                  <label
+                    style={{
+                      color: 'var(--text-muted)',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      display: 'block',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    {tUI('excludeLabel')}
+                  </label>
+                  <input
+                    type="text"
+                    value={excludeInput}
+                    onChange={(e) => setExcludeInput(e.target.value)}
+                    placeholder="e.g. 13, 42, 99"
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '10px 12px',
+                      fontSize: '0.85rem',
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                    }}
+                  />
+                </div>
+
                 {/* Error Banner */}
                 {numberError && (
                   <div
@@ -1032,27 +1161,67 @@ export default function RandomNumberGeneratorPage() {
                       >
                         {tUI('generatedHeading', { count: numbers.length })}
                       </span>
-                      <button
-                        onClick={handleCopyNumbers}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          padding: '6px 12px',
-                          borderRadius: '6px',
-                          fontSize: '0.8rem',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          backgroundColor: copiedNumbers
-                            ? 'rgba(16, 185, 129, 0.2)'
-                            : 'var(--bg-page)',
-                          color: copiedNumbers ? '#34d399' : 'var(--text-main)',
-                          border: '1px solid var(--border-color)',
-                        }}
-                      >
-                        {copiedNumbers ? <Check size={14} /> : <Copy size={14} />}
-                        <span>{copiedNumbers ? tUI('copied') : tUI('copyAll')}</span>
-                      </button>
+                      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                        <button
+                          onClick={handleCopyNumbers}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '6px 12px',
+                            borderRadius: '6px',
+                            fontSize: '0.8rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            backgroundColor: copiedNumbers
+                              ? 'rgba(16, 185, 129, 0.2)'
+                              : 'var(--bg-page)',
+                            color: copiedNumbers ? '#34d399' : 'var(--text-main)',
+                            border: '1px solid var(--border-color)',
+                          }}
+                        >
+                          {copiedNumbers ? <Check size={14} /> : <Copy size={14} />}
+                          <span>{copiedNumbers ? tUI('copied') : tUI('copyAll')}</span>
+                        </button>
+                        <button
+                          onClick={() => handleDownloadNumbers('txt')}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '6px 10px',
+                            borderRadius: '6px',
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            backgroundColor: 'var(--bg-page)',
+                            color: 'var(--text-main)',
+                            border: '1px solid var(--border-color)',
+                          }}
+                        >
+                          <Download size={13} />
+                          <span>.TXT</span>
+                        </button>
+                        <button
+                          onClick={() => handleDownloadNumbers('csv')}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '6px 10px',
+                            borderRadius: '6px',
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            backgroundColor: 'var(--bg-page)',
+                            color: 'var(--text-main)',
+                            border: '1px solid var(--border-color)',
+                          }}
+                        >
+                          <Download size={13} />
+                          <span>.CSV</span>
+                        </button>
+                      </div>
                     </div>
 
                     {/* Numbers Grid */}
@@ -1200,6 +1369,71 @@ export default function RandomNumberGeneratorPage() {
                         </div>
                       </div>
                     )}
+
+                    {/* Recent Draws History */}
+                    {drawHistory.length > 1 && (
+                      <div
+                        style={{
+                          marginTop: '14px',
+                          padding: '12px 14px',
+                          backgroundColor: 'var(--bg-page)',
+                          borderRadius: '8px',
+                          border: '1px solid var(--border-color)',
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            marginBottom: '8px',
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                              color: 'var(--text-muted)',
+                            }}
+                          >
+                            {tUI('historyTitle')}
+                          </span>
+                          <button
+                            onClick={() => setDrawHistory([])}
+                            style={{
+                              background: 'none',
+                              border: 'none',
+                              color: 'var(--text-muted)',
+                              fontSize: '0.75rem',
+                              cursor: 'pointer',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px',
+                            }}
+                          >
+                            <Trash2 size={12} />
+                            {tUI('clearHistory')}
+                          </button>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                          {drawHistory.slice(1).map((item, idx) => (
+                            <div
+                              key={idx}
+                              style={{
+                                fontSize: '0.78rem',
+                                fontFamily: 'monospace',
+                                color: 'var(--text-muted)',
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                              }}
+                            >
+                              #{drawHistory.length - idx - 1}: {item.join(', ')}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -1277,6 +1511,25 @@ export default function RandomNumberGeneratorPage() {
                     <RotateCcw size={14} />
                     <span>{tUI('resetWheel')}</span>
                   </button>
+                  <button
+                    onClick={() => setWheelSoundEnabled((prev) => !prev)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      color: wheelSoundEnabled ? '#60a5fa' : 'var(--text-muted)',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {wheelSoundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
+                    <span>{wheelSoundEnabled ? tUI('soundOn') : tUI('soundOff')}</span>
+                  </button>
                 </div>
 
                 {/* Canvas Wheel Rendering */}
@@ -1307,23 +1560,49 @@ export default function RandomNumberGeneratorPage() {
                   <div
                     style={{
                       marginTop: '16px',
-                      padding: '14px 24px',
-                      borderRadius: '10px',
-                      backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                      border: '2px solid #3b82f6',
-                      display: 'inline-block',
-                      animation: 'pulse 1.5s infinite',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: '10px',
                     }}
                   >
-                    <span
+                    <div
                       style={{
-                        fontSize: '1.25rem',
-                        fontWeight: 800,
-                        color: '#60a5fa',
+                        padding: '14px 24px',
+                        borderRadius: '10px',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        border: '2px solid #3b82f6',
+                        display: 'inline-block',
+                        animation: 'pulse 1.5s infinite',
                       }}
                     >
-                      {tUI('winnerAnnouncement', { winner: wheelWinner })}
-                    </span>
+                      <span
+                        style={{
+                          fontSize: '1.25rem',
+                          fontWeight: 800,
+                          color: '#60a5fa',
+                        }}
+                      >
+                        {tUI('winnerAnnouncement', { winner: wheelWinner })}
+                      </span>
+                    </div>
+                    {wheelItems.length > 2 && (
+                      <button
+                        onClick={handleRemoveWheelWinner}
+                        style={{
+                          padding: '6px 12px',
+                          borderRadius: '6px',
+                          fontSize: '0.78rem',
+                          fontWeight: 600,
+                          backgroundColor: 'rgba(239, 68, 68, 0.12)',
+                          border: '1px solid rgba(239, 68, 68, 0.35)',
+                          color: '#f87171',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {tUI('removeWinnerBtn')}
+                      </button>
+                    )}
                   </div>
                 )}
 
@@ -2262,6 +2541,111 @@ export default function RandomNumberGeneratorPage() {
                 )}
               </div>
             )}
+          </div>
+
+          {/* Clean Comparison Table */}
+          <div
+            style={{
+              marginTop: 'var(--space-8)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '12px',
+              padding: '24px',
+              overflowX: 'auto',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '16px',
+                textAlign: 'center',
+              }}
+            >
+              {tUI('compareTitle')}
+            </h3>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontSize: '0.86rem',
+                textAlign: 'left',
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                  <th style={{ padding: '12px', color: 'var(--text-main)', fontWeight: 700 }}>
+                    {tUI('compareColFeature')}
+                  </th>
+                  <th style={{ padding: '12px', color: '#60a5fa', fontWeight: 700 }}>VelnoxLabs</th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    Google Spinner
+                  </th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    PickerWheel
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow1Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow1Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Google')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Picker')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow2Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow2Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Google')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Picker')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow3Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow3Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Google')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Picker')}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow4Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow4Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Google')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Picker')}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           {/* Centralized SEO & Structured Schema - Zero Duplicate Inline JSON-LD */}
