@@ -372,8 +372,8 @@
       "faq4A": "No Microsoft Word, selecione o texto e pressione Shift + F3 repetidamente para alternar entre MAIÚSCULAS, minúsculas e Estilo frase (ou use Início > Aa). No Excel, não há fórmula nativa de estilo frase—apenas =UPPER(A1), =LOWER(A1) e =PROPER(A1)—portanto colar sua coluna aqui é a solução mais prática."
     },
     "checksumCalculator": {
-      "title": "Calculadora de Checksum Online (MD5, SHA256, Binário e 16 bits)",
-      "subtitle": "Calculadora de integridade gratuita online (MD5, SHA256, binário e 16 bits). Obtenha hashes criptográficos e somas de verificação no navegador sem baixar programas.",
+      "title": "Calculadora de Checksum IA Online (MD5, SHA256, 8-bit, 16-bit, CRC e XOR)",
+      "subtitle": "Calculadora gratuita de checksum com IA para MD5, SHA-256, Módulo 256 (8 bits), 16 bits, CRC-32 e XOR em texto, bytes hex, binário ou arquivos.",
       "selectAlgorithm": "Selecionar algoritmo",
       "simpleChecksum": "Checksum simples",
       "inputText": "Texto de entrada",
@@ -400,7 +400,24 @@
       "faq3Q": "Posso utilizar esta ferramenta para validações de transações do Axis Bank?",
       "faq3A": "Sim, para a conferência dos condensados criptográficos. Muitas plataformas de pagamento e bancos, incluindo as especificações do Axis Bank, exigem a geração de chaves de integridade por meio de algoritmos como SHA-256 ou HMAC. Embora os manuais de integração adotem padrões específicos de união de parâmetros e segredos, o cálculo criptográfico central segue os padrões internacionais suportados aqui.",
       "faq4Q": "Quando é indicado usar uma soma de verificação simples em vez de um hash criptográfico?",
-      "faq4A": "A soma de verificação elementar é indicada quando a prioridade absoluta é o baixo custo de processamento em dispositivos de IoT e transmissão de dados sujeitos a ruído elétrico. Já para atestar a legitimidade de instaladores de software e autenticar transações comerciais, deve-se sempre recorrer a padrões fortes como SHA-256."
+      "faq4A": "A soma de verificação elementar é indicada quando a prioridade absoluta é o baixo custo de processamento em dispositivos de IoT e transmissão de dados sujeitos a ruído elétrico. Já para atestar a legitimidade de instaladores de software e autenticar transações comerciais, deve-se sempre recorrer a padrões fortes como SHA-256.",
+      "modeText": "Texto (UTF-8)",
+      "modeHex": "Bytes Hex",
+      "modeBinary": "Binário (8 bits)",
+      "uploadFileBtn": "Enviar arquivo",
+      "clearFile": "Remover arquivo",
+      "invalidHexHint": "Digite bytes hexadecimais válidos com comprimento par (ex. 48 65 6C 6C 6F).",
+      "invalidBinaryHint": "Digite grupos binários válidos de 8 bits (múltiplos de 8 bits).",
+      "verifyTitle": "Verificador e Detector IA de Checksum",
+      "verifyPlaceholder": "Cole o checksum esperado (MD5, SHA-256, CRC-32, 8-bit, 16-bit)...",
+      "detectedFormat": "Detectado: {format}",
+      "matchFound": "CORRESPONDÊNCIA! Verificado com {algo}.",
+      "noMatchFound": "DIFERENTE — Não corresponde a nenhum checksum calculado.",
+      "algoMod256": "Soma 8 bits (Módulo 256)",
+      "algoTwos": "Complemento de 2 (8 bits)",
+      "algoXor": "Checksum XOR (BCC 8 bits)",
+      "algo16Bit": "Checksum 16 bits (Sum16)",
+      "byteBreakdownTitle": "Detalhamento byte a byte"
     },
     "colorConverter": {
       "title": "Conversor de Cores Online (HEX, RGB, CMYK, LAB e Pantone)",

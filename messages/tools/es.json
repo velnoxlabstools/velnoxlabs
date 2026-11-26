@@ -372,8 +372,8 @@
       "faq4A": "En Microsoft Word, seleccione el texto y presione Shift + F3 varias veces para alternar entre MAYÚSCULAS, minúsculas y Tipo oración (o use Inicio > Cambiar mayúsculas Aa). En Excel no existe función nativa de tipo oración—solo =UPPER(A1), =LOWER(A1) y =PROPER(A1)—así que pegar su columna aquí es la vía más rápida."
     },
     "checksumCalculator": {
-      "title": "Calculadora de Checksum en Línea (MD5, SHA256, Binario y 16 bits)",
-      "subtitle": "Calculadora de comprobación en línea gratuita (MD5, SHA256, binario y 16 bits). Obtén hashes criptográficos y sumas de comprobación al instante sin descargas.",
+      "title": "Calculadora de Checksum IA Online (MD5, SHA256, 8-bit, 16-bit, CRC y XOR)",
+      "subtitle": "Calculadora gratuita de checksum con IA para MD5, SHA-256, Módulo 256 (8 bits), 16 bits, CRC-32 y XOR en texto, bytes hex, binario o archivos.",
       "selectAlgorithm": "Seleccionar algoritmo",
       "simpleChecksum": "Checksum simple",
       "inputText": "Texto de entrada",
@@ -400,7 +400,24 @@
       "faq3Q": "¿Se puede emplear para la verificación de firmas y checksums de Axis Bank?",
       "faq3A": "Sí, para comprobar la exactitud de los hashes criptográficos base. Diversas pasarelas bancarias y kits de comercio electrónico, incluidos los servicios de Axis Bank, requieren el uso de funciones como SHA-256 o HMAC para proteger las transacciones. Aunque cada entidad define concatenaciones y claves secretas particulares, la matemática de hashing subyacente es estándar y puede auditarse aquí con total fiabilidad.",
       "faq4Q": "¿Cuándo conviene usar una suma de comprobación simple frente a un hash criptográfico?",
-      "faq4A": "Conviene utilizar una suma de comprobación básica en entornos de hardware embebido, telemetría o paquetes de transmisión donde la velocidad es prioritaria y solo se busca detectar fallos accidentales de línea. En cambio, para verificar instaladores de programas o asegurar APIs financieras, es fundamental optar por algoritmos robustos como SHA-256."
+      "faq4A": "Conviene utilizar una suma de comprobación básica en entornos de hardware embebido, telemetría o paquetes de transmisión donde la velocidad es prioritaria y solo se busca detectar fallos accidentales de línea. En cambio, para verificar instaladores de programas o asegurar APIs financieras, es fundamental optar por algoritmos robustos como SHA-256.",
+      "modeText": "Texto (UTF-8)",
+      "modeHex": "Bytes Hex",
+      "modeBinary": "Binario (8 bits)",
+      "uploadFileBtn": "Subir archivo",
+      "clearFile": "Quitar archivo",
+      "invalidHexHint": "Introduce bytes hexadecimales válidos de longitud par (ej. 48 65 6C 6C 6F).",
+      "invalidBinaryHint": "Introduce grupos binarios de 8 bits válidos (múltiplos de 8 bits).",
+      "verifyTitle": "Verificador y Detector IA de Checksum",
+      "verifyPlaceholder": "Pega el checksum o hash esperado (MD5, SHA-256, CRC-32, 8-bit, 16-bit)...",
+      "detectedFormat": "Detectado: {format}",
+      "matchFound": "¡COINCIDE! Verificado con {algo}.",
+      "noMatchFound": "NO COINCIDE — No corresponde a ningún checksum calculado.",
+      "algoMod256": "Suma 8 bits (Módulo 256)",
+      "algoTwos": "Complemento a 2 (8 bits)",
+      "algoXor": "Checksum XOR (BCC 8 bits)",
+      "algo16Bit": "Checksum 16 bits (Sum16)",
+      "byteBreakdownTitle": "Desglose byte a byte"
     },
     "colorConverter": {
       "title": "Conversor de Color en Línea (HEX, RGB, CMYK, LAB y Pantone)",

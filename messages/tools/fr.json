@@ -372,8 +372,8 @@
       "faq4A": "Dans Microsoft Word, sélectionnez votre texte et appuyez plusieurs fois sur Maj + F3 pour alterner entre MAJUSCULES, minuscules et Casse de phrase. Dans Excel, il n'existe pas de fonction native de casse phrase—seulement =UPPER(A1), =LOWER(A1) et =PROPER(A1)—d'où l'utilité de coller vos colonnes ici."
     },
     "checksumCalculator": {
-      "title": "Calculateur de Checksum en Ligne (MD5, SHA256, Binaire et 16 bits)",
-      "subtitle": "Calculateur de somme de contrôle gratuit en ligne (MD5, SHA256, binaire et 16 bits). Obtenez des empreintes cryptographiques sans aucun téléchargement de logiciel.",
+      "title": "Calculateur de Checksum IA en Ligne (MD5, SHA256, 8-bit, 16-bit, CRC & XOR)",
+      "subtitle": "Calculateur gratuit de somme de contrôle IA pour MD5, SHA-256, Modulo 256 (8 bits), 16 bits, CRC-32 et XOR sur texte, octets hexadécimaux, binaire ou fichiers.",
       "selectAlgorithm": "Sélectionner un algorithme",
       "simpleChecksum": "Checksum simple",
       "inputText": "Texte d'entrée",
@@ -400,7 +400,24 @@
       "faq3Q": "Peut-on l'utiliser pour valider les clés d'intégrité de passerelles comme Axis Bank ?",
       "faq3A": "Oui, pour vérifier les condensats cryptographiques sous-jacents. De nombreuses plateformes bancaires, y compris les documentations de paiement d'Axis Bank, imposent l'usage d'algorithmes normalisés comme SHA-256 ou HMAC pour sécuriser les requêtes. Même si chaque établissement bancaire emploie des concaténations spécifiques, le traitement mathématique de hachage demeure rigoureusement standard et peut être validé ici.",
       "faq4Q": "Dans quelles circonstances préférer une somme de contrôle simple à un hachage cryptographique ?",
-      "faq4A": "Une somme simple est recommandée lorsqu'on recherche une très grande rapidité d'exécution sur des microcontrôleurs ou dans des réseaux industriels face au bruit électromagnétique. En revanche, pour garantir l'authenticité d'un exécutable ou verrouiller une API, un algorithme robuste comme SHA-256 s'avère indispensable."
+      "faq4A": "Une somme simple est recommandée lorsqu'on recherche une très grande rapidité d'exécution sur des microcontrôleurs ou dans des réseaux industriels face au bruit électromagnétique. En revanche, pour garantir l'authenticité d'un exécutable ou verrouiller une API, un algorithme robuste comme SHA-256 s'avère indispensable.",
+      "modeText": "Texte (UTF-8)",
+      "modeHex": "Octets Hex",
+      "modeBinary": "Binaire (8 bits)",
+      "uploadFileBtn": "Importer un fichier",
+      "clearFile": "Retirer le fichier",
+      "invalidHexHint": "Saisissez des octets hexadécimaux valides de longueur paire (ex. 48 65 6C 6C 6F).",
+      "invalidBinaryHint": "Saisissez des groupes binaires valides de 8 bits (multiples de 8 bits).",
+      "verifyTitle": "Vérificateur et Détecteur IA de Checksum",
+      "verifyPlaceholder": "Collez la somme attendue (MD5, SHA-256, CRC-32, 8 bits, 16 bits)...",
+      "detectedFormat": "Détecté : {format}",
+      "matchFound": "CORRESPONDANCE ! Vérifié avec {algo}.",
+      "noMatchFound": "AUCUNE CORRESPONDANCE — Ne correspond à aucun calcul.",
+      "algoMod256": "Somme 8 bits (Modulo 256)",
+      "algoTwos": "Complément à 2 (8 bits)",
+      "algoXor": "Somme XOR (BCC 8 bits)",
+      "algo16Bit": "Somme 16 bits (Sum16)",
+      "byteBreakdownTitle": "Détail octet par octet"
     },
     "colorConverter": {
       "title": "Convertisseur de Couleur en Ligne (HEX, RGB, CMYK, LAB et Pantone)",

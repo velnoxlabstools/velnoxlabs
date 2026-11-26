@@ -372,8 +372,8 @@
       "faq4A": "In Microsoft Word, select your text and press Shift + F3 repeatedly to cycle between UPPERCASE, lowercase, and Sentence case (or click Home > Change Case \"Aa\"). In Excel, there is no built-in Sentence case formula—only =UPPER(A1) for small letter to capital, =LOWER(A1) for lowercase, and =PROPER(A1) for Title Case—so pasting your column into our Sentence case button is the fastest solution."
     },
     "checksumCalculator": {
-      "title": "Checksum Calculator Online (MD5, SHA256, Binary & 16-bit)",
-      "subtitle": "Free checksum calculator online (MD5, SHA256, binary & 16-bit). Compute cryptographic hashes and simple checksums instantly in your browser with no software download required.",
+      "title": "AI Checksum Calculator Online (MD5, SHA256, 8-bit, 16-bit, CRC & XOR)",
+      "subtitle": "Free AI checksum calculator online for MD5, SHA-256, 8-bit Modulo 256, 16-bit, CRC-32, and XOR checksums. Compute and verify text, hex bytes, binary, or files in your browser.",
       "selectAlgorithm": "Select Algorithm",
       "simpleChecksum": "Simple Checksum",
       "inputText": "Input Text",
@@ -400,7 +400,24 @@
       "faq3Q": "Can this tool be used for Axis Bank checksum validation?",
       "faq3A": "Yes, for standard cryptographic verification. Many payment gateways and banking APIs, including Axis Bank integration kits, require merchants to generate or validate request and response checksums using standardized hashing algorithms like SHA-256 or HMAC. While specific banking APIs like the Checksum Calculator Axis Bank gateway may use proprietary concatenated salt strings or merchant-specific parameter ordering, our checksum calculator SHA256 and MD5 engines compute the exact underlying mathematical digests required to debug and verify your transaction payloads.",
       "faq4Q": "When should I use a simple checksum calculator versus a secure cryptographic hash?",
-      "faq4A": "Use a simple checksum calculator when your primary goal is rapid error detection in non-sensitive environments, such as detecting bit flips in embedded hardware, IoT communication, or internal data caches where computation speed is critical. Use secure cryptographic algorithms like SHA-256 or SHA-512 whenever verifying downloaded software installers, sensitive transaction records, or securing APIs against unauthorized modification."
+      "faq4A": "Use a simple checksum calculator when your primary goal is rapid error detection in non-sensitive environments, such as detecting bit flips in embedded hardware, IoT communication, or internal data caches where computation speed is critical. Use secure cryptographic algorithms like SHA-256 or SHA-512 whenever verifying downloaded software installers, sensitive transaction records, or securing APIs against unauthorized modification.",
+      "modeText": "Text (UTF-8)",
+      "modeHex": "Hex Bytes",
+      "modeBinary": "Binary (8-bit)",
+      "uploadFileBtn": "Upload File",
+      "clearFile": "Clear File",
+      "invalidHexHint": "Enter valid even-length hexadecimal bytes (e.g., 48 65 6C 6C 6F).",
+      "invalidBinaryHint": "Enter valid 8-bit binary groups (multiples of 8 bits, e.g., 01001000).",
+      "verifyTitle": "AI Checksum Verifier & Auto-Detector",
+      "verifyPlaceholder": "Paste expected checksum or hash (MD5, SHA-256, CRC-32, 8-bit, 16-bit) to verify...",
+      "detectedFormat": "Detected: {format}",
+      "matchFound": "MATCH! Verified against {algo}.",
+      "noMatchFound": "MISMATCH — Does not match any computed checksum.",
+      "algoMod256": "8-bit Sum (Modulo 256)",
+      "algoTwos": "8-bit Two's Complement",
+      "algoXor": "XOR Checksum (8-bit BCC)",
+      "algo16Bit": "16-bit Checksum (Sum16)",
+      "byteBreakdownTitle": "Byte-by-Byte Checksum Breakdown"
     },
     "colorConverter": {
       "title": "Color Converter Online (HEX, RGB, CMYK, LAB & Pantone)",

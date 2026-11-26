@@ -372,8 +372,8 @@
       "faq4A": "Markieren Sie in Microsoft Word den Text und drücken Sie wiederholt Umschalt + F3, um zwischen GROSSBUCHSTABEN, kleinbuchstaben und Satzanfang zu wechseln. In Excel gibt es keine Satzanfang-Funktion – nur =UPPER(A1), =LOWER(A1) und =PROPER(A1) –, weshalb unser Werkzeug hier die schnellste Lösung bietet."
     },
     "checksumCalculator": {
-      "title": "Online-Prüfsummen-Rechner (MD5, SHA256, Binär & 16-Bit)",
-      "subtitle": "Kostenloser Online-Prüfsummen-Rechner (MD5, SHA256, binär und 16-Bit). Erstellen Sie kryptografische Hashes und einfache Prüfsummen ohne zusätzliche Software-Installation.",
+      "title": "KI Checksum-Rechner Online (MD5, SHA256, 8-Bit, 16-Bit, CRC & XOR)",
+      "subtitle": "Kostenloser KI-Prüfsummenrechner für MD5, SHA-256, 8-Bit Modulo 256, 16-Bit, CRC-32 und XOR für Text, Hex-Bytes, Binärdaten und Dateien.",
       "selectAlgorithm": "Algorithmus auswählen",
       "simpleChecksum": "Einfache Prüfsumme",
       "inputText": "Eingabetext",
@@ -400,7 +400,24 @@
       "faq3Q": "Kann dieses Werkzeug zur Validierung von Axis-Bank-Prüfsummen herangezogen werden?",
       "faq3A": "Ja, zur Kontrolle der grundlegenden kryptografischen Prüfwerte. Viele Finanz- und Zahlungsschnittstellen, einschließlich Systemen von Axis Bank, verlangen zur Absicherung von Transaktionen Prüfsummen auf Basis von SHA-256 oder HMAC. Auch wenn bankspezifische Vorgaben bezüglich Reihenfolge und Sicherheitsschlüsseln gelten, basiert die mathematische Hash-Bildung auf den standardisierten Algorithmen, die Sie hier prüfen können.",
       "faq4Q": "Wann empfiehlt sich eine einfache Prüfsumme und wann ein kryptografischer Hash?",
-      "faq4A": "Einfache Prüfsummen eignen sich hervorragend für ressourcensparende Embedded-Systeme oder IoT-Geräte, bei denen es primär auf Verarbeitungsgeschwindigkeit und das Erkennen zufälliger Bitfehler ankommt. Für das Überprüfen von Programmpaketen oder zur Absicherung von Schnittstellen gegen Missbrauch sind kryptografisch sichere Verfahren wie SHA-256 unverzichtbar."
+      "faq4A": "Einfache Prüfsummen eignen sich hervorragend für ressourcensparende Embedded-Systeme oder IoT-Geräte, bei denen es primär auf Verarbeitungsgeschwindigkeit und das Erkennen zufälliger Bitfehler ankommt. Für das Überprüfen von Programmpaketen oder zur Absicherung von Schnittstellen gegen Missbrauch sind kryptografisch sichere Verfahren wie SHA-256 unverzichtbar.",
+      "modeText": "Text (UTF-8)",
+      "modeHex": "Hex-Bytes",
+      "modeBinary": "Binär (8-Bit)",
+      "uploadFileBtn": "Datei hochladen",
+      "clearFile": "Datei entfernen",
+      "invalidHexHint": "Gültige Hex-Bytes mit gerader Zeichenanzahl eingeben (z. B. 48 65 6C 6C 6F).",
+      "invalidBinaryHint": "Gültige 8-Bit-Binärgruppen eingeben (Vielfaches von 8 Bit).",
+      "verifyTitle": "KI-Prüfsummen-Prüfer & Auto-Erkennung",
+      "verifyPlaceholder": "Erwartete Prüfsumme (MD5, SHA-256, CRC-32, 8-Bit, 16-Bit) einfügen...",
+      "detectedFormat": "Erkannt: {format}",
+      "matchFound": "ÜBEREINSTIMMUNG! Bestätigt mit {algo}.",
+      "noMatchFound": "KEINE ÜBEREINSTIMMUNG — Passt zu keiner berechneten Prüfsumme.",
+      "algoMod256": "8-Bit-Summe (Modulo 256)",
+      "algoTwos": "8-Bit-Zweierkomplement",
+      "algoXor": "XOR-Prüfsumme (8-Bit BCC)",
+      "algo16Bit": "16-Bit-Prüfsumme (Sum16)",
+      "byteBreakdownTitle": "Byte-für-Byte-Aufschlüsselung"
     },
     "colorConverter": {
       "title": "Online-Farbkonverter (HEX, RGB, CMYK, LAB & Pantone)",

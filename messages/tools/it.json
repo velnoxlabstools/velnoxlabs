@@ -374,8 +374,8 @@
       "faq4A": "In Microsoft Word, seleziona il testo e premi Maiusc + F3 più volte per alternare MAIUSCOLO, minuscolo e Stile frase. In Excel non esiste una funzione nativa per lo stile frase—solo =UPPER(A1), =LOWER(A1) e =PROPER(A1)—quindi incollare qui i dati è il metodo più veloce."
     },
     "checksumCalculator": {
-      "title": "Calcolatore di Checksum Online (MD5, SHA256, Binario e 16 bit)",
-      "subtitle": "Calcolatore di checksum online gratuito (MD5, SHA256, binario e 16 bit). Verifica hash crittografici e codici di controllo nel browser senza scaricare software.",
+      "title": "Calcolatore Checksum IA Online (MD5, SHA256, 8-bit, 16-bit, CRC e XOR)",
+      "subtitle": "Calcolatore gratuito di checksum con IA per MD5, SHA-256, Modulo 256 (8 bit), 16 bit, CRC-32 e XOR su testo, byte hex, binario o file.",
       "selectAlgorithm": "Seleziona algoritmo",
       "simpleChecksum": "Checksum semplice",
       "inputText": "Testo da calcolare",
@@ -402,7 +402,24 @@
       "faq3Q": "Può essere utilizzato per la verifica di sicurezza delle transazioni di Axis Bank?",
       "faq3A": "Sì, per testare la correttezza matematica dell'impronta crittografica. Molti gateway di pagamento e canali finanziari, compresi i flussi di Axis Bank, impiegano algoritmi standard come SHA-256 o HMAC per accertare l'autenticità dei messaggi. Benché ciascun istituto utilizzi regole proprie per l'unione dei parametri, i conteggi di hashing sottostanti sono universali e verificabili tramite questo strumento.",
       "faq4Q": "Quando è opportuno impiegare un checksum semplice anziché un hash crittografico?",
-      "faq4A": "Un controllo semplice è ideale quando la velocità di elaborazione è prioritaria su microcontrollori e apparati IoT soggetti a disturbi di linea. Quando invece occorre validare pacchetti software o rendere inviolabile una connessione telematica, è doveroso ricorrere a standard robusti come SHA-256."
+      "faq4A": "Un controllo semplice è ideale quando la velocità di elaborazione è prioritaria su microcontrollori e apparati IoT soggetti a disturbi di linea. Quando invece occorre validare pacchetti software o rendere inviolabile una connessione telematica, è doveroso ricorrere a standard robusti come SHA-256.",
+      "modeText": "Testo (UTF-8)",
+      "modeHex": "Byte Hex",
+      "modeBinary": "Binario (8 bit)",
+      "uploadFileBtn": "Carica file",
+      "clearFile": "Rimuovi file",
+      "invalidHexHint": "Inserisci byte esadecimali validi di lunghezza pari (es. 48 65 6C 6C 6F).",
+      "invalidBinaryHint": "Inserisci gruppi binari validi da 8 bit (multipli di 8 bit).",
+      "verifyTitle": "Verificatore e Rilevatore IA di Checksum",
+      "verifyPlaceholder": "Incolla il checksum atteso (MD5, SHA-256, CRC-32, 8 bit, 16 bit)...",
+      "detectedFormat": "Rilevato: {format}",
+      "matchFound": "CORRISPONDENZA! Verificato con {algo}.",
+      "noMatchFound": "NESSUNA CORRISPONDENZA — Non corrisponde ai valori calcolati.",
+      "algoMod256": "Somma 8 bit (Modulo 256)",
+      "algoTwos": "Complemento a 2 (8 bit)",
+      "algoXor": "Checksum XOR (BCC 8 bit)",
+      "algo16Bit": "Checksum 16 bit (Sum16)",
+      "byteBreakdownTitle": "Dettaglio byte per byte"
     },
     "colorConverter": {
       "title": "Convertitore Colori Online (HEX, RGB, CMYK, LAB e Pantone)",
