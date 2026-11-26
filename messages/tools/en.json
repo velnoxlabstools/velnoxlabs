@@ -465,8 +465,8 @@
       "uploadImageBtn": "Upload Image"
     },
     "compoundInterestCalculator": {
-      "title": "Compound Interest Calculator India (SBI, SIP, Monthly & Daily)",
-      "subtitle": "Free compound interest calculator India. Calculate returns on SBI fixed deposits, SIP mutual funds, and HDFC Life savings with daily, monthly, and yearly compounding.",
+      "title": "AI Compound Interest Calculator India (SBI, SIP, Monthly & Daily)",
+      "subtitle": "Free AI compound interest calculator India. Calculate returns on SBI fixed deposits, mutual fund SIPs, and PPF with daily, monthly, and yearly compounding, step-up SIP, and visual growth chart.",
       "initialPrincipal": "Initial Principal",
       "annualRate": "Annual Interest Rate (%):",
       "yearsLabel": "Years:",
@@ -488,7 +488,7 @@
       "contributed": "Contributed",
       "balance": "Balance",
       "copyBreakdown": "📋 Copy Breakdown",
-      "copied": "✓ Copied!",
+      "copied": "Copied!",
       "aboutText": "Compound Interest Calculator India (SBI, SIP, Monthly & Daily) is an advanced financial projection tool tailored for Indian investors, wealth planners, and savers. Whether you are using our Compound interest calculator SBI module to estimate returns on State Bank of India fixed deposits, running our Compound interest calculator HDFC Life feature to analyze long-term insurance and endowment policies, or utilizing our SIP compound interest calculator to forecast wealth creation in mutual fund systematic investment plans, this tool models exponential growth with complete precision. Equipped with a flexible daily compound interest calculator, a dedicated monthly compound interest calculator, and a specialized monthly compound interest calculator India setting alongside a standard yearly compound interest calculator engine, it accurately simulates interest accumulation and periodic contributions in browser memory with 100% data privacy.",
       "feature1": "Customizable Compounding Frequencies: Calculate growth compounded daily, monthly, quarterly, semi-annually, or annually",
       "feature2": "Regular Contribution Modeling: Factor in ongoing monthly or annual deposits to visualize dollar-cost averaging growth",
@@ -507,7 +507,16 @@
       "faq3Q": "Does this calculator match SBI or HDFC Life bank calculations?",
       "faq3A": "Yes. Our tool applies the standard universal compound interest formula A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)] used across Indian financial institutions. Whether you are cross-referencing an SBI fixed deposit (which typically compounds quarterly or annually) or evaluating an HDFC Life endowment policy, simply select the matching compounding frequency and interest rate to replicate bank projections accurately.",
       "faq4Q": "Why use a specialized compound interest calculator India tool for financial planning?",
-      "faq4A": "Indian wealth creation relies heavily on instruments with varying compounding schedules—such as PPF (compounded annually), bank FDs (compounded quarterly by SBI, ICICI, and HDFC), and mutual fund SIPs (compounded monthly). Our tool provides the exact compounding intervals and rupee currency formatting needed to plan Indian retirement, tax-saving, and wealth goals accurately."
+      "faq4A": "Indian wealth creation relies heavily on instruments with varying compounding schedules—such as PPF (compounded annually), bank FDs (compounded quarterly by SBI, ICICI, and HDFC), and mutual fund SIPs (compounded monthly). Our tool provides the exact compounding intervals and rupee currency formatting needed to plan Indian retirement, tax-saving, and wealth goals accurately.",
+      "presetSbiFd": "🏦 SBI FD (7.0%)",
+      "presetSip": "📈 Mutual Fund SIP (12%)",
+      "presetPpf": "🛡️ PPF (7.1%)",
+      "presetNifty": "🚀 Nifty 50 (14%)",
+      "stepUpLabel": "Annual Step-Up (%):",
+      "inflationAdjustedLabel": "Inflation-Adjusted (6%)",
+      "growthChartTitle": "Year-by-Year Growth Chart",
+      "formulaTitle": "Live Compound Interest Formula",
+      "copyResult": "Copy Summary"
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Every Minute",

@@ -465,8 +465,8 @@
       "uploadImageBtn": "Bild hochladen"
     },
     "compoundInterestCalculator": {
-      "title": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",
-      "subtitle": "Kostenloser Zinseszinsrechner für Indien. Ermitteln Sie Erträge für SBI-Festgelder, HDFC Life-Sparpläne und SIP-Fonds mit täglicher, monatlicher und jährlicher Verzinsung.",
+      "title": "KI Zinseszinsrechner (Monatlich, Täglich & Sparplan)",
+      "subtitle": "Berechne Erträge für Festgeld, ETFs und Sparpläne mit täglicher, monatlicher oder jährlicher Verzinsung, Dynamik und Wachstumsdiagramm.",
       "initialPrincipal": "Anfangskapital",
       "annualRate": "Jährlicher Zinssatz (%):",
       "yearsLabel": "Laufzeit in Jahren:",
@@ -488,7 +488,7 @@
       "contributed": "Eingezahlt",
       "balance": "Endstand",
       "copyBreakdown": "📋 Übersicht kopieren",
-      "copied": "✓ Kopiert!",
+      "copied": "Kopiert!",
       "aboutText": "Der Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich) ist ein präzises Werkzeug zur Vermögensplanung für Sparer und Anleger. Ganz gleich, ob Sie Ertragsaussichten für Festgelder der State Bank of India (SBI) abschätzen, Policen der HDFC Life analysieren oder den Zuwachs durch regelmäßige Sparpläne (SIP) in Investmentfonds hochrechnen möchten – diese Anwendung bildet exponentielles Wachstum detailgetreu ab. Mit frei wählbaren Zinsintervallen wie täglicher, monatlicher oder jährlicher Zinsgutschrift läuft die gesamte Ertragssimulation direkt im Browser-Speicher ab, ohne dass persönliche Finanzdaten übertragen werden.",
       "feature1": "Flexible Zinsgutschrift-Intervalle: Berechne den Zinseszins wahlweise täglich, monatlich, quartalsweise oder jährlich",
       "feature2": "Regelmäßige Sparraten berücksichtigen: Simuliere monatliche oder jährliche Einzahlungen für stetigen Vermögensaufbau",
@@ -507,7 +507,16 @@
       "faq3Q": "Stimmen die Werte mit den Zinsangaben von SBI oder HDFC Life überein?",
       "faq3A": "Ja. Die Anwendung stützt sich auf die weltweit anerkannte Zinseszinsformel, die auch von indischen Finanzinstituten angewendet wird. Ob Festgeldanlagen bei der SBI (die typischerweise vierteljährlich verzinst werden) oder Sparverträge bei HDFC Life – durch Auswahl des passenden Zinstaktes lassen sich die Modellrechnungen exakt abbilden.",
       "faq4Q": "Warum empfiehlt sich ein auf indische Anlageformen abgestimmtes Zinstool?",
-      "faq4A": "Der indische Finanzmarkt zeichnet sich durch vielfältige Zinsmodelle aus – von staatlichen PPF-Konten mit jährlicher Zinsgutschrift über SBI-Festgelder mit Quartalsverzinsung bis hin zu monatlichen SIP-Fondssparplänen. Dieses Werkzeug deckt sämtliche Intervalle ab und erleichtert die langfristige Vorsorgeplanung."
+      "faq4A": "Der indische Finanzmarkt zeichnet sich durch vielfältige Zinsmodelle aus – von staatlichen PPF-Konten mit jährlicher Zinsgutschrift über SBI-Festgelder mit Quartalsverzinsung bis hin zu monatlichen SIP-Fondssparplänen. Dieses Werkzeug deckt sämtliche Intervalle ab und erleichtert die langfristige Vorsorgeplanung.",
+      "presetSbiFd": "🏦 Festgeld (7,0%)",
+      "presetSip": "📈 Fonds-Sparplan (12%)",
+      "presetPpf": "🛡️ Vorsorge (7,1%)",
+      "presetNifty": "🚀 Aktienindex (14%)",
+      "stepUpLabel": "Jährliche Dynamik (%):",
+      "inflationAdjustedLabel": "Inflationsbereinigt (6%)",
+      "growthChartTitle": "Jährliches Wachstumsdiagramm",
+      "formulaTitle": "Zinseszinsformel",
+      "copyResult": "Zusammenfassung kopieren"
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Jede Minute",

@@ -465,8 +465,8 @@
       "uploadImageBtn": "Subir imagen"
     },
     "compoundInterestCalculator": {
-      "title": "Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario)",
-      "subtitle": "Calculadora gratuita de interés compuesto para la India. Proyecta rendimientos para depósitos en SBI, planes de ahorro HDFC Life y fondos SIP con capitalización diaria, mensual y anual.",
+      "title": "Calculadora de Interés Compuesto IA (Mensual, Diario y SIP)",
+      "subtitle": "Calcula rendimientos de depósitos, fondos mutuos y SIP con capitalización diaria, mensual y anual, incremento anual y gráfico visual.",
       "initialPrincipal": "Capital inicial",
       "annualRate": "Tasa de interés anual (%):",
       "yearsLabel": "Años:",
@@ -488,7 +488,7 @@
       "contributed": "Aportado",
       "balance": "Saldo",
       "copyBreakdown": "📋 Copiar desglose",
-      "copied": "✓ ¡Copiado!",
+      "copied": "¡Copiado!",
       "aboutText": "La Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario) es una herramienta de simulación patrimonial pensada para inversores y ahorradores. Ya sea que desees estimar rendimientos de depósitos a plazo fijo en el State Bank of India (SBI), analizar planes de seguros y jubilación de HDFC Life o proyectar la acumulación de capital mediante planes de inversión sistemática (SIP), esta utilidad modela el crecimiento exponencial con absoluta precisión. Con opciones de capitalización diaria, mensual y anual, simula la acumulación de rendimientos e inversiones periódicas directamente en tu navegador, garantizando confidencialidad absoluta de tus datos financieros.",
       "feature1": "Frecuencias de capitalización flexibles: calcula intereses devengados de forma diaria, mensual, trimestral o anual",
       "feature2": "Aportaciones regulares programadas: añade depósitos periódicos mensuales o anuales para simular compras recurrentes",
@@ -507,7 +507,16 @@
       "faq3Q": "¿Coinciden los valores con los cálculos bancarios de SBI o HDFC Life?",
       "faq3A": "Sí. Nuestra herramienta aplica la fórmula matemática universal de capitalización empleada por las entidades financieras de la India. Tanto para contrastar depósitos a plazo en SBI (habitualmente capitalizados trimestral o anualmente) como pólizas de ahorro de HDFC Life, basta con indicar la tasa y el periodo correspondiente para replicar con exactitud los cálculos de dichas entidades.",
       "faq4Q": "¿Por qué es conveniente usar una herramienta de interés compuesto adaptada a las finanzas de la India?",
-      "faq4A": "En el mercado financiero indio conviven esquemas con diversas frecuencias de acumulación: desde fondos públicos PPF con balance anual hasta depósitos a plazo en SBI capitalizados por trimestres o fondos mutuos SIP mensuales. Esta herramienta contempla todas esas frecuencias para planificar metas de jubilación y ahorro con total certidumbre."
+      "faq4A": "En el mercado financiero indio conviven esquemas con diversas frecuencias de acumulación: desde fondos públicos PPF con balance anual hasta depósitos a plazo en SBI capitalizados por trimestres o fondos mutuos SIP mensuales. Esta herramienta contempla todas esas frecuencias para planificar metas de jubilación y ahorro con total certidumbre.",
+      "presetSbiFd": "🏦 Depósito (7.0%)",
+      "presetSip": "📈 Fondo SIP (12%)",
+      "presetPpf": "🛡️ Ahorro PPF (7.1%)",
+      "presetNifty": "🚀 Índice (14%)",
+      "stepUpLabel": "Incremento anual (%):",
+      "inflationAdjustedLabel": "Ajustado por inflación (6%)",
+      "growthChartTitle": "Gráfico de crecimiento anual",
+      "formulaTitle": "Fórmula de interés compuesto",
+      "copyResult": "Copiar resumen"
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Cada Minuto",

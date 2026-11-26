@@ -465,8 +465,8 @@
       "uploadImageBtn": "Importer image"
     },
     "compoundInterestCalculator": {
-      "title": "Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien)",
-      "subtitle": "Calculateur gratuit d'intérêts composés pour l'Inde. Estimez vos rendements sur les dépôts SBI, contrats HDFC Life et plans SIP avec capitalisation quotidienne, mensuelle et annuelle.",
+      "title": "Calculateur d'Intérêts Composés IA (Mensuel, Quotidien & SIP)",
+      "subtitle": "Calculez vos rendements avec capitalisation quotidienne, mensuelle ou annuelle, versements progressifs et graphique de croissance.",
       "initialPrincipal": "Capital initial",
       "annualRate": "Taux d'intérêt annuel (%) :",
       "yearsLabel": "Durée en années :",
@@ -488,7 +488,7 @@
       "contributed": "Versé",
       "balance": "Solde",
       "copyBreakdown": "📋 Copier la répartition",
-      "copied": "✓ Copié !",
+      "copied": "Copié !",
       "aboutText": "Le Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien) est une solution d'ingénierie financière pensée pour les investisseurs et épargnants. Que vous souhaitiez évaluer les gains sur dépôts à terme de la State Bank of India (SBI), analyser des contrats d'épargne HDFC Life ou modéliser l'effet multiplicateur d'un plan d'investissement systématique (SIP), cet outil retranscrit la dynamique exponentielle avec rigueur. Proposant des fréquences de composition quotidienne, mensuelle et annuelle, la simulation s'exécute directement dans la mémoire de votre navigateur, assurant la totale discrétion de vos informations patrimoniales.",
       "feature1": "Périodicités de capitalisation flexibles : simulez vos gains avec un calcul d'intérêts quotidien, mensuel, trimestriel ou annuel",
       "feature2": "Intégration d'apports récurrents : incorporez des versements mensuels ou annuels programmés pour simuler un investissement progressif",
@@ -507,7 +507,16 @@
       "faq3Q": "Les résultats obtenus concordent-ils avec les simulations bancaires de SBI ou HDFC Life ?",
       "faq3A": "Oui. Notre outil applique la formule mathématique internationale employée par les banques et assureurs en Inde. Qu'il s'agisse de vérifier un dépôt à terme SBI (généralement composé au trimestre ou à l'année) ou un contrat HDFC Life, il suffit de renseigner le taux convenu et le bon intervalle pour retrouver des montants identiques aux projections officielles.",
       "faq4Q": "Pourquoi privilégier un calculateur adapté aux spécificités du marché indien ?",
-      "faq4A": "L'épargne en Inde met en jeu des calendriers de capitalisation variés : le fonds public PPF capitalise annuellement, les dépôts bancaires SBI fonctionnent au trimestre et les fonds SIP capitalisent chaque mois. Notre outil intègre tous ces schémas pour sécuriser votre stratégie d'épargne retraite."
+      "faq4A": "L'épargne en Inde met en jeu des calendriers de capitalisation variés : le fonds public PPF capitalise annuellement, les dépôts bancaires SBI fonctionnent au trimestre et les fonds SIP capitalisent chaque mois. Notre outil intègre tous ces schémas pour sécuriser votre stratégie d'épargne retraite.",
+      "presetSbiFd": "🏦 Dépôt fixe (7,0%)",
+      "presetSip": "📈 Fonds SIP (12%)",
+      "presetPpf": "🛡️ Épargne PPF (7,1%)",
+      "presetNifty": "🚀 Indice (14%)",
+      "stepUpLabel": "Hausse annuelle (%):",
+      "inflationAdjustedLabel": "Corrigé de l'inflation (6%)",
+      "growthChartTitle": "Graphique de croissance annuelle",
+      "formulaTitle": "Formule des intérêts composés",
+      "copyResult": "Copier le résumé"
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ Chaque Minute",

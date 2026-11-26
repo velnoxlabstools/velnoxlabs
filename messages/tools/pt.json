@@ -465,8 +465,8 @@
       "uploadImageBtn": "Enviar imagem"
     },
     "compoundInterestCalculator": {
-      "title": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",
-      "subtitle": "Calculadora gratuita de juros compostos para a Índia. Simule retornos em depósitos do SBI, apólices da HDFC Life e planos de investimento SIP com capitalização diária, mensal e anual.",
+      "title": "Calculadora de Juros Compostos IA (Mensal, Diário e SIP)",
+      "subtitle": "Calcule rendimentos com capitalização diária, mensal ou anual, aporte progressivo e gráfico de crescimento ano a ano.",
       "initialPrincipal": "Capital inicial",
       "annualRate": "Taxa de juros anual (%):",
       "yearsLabel": "Anos:",
@@ -488,7 +488,7 @@
       "contributed": "Aportado",
       "balance": "Saldo",
       "copyBreakdown": "📋 Copiar detalhamento",
-      "copied": "✓ Copiado!",
+      "copied": "Copiado!",
       "aboutText": "A Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário) é uma ferramenta especializada de projeção patrimonial desenvolvida para investidores e poupadores. Seja para estimar os rendimentos de depósitos a prazo fixo no State Bank of India (SBI), avaliar planos de previdência da HDFC Life ou projetar a multiplicação de capital através de aportes regulares em fundos mútuos (SIP), este recurso simula a curva de crescimento exponencial com total exatidão. Equipado com intervalos diários, mensais e anuais, todo o processamento dos seus números financeiros ocorre exclusivamente na memória do dispositivo com privacidade absoluta.",
       "feature1": "Frequências de capitalização flexíveis: projete retornos com juros calculados diariamente, mensalmente, trimestralmente ou anualmente",
       "feature2": "Aportes regulares programados: adicione depósitos periódicos mensais ou anuais para simular investimentos recorrentes",
@@ -507,7 +507,16 @@
       "faq3Q": "Os valores obtidos são equivalentes aos cálculos oficiais do SBI e da HDFC Life?",
       "faq3A": "Sim. Nosso algoritmo utiliza a fórmula matemática padrão adotada pelos bancos e seguradoras da Índia. Seja para conferir um depósito do SBI (geralmente capitalizado por trimestre ou por ano) ou planejar uma apólice da HDFC Life, basta selecionar a frequência correspondente e a taxa de juros para obter projeções idênticas às das instituições.",
       "faq4Q": "Por que utilizar uma ferramenta ajustada às práticas financeiras da Índia?",
-      "faq4A": "O planejamento financeiro na Índia envolve produtos com regras de capitalização variadas, como o fundo público PPF com juros anuais, depósitos bancários no SBI com rendimentos trimestrais e aplicações em SIP mensais. Nosso simulador atende a todas essas variações para garantir um planejamento seguro de aposentadoria e patrimônio."
+      "faq4A": "O planejamento financeiro na Índia envolve produtos com regras de capitalização variadas, como o fundo público PPF com juros anuais, depósitos bancários no SBI com rendimentos trimestrais e aplicações em SIP mensais. Nosso simulador atende a todas essas variações para garantir um planejamento seguro de aposentadoria e patrimônio.",
+      "presetSbiFd": "🏦 Depósito (7,0%)",
+      "presetSip": "📈 Fundo SIP (12%)",
+      "presetPpf": "🛡️ Poupança (7,1%)",
+      "presetNifty": "🚀 Índice (14%)",
+      "stepUpLabel": "Aumento anual (%):",
+      "inflationAdjustedLabel": "Ajustado pela inflação (6%)",
+      "growthChartTitle": "Gráfico de crescimento anual",
+      "formulaTitle": "Fórmula de juros compostos",
+      "copyResult": "Copiar resumo"
     },
     "cronExpressionGenerator": {
       "presetEveryMinute": "⏰ A Cada Minuto",
