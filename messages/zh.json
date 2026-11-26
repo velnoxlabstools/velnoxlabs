@@ -510,8 +510,8 @@
       "description": "免费AI智能图片压缩工具，支持将图片精确压缩至20KB、50KB、100KB、200KB与1MB。专为证件照、公务员考试、公文上传、JPG/PNG/WebP打造，浏览器本地运行，零画质损失。"
     },
     "image-format-converter": {
-      "name": "图片转换器转JPG与Word文档",
-      "description": "免费在线图片格式转换工具，支持JPG、PNG与WebP互转，完全本地隐私处理，Word文档与iLovePDF的理想替代。"
+      "name": "AI图片转换器 转JPG与Word (.docx) – 免费在线转换 (支持50KB、20KB及PDF)",
+      "description": "免费AI在线图片格式转换工具，支持转JPG、Word文档 (.docx)、PDF、PNG及WebP。一键将图片生成Word报告、公考国考50KB/20KB JPG格式转换及ChatGPT AI配图转换，浏览器本地处理，100%隐私安全。"
     },
     "image-cropper": {
       "name": "在线图片裁切工具（支持像素与厘米尺寸）- 免费照片裁切编辑器",

@@ -510,8 +510,8 @@
       "description": "完全無料のAIオンライン画像圧縮ツール。20KB、50KB、100KB、200KB、1MBへの指定サイズ圧縮に対応。パスポート申請や各種証明写真、願書提出向けに画質を落とさず高速圧縮。"
     },
     "image-format-converter": {
-      "name": "JPGおよびWord向け画像変換ツール",
-      "description": "JPG、PNG、WebPに対応した無料オンライン画像変換ツール。iLovePDFや専用ソフトの安全なブラウザ代替。"
+      "name": "AI画像変換ツール JPG・Word (.docx) 変換 – 完全無料オンライン (50KB・20KB・PDF対応)",
+      "description": "完全無料のAIオンライン画像変換ツール。JPG、Word (.docx)、PDF、PNG、WebPへ簡単変換。公的申請向けJPG 50KB/20KB指定、写真のWord文書化、ChatGPT画像変換を完全ブラウザ完結で提供。"
     },
     "image-cropper": {
       "name": "オンライン画像トリミングツール（ピクセル・cm 指定対応）– 無料写真編集",
