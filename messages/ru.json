@@ -327,8 +327,8 @@
       "description": "Создавайте стильные QR-коды с логотипом, платежами UPI, пакетной выгрузкой, WiFi, vCard, сканером и экспортом в высоком разрешении PNG/SVG."
     },
     "user-agent": {
-      "name": "Онлайн парсер и идентификатор User-Agent – JS, Python, Java и PHP",
-      "description": "Мгновенный разбор строк User-Agent: браузер, версия, движок рендеринга, ОС, архитектура CPU и определение ботов с экспортом в JSON и примерами кода."
+      "name": "ИИ-парсер, детектор ботов и генератор User-Agent – JS, Python, Java и PHP",
+      "description": "Бесплатный онлайн ИИ-анализатор и генератор User-Agent. Расшифровка браузера, движка, ОС, архитектуры CPU, Client Hints и ИИ-краулеров (GPTBot, ClaudeBot, Googlebot) с примерами кода."
     },
     "unix-timestamp-converter": {
       "name": "ИИ Конвертер Unix Timestamp и Эпохи – Python, Excel и Windows",

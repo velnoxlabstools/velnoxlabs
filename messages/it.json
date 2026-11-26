@@ -334,8 +334,8 @@
       "description": "Crea codici QR personalizzati con logo, pagamenti UPI, generazione in blocco, WiFi, vCard, scanner e salvataggio ad alta definizione in PNG/SVG."
     },
     "user-agent": {
-      "name": "Analizzatore e Identificatore User-Agent Online – JS, Python, Java e PHP",
-      "description": "Analizza stringhe User-Agent online per rilevare browser, versione, motore di rendering, sistema operativo, architettura CPU e bot con esportazione JSON ed esempi."
+      "name": "Analizzatore, Rilevatore Bot & Generatore User-Agent IA – JS, Python, Java e PHP",
+      "description": "Analizzatore e generatore gratuito di User-Agent con IA online. Decodifica browser, motore, OS, architettura CPU, Client Hints e crawler IA (GPTBot, ClaudeBot, Googlebot) con codice JS, Python, Java e PHP."
     },
     "unix-timestamp-converter": {
       "name": "Convertitore Timestamp Unix IA e Data Epoch – Python, Excel & Windows",

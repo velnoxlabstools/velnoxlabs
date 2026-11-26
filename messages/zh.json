@@ -327,8 +327,8 @@
       "description": "在线生成带有自定义 Logo 的二维码、UPI 支付扫码码、批量生成、WiFi、电子名片、扫描解析及高清 PNG/SVG 导出。"
     },
     "user-agent": {
-      "name": "在线 User-Agent 解析与识别器 – JS / Python / Java / PHP",
-      "description": "免费在线解析与识别浏览器 User-Agent 字符串，精准提取浏览器版本、内核引擎、操作系统、CPU 架构及爬虫/AI 机器人特征，支持 JSON 导出与多语言代码示例。"
+      "name": "AI User-Agent 解析器、爬虫检测与生成器 – JS、Python、Java 与 PHP",
+      "description": "免费在线 AI User-Agent 解析、生成与爬虫识别工具。解码浏览器、渲染内核、操作系统、CPU架构、Client Hints 及 AI 爬虫 (GPTBot、ClaudeBot、Googlebot)，提供多语言代码。"
     },
     "unix-timestamp-converter": {
       "name": "AI Unix 时间戳转换器与纪元日期计算器 – Python、Excel 与 Windows",
