@@ -386,8 +386,8 @@
       "description": "Kostenloses KI-Textwerkzeug online für Satzanfang, Titel-Schreibweise, Großbuchstaben in Excel oder Kleinbuchstaben in Word mit über 12 Textstilen."
     },
     "lorem-ipsum": {
-      "name": "Lorem-Ipsum-Generator (1000 Characters & Word)",
-      "description": "Erstellen Sie klassischen Blindtext für Word-Dokumente, Mockups und Web-Layouts mit flexibler Absatzanzahl."
+      "name": "KI Lorem-Ipsum-Generator (1000 Zeichen & Wörter) – Kontextueller Blindtext & HTML-Tags",
+      "description": "Kostenloser KI Lorem-Ipsum-Generator (1000 Zeichen & Wortanzahl). Erstellen Sie klassischen lateinischen Blindtext, moderne Fülltexte und HTML-Tags für Layouts."
     },
     "text-diff-checker": {
       "name": "KI Textvergleich Online Kostenlos – Diff-Checker & Ähnlichkeitsprüfung",
@@ -1193,28 +1193,27 @@
       "step3Body": "Prüfen Sie die Annuitätenrate, Gesamtzinskosten und den Tilgungsverlauf."
     },
     "loremIpsum": {
-      "aboutText": "Professioneller Lorem-Ipsum-Blindtextgenerator mit flexiblen Optionen für Absätze, Sätze, Wortzahlen und klassisches Latein.",
-      "feature1": "Generierung nach Maß: Absätze, einzelne Sätze, exakte Wortanzahl oder Listenpunkte.",
-      "feature2": "Auswahl zwischen dem traditionellen Anfangssatz oder vollkommen zufälligen Textfolgen.",
-      "feature3": "Optionale Einbindung von HTML-Formatierungs-Tags (<p>, <li>, <h1>) für Entwickler.",
-      "feature4": "Echtzeit-Wort- und Zeichenzählung mit bequemer Kopierfunktion.",
-      "step1": "Wählen Sie die gewünschte Maßeinheit für den Blindtext aus (Absätze, Sätze oder Wörter).",
-      "step2": "Legen Sie die Menge fest und bestimmen Sie, ob HTML-Code generiert werden soll.",
-      "step3": "Kopieren Sie den erstellten Platzhaltertext direkt in Ihre Layout- und Webentwürfe.",
-      "faq1Q": "Worauf geht der originale Blindtext Lorem Ipsum historisch zurück?",
-      "faq1A": "Er basiert auf Passagen aus Ciceros philosophischer Abhandlung 'De finibus bonorum et malorum' aus dem Jahr 45 v. Chr.",
-      "faq2Q": "Warum verwendet man Blindtext anstelle von echtem Inhalt bei Entwürfen?",
-      "faq2A": "Er ermöglicht die neutrale Beurteilung von Schriftbild und Layout, ohne dass der Betrachter durch den Textinhalt abgelenkt wird.",
-      "faq3Q": "Besitzt der generierte Text eine zusammenhängende sprachliche Bedeutung?",
-      "faq3A": "Nein, die lateinischen Wörter wurden bewusst modifiziert und besitzen keine grammatische Bedeutung.",
-      "faq4Q": "Kann der Text direkt mit HTML-Strukturen exportiert werden?",
-      "faq4A": "Ja, bei aktivierter HTML-Option wird der Text in passende Absatz- oder Listen-Tags eingebettet.",
-      "step1Title": "Blindtext-Menge festlegen",
-      "step1Body": "Wählen Sie die gewünschte Anzahl an Absätzen oder Wörtern für Ihren Layoutentwurf.",
-      "step2Title": "Platzhaltertext generieren",
-      "step2Body": "Klicken Sie auf \"Generieren\" für flüssigen Blindtext in klassischem Latein.",
-      "step3Title": "Text kopieren und einbinden",
-      "step3Body": "Klicken Sie auf \"Kopieren\", um den Text in Figma, HTML-Templates oder Entwürfe einzufügen."
+      "title": "KI Lorem-Ipsum-Generator (1000 Zeichen & Wörter)",
+      "subtitle": "Erzeugen Sie exakte Zeichenmengen (1000 Zeichen), Wortanzahlen, HTML-Tags und kontextbezogenen KI-Blindtext für Benutzeroberflächen und Layouts.",
+      "aboutText": "Der KI Lorem-Ipsum-Generator ist ein modernes Werkzeug für Typografie und Layout-Simulation, entwickelt für Gestalter und Webentwickler. Neben klassischem lateinischen Fülltext ermöglicht er die zentimetergenaue Begrenzung von Zeichen (beispielsweise exakt 1000 Zeichen zur Prüfung von Textboxen), flexible Wortzahlen sowie strukturierte Ausgabe in HTML, Markdown und JSON. Fachspezifische Fülltexte für Technologie, Handel und Finanzen vermitteln Kunden einen realistischen Eindruck des künftigen Designs.",
+      "feature1": "Exakte Zeichen- und Wortvorgaben: Erstellen Sie passgenau 1000 Zeichen, 500 Wörter oder eigene Längen mit Live-Zählern.",
+      "feature2": "Kontextbezogene KI-Themen: Wechseln Sie flexibel zwischen Cicero-Latein, Informationstechnik, E-Commerce, Finanzwesen und Medizin.",
+      "feature3": "HTML- und Markdown-Ausgabe: Fassen Sie Absätze automatisch in <p>-Tags, Aufzählungen in <ul><li> oder Markdown-Abschnitte zusammen.",
+      "feature4": "Schnelle Zwischenablage & Dateiexport: Kopieren Sie den Text mit einem Klick oder sichern Sie das Ergebnis als .txt-, .html- oder .json-Datei.",
+      "step1Title": "Einheit und Thema wählen",
+      "step1Body": "Legen Sie fest, ob Sie nach Zeichen (z. B. 1000), Wörtern oder Absätzen generieren möchten, und wählen Sie das passende Fachgebiet.",
+      "step2Title": "Format und Optionen einstellen",
+      "step2Body": "Wählen Sie zwischen reinem Text, HTML oder Markdown und aktivieren Sie nach Wunsch die klassische lateinische Einleitung.",
+      "step3Title": "Text kopieren oder exportieren",
+      "step3Body": "Prüfen Sie die Zeichen- und Wortstatistik in Echtzeit, kopieren Sie den Text oder laden Sie ihn für Ihre Vorlage herunter.",
+      "faq1Q": "Kann das Werkzeug genau 1000 Zeichen Blindtext erzeugen?",
+      "faq1A": "Ja! Wählen Sie die Einheit 'Zeichen' und geben Sie 1000 ein (oder nutzen Sie die Schnellschaltfläche). Der Text wird exakt auf diese Länge zugeschnitten.",
+      "faq2Q": "Welchen Vorteil bieten thematische Fülltexte gegenüber Latein?",
+      "faq2A": "Reiner lateinischer Blindtext lenkt Kunden oft ab. Kontextbezogene Fülltexte vermitteln eine greifbare Vorstellung vom echten Inhalt und der visuellen Hierarchie.",
+      "faq3Q": "Kann der Fülltext direkt mit HTML-Absatz-Tags ausgegeben werden?",
+      "faq3A": "Ja. Im Format 'HTML' werden Absätze in <p>-Tags und Listen in <ul><li> eingefasst, sodass Sie den Code unmittelbar in Webprojekte einfügen können.",
+      "faq4Q": "Ist der generierte Text für kommerzielle Entwürfe freigegeben?",
+      "faq4A": "Ja. Sämtliche generierten Texte sind vollständig lizenzfrei und dürfen ohne Einschränkungen gewerblich genutzt werden."
     },
     "markdownToHtml": {
       "title": "KI Markdown zu HTML Live-Konverter & HTML zu Markdown",

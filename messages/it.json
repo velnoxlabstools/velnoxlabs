@@ -386,8 +386,8 @@
       "description": "Strumento IA gratuito online per trasformare testi in stile frase, titolo, maiuscole in Excel o minuscole in Word con oltre 12 stili immediati."
     },
     "lorem-ipsum": {
-      "name": "Generatore di Lorem Ipsum (1000 Characters & Word)",
-      "description": "Crea testo fittizio in latino per documenti Word, bozzetti grafici e mockup con conteggio di paragrafi."
+      "name": "Generatore di Lorem Ipsum con IA (1000 Caratteri e Parole) – Testo Fittizio e Tag HTML",
+      "description": "Generatore gratuito di Lorem Ipsum con IA (1000 caratteri e conteggio parole). Crea testo fittizio in latino classico, contenuti tematici e tag HTML per bozzetti grafici."
     },
     "text-diff-checker": {
       "name": "Confronto Testi e Differenze IA Gratis Online – Diff Checker & Similitudine",
@@ -1193,28 +1193,27 @@
       "step3Body": "Verifica la rata periodica calcolata, gli interessi complessivi e il prospetto di ammortamento."
     },
     "loremIpsum": {
-      "aboutText": "Generatore di testo fittizio Lorem Ipsum con personalizzazione per paragrafi, frasi e conteggio parole con lessico latino tradizionale.",
-      "feature1": "Generazione configurabile per paragrafi, singole frasi, numero di parole o elenchi puntati.",
-      "feature2": "Scelta tra l'incipit canonico 'Lorem ipsum dolor sit amet' o sequenze interamente casuali.",
-      "feature3": "Opzione per avvolgere il testo in tag HTML strutturali (<p>, <li>, <h1>) per sviluppatori.",
-      "feature4": "Conteggio immediato di parole e caratteri con trasferimento rapido negli appunti.",
-      "step1": "Seleziona l'unità di testo voluta (paragrafi, frasi o parole).",
-      "step2": "Imposta il volume di testo desiderato e decidi se attivare i tag HTML.",
-      "step3": "Copia il contenuto segnaposto ottenuto per impaginarlo nei tuoi progetti grafici.",
-      "faq1Q": "Da dove proviene il testo classico di Lorem Ipsum?",
-      "faq1A": "Trae origine dal trattato filosofico 'De finibus bonorum et malorum' di Cicerone (45 a.C.), riadattato in ambito tipografico nel XVI secolo.",
-      "faq2Q": "Qual è lo scopo dell'impiego di testi segnaposto nei layout visivi?",
-      "faq2A": "Consente di valutare l'armonia tipografica e la distribuzione spaziale senza distogliere l'attenzione sul significato dei testi.",
-      "faq3Q": "Le frasi composte possiedono un senso compiuto in lingua latina?",
-      "faq3A": "No, le parole originali sono state rimescolate e private di coerenza grammaticale per evitare la leggibilità semantica.",
-      "faq4Q": "Posso esportare il testo formattato in blocchi HTML?",
-      "faq4A": "Sì, l'opzione HTML inserisce i marcatori corretti per l'inclusione immediata nel codice sorgente web.",
-      "step1Title": "Scegli la dimensione del testo fittizio",
-      "step1Body": "Seleziona il quantitativo di paragrafi o parole necessari per la bozza grafica.",
-      "step2Title": "Genera il testo segnaposto",
-      "step2Body": "Fai clic su Genera per comporre frasi in latino classico con spaziatura equilibrata.",
-      "step3Title": "Riporta il testo nel progetto visivo",
-      "step3Body": "Fai clic su Copia per trasferire i paragrafi direttamente nei tuoi modelli grafici."
+      "title": "Generatore di Lorem Ipsum con IA (1000 Caratteri e Parole)",
+      "subtitle": "Genera quantità esatte di caratteri (1000 caratteri), parole, tag HTML e testo fittizio contestuale con IA per bozzetti di progettazione grafica.",
+      "aboutText": "Il Generatore di Lorem Ipsum con IA è uno strumento di simulazione visiva e tipografica per grafici, sviluppatori web e progettisti di interfacce. Consente di definire limiti precisi di caratteri (ad esempio esattamente 1000 caratteri per collaudare contenitori di testo), conteggi di parole su misura e formati strutturati come HTML, Markdown e JSON. I testi fittizi tematici dedicati a tecnologia, commercio ed economia donano un aspetto realistico a ogni bozza.",
+      "feature1": "Controllo Esatto di Caratteri e Parole: Genera con precisione 1000 caratteri, 500 parole o misure personalizzate con contatori in tempo reale.",
+      "feature2": "Testo Fittizio Contestuale con IA: Passa dal latino ciceroniano a tematiche su tecnologia cloud, vendite online, finanza e medicina.",
+      "feature3": "Esportazione in HTML e Markdown: Racchiudi i paragrafi in tag <p>, elenchi puntati <ul><li> o intestazioni Markdown con un solo tocco.",
+      "feature4": "Copia e Download Immediati: Salva negli appunti di sistema o scarica file autonomi in formato .txt, .html o .json.",
+      "step1Title": "Scegli Unità e Argomento",
+      "step1Body": "Seleziona se calcolare per caratteri (es. 1000), parole o paragrafi e scegli l'argomento più coerente con il tuo progetto.",
+      "step2Title": "Imposta il Formato di Uscita",
+      "step2Body": "Scegli tra testo normale, HTML o Markdown, attivando se desideri l'apertura tradizionale in latino.",
+      "step3Title": "Copia o Esporta il File",
+      "step3Body": "Verifica le metriche in tempo reale, copia il testo negli appunti o scarica il file pronto per il tuo programma grafico.",
+      "faq1Q": "È possibile generare esattamente 1000 caratteri di testo segnaposto?",
+      "faq1A": "Sì! Impostando l'unità 'Caratteri' a 1000 (o premendo il pulsante rapido), il sistema crea un testo ritagliato con esattezza sulle tue esigenze di spazio.",
+      "faq2Q": "Qual è il vantaggio dei testi tematici rispetto al latino convenzionale?",
+      "faq2A": "Il latino tradizionale può disorientare i committenti durante le presentazioni. I contenuti contestuali simulano frasi realistiche rendendo immediata la comprensione della struttura grafica.",
+      "faq3Q": "Posso generare il testo già inserito nei tag di paragrafo HTML?",
+      "faq3A": "Certamente. Selezionando il formato 'HTML', ogni blocco viene racchiuso nei tag <p> e le liste nei tag <ul><li>, pronti da incollare nel codice sorgente.",
+      "faq4Q": "Il testo generato è utilizzabile liberamente per scopi commerciali?",
+      "faq4A": "Sì. Tutto il testo prodotto è totalmente libero da diritti e utilizzabile senza limitazioni in progetti personali o professionali."
     },
     "markdownToHtml": {
       "title": "Convertitore Markdown in HTML in Tempo Reale con IA e HTML in Markdown",

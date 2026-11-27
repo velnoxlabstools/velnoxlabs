@@ -386,8 +386,8 @@
       "description": "Outil IA gratuit en ligne pour passer en casse phrase, titre, majuscules dans Excel ou minuscules dans Word instantanément avec plus de 12 styles."
     },
     "lorem-ipsum": {
-      "name": "Générateur de Faux Texte Lorem Ipsum (1000 Characters & Word)",
-      "description": "Créez du texte de remplissage classique en latin pour documents Word, maquettes visuelles et mises en page."
+      "name": "Générateur de Lorem Ipsum avec IA (1000 Caractères et Mots) – Faux-Texte et Balises HTML",
+      "description": "Générateur gratuit de Lorem Ipsum avec IA (1000 caractères et comptage de mots). Créez du faux-texte en latin classique, du contenu thématique et des balises HTML."
     },
     "text-diff-checker": {
       "name": "Comparateur de Texte IA Gratuit en Ligne – Diff Checker & Similarité",
@@ -1193,28 +1193,27 @@
       "step3Body": "Découvrez la mensualité constante, le coût des intérêts et l'échéancier détaillé."
     },
     "loremIpsum": {
-      "aboutText": "Générateur de faux-texte Lorem Ipsum avec réglages avancés par paragraphes, phrases, nombre de mots et latin traditionnel.",
-      "feature1": "Génération sur mesure par paragraphes complets, phrases indépendantes ou éléments de liste.",
-      "feature2": "Choix entre l'ouverture canonique 'Lorem ipsum dolor sit amet' ou une composition aléatoire.",
-      "feature3": "Inclusion optionnelle de balises HTML (<p>, <li>, <h1>) pour les développeurs web.",
-      "feature4": "Compteur de mots et de caractères en temps réel avec copie directe vers le presse-papiers.",
-      "step1": "Choisissez l'unité de texte souhaitée (paragraphes, phrases ou volume de mots).",
-      "step2": "Définissez la quantité requise et sélectionnez l'activation des balises HTML si utile.",
-      "step3": "Copiez le faux-texte obtenu pour l'intégrer directement dans vos maquettes graphiques.",
-      "faq1Q": "D'où provient historiquement le texte original Lorem Ipsum ?",
-      "faq1A": "Il tire ses origines d'un traité de Cicéron rédigé en 45 avant J.-C., 'De finibus bonorum et malorum', remanié par des imprimeurs au XVIe siècle.",
-      "faq2Q": "Pourquoi privilégier un faux-texte lors de la phase de conception visuelle ?",
-      "faq2A": "Il permet d'apprécier l'équilibre typographique et la mise en page sans que l'attention soit détournée par le sens des écrits.",
-      "faq3Q": "Les phrases générées ont-elles une signification en latin ?",
-      "faq3A": "Non, les mots originaux ont été sciemment déstructurés de sorte qu'ils ne forment aucun sens littéraire.",
-      "faq4Q": "Peut-on exporter directement le résultat balisé en HTML ?",
-      "faq4A": "Oui, l'option HTML intègre les balises de paragraphe ou d'énumération prêtes pour votre code source.",
-      "step1Title": "Déterminez le volume de faux-texte",
-      "step1Body": "Sélectionnez le nombre de paragraphes ou de mots souhaité pour vos maquettes.",
-      "step2Title": "Générez le texte de remplissage",
-      "step2Body": "Cliquez sur \"Générer\" pour obtenir un faux-texte soigné en latin traditionnel.",
-      "step3Title": "Copiez le texte vers vos créations",
-      "step3Body": "Cliquez sur \"Copier\" pour intégrer les paragraphes dans Figma ou vos gabarits."
+      "title": "Générateur de Lorem Ipsum avec IA (1000 Caractères et Mots)",
+      "subtitle": "Générez un nombre précis de caractères (1000 caractères), de mots, des balises HTML et du faux-texte contextuel avec IA pour vos maquettes de conception.",
+      "aboutText": "Le Générateur de Lorem Ipsum avec IA est un moteur typographique moderne conçu pour les créateurs de sites web et graphistes. Il permet de définir un calibrage précis au caractère près (comme 1000 caractères pour tester la taille des blocs de texte), un comptage exact de mots et des formats structurés en HTML, Markdown ou JSON. Ses thématiques intelligentes adaptées aux technologies, au commerce et à la santé offrent un rendu réaliste et professionnel à vos présentations.",
+      "feature1": "Calibrage Précis au Caractère et au Mot : Générez exactement 1000 caractères, 500 mots ou un volume personnalisé avec statistiques en direct.",
+      "feature2": "Faux-Texte Contextuel avec IA : Choisissez entre le latin cicéronien classique, la technologie moderne, le commerce en ligne et la finance.",
+      "feature3": "Formatage HTML et Markdown : Encadrez vos paragraphes de balises <p>, de puces <ul><li> ou de titres Markdown en un clic.",
+      "feature4": "Copie et Téléchargement Immédiats : Copiez dans le presse-papiers ou téléchargez un document prêt à l'emploi en .txt, .html ou .json.",
+      "step1Title": "Définissez l'Unité et le Thème",
+      "step1Body": "Choisissez de générer par caractères (ex. 1000), par mots ou par paragraphes, puis sélectionnez l'univers thématique voulu.",
+      "step2Title": "Configurez le Format de Balisage",
+      "step2Body": "Optez pour du texte brut, du code HTML ou du Markdown, et activez la phrase classique latine selon vos besoins.",
+      "step3Title": "Copiez ou Exportez le Fichier",
+      "step3Body": "Consultez le compteur de mots et de signes en direct, puis copiez ou enregistrez le document pour intégrer vos maquettes.",
+      "faq1Q": "Ce générateur permet-il d'obtenir exactement 1000 caractères de faux-texte ?",
+      "faq1A": "Oui ! En sélectionnant l'unité 'Caractères' avec la valeur 1000 (ou via le bouton d'accès rapide), le texte est calculé pour correspondre exactement à votre encombrement.",
+      "faq2Q": "Quel est l'intérêt du faux-texte contextuel par rapport au latin classique ?",
+      "faq2A": "Le latin classique déconcerte souvent les commanditaires lors des revues de maquettes. Les faux-textes thématiques simulent un contenu crédible et mettent en valeur la mise en page.",
+      "faq3Q": "Puis-je générer du texte directement entouré de balises HTML ?",
+      "faq3A": "Oui. Le format 'HTML' insère automatiquement des balises <p> pour les paragraphes et <ul><li> pour les listes, prêts pour votre code source.",
+      "faq4Q": "Ce texte peut-il être utilisé dans des projets commerciaux ?",
+      "faq4A": "Oui. L'ensemble des textes générés relève du domaine public ou de créations libres, utilisables sans restriction pour tous vos projets professionnels."
     },
     "markdownToHtml": {
       "title": "Convertisseur Markdown en HTML en Direct avec IA & HTML en Markdown",

@@ -379,8 +379,8 @@
       "description": "Free AI sentence case converter and title case text tool online. Convert small letter to capital in Excel, change uppercase to lowercase in Word, and transform text across 12+ case formats instantly."
     },
     "lorem-ipsum": {
-      "name": "Lorem Ipsum Generator (1000 Characters & Word)",
-      "description": "Free Lorem Ipsum generator (1000 characters & Word) to create custom dummy text, character counts, and classical Latin paragraphs for mockups."
+      "name": "AI Lorem Ipsum Generator (1000 Characters & Word) – Contextual Dummy Text & HTML Tags",
+      "description": "Free AI Lorem Ipsum generator (1000 characters & word count). Generate custom Latin dummy text, modern tech/business placeholder copy, HTML tags, and markdown for mockups."
     },
     "text-diff-checker": {
       "name": "AI Text Difference Checker Online Free – Diff Checker & Text Compare",
@@ -1151,25 +1151,27 @@
       "faq4A": "No. All calculations run strictly in your local browser memory; no loan amounts or interest rates are saved on external servers."
     },
     "loremIpsum": {
-      "aboutText": "The Lorem Ipsum Dummy Text Generator is an essential typography and UI/UX design utility that generates classical Latin placeholder text derived from Cicero's 45 BC treatise \"De Finibus Bonorum et Malorum\". Graphic designers, web developers, content creators, and typesetters rely on natural letter distributions and word variations to focus viewers on visual layout, typography hierarchy, and spacing without the distraction of meaningful copy.",
-      "feature1": "Configurable Paragraph Length: Generate 1 to 20 balanced paragraphs of randomized classical dummy text on demand",
-      "feature2": "Natural Letter Distribution: Emulates real sentence and paragraph flow to accurately test font metrics and line wrapping",
-      "feature3": "Instant Regeneration: Re-roll fresh placeholder content with a single click to test dynamic layout behaviors",
-      "feature4": "Quick Clipboard Copy: One-click copying exports generated paragraphs cleanly formatted without trailing markup",
-      "step1Title": "Choose Paragraph Count",
-      "step1Body": "Select the desired number of placeholder paragraphs needed for your layout or mockup.",
-      "step2Title": "Generate Placeholder Text",
-      "step2Body": "Click \"Generate\" to produce freshly composed, properly punctuated dummy text.",
-      "step3Title": "Copy to Design or Code",
-      "step3Body": "Click \"Copy\" to transfer the generated paragraphs to Figma, Sketch, HTML templates, or CSS testbeds.",
-      "faq1Q": "Where does the text \"Lorem Ipsum\" originate?",
-      "faq1A": "Lorem Ipsum originated from sections 1.10.32 and 1.10.33 of Marcus Tullius Cicero's philosophical work \"De Finibus Bonorum et Malorum\" written in 45 BC, popularized by printers in the 1500s.",
-      "faq2Q": "Why use dummy text instead of real content?",
-      "faq2A": "Placeholder text prevents stakeholders and clients from becoming distracted by readable words, focusing attention solely on font hierarchy, visual weight, line spacing, and layout.",
-      "faq3Q": "Does the generated text start with the standard phrase?",
-      "faq3A": "Yes, the opening paragraph begins with the traditional phrase \"Lorem ipsum dolor sit amet, consectetur adipiscing elit...\" followed by natural pseudo-Latin prose.",
-      "faq4Q": "Can I use this text in commercial mockups and websites?",
-      "faq4A": "Yes. Lorem Ipsum is entirely in the public domain and is completely free to use in personal, educational, and commercial projects."
+      "title": "AI Lorem Ipsum Generator (1000 Characters & Word)",
+      "subtitle": "Generate exact character counts (1000 chars), word counts, HTML tags, and contextual AI placeholder text for UI/UX mockups.",
+      "aboutText": "The AI Lorem Ipsum Generator is an advanced typography and layout simulation engine designed for designers, developers, and content strategists. Unlike legacy Latin generators, it supports exact character counts (such as exactly 1000 characters for testing container overflow), custom word limits, and structured markup (HTML, Markdown, JSON). It also features an AI contextual mode that generates realistic dummy copy for tech, e-commerce, corporate finance, and healthcare projects, helping clients visualize production-ready designs without placeholder distraction.",
+      "feature1": "Exact Character & Word Sizing: Generate exactly 1000 characters, 500 words, or custom lengths with live telemetry stats.",
+      "feature2": "Contextual AI Dummy Content: Switch between Classical Cicero Latin, SaaS Tech, E-Commerce, Finance, Medical, and Creative copy.",
+      "feature3": "Clean HTML & Markdown Export: Wrap dummy paragraphs in <p>, <ul><li> bullet lists, or markdown headings with one click.",
+      "feature4": "Instant 1-Click Copy & Download: Copy text directly to your clipboard or download standalone .txt, .html, or .json mock files.",
+      "step1Title": "Choose Unit & Theme",
+      "step1Body": "Select whether to generate by characters (e.g., 1000), words, sentences, or paragraphs, and choose your preferred industry theme.",
+      "step2Title": "Configure Markup & Options",
+      "step2Body": "Pick Plain Text, HTML, or Markdown, and toggle classical opening lines or section headings as needed.",
+      "step3Title": "Copy or Export File",
+      "step3Body": "Check live word and character counters, copy formatted text to your clipboard, or download as a file for your design mockups.",
+      "faq1Q": "Can this generator create exactly 1000 characters of dummy text?",
+      "faq1A": "Yes! By selecting the 'Characters' unit and entering 1000 (or clicking our fast preset), the tool generates clean placeholder text calculated to fit your exact character limit.",
+      "faq2Q": "What is the benefit of AI contextual themes over standard Latin Lorem Ipsum?",
+      "faq2A": "Standard Latin dummy text often confuses clients during design reviews. Our contextual themes generate realistic, industry-relevant copy (such as SaaS features or product descriptions) that closely simulates production layouts.",
+      "faq3Q": "Can I generate Lorem Ipsum wrapped in HTML paragraph tags?",
+      "faq3A": "Yes. Selecting the 'HTML' format automatically wraps paragraphs in <p> tags and bullet lists in <ul><li> elements, ready to paste straight into your frontend code.",
+      "faq4Q": "Is this dummy text free for commercial and client mockups?",
+      "faq4A": "Yes. All generated text, both classical Latin and contextual placeholder copy, is 100% royalty-free and unrestricted for personal, commercial, and client deliverables."
     },
     "markdownToHtml": {
       "title": "AI Markdown to HTML Live Converter & HTML to Markdown",

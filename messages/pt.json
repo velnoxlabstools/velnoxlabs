@@ -386,8 +386,8 @@
       "description": "Ferramenta gratuita de IA online para transformar textos em estilo frase, título, maiúsculas no Excel ou minúsculas no Word com mais de 12 opções."
     },
     "lorem-ipsum": {
-      "name": "Gerador de Lorem Ipsum (1000 Characters & Word)",
-      "description": "Crie texto clássico de preenchimento para documentos do Word, protótipos e diagramações visuais."
+      "name": "Gerador de Lorem Ipsum com IA (1000 Caracteres e Palavras) – Texto Fictício e Tags HTML",
+      "description": "Gerador gratuito de Lorem Ipsum com IA (1000 caracteres e contagem de palavras). Crie texto simulado em latim clássico, conteúdo temático e tags HTML para maquetes."
     },
     "text-diff-checker": {
       "name": "Comparador de Diferenças de Texto IA Grátis – Diff Checker e Similaridade",
@@ -1193,28 +1193,27 @@
       "step3Body": "Verifique a mensalidade constante calculada, os juros totais e copie a previsão."
     },
     "loremIpsum": {
-      "aboutText": "Gerador de texto fictício Lorem Ipsum com parametrização por parágrafos, frases e palavras com vocabulário em latim clássico.",
-      "feature1": "Configuração flexível da extensão por parágrafos, orações, palavras ou tópicos de lista.",
-      "feature2": "Opção de iniciar com o padrão 'Lorem ipsum dolor sit amet' ou com fragmentos aleatórios.",
-      "feature3": "Inclusão facultativa de marcação HTML (<p>, <li>, <h1>) para diagramação de páginas web.",
-      "feature4": "Contador integrado de palavras e caracteres com cópia simples para a área de transferência.",
-      "step1": "Selecione o tipo de unidade de texto necessária (parágrafos, frases ou contagem de palavras).",
-      "step2": "Defina o número de unidades e assinale a opção de tags HTML se pretendido.",
-      "step3": "Copie o texto gerado e aplique-o diretamente na sua maqueta gráfica ou protótipo.",
-      "faq1Q": "Qual é a origem histórica do texto Lorem Ipsum?",
-      "faq1A": "O texto baseia-se em passagens da obra 'De finibus bonorum et malorum' de Cícero (45 a.C.), rearranjadas por tipógrafos quinhentistas.",
-      "faq2Q": "Por que motivo se utiliza texto de preenchimento em fases de design?",
-      "faq2A": "Evita que leitores se distraiam com o sentido do texto, permitindo focar a atenção na tipografia e no equilíbrio visual do layout.",
-      "faq3Q": "O texto gerado tem algum significado inteligível?",
-      "faq3A": "Não, as palavras latinas foram desestruturadas para que não formem orações com sentido gramatical coerente.",
-      "faq4Q": "É possível exportar o texto formatado com elementos HTML prontos?",
-      "faq4A": "Sim, a opção de saída em HTML insere tags estruturais como parágrafos e listas prontas a usar no seu código.",
-      "step1Title": "Selecione a quantidade de texto",
-      "step1Body": "Escolha o número de parágrafos ou palavras simuladas para o seu mockup visual.",
-      "step2Title": "Gere os parágrafos de preenchimento",
-      "step2Body": "Clique em \"Gerar\" para obter texto latino com pontuação e cadência adequadas.",
-      "step3Title": "Copie para o design ou código",
-      "step3Body": "Clique em \"Copiar\" para aplicar o texto diretamente no Figma ou nos seus ficheiros web."
+      "title": "Gerador de Lorem Ipsum com IA (1000 Caracteres e Palavras)",
+      "subtitle": "Gere quantidades exatas de caracteres (1000 caracteres), palavras, tags HTML e texto simulado contextual com IA para maquetes e protótipos visuais.",
+      "aboutText": "O Gerador de Lorem Ipsum com IA é um mecanismo tipográfico avançado para desenhistas de interfaces, programadores e redatores. Ele permite definir limites rigorosos de caracteres (como 1000 caracteres exatos para testar quebras de linha), quantidades personalizadas de palavras e formatos estruturados em HTML, Markdown ou JSON. Os temas contextuais para tecnologia, comércio virtual e saúde fornecem uma prévia visual autêntica para apresentações a clientes.",
+      "feature1": "Dimensionamento Preciso de Caracteres e Palavras: Produza exatamente 1000 caracteres, 500 palavras ou quantidades sob medida com métricas ao vivo.",
+      "feature2": "Conteúdo Simulado Contextual com IA: Alterne entre latim clássico, tecnologia corporativa, comércio eletrônico, finanças e medicina.",
+      "feature3": "Formatação em HTML e Markdown: Envolva parágrafos em tags <p>, listas com marcadores em <ul><li> ou tópicos Markdown com um só clique.",
+      "feature4": "Cópia e Descarregamento Rápidos: Copie diretamente para a área de transferência ou baixe arquivos em formatos .txt, .html ou .json.",
+      "step1Title": "Defina a Unidade e o Tema",
+      "step1Body": "Escolha se prefere gerar por caracteres (ex.: 1000), palavras ou parágrafos, e selecione o assunto adequado à sua maquete.",
+      "step2Title": "Configure o Formato de Marcação",
+      "step2Body": "Opte por texto simples, código HTML ou Markdown, ativando o início clássico em latim conforme sua preferência.",
+      "step3Title": "Copie ou Baixe o Arquivo",
+      "step3Body": "Acompanhe as estatísticas de contagem em tempo real, copie para a área de transferência ou descarregue o documento.",
+      "faq1Q": "Este gerador consegue produzir exatamente 1000 caracteres de texto simulado?",
+      "faq1A": "Sim! Ao selecionar a unidade 'Caracteres' e digitar 1000 (ou clicar no atalho rápido), o texto é ajustado com precisão métrica para o seu espaço visual.",
+      "faq2Q": "Qual é a vantagem do texto contextual sobre o latim clássico?",
+      "faq2A": "O latim genérico pode causar dúvidas em reuniões de aprovação com clientes. O conteúdo contextual simula vocabulário realista de produtos e serviços, valorizando a arquitetura da página.",
+      "faq3Q": "Posso obter parágrafos já encapsulados em tags HTML?",
+      "faq3A": "Sim. No formato 'HTML', os blocos de texto recebem automaticamente marcações <p> e as listas ganham tags <ul><li> prontas para o código web.",
+      "faq4Q": "Posso utilizar este texto em projetos comerciais sem restrições?",
+      "faq4A": "Sim. Todos os textos criados são inteiramente livres de direitos autorais e podem ser empregados em trabalhos pessoais, acadêmicos ou comerciais."
     },
     "markdownToHtml": {
       "title": "Conversor de Markdown para HTML em Tempo Real com IA e HTML para Markdown",
