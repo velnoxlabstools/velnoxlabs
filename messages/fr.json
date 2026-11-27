@@ -493,8 +493,8 @@
       "description": "Outil en ligne gratuit pour calculer remises, taxes et GST. Déterminez les prix réduits, l'économie réalisée et les offres cumulées dans toutes les devises."
     },
     "compound-interest-calculator": {
-      "name": "Calculateur d'Intérêts Composés Inde (SBI, SIP, Mensuel et Quotidien)",
-      "description": "Calculateur gratuit d'intérêts composés pour l'Inde. Estimez vos rendements sur les dépôts SBI, contrats HDFC Life et plans SIP avec capitalisation quotidienne, mensuelle et annuelle."
+      "name": "Calculateur d'Intérêts Composés",
+      "description": "Calculez les intérêts composés, l'accumulation de patrimoine et le rendement réel corrigé de l'inflation avec versements périodiques."
     },
     "loan-emi-calculator": {
       "name": "Calculateur de Prêt – Mensualités Immo, Auto et Personnel",

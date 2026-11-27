@@ -486,8 +486,8 @@
       "description": "Free online Discount Calculator with GST & Tax and Percentage Discount Calculator. Calculate sale prices, customer savings, and stacked percentage discounts instantly in any currency."
     },
     "compound-interest-calculator": {
-      "name": "Compound Interest Calculator India (SBI, SIP, Monthly & Daily)",
-      "description": "Free compound interest calculator India. Calculate returns on SBI fixed deposits, SIP mutual funds, and HDFC Life savings with daily, monthly, and yearly compounding."
+      "name": "Compound Interest Calculator",
+      "description": "Calculate compound interest, wealth growth, and inflation-adjusted returns with monthly contributions and annual amortization schedules."
     },
     "loan-emi-calculator": {
       "name": "Loan EMI Calculator – Home Loan, Car Loan & Personal Loan EMI (With Prepayment & Schedule)",

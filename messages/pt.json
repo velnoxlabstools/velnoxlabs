@@ -493,8 +493,8 @@
       "description": "Utilitário online gratuito para calcular descontos com taxas e GST. Descubra preços promocionais, valor economizado e liquidações em qualquer moeda."
     },
     "compound-interest-calculator": {
-      "name": "Calculadora de Juros Compostos Índia (SBI, SIP, Mensal e Diário)",
-      "description": "Calculadora gratuita de juros compostos para a Índia. Simule retornos em depósitos do SBI, apólices da HDFC Life e planos de investimento SIP com capitalização diária, mensal e anual."
+      "name": "Calculadora de Juros Compostos",
+      "description": "Calcule juros compostos, evolução patrimonial e rendimento real ajustado pela inflação com aportes regulares e tabela anual."
     },
     "loan-emi-calculator": {
       "name": "Calculadora de Empréstimo – Financiamento Imobiliário e Auto",

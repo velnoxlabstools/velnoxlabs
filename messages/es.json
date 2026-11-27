@@ -493,8 +493,8 @@
       "description": "Herramienta online gratuita para calcular descuentos con impuestos y GST. Determina precios rebajados, ahorro real y promociones acumuladas en cualquier divisa."
     },
     "compound-interest-calculator": {
-      "name": "Calculadora de Interés Compuesto India (SBI, SIP, Mensual y Diario)",
-      "description": "Calculadora gratuita de interés compuesto para la India. Proyecta rendimientos para depósitos en SBI, planes de ahorro HDFC Life y fondos SIP con capitalización diaria, mensual y anual."
+      "name": "Calculadora de Interés Compuesto",
+      "description": "Calcule el interés compuesto, el crecimiento del capital y los rendimientos ajustados a la inflación con aportes periódicos y cronograma anual."
     },
     "loan-emi-calculator": {
       "name": "Calculadora de Cuotas de Préstamo – Hipoteca, Auto y Personal",

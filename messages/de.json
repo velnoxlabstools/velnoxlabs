@@ -493,8 +493,8 @@
       "description": "Kostenloser Online-Rabattrechner mit Steuern und GST. Ermittle Sonderpreise, reale Ersparnisse und kombinierte Prozentsätze in jeder Währung."
     },
     "compound-interest-calculator": {
-      "name": "Zinseszinsrechner Indien (SBI, SIP, Monatlich & Täglich)",
-      "description": "Kostenloser Zinseszinsrechner für Indien. Ermitteln Sie Erträge für SBI-Festgelder, HDFC Life-Sparpläne und SIP-Fonds mit täglicher, monatlicher und jährlicher Verzinsung."
+      "name": "Zinseszinsrechner",
+      "description": "Berechnen Sie Zinseszins, Vermögenszuwachs und inflationsbereinigte Renditen mit monatlichen Sparraten und Tilgungsplan."
     },
     "loan-emi-calculator": {
       "name": "Kreditrechner – Monatsrate für Immobilien-, Auto- & Ratenkredit",
