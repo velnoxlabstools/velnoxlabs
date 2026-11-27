@@ -1714,14 +1714,11 @@ export const tools: Tool[] = [
   {
     id: 'tool-bmi',
     slug: 'bmi-calculator',
-    name: 'AI BMI Calculator & Visualizer – Male, Female, Age, kg & Feet',
+    name: 'AI BMI Calculator & Body Visualizer – Male, Female, kg, Feet & Age (WHO & Asian Scale)',
     description:
-      'Free AI BMI Calculator & Visualizer for Male, Female, and all ages. Calculate Body Mass Index in kg and feet, kg/cm, or lbs with interactive BMI visualizer, body fat %, ideal weight, and WHO/Asian scale.',
+      'Free AI BMI Calculator & 3D Body Visualizer for Male, Female, and all ages. Calculate Body Mass Index in kg and feet, body fat %, ideal weight, BMR calories, and WHO/Asian scales.',
     categoryId: 'cat-health',
     tags: [
-      'bmi',
-      'health',
-      'calculator',
       'ai bmi calculator female',
       'ai bmi calculator in kg',
       'ai bmi calculator male',
@@ -1730,6 +1727,9 @@ export const tools: Tool[] = [
       'bmi visualizer',
       'bmi calculator women',
       'ai bmi visualizer',
+      'asian bmi calculator',
+      'body mass index calculator',
+      'ideal weight calculator',
     ],
     status: 'published',
     featured: false,

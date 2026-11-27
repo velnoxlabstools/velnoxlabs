@@ -5,15 +5,26 @@ import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
-import { Sparkles, Copy, Check, Activity, Scale, Flame, Target, User } from 'lucide-react';
+import {
+  Sparkles,
+  Copy,
+  Check,
+  Activity,
+  Scale,
+  Flame,
+  Target,
+  User,
+  HeartPulse,
+} from 'lucide-react';
 
 type UnitMode = 'kgFeet' | 'metric' | 'imperial';
 type Gender = 'male' | 'female';
 type BmiStandard = 'who' | 'asian';
+type ActivityLevel = 'sedentary' | 'light' | 'moderate' | 'active';
 
 function getBMICategory(bmi: number, standard: BmiStandard) {
-  const normalMax = standard === 'asian' ? 23 : 25;
-  const overMax = standard === 'asian' ? 25 : 30;
+  const normalMax = standard === 'asian' ? 22.9 : 24.9;
+  const overMax = standard === 'asian' ? 24.9 : 29.9;
 
   if (bmi < 18.5) {
     return {
@@ -23,7 +34,7 @@ function getBMICategory(bmi: number, standard: BmiStandard) {
       border: 'rgba(59, 130, 246, 0.4)',
     };
   }
-  if (bmi < normalMax) {
+  if (bmi <= normalMax) {
     return {
       key: 'normalWeight' as const,
       color: '#34d399',
@@ -31,7 +42,7 @@ function getBMICategory(bmi: number, standard: BmiStandard) {
       border: 'rgba(16, 185, 129, 0.4)',
     };
   }
-  if (bmi < overMax) {
+  if (bmi <= overMax) {
     return {
       key: 'overweight' as const,
       color: '#fbbf24',
@@ -54,6 +65,7 @@ export default function BmiCalculatorPage() {
   const [gender, setGender] = useState<Gender>('male');
   const [age, setAge] = useState('25');
   const [standard, setStandard] = useState<BmiStandard>('who');
+  const [activity, setActivity] = useState<ActivityLevel>('sedentary');
 
   const [weightKg, setWeightKg] = useState('70');
   const [heightCm, setHeightCm] = useState('175');
@@ -61,6 +73,44 @@ export default function BmiCalculatorPage() {
   const [heightFt, setHeightFt] = useState('5');
   const [heightIn, setHeightIn] = useState('9');
   const [copied, setCopied] = useState(false);
+
+  // Synchronize when switching units
+  const handleUnitChange = (newUnit: UnitMode) => {
+    if (newUnit === unit) return;
+
+    if (newUnit === 'metric') {
+      if (unit === 'kgFeet') {
+        const totalInches = (parseFloat(heightFt) || 0) * 12 + (parseFloat(heightIn) || 0);
+        setHeightCm(Math.round(totalInches * 2.54).toString());
+      } else {
+        // from imperial
+        const kg = Math.round((parseFloat(weightLbs) || 0) * 0.453592);
+        const totalInches = (parseFloat(heightFt) || 0) * 12 + (parseFloat(heightIn) || 0);
+        setWeightKg(kg.toString());
+        setHeightCm(Math.round(totalInches * 2.54).toString());
+      }
+    } else if (newUnit === 'kgFeet') {
+      if (unit === 'metric') {
+        const totalInches = (parseFloat(heightCm) || 0) / 2.54;
+        setHeightFt(Math.floor(totalInches / 12).toString());
+        setHeightIn(Math.round(totalInches % 12).toString());
+      } else {
+        // from imperial
+        const kg = Math.round((parseFloat(weightLbs) || 0) * 0.453592);
+        setWeightKg(kg.toString());
+      }
+    } else {
+      // to imperial
+      const lbs = Math.round((parseFloat(weightKg) || 0) / 0.453592);
+      setWeightLbs(lbs.toString());
+      if (unit === 'metric') {
+        const totalInches = (parseFloat(heightCm) || 0) / 2.54;
+        setHeightFt(Math.floor(totalInches / 12).toString());
+        setHeightIn(Math.round(totalInches % 12).toString());
+      }
+    }
+    setUnit(newUnit);
+  };
 
   const metrics = useMemo(() => {
     let weightInKg = 0;
@@ -92,7 +142,7 @@ export default function BmiCalculatorPage() {
     const healthyMinKg = 18.5 * heightInM * heightInM;
     const healthyMaxKg = normalUpper * heightInM * heightInM;
 
-    // Deurenberg Body Fat % estimate
+    // Deurenberg Body Fat % formula
     const sexFactor = gender === 'male' ? 1 : 0;
     const bodyFatPct = Math.max(
       3,
@@ -110,6 +160,15 @@ export default function BmiCalculatorPage() {
         10 * weightInKg + 6.25 * heightInCm - 5 * parsedAge + (gender === 'male' ? 5 : -161)
       )
     );
+
+    // Activity multiplier for TDEE
+    const activityMultipliers: Record<ActivityLevel, number> = {
+      sedentary: 1.2,
+      light: 1.375,
+      moderate: 1.55,
+      active: 1.725,
+    };
+    const tdee = Math.round(bmr * activityMultipliers[activity]);
 
     // Weight delta to reach healthy range
     let deltaKg = 0;
@@ -132,10 +191,11 @@ export default function BmiCalculatorPage() {
       bodyFatPct,
       idealKg,
       bmr,
+      tdee,
       deltaKg,
       deltaType,
     };
-  }, [unit, weightKg, heightCm, weightLbs, heightFt, heightIn, age, gender, standard]);
+  }, [unit, weightKg, heightCm, weightLbs, heightFt, heightIn, age, gender, standard, activity]);
 
   const category = metrics ? getBMICategory(metrics.bmi, standard) : null;
 
@@ -152,7 +212,7 @@ export default function BmiCalculatorPage() {
     return ((clamped - minBmi) / (maxBmi - minBmi)) * 100;
   }, [metrics]);
 
-  // SVG Silhouette torso width multiplier based on BMI
+  // SVG Silhouette torso scaling based on BMI and gender
   const torsoScale = useMemo(() => {
     if (!metrics) return 1;
     const clamped = Math.max(15, Math.min(38, metrics.bmi));
@@ -167,7 +227,8 @@ ${t('genderLabel')}: ${gender === 'male' ? t('male') : t('female')} | ${t('ageLa
 ${t('healthyRangeLabel')}: ${formatWeight(metrics.healthyMinKg)} - ${formatWeight(metrics.healthyMaxKg)}
 ${t('bodyFatLabel')}: ${metrics.bodyFatPct.toFixed(1)}%
 ${t('idealWeightLabel')}: ${formatWeight(metrics.idealKg)}
-${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
+${t('bmrLabel')}: ${metrics.bmr} kcal/day
+${t('tdeeLabel')}: ${metrics.tdee} kcal/day`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -185,9 +246,10 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
             borderRadius: '14px',
             padding: '24px',
             marginTop: 'var(--space-6)',
+            marginBottom: '24px',
           }}
         >
-          {/* Unit Mode Toggle (kg + ft/in, Metric kg/cm, Imperial lbs/ft) */}
+          {/* Unit Mode Toggle: kg & Feet (India #1), Metric (kg/cm), Imperial (lbs/ft) */}
           <div
             style={{
               display: 'grid',
@@ -206,7 +268,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
               <button
                 key={opt.id}
                 type="button"
-                onClick={() => setUnit(opt.id)}
+                onClick={() => handleUnitChange(opt.id)}
                 style={{
                   backgroundColor: unit === opt.id ? 'rgba(59, 130, 246, 0.2)' : 'var(--bg-page)',
                   color: unit === opt.id ? '#60a5fa' : 'var(--text-muted)',
@@ -227,17 +289,18 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
             ))}
           </div>
 
-          {/* Gender, Age & Standard Row */}
+          {/* Gender, Age & Standard Configuration Strip */}
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
               gap: '14px',
-              marginBottom: '18px',
+              marginBottom: '20px',
               paddingBottom: '18px',
               borderBottom: '1px solid var(--border-color)',
             }}
           >
+            {/* Gender Toggle */}
             <div>
               <label
                 style={{
@@ -282,19 +345,35 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
               </div>
             </div>
 
+            {/* Age Input & Slider */}
             <div>
-              <label
+              <div
                 style={{
-                  color: 'var(--text-main)',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  display: 'block',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                   marginBottom: '6px',
                 }}
               >
-                {t('ageLabel')}
-              </label>
+                <label
+                  htmlFor="age-input"
+                  style={{ color: 'var(--text-main)', fontSize: '0.82rem', fontWeight: 600 }}
+                >
+                  {t('ageLabel')}
+                </label>
+                <span
+                  style={{
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    color: '#a78bfa',
+                    fontFamily: 'monospace',
+                  }}
+                >
+                  {age} yrs
+                </span>
+              </div>
               <input
+                id="age-input"
                 type="number"
                 min={2}
                 max={120}
@@ -307,15 +386,25 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   color: 'var(--text-main)',
-                  padding: '10px 12px',
-                  fontSize: '0.95rem',
+                  padding: '8px 12px',
+                  fontSize: '0.92rem',
                   fontWeight: 700,
                   outline: 'none',
                   fontFamily: 'monospace',
+                  marginBottom: '4px',
                 }}
+              />
+              <input
+                type="range"
+                min={2}
+                max={90}
+                value={parseInt(age, 10) || 25}
+                onChange={(e) => setAge(e.target.value)}
+                style={{ width: '100%', accentColor: '#a78bfa', cursor: 'pointer' }}
               />
             </div>
 
+            {/* WHO vs Asian Standards */}
             <div>
               <label
                 style={{
@@ -349,202 +438,344 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
             </div>
           </div>
 
-          {/* Weight & Height Inputs */}
-          {unit === 'metric' ? (
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-                gap: '16px',
-                marginBottom: '24px',
-              }}
-            >
-              <div>
-                <label
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {t('weightKg')}
-                </label>
-                <input
-                  type="number"
-                  value={weightKg}
-                  onChange={(e) => setWeightKg(e.target.value)}
-                  placeholder={t('placeholderWeightKg')}
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
-              </div>
-              <div>
-                <label
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {t('heightCm')}
-                </label>
-                <input
-                  type="number"
-                  value={heightCm}
-                  onChange={(e) => setHeightCm(e.target.value)}
-                  placeholder={t('placeholderHeightCm')}
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
-              </div>
-            </div>
-          ) : (
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                gap: '16px',
-                marginBottom: '24px',
-              }}
-            >
-              <div>
-                <label
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {unit === 'kgFeet' ? t('weightKg') : t('weightLbs')}
-                </label>
-                <input
-                  type="number"
-                  value={unit === 'kgFeet' ? weightKg : weightLbs}
-                  onChange={(e) =>
-                    unit === 'kgFeet' ? setWeightKg(e.target.value) : setWeightLbs(e.target.value)
-                  }
-                  placeholder={
-                    unit === 'kgFeet' ? t('placeholderWeightKg') : t('placeholderWeightLbs')
-                  }
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
-              </div>
-              <div>
-                <label
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {t('heightFeet')}
-                </label>
-                <input
-                  type="number"
-                  value={heightFt}
-                  onChange={(e) => setHeightFt(e.target.value)}
-                  placeholder={t('placeholderHeightFeet')}
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
-              </div>
-              <div>
-                <label
-                  style={{
-                    color: 'var(--text-main)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {t('heightInches')}
-                </label>
-                <input
-                  type="number"
-                  value={heightIn}
-                  onChange={(e) => setHeightIn(e.target.value)}
-                  placeholder={t('placeholderHeightInches')}
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'var(--bg-page)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
-                    color: 'var(--text-main)',
-                    padding: '14px',
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    outline: 'none',
-                    fontFamily: 'monospace',
-                  }}
-                />
-              </div>
-            </div>
-          )}
+          {/* Weight & Height Inputs with Synchronized Interactive Sliders */}
+          <div style={{ marginBottom: '24px' }}>
+            {unit === 'metric' ? (
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                  gap: '18px',
+                }}
+              >
+                {/* Weight in kg */}
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <label
+                      htmlFor="weight-kg-input"
+                      style={{ color: 'var(--text-main)', fontSize: '0.85rem', fontWeight: 600 }}
+                    >
+                      {t('weightKg')}
+                    </label>
+                    <span
+                      style={{
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: '#60a5fa',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {weightKg} kg
+                    </span>
+                  </div>
+                  <input
+                    id="weight-kg-input"
+                    type="number"
+                    min="20"
+                    max="250"
+                    step="0.5"
+                    value={weightKg}
+                    onChange={(e) => setWeightKg(e.target.value)}
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '10px 12px',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                      marginBottom: '6px',
+                    }}
+                  />
+                  <input
+                    type="range"
+                    min={30}
+                    max={180}
+                    step={0.5}
+                    value={parseFloat(weightKg) || 70}
+                    onChange={(e) => setWeightKg(e.target.value)}
+                    style={{ width: '100%', accentColor: '#3b82f6', cursor: 'pointer' }}
+                  />
+                </div>
 
-          {/* Result & AI BMI Visualizer */}
+                {/* Height in cm */}
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <label
+                      htmlFor="height-cm-input"
+                      style={{ color: 'var(--text-main)', fontSize: '0.85rem', fontWeight: 600 }}
+                    >
+                      {t('heightCm')}
+                    </label>
+                    <span
+                      style={{
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: '#34d399',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {heightCm} cm
+                    </span>
+                  </div>
+                  <input
+                    id="height-cm-input"
+                    type="number"
+                    min="90"
+                    max="240"
+                    value={heightCm}
+                    onChange={(e) => setHeightCm(e.target.value)}
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '10px 12px',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                      marginBottom: '6px',
+                    }}
+                  />
+                  <input
+                    type="range"
+                    min={120}
+                    max={220}
+                    step={1}
+                    value={parseFloat(heightCm) || 170}
+                    onChange={(e) => setHeightCm(e.target.value)}
+                    style={{ width: '100%', accentColor: '#10b981', cursor: 'pointer' }}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                  gap: '16px',
+                }}
+              >
+                {/* Weight input & slider */}
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <label
+                      htmlFor="weight-dual-input"
+                      style={{ color: 'var(--text-main)', fontSize: '0.85rem', fontWeight: 600 }}
+                    >
+                      {unit === 'kgFeet' ? t('weightKg') : t('weightLbs')}
+                    </label>
+                    <span
+                      style={{
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: '#60a5fa',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {unit === 'kgFeet' ? `${weightKg} kg` : `${weightLbs} lbs`}
+                    </span>
+                  </div>
+                  <input
+                    id="weight-dual-input"
+                    type="number"
+                    value={unit === 'kgFeet' ? weightKg : weightLbs}
+                    onChange={(e) =>
+                      unit === 'kgFeet' ? setWeightKg(e.target.value) : setWeightLbs(e.target.value)
+                    }
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '10px 12px',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                      marginBottom: '6px',
+                    }}
+                  />
+                  <input
+                    type="range"
+                    min={unit === 'kgFeet' ? 30 : 65}
+                    max={unit === 'kgFeet' ? 180 : 400}
+                    step={1}
+                    value={
+                      unit === 'kgFeet' ? parseFloat(weightKg) || 70 : parseFloat(weightLbs) || 154
+                    }
+                    onChange={(e) =>
+                      unit === 'kgFeet' ? setWeightKg(e.target.value) : setWeightLbs(e.target.value)
+                    }
+                    style={{ width: '100%', accentColor: '#3b82f6', cursor: 'pointer' }}
+                  />
+                </div>
+
+                {/* Feet slider & input */}
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <label
+                      htmlFor="height-ft-input"
+                      style={{ color: 'var(--text-main)', fontSize: '0.85rem', fontWeight: 600 }}
+                    >
+                      {t('heightFeet')}
+                    </label>
+                    <span
+                      style={{
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: '#34d399',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {heightFt} ft
+                    </span>
+                  </div>
+                  <input
+                    id="height-ft-input"
+                    type="number"
+                    min="3"
+                    max="7"
+                    value={heightFt}
+                    onChange={(e) => setHeightFt(e.target.value)}
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '10px 12px',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                      marginBottom: '6px',
+                    }}
+                  />
+                  <input
+                    type="range"
+                    min={4}
+                    max={7}
+                    step={1}
+                    value={parseInt(heightFt, 10) || 5}
+                    onChange={(e) => setHeightFt(e.target.value)}
+                    style={{ width: '100%', accentColor: '#10b981', cursor: 'pointer' }}
+                  />
+                </div>
+
+                {/* Inches slider & input */}
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <label
+                      htmlFor="height-in-input"
+                      style={{ color: 'var(--text-main)', fontSize: '0.85rem', fontWeight: 600 }}
+                    >
+                      {t('heightInches')}
+                    </label>
+                    <span
+                      style={{
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: '#34d399',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {heightIn} in
+                    </span>
+                  </div>
+                  <input
+                    id="height-in-input"
+                    type="number"
+                    min="0"
+                    max="11"
+                    value={heightIn}
+                    onChange={(e) => setHeightIn(e.target.value)}
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      padding: '10px 12px',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                      marginBottom: '6px',
+                    }}
+                  />
+                  <input
+                    type="range"
+                    min={0}
+                    max={11}
+                    step={1}
+                    value={parseInt(heightIn, 10) || 0}
+                    onChange={(e) => setHeightIn(e.target.value)}
+                    style={{ width: '100%', accentColor: '#10b981', cursor: 'pointer' }}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Results & AI Body Silhouette Visualizer */}
           {metrics && category && (
             <>
               <div
-                className="grid grid-cols-1 md:grid-cols-3 gap-4"
-                style={{ marginBottom: '20px' }}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                  gap: '16px',
+                  marginBottom: '20px',
+                }}
               >
                 {/* Score Card */}
                 <div
-                  className="md:col-span-2"
                   style={{
                     backgroundColor: category.bg,
                     border: `1px solid ${category.border}`,
-                    borderRadius: '12px',
+                    borderRadius: '14px',
                     padding: '28px 24px',
                     textAlign: 'center',
                     display: 'flex',
@@ -568,7 +799,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   <div
                     style={{
                       color: 'var(--text-main)',
-                      fontSize: '3.5rem',
+                      fontSize: '3.6rem',
                       fontWeight: 800,
                       fontFamily: 'monospace',
                       marginBottom: '10px',
@@ -582,22 +813,23 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                       display: 'inline-block',
                       backgroundColor: 'var(--bg-page)',
                       borderRadius: '20px',
-                      padding: '8px 20px',
+                      padding: '8px 22px',
                       color: category.color,
-                      fontSize: '0.98rem',
+                      fontSize: '1rem',
                       fontWeight: 700,
+                      border: `1px solid ${category.border}`,
                     }}
                   >
                     {t(category.key)}
                   </div>
                 </div>
 
-                {/* AI Body Silhouette Visualizer */}
+                {/* AI Body Silhouette Visualizer (Scales Torso, Arms & Hips) */}
                 <div
                   style={{
                     backgroundColor: 'var(--bg-page)',
                     border: '1px solid var(--border-color)',
-                    borderRadius: '12px',
+                    borderRadius: '14px',
                     padding: '16px',
                     display: 'flex',
                     flexDirection: 'column',
@@ -609,82 +841,85 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '5px',
-                      fontSize: '0.78rem',
+                      gap: '6px',
+                      fontSize: '0.82rem',
                       fontWeight: 700,
                       color: '#a78bfa',
                       marginBottom: '8px',
                     }}
                   >
-                    <Sparkles size={13} />
+                    <Sparkles size={14} />
                     <span>{t('visualizerTitle')}</span>
                   </div>
                   <svg
-                    width="96"
-                    height="120"
-                    viewBox="0 0 96 120"
+                    width="100"
+                    height="124"
+                    viewBox="0 0 100 124"
                     aria-label={t('visualizerTitle')}
                   >
                     {/* Head */}
-                    <circle cx="48" cy="18" r="10" fill={category.color} opacity="0.9" />
-                    {/* Torso & Shoulders scaled dynamically by BMI */}
+                    <circle cx="50" cy="18" r="10" fill={category.color} opacity="0.9" />
+
+                    {/* Torso & Shoulders (Contoured for Male vs Female) */}
                     <rect
-                      x={48 - 14 * torsoScale}
+                      x={50 - 15 * torsoScale}
                       y="32"
-                      width={28 * torsoScale}
-                      height="42"
-                      rx={10 * torsoScale}
+                      width={30 * torsoScale}
+                      height="44"
+                      rx={gender === 'female' ? 14 * torsoScale : 8 * torsoScale}
                       fill={category.color}
-                      opacity="0.82"
+                      opacity="0.84"
                     />
+
                     {/* Left & Right Arms */}
                     <rect
-                      x={48 - 14 * torsoScale - 8}
+                      x={50 - 15 * torsoScale - 8}
                       y="34"
                       width="6"
-                      height="34"
-                      rx="3"
-                      fill={category.color}
-                      opacity="0.65"
-                    />
-                    <rect
-                      x={48 + 14 * torsoScale + 2}
-                      y="34"
-                      width="6"
-                      height="34"
-                      rx="3"
-                      fill={category.color}
-                      opacity="0.65"
-                    />
-                    {/* Legs */}
-                    <rect
-                      x={48 - 10 * torsoScale}
-                      y="76"
-                      width={8 * Math.min(1.15, torsoScale)}
                       height="36"
+                      rx="3"
+                      fill={category.color}
+                      opacity="0.65"
+                    />
+                    <rect
+                      x={50 + 15 * torsoScale + 2}
+                      y="34"
+                      width="6"
+                      height="36"
+                      rx="3"
+                      fill={category.color}
+                      opacity="0.65"
+                    />
+
+                    {/* Left & Right Legs */}
+                    <rect
+                      x={50 - 11 * torsoScale}
+                      y="78"
+                      width={9 * Math.min(1.2, torsoScale)}
+                      height="38"
                       rx="4"
                       fill={category.color}
                       opacity="0.75"
                     />
                     <rect
-                      x={48 + 2 * torsoScale}
-                      y="76"
-                      width={8 * Math.min(1.15, torsoScale)}
-                      height="36"
+                      x={50 + 2 * torsoScale}
+                      y="78"
+                      width={9 * Math.min(1.2, torsoScale)}
+                      height="38"
                       rx="4"
                       fill={category.color}
                       opacity="0.75"
                     />
                   </svg>
                   <div
-                    style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px' }}
+                    style={{ fontSize: '0.74rem', color: 'var(--text-muted)', marginTop: '6px' }}
                   >
                     {gender === 'male' ? t('male') : t('female')} · {metrics.parsedAge} yrs
                   </div>
                 </div>
               </div>
 
-              {/* Interactive BMI Scale with Live Pointer */}
+              {/* Interactive BMI Scale with Live Pointer Pin */}
               <div style={{ marginBottom: '22px' }}>
                 <div
                   style={{
@@ -697,7 +932,6 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   {t('bmiScale')}
                 </div>
                 <div style={{ position: 'relative', paddingTop: '10px' }}>
-                  {/* Live Pointer Pin */}
                   <div
                     style={{
                       position: 'absolute',
@@ -724,7 +958,10 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   >
                     <div style={{ flex: 6.5, backgroundColor: '#60a5fa' }} />
                     <div
-                      style={{ flex: standard === 'asian' ? 4.5 : 6.5, backgroundColor: '#34d399' }}
+                      style={{
+                        flex: standard === 'asian' ? 4.5 : 6.5,
+                        backgroundColor: '#34d399',
+                      }}
                     />
                     <div
                       style={{ flex: standard === 'asian' ? 2 : 5, backgroundColor: '#fbbf24' }}
@@ -750,7 +987,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                 </div>
               </div>
 
-              {/* AI Health Metrics Grid */}
+              {/* Health Metrics & Calorie Dashboard Grid */}
               <div
                 style={{
                   display: 'grid',
@@ -759,6 +996,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   marginBottom: '18px',
                 }}
               >
+                {/* Healthy Weight Range */}
                 <div
                   style={{
                     backgroundColor: 'var(--bg-page)',
@@ -793,6 +1031,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   </div>
                 </div>
 
+                {/* Body Fat % */}
                 <div
                   style={{
                     backgroundColor: 'var(--bg-page)',
@@ -827,6 +1066,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   </div>
                 </div>
 
+                {/* Devine Ideal Weight */}
                 <div
                   style={{
                     backgroundColor: 'var(--bg-page)',
@@ -861,6 +1101,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                   </div>
                 </div>
 
+                {/* BMR Calories */}
                 <div
                   style={{
                     backgroundColor: 'var(--bg-page)',
@@ -896,7 +1137,53 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                 </div>
               </div>
 
-              {/* AI Insight Banner */}
+              {/* Daily Energy & TDEE Activity Level Strip */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '10px',
+                  backgroundColor: 'var(--bg-page)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '10px',
+                  padding: '12px 16px',
+                  marginBottom: '18px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <HeartPulse size={16} color="#ec4899" />
+                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {t('activityLevelLabel')}:
+                  </span>
+                  <select
+                    value={activity}
+                    onChange={(e) => setActivity(e.target.value as ActivityLevel)}
+                    style={{
+                      backgroundColor: 'var(--bg-card)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '6px',
+                      color: 'var(--text-main)',
+                      padding: '4px 8px',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      outline: 'none',
+                    }}
+                  >
+                    <option value="sedentary">{t('activitySedentary')}</option>
+                    <option value="light">{t('activityLight')}</option>
+                    <option value="moderate">{t('activityModerate')}</option>
+                    <option value="active">{t('activityActive')}</option>
+                  </select>
+                </div>
+                <div style={{ fontSize: '0.86rem', fontWeight: 700, color: '#ec4899' }}>
+                  {t('tdeeMaintenance')}:{' '}
+                  <span style={{ fontFamily: 'monospace' }}>{metrics.tdee} kcal/day</span>
+                </div>
+              </div>
+
+              {/* AI Health Insight Banner */}
               <div
                 style={{
                   backgroundColor: 'rgba(139, 92, 246, 0.08)',
@@ -936,7 +1223,7 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                 </p>
               </div>
 
-              {/* Copy Button */}
+              {/* Action Button: Copy Summary */}
               <button
                 type="button"
                 onClick={handleCopy}
@@ -958,10 +1245,117 @@ ${t('bmrLabel')}: ${metrics.bmr} kcal/day`;
                 }}
               >
                 {copied ? <Check size={16} /> : <Copy size={16} />}
-                {copied ? t('copied') : t('copyResult')}
+                <span>{copied ? t('copied') : t('copyResult')}</span>
               </button>
             </>
           )}
+        </div>
+
+        {/* COMPARISON TABLE: VelnoxLabs vs Basic Chart vs Clinic DEXA Scan */}
+        <div
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '14px',
+            padding: '24px',
+            marginBottom: '28px',
+            overflowX: 'auto',
+          }}
+        >
+          <h3
+            style={{
+              fontSize: '1.1rem',
+              fontWeight: 700,
+              color: 'var(--text-main)',
+              marginBottom: '16px',
+              textAlign: 'center',
+            }}
+          >
+            {t('compareTitle')}
+          </h3>
+          <table
+            style={{
+              width: '100%',
+              borderCollapse: 'collapse',
+              fontSize: '0.86rem',
+              textAlign: 'left',
+            }}
+          >
+            <thead>
+              <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                <th style={{ padding: '12px', color: 'var(--text-main)', fontWeight: 700 }}>
+                  {t('compareColFeature')}
+                </th>
+                <th style={{ padding: '12px', color: '#60a5fa', fontWeight: 700 }}>
+                  VelnoxLabs AI Visualizer
+                </th>
+                <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  Basic Static BMI Chart
+                </th>
+                <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  Clinical DEXA Scan
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                  {t('compareRow1Feature')}
+                </td>
+                <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                  {t('compareRow1Velnox')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow1Chart')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow1Dexa')}
+                </td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                  {t('compareRow2Feature')}
+                </td>
+                <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                  {t('compareRow2Velnox')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow2Chart')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow2Dexa')}
+                </td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                  {t('compareRow3Feature')}
+                </td>
+                <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                  {t('compareRow3Velnox')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow3Chart')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow3Dexa')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                  {t('compareRow4Feature')}
+                </td>
+                <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                  {t('compareRow4Velnox')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow4Chart')}
+                </td>
+                <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                  {t('compareRow4Dexa')}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <ToolSeoContent
