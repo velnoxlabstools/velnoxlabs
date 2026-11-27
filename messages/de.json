@@ -481,8 +481,8 @@
       "description": "Berechnen Sie Schulnoten, SSLC-Prüfungsergebnisse, Rabatte, Steuern, prozentuale Steigerungen, Differenzen und Excel-Formeln mit KI."
     },
     "random-number-generator": {
-      "name": "Zufallszahlengenerator & Glücksrad – 1-100 Ohne Wiederholung",
-      "description": "Kostenloser Online-Zufallszahlengenerator mit drehbarem Rad (mit Ton), 1-100 ohne Wiederholung, Zahlen ausschließen, Namensauswahl, Lottozahlen und TXT/CSV-Export."
+      "name": "Zufallszahlengenerator & Glücksrad – 1-100 ohne Wiederholungen, Münzwurf & Würfel",
+      "description": "Kostenloser Online-Zufallszahlengenerator mit animiertem Glücksrad, 1-100 ohne Duplikate, virtuellem Münzwurf, dreidimensionalen Würfeln, Namensziehung und Hardware-Entropie."
     },
     "bmi-calculator": {
       "name": "BMI-Rechner mit Körper-Visualisierer (KI) – Männer, Frauen, kg und Größe",
@@ -1584,8 +1584,8 @@
       "faq4A": "Nein. Es handelt sich um statische Standardcodes nach ISO-Vorgaben. Die Zielinformationen sind direkt in das Punktmuster eingearbeitet, sodass sie dauerhaft und frei von laufenden Kosten nutzbar bleiben."
     },
     "randomNumberGenerator": {
-      "title": "Zufallszahlengenerator mit Glücksrad & Liste – Kostenloser KI-Zieher ohne Doppelte",
-      "subtitle": "Ermitteln Sie Zufallszahlen mit interaktivem Glücksrad, ohne Doppelte von 1 bis 100, Namensziehung, Lotto, Dezimalzahlen und Teampaarung.",
+      "title": "Zufallszahlengenerator & Glücksrad – 1-100 ohne Wiederholungen, Münzwurf & Würfel",
+      "subtitle": "Kostenloser Online-Zufallszahlengenerator mit animiertem Glücksrad, 1-100 ohne Duplikate, virtuellem Münzwurf, dreidimensionalen Würfeln, Namensziehung und Hardware-Entropie.",
       "tabNumbers": "Zahlen & Dezimalen",
       "tabWheel": "Interaktives Glücksrad",
       "tabNames": "Namensziehung",
@@ -1684,7 +1684,8 @@
       "faq3Q": "Wie funktioniert das Glücksrad im Vergleich zum Google Spinner?",
       "faq3A": "Unser Rad simuliert die Rotationsphysik direkt im Browser über Canvas. Sie können die Segmentanzahl zwischen 2 und 20 einstellen oder individuelle Teilnehmernamen für Live-Gewinnspiele eintragen.",
       "faq4Q": "Kann das Werkzeug auch Partner für Wichteln oder Lottoscheine zusammenstellen?",
-      "faq4A": "Ja. Es stehen eigene Reiter für Lottoziehungen (Powerball, EuroMillions) mit separaten Zusatzzahlen sowie ein intelligenter Paarungshelfer für Turniere und Geschenkaktionen zur Verfügung."
+      "faq4A": "Ja. Es stehen eigene Reiter für Lottoziehungen (Powerball, EuroMillions) mit separaten Zusatzzahlen sowie ein intelligenter Paarungshelfer für Turniere und Geschenkaktionen zur Verfügung.",
+      "tabDiceCoin": "Würfel & Münzwurf"
     },
     "bmiCalculator": {
       "title": "BMI-Rechner mit Körper-Visualisierer (KI)",

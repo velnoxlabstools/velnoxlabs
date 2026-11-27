@@ -2121,8 +2121,8 @@
       "faq4A": "Nein. Es handelt sich um statische Standardcodes nach ISO-Vorgaben. Die Zielinformationen sind direkt in das Punktmuster eingearbeitet, sodass sie dauerhaft und frei von laufenden Kosten nutzbar bleiben."
     },
     "randomNumberGenerator": {
-      "title": "Zufallszahlengenerator & Glücksrad – 1-100 Ohne Wiederholung",
-      "subtitle": "Zufallszahlen mit drehbarem Rad (mit Ton), 1-100 ohne Wiederholung, Zahlen ausschließen, Namensauswahl, Lottozahlen, Dezimalzahlen und TXT/CSV-Export.",
+      "title": "Zufallszahlengenerator & Glücksrad – 1-100 ohne Wiederholungen, Münzwurf & Würfel",
+      "subtitle": "Kostenloser Online-Zufallszahlengenerator mit animiertem Glücksrad, 1-100 ohne Duplikate, virtuellem Münzwurf, dreidimensionalen Würfeln, Namensziehung und Hardware-Entropie.",
       "tabNumbers": "Zahlen & Dezimalen",
       "tabWheel": "Interaktives Glücksrad",
       "tabNames": "Namensziehung",
@@ -2245,7 +2245,8 @@
       "compareRow4Feature": "Namen, Teams & Lotto",
       "compareRow4Velnox": "6 Werkzeuge auf einer Seite",
       "compareRow4Google": "Nein",
-      "compareRow4Picker": "Getrennte Seiten"
+      "compareRow4Picker": "Getrennte Seiten",
+      "tabDiceCoin": "Würfel & Münzwurf"
     },
     "regexTester": {
       "title": "KI Reguläre Ausdrücke Tester – Generator für Python, Java, C# und JavaScript",

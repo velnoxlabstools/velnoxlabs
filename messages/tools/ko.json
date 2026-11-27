@@ -2122,8 +2122,8 @@
       "faq4A": "아닙니다. 생성된 코드는 표준 고정형(Static) 코드입니다. 데이터가 흑백 도트 패턴에 직접 영구 기록되므로 어떠한 중계 서버도 거치지 않고 평생 무료로 무제한 스캔할 수 있습니다."
     },
     "randomNumberGenerator": {
-      "title": "무작위 숫자 생성기 및 룰렛 – 1-100 중복 없는 추첨",
-      "subtitle": "사운드가 나오는 회전 룰렛, 1-100 중복 없는 추첨, 숫자 제외, 이름 뽑기, 로또 번호, 소수점 및 TXT/CSV 내보내기를 지원합니다.",
+      "title": "무작위 숫자 생성기 및 룰렛 – 1-100 중복 없는 추첨, 동전 던지기 및 주사위",
+      "subtitle": "회전 룰렛(효과음 및 축하 효과), 1-100 중복 없는 추첨, 가상 동전 던지기, 3D 주사위 굴리기, 이름 추첨, 복권 번호 및 하드웨어 암호학적 난수 생성.",
       "tabNumbers": "숫자 및 소수",
       "tabWheel": "회전 룰렛",
       "tabNames": "이름 추첨",
@@ -2246,7 +2246,8 @@
       "compareRow4Feature": "이름, 팀 나누기 & 로또",
       "compareRow4Velnox": "한 페이지에 6가지 기능",
       "compareRow4Google": "미지원",
-      "compareRow4Picker": "별도 페이지"
+      "compareRow4Picker": "별도 페이지",
+      "tabDiceCoin": "주사위 및 동전 던지기"
     },
     "regexTester": {
       "title": "AI 정규식 검사기 및 생성기 – Python, Java, C#, JavaScript 코드 지원",

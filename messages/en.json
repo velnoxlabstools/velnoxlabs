@@ -474,8 +474,8 @@
       "description": "Calculate percentage of marks, SSLC exams, money, percentage increase, differences, and Excel formulas with AI."
     },
     "random-number-generator": {
-      "name": "Random Number Generator & Wheel – 1-100 No Repeats Picker",
-      "description": "Free Random Number Generator online with spinning wheel (with sound), no repeats 1-100, exclude numbers, name picker, lottery numbers, decimals, TXT/CSV export, and CSPRNG randomness."
+      "name": "Random Number Generator & Wheel – 1-100 No Repeats, Coin Flip & AI Picker",
+      "description": "Free Random Number Generator online with spinning wheel (with sound & confetti), 1-100 no repeats, visual coin flip, 3D dice roller, name picker, lottery numbers, decimals, TXT/CSV export, and CSPRNG hardware entropy."
     },
     "bmi-calculator": {
       "name": "AI BMI Calculator & Body Visualizer – Male, Female, kg, Feet & Age (WHO & Asian Scale)",
@@ -1533,8 +1533,8 @@
       "faq4A": "No. All QR codes generated are static and open-standard ISO/IEC 18004 barcodes. The destination data is encoded directly into the pixel modules, meaning they will work permanently and have no scan limits, fees, or redirect latency."
     },
     "randomNumberGenerator": {
-      "title": "Random Number Generator Wheel & List – Free AI No Repeats Picker",
-      "subtitle": "Generate random numbers with spinning wheel, no repeats 1-100, name draw, lottery picks, decimals, and random pairing with cryptographic security.",
+      "title": "Random Number Generator & Wheel – 1-100 No Repeats, Coin Flip & AI Picker",
+      "subtitle": "Free Random Number Generator online with spinning wheel (with sound & confetti), 1-100 no repeats, visual coin flip, 3D dice roller, name picker, lottery numbers, decimals, TXT/CSV export, and CSPRNG hardware entropy.",
       "tabNumbers": "Numbers & Decimals",
       "tabWheel": "Spinner Wheel",
       "tabNames": "Name Picker",
@@ -1633,7 +1633,8 @@
       "faq3Q": "How does the interactive spinner wheel work compared to Google Spinner?",
       "faq3A": "Our spinner wheel uses canvas rotational mechanics with angular velocity deceleration, simulating a real physical prize wheel. You can customize the number of slices (up to 20) or input custom names and numbers for instant lucky draws.",
       "faq4Q": "Can this tool generate lottery numbers and random team pairings?",
-      "faq4A": "Yes. Dedicated modules exist for popular lotteries (Powerball, Mega Millions, EuroMillions) with guaranteed unique white balls and separate bonus balls, as well as an automatic team and pair matcher for Secret Santa, tournaments, and classroom groups."
+      "faq4A": "Yes. Dedicated modules exist for popular lotteries (Powerball, Mega Millions, EuroMillions) with guaranteed unique white balls and separate bonus balls, as well as an automatic team and pair matcher for Secret Santa, tournaments, and classroom groups.",
+      "tabDiceCoin": "Dice & Coin Flip"
     },
     "bmiCalculator": {
       "title": "AI BMI Calculator & Body Visualizer",

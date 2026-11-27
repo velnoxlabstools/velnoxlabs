@@ -481,8 +481,8 @@
       "description": "Calcula porcentajes de notas escolares, exámenes SSLC, dinero, incremento, diferencia entre dos números y fórmulas de Excel con IA."
     },
     "random-number-generator": {
-      "name": "Generador de Números Aleatorios y Ruleta – Sin Repetición 1-100",
-      "description": "Generador gratuito de números aleatorios en línea con ruleta giratoria con sonido, modo sin repetición 1-100, exclusión de números, selector de nombres, lotería y exportación TXT/CSV."
+      "name": "Generador de Números Aleatorios y Ruleta – 1-100 sin Repeticiones, Moneda y Dados",
+      "description": "Generador gratuito de números aleatorios en línea con ruleta animada, 1-100 sin duplicados, lanzamiento de moneda, dados tridimensionales, sorteo de nombres y entropía de hardware."
     },
     "bmi-calculator": {
       "name": "Calculadora de IMC y Visualizador Corporal (IA) – Hombres, Mujeres, kg y Altura",
@@ -1584,8 +1584,8 @@
       "faq4A": "No. Se trata de códigos matriciales estáticos puros. La información queda grabada directamente en los puntos gráficos, por lo que funcionan de por vida sin cuotas ni enlaces intermediarios."
     },
     "randomNumberGenerator": {
-      "title": "Generador de Números Aleatorios con Ruleta y Lista – Selector AI Sin Repetir",
-      "subtitle": "Obtén cifras al azar con ruleta giratoria, sin repeticiones del 1 al 100, sorteo de nombres, loterías, decimales y emparejamientos seguros.",
+      "title": "Generador de Números Aleatorios y Ruleta – 1-100 sin Repeticiones, Moneda y Dados",
+      "subtitle": "Generador gratuito de números aleatorios en línea con ruleta animada, 1-100 sin duplicados, lanzamiento de moneda, dados tridimensionales, sorteo de nombres y entropía de hardware.",
       "tabNumbers": "Números y Decimales",
       "tabWheel": "Ruleta Giratoria",
       "tabNames": "Sorteo de Nombres",
@@ -1684,7 +1684,8 @@
       "faq3Q": "¿En qué se asemeja esta ruleta al selector Google Spinner?",
       "faq3A": "Nuestra ruleta recrea la deceleración física de un disco giratorio sobre lienzo digital Canvas. Permite graduar entre 2 y 20 sectores o bien introducir directamente nombres de personas para premiaciones.",
       "faq4Q": "¿Es posible formar parejas o simular boletos de lotería?",
-      "faq4A": "Totalmente. Incluye paneles específicos para simular boletos de Powerball o EuroMillions distinguiendo bolas principales de complementarias, además de un agrupador para torneos y dinámicas de regalo secreto."
+      "faq4A": "Totalmente. Incluye paneles específicos para simular boletos de Powerball o EuroMillions distinguiendo bolas principales de complementarias, además de un agrupador para torneos y dinámicas de regalo secreto.",
+      "tabDiceCoin": "Dados y lanzamiento de moneda"
     },
     "bmiCalculator": {
       "title": "Calculadora de IMC y Visualizador Corporal (IA)",

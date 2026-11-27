@@ -2121,8 +2121,8 @@
       "faq4A": "Non. Il s'agit de codes statiques purs. Les indications sont directement inscrites dans la disposition des points, ce qui assure un usage perpétuel sans aucun abonnement ni redirection intermédiaire."
     },
     "randomNumberGenerator": {
-      "title": "Générateur de Nombres Aléatoires et Roue – 1-100 Sans Répétition",
-      "subtitle": "Générez des nombres aléatoires avec roue sonore, 1-100 sans répétition, exclusion de nombres, tirage de noms, loterie, décimales et export TXT/CSV.",
+      "title": "Générateur de Nombres Aléatoires et Roue – 1-100 sans Répétition, Pile ou Face et Dés",
+      "subtitle": "Générateur gratuit de nombres aléatoires en ligne avec roue animée, 1-100 sans doublon, tirage à pile ou face, dés tridimensionnels, tirage de noms au sort et entropie matérielle.",
       "tabNumbers": "Nombres & Décimales",
       "tabWheel": "Roue Aléatoire",
       "tabNames": "Tirage de Noms",
@@ -2245,7 +2245,8 @@
       "compareRow4Feature": "Noms, Équipes & Loterie",
       "compareRow4Velnox": "6 Outils en Un",
       "compareRow4Google": "Non",
-      "compareRow4Picker": "Pages séparées"
+      "compareRow4Picker": "Pages séparées",
+      "tabDiceCoin": "Dés et tirage à pile ou face"
     },
     "regexTester": {
       "title": "Testeur d’Expressions Régulières avec IA – Générateur pour Python, Java, C# et JavaScript",

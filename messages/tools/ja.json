@@ -2121,8 +2121,8 @@
       "faq4A": "いいえ、一切ありません。当ツールで生成されるのは白黒のドット自体に情報が直接書き込まれる「静的QRコード」です。外部の中継サーバーを介さないため、永久に無料かつ無制限にご利用いただけます。"
     },
     "randomNumberGenerator": {
-      "title": "乱数生成＆ルーレット – 1〜100 重複なしランダム抽選",
-      "subtitle": "効果音付きルーレット、1〜100の重複なし抽選、除外数字指定、名前抽選、宝くじ番号、小数、TXT/CSVエクスポートに対応。",
+      "title": "乱数生成＆ルーレット – 1〜100 重複なし、コイントス・サイコロ抽選",
+      "subtitle": "効果音と紙吹雪演出付きルーレット、1〜100重複なし抽選、3Dコイントス、サイコロ振り、名前抽選、宝くじ番号、ハードウェア暗号乱数（CSPRNG）対応。",
       "tabNumbers": "数値・小数",
       "tabWheel": "回転ルーレット",
       "tabNames": "名前くじ引き",
@@ -2245,7 +2245,8 @@
       "compareRow4Feature": "名前・チーム・宝くじ抽選",
       "compareRow4Velnox": "6機能を1ページに統合",
       "compareRow4Google": "非対応",
-      "compareRow4Picker": "別ページ"
+      "compareRow4Picker": "別ページ",
+      "tabDiceCoin": "サイコロ・コイントス"
     },
     "regexTester": {
       "title": "AI正規表現チェッカー・生成ツール – Python・Java・C#・JavaScript対応",

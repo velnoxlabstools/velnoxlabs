@@ -2122,8 +2122,8 @@
       "faq4A": "绝无任何限制。本工具生成的是标准的静态原生矩阵码，目标内容直接编译在黑白点阵中，永久有效，不依赖任何跳转中继服务器，终身免费。"
     },
     "randomNumberGenerator": {
-      "title": "随机数生成器与大转盘 – 1-100 不重复随机抽选",
-      "subtitle": "支持带音效幸运大转盘、1-100不重复抽取、排除指定数字、随机抽人名、彩票选号、小数生成及 TXT/CSV 导出。",
+      "title": "随机数生成器与大转盘 – 1-100 不重复、掷硬币与掷骰子",
+      "subtitle": "免费在线随机数生成器，支持带音效转盘、1-100不重复抽号、3D掷硬币、立体掷骰子、随机姓名抽奖、彩票选号及硬件级密码学随机数。",
       "tabNumbers": "数字与小数",
       "tabWheel": "幸运大转盘",
       "tabNames": "姓名抽奖",
@@ -2246,7 +2246,8 @@
       "compareRow4Feature": "抽人名、分组与彩票选号",
       "compareRow4Velnox": "6 合 1 多功能工具",
       "compareRow4Google": "不支持",
-      "compareRow4Picker": "需跳转不同页面"
+      "compareRow4Picker": "需跳转不同页面",
+      "tabDiceCoin": "骰子与掷硬币"
     },
     "regexTester": {
       "title": "AI在线正则表达式测试器 – 支持Python、Java、C#与JavaScript代码生成",

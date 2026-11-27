@@ -2121,8 +2121,8 @@
       "faq4A": "Não. Os códigos produzidos são estáticos e permanentes. Os elementos gráficos guardam as informações de maneira direta, operando indefinidamente sem cobrança de taxas nem dependência de servidores terceiros."
     },
     "randomNumberGenerator": {
-      "title": "Gerador de Números Aleatórios e Roleta – 1-100 Sem Repetição",
-      "subtitle": "Gere números aleatórios com roleta sonora, 1-100 sem repetições, exclusão de números, sorteador de nomes, loteria, decimais e exportação TXT/CSV.",
+      "title": "Gerador de Números Aleatórios e Roleta – 1-100 sem Repetições, Cara ou Coroa e Dados",
+      "subtitle": "Gerador gratuito de números aleatórios online com roleta animada, 1-100 sem repetições, cara ou coroa, dados tridimensionais, sorteio de nomes e entropia segura por hardware.",
       "tabNumbers": "Números e Decimais",
       "tabWheel": "Roleta Giratória",
       "tabNames": "Sorteio de Nomes",
@@ -2245,7 +2245,8 @@
       "compareRow4Feature": "Nomes, Times e Loteria",
       "compareRow4Velnox": "6 Ferramentas em Uma",
       "compareRow4Google": "Não",
-      "compareRow4Picker": "Páginas Separadas"
+      "compareRow4Picker": "Páginas Separadas",
+      "tabDiceCoin": "Dados e cara ou coroa"
     },
     "regexTester": {
       "title": "Testador de Expressões Regulares com IA – Criador para Python, Java, C# e JavaScript",

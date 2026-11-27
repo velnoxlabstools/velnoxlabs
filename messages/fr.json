@@ -481,8 +481,8 @@
       "description": "Calculez le pourcentage de notes scolaires, examens SSLC, opérations financières, hausses, écarts entre deux nombres et formules Excel avec l'IA."
     },
     "random-number-generator": {
-      "name": "Générateur de Nombres Aléatoires et Roue – 1-100 Sans Répétition",
-      "description": "Générateur gratuit de nombres aléatoires en ligne avec roue interactive sonore, tirage 1-100 sans répétition, exclusion de nombres, tirage au sort de noms et export TXT/CSV."
+      "name": "Générateur de Nombres Aléatoires et Roue – 1-100 sans Répétition, Pile ou Face et Dés",
+      "description": "Générateur gratuit de nombres aléatoires en ligne avec roue animée, 1-100 sans doublon, tirage à pile ou face, dés tridimensionnels, tirage de noms au sort et entropie matérielle."
     },
     "bmi-calculator": {
       "name": "Calculateur d’IMC et Silhouette Corporelle (IA) – Homme, Femme, kg et Taille",
@@ -1584,8 +1584,8 @@
       "faq4A": "Non. Il s'agit de codes statiques purs. Les indications sont directement inscrites dans la disposition des points, ce qui assure un usage perpétuel sans aucun abonnement ni redirection intermédiaire."
     },
     "randomNumberGenerator": {
-      "title": "Générateur de Nombres Aléatoires avec Roue & Tirage – Sélecteur IA Sans Répétition",
-      "subtitle": "Obtenez des nombres au hasard avec roue animée, sans doublon de 1 à 100, tirage de noms, loteries, décimales et répartition en équipes.",
+      "title": "Générateur de Nombres Aléatoires et Roue – 1-100 sans Répétition, Pile ou Face et Dés",
+      "subtitle": "Générateur gratuit de nombres aléatoires en ligne avec roue animée, 1-100 sans doublon, tirage à pile ou face, dés tridimensionnels, tirage de noms au sort et entropie matérielle.",
       "tabNumbers": "Nombres & Décimales",
       "tabWheel": "Roue Aléatoire",
       "tabNames": "Tirage de Noms",
@@ -1684,7 +1684,8 @@
       "faq3Q": "En quoi cette roue s'apparente-t-elle au Google Spinner ?",
       "faq3A": "Notre roue reproduit le mouvement rotatif réaliste directement sur toile Canvas. Vous pouvez calibrer entre 2 et 20 quartiers numérotés ou remplacer les données par des prénoms pour animer un tirage au sort.",
       "faq4Q": "L'outil permet-il de former des équipes ou de composer des bulletins de loterie ?",
-      "faq4A": "Absolument. Des modules séparent les boules principales des numéros complémentaires pour le Powerball ou l'EuroMillions, et un répartiteur forme automatiquement des duos ou deux équipes équilibrées."
+      "faq4A": "Absolument. Des modules séparent les boules principales des numéros complémentaires pour le Powerball ou l'EuroMillions, et un répartiteur forme automatiquement des duos ou deux équipes équilibrées.",
+      "tabDiceCoin": "Dés et tirage à pile ou face"
     },
     "bmiCalculator": {
       "title": "Calculateur d’IMC et Silhouette Corporelle (IA)",

@@ -481,8 +481,8 @@
       "description": "Calcule porcentagem de notas de exames, SSLC, dinheiro, aumento percentual, diferença entre dois valores e fórmulas do Excel com IA."
     },
     "random-number-generator": {
-      "name": "Gerador de Números Aleatórios e Roleta – 1-100 Sem Repetição",
-      "description": "Gerador gratuito de números aleatórios online com roleta giratória com som, sorteio 1-100 sem repetições, exclusão de números, sorteador de nomes e exportação TXT/CSV."
+      "name": "Gerador de Números Aleatórios e Roleta – 1-100 sem Repetições, Cara ou Coroa e Dados",
+      "description": "Gerador gratuito de números aleatórios online com roleta animada, 1-100 sem repetições, cara ou coroa, dados tridimensionais, sorteio de nomes e entropia segura por hardware."
     },
     "bmi-calculator": {
       "name": "Calculadora de IMC e Silhueta Corporal (IA) – Masculino, Feminino, kg e Altura",
@@ -1584,8 +1584,8 @@
       "faq4A": "Não. Os códigos produzidos são estáticos e permanentes. Os elementos gráficos guardam as informações de maneira direta, operando indefinidamente sem cobrança de taxas nem dependência de servidores terceiros."
     },
     "randomNumberGenerator": {
-      "title": "Gerador de Números Aleatórios com Roleta e Lista – Sorteador AI Sem Repetições",
-      "subtitle": "Obtenha valores ao acaso com roleta animada, sem repetições de 1 a 100, sorteio de nomes, loterias, decimais e pareamento seguro.",
+      "title": "Gerador de Números Aleatórios e Roleta – 1-100 sem Repetições, Cara ou Coroa e Dados",
+      "subtitle": "Gerador gratuito de números aleatórios online com roleta animada, 1-100 sem repetições, cara ou coroa, dados tridimensionais, sorteio de nomes e entropia segura por hardware.",
       "tabNumbers": "Números e Decimais",
       "tabWheel": "Roleta Giratória",
       "tabNames": "Sorteio de Nomes",
@@ -1684,7 +1684,8 @@
       "faq3Q": "Como esta roleta funciona em relação ao Google Spinner?",
       "faq3A": "Nossa roleta reproduz a inércia mecânica em tempo real em tela digital Canvas. Você pode ajustar entre 2 e 20 segmentos numéricos ou substituir os dados por nomes para sorteios interativos.",
       "faq4Q": "O sistema permite criar duplas ou palpites para loterias oficiais?",
-      "faq4A": "Sim. Há áreas dedicadas para compor apostas tipo Powerball ou EuroMillions com dezenas exclusivas, além de um pareador que distribui participantes em duplas ou equipes balanceadas."
+      "faq4A": "Sim. Há áreas dedicadas para compor apostas tipo Powerball ou EuroMillions com dezenas exclusivas, além de um pareador que distribui participantes em duplas ou equipes balanceadas.",
+      "tabDiceCoin": "Dados e cara ou coroa"
     },
     "bmiCalculator": {
       "title": "Calculadora de IMC e Silhueta Corporal (IA)",

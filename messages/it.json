@@ -481,8 +481,8 @@
       "description": "Calcola percentuali di voti scolastici, esami SSLC, denaro, aumenti percentuali, differenze tra due numeri e formule Excel con l'IA."
     },
     "random-number-generator": {
-      "name": "Generatore di Numeri Casuali e Ruota – 1-100 Senza Ripetizioni",
-      "description": "Generatore gratuito di numeri casuali online con ruota interattiva con audio, estrazione 1-100 senza ripetizioni, esclusione numeri, estrazione nomi ed esportazione TXT/CSV."
+      "name": "Generatore di Numeri Casuali e Ruota – 1-100 senza Ripetizioni, Lancio Moneta e Dadi",
+      "description": "Generatore gratuito di numeri casuali online con ruota della fortuna, 1-100 senza duplicati, lancio della moneta, dadi tridimensionali, estrazione di nomi ed entropia crittografica."
     },
     "bmi-calculator": {
       "name": "Calcolatore IMC con Visualizzatore Corporeo (IA) – Uomo, Donna, kg e Altezza",
@@ -1584,8 +1584,8 @@
       "faq4A": "No. I codici generati sono matrici statiche standard. Le coordinate risiedono direttamente nella disposizione dei moduli scuri e chiari, garantendo operatività illimitata nel tempo senza costi né intermediari."
     },
     "randomNumberGenerator": {
-      "title": "Generatore di Numeri Casuali con Ruota e Lista – Estrattore AI Senza Ripetizioni",
-      "subtitle": "Ottieni numeri casuali con ruota animata, senza duplicati da 1 a 100, estrazione di nomi, lotterie, decimali e abbinamenti a squadre.",
+      "title": "Generatore di Numeri Casuali e Ruota – 1-100 senza Ripetizioni, Lancio Moneta e Dadi",
+      "subtitle": "Generatore gratuito di numeri casuali online con ruota della fortuna, 1-100 senza duplicati, lancio della moneta, dadi tridimensionali, estrazione di nomi ed entropia crittografica.",
       "tabNumbers": "Numeri e Decimali",
       "tabWheel": "Ruota Girevole",
       "tabNames": "Estrazione Nomi",
@@ -1684,7 +1684,8 @@
       "faq3Q": "In che modo questa ruota richiama il meccanismo del Google Spinner?",
       "faq3A": "La nostra ruota implementa una simulazione fisica bidimensionale direttamente su Canvas. Consente di predisporre da 2 a 20 settori numerici o di immettere liberamente nominativi di persone per sorteggi in diretta.",
       "faq4Q": "È possibile abbinare partecipanti in coppie o compilare serie per la lotteria?",
-      "faq4A": "Certamente. Sono disponibili pannelli creati appositamente per le lotterie principali (Powerball, EuroMillions) con sfere bonus distinte, oltre a un selettore automatico per comporre coppie e formazioni a squadre."
+      "faq4A": "Certamente. Sono disponibili pannelli creati appositamente per le lotterie principali (Powerball, EuroMillions) con sfere bonus distinte, oltre a un selettore automatico per comporre coppie e formazioni a squadre.",
+      "tabDiceCoin": "Dadi e lancio della moneta"
     },
     "bmiCalculator": {
       "title": "Calcolatore IMC con Visualizzatore Corporeo (IA)",

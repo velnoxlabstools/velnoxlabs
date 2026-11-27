@@ -2126,8 +2126,8 @@
       "faq4A": "No. I codici generati sono matrici statiche standard. Le coordinate risiedono direttamente nella disposizione dei moduli scuri e chiari, garantendo operatività illimitata nel tempo senza costi né intermediari."
     },
     "randomNumberGenerator": {
-      "title": "Generatore di Numeri Casuali e Ruota – 1-100 Senza Ripetizioni",
-      "subtitle": "Genera numeri casuali con ruota sonora, 1-100 senza ripetizioni, esclusione numeri, estrazione nomi, lotteria, decimali ed esportazione TXT/CSV.",
+      "title": "Generatore di Numeri Casuali e Ruota – 1-100 senza Ripetizioni, Lancio Moneta e Dadi",
+      "subtitle": "Generatore gratuito di numeri casuali online con ruota della fortuna, 1-100 senza duplicati, lancio della moneta, dadi tridimensionali, estrazione di nomi ed entropia crittografica.",
       "tabNumbers": "Numeri e Decimali",
       "tabWheel": "Ruota Girevole",
       "tabNames": "Estrazione Nomi",
@@ -2250,7 +2250,8 @@
       "compareRow4Feature": "Nomi, Squadre & Lotteria",
       "compareRow4Velnox": "6 Strumenti in Uno",
       "compareRow4Google": "No",
-      "compareRow4Picker": "Pagine Separate"
+      "compareRow4Picker": "Pagine Separate",
+      "tabDiceCoin": "Dadi e lancio della moneta"
     },
     "regexTester": {
       "title": "Tester di Espressioni Regolari con IA – Generatore per Python, Java, C# e JavaScript",
