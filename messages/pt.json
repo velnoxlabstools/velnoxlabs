@@ -342,8 +342,8 @@
       "description": "Conversor gratuito de Unix timestamp e calculadora de data epoch online. Converta segundos, milissegundos, 17 dígitos e Windows FILETIME para UTC ou local com fórmulas Python e Excel."
     },
     "markdown-to-html-live-converter": {
-      "name": "Conversor de Markdown para HTML Online – Alternativa ao Pandoc",
-      "description": "Transforme Markdown em código HTML limpo em tempo real para GitHub, artigos e documentação."
+      "name": "Conversor de Markdown para HTML em Tempo Real com IA e HTML para Markdown – Pré-visualização e Tabelas GFM",
+      "description": "Conversor gratuito em tempo real de Markdown para HTML e ferramenta inversa de HTML para Markdown. Suporte completo a tabelas GFM, pré-visualização, cópia de texto formatado para Google Docs/Gmail e download de HTML."
     },
     "url-encoder-decoder": {
       "name": "Codificador e Decodificador de URL IA Grátis – Python, Java, C# e JS",
@@ -1217,28 +1217,27 @@
       "step3Body": "Clique em \"Copiar\" para aplicar o texto diretamente no Figma ou nos seus ficheiros web."
     },
     "markdownToHtml": {
-      "aboutText": "Conversor de Markdown para HTML em tempo real, compatível com as normas CommonMark e GitHub Flavored Markdown (GFM), com pré-visualização ao vivo.",
-      "feature1": "Renderização veloz conforme a especificação CommonMark e extensões GFM.",
-      "feature2": "Suporte completo para tabelas estruturadas, blocos de código com linguagem, notas e tarefas.",
-      "feature3": "Painel triplo com editor de Markdown, código HTML resultante e pré-visualização renderizada.",
-      "feature4": "Higienização nativa contra vulnerabilidades de injeção XSS.",
-      "step1": "Escreva ou cole a sua documentação em Markdown no painel de edição à esquerda.",
-      "step2": "Veja em simultâneo a atualização do código HTML e a apresentação formatada.",
-      "step3": "Copie o código HTML compilado para utilização no seu CMS ou aplicação web.",
-      "faq1Q": "Que variantes de Markdown são interpretadas corretamente?",
-      "faq1A": "O conversor suporta a especificação oficial CommonMark e todas as extensões do GitHub Flavored Markdown (GFM).",
-      "faq2Q": "O código gerado é seguro contra vulnerabilidades do tipo XSS?",
-      "faq2A": "Sim, todas as tags potencialmente perigosas e scripts não autorizados são filtrados durante a conversão.",
-      "faq3Q": "Como funciona a sintaxe de código com realce de sintaxe?",
-      "faq3A": "Os blocos de código geram classes semânticas com o prefixo 'language-' compatíveis com bibliotecas como Prism ou Highlight.js.",
-      "faq4Q": "A ferramenta depende de servidores externos para processar o texto?",
-      "faq4A": "Não, todo o processo de análise léxica e sintática corre localmente no motor JavaScript do seu navegador.",
-      "step1Title": "Escreva ou cole o documento Markdown",
-      "step1Body": "Introduza as suas anotações ou documentação no editor de texto à esquerda.",
-      "step2Title": "Veja o código HTML e a pré-visualização",
-      "step2Body": "Acompanhe a compilação do HTML semântico e veja a apresentação final em simultâneo.",
-      "step3Title": "Copie o código HTML gerado",
-      "step3Body": "Clique em \"Copiar\" para incorporar a marcação no seu website ou aplicação."
+      "title": "Conversor de Markdown para HTML em Tempo Real com IA e HTML para Markdown",
+      "subtitle": "Converta Markdown compatível com GitHub (GFM) em HTML semântico em tempo real, copie texto formatado para Google Docs e Gmail, ou transforme HTML de volta em Markdown.",
+      "aboutText": "O Conversor de Markdown para HTML em Tempo Real com IA é um mecanismo de processamento instantâneo que traduz código GitHub Flavored Markdown (GFM) e CommonMark em HTML semântico estruturado ou texto formatado. Converte títulos (# para h1-h6), tipografia, citações, listas de tarefas (- [x]), blocos de código, tabelas GFM e links em elementos web acessíveis. Possui conversão inversa de HTML para Markdown, tornando-se a alternativa ideal e sem instalação ao Pandoc para redatores e programadores.",
+      "feature1": "Pré-visualização Visual e de Código em Tempo Real: Visualize a renderização tipográfica ou o código HTML higienizado instantaneamente enquanto digita.",
+      "feature2": "Cópia em 1 Clique para Google Docs e Gmail: Copie texto rico formatado diretamente para a área de transferência sem exibir etiquetas HTML brutas.",
+      "feature3": "Suporte Abrangente a Tabelas GFM e Listas de Tarefas: Renderização de tabelas com alinhamento (| col |), caixas de seleção interativas e índice analítico.",
+      "feature4": "Conversão Bidirecional de HTML para Markdown: Elimine marcações desnecessárias e transforme páginas web legadas em Markdown limpo.",
+      "step1Title": "Escreva ou Cole o Markdown",
+      "step1Body": "Digite ou cole suas anotações, rascunhos ou documentação README no editor, ou selecione um modelo rápido.",
+      "step2Title": "Inspecione a Pré-visualização",
+      "step2Body": "Alterne suavemente entre o layout visual renderizado e o código fonte HTML semântico para validar a apresentação.",
+      "step3Title": "Copie Texto Formatado ou Exporte",
+      "step3Body": "Clique em 'Copiar para Docs/Gmail' para colar com estilo preservado, copie o código HTML ou baixe um arquivo .html estilizado.",
+      "faq1Q": "Posso colar o conteúdo diretamente no Google Docs ou Word mantendo a formatação?",
+      "faq1A": "Sim! O botão 'Copiar para Docs/Gmail' armazena o texto como Rich Text na área de transferência. Ao colar no Google Docs, Word ou Gmail, os títulos, negritos e tabelas são mantidos sem tags HTML aparentes.",
+      "faq2Q": "A ferramenta suporta tabelas GFM e listas de verificação do GitHub?",
+      "faq2A": "Sim. Tabelas com alinhamento de colunas (:---, :---:, ---:) e listas com caixas de seleção (- [x] e - [ ]) são convertidas em tabelas HTML responsivas e caixas funcionais.",
+      "faq3Q": "Consigo transformar código HTML já existente de volta para Markdown?",
+      "faq3A": "Sim. Acesse a aba 'HTML para Markdown' para colar trechos HTML, remover tags supérfluas e restaurar um Markdown limpo e conciso.",
+      "faq4Q": "Meus textos ou documentos são transmitidos para algum servidor?",
+      "faq4A": "Não. Todas as rotinas de conversão operam localmente na memória do seu navegador. Seus dados permanecem 100% seguros e confidenciais no seu computador."
     },
     "mimeTypeLookup": {
       "aboutText": "A consulta de tipos MIME com IA e inspetor de arquivos é uma ferramenta de referência indispensável para desenvolvimento web e cibersegurança. Mapeia extensões de arquivo com tipos de mídia IANA oficiais e assinaturas binárias (magic bytes). Abrange mais de 120 formatos como documentos (PDF, DOCX), imagens (PNG, WebP, AVIF), áudio e vídeo (MP4, WebM), fontes (WOFF2) e dados (JSON, WASM). O inspetor de arquivos local analisa os primeiros bytes do arquivo diretamente no navegador sem enviar dados para servidores externos.",

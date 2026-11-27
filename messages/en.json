@@ -335,8 +335,8 @@
       "description": "Free AI Unix timestamp converter and epoch date calculator online. Convert epoch seconds, milliseconds, 17-digit Chrome, and Windows FILETIME timestamps to UTC/local date with Python and Excel formulas."
     },
     "markdown-to-html-live-converter": {
-      "name": "Markdown to HTML Converter Online – Best Free Markdown Converter (Pandoc Alternative)",
-      "description": "Fast Markdown to HTML converter online and best free Markdown converter (Pandoc alternative). Transform GitHub README, Linux, and JavaScript docs into clean HTML."
+      "name": "AI Markdown to HTML Live Converter & HTML to Markdown – Visual Preview & GFM Tables (Pandoc Alternative)",
+      "description": "Free online AI Markdown to HTML live converter and reverse HTML to Markdown tool. Full GFM tables support, live visual preview, one-click rich text copy for Google Docs/Gmail, task lists, and standalone HTML download."
     },
     "url-encoder-decoder": {
       "name": "AI URL Encoder & Decoder Online Free – Python, Java, C# & JS",
@@ -1172,25 +1172,27 @@
       "faq4A": "Yes. Lorem Ipsum is entirely in the public domain and is completely free to use in personal, educational, and commercial projects."
     },
     "markdownToHtml": {
-      "aboutText": "The Markdown to HTML Live Converter is a real-time parsing tool that translates GitHub Flavored Markdown (GFM) and CommonMark markup into clean, semantic HTML. It transforms headings (# to h1-h6), bold and italic typography (**italic**, *bold*), blockquotes (>), ordered and unordered lists, inline code snippets, syntax-highlighted code blocks (```), tables, and hyperlinks into accessible HTML elements. Ideal for technical writers, bloggers, and README documentation authors.",
-      "feature1": "Real-Time Live Translation: Instant HTML output rendering as you type or paste Markdown content",
-      "feature2": "GitHub Flavored Markdown (GFM) Support: Full support for task lists, strikethrough, tables, and fenced code blocks",
-      "feature3": "Semantic & Accessible Markup: Outputs standardized, clean HTML elements ready for CMS editors and static site generators",
-      "feature4": "Zero Server Processing: All parsing occurs locally via client-side JavaScript, ensuring fast performance and privacy",
+      "title": "AI Markdown to HTML Live Converter & HTML to Markdown",
+      "subtitle": "Convert GitHub Flavored Markdown (GFM) into clean HTML in real-time, copy formatted rich text for Google Docs & Gmail, and convert HTML back to Markdown.",
+      "aboutText": "The AI Markdown to HTML Live Converter is a real-time parsing engine that translates GitHub Flavored Markdown (GFM) and CommonMark markup into clean, semantic HTML or rich formatted text. It transforms headings (# to h1-h6), typography, blockquotes, ordered and task lists (- [x]), syntax-highlighted code blocks, GFM tables, and hyperlinks into accessible elements. It also features a reverse HTML-to-Markdown converter, making it an indispensable Pandoc alternative for bloggers, technical writers, and document creators.",
+      "feature1": "Real-Time Visual & Code Preview: Instantly inspect rendered rich typography or sanitized raw HTML as you type.",
+      "feature2": "1-Click Copy for Google Docs & Gmail: Copies formatted rich text directly to your clipboard using the native Clipboard API.",
+      "feature3": "Full GFM Tables & Task Lists: Complete support for aligned Markdown tables (| col |), interactive checkboxes, and TOC generation.",
+      "feature4": "Bidirectional HTML to Markdown: Strip messy HTML markup and convert legacy web pages back into clean Markdown.",
       "step1Title": "Write or Paste Markdown",
-      "step1Body": "Type or paste your Markdown notes, blog draft, or README into the source editor.",
-      "step2Title": "Inspect Generated HTML",
-      "step2Body": "Review the cleanly indented, semantic HTML code produced in the right-hand preview panel.",
-      "step3Title": "Copy HTML Markup",
-      "step3Body": "Click \"Copy\" to paste the generated HTML directly into WordPress, Ghost, Webflow, or your HTML files.",
-      "faq1Q": "Which Markdown specification is supported?",
-      "faq1A": "The converter supports CommonMark and GitHub Flavored Markdown (GFM) specifications, including tables, task lists, and fenced code blocks.",
-      "faq2Q": "Can I convert tables and code blocks?",
-      "faq2A": "Yes. Standard Markdown pipe tables and triple-backtick fenced code blocks are converted into structured <table> and <pre><code> HTML tags.",
-      "faq3Q": "Does this tool strip unsafe JavaScript from the HTML?",
-      "faq3A": "Yes. The parser sanitizes output to prevent script execution while preserving standard formatting elements.",
-      "faq4Q": "Is my written text sent to any server?",
-      "faq4A": "No. All conversion logic executes locally inside your browser memory; your drafts and articles remain completely confidential."
+      "step1Body": "Type or paste your Markdown notes, blog draft, or README into the editor, or choose from our quick templates.",
+      "step2Title": "Live Visual Preview & Format",
+      "step2Body": "Switch seamlessly between rendered visual layout and semantic HTML source code to inspect styling.",
+      "step3Title": "Copy Rich Text or Export",
+      "step3Body": "Click 'Copy for Docs/Gmail' for formatted pasting, copy raw HTML code, or download a standalone styled .html file.",
+      "faq1Q": "Can I paste converted Markdown directly into Google Docs or Word without HTML tags?",
+      "faq1A": "Yes! Our 'Copy for Docs/Gmail' feature uses the native browser ClipboardItem API to put formatted Rich Text on your clipboard. When you paste into Google Docs, Word, or Gmail, it appears with bold text, headings, and formatted tables rather than raw markup.",
+      "faq2Q": "Does this tool support GitHub Flavored Markdown (GFM) tables and task lists?",
+      "faq2A": "Yes. Standard pipe tables with column alignment (:---, :---:, ---:) and task list checkboxes (- [x] and - [ ]) are fully converted into clean, responsive HTML tables and accessible checkboxes.",
+      "faq3Q": "Can I convert existing HTML back into Markdown?",
+      "faq3A": "Yes. Switch to the 'HTML to Markdown' tab to sanitize raw HTML snippets, strip unnecessary wrapper tags, and convert headings, links, lists, and code blocks back to pristine Markdown.",
+      "faq4Q": "Are my documents or articles sent to any remote server?",
+      "faq4A": "No. 100% of the parsing and conversion logic runs strictly within your local browser memory via JavaScript. Your text and sensitive documents never touch our servers."
     },
     "mimeTypeLookup": {
       "aboutText": "The AI MIME Type Lookup & File Inspector is a comprehensive networking, web development, and cybersecurity reference utility that maps file extensions to official IANA Media Types (Multipurpose Internet Mail Extensions) and binary magic byte signatures. Covering over 120+ file formats across documents (PDF, DOCX, XLSX), images (PNG, WebP, AVIF, SVG), audio/video streams (MP4, WebM, MP3, HLS), web fonts (WOFF2, TTF), code assets (JS, TS, WASM), and structured data (JSON, XML, CSV). The integrated client-side binary file inspector examines uploaded payloads via browser-native FileReader and Web Crypto to reveal genuine file signatures (magic numbers) without uploading bytes to any external server, detecting extension spoofing attacks and outputting hardened HTTP Content-Type headers.",

@@ -342,8 +342,8 @@
       "description": "Kostenloser KI Unix-Zeitstempel- & Epoche-Umwandler online. Wandelt Sekunden, Millisekunden, 17-stellige Chrome- und Windows-FILETIME-Werte samt Python- & Excel-Formeln."
     },
     "markdown-to-html-live-converter": {
-      "name": "Markdown-zu-HTML-Online-Konverter – Pandoc-Alternative",
-      "description": "Wandeln Sie Markdown-Texte in Echtzeit in sauberen HTML-Code für GitHub, Blogs und Dokumentationen um."
+      "name": "KI Markdown zu HTML Live-Konverter & HTML zu Markdown – Visuelle Vorschau & GFM-Tabellen",
+      "description": "Kostenloser KI Markdown zu HTML Live-Konverter und umgekehrter HTML zu Markdown Konverter. Volle GFM-Tabellenunterstützung, visuelle Vorschau, Rich-Text-Kopie für Google Docs/Gmail und HTML-Download."
     },
     "url-encoder-decoder": {
       "name": "KI URL-Encoder & Decoder Kostenlos – Python, Java, C# & JS",
@@ -1217,28 +1217,27 @@
       "step3Body": "Klicken Sie auf \"Kopieren\", um den Text in Figma, HTML-Templates oder Entwürfe einzufügen."
     },
     "markdownToHtml": {
-      "aboutText": "Echtzeit-Markdown-zu-HTML-Konverter mit Unterstützung für CommonMark und GitHub Flavored Markdown (GFM) inklusive Live-Vorschau.",
-      "feature1": "Verzögerungsfreie Render-Pipeline nach offiziellen CommonMark- und GFM-Vorgaben.",
-      "feature2": "Vollständige Unterstützung für Tabellen, Code-Blöcke, Aufgabenlisten und Fußnoten.",
-      "feature3": "Parallele Drei-Spalten-Ansicht mit Markdown-Editor, HTML-Quelltext und gerenderter Vorschau.",
-      "feature4": "Integrierte Bereinigung gegen Cross-Site-Scripting-Schwachstellen (XSS).",
-      "step1": "Schreiben oder übertragen Sie Ihren Markdown-Text in den linken Editorbereich.",
-      "step2": "Verfolgen Sie die synchrone Aktualisierung des HTML-Codes und der visuellen Ansicht.",
-      "step3": "Kopieren Sie das fertige HTML zur Einbindung in Ihre Website oder Web-Applikation.",
-      "faq1Q": "Welche Markdown-Dialekte werden unterstützt?",
-      "faq1A": "Es werden der Standard CommonMark sowie die GitHub Flavored Markdown (GFM) Syntax vollständig unterstützt.",
-      "faq2Q": "Wird der ausgegebene HTML-Code gegen XSS-Schwachstellen geschützt?",
-      "faq2A": "Ja, potenziell schädliche Skripte und unzulässige Attribute werden automatisch gefiltert.",
-      "faq3Q": "Wie werden Programmcode-Ausschnitte formatiert?",
-      "faq3A": "Code-Blöcke erhalten entsprechende Sprachklassen, die mit Prism.js oder Highlight.js kompatibel sind.",
-      "faq4Q": "Arbeitet das Werkzeug auch ohne bestehende Internetverbindung?",
-      "faq4A": "Ja, alle Parser- und Render-Prozesse laufen lokal in Ihrem Browser.",
-      "step1Title": "Markdown verfassen oder einfügen",
-      "step1Body": "Geben Sie Ihren Markdown-Text oder Ihre Dokumentation in den linken Editor ein.",
-      "step2Title": "HTML-Code und Vorschau prüfen",
-      "step2Body": "Verfolgen Sie die parallele Generierung des semantischen HTML und die Web-Vorschau.",
-      "step3Title": "Generierten HTML-Code kopieren",
-      "step3Body": "Klicken Sie auf \"Kopieren\", um den HTML-Code in Ihrem Webprojekt zu verwenden."
+      "title": "KI Markdown zu HTML Live-Konverter & HTML zu Markdown",
+      "subtitle": "Konvertieren Sie GitHub Flavored Markdown (GFM) in Echtzeit in semantisches HTML, kopieren Sie formatierten Rich-Text für Google Docs und Gmail oder wandeln Sie HTML in Markdown um.",
+      "aboutText": "Der KI Markdown zu HTML Live-Konverter ist eine Echtzeit-Verarbeitungssoftware, die GitHub Flavored Markdown (GFM) und CommonMark in sauberes, semantisches HTML oder formatierten Rich-Text umwandelt. Er überführt Überschriften (# in h1-h6), Typografie, Zitate, Aufgabenlisten (- [x]), Code-Blöcke, GFM-Tabellen und Verweise in barrierefreie HTML-Elemente. Mit integrierter Rückkonvertierung von HTML zu Markdown ist er die ideale, installationsfreie Pandoc-Alternative für Autoren und Entwickler.",
+      "feature1": "Echtzeit-Vorschau für Darstellung und Quelltext: Betrachten Sie wahlweise das formatierte Dokument oder den bereinigten HTML-Code während der Eingabe.",
+      "feature2": "1-Klick-Kopie für Google Docs & Gmail: Kopiert formatierten Rich-Text direkt in die Zwischenablage für nahtloses Einfügen ohne sichtbare HTML-Tags.",
+      "feature3": "Vollständige GFM-Tabellen & Aufgabenlisten: Umfassende Unterstützung für ausgerichtete Tabellen (| Spalte |), Ankreuzfelder und automatische Inhaltsverzeichnisse.",
+      "feature4": "Bidirektionale HTML-zu-Markdown-Konvertierung: Entfernen Sie überflüssigen Webseiten-Code und wandeln Sie bestehendes HTML in sauberes Markdown zurück.",
+      "step1Title": "Markdown eingeben oder einfügen",
+      "step1Body": "Geben Sie Ihre Notizen, Artikel oder README-Dokumente ein oder wählen Sie eine unserer Vorlagen.",
+      "step2Title": "Visuelle Live-Vorschau prüfen",
+      "step2Body": "Wechseln Sie flexibel zwischen der visuellen Leseansicht und dem semantischen HTML-Code, um das Ergebnis zu kontrollieren.",
+      "step3Title": "Rich-Text kopieren oder exportieren",
+      "step3Body": "Klicken Sie auf 'Für Docs/Gmail kopieren', kopieren Sie den reinen HTML-Code oder laden Sie eine gestaltete .html-Datei herunter.",
+      "faq1Q": "Kann ich den Text formatiert direkt in Google Docs oder Word einfügen?",
+      "faq1A": "Ja! Unsere Funktion 'Für Docs/Gmail kopieren' legt formatierten Rich-Text in der Zwischenablage ab. Beim Einfügen in Google Docs, Word oder E-Mails bleiben Überschriften, Fülltext und Tabellen formatiert erhalten.",
+      "faq2Q": "Werden GFM-Tabellen und Aufgaben-Checklisten unterstützt?",
+      "faq2A": "Ja. Tabellen mit Spaltenausrichtung (:---, :---:, ---:) sowie Aufgabenlisten (- [x] und - [ ]) werden fehlerfrei in semantische HTML-Tabellen und Kontrollkästchen übersetzt.",
+      "faq3Q": "Kann ich HTML-Code wieder in Markdown zurückverwandeln?",
+      "faq3A": "Ja. Wählen Sie den Reiter 'HTML zu Markdown', um vorhandenes HTML einzufügen, Ballast zu entfernen und klares Markdown zu erhalten.",
+      "faq4Q": "Werden meine Texte an einen entfernten Server übertragen?",
+      "faq4A": "Nein. Sämtliche Berechnungen laufen ausschließlich lokal im Speicher Ihres Webbrowsers ab. Ihre Dokumente verbleiben zu 100 % vertraulich auf Ihrem Gerät."
     },
     "mimeTypeLookup": {
       "aboutText": "Die KI-MIME-Typ-Suche & Datei-Inspektor ist ein unverzichtbares Nachschlagewerk für Webentwicklung, Netzwerke und Cybersicherheit. Sie ordnet Dateiendungen den offiziellen IANA-Medientypen und binären Magic-Bytes-Signaturen zu. Unterstützt über 120 Formate wie Dokumente (PDF, DOCX), Bilder (PNG, WebP, AVIF), Audio/Video (MP4, WebM), Webfonts (WOFF2) und Datenformate (JSON, WASM). Der integrierte lokale Datei-Inspektor analysiert hochgeladene Dateien direkt im Browser ohne Datenübertragung an externe Server und deckt umbenannte Dateiendungen sofort auf.",
