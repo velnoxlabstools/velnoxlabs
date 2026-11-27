@@ -275,8 +275,8 @@
       "description": "Free AI word counter and online word count tool. Real-time words, characters, pages, readability score, A-Z keyword density, essay targets, and MS Word & Google Docs shortcuts."
     },
     "csv-to-json": {
-      "name": "Large CSV to JSON Converter – Convert CSV to Array Online",
-      "description": "Free CSV to JSON converter and JSON to CSV utility to convert CSV to array online without limits. Perfect for GSTR1, Excel, Java, and Python developers."
+      "name": "AI Large CSV to JSON & JSON to CSV Converter – Smart Type Inference, Auto-Delimiter & Nested Schema",
+      "description": "Free online AI Large CSV to JSON and JSON to CSV converter. Features smart type inference, auto-delimiter detection, dot-notation nested objects, 2D arrays, NDJSON, and drag-and-drop file upload."
     },
     "curl-to-python-requests-converter": {
       "name": "cURL to Python Requests Converter (Online) – cURL to Postman",
@@ -2647,6 +2647,54 @@
       "faq3A": "Yes, this tool serves as a completely free barcode generator AI alternative without paywalls, sign-ups, or usage limits. More importantly, all barcode rendering runs 100% client-side inside your browser sandbox, ensuring your confidential product SKUs, pricing codes, and serial numbers never leave your local machine.",
       "faq4Q": "What makes the barcode generator 128 format ideal for general use?",
       "faq4A": "A dedicated barcode generator 128 handles the full 128 ASCII character set—including uppercase letters, lowercase letters, numbers, and punctuation. Code 128 achieves superior data density compared to legacy formats, making it the preferred standard for logistics, shipping labels, asset tagging, and internal inventory management."
+    },
+    "csvToJson": {
+      "title": "AI Large CSV to JSON & JSON to CSV Converter",
+      "subtitle": "Convert large CSV files to JSON and JSON to CSV with smart type inference (numbers/booleans), auto-delimiter detection, dot-notation nested objects, and NDJSON streaming export.",
+      "modeCsvToJson": "CSV → JSON",
+      "modeJsonToCsv": "JSON → CSV",
+      "csvDelimiter": "CSV Delimiter",
+      "delimiterAuto": "Auto Detect",
+      "delimiterComma": "Comma (,)",
+      "delimiterSemicolon": "Semicolon (;)",
+      "delimiterTab": "Tab (\\t)",
+      "delimiterPipe": "Pipe (|)",
+      "outputStructureLabel": "JSON Output Structure",
+      "firstRowHeader": "First row contains column headers",
+      "smartTypesLabel": "Smart Type Inference (Numbers, Booleans, Nulls)",
+      "nestedObjectsLabel": "Dot Notation to Nested Objects (a.b.c)",
+      "minifyJsonLabel": "Minify / Compact JSON (1 line)",
+      "dragAndDropNotice": "Drag & drop a large .csv, .tsv, or .json file here, or browse from device",
+      "csvInput": "CSV Data Source",
+      "jsonInput": "JSON Data Source",
+      "csvPlaceholder": "Paste CSV data or drag & drop a file here...",
+      "jsonPlaceholder": "Paste JSON array or object here...",
+      "jsonOutput": "Generated JSON Output",
+      "csvOutput": "Generated CSV Output",
+      "downloadJson": "Download JSON",
+      "downloadCsv": "Download CSV",
+      "copy": "Copy Output",
+      "copied": "Copied to Clipboard!",
+      "outputPlaceholder": "Converted data will appear here in real-time...",
+      "aboutText": "The AI Large CSV to JSON & JSON to CSV Converter is a high-performance data transformation utility engineered for software developers, data scientists, and database administrators. It bridges tabular flat files with modern JSON architectures, providing automated delimiter detection, intelligent type casting (distinguishing numbers, booleans, and nulls from raw strings), dot-notation object nesting, and multiple export structures including 2D arrays, keyed dictionary maps, and streaming NDJSON.",
+      "feature1": "Smart Type Inference: Automatically parses integers, floating-point decimals, booleans, and nulls instead of stringifying everything.",
+      "feature2": "Auto-Delimiter & RFC 4180 Parsing: Reliably detects commas, semicolons, tabs, and pipes while handling quotes and embedded line breaks.",
+      "feature3": "Dot-Notation Nested Schema: Converts dot-separated column headers (e.g., user.address.city) into deep, structured JSON hierarchies.",
+      "feature4": "5 Modular Output Formats: Generate standard Object Arrays, 2D Matrix Arrays, Keyed Hashmaps, Columnar Arrays, or streaming NDJSON.",
+      "step1Title": "Paste or Upload CSV / JSON Data",
+      "step1Body": "Drag and drop your .csv, .tsv, or .json file into the upload zone, paste raw text, or select one of our quick presets.",
+      "step2Title": "Configure Parsing & Type Options",
+      "step2Body": "Enable smart type casting, dot-notation nesting, or choose your preferred JSON structure (Objects, 2D Arrays, NDJSON).",
+      "step3Title": "Copy or Download Clean Data",
+      "step3Body": "Inspect live row and column telemetry, copy the formatted output to your clipboard, or download the converted file with one click.",
+      "faq1Q": "Does this tool preserve numbers and booleans instead of converting everything to strings?",
+      "faq1A": "Yes! When 'Smart Type Inference' is enabled, numerical values (e.g. 42, 19.99), booleans (true, false), and nulls are accurately converted to native JSON data types rather than wrapped in quotation marks.",
+      "faq2Q": "Can this tool handle large CSV files without freezing the browser?",
+      "faq2A": "Yes. Our optimized client-side streaming parser processes large files directly in your browser memory without uploading sensitive records to any remote server.",
+      "faq3Q": "How does dot-notation nested object conversion work?",
+      "faq3A": "If your CSV headers include periods (such as user.name and user.email), enabling 'Dot Notation to Nested Objects' automatically transforms them into deep JSON hierarchies like {\"user\": {\"name\": \"...\", \"email\": \"...\"}}.",
+      "faq4Q": "What is NDJSON and when should I use it?",
+      "faq4A": "NDJSON (Newline Delimited JSON) places one independent JSON object per line without enclosing array brackets. It is the industry standard for streaming big data into MongoDB, Google BigQuery, and Elasticsearch."
     }
   }
 }

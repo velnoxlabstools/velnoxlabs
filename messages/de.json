@@ -282,8 +282,8 @@
       "description": "Kostenloser Online-Wortzähler. Zählen Sie Wörter, Zeichen, Seiten, Lesbarkeitsindex, A-Z Keyword-Dichte, Social-Media-Limits sowie Word- und Google Docs-Shortcuts in Echtzeit."
     },
     "csv-to-json": {
-      "name": "Konverter für große CSV-Dateien in JSON – JSON-Array Online",
-      "description": "Kostenloses Werkzeug für große CSV-Dateien. Wandle CSV-Tabellen und Excel-Exporte ohne Dateigrößenbeschränkung in JSON-Arrays um."
+      "name": "KI CSV zu JSON & JSON zu CSV Konverter für Große Dateien – Typenerkennung & Verschachtelte Objekte",
+      "description": "Kostenloser KI CSV zu JSON und JSON zu CSV Konverter. Automatische Erkennung von Zahlen und Wahrheitswerten, Trennzeichen-Automatik und Drag-and-Drop-Dateiupload."
     },
     "curl-to-python-requests-converter": {
       "name": "cURL-zu-Python-Requests-Konverter Online – cURL zu Postman Referenz",
@@ -2676,6 +2676,54 @@
       "faq3A": "Die Nutzung ist vollkommen kostenfrei und ohne Registrierung möglich. Da alle Berechnungen direkt im Browser ablaufen, bleiben interne SKU-Daten vollständig privat.",
       "faq4Q": "Warum ist Code 128 im gewerblichen Bereich so verbreitet?",
       "faq4A": "Code 128 kann alle 128 ASCII-Zeichen bei hoher Informationsdichte darstellen und gilt weltweit als unverzichtbarer Standard in Versand und Lagerhaltung."
+    },
+    "csvToJson": {
+      "title": "KI CSV zu JSON & JSON zu CSV Konverter für Große Dateien",
+      "subtitle": "Konvertieren Sie umfangreiche CSV-Dateien in JSON und umgekehrt mit automatischer Typenerkennung (Zahlen/Wahrheitswerte), Trennzeichen-Erkennung und verschachtelten Objekten.",
+      "modeCsvToJson": "CSV → JSON",
+      "modeJsonToCsv": "JSON → CSV",
+      "csvDelimiter": "CSV-Trennzeichen",
+      "delimiterAuto": "Automatisch erkennen",
+      "delimiterComma": "Komma (,)",
+      "delimiterSemicolon": "Semikolon (;)",
+      "delimiterTab": "Tabulator (\\t)",
+      "delimiterPipe": "Senkrechter Strich (|)",
+      "outputStructureLabel": "JSON-Ausgabestruktur",
+      "firstRowHeader": "Erste Zeile enthält Spaltenüberschriften",
+      "smartTypesLabel": "Intelligente Typenerkennung (Zahlen, Wahrheitswerte, Nullwerte)",
+      "nestedObjectsLabel": "Punktnotation in verschachtelte Objekte (a.b.c)",
+      "minifyJsonLabel": "Kompaktes JSON / Minifizieren (1 Zeile)",
+      "dragAndDropNotice": "Ziehen Sie eine .csv-, .tsv- oder .json-Datei hierher oder wählen Sie eine Datei aus",
+      "csvInput": "CSV-Quelldaten",
+      "jsonInput": "JSON-Quelldaten",
+      "csvPlaceholder": "CSV-Daten einfügen oder Datei hierher ziehen...",
+      "jsonPlaceholder": "JSON-Feld oder -Objekt hier einfügen...",
+      "jsonOutput": "Erzeugte JSON-Ausgabe",
+      "csvOutput": "Erzeugte CSV-Ausgabe",
+      "downloadJson": "JSON herunterladen",
+      "downloadCsv": "CSV herunterladen",
+      "copy": "Ausgabe kopieren",
+      "copied": "In die Zwischenablage kopiert!",
+      "outputPlaceholder": "Die umgewandelten Daten erscheinen hier in Echtzeit...",
+      "aboutText": "Der KI CSV zu JSON Konverter ist ein leistungsfähiges Transformationswerkzeug für Entwickler und Datenanalysten. Er überführt tabellarische Rohdaten präzise in moderne JSON-Strukturen, erkennt Trennzeichen selbsttätig, unterscheidet Zahlen und Wahrheitswerte verlässlich von reinem Text und erzeugt auf Wunsch verschachtelte Hierarchien.",
+      "feature1": "Automatische Typenerkennung: Wandelt Zahlenwerte, Gleitkommazahlen und Wahrheitswerte in echte Datentypen um.",
+      "feature2": "Trennzeichen-Automatik: Erkennt Kommas, Semikolons, Tabs und Pipes unter Berücksichtigung von Anführungszeichen.",
+      "feature3": "Verschachtelung per Punktnotation: Erstellt aus Spalten wie kunde.adresse.stadt saubere Unterobjekte.",
+      "feature4": "Fünf Ausgabeformate: Wählen Sie zwischen Objektfeldern, zweidimensionalen Matrizen, Zuordnungstabellen oder NDJSON.",
+      "step1Title": "Daten einfügen oder Datei hochladen",
+      "step1Body": "Ziehen Sie Ihre Datei in das Ablagefeld oder nutzen Sie unsere praktischen Schnellvorlagen.",
+      "step2Title": "Optionen und Struktur festlegen",
+      "step2Body": "Aktivieren Sie die Typenumwandlung, verschachtelte Objekte oder wählen Sie das passende Ausgabeformat.",
+      "step3Title": "Ergebnis kopieren oder speichern",
+      "step3Body": "Prüfen Sie die Zeilen- und Spaltenstatistik und sichern Sie die konvertierte Datei mit einem Klick.",
+      "faq1Q": "Bleiben Zahlen und Wahrheitswerte erhalten, ohne als Textstring formatiert zu werden?",
+      "faq1A": "Ja! Bei aktivierter 'Typenerkennung' werden Zahlen (z. B. 42 oder 19.99) und Wahrheitswerte (true, false) als echte Werte ohne Anführungszeichen ausgegeben.",
+      "faq2Q": "Können auch größere Datenmengen ohne Einfrieren des Browsers verarbeitet werden?",
+      "faq2A": "Ja. Der Konvertierungskern arbeitet speicherschonend und vollständig lokal in Ihrem Browser, ohne dass sensible Datensätze auf Fremdserver übertragen werden.",
+      "faq3Q": "Wie funktioniert die Unterteilung anhand von Punkten in Spaltennamen?",
+      "faq3A": "Enthält ein Spaltenname Punkte (wie benutzer.name), erzeugt der Konverter automatisch ein übergeordnetes Objekt { \"benutzer\": { \"name\": \"...\" } }.",
+      "faq4Q": "Wozu dient das Format NDJSON?",
+      "faq4A": "NDJSON trennt einzelne JSON-Objekte zeilenweise ohne umschließende eckige Klammern. Es ist der Standard beim Einlesen großer Datenmengen in Datenbanken wie Elasticsearch oder BigQuery."
     }
   }
 }

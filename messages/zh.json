@@ -275,8 +275,8 @@
       "description": "免费在线字数与字符统计工具。实时统计字数、字符数、预估页数、可读性评分、A-Z 关键词密度、社交媒体字数限制及 Word 和 Google 文档快捷键。"
     },
     "csv-to-json": {
-      "name": "海量大文件 CSV 转 JSON 转换工具 – 在线生成结构化 JSON 数组 (CSV to Array Online)",
-      "description": "免费在线大文件 CSV 转 JSON 与 JSON 转 CSV 互转利器。将 CSV 表格及 Excel 导出文件转为结构化 JSON 数组，无体积限制。"
+      "name": "AI 大文件 CSV 转 JSON 与 JSON 转 CSV 转换器 – 智能类型推断、分隔符自适应与深层嵌套",
+      "description": "免费在线 AI 大文件 CSV 与 JSON 双向转换工具。支持数值布尔类型识别、自动分隔符检测、点号路径多层嵌套及拖拽上传。"
     },
     "curl-to-python-requests-converter": {
       "name": "cURL 转 Python Requests 代码生成器在线版 – cURL 转 Postman 参考",
@@ -2657,6 +2657,54 @@
       "faq3A": "本工具永久免费且无额度限制。由于核心计算引擎采用 100% 浏览器客户端渲染架构，所有物料号与商业 SKU 均只存留在您的电脑内存中，不会上传至任何远程服务器。",
       "faq4Q": "为何 Code 128 成为各行业中最通用的条形码首选？",
       "faq4A": "Code 128 能够完整编码全部 128 个 ASCII 字符（包含大小写字母、数字与符号），并且拥有极高的数据密度与容错冗余度，是现代全球航运面单、资产追踪与企业内控系统的通用基石。"
+    },
+    "csvToJson": {
+      "title": "AI 大文件 CSV 转 JSON 与 JSON 转 CSV 转换器",
+      "subtitle": "精准转换超大 CSV 与 JSON 数据，支持数值与布尔智能类型推断、自动识别分隔符、点号路径多层嵌套及 NDJSON 换行流式导出。",
+      "modeCsvToJson": "CSV → JSON",
+      "modeJsonToCsv": "JSON → CSV",
+      "csvDelimiter": "CSV 分隔符",
+      "delimiterAuto": "自动检测",
+      "delimiterComma": "逗号 (,)",
+      "delimiterSemicolon": "分号 (;)",
+      "delimiterTab": "制表符 (\\t)",
+      "delimiterPipe": "竖线 (|)",
+      "outputStructureLabel": "JSON 输出结构",
+      "firstRowHeader": "首行包含列名表头",
+      "smartTypesLabel": "智能类型推断 (识别数字、布尔值与空值)",
+      "nestedObjectsLabel": "点号路径转深层嵌套对象 (a.b.c)",
+      "minifyJsonLabel": "压缩 / 单行紧凑 JSON",
+      "dragAndDropNotice": "将大文件 .csv、.tsv 或 .json 拖拽至此处，或从本地选取",
+      "csvInput": "CSV 数据源",
+      "jsonInput": "JSON 数据源",
+      "csvPlaceholder": "在此粘贴 CSV 文本或拖入文件...",
+      "jsonPlaceholder": "在此粘贴 JSON 数组或对象...",
+      "jsonOutput": "生成的 JSON 输出",
+      "csvOutput": "生成的 CSV 输出",
+      "downloadJson": "下载 JSON 文件",
+      "downloadCsv": "下载 CSV 文件",
+      "copy": "复制转换结果",
+      "copied": "已成功复制到剪贴板！",
+      "outputPlaceholder": "转换后的数据将实时在此处呈现...",
+      "aboutText": "AI 大文件 CSV 转 JSON 转换器是专为工程师与数据分析师打造的专业级格式解析引擎。它能高效将表格数据转换为语义规范的现代 JSON，自动判别各种分隔符，将数字和布尔值转为原生类型，并支持点号层级还原与 NDJSON 导出。",
+      "feature1": "智能原生类型推断：准确识别整数、浮点数和布尔状态，告别所有数值全被转为纯文本字符串的困扰。",
+      "feature2": "自适应分隔符解析：精准识别逗号、分号、制表符与竖线，完美支持包含换行与转义引号的单元格。",
+      "feature3": "点号路径深层嵌套：自动将形如 customer.address.city 的扁平表头映射为规整的层级嵌套对象。",
+      "feature4": "五种专业输出架构：支持常规对象数组、二维数据矩阵、列式存储数组、键值字典或行分隔 NDJSON。",
+      "step1Title": "粘贴或上传数据文件",
+      "step1Body": "将数据文件拖放到上传区，或直接粘贴内容，亦可快速调用内置示例数据。",
+      "step2Title": "配置类型与结构参数",
+      "step2Body": "开启智能类型推断、点号嵌套功能，或按需求选取适用的输出数据形态。",
+      "step3Title": "复制结果或下载文件",
+      "step3Body": "核对行数和体积统计信息，一键将结果复制至剪贴板或下载保存为本地文件。",
+      "faq1Q": "数字和布尔值会被转换为纯字符串还是保留原生类型？",
+      "faq1A": "只要勾选“智能类型推断”，数值（如 42 或 19.99）与真假布尔值将严格转换为不带引号的原生 JSON 数据类型。",
+      "faq2Q": "处理几万行的大文件会导致网页崩溃卡死吗？",
+      "faq2A": "不会。转换引擎针对大体积数据流深度优化，完全在您本地浏览器内存中即时计算，既流畅又安全保密。",
+      "faq3Q": "表头中带点号（如 user.name）是如何转成嵌套对象的？",
+      "faq3A": "开启嵌套选项后，系统会自动根据点号分割路径，生成如 {\"user\": {\"name\": \"...\"}} 的完整对象树。",
+      "faq4Q": "什么是 NDJSON 格式？在什么场景下使用？",
+      "faq4A": "NDJSON 指每行独立存放一个 JSON 对象且无外层数组中括号的格式。它是向 Elasticsearch、MongoDB 或 BigQuery 批量流式写入海量数据的通用标准。"
     }
   }
 }

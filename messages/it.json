@@ -282,8 +282,8 @@
       "description": "Conta parole online gratuito. Calcola parole, caratteri, pagine, indice di leggibilità, densità parole chiave A-Z, limiti social e scorciatoie per MS Word e Google Docs."
     },
     "csv-to-json": {
-      "name": "Convertitore da CSV a JSON per File Grandi – Array JSON Online",
-      "description": "Applicativo gratuito per convertire grandi file CSV in JSON e viceversa. Trasforma fogli Excel ed elenchi GSTR1 senza limiti."
+      "name": "Convertitore da CSV a JSON e da JSON a CSV con IA per File Grandi – Riconoscimento Tipi e Oggetti Annidati",
+      "description": "Convertitore gratuito da CSV a JSON e da JSON a CSV con IA. Riconoscimento automatico di numeri e booleani, rilevamento delimitatore e caricamento file."
     },
     "curl-to-python-requests-converter": {
       "name": "Convertitore da cURL a Python Requests Online – Riferimento cURL per Postman",
@@ -2676,6 +2676,54 @@
       "faq3A": "Il programma è gratuito e fruibile senza registrazione. Poiché l'elaborazione risiede nel browser locale, nessun numero di serie aziendale viene trasmesso in rete.",
       "faq4Q": "Per quale motivo il Code 128 è lo standard più diffuso?",
       "faq4A": "Il Code 128 include l'intero repertorio dei 128 caratteri ASCII con una densità eccezionale, rappresentando la base per la logistica e la tracciabilità delle merci a livello mondiale."
+    },
+    "csvToJson": {
+      "title": "Convertitore da CSV a JSON e da JSON a CSV con IA per File Grandi",
+      "subtitle": "Converti file CSV complessi in JSON e viceversa con inferenza automatica dei tipi di dato, rilevamento del delimitatore e gerarchie ad albero.",
+      "modeCsvToJson": "CSV → JSON",
+      "modeJsonToCsv": "JSON → CSV",
+      "csvDelimiter": "Delimitatore CSV",
+      "delimiterAuto": "Rilevamento Automatico",
+      "delimiterComma": "Virgola (,)",
+      "delimiterSemicolon": "Punto e virgola (;)",
+      "delimiterTab": "Tabulazione (\\t)",
+      "delimiterPipe": "Barra verticale (|)",
+      "outputStructureLabel": "Struttura di Uscita JSON",
+      "firstRowHeader": "La prima riga contiene i nomi delle colonne",
+      "smartTypesLabel": "Riconoscimento Tipi (Numeri, Booleani e Nulli)",
+      "nestedObjectsLabel": "Notazione con Punti in Oggetti Annidati (a.b.c)",
+      "minifyJsonLabel": "Minifica / Compatta JSON (1 riga)",
+      "dragAndDropNotice": "Trascina qui un file .csv, .tsv o .json, oppure sfoglia dal dispositivo",
+      "csvInput": "Dati CSV di Origine",
+      "jsonInput": "Dati JSON di Origine",
+      "csvPlaceholder": "Incolla dati CSV o trascina un file qui...",
+      "jsonPlaceholder": "Incolla un array o oggetto JSON qui...",
+      "jsonOutput": "Risultato JSON Generato",
+      "csvOutput": "Risultato CSV Generato",
+      "downloadJson": "Scarica JSON",
+      "downloadCsv": "Scarica CSV",
+      "copy": "Copia Risultato",
+      "copied": "Copiato negli Appunti!",
+      "outputPlaceholder": "I dati convertiti appariranno qui in tempo reale...",
+      "aboutText": "Il Convertitore da CSV a JSON con IA è un programma avanzato per programmatori e analisti di dati. Consente di trasformare tabelle piatte in strutture gerarchiche JSON, riconoscendo con precisione valori numerici e booleani, separatori personalizzati e oggetti annidati.",
+      "feature1": "Tipizzazione Automatica : Riconosce numeri interi, decimali e valori di verità senza considerarli semplice testo.",
+      "feature2": "Delimitatore Intelligente : Rileva virgole, punti e virgola, tabulazioni e barre rispettando virgolette interne.",
+      "feature3": "Gerarchia con Notazione Puntata : Converte intestazioni come cliente.recapito.citta in veri oggetti multilivello.",
+      "feature4": "Cinque Formati di Struttura : Supporta array di oggetti, matrici 2D, mappe indicizzate e righe NDJSON.",
+      "step1Title": "Incolla o Carica i Dati",
+      "step1Body": "Trascina il tuo file nell'area indicata, incolla il testo o seleziona un profilo di esempio.",
+      "step2Title": "Personalizza le Opzioni di Conversione",
+      "step2Body": "Attiva il riconoscimento dei numeri, l'annidamento delle proprietà o scegli la struttura JSON preferita.",
+      "step3Title": "Copia o Esporta il Documento",
+      "step3Body": "Verifica il conteggio di righe e colonne, copia il risultato o scarica il file elaborato.",
+      "faq1Q": "I valori numerici e i booleani vengono mantenuti senza virgolette?",
+      "faq1A": "Sì! Con l'opzione 'Riconoscimento Tipi' attiva, numeri e valori booleani sono trascritti come tipi nativi senza apici.",
+      "faq2Q": "Il convertitore gestisce file di grandi dimensioni senza blocchi?",
+      "faq2A": "Sì. L'elaborazione opera direttamente nella memoria locale del tuo browser con la massima efficienza e riservatezza.",
+      "faq3Q": "Come funziona la conversione dei titoli con punto in oggetti annidati?",
+      "faq3A": "Se una colonna si chiama utente.email, il convertitore crea in automatico un blocco { \"utente\": { \"email\": \"...\" } }.",
+      "faq4Q": "Cosa contraddistingue il formato NDJSON?",
+      "faq4A": "Il formato NDJSON riporta un oggetto JSON indipendente su ciascuna riga, risultando ideale per l'importazione rapida in database come Elasticsearch o BigQuery."
     }
   }
 }

@@ -275,8 +275,8 @@
       "description": "무료 온라인 글자수 및 단어수 계산기. 실시간 단어수, 공백 포함/제외 글자수, 페이지 수 추정, 가독성 점수, A-Z 키워드 밀도 및 Word/Google Docs 단축키 안내를 제공합니다."
     },
     "csv-to-json": {
-      "name": "대용량 CSV to JSON 변환기 – 구조화된 JSON 배열 온라인 생성 (CSV to Array Online)",
-      "description": "무료 대용량 CSV to JSON 및 JSON to CSV 변환기. CSV 스프레드시트와 Excel 파일을 용량 제한 없이 구조화된 JSON 배열로 변환."
+      "name": "AI 대용량 CSV JSON 상호 변환기 – 스마트 데이터 타입 추론, 구분자 자동 감지 및 계층 객체 변환",
+      "description": "무료 온라인 AI 대용량 CSV JSON 양방향 변환 도구. 숫자 및 불리언 자동 타입 변환, 구분 기호 감지, 점 표기법 계층화, 파일 드래그앤드롭 지원."
     },
     "curl-to-python-requests-converter": {
       "name": "cURL to Python Requests 변환기 온라인 – cURL to Postman 연동 안내",
@@ -2657,6 +2657,54 @@
       "faq3A": "본 도구는 영구히 무료이며 사용량 제한이 없습니다. 또한 모든 처리가 사용자의 브라우저 메모리 안에서만 수행되므로 사내 시리얼 번호나 기밀 SKU가 인터넷으로 전송되지 않습니다.",
       "faq4Q": "산업 현장에서 Code 128이 가장 널리 쓰이는 이유는 무엇인가요?",
       "faq4A": "Code 128은 모든 128개의 ASCII 문자를 높은 압축 밀도로 표현할 수 있어 전 세계 운송 라벨, 자산 관리 및 물류 자동화의 표준 규격으로 가장 널리 채택되고 있습니다."
+    },
+    "csvToJson": {
+      "title": "AI 대용량 CSV JSON 상호 변환기",
+      "subtitle": "대용량 CSV와 JSON 데이터를 즉각 변환하세요. 숫자·불리언 스마트 타입 추론, 구분 기호 자동 판별, 점 표기법 다층 계층화 및 NDJSON 출력을 지원합니다.",
+      "modeCsvToJson": "CSV → JSON",
+      "modeJsonToCsv": "JSON → CSV",
+      "csvDelimiter": "CSV 구분 기호",
+      "delimiterAuto": "자동 감지",
+      "delimiterComma": "쉼표 (,)",
+      "delimiterSemicolon": "세미콜론 (;)",
+      "delimiterTab": "탭 (\\t)",
+      "delimiterPipe": "파이프 (|)",
+      "outputStructureLabel": "JSON 출력 구조",
+      "firstRowHeader": "첫 번째 행을 열 머리글로 사용",
+      "smartTypesLabel": "스마트 타입 추론 (숫자, 불리언, 널값 자동 변환)",
+      "nestedObjectsLabel": "점 표기법을 계층 객체로 변환 (a.b.c)",
+      "minifyJsonLabel": "JSON 압축 / 1줄 최소화",
+      "dragAndDropNotice": ".csv, .tsv, .json 파일을 여기에 끌어다 놓거나 찾아보기로 선택하세요",
+      "csvInput": "CSV 원본 데이터",
+      "jsonInput": "JSON 원본 데이터",
+      "csvPlaceholder": "CSV 데이터를 붙여넣거나 파일을 끌어다 놓으세요...",
+      "jsonPlaceholder": "JSON 배열 또는 객체를 붙여넣으세요...",
+      "jsonOutput": "생성된 JSON 출력",
+      "csvOutput": "생성된 CSV 출력",
+      "downloadJson": "JSON 다운로드",
+      "downloadCsv": "CSV 다운로드",
+      "copy": "출력 결과 복사",
+      "copied": "클립보드에 복사되었습니다!",
+      "outputPlaceholder": "변환된 데이터가 실시간으로 여기에 표시됩니다...",
+      "aboutText": "AI 대용량 CSV JSON 변환기는 개발자와 데이터 분석가를 위해 설계된 고성능 데이터 파싱 엔진입니다. 표 형태의 원천 데이터를 현대적인 JSON 구조로 매끄럽게 변환하며, 쉼표·탭 등 구분자를 스스로 판별하고 숫자와 불리언 값을 정확히 캐스팅합니다.",
+      "feature1": "스마트 데이터 타입 추론 : 모든 값을 문자열로 일괄 처리하지 않고 정수, 소수, 불리언을 원래의 데이터 타입으로 보존합니다.",
+      "feature2": "구분자 자동 판별 : 쉼표, 세미콜론, 탭, 파이프 기호를 자동으로 감지하며 따옴표 내부의 줄바꿈도 완벽히 지원합니다.",
+      "feature3": "점 표기법 계층화 : user.address.city와 같은 헤더를 감지하여 깔끔한 다층 객체 트리 구조로 자동 재구성합니다.",
+      "feature4": "5가지 유연한 출력 형태 : 일반 객체 배열, 2차원 행렬 배열, 키 기반 맵, 열 기반 배열, NDJSON 형식을 지원합니다.",
+      "step1Title": "데이터 붙여넣기 또는 파일 업로드",
+      "step1Body": "변환할 파일을 드래그 영역에 끌어다 놓거나 텍스트를 입력하고, 필요시 예제 템플릿을 호출합니다.",
+      "step2Title": "파싱 및 출력 옵션 지정",
+      "step2Body": "스마트 타입 변환 여부, 점 표기법 계층화 적용, 원하는 JSON 데이터 출력 형태를 선택합니다.",
+      "step3Title": "결과 복사 또는 파일 저장",
+      "step3Body": "행과 열의 실시간 통계를 확인한 후 클릭 한 번으로 클립보드에 복사하거나 파일로 다운로드합니다.",
+      "faq1Q": "숫자와 참/거짓 값이 따옴표 없이 고유의 데이터 타입으로 유지되나요?",
+      "faq1A": "네! '스마트 타입 추론'을 켜면 숫자(예: 42, 19.99)와 불리언 값(true, false)이 문자열이 아닌 본래의 JSON 데이터 타입으로 출력됩니다.",
+      "faq2Q": "수만 행에 달하는 대용량 파일도 멈춤 현상 없이 변환할 수 있나요?",
+      "faq2A": "네. 고도화된 클라이언트 브라우저 로컬 연산을 통해 외부 서버 전송 없이 빠르고 안전하게 대용량 데이터를 처리합니다.",
+      "faq3Q": "헤더에 포함된 점(예: user.name)을 중첩 객체로 바꾸는 기능은 어떻게 쓰나요?",
+      "faq3A": "해당 옵션을 활성화하면 점을 기준으로 경로를 분할하여 {\"user\": {\"name\": \"...\"}} 형태의 입체적인 객체로 자동 변환됩니다.",
+      "faq4Q": "NDJSON 형식이란 무엇이며 언제 사용하나요?",
+      "faq4A": "NDJSON은 전체를 감싸는 대괄호 없이 각 행마다 하나의 독립된 JSON 객체를 줄바꿈으로 나열하는 규격입니다. MongoDB, Google BigQuery, Elasticsearch에 대용량 데이터를 적재할 때 핵심적으로 활용됩니다."
     }
   }
 }

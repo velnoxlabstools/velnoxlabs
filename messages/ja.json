@@ -275,8 +275,8 @@
       "description": "無料のオンライン文字数・単語数カウンター。単語数、文字数、ページ数換算、可読性スコア、A-Zキーワード密度、Word/Google Docsショートカットを即座に表示。"
     },
     "csv-to-json": {
-      "name": "大容量CSVからJSONへの変換ツール – 構造化JSON配列オンライン生成 (CSV to Array Online)",
-      "description": "無料の大容量CSV対応JSON変換ツール。CSVスプレッドシートやExcel出力ファイルを容量無制限で構造化JSON配列へ即座に変換。"
+      "name": "AI 大容量 CSV JSON 相互変換 – 型推論・区切り文字自動検出・階層構造化対応",
+      "description": "無料の AI 大容量 CSV JSON 相互変換ツール。数値や真偽値の自動型推論、区切り文字判定、ドット記法による階層化、ファイル読込に対応。"
     },
     "curl-to-python-requests-converter": {
       "name": "cURL から Python Requests コード変換オンライン – cURL から Postman への移行",
@@ -2657,6 +2657,54 @@
       "faq3A": "完全無料で制限なくご利用いただけます。また、すべての画像処理はお手元のブラウザ内部でのみ実行されるため、社内の機密型番やシリアル番号がサーバーへ送信されることはありません。",
       "faq4Q": "なぜCode 128が物流や現場で最も推奨されるのですか？",
       "faq4A": "Code 128はアスキー全128文字を表現できる柔軟性と優れたデータ圧縮密度を備えており、国際的な配送伝票や社内資産管理の標準規格として最も広く採用されています。"
+    },
+    "csvToJson": {
+      "title": "AI 大容量 CSV JSON 相互変換ツール",
+      "subtitle": "大容量の CSV ファイルと JSON を相互に瞬時変換。数値・真偽値の自動型推論、区切り文字自動判別、ドット記法の階層化に対応。",
+      "modeCsvToJson": "CSV → JSON",
+      "modeJsonToCsv": "JSON → CSV",
+      "csvDelimiter": "CSV 区切り文字",
+      "delimiterAuto": "自動判別",
+      "delimiterComma": "カンマ (,)",
+      "delimiterSemicolon": "セミコロン (;)",
+      "delimiterTab": "タブ (\\t)",
+      "delimiterPipe": "パイプ (|)",
+      "outputStructureLabel": "JSON 出力形式",
+      "firstRowHeader": "1行目を列見出しとして扱う",
+      "smartTypesLabel": "高度な型推論 (数値・真偽値・Null値)",
+      "nestedObjectsLabel": "ドット記法を階層オブジェクトへ変換 (a.b.c)",
+      "minifyJsonLabel": "JSON を圧縮・1行化",
+      "dragAndDropNotice": ".csv、.tsv、または .json ファイルをここにドラッグ＆ドロップするか選択してください",
+      "csvInput": "変換元 CSV データ",
+      "jsonInput": "変換元 JSON データ",
+      "csvPlaceholder": "CSV データを貼り付けるか、ファイルをドロップしてください...",
+      "jsonPlaceholder": "JSON 配列またはオブジェクトを貼り付けてください...",
+      "jsonOutput": "変換後 JSON 出力",
+      "csvOutput": "変換後 CSV 出力",
+      "downloadJson": "JSON を保存",
+      "downloadCsv": "CSV を保存",
+      "copy": "出力をコピー",
+      "copied": "クリップボードにコピーしました！",
+      "outputPlaceholder": "変換されたデータがリアルタイムにここに表示されます...",
+      "aboutText": "AI 大容量 CSV JSON 相互変換ツールは、エンジニアやデータ分析者のための高速データ変換ツールです。表形式の生データを構造化された JSON へと正確に移行し、数値や真偽値の正確な認識、階層オブジェクトの生成、NDJSON 形式への書き出しを快適に行えます。",
+      "feature1": "高度な自動型推論 : すべてを文字列化せず、整数・小数・真偽値を本来のデータ型として正確に変換。",
+      "feature2": "区切り文字の自動判定 : カンマ、セミコロン、タブ、パイプを自動判別し、引用符内の改行も厳密に処理。",
+      "feature3": "ドット記法の階層化 : user.address.city のような列見出しを深層の階層オブジェクトへと自動構築。",
+      "feature4": "5種類の出力構造 : 通常のオブジェクト配列、2次元配列、キー付き辞書、列配列、NDJSON から選択可能。",
+      "step1Title": "データの貼り付けまたはファイル読込",
+      "step1Body": "ファイルをドロップするか、テキストエリアに直接データを入力します。",
+      "step2Title": "変換オプションの指定",
+      "step2Body": "型推論の有無や階層オブジェクト化、出力する JSON の構造を好みに応じて設定します。",
+      "step3Title": "結果のコピーまたは保存",
+      "step3Body": "リアルタイム集計を確認し、ワンクリックで結果をコピーまたはファイルとして保存します。",
+      "faq1Q": "数値や真偽値が二重引用符で囲まれずにそのまま保持されますか？",
+      "faq1A": "はい。「高度な型推論」を有効にすると、数値や true/false が文字列ではなくネイティブな JSON データ型として出力されます。",
+      "faq2Q": "大きなファイルでもブラウザが固まることなく処理できますか？",
+      "faq2A": "はい。外部サーバーへ個人情報を送信することなく、お使いのブラウザ内部メモリで効率的にローカル処理を行います。",
+      "faq3Q": "見出しに含まれるドットから階層を作る仕組みはどうなっていますか？",
+      "faq3A": "見出しに user.name と記載されている場合、自動的に { \"user\": { \"name\": \"...\" } } という階層構造へと整形されます。",
+      "faq4Q": "NDJSON とは何ですか？どのような時に使われますか？",
+      "faq4A": "NDJSON は配列の全体括弧を設けず、各行に1つの JSON オブジェクトを改行区切りで記述する仕様です。BigQuery や Elasticsearch への一括取込に最適です。"
     }
   }
 }
