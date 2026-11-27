@@ -394,8 +394,8 @@
       "description": "Kostenloser KI-Textvergleich und Diff-Checker im Browser. Code vergleichen, Textähnlichkeit in Prozent messen und lokale Textdateien unter Windows oder Mac direkt nebeneinander abgleichen."
     },
     "name-combiner": {
-      "name": "Namen-Kombinierer für Paare, Babynamen & Häuser (2, 3 oder 4 Namen)",
-      "description": "Kostenloses Online-Tool zum Verbinden von Namen für Paare, Babys, Hochzeiten, Häuser und Freunde. Kombiniere 2, 3 oder 4 Namen zu harmonischen Wortschöpfungen."
+      "name": "KI-Namen-Kombinierer – Paare, Babynamen (Junge/Mädchen) & Häuser (2, 3 oder 4 Namen)",
+      "description": "Kostenloser Online-KI-Namen-Kombinierer für Paare, Babynamen (Junge/Mädchen/Unisex), Haus- und Villennamen sowie Freundesgruppen. Verbinden Sie 2, 3 oder 4 Namen zu harmonischen Wortschöpfungen, Hochzeits-Hashtags und Instagram-Namen."
     },
     "slug-generator": {
       "name": "KI Slug-Generator Kostenlos – URL-Slugify, Massen- & Zufalls-Slugs",
@@ -1265,8 +1265,8 @@
       "step3Body": "Klicken Sie auf die Zeile, um den exakten Header für Ihre Serverkonfiguration zu kopieren."
     },
     "nameCombiner": {
-      "title": "Namen-Kombinierer für Paare, Babynamen & Häuser (2, 3 oder 4 Namen)",
-      "subtitle": "Kostenloses Online-Tool zum Verbinden von Namen für Paare, Babys, Hochzeiten, Häuser und Freunde. Kombiniere 2, 3 oder 4 Namen zu harmonischen Wortschöpfungen.",
+      "title": "KI-Namen-Kombinierer – Paare, Babynamen (Junge/Mädchen) & Häuser (2, 3 oder 4 Namen)",
+      "subtitle": "Kostenloser Online-KI-Namen-Kombinierer für Paare, Babynamen, Haus- und Villennamen sowie Freundesgruppen. Verbinden Sie 2, 3 oder 4 Namen mit phonetischer Harmonisierung.",
       "firstName": "Name 1:",
       "firstNamePlaceholder": "z.B. Jonas",
       "secondName": "Name 2:",
@@ -1294,11 +1294,11 @@
       "noFavorites": "Noch keine Favoriten gespeichert. Klicke auf das Herz.",
       "clearFavorites": "Favoriten leeren",
       "weddingHashtag": "Hochzeits-Hashtag",
-      "aboutText": "Unser kostenloser Namen-Kombinierer für Paare, Babynamen, Hochzeiten, Häuser und Freundeskreise ist ein fortschrittliches sprachliches Werkzeug für besondere Anlässe. Ob Sie einen Kosenamen für ein Paar, Hochzeits-Hashtags für Einladungen, wohlklingende Babynamen aus den Namen der Eltern oder den Namen für ein neues Eigenheim suchen: Das System liefert blitzschnell passende Wortschöpfungen. Dank der Unterstützung von 3 und 4 Namen können auch Dreiergruppen und ganze Familien gemeinsame Bezeichnungen finden. Die Verarbeitung erfolgt direkt im Browser ohne Serverübertragung.",
-      "feature1": "Algorithmen für 2, 3 oder 4 Namen: Verbindet bis zu vier Namen durch Silbenverschmelzung und Akronymbildung zu stimmigen Neuschöpfungen.",
-      "feature2": "Zielgerichtete Themenwelten: Maßgeschneiderte Vorlagen für Liebespaare, Hochzeitsfeiern, wohlklingende Babynamen und Anwesen.",
-      "feature3": "Phonetische Harmonie: Sorgt für flüssige Übergänge von Konsonanten und Vokalen für eine natürliche Aussprache.",
-      "feature4": "Lokale Ausführung & Privatsphäre: Läuft vollständig im lokalen Speicher Ihres Browsers ohne Datenspeicherung.",
+      "aboutText": "Unser kostenloser Online-KI-Namenskombinierer für Paare, Babynamen, Hochzeiten, Häuser und Freundeskreise ist ein hochentwickelter linguistischer Portmanteau-Synthesizer. Ob romantische Paarnamen, Hochzeits-Hashtags für Einladungen, sanfte Babynamen aus den Vornamen der Eltern für Jungen, Mädchen oder geschlechtsneutrale Optionen, oder repräsentative Namen für Familienvillen und Anwesen – unsere phonetische KI-Engine erzeugt in Echtzeit dutzende klangvolle Varianten mit Melodie-Bewertung. Unterstützt auch 3 und 4 Namen für Trios und Familien bei 100 % lokaler Privatsphäre im Browser.",
+      "feature1": "Phonetische KI-Engine & Melodie-Score: Analysiert Silbenstrukturen und bewertet den Wohlklang (82-99%), um holprige Konsonantengruppen zu vermeiden.",
+      "feature2": "Geschlechterfilter für Babys (Junge / Mädchen / Unisex): Gezielte Auswahl zwischen kraftvollen Jungennamen, melodischen Mädchennamen und Unisex-Varianten.",
+      "feature3": "Hochzeits-Hashtags & Social-Media-Namen: Erstellt romantische Hashtags und ästhetische Profilnamen für Instagram und TikTok.",
+      "feature4": "WhatsApp-Teilen & Export: Favoritenliste mit einem Klick zusammenstellen, direkt auf WhatsApp teilen oder als TXT und CSV exportieren.",
       "step1Title": "2, 3 oder 4 Namen eingeben",
       "step1Body": "Namen eintragen und bei Bedarf auf \"+ Name hinzufügen\" tippen, um weitere Personen aufzunehmen.",
       "step2Title": "Nach Anlass filtern oder stöbern",

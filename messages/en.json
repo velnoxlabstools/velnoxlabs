@@ -387,8 +387,8 @@
       "description": "Free AI text difference checker online & diff checker tool. Compare code, check text similarity percentage, and upload text files for side-by-side comparison on Windows, Mac, or browser with 100% privacy."
     },
     "name-combiner": {
-      "name": "Name Combiner for Couples, Baby Names & House (2, 3 or 4 Names)",
-      "description": "Free online Name Combiner for couples, baby names, house, marriage, and friends. Combine 2, 3, or 4 names into creative nicknames, wedding hashtags, and portmanteau blends instantly."
+      "name": "AI Name Combiner – Couples, Baby Names (Boy/Girl) & House (2, 3 or 4 Names)",
+      "description": "Free online AI Name Combiner for couples, baby names (boy/girl/unisex), house & villa, marriage, and squad nicknames. Blend 2, 3, or 4 names into aesthetic portmanteau mashups, wedding hashtags, and Instagram handles."
     },
     "slug-generator": {
       "name": "AI Slug Generator Free – URL Slugify, Bulk & Random Slug Maker",
@@ -1214,8 +1214,8 @@
       "faq4A": "Yes. All media type definitions conform to official IANA (Internet Assigned Numbers Authority) and RFC specifications."
     },
     "nameCombiner": {
-      "title": "Name Combiner for Couples, Baby Names & House (2, 3 or 4 Names)",
-      "subtitle": "Free online Name Combiner for couples, baby names, marriage, house names, and friends. Combine 2, 3, or 4 names into aesthetic blends, nicknames, and wedding hashtags.",
+      "title": "AI Name Combiner – Couples, Baby Names (Boy/Girl) & House (2, 3 or 4 Names)",
+      "subtitle": "Free online AI Name Combiner for couples, baby names, house & villa names, and friendship squads. Blend 2, 3, or 4 names with phonetic harmonization, wedding hashtags, and WhatsApp sharing.",
       "firstName": "Name 1:",
       "firstNamePlaceholder": "e.g. John",
       "secondName": "Name 2:",
@@ -1243,11 +1243,11 @@
       "noFavorites": "No saved favorite names yet. Click the heart icon to bookmark favorites.",
       "clearFavorites": "Clear Favorites",
       "weddingHashtag": "Wedding Hashtag",
-      "aboutText": "Our free online Name Combiner for couples, baby names, marriage, house, and friends is an advanced linguistic portmanteau synthesizer built for relationship milestones, families, and creative branding. Whether you need a romantic Name combiner for couple pairing to design iconic ship names (like Brangelina) or wedding hashtags for invitations, a gentle Name combiner for baby names that harmonizes father and mother syllables into unique infant names, or a Name combiner for house and villa naming (such as Jemma Villa or Johnemma Niwas), our engine delivers dozens of harmonious variations in real time. Unlike legacy generators restricted to two words, our utility features advanced Name combiner 3 names and Name combiner 4 names capabilities, allowing trios of friends, squads, and four-member families to generate unified handles and group identities. Designed as a 100% free Name combiner free solution, every syllable slicing, vowel-consonant interleaving, and portmanteau algorithm processes securely inside your browser with complete privacy and zero data tracking.",
-      "feature1": "Multi-Name Algorithmic Fusion (2, 3, or 4 Names): Effortlessly blend two, three, or four names simultaneously with tri-syllable interleaving, pairwise cross-merging, and quad-acronym generation.",
-      "feature2": "Purpose-Built Naming Modes: Tailored blending modules specifically designed for couple ship names, wedding hashtags, gentle baby names, and traditional estate or house titles.",
-      "feature3": "Phonological Harmonization & Soft Transitions: Automatically resolves awkward consonant collisions and balances vowel flow to create melodic, naturally pronounceable words.",
-      "feature4": "Instant Local Execution & Privacy: Operates 100% in client memory with zero server logging, no user registration, and unlimited free name generations.",
+      "aboutText": "Our free online AI Name Combiner for couples, baby names, marriage, house, and friends is an advanced linguistic portmanteau synthesizer built for relationship milestones, growing families, and creative branding. Whether you need an aesthetic couple name combiner to design romantic ship names or wedding hashtags for invitations, a gentle baby name combiner that harmonizes mother and father syllables into unique boy, girl, or unisex infant names, or a house and villa name combiner (such as Niwas, Bhavan, Sadan, Villa, or Estate), our AI phonetic engine generates dozens of harmonious variations in real time with melodic flow ratings. Unlike legacy generators restricted to two words, our utility features advanced 3-name and 4-name blending capabilities for trios of friends, squads, and four-member families to generate unified handles and group identities. Everything processes securely inside your browser with complete privacy and zero data tracking.",
+      "feature1": "AI Phonetic & Melodic Engine: Breaks names into phonetic syllables and blends them with sonority scoring (82-99% Melodic Flow) to avoid awkward consonant clusters.",
+      "feature2": "Baby Name Gender Filters (Boy / Girl / Unisex): Effortlessly filter combined infant names into melodic boy names, soft girl names, or modern unisex options.",
+      "feature3": "Wedding Hashtags & Instagram Bio Handles: Automatically crafts romantic wedding hashtags and aesthetic couple social media usernames for Instagram and TikTok.",
+      "feature4": "WhatsApp Sharing & Multi-Format Export: Shortlist your favorite blends with one click, share formatted name lists directly on WhatsApp, or export to TXT and CSV.",
       "step1Title": "Enter 2, 3, or 4 Source Names",
       "step1Body": "Type the first two names into the input fields. Click \"+ Add Name\" to add a third or fourth name for family or squad combinations.",
       "step2Title": "Filter by Purpose or Explore All",

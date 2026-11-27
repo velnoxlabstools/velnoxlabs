@@ -394,8 +394,8 @@
       "description": "Comparador de textos com IA gratuito online e diff checker. Compare códigos, meça a porcentagem de similaridade e envie arquivos de texto para comparação lado a lado no Windows ou Mac."
     },
     "name-combiner": {
-      "name": "Combinador de nomes para casais, bebês e casas (2, 3 ou 4 nomes)",
-      "description": "Ferramenta online para unir nomes de casais, bebês, casamentos, residências e amigos. Combine 2, 3 ou 4 nomes em fusões harmoniosas e hashtags de casamento."
+      "name": "Combinador de nomes com IA – Casais, bebês (menino/menina) e casas (2, 3 ou 4 nomes)",
+      "description": "Combinador gratuito de nomes com IA online para casais, bebês (menino/menina/unissex), casas e chácaras, casamentos e grupos de amigos. Misture 2, 3 ou 4 nomes em criações sonoras, hashtags de casamento e perfis sociais."
     },
     "slug-generator": {
       "name": "Gerador de Slugs IA Grátis – URL Slugify, Em Massa e Aleatório",
@@ -1265,8 +1265,8 @@
       "step3Body": "Clique na linha pretendida para copiar a definição exata para o seu servidor."
     },
     "nameCombiner": {
-      "title": "Combinador de nomes para casais, bebês e casas (2, 3 ou 4 nomes)",
-      "subtitle": "Ferramenta online para unir nomes de casais, bebês, casamentos, residências e amigos. Combine 2, 3 ou 4 nomes em fusões harmoniosas e hashtags de casamento.",
+      "title": "Combinador de nomes com IA – Casais, bebês (menino/menina) e casas (2, 3 ou 4 nomes)",
+      "subtitle": "Combinador gratuito de nomes com IA online para casais, nomes de bebês, casas e chácaras, e grupos de amigos. Misture 2, 3 ou 4 nomes com harmonia fonética e compartilhamento no WhatsApp.",
       "firstName": "Nome 1:",
       "firstNamePlaceholder": "ex. Lucas",
       "secondName": "Nome 2:",
@@ -1294,11 +1294,11 @@
       "noFavorites": "Nenhum favorito salvo ainda. Clique no coração para salvar.",
       "clearFavorites": "Limpar favoritos",
       "weddingHashtag": "Hashtag de casamento",
-      "aboutText": "Nosso combinador de nomes gratuito para casais, nomes de bebês, casamentos, residências e amigos é um recurso fonético moderno feito para ocasiões especiais e marcas memoráveis. Quer você deseje criar um apelido de casal apaixonado, etiquetas para convites de casamento, harmonizar as sílabas dos pais para o nome do bebê ou batizar uma chácara ou casa de praia, o mecanismo produz dezenas de alternativas em tempo real. Compatível com até 4 nomes simultâneos, atende famílias e grupos de amigos com rapidez e total sigilo no navegador.",
-      "feature1": "Fusão para múltiplos nomes (2, 3 ou 4 nomes): Agrupe até quatro nomes por meio de intercalação de sílabas e siglas inteligentes.",
-      "feature2": "Ambientes especializados: Categorias pensadas para casais, celebrações matrimoniais, nomes infantis suaves e casas de campo.",
-      "feature3": "Fluidez fonética: Elimina encontros consonantais duros, garantindo sonoridade agradável ao falar.",
-      "feature4": "Operação local e sigilosa: Processado exclusivamente na memória do navegador sem envio a servidores externos.",
+      "aboutText": "Nosso combinador gratuito de nomes com inteligência artificial para casais, bebês, casamentos, casas e amigos é um sintetizador linguístico de alta precisão. Seja para criar apelidos de casal inesquecíveis, hashtags para convites de casamento, nomes de bebês delicados que unem as sílabas dos pais (para meninos, meninas ou neutros), ou nomes para sítios e residências familiares, nosso motor fonético gera dezenas de opções em tempo real com indicador de harmonia melódica. Também combina 3 e 4 nomes para grupos e famílias, com total privacidade no navegador.",
+      "feature1": "Motor fonético e melódico com IA: Divide os nomes em blocos sonoros e avalia a fluidez (82-99%), eliminando encontros consonantais ásperos.",
+      "feature2": "Filtro de gênero para bebês (menino / menina / unissex): Descubra nomes masculinos marcantes, femininos suaves ou opções unissex modernas.",
+      "feature3": "Hashtags de casamento e perfis no Instagram: Gere hashtags personalizadas para casamentos e ideias de usuário para perfis de casal.",
+      "feature4": "Compartilhamento no WhatsApp e exportação: Guarde seus nomes prediletos, compartilhe a lista no WhatsApp ou baixe nos formatos TXT e CSV.",
       "step1Title": "Digite 2, 3 ou 4 nomes de origem",
       "step1Body": "Preencha os campos iniciais e clique em \"+ Adicionar nome\" caso precise reunir 3 ou 4 pessoas.",
       "step2Title": "Escolha a finalidade ou confira tudo",

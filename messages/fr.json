@@ -394,8 +394,8 @@
       "description": "Comparateur de texte IA gratuit en ligne et outil diff checker. Comparez du code, mesurez le pourcentage de similarité et importez vos fichiers texte côte à côte sous Windows ou Mac."
     },
     "name-combiner": {
-      "name": "Générateur de fusion de prénoms pour couples, bébés et maisons (2, 3 ou 4 noms)",
-      "description": "Outil en ligne pour fusionner les prénoms de couples, bébés, mariages, maisons et amis. Associez 2, 3 ou 4 noms en créations mélodieuses et hashtags."
+      "name": "Générateur de fusion de prénoms IA – Couples, bébés (garçon/fille) et maisons (2, 3 ou 4 noms)",
+      "description": "Générateur de fusion de prénoms IA en ligne pour couples, bébés (garçon/fille/mixte), maisons et groupes d'amis. Associez 2, 3 ou 4 prénoms en créations esthétiques, hashtags de mariage et identifiants sociaux."
     },
     "slug-generator": {
       "name": "Générateur de Slugs IA Gratuit – URL Slugify, Lot et Aléatoire",
@@ -1265,8 +1265,8 @@
       "step3Body": "Cliquez sur la ligne voulue pour copier la directive exacte pour votre serveur."
     },
     "nameCombiner": {
-      "title": "Générateur de fusion de prénoms pour couples, bébés et maisons (2, 3 ou 4 noms)",
-      "subtitle": "Outil en ligne pour fusionner les prénoms de couples, bébés, mariages, maisons et amis. Associez 2, 3 ou 4 noms en créations mélodieuses et hashtags.",
+      "title": "Générateur de fusion de prénoms IA – Couples, bébés (garçon/fille) et maisons (2, 3 ou 4 noms)",
+      "subtitle": "Générateur de fusion de prénoms IA gratuit pour couples, bébés, villas et groupes d'amis. Associez 2, 3 ou 4 prénoms avec harmonisation phonétique et partage WhatsApp.",
       "firstName": "Nom 1 :",
       "firstNamePlaceholder": "ex. Thomas",
       "secondName": "Nom 2 :",
@@ -1294,11 +1294,11 @@
       "noFavorites": "Aucun favori enregistré pour le moment. Cliquez sur le cœur.",
       "clearFavorites": "Vider les favoris",
       "weddingHashtag": "Hashtag de mariage",
-      "aboutText": "Notre outil gratuit de fusion de prénoms pour couples, bébés, mariages, maisons et groupes d'amis permet d'inventer des mots-valises harmonieux en quelques instants. Qu'il s'agisse d'un surnom affectueux pour un couple, d'un hashtag pour des invitations de mariage, d'une douce combinaison des prénoms des parents pour un nouveau-né ou du nom d'une villa familiale, le moteur propose un large éventail d'idées sonores. Pouvant associer 3 ou 4 noms en même temps, il répond idéalement aux familles et cercles d'amis. Traitement sécurisé et direct dans votre navigateur.",
-      "feature1": "Fusion multi-noms (2, 3 ou 4 prénoms) : Réunit jusqu'à quatre noms par entremêlement de syllabes et acronymes fluides.",
-      "feature2": "Modes thématiques dédiés : Catégories prévues pour les couples, festivités de mariage, noms d'enfants et demeures familiales.",
-      "feature3": "Harmonie phonologique : Évite les heurts consonantiques pour préserver une prononciation douce et claire.",
-      "feature4": "Confidentialité totale : Exécution intégrale dans la mémoire locale de votre appareil sans collecte de données.",
+      "aboutText": "Notre outil gratuit de fusion de prénoms assisté par IA pour couples, bébés, mariages, maisons et groupes d'amis est un synthétiseur linguistique conçu pour sublimer vos étapes de vie. Qu'il s'agisse de créer des surnoms de couple harmonieux, des hashtags de mariage originaux, des prénoms de bébé doux issus des prénoms des parents (garçon, fille ou mixte), ou des noms de propriété et de villa, notre moteur phonétique génère instantanément des dizaines de propositions harmonieuses accompagnées d'un score de fluidité. Il gère également la fusion de 3 ou 4 prénoms pour les familles et amis, en toute confidentialité dans votre navigateur.",
+      "feature1": "Moteur phonétique et mélodique IA : Découpe les prénoms en syllabes sonores avec notation de fluidité (82-99%) pour éviter les collisions consonantiques.",
+      "feature2": "Filtres de genre pour bébé (garçon / fille / mixte) : Filtrez en un clic les sonorités masculines, les terminaisons douces pour filles ou les prénoms mixtes.",
+      "feature3": "Hashtags de mariage et identifiants Instagram : Génère des hashtags romantiques et des noms de compte originaux pour Instagram et TikTok.",
+      "feature4": "Partage WhatsApp et export multiple : Sauvegardez vos favoris, partagez vos sélections sur WhatsApp ou téléchargez-les en formats TXT et CSV.",
       "step1Title": "Saisissez 2, 3 ou 4 prénoms",
       "step1Body": "Indiquez les premiers prénoms et cliquez sur \"+ Ajouter un nom\" pour regrouper 3 ou 4 personnes.",
       "step2Title": "Sélectionnez un univers thématique",

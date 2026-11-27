@@ -394,8 +394,8 @@
       "description": "Comparador de textos IA gratuito en línea y herramienta diff checker. Compare código fuente, calcule el porcentaje de similitud y suba archivos de texto para cotejo lado a lado sin instalar nada."
     },
     "name-combiner": {
-      "name": "Combinador de nombres para parejas, bebés y casas (2, 3 o 4 nombres)",
-      "description": "Herramienta online para unir nombres de parejas, bebés, bodas, casas y amigos. Combina 2, 3 o 4 nombres en mezclas y etiquetas matrimoniales al instante."
+      "name": "Combinador de nombres con IA – Parejas, bebés (niño/niña) y casas (2, 3 o 4 nombres)",
+      "description": "Combinador de nombres con IA gratuito en línea para parejas, nombres de bebés (niño/niña/unisex), casas y villas, bodas y grupos de amigos. Mezcle 2, 3 o 4 nombres en combinaciones estéticas, etiquetas de boda y perfiles sociales."
     },
     "slug-generator": {
       "name": "Generador de Slugs IA Gratis – URL Slugify, Masivo y Aleatorio",
@@ -1265,8 +1265,8 @@
       "step3Body": "Haz clic en \"Copiar\" en la fila deseada para configurar tus servidores web y APIs."
     },
     "nameCombiner": {
-      "title": "Combinador de nombres para parejas, bebés y casas (2, 3 o 4 nombres)",
-      "subtitle": "Herramienta online para unir nombres de parejas, bebés, bodas, casas y amigos. Combina 2, 3 o 4 nombres en mezclas y etiquetas matrimoniales al instante.",
+      "title": "Combinador de nombres con IA – Parejas, bebés (niño/niña) y casas (2, 3 o 4 nombres)",
+      "subtitle": "Combinador de nombres con IA gratuito para parejas, nombres de bebés, casas y villas, y grupos de amigos. Combine 2, 3 o 4 nombres con armonización fonética y etiquetas de boda.",
       "firstName": "Nombre 1:",
       "firstNamePlaceholder": "ej. Juan",
       "secondName": "Nombre 2:",
@@ -1294,11 +1294,11 @@
       "noFavorites": "Aún no hay favoritos guardados. Pulsa el corazón para guardar.",
       "clearFavorites": "Vaciar favoritos",
       "weddingHashtag": "Etiqueta de boda",
-      "aboutText": "Nuestro combinador de nombres gratuito para parejas, nombres de bebé, bodas, casas y amigos es un asistente fonológico avanzado pensado para momentos inolvidables y creaciones de marca. Si buscas crear un apodo cariñoso para parejas, diseñar etiquetas matrimoniales para tus invitaciones, armonizar las sílabas de papá y mamá para un recién nacido, o bautizar una residencia familiar o finca con un toque distintivo, este generador ofrece decenas de opciones en tiempo real. A diferencia de las utilidades limitadas a dos términos, nuestro sistema admite 3 y 4 nombres de manera simultánea, ideal para grupos de amigos y familias enteras. Todo se procesa de forma segura en la memoria de tu navegador con absoluta privacidad.",
-      "feature1": "Fusión algorítmica multinacional (2, 3 o 4 nombres): Combina dos, tres o cuatro nombres a la vez mediante cruce de sílabas y acrónimos creativos.",
-      "feature2": "Módulos según tu objetivo: Opciones optimizadas para parejas, enlaces nupciales, nombres suaves de bebé y fincas o villas familiares.",
-      "feature3": "Armonización melódica: Equilibra consonantes y vocales para conseguir palabras naturales, fáciles de pronunciar y recordar.",
-      "feature4": "Privacidad absoluta y uso libre: Ejecución 100% en el terminal sin registros ni costos ocultos.",
+      "aboutText": "Nuestro combinador de nombres con IA gratuito en línea para parejas, nombres de recién nacidos, bodas, casas y amigos es un sintetizador lingüístico avanzado diseñado para momentos especiales y familias. Ya sea que busque nombres de pareja románticos o etiquetas para invitaciones de boda, un combinador de nombres de bebé que fusione las sílabas de ambos padres en nombres melódicos de niño o niña, o nombres para residencias y villas familiares, nuestro motor fonético genera decenas de variantes armoniosas en tiempo real con puntuación melódica. Admite además la combinación de 3 y 4 nombres para tríos y familias completas, con privacidad total y ejecución en el navegador.",
+      "feature1": "Motor fonético y melódico con IA: Divide los nombres en sílabas fonéticas y evalúa la fluidez (82-99%) para evitar choques consonánticos.",
+      "feature2": "Filtros de género para bebés (niño / niña / unisex): Filtre fácilmente combinaciones para nombres masculinos con fuerza, femeninos dulces o unisex modernos.",
+      "feature3": "Etiquetas de boda y perfiles de Instagram: Genera automáticamente etiquetas nupciales románticas y nombres de usuario para redes sociales.",
+      "feature4": "Compartir en WhatsApp y exportar: Guarde sus nombres favoritos, comparta listas por WhatsApp con su familia o descárguelas en TXT y CSV.",
       "step1Title": "Escribe 2, 3 o 4 nombres de partida",
       "step1Body": "Introduce los nombres en las casillas iniciales y pulsa \"+ Añadir nombre\" si deseas incluir más personas.",
       "step2Title": "Filtra por categoría o examina todas",

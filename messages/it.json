@@ -394,8 +394,8 @@
       "description": "Strumento gratuito IA online per confrontare testi e codice. Verifica la percentuale di similitudine e carica file di testo per il confronto affiancato su Windows, Mac o browser."
     },
     "name-combiner": {
-      "name": "Combinatore di nomi per coppie, bambini e case (2, 3 o 4 nomi)",
-      "description": "Strumento online per fondere nomi di coppie, neonati, matrimoni, case e amici. Unisci 2, 3 o 4 nomi in creazioni fantasiose e hashtag nuziali."
+      "name": "Combinatore di nomi con IA – Coppie, neonati (maschio/femmina) e case (2, 3 o 4 nomi)",
+      "description": "Combinatore gratuito di nomi con IA online per coppie, neonati (maschio/femmina/unisex), case e ville, matrimoni e gruppi di amici. Unisci 2, 3 o 4 nomi in combinazioni armoniose, hashtag nuziali e profili social."
     },
     "slug-generator": {
       "name": "Generatore di Slug IA Gratis – URL Slugify, Multipli e Casuali",
@@ -1265,8 +1265,8 @@
       "step3Body": "Fai clic su Copia sulla riga prescelta per configurare il tuo server web."
     },
     "nameCombiner": {
-      "title": "Combinatore di nomi per coppie, bambini e case (2, 3 o 4 nomi)",
-      "subtitle": "Strumento online per fondere nomi di coppie, neonati, matrimoni, case e amici. Unisci 2, 3 o 4 nomi in creazioni fantasiose e hashtag nuziali.",
+      "title": "Combinatore di nomi con IA – Coppie, neonati (maschio/femmina) e case (2, 3 o 4 nomi)",
+      "subtitle": "Combinatore gratuito di nomi con IA online per coppie, nomi di neonati, case e ville, e gruppi di amici. Unisci 2, 3 o 4 nomi con armonizzazione fonetica e condivisione su WhatsApp.",
       "firstName": "Nome 1:",
       "firstNamePlaceholder": "es. Marco",
       "secondName": "Nome 2:",
@@ -1294,11 +1294,11 @@
       "noFavorites": "Nessun preferito salvato finora. Tocca il cuore per salvare.",
       "clearFavorites": "Svuota preferiti",
       "weddingHashtag": "Hashtag di nozze",
-      "aboutText": "Il nostro combinatore di nomi gratuito per coppie, bambini, matrimoni, case e amici è un generatore linguistico ideato per momenti speciali e creazioni di nomi originali. Che tu voglia inventare un nomignolo affettuoso per una coppia, ideare un hashtag nuziale per partecipazioni, armonizzare i nomi di mamma e papà per un neonato o dare un titolo alla casa di famiglia, lo strumento genera opzioni melodiose in tempo reale. Capace di elaborare 3 e 4 nomi in simultanea, è perfetto per gruppi di amici e famiglie. Funziona interamente nella memoria locale del browser nel pieno rispetto della privacy.",
-      "feature1": "Fusione multi-nome (2, 3 o 4 nomi): Unisci fino a quattro nomi attraverso intrecci sillabici e acronimi ritmici.",
-      "feature2": "Percorsi tematici dedicati: Filtri ideati per coppie, nozze, nomi dolci per l'infanzia e tenute o ville di famiglia.",
-      "feature3": "Fluidità fonetica: Raccorda le consonanti e favorisce le vocali per ottenere vocaboli semplici da pronunciare.",
-      "feature4": "Riservatezza assoluta: Esecuzione istantanea nel dispositivo senza registrazione né invio di dati esterni.",
+      "aboutText": "Il nostro combinatore di nomi con IA gratuito per coppie, neonati, matrimoni, case e comitive di amici è un avanzato sintetizzatore linguistico di parole macedonia. Che tu stia cercando un nome di coppia romantico per hashtag di matrimonio, un nome di bebè armonioso che fonda le sillabe di mamma e papà per maschietto, femminuccia o unisex, o un nome suggestivo per ville e residenze di famiglia, il nostro motore fonetico genera all'istante decine di proposte melodiose con punteggio di fluidità. Consente di combinare anche 3 o 4 nomi con esecuzione locale sicura e totale riservatezza.",
+      "feature1": "Motore fonetico e melodico IA: Suddivide i nomi in sillabe e calcola la fluidità (82-99%) per garantire pronunce naturali e armoniose.",
+      "feature2": "Filtri di genere per neonati (maschio / femmina / unisex): Seleziona facilmente nomi maschili decisi, femminili dolci o varianti unisex moderne.",
+      "feature3": "Hashtag per matrimoni e profili Instagram: Crea hashtag nuziali esclusivi e nomi utente estetici per profili di coppia su Instagram e TikTok.",
+      "feature4": "Condivisione su WhatsApp ed esportazione: Salva i preferiti con un tocco, invia l'elenco su WhatsApp ai familiari o esporta in TXT e CSV.",
       "step1Title": "Inserisci 2, 3 o 4 nomi di partenza",
       "step1Body": "Digita i primi due nomi e premi \"+ Aggiungi nome\" se desideri coinvolgere 3 o 4 persone.",
       "step2Title": "Filtra per finalità o consulta tutto",
