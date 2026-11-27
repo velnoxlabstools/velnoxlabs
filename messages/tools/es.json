@@ -2334,8 +2334,8 @@
       "faq4A": "Totalmente seguro. Todo el procesamiento se realiza en tu navegador local sin enviar información a ningún servidor exterior."
     },
     "salaryToHourlyCalculator": {
-      "title": "Calculadora de Salario a Hora – Pago Anual, Mensual y Neto",
-      "subtitle": "Convierte salario anual, mensual, quincenal, bisemanal y por hora con estimación neta tras impuestos, horas extra (1.5x/2x), comparador de ofertas y tabla de referencia.",
+      "title": "Calculadora de Salario a Tarifa por Hora con IA (Anual, Mensual, Quincenal y por Hora)",
+      "subtitle": "Convierta salario anual, mensual, quincenal y por hora con deducción de vacaciones, asesor de tarifas independientes con IA y cálculo neto tras deducciones fiscales.",
       "tabConverter": "Conversor de Ciclos de Pago",
       "tabAfterTax": "Estimador Tras Impuestos",
       "tabOvertime": "Simulador de Horas Extras",
@@ -2411,8 +2411,8 @@
       "faq2A": "Multiplica el sueldo mensual por 12 para calcular el importe anual y divídelo entre las horas totales (2.080 h); o bien divide el mensual entre 173,33 (promedio de horas mensuales en semanas de 40 h).",
       "faq3Q": "¿A cuánto equivale una retribución de $50.000 o $55.000 al año en horas?",
       "faq3A": "Para 40 horas a la semana: $50.000 anuales equivalen a $24,04 por hora ($4.166,67 al mes); $52.000 anuales equivalen a $25,00 por hora ($4.333,33 al mes); y $55.000 anuales equivalen a $26,44 por hora ($4.583,33 al mes).",
-      "faq4Q": "¿Cómo se convierte un pago quincenal a tarifa por hora?",
-      "faq4A": "Un pago quincenal cubre 80 horas de trabajo ordinario en jornada completa. Simplemente divide la suma quincenal entre 80. Por ejemplo, $2.000 quincenales corresponden a $25,00 por hora ($2.000 ÷ 80).",
+      "faq4Q": "¿Pueden los profesionales independientes usar esta herramienta para calcular tarifas diarias?",
+      "faq4A": "Sí, utilice la pestaña Asesor de tarifas para profesionales independientes con IA para calcular tarifas sostenibles con margen operativo.",
       "periodSemiMonthly": "Quincenal (24 al año)",
       "semiMonthly": "Pago Quincenal",
       "hourlyPresetsLabel": "Por Hora → Salario:",
@@ -2436,7 +2436,9 @@
       "compareRow4Feature": "Comparador de Ofertas",
       "compareRow4Velnox": "Pago Efectivo Lado a Lado",
       "compareRow4Talent": "No",
-      "compareRow4Adp": "No"
+      "compareRow4Adp": "No",
+      "tabFreelance": "Asesor de tarifas para profesionales independientes con IA",
+      "ptoToggleLabel": "Ajuste por vacaciones pagadas y días festivos"
     },
     "securePasswordGenerator": {
       "title": "Generador de Contraseñas Seguras IA",

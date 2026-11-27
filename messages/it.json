@@ -501,8 +501,8 @@
       "description": "Calcolatore online gratuito delle rate mensili per mutui, prestiti auto e personali. Calcola interessi, piano di ammortamento e risparmio con estinzione anticipata."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calcolatore Stipendio a Paga Oraria – Annuale, Mensile e Netto",
-      "description": "Calcolatore gratuito da stipendio annuale a paga oraria. Converti retribuzioni annuali, mensili, quindicinali e settimanali con stima netta, straordinari (1.5x/2x) e confronto offerte di lavoro."
+      "name": "Calcolatore Stipendio a Paga Oraria con IA (Annuale, Mensile, Quattordicinale e Netto)",
+      "description": "Converti stipendio annuale, mensile, quattordicinale e orario con deduzione ferie retribuite, consulente per liberi professionisti con IA e stima del compenso netto."
     },
     "grade-calculator": {
       "name": "Calcolatore Voto Finale – Simulatore Medie Esami e Rendimento Scolastico",
@@ -1813,8 +1813,12 @@
       "faq2A": "Sì, basta ridurre le settimane annue da 52 a 50 o 48 per adattare il calcolo a contratti stagionali o periodi di fermo.",
       "faq3Q": "Le somme espresse tengono conto della tassazione?",
       "faq3A": "I valori indicano compensi lordi; il netto effettivo dipende dagli scaglioni fiscali e dai contributi previdenziali individuali.",
-      "faq4Q": "È utile anche per liberi professionisti e consulenti?",
-      "faq4A": "Sì, permette di calcolare la tariffa minima oraria o a giornata necessaria per raggiungere determinati obiettivi di fatturato."
+      "faq4Q": "I liberi professionisti possono calcolare la tariffa giornaliera con questo strumento?",
+      "faq4A": "Sì, la scheda Consulente tariffario per liberi professionisti con IA calcola compensi orari sostenibili con spese generali incluse.",
+      "title": "Calcolatore Stipendio a Paga Oraria con IA (Annuale, Mensile, Quattordicinale e Netto)",
+      "subtitle": "Converti stipendio annuale, mensile, quattordicinale e orario con deduzione ferie retribuite, consulente per liberi professionisti con IA e stima del compenso netto.",
+      "tabFreelance": "Consulente tariffario per liberi professionisti con IA",
+      "ptoToggleLabel": "Adeguamento per ferie retribuite e festività"
     },
     "securePasswordGenerator": {
       "aboutText": "Generatore crittografico di password robuste basato su Web Cryptography API (crypto.getRandomValues) con selezione di entropia ed eliminazione di caratteri ambigui.",

@@ -501,8 +501,8 @@
       "description": "Calculadora gratuita de parcelas mensais para financiamento imobiliário, de veículos e empréstimo pessoal com tabela de amortização e amortização antecipada."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calculadora de Salário para Valor Hora – Anual, Mensal e Líquido",
-      "description": "Calculadora gratuita de salário anual para valor por hora. Converta pagamentos anuais, mensais, quinzenais e semanais com estimativa líquida após impostos, horas extras e comparador de propostas."
+      "name": "Calculadora de Salário para Valor Hora com IA (Anual, Mensal, Quinzenal e Líquido)",
+      "description": "Converta remuneração anual, mensal, quinzenal e horária com dedução de férias remuneradas, consultor de tarifas autônomas com IA e estimativa de salário líquido."
     },
     "grade-calculator": {
       "name": "Calculadora de Nota Final – Simulador de Médias e Desempenho Escolar",
@@ -1815,8 +1815,12 @@
       "faq2A": "Sim, pode alterar o número de semanas úteis para 50 ou 48 conforme o seu contrato de trabalho.",
       "faq3Q": "Os montantes calculados já descontam impostos e contribuições?",
       "faq3A": "Os valores representam rendimentos brutos; o salário líquido varia consoante os escalões fiscais e retenções locais.",
-      "faq4Q": "Pode ser utilizada por profissionais independentes para estipular diárias?",
-      "faq4A": "Sim, permite encontrar a taxa por hora ou o valor por dia indispensável para atingir metas anuais de faturamento."
+      "faq4Q": "Profissionais autônomos podem calcular diárias com esta ferramenta?",
+      "faq4A": "Sim, utilize a aba Consultor de valor por hora para autônomos com IA para precificar horas sustentáveis incluindo despesas gerais.",
+      "title": "Calculadora de Salário para Valor Hora com IA (Anual, Mensal, Quinzenal e Líquido)",
+      "subtitle": "Converta remuneração anual, mensal, quinzenal e horária com dedução de férias remuneradas, consultor de tarifas autônomas com IA e estimativa de salário líquido.",
+      "tabFreelance": "Consultor de valor por hora para profissionais autônomos com IA",
+      "ptoToggleLabel": "Ajuste de férias remuneradas e feriados"
     },
     "securePasswordGenerator": {
       "aboutText": "Gerador criptográfico de palavras-passe seguras suportado pela Web Cryptography API (crypto.getRandomValues), com controlo de entropia e exclusão de caracteres ambíguos.",

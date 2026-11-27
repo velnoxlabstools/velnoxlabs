@@ -2334,8 +2334,8 @@
       "faq4A": "Sim, totalmente seguro. O processamento opera de maneira restrita no seu navegador sem transmitir informações para servidores externos."
     },
     "salaryToHourlyCalculator": {
-      "title": "Calculadora de Salário para Valor Hora – Anual, Mensal e Líquido",
-      "subtitle": "Converta salário anual, mensal, quinzenal, bissemanal e por hora com estimativa líquida, horas extras (1.5x/2x), comparador de propostas e tabela de referência.",
+      "title": "Calculadora de Salário para Valor Hora com IA (Anual, Mensal, Quinzenal e Líquido)",
+      "subtitle": "Converta remuneração anual, mensal, quinzenal e horária com dedução de férias remuneradas, consultor de tarifas autônomas com IA e estimativa de salário líquido.",
       "tabConverter": "Conversor de Ciclos Salariais",
       "tabAfterTax": "Estimativa Salário Líquido",
       "tabOvertime": "Simulador de Horas Extras",
@@ -2411,8 +2411,8 @@
       "faq2A": "Multiplique o vencimento mensal por 12 e divida pelas horas anuais (2.080 h); ou divida o salário do mês por 173,33 (média de horas mensais em jornadas de 40h por semana).",
       "faq3Q": "Quanto representa um rendimento de $50.000 ou $55.000 ao ano por hora?",
       "faq3A": "Para jornada de 40h semanais: $50.000 anuais equivalem a $24,04 por hora ($4.166,67 ao mês); $52.000 equivalem a $25,00 por hora ($4.333,33 ao mês); e $55.000 equivalem a $26,44 por hora ($4.583,33 ao mês).",
-      "faq4Q": "Como converter um recebimento quinzenal em hora trabalhada?",
-      "faq4A": "O período quinzenal corresponde a 80 horas de trabalho em regime integral. Divida o total quinzenal por 80. Por exemplo, uma parcela de $2.000 resulta em $25,00 por hora ($2.000 ÷ 80).",
+      "faq4Q": "Profissionais autônomos podem calcular diárias com esta ferramenta?",
+      "faq4A": "Sim, utilize a aba Consultor de valor por hora para autônomos com IA para precificar horas sustentáveis incluindo despesas gerais.",
       "periodSemiMonthly": "Quinzenal (24/ano)",
       "semiMonthly": "Pagamento Quinzenal",
       "hourlyPresetsLabel": "Por Hora → Salário:",
@@ -2436,7 +2436,9 @@
       "compareRow4Feature": "Comparador de Propostas",
       "compareRow4Velnox": "Valor Hora Real Lado a Lado",
       "compareRow4Talent": "Não",
-      "compareRow4Adp": "Não"
+      "compareRow4Adp": "Não",
+      "tabFreelance": "Consultor de valor por hora para profissionais autônomos com IA",
+      "ptoToggleLabel": "Ajuste de férias remuneradas e feriados"
     },
     "securePasswordGenerator": {
       "title": "Gerador de Senhas Seguras IA",

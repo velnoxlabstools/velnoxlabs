@@ -2334,8 +2334,8 @@
       "faq4A": "Yes. All pattern compilation, testing, and replacement occur entirely on your local machine within the browser sandbox. No input text or regex patterns are transmitted across external servers."
     },
     "salaryToHourlyCalculator": {
-      "title": "Salary to Hourly Calculator – Annual, Monthly, Weekly & After-Tax Pay",
-      "subtitle": "Convert annual, monthly, semi-monthly, bi-weekly, and hourly pay with after-tax take-home estimates, 1.5x/2x overtime, job offer comparison, and a clickable $30k–$150k chart.",
+      "title": "AI Salary to Hourly Calculator India & US (Hourly to Salary, Monthly, Weekly & Bi-Weekly Pay)",
+      "subtitle": "Free AI Salary to Hourly & Hourly to Salary Calculator for India & US. Convert annual CTC (LPA), monthly, bi-weekly, weekly, and hourly pay with PTO deduction, AI freelance rate advisor, after-tax take-home estimates, and 1.5x overtime.",
       "tabConverter": "Pay Cycle Converter",
       "tabAfterTax": "After-Tax Estimator",
       "tabOvertime": "Overtime Simulator",
@@ -2411,8 +2411,8 @@
       "faq2A": "First multiply your monthly salary by 12 to find annual pay, then divide by total yearly hours (2,080 for standard full-time). Alternatively, divide your monthly salary by 173.33 (the average monthly working hours in a 40-hour week).",
       "faq3Q": "How much is $50,000 and $55,000 a year per hour?",
       "faq3A": "Assuming 40 hours per week and 52 weeks per year: $50,000 equals $24.04 per hour ($4,166.67/month), $52,000 equals $25.00 per hour ($4,333.33/month), and $55,000 equals $26.44 per hour ($4,583.33/month).",
-      "faq4Q": "How is bi-weekly salary converted to an hourly rate?",
-      "faq4A": "A bi-weekly paycheck covers two weeks of work (80 hours for full-time employees). Simply divide your bi-weekly pay by 80. For example, a $2,000 bi-weekly paycheck equals $25.00 per hour ($2,000 ÷ 80).",
+      "faq4Q": "Can freelancers use this tool to calculate consulting day rates?",
+      "faq4A": "Yes, use the AI Freelance Rate Advisor tab to calculate sustainable contractor billing rates including overhead and non-billable hours.",
       "periodSemiMonthly": "Semi-Monthly (24/yr)",
       "semiMonthly": "Semi-Monthly Pay",
       "hourlyPresetsLabel": "Hourly → Salary:",
@@ -2436,7 +2436,9 @@
       "compareRow4Feature": "Job Offer Comparator",
       "compareRow4Velnox": "Side-by-Side Effective Pay",
       "compareRow4Talent": "No",
-      "compareRow4Adp": "No"
+      "compareRow4Adp": "No",
+      "tabFreelance": "AI Freelance Rate Advisor",
+      "ptoToggleLabel": "PTO & Vacation Adjuster"
     },
     "securePasswordGenerator": {
       "title": "AI Secure Password Generator",

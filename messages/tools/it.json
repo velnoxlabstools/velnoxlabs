@@ -2339,8 +2339,8 @@
       "faq4A": "Sì, del tutto sicuro. Ogni verifica avviene localmente nel browser del tuo computer senza alcuna trasmissione verso server esterni."
     },
     "salaryToHourlyCalculator": {
-      "title": "Calcolatore Stipendio a Paga Oraria – Annuale, Mensile e Netto",
-      "subtitle": "Converti retribuzione annuale, mensile, semimensile, bisettimanale e oraria con stima netta dopo le tasse, straordinari (1.5x/2x), confronto offerte e tabella rapida.",
+      "title": "Calcolatore Stipendio a Paga Oraria con IA (Annuale, Mensile, Quattordicinale e Netto)",
+      "subtitle": "Converti stipendio annuale, mensile, quattordicinale e orario con deduzione ferie retribuite, consulente per liberi professionisti con IA e stima del compenso netto.",
       "tabConverter": "Convertitore di Retribuzione",
       "tabAfterTax": "Stima Salario Netto",
       "tabOvertime": "Simulatore Straordinari",
@@ -2416,8 +2416,8 @@
       "faq2A": "Moltiplica la cifra mensile per 12 per trovare il totale annuo e dividi per 2.080 ore; oppure dividi il mensile per 173,33 (la media delle ore mensili su settimana di 40 ore).",
       "faq3Q": "A quanto ammonta un compenso di $50.000 o $55.000 annui su base oraria?",
       "faq3A": "Su 40 ore settimanali: $50.000 l'anno corrispondono a $24,04 all'ora ($4.166,67 al mese); $52.000 corrispondono a $25,00 all'ora; e $55.000 equivalgono a $26,44 all'ora ($4.583,33 al mese).",
-      "faq4Q": "Come si converte una retribuzione quindicinale in paga oraria?",
-      "faq4A": "Il periodo quindicinale corrisponde a 80 ore a tempo pieno. È sufficiente dividere la somma ricevuta per 80. Per esempio, una busta paga quindicinale di $2.000 equivale a $25,00 all'ora ($2.000 ÷ 80).",
+      "faq4Q": "I liberi professionisti possono calcolare la tariffa giornaliera con questo strumento?",
+      "faq4A": "Sì, la scheda Consulente tariffario per liberi professionisti con IA calcola compensi orari sostenibili con spese generali incluse.",
       "periodSemiMonthly": "Semimensile (24/anno)",
       "semiMonthly": "Paga Semimensile",
       "hourlyPresetsLabel": "Oraria → Stipendio:",
@@ -2441,7 +2441,9 @@
       "compareRow4Feature": "Confronto Offerte di Lavoro",
       "compareRow4Velnox": "Confronto Tariffa Oraria",
       "compareRow4Talent": "No",
-      "compareRow4Adp": "No"
+      "compareRow4Adp": "No",
+      "tabFreelance": "Consulente tariffario per liberi professionisti con IA",
+      "ptoToggleLabel": "Adeguamento per ferie retribuite e festività"
     },
     "securePasswordGenerator": {
       "title": "Generatore di Password Sicure IA",

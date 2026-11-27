@@ -2334,8 +2334,8 @@
       "faq4A": "Oui, tout à fait. L’ensemble du traitement s’exécute localement dans votre navigateur sans transiter par des serveurs distants."
     },
     "salaryToHourlyCalculator": {
-      "title": "Calculateur Salaire en Taux Horaire – Annuel, Mensuel et Net",
-      "subtitle": "Convertissez salaire annuel, mensuel, bimensuel, quinzaine et horaire avec estimation nette après impôts, heures supplémentaires (1.5x/2x), comparateur d'offres et tableau de référence.",
+      "title": "Calculateur de Salaire en Taux Horaire avec IA (Annuel, Mensuel, Bimensuel et Net)",
+      "subtitle": "Convertissez rémunération annuelle, mensuelle, bimensuelle et horaire avec déduction des congés payés, conseiller de tarif pour indépendants par IA et calcul du salaire net.",
       "tabConverter": "Convertisseur de Rémunération",
       "tabAfterTax": "Estimation Après Impôts",
       "tabOvertime": "Simulateur d’Heures Sup",
@@ -2411,8 +2411,8 @@
       "faq2A": "Multipliez le montant mensuel par 12 pour retrouver le salaire annuel puis divisez par 2 080 heures ; vous pouvez aussi diviser le mensuel par 173,33 (moyenne mensuelle pour une semaine de 40 heures).",
       "faq3Q": "À quel taux horaire équivaut un salaire de 50 000 $ ou 55 000 $ ?",
       "faq3A": "Pour 40 heures par semaine : 50 000 $ annuels donnent 24,04 $ de l’heure (4 166,67 $ par mois) ; 52 000 $ donnent 25,00 $ de l’heure ; et 55 000 $ donnent 26,44 $ de l’heure (4 583,33 $ par mois).",
-      "faq4Q": "Comment convertir une paie versée toutes les deux semaines ?",
-      "faq4A": "Une période de deux semaines représente 80 heures pour un temps plein. Divisez simplement le montant perçu par 80. Par exemple, 2 000 $ versés toutes les deux semaines équivalent à 25,00 $ de l’heure (2 000 ÷ 80).",
+      "faq4Q": "Les professionnels indépendants peuvent-ils calculer leur tarif journalier ?",
+      "faq4A": "Oui, utilisez le conseiller de tarif pour indépendants par IA pour fixer des taux horaires viables intégrant les heures non facturables.",
       "periodSemiMonthly": "Bimensuel (24/an)",
       "semiMonthly": "Paie Bimensuelle",
       "hourlyPresetsLabel": "Horaire → Salaire :",
@@ -2436,7 +2436,9 @@
       "compareRow4Feature": "Comparateur d'Offres",
       "compareRow4Velnox": "Taux horaire réel comparé",
       "compareRow4Talent": "Non",
-      "compareRow4Adp": "Non"
+      "compareRow4Adp": "Non",
+      "tabFreelance": "Conseiller de tarif pour indépendants par IA",
+      "ptoToggleLabel": "Ajustement des congés payés et jours fériés"
     },
     "securePasswordGenerator": {
       "title": "Générateur de Mots de Passe Sécurisés IA",

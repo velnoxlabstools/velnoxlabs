@@ -501,8 +501,8 @@
       "description": "Calculadora gratuita de cuotas mensuales para préstamos hipotecarios, de auto y personales. Calcula intereses, tabla de amortización y ahorro por pagos anticipados."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calculadora de Salario a Hora – Pago Anual, Mensual y Neto",
-      "description": "Calculadora gratuita de salario anual a por hora y viceversa. Convierte pagos anuales, mensuales, quincenales y semanales con estimación tras impuestos, horas extra (1.5x/2x) y comparador de ofertas."
+      "name": "Calculadora de Salario a Tarifa por Hora con IA (Anual, Mensual, Quincenal y por Hora)",
+      "description": "Convierta salario anual, mensual, quincenal y por hora con deducción de vacaciones, asesor de tarifas independientes con IA y cálculo neto tras deducciones fiscales."
     },
     "grade-calculator": {
       "name": "Calculadora de Calificación Final – Simulador de Notas y Promedios",
@@ -1813,8 +1813,12 @@
       "faq2A": "Sí, puedes ajustar las semanas trabajadas al año a 50 o 48 para modelar contratos temporales.",
       "faq3Q": "¿Las cifras mostradas incluyen deducciones de impuestos?",
       "faq3A": "Los importes reflejan retribuciones brutas; el salario neto dependerá de tu tramo impositivo y cotizaciones locales.",
-      "faq4Q": "¿Es útil para autónomos y consultores?",
-      "faq4A": "Sí, ayuda a determinar tarifas mínimas por hora y por día en función de los ingresos anuales proyectados."
+      "faq4Q": "¿Pueden los profesionales independientes usar esta herramienta para calcular tarifas diarias?",
+      "faq4A": "Sí, utilice la pestaña Asesor de tarifas para profesionales independientes con IA para calcular tarifas sostenibles con margen operativo.",
+      "title": "Calculadora de Salario a Tarifa por Hora con IA (Anual, Mensual, Quincenal y por Hora)",
+      "subtitle": "Convierta salario anual, mensual, quincenal y por hora con deducción de vacaciones, asesor de tarifas independientes con IA y cálculo neto tras deducciones fiscales.",
+      "tabFreelance": "Asesor de tarifas para profesionales independientes con IA",
+      "ptoToggleLabel": "Ajuste por vacaciones pagadas y días festivos"
     },
     "securePasswordGenerator": {
       "aboutText": "Generador de contraseñas de alta seguridad basado en la Web Cryptography API (crypto.getRandomValues) con control de entropía y filtrado de caracteres ambiguos.",

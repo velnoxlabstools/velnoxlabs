@@ -494,8 +494,8 @@
       "description": "Free online Loan EMI Calculator for Home Loan, Car Loan, Personal Loan & SBI. Calculate monthly EMI, total interest, amortization schedule, and prepayment savings."
     },
     "salary-to-hourly-calculator": {
-      "name": "Salary to Hourly Calculator – Annual, Monthly, Weekly & After-Tax Pay",
-      "description": "Free Salary to Hourly & Hourly to Salary Calculator. Convert annual, monthly, semi-monthly, bi-weekly, weekly, and hourly pay with after-tax take-home estimates, 1.5x/2x overtime, job offer comparison, and $30k–$150k conversion chart."
+      "name": "AI Salary to Hourly Calculator India & US (Hourly to Salary, Monthly, Weekly & Bi-Weekly Pay)",
+      "description": "Free AI Salary to Hourly & Hourly to Salary Calculator for India & US. Convert annual CTC (LPA), monthly, bi-weekly, weekly, and hourly pay with PTO deduction, AI freelance rate advisor, after-tax take-home estimates, and 1.5x overtime."
     },
     "grade-calculator": {
       "name": "Final Grade Calculator – What If Grade Calculator & Test Grader",
@@ -1763,7 +1763,11 @@
       "faq3Q": "Does the calculation deduct federal, state, or social security taxes?",
       "faq3A": "The figures represent gross pre-tax compensation; net take-home pay depends on individual tax brackets and local payroll deductions.",
       "faq4Q": "Can freelancers use this tool to calculate consulting day rates?",
-      "faq4A": "Yes, adjusting weekly hours and viewing the daily rate provides direct benchmarking for contractor and freelance billing."
+      "faq4A": "Yes, use the AI Freelance Rate Advisor tab to calculate sustainable contractor billing rates including overhead and non-billable hours.",
+      "title": "AI Salary to Hourly Calculator India & US (Hourly to Salary, Monthly, Weekly & Bi-Weekly Pay)",
+      "subtitle": "Free AI Salary to Hourly & Hourly to Salary Calculator for India & US. Convert annual CTC (LPA), monthly, bi-weekly, weekly, and hourly pay with PTO deduction, AI freelance rate advisor, after-tax take-home estimates, and 1.5x overtime.",
+      "tabFreelance": "AI Freelance Rate Advisor",
+      "ptoToggleLabel": "PTO & Vacation Adjuster"
     },
     "securePasswordGenerator": {
       "aboutText": "Cryptographically secure password generator utilizing the Web Cryptography API (crypto.getRandomValues) with customizable entropy, character sets, and ambiguous character filtering.",

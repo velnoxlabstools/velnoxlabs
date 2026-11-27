@@ -501,8 +501,8 @@
       "description": "Kostenloser Online-Kreditrechner für Baufinanzierung, Autokredit und Ratenkredit. Berechnen Sie Monatsraten, Gesamtzinsen, Tilgungsplan und Sondertilgungen."
     },
     "salary-to-hourly-calculator": {
-      "name": "Gehalt-zu-Stundenlohn-Rechner – Jahres-, Monats- & Nettogehalt",
-      "description": "Kostenloser Gehalt-zu-Stundenlohn-Rechner. Rechnen Sie Jahres-, Monats-, Zweiwochen- und Wochengehalt in Stundenlohn um – inklusive Netto-Schätzung, Überstunden (1.5x/2x) und Jobangebotsvergleich."
+      "name": "KI-Gehalt-zu-Stundenlohn-Rechner (Jahres-, Monats-, Zweiwochen- & Nettolohn)",
+      "description": "Rechnen Sie Jahresgehalt, Monatslohn, zweiwöchentliche und stündliche Vergütung um – mit Urlaubsabzug, KI-Freiberufler-Beratung und Nettolohnschätzung."
     },
     "grade-calculator": {
       "name": "Endnoten-Rechner – Notenberechnung & Notenprognose für Schule und Studium",
@@ -1813,8 +1813,12 @@
       "faq2A": "Ja, die Wochenanzahl lässt sich von 52 auf beispielsweise 50 oder 48 reduzieren.",
       "faq3Q": "Werden Steuern und Sozialabgaben abgezogen?",
       "faq3A": "Die Werte stellen Bruttovergütungen dar; der Nettolohn hängt von individuellen Steuerklassen und Abzügen ab.",
-      "faq4Q": "Eignet sich der Rechner für Freelancer zur Ermittlung von Tagessätzen?",
-      "faq4A": "Ja, er hilft Freelancern und Beratern, realistische Stundensätze und Tagessätze für Zieljahresumsätze zu ermitteln."
+      "faq4Q": "Können Freiberufler dieses Tool zur Berechnung von Tagessätzen nutzen?",
+      "faq4A": "Ja, nutzen Sie den KI-Stundensatzberater für Freiberufler, um nachhaltige Stundensätze inklusive Gemeinkosten und Puffer zu berechnen.",
+      "title": "KI-Gehalt-zu-Stundenlohn-Rechner (Jahres-, Monats-, Zweiwochen- & Nettolohn)",
+      "subtitle": "Rechnen Sie Jahresgehalt, Monatslohn, zweiwöchentliche und stündliche Vergütung um – mit Urlaubsabzug, KI-Freiberufler-Beratung und Nettolohnschätzung.",
+      "tabFreelance": "KI-Stundensatzberater für Freiberufler",
+      "ptoToggleLabel": "Urlaubstage- und Feiertagsanpassung"
     },
     "securePasswordGenerator": {
       "aboutText": "Kryptografischer Passwortgenerator basierend auf der Web Cryptography API (crypto.getRandomValues) mit Entropieanalyse und Zeichenauswahl.",

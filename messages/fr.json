@@ -501,8 +501,8 @@
       "description": "Calculateur gratuit de mensualités pour prêt immobilier, crédit auto et prêt personnel. Calculez les intérêts, le tableau d'amortissement et les remboursements anticipés."
     },
     "salary-to-hourly-calculator": {
-      "name": "Calculateur Salaire en Taux Horaire – Annuel, Mensuel et Net",
-      "description": "Calculateur gratuit de salaire annuel en taux horaire et inversement. Convertissez salaire annuel, mensuel, bimensuel et hebdomadaire avec estimation après impôts, heures supplémentaires et comparateur d'offres."
+      "name": "Calculateur de Salaire en Taux Horaire avec IA (Annuel, Mensuel, Bimensuel et Net)",
+      "description": "Convertissez rémunération annuelle, mensuelle, bimensuelle et horaire avec déduction des congés payés, conseiller de tarif pour indépendants par IA et calcul du salaire net."
     },
     "grade-calculator": {
       "name": "Calculateur de Note Finale – Simulateur d'Examens et Moyennes Scolaires",
@@ -1815,8 +1815,12 @@
       "faq2A": "Oui, vous pouvez ajuster le nombre de semaines travaillées de 52 à 50 ou 48 selon la nature de votre contrat.",
       "faq3Q": "Les montants présentés sont-ils nets d'impôts ?",
       "faq3A": "Les montants indiquent une rémunération brute; le salaire net dépend des cotisations sociales et du barème fiscal de votre région.",
-      "faq4Q": "Les indépendants peuvent-ils évaluer leur tarif journalier ?",
-      "faq4A": "Oui, l'outil sert d'étalon pour définir les honoraires journaliers indispensables pour atteindre un revenu annuel cible."
+      "faq4Q": "Les professionnels indépendants peuvent-ils calculer leur tarif journalier ?",
+      "faq4A": "Oui, utilisez le conseiller de tarif pour indépendants par IA pour fixer des taux horaires viables intégrant les heures non facturables.",
+      "title": "Calculateur de Salaire en Taux Horaire avec IA (Annuel, Mensuel, Bimensuel et Net)",
+      "subtitle": "Convertissez rémunération annuelle, mensuelle, bimensuelle et horaire avec déduction des congés payés, conseiller de tarif pour indépendants par IA et calcul du salaire net.",
+      "tabFreelance": "Conseiller de tarif pour indépendants par IA",
+      "ptoToggleLabel": "Ajustement des congés payés et jours fériés"
     },
     "securePasswordGenerator": {
       "aboutText": "Générateur cryptographique de mots de passe renforcés fondé sur l'API Web Cryptography (crypto.getRandomValues) avec calcul d'entropie et exclusion des caractères ambigus.",

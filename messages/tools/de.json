@@ -2334,8 +2334,8 @@
       "faq4A": "Ja, absolut. Sämtliche Berechnungen laufen ausschließlich lokal in Ihrer Browser-Umgebung ab und verlassen Ihren Rechner zu keinem Zeitpunkt."
     },
     "salaryToHourlyCalculator": {
-      "title": "Gehalt-zu-Stundenlohn-Rechner – Jahres-, Monats- & Nettogehalt",
-      "subtitle": "Rechnen Sie Jahres-, Monats-, Halbmonats-, Zweiwochen- und Stundenlohn um – inklusive Netto-Schätzung, Überstunden (1.5x/2x), Jobangebotsvergleich und Referenztabelle.",
+      "title": "KI-Gehalt-zu-Stundenlohn-Rechner (Jahres-, Monats-, Zweiwochen- & Nettolohn)",
+      "subtitle": "Rechnen Sie Jahresgehalt, Monatslohn, zweiwöchentliche und stündliche Vergütung um – mit Urlaubsabzug, KI-Freiberufler-Beratung und Nettolohnschätzung.",
       "tabConverter": "Verdienst-Umrechner",
       "tabAfterTax": "Netto-Schätzung",
       "tabOvertime": "Überstunden-Simulation",
@@ -2411,8 +2411,8 @@
       "faq2A": "Multiplizieren Sie das Monatsgehalt mit 12 und teilen Sie das Ergebnis durch 2.080 Jahresstunden; alternativ teilen Sie den Monatsbetrag durch 173,33 (den Monatsdurchschnitt bei einer 40-Stunden-Woche).",
       "faq3Q": "Wie viel entspricht ein Gehalt von 50.000 oder 55.000 Dollar pro Stunde?",
       "faq3A": "Bei 40 Wochenstunden: 50.000 Dollar entsprechen 24,04 Dollar pro Stunde (ca. 4.166,67 Dollar im Monat); 52.000 Dollar ergeben 25,00 Dollar pro Stunde; und 55.000 Dollar entsprechen 26,44 Dollar pro Stunde (4.583,33 Dollar im Monat).",
-      "faq4Q": "Wie rechne ich ein zweiwöchentliches Gehalt um?",
-      "faq4A": "Ein zweiwöchentliches Gehalt entspricht bei Vollzeit 80 Arbeitsstunden. Teilen Sie die Zahlung einfach durch 80. Bei 2.000 Dollar alle zwei Wochen entspricht dies genau 25,00 Dollar pro Stunde (2.000 ÷ 80).",
+      "faq4Q": "Können Freiberufler dieses Tool zur Berechnung von Tagessätzen nutzen?",
+      "faq4A": "Ja, nutzen Sie den KI-Stundensatzberater für Freiberufler, um nachhaltige Stundensätze inklusive Gemeinkosten und Puffer zu berechnen.",
       "periodSemiMonthly": "Halbmonatlich (24/Jahr)",
       "semiMonthly": "Halbmonatsgehalt",
       "hourlyPresetsLabel": "Stundenlohn → Gehalt:",
@@ -2436,7 +2436,9 @@
       "compareRow4Feature": "Jobangebotsvergleich",
       "compareRow4Velnox": "Direkter Stundenlohn-Vergleich",
       "compareRow4Talent": "Nein",
-      "compareRow4Adp": "Nein"
+      "compareRow4Adp": "Nein",
+      "tabFreelance": "KI-Stundensatzberater für Freiberufler",
+      "ptoToggleLabel": "Urlaubstage- und Feiertagsanpassung"
     },
     "securePasswordGenerator": {
       "title": "KI Sicherer Passwort-Generator",
