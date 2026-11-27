@@ -497,8 +497,8 @@
       "description": "Calculadora gratuita de interés compuesto para la India. Proyecta rendimientos para depósitos en SBI, planes de ahorro HDFC Life y fondos SIP con capitalización diaria, mensual y anual."
     },
     "loan-emi-calculator": {
-      "name": "Calculadora de Cuotas de Préstamo – Hipotecas, Automóviles y Personales",
-      "description": "Calcula pagos mensuales de hipotecas, préstamos de automóviles, personales, comerciales y de educación con cronograma completo."
+      "name": "Calculadora de Cuotas de Préstamo – Hipoteca, Auto y Personal",
+      "description": "Calculadora gratuita de cuotas mensuales para préstamos hipotecarios, de auto y personales. Calcula intereses, tabla de amortización y ahorro por pagos anticipados."
     },
     "salary-to-hourly-calculator": {
       "name": "Calculadora de Salario a Hora – Pago Anual, Mensual y Neto",

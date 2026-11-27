@@ -1809,19 +1809,21 @@ export const tools: Tool[] = [
   {
     id: 'tool-emi',
     slug: 'loan-emi-calculator',
-    name: 'Home Loan, Car Loan & Personal Loan EMI Calculator – SBI Personal Loan',
+    name: 'Loan EMI Calculator – Home Loan, Car Loan & Personal Loan EMI (With Prepayment & Schedule)',
     description:
-      'Calculate monthly payments with our Home Loan, Car Loan & Personal Loan EMI Calculator. Includes SBI personal loan, business, education, and auto loan breakdowns.',
+      'Free online Loan EMI Calculator for Home Loan, Car Loan, Personal Loan & SBI. Calculate monthly EMI, total interest, amortization schedule, and prepayment savings.',
     categoryId: 'cat-finance',
     tags: [
       'emi',
       'loan',
       'finance',
+      'loan emi calculator',
       'home loan emi calculator',
       'car loan emi calculator',
       'personal loan emi calculator',
       'personal loan emi calculator google',
       'sbi personal loan emi calculator',
+      'loan emi calculator with prepayment',
       'business loan emi calculator',
       'consumer loan emi calculator',
       'education loan emi calculator',
