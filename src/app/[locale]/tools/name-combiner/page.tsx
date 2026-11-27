@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
@@ -24,6 +24,7 @@ import {
   SlidersHorizontal,
   Search,
   MessageCircle,
+  Globe,
 } from 'lucide-react';
 
 export type CategoryFilter =
@@ -40,54 +41,209 @@ export interface NameVariation {
   melodicScore: number;
 }
 
+export interface LocalePresetConfig {
+  defaultNames: [string, string];
+  presets: Array<{ label: string; val: string[] }>;
+  houseSuffixes: {
+    traditional: string[];
+    modern: string[];
+  };
+  weddingTag: string;
+}
+
+// Cultural & Locale-Adaptive Configuration for all 10 Supported Languages
+const LOCALE_CONFIG: Record<string, LocalePresetConfig> = {
+  en: {
+    defaultNames: ['Liam', 'Emma'],
+    presets: [
+      { label: 'Liam + Emma', val: ['Liam', 'Emma'] },
+      { label: 'Oliver + Sophia', val: ['Oliver', 'Sophia'] },
+      { label: 'Noah + Olivia', val: ['Noah', 'Olivia'] },
+      { label: 'Family Trio (3 Names)', val: ['James', 'Charlotte', 'Henry'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Niwas', 'Bhavan', 'Cottage', 'Manor', 'Kripa', 'Ashiyana', 'Dham'],
+      modern: ['Villa', 'Estate', 'Residency', 'Heights', 'Haven', 'Retreat', 'Lodge'],
+    },
+    weddingTag: 'Wedding',
+  },
+  es: {
+    defaultNames: ['Mateo', 'Sofía'],
+    presets: [
+      { label: 'Mateo + Sofía', val: ['Mateo', 'Sofía'] },
+      { label: 'Santiago + Valentina', val: ['Santiago', 'Valentina'] },
+      { label: 'Lucas + Isabella', val: ['Lucas', 'Isabella'] },
+      { label: 'Trío Familiar (3 Nombres)', val: ['Alejandro', 'Camila', 'Diego'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Casa', 'Finca', 'Hacienda', 'Cabaña', 'Quinta', 'Cortijo'],
+      modern: ['Villa', 'Residencia', 'Mansión', 'Alturas', 'Paraíso', 'Refugio'],
+    },
+    weddingTag: 'Boda',
+  },
+  de: {
+    defaultNames: ['Lukas', 'Emma'],
+    presets: [
+      { label: 'Lukas + Emma', val: ['Lukas', 'Emma'] },
+      { label: 'Maximilian + Sophie', val: ['Maximilian', 'Sophie'] },
+      { label: 'Felix + Mia', val: ['Felix', 'Mia'] },
+      { label: 'Familien-Trio (3 Namen)', val: ['Jonas', 'Hannah', 'Leon'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Haus', 'Landhaus', 'Heim', 'Gut', 'Hof', 'Schlösschen'],
+      modern: ['Villa', 'Residenz', 'Palais', 'Terrassen', 'Refugium'],
+    },
+    weddingTag: 'Hochzeit',
+  },
+  fr: {
+    defaultNames: ['Gabriel', 'Léa'],
+    presets: [
+      { label: 'Gabriel + Léa', val: ['Gabriel', 'Léa'] },
+      { label: 'Louis + Chloé', val: ['Louis', 'Chloé'] },
+      { label: 'Arthur + Manon', val: ['Arthur', 'Manon'] },
+      { label: 'Trio Familial (3 Noms)', val: ['Lucas', 'Emma', 'Jules'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Maison', 'Domaine', 'Château', 'Chalet', 'Manoir', 'Mas'],
+      modern: ['Villa', 'Résidence', 'Pavillon', 'Belvédère', 'Havre'],
+    },
+    weddingTag: 'Mariage',
+  },
+  it: {
+    defaultNames: ['Leonardo', 'Sofia'],
+    presets: [
+      { label: 'Leonardo + Sofia', val: ['Leonardo', 'Sofia'] },
+      { label: 'Francesco + Giulia', val: ['Francesco', 'Giulia'] },
+      { label: 'Alessandro + Aurora', val: ['Alessandro', 'Aurora'] },
+      { label: 'Trio Familiare (3 Nomi)', val: ['Lorenzo', 'Alice', 'Matteo'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Casa', 'Tenuta', 'Casale', 'Borgo', 'Dimora', 'Palazzo'],
+      modern: ['Villa', 'Residenza', 'Poggio', 'Oasi', 'Belvedere'],
+    },
+    weddingTag: 'Matrimonio',
+  },
+  pt: {
+    defaultNames: ['Lucas', 'Mariana'],
+    presets: [
+      { label: 'Lucas + Mariana', val: ['Lucas', 'Mariana'] },
+      { label: 'Gabriel + Beatriz', val: ['Gabriel', 'Beatriz'] },
+      { label: 'Miguel + Helena', val: ['Miguel', 'Helena'] },
+      { label: 'Trio Familiar (3 Nomes)', val: ['Arthur', 'Alice', 'Bernardo'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Casa', 'Chácara', 'Fazenda', 'Sítio', 'Solar', 'Recanto'],
+      modern: ['Villa', 'Residência', 'Morada', 'Mirante', 'Refúgio'],
+    },
+    weddingTag: 'Casamento',
+  },
+  ru: {
+    defaultNames: ['Александр', 'Анастасия'],
+    presets: [
+      { label: 'Александр + Анастасия', val: ['Александр', 'Анастасия'] },
+      { label: 'Максим + Анна', val: ['Максим', 'Анна'] },
+      { label: 'Дмитрий + Екатерина', val: ['Дмитрий', 'Екатерина'] },
+      { label: 'Семья (3 имени)', val: ['Иван', 'Мария', 'Михаил'] },
+    ],
+    houseSuffixes: {
+      traditional: ['Усадьба', 'Дом', 'Поместье', 'Терем', 'Дача'],
+      modern: ['Вилла', 'Резиденция', 'Особняк', 'Холмы', 'Фазенда'],
+    },
+    weddingTag: 'Свадьба',
+  },
+  ja: {
+    defaultNames: ['Haruto', 'Yui'],
+    presets: [
+      { label: 'Haruto + Yui (陽翔・結衣)', val: ['Haruto', 'Yui'] },
+      { label: 'Ren + Sakura (蓮・咲良)', val: ['Ren', 'Sakura'] },
+      { label: 'Souta + Hina (颯太・陽菜)', val: ['Souta', 'Hina'] },
+      { label: 'ファミリー (3名)', val: ['Daiki', 'Aoi', 'Kaito'] },
+    ],
+    houseSuffixes: {
+      traditional: ['邸', '庵', '荘', '舎', '園'],
+      modern: ['ハウス', 'ヴィラ', 'レジデンス', 'テラス', 'ガーデン'],
+    },
+    weddingTag: 'Wedding',
+  },
+  zh: {
+    defaultNames: ['Haoran', 'Xinyi'],
+    presets: [
+      { label: 'Haoran + Xinyi (浩然・欣怡)', val: ['Haoran', 'Xinyi'] },
+      { label: 'Zixuan + Zihan (子轩・梓涵)', val: ['Zixuan', 'Zihan'] },
+      { label: 'Yuxuan + Yutong (宇轩・雨彤)', val: ['Yuxuan', 'Yutong'] },
+      { label: '家庭三人组合 (3名)', val: ['Chenyu', 'Ruoxi', 'Muyang'] },
+    ],
+    houseSuffixes: {
+      traditional: ['府', '居', '山庄', '苑', '邸', '堂'],
+      modern: ['庄园', '公馆', '名邸', '名苑', '华庭'],
+    },
+    weddingTag: '婚礼',
+  },
+  ko: {
+    defaultNames: ['Minjun', 'Seoyeon'],
+    presets: [
+      { label: 'Minjun + Seoyeon (민준・서연)', val: ['Minjun', 'Seoyeon'] },
+      { label: 'Doyun + Jiu (도윤・지우)', val: ['Doyun', 'Jiu'] },
+      { label: 'Hajun + Yuna (하준・유나)', val: ['Hajun', 'Yuna'] },
+      { label: '가족 3인 조합 (3명)', val: ['Siwoo', 'Sua', 'Eunwoo'] },
+    ],
+    houseSuffixes: {
+      traditional: ['가', '원', '재', '당', '각'],
+      modern: ['하우스', '빌라', '맨션', '팰리스', '타운'],
+    },
+    weddingTag: '웨딩',
+  },
+};
+
 function capitalize(s: string): string {
   if (!s) return '';
   return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 }
 
-// Calculate Melodic Flow / Pronounceability Score (82 - 99%)
+// Calculate Melodic Flow / Pronounceability Score (82 - 99%) with Multilingual Support
 function calculateMelodicScore(name: string): number {
-  const clean = name.replace(/[^a-zA-Z]/g, '').toLowerCase();
+  const clean = name.replace(/[^\p{L}]/gu, '').toLowerCase();
   if (clean.length < 3) return 85;
 
   let score = 88;
-  const vowels = (clean.match(/[aeiouy]/g) || []).length;
+  // Multilingual vowels: Latin + accented + Cyrillic vowels
+  const vowels = (clean.match(/[aeiouyáéíóúüñäößàèìòùаеёиоуыэюя]/gi) || []).length;
   const vowelRatio = vowels / clean.length;
 
   // Harmonious vowel-to-consonant ratio
-  if (vowelRatio >= 0.35 && vowelRatio <= 0.65) {
+  if (vowelRatio >= 0.32 && vowelRatio <= 0.68) {
     score += 5;
-  } else if (vowelRatio < 0.2 || vowelRatio > 0.8) {
+  } else if (vowelRatio < 0.18 || vowelRatio > 0.82) {
     score -= 4;
   }
 
-  // Penalize harsh triple consecutive consonants (e.g., 'rpr', 'jhm')
-  if (/[bcdfghjklmnpqrstvwxyz]{3,}/.test(clean)) {
+  // Penalize harsh triple consecutive consonants in Latin/Cyrillic
+  if (/[bcdfghjklmnpqrstvwxyzбвгджзйклмнпрстфхцчшщ]{3,}/i.test(clean)) {
     score -= 6;
   }
 
   // Bonus for melodious endings
-  if (/(a|ia|an|el|en|ie|ya|ah|ina|lyn|or|is)$/.test(clean)) {
+  if (/(a|ia|an|el|en|ie|ya|ah|ina|lyn|or|is|ия|ья|на|та|ка|ов|ев)$/i.test(clean)) {
     score += 4;
   }
 
-  // Gentle cap between 82 and 99%
   return Math.max(82, Math.min(99, score));
 }
 
-// Extract syllables and phonetic boundaries
+// Extract syllables and phonetic boundaries with Unicode vowel awareness
 function splitSyllables(word: string): string[] {
   const clean = word.toLowerCase();
   if (clean.length <= 3) return [clean];
 
-  // Basic syllable heuristic based on vowel clusters
+  const vowelRegex = /[aeiouyáéíóúüñäößàèìòùаеёиоуыэюя]/i;
   const parts: string[] = [];
   let current = '';
+
   for (let i = 0; i < clean.length; i++) {
     current += clean[i];
-    const isVowel = /[aeiouy]/.test(clean[i]);
-    const nextIsConsonant = i + 1 < clean.length && !/[aeiouy]/.test(clean[i + 1]);
-    const nextNextIsVowel = i + 2 < clean.length && /[aeiouy]/.test(clean[i + 2]);
+    const isVowel = vowelRegex.test(clean[i]);
+    const nextIsConsonant = i + 1 < clean.length && !vowelRegex.test(clean[i + 1]);
+    const nextNextIsVowel = i + 2 < clean.length && vowelRegex.test(clean[i + 2]);
 
     if (isVowel && nextIsConsonant && nextNextIsVowel && current.length >= 2) {
       parts.push(current);
@@ -98,7 +254,7 @@ function splitSyllables(word: string): string[] {
   return parts.length > 0 ? parts : [clean];
 }
 
-function generateCombinations(names: string[]): NameVariation[] {
+function generateCombinations(names: string[], localeConfig: LocalePresetConfig): NameVariation[] {
   const cleaned = names.map((n) => n.trim()).filter(Boolean);
   if (cleaned.length < 2) return [];
 
@@ -118,7 +274,7 @@ function generateCombinations(names: string[]): NameVariation[] {
       seen.add(lowerKey);
       const melodicScore = calculateMelodicScore(trimmed);
       results.push({
-        id: `${category}-${trimmed.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${results.length}`,
+        id: `${category}-${trimmed.toLowerCase().replace(/[^\p{L}0-9]/gu, '-')}-${results.length}`,
         name: trimmed,
         category,
         tag,
@@ -174,8 +330,10 @@ function generateCombinations(names: string[]): NameVariation[] {
       (bSyllables[0] || bHeadHalf) + (aSyllables[aSyllables.length - 1] || aTailHalf)
     );
 
-    // Vocalic Bridge smoothing (if ends in consonant and starts in consonant)
-    const bridgeA = /[aeiouy]$/.test(aHeadHalf.toLowerCase()) ? aHeadHalf : aHeadHalf + 'a';
+    // Vocalic Bridge smoothing
+    const bridgeA = /[aeiouyáéíóúüñäößàèìòùаеёиоуыэюя]$/i.test(aHeadHalf)
+      ? aHeadHalf
+      : aHeadHalf + 'a';
     const blendBridged = capitalize(bridgeA + bTailHalf);
 
     const coreBlends = Array.from(
@@ -202,11 +360,10 @@ function generateCombinations(names: string[]): NameVariation[] {
 
     // --- BABY NAMES (Gender-Categorized & Melodically Filtered) ---
     coreBlends.forEach((b) => {
-      // General harmonious baby name
       add('baby', b, 'Melodic Blend', 'unisex');
 
-      // Baby Boy endings (-an, -ar, -it, -av, -en, -on, -el)
-      const baseBoy = b.replace(/[aeiouy]+$/, '');
+      // Baby Boy endings
+      const baseBoy = b.replace(/[aeiouyáéíóúüñäößàèìòùаеёиоуыэюя]+$/i, '');
       if (baseBoy.length >= 3) {
         add('baby', `${baseBoy}an`, 'Baby Boy', 'boy');
         add('baby', `${baseBoy}ar`, 'Baby Boy', 'boy');
@@ -215,8 +372,8 @@ function generateCombinations(names: string[]): NameVariation[] {
         add('baby', `${baseBoy}on`, 'Baby Boy', 'boy');
       }
 
-      // Baby Girl endings (-a, -ia, -i, -ya, -ie, -elle, -ina)
-      const baseGirl = b.replace(/[aeiouy]+$/, '');
+      // Baby Girl endings
+      const baseGirl = b.replace(/[aeiouyáéíóúüñäößàèìòùаеёиоуыэюя]+$/i, '');
       if (baseGirl.length >= 3) {
         add('baby', `${baseGirl}a`, 'Baby Girl', 'girl');
         add('baby', `${baseGirl}ia`, 'Baby Girl', 'girl');
@@ -226,7 +383,7 @@ function generateCombinations(names: string[]): NameVariation[] {
         add('baby', `${baseGirl}elle`, 'Baby Girl', 'girl');
       }
 
-      // Unisex endings (-el, -ri, -is, -lee)
+      // Unisex endings
       if (baseBoy.length >= 3) {
         add('baby', `${baseBoy}el`, 'Unisex Name', 'unisex');
         add('baby', `${baseBoy}ri`, 'Unisex Name', 'unisex');
@@ -234,40 +391,31 @@ function generateCombinations(names: string[]): NameVariation[] {
       }
     });
 
-    // --- HOUSE & VILLA & ESTATE ---
-    // Traditional Indian/Subcontinent Suffixes
+    // --- HOUSE & VILLA & ESTATE (Culturally Adaptive to Locale) ---
+    const { traditional, modern } = localeConfig.houseSuffixes;
+
     coreBlends.slice(0, 4).forEach((b) => {
-      add('house', `${b} Niwas`, 'Niwas');
-      add('house', `${b} Bhavan`, 'Bhavan');
-      add('house', `${b} Sadan`, 'Sadan');
-      add('house', `${b} Kripa`, 'Kripa');
-      add('house', `${b} Ashiyana`, 'Ashiyana');
-      add('house', `${b} Kutir`, 'Kutir');
-      add('house', `${b} Dham`, 'Dham');
+      traditional.forEach((suffix) => {
+        add('house', `${b} ${suffix}`, suffix);
+      });
     });
 
-    // Modern / Global Villa Suffixes
-    coreBlends.slice(0, 5).forEach((b) => {
-      add('house', `${b} Villa`, 'Villa');
-      add('house', `${b} Estate`, 'Estate');
-      add('house', `${b} Manor`, 'Manor');
-      add('house', `${b} Residency`, 'Residency');
-      add('house', `${b} Heights`, 'Heights');
-      add('house', `${b} Haven`, 'Haven');
-      add('house', `${b} Cottage`, 'Cottage');
-      add('house', `${b} Retreat`, 'Retreat');
+    coreBlends.slice(0, 4).forEach((b) => {
+      modern.forEach((suffix) => {
+        add('house', `${b} ${suffix}`, suffix);
+      });
     });
-    add('house', `${aCap}-${bCap} Haven`, 'Joint Estate');
+    add('house', `${aCap}-${bCap} ${modern[0] || 'Estate'}`, 'Joint Estate');
 
     // --- WEDDING HASHTAGS & SOCIAL HANDLES ---
-    add('social', `#${aCap}${bCap}Wedding`, 'Wedding Hashtag');
-    add('social', `#${bCap}${aCap}Wedding`, 'Wedding Hashtag');
+    const tagWord = localeConfig.weddingTag;
+    add('social', `#${aCap}${bCap}${tagWord}`, `${tagWord} Hashtag`);
+    add('social', `#${bCap}${aCap}${tagWord}`, `${tagWord} Hashtag`);
+    add('social', `#${blendAB}${tagWord}`, `${tagWord} Tag`);
     add('social', `#When${aCap}Met${bCap}`, 'Love Story');
-    add('social', `#${aCap}TiesTheKnotWith${bCap}`, 'Wedding Hashtag');
-    add('social', `#Forever${blendAB}`, 'Wedding Hashtag');
-    add('social', `#The${blendAB}Journey`, 'Wedding Hashtag');
-    add('social', `#${aCap}SaidYesTo${bCap}`, 'Engagement Tag');
-    add('social', `#TwoBecomeOne${aCap}${bCap}`, 'Wedding Tag');
+    add('social', `#Forever${blendAB}`, 'Love Tag');
+    add('social', `#The${blendAB}Journey`, 'Couple Journey');
+    add('social', `#TwoBecomeOne${aCap}${bCap}`, 'Wedding Vows');
 
     // Instagram / TikTok Couple Handles
     add('social', `@${blendAB.toLowerCase()}.diaries`, 'Instagram Bio');
@@ -315,7 +463,7 @@ function generateCombinations(names: string[]): NameVariation[] {
     // Baby Names Mode (Composite)
     triBlends.forEach((b) => {
       add('baby', b, 'Baby Trio', 'unisex');
-      const baseBoy = b.replace(/[aeiouy]+$/, '');
+      const baseBoy = b.replace(/[aeiouyáéíóúüñäößàèìòùаеёиоуыэюя]+$/i, '');
       if (baseBoy.length >= 3) {
         add('baby', `${baseBoy}an`, 'Boy Name', 'boy');
         add('baby', `${baseBoy}a`, 'Girl Name', 'girl');
@@ -323,15 +471,13 @@ function generateCombinations(names: string[]): NameVariation[] {
     });
 
     // House & Villa Mode
+    const { traditional, modern } = localeConfig.houseSuffixes;
     triBlends.forEach((b) => {
-      add('house', `${b} Niwas`, 'Family Niwas');
-      add('house', `${b} Villa`, 'Family Villa');
-      add('house', `${b} Bhavan`, 'Family Bhavan');
-      add('house', `${b} Sadan`, 'Family Sadan');
-      add('house', `${b} Heights`, 'Heights');
-      add('house', `${b} Haven`, 'Estate');
+      if (traditional[0]) add('house', `${b} ${traditional[0]}`, 'Family Traditional');
+      if (modern[0]) add('house', `${b} ${modern[0]}`, 'Family Modern');
+      if (modern[1]) add('house', `${b} ${modern[1]}`, 'Family Estate');
     });
-    add('house', `${acronym3} Residency`, 'Residency');
+    add('house', `${acronym3} ${modern[0] || 'Residency'}`, 'Acronym Home');
 
     // Social & Hashtags
     add('social', `#The${acronym3}Family`, 'Family Tag');
@@ -374,14 +520,13 @@ function generateCombinations(names: string[]): NameVariation[] {
     quadBlends.forEach((b) => add('baby', b, 'Quad Blend', 'unisex'));
 
     // House & Villa Mode
+    const { traditional, modern } = localeConfig.houseSuffixes;
     quadBlends.forEach((b) => {
-      add('house', `${b} Niwas`, 'Family Niwas');
-      add('house', `${b} Villa`, 'Family Villa');
-      add('house', `${b} Bhavan`, 'Family Bhavan');
-      add('house', `${b} Estate`, 'Family Estate');
-      add('house', `${b} Manor`, 'Family Manor');
+      if (traditional[0]) add('house', `${b} ${traditional[0]}`, 'Family Traditional');
+      if (modern[0]) add('house', `${b} ${modern[0]}`, 'Family Modern');
+      if (modern[1]) add('house', `${b} ${modern[1]}`, 'Family Estate');
     });
-    add('house', `${acronym4} House`, 'Acronym House');
+    add('house', `${acronym4} ${modern[0] || 'House'}`, 'Acronym House');
 
     // Social & Hashtags
     add('social', `#The${acronym4}Family`, 'Family Tag');
@@ -406,9 +551,15 @@ function generateCombinations(names: string[]): NameVariation[] {
 
 export default function NameCombinerPage() {
   const t = useTranslations('ToolUI.nameCombiner');
+  const locale = useLocale();
 
-  // Multi-name input state (2 to 4 names)
-  const [names, setNames] = useState<string[]>(['Rahul', 'Priya']);
+  // Active locale cultural preset configuration
+  const activeLocaleConfig = useMemo(() => {
+    return LOCALE_CONFIG[locale] || LOCALE_CONFIG.en;
+  }, [locale]);
+
+  // Multi-name input state - initialized according to current active locale
+  const [names, setNames] = useState<string[]>(() => activeLocaleConfig.defaultNames);
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
   const [babyGender, setBabyGender] = useState<BabyGenderFilter>('all');
   const [sortBy, setSortBy] = useState<SortOption>('melodic');
@@ -416,6 +567,16 @@ export default function NameCombinerPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [copiedAll, setCopiedAll] = useState<boolean>(false);
+
+  // Auto-adapt default names when the user changes language / locale!
+  const prevLocaleRef = useRef(locale);
+  useEffect(() => {
+    if (prevLocaleRef.current !== locale) {
+      prevLocaleRef.current = locale;
+      const targetConfig = LOCALE_CONFIG[locale] || LOCALE_CONFIG.en;
+      setNames(targetConfig.defaultNames);
+    }
+  }, [locale]);
 
   // Load favorites from local storage on mount
   useEffect(() => {
@@ -487,8 +648,10 @@ export default function NameCombinerPage() {
     setNames(presetNames);
   };
 
-  // Generate combinations
-  const allCombinations = useMemo(() => generateCombinations(names), [names]);
+  // Generate combinations using the active cultural locale configuration
+  const allCombinations = useMemo(() => {
+    return generateCombinations(names, activeLocaleConfig);
+  }, [names, activeLocaleConfig]);
 
   // Filter according to category, baby gender, and search query
   const filteredCombinations = useMemo(() => {
@@ -536,7 +699,7 @@ export default function NameCombinerPage() {
     if (filteredCombinations.length === 0) return;
     const content =
       `AI Name Combiner Results (${names.filter(Boolean).join(' + ')})\n` +
-      `Category: ${activeCategory.toUpperCase()}\n\n` +
+      `Locale: ${locale.toUpperCase()} | Category: ${activeCategory.toUpperCase()}\n\n` +
       filteredCombinations
         .map((c, i) => `${i + 1}. ${c.name} [${c.tag || c.category}] (Flow: ${c.melodicScore}%)`)
         .join('\n');
@@ -614,6 +777,9 @@ export default function NameCombinerPage() {
               </span>
               <span
                 style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
                   fontSize: '0.72rem',
                   fontWeight: 700,
                   backgroundColor: 'rgba(236, 72, 153, 0.12)',
@@ -622,7 +788,8 @@ export default function NameCombinerPage() {
                   padding: '2px 8px',
                 }}
               >
-                AI Phonetic Engine
+                <Globe size={11} />
+                {locale.toUpperCase()} Cultural AI Engine
               </span>
             </div>
 
@@ -675,7 +842,7 @@ export default function NameCombinerPage() {
             </div>
           </div>
 
-          {/* Quick Presets for Instant Testing */}
+          {/* Quick Cultural Presets for the Active Language / Country */}
           <div
             style={{
               display: 'flex',
@@ -686,14 +853,9 @@ export default function NameCombinerPage() {
             }}
           >
             <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-              Quick Presets:
+              {locale.toUpperCase()} Popular Presets:
             </span>
-            {[
-              { label: 'Rahul + Priya', val: ['Rahul', 'Priya'] },
-              { label: 'Liam + Emma', val: ['Liam', 'Emma'] },
-              { label: 'Oliver + Sophia', val: ['Oliver', 'Sophia'] },
-              { label: 'Family Trio (3 Names)', val: ['Arun', 'Sneha', 'Kabir'] },
-            ].map((p, idx) => (
+            {activeLocaleConfig.presets.map((p, idx) => (
               <button
                 key={idx}
                 type="button"
@@ -740,7 +902,7 @@ export default function NameCombinerPage() {
                 type="text"
                 value={names[0] || ''}
                 onChange={(e) => handleNameChange(0, e.target.value)}
-                placeholder={t('firstNamePlaceholder')}
+                placeholder={activeLocaleConfig.defaultNames[0]}
                 style={{
                   width: '100%',
                   padding: '12px 14px',
@@ -772,7 +934,7 @@ export default function NameCombinerPage() {
                 type="text"
                 value={names[1] || ''}
                 onChange={(e) => handleNameChange(1, e.target.value)}
-                placeholder={t('secondPlaceholder')}
+                placeholder={activeLocaleConfig.defaultNames[1]}
                 style={{
                   width: '100%',
                   padding: '12px 14px',
