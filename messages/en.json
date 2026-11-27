@@ -311,8 +311,8 @@
       "description": "Free AI URL parser, UTM cleaner, and query string extractor online. Inspect URL components, strip tracking parameters, detect security risks, edit params, and copy JS, Python, .NET, PHP & Go snippets."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME Type Lookup & Extension Finder Online – MIME Type Checker",
-      "description": "Free MIME type lookup & extension finder online and MIME type checker. Get mime type for PDF, images, video, and code files across Windows, Python, and JavaScript."
+      "name": "AI MIME Type Lookup & File Inspector – Content-Type & Magic Bytes Checker",
+      "description": "Free online AI MIME type lookup, extension finder, and client-side binary magic bytes checker. Inspect 120+ IANA media types, verify genuine file signatures, detect MIME spoofing, and generate Nginx, Apache, and S3 configs."
     },
     "systemd-service-file-generator": {
       "name": "AI Systemd Service File Generator Free – Ubuntu & Debian Unit Maker",
@@ -1193,11 +1193,11 @@
       "faq4A": "No. All conversion logic executes locally inside your browser memory; your drafts and articles remain completely confidential."
     },
     "mimeTypeLookup": {
-      "aboutText": "The MIME Type Lookup & Extension Finder is a comprehensive networking and web development reference tool that cross-references file extensions with official IANA Media Types (Multipurpose Internet Mail Extensions). Covering over 100+ file formats across documents (PDF, DOCX), archives (ZIP, TAR, GZ), audio/video streams (MP4, WebM, MP3), images (PNG, WebP, SVG, AVIF), web fonts (WOFF2), code assets (JS, TS, CSS), and structured data (JSON, XML, CSV). Essential for setting correct HTTP Content-Type headers and configuring web servers.",
-      "feature1": "Bi-Directional Search: Search by file extension (.json, .webp) or by MIME type string (application/json, image/webp)",
-      "feature2": "100+ IANA Media Formats: Comprehensive database spanning 8 core categories from web documents to streaming media",
-      "feature3": "Category-Based Filtering: Filter formats by Documents, Images, Audio, Video, Archives, Fonts, Code, and Data",
-      "feature4": "Instant Content-Type Header Reference: Displays exact HTTP Content-Type header syntax with one-click copying",
+      "aboutText": "The AI MIME Type Lookup & File Inspector is a comprehensive networking, web development, and cybersecurity reference utility that maps file extensions to official IANA Media Types (Multipurpose Internet Mail Extensions) and binary magic byte signatures. Covering over 120+ file formats across documents (PDF, DOCX, XLSX), images (PNG, WebP, AVIF, SVG), audio/video streams (MP4, WebM, MP3, HLS), web fonts (WOFF2, TTF), code assets (JS, TS, WASM), and structured data (JSON, XML, CSV). The integrated client-side binary file inspector examines uploaded payloads via browser-native FileReader and Web Crypto to reveal genuine file signatures (magic numbers) without uploading bytes to any external server, detecting extension spoofing attacks and outputting hardened HTTP Content-Type headers.",
+      "feature1": "Bi-Directional Search & 120+ IANA Formats: Search by file extension (.json, .webp), MIME type string (application/json), or format description with category filters.",
+      "feature2": "Binary Magic Bytes & File Signatures: Displays official hexadecimal magic byte signatures (e.g., 89 50 4E 47 for PNG, 25 50 44 46 for PDF) for deep binary identification.",
+      "feature3": "Live Client-Side File Inspector & Spoof Detector: Drag-and-drop any file to inspect true binary headers, calculate exact file sizes, and detect extension renaming attacks.",
+      "feature4": "Instant Server Configuration Generator: Generates ready-to-use production server snippets for Nginx (mime.types), Apache (.htaccess), Node.js (Express), Python (FastAPI), and AWS S3.",
       "step1Title": "Enter Extension or MIME String",
       "step1Body": "Type a file extension (e.g. svg, webp, pdf) or MIME type (e.g. text/html) into the search bar.",
       "step2Title": "Explore Matching Formats",
@@ -1211,7 +1211,9 @@
       "faq3Q": "Are modern formats like AVIF, WebP, and WOFF2 included?",
       "faq3A": "Yes. The database includes modern image formats (image/webp, image/avif), modern font formats (font/woff2), and streaming media formats.",
       "faq4Q": "Is this database updated according to official IANA standards?",
-      "faq4A": "Yes. All media type definitions conform to official IANA (Internet Assigned Numbers Authority) and RFC specifications."
+      "faq4A": "Yes. All media type definitions conform to official IANA (Internet Assigned Numbers Authority) and RFC specifications.",
+      "title": "AI MIME Type Lookup & File Inspector – Content-Type & Magic Bytes Checker",
+      "subtitle": "Search 120+ IANA media formats, inspect binary magic bytes (hex signatures), detect file extension spoofing, and generate instant server Content-Type headers for Nginx, Apache, Express, and S3."
     },
     "nameCombiner": {
       "title": "AI Name Combiner – Couples, Baby Names (Boy/Girl) & House (2, 3 or 4 Names)",

@@ -311,8 +311,8 @@
       "description": "무료 온라인 AI URL 파서, UTM 클리너 및 쿼리 문자열 추출기. URL 구성 요소 분석, 추적 태그 제거, 보안 위험 탐지, 중첩 URL/Base64 해독 및 JS, Python, .NET, PHP, Go 코드 제공."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME 타입 및 확장자 온라인 조회 도구 – 미디어 규격 검색기 (PDF 대응)",
-      "description": "확장자로 MIME 타입을 검색하거나 IANA 표준에 따른 확장자를 상호 조회할 수 있는 100여 종의 미디어 타입 데이터베이스."
+      "name": "AI MIME 타입 조회 및 파일 검사기 – Content-Type 헤더 & 매직 바이트 검증",
+      "description": "무료 온라인 AI MIME 타입 검색, 확장자 조회 및 클라이언트 기반 바이너리 매직 바이트 검사기. 120개 이상의 IANA 미디어 규격 검색, 위장된 확장자 탐지, Nginx, Apache, S3 서버 설정 코드 생성 지원."
     },
     "systemd-service-file-generator": {
       "name": "AI 무료 Systemd 서비스 파일 생성기 – Ubuntu 및 Debian 유닛 도구",
@@ -1216,11 +1216,11 @@
       "faq4A": "아닙니다. 모든 변환 과정이 사용자 기기의 브라우저 메모리 안에서만 처리되므로 작성 중인 글이 외부로 유출되지 않습니다."
     },
     "mimeTypeLookup": {
-      "aboutText": "MIME 타입 및 확장자 조회 도구는 웹 개발자, 시스템 엔지니어, 서버 관리자를 위한 표준 IANA 미디어 타입 레퍼런스 유틸리티입니다. 파일 확장자와 공식 IANA MIME 타입(Multipurpose Internet Mail Extensions) 간의 상호 매핑을 신속하게 조회할 수 있습니다. 문서(PDF, DOCX), 압축 파일(ZIP, TAR), 오디오/비디오 스트리밍(MP4, WebM, MP3), 최신 이미지(PNG, WebP, SVG, AVIF), 웹 폰트(WOFF2), 코드 파일(JS, TS, CSS), 구조화 데이터(JSON, XML, CSV) 등 100개 이상의 주요 형식을 완벽 수록했습니다.",
-      "feature1": "양방향 실시간 검색 지원: 파일 확장자(.json, .webp) 또는 MIME 타입 문자열(application/json)로 자유롭게 검색",
-      "feature2": "100개 이상의 공식 IANA 포맷 수록: 일반 사무 문서부터 차세대 미디어 스트리밍까지 8개 핵심 카테고리 망라",
-      "feature3": "카테고리별 원클릭 필터링: 문서, 이미지, 오디오, 비디오, 아카이브, 폰트, 코드, 데이터 영역별 간편 분류",
-      "feature4": "HTTP Content-Type 헤더 즉시 복사: 웹 서버 설정에 바로 활용할 수 있는 정확한 헤더 구문을 원클릭 복사",
+      "aboutText": "AI MIME 타입 조회 및 파일 검사기는 웹 개발자, 네트워크 엔지니어, 보안 전문가를 위한 종합 참조 유틸리티입니다. 파일 확장자를 공식 IANA 미디어 타입과 16진수 바이너리 서명(매직 바이트)으로 매핑합니다. 문서(PDF, DOCX), 이미지(PNG, WebP, AVIF), 멀티미디어(MP4, WebM), 웹 폰트(WOFF2), 코드(JS, TS, WASM) 등 120여 개 이상의 표준 규격을 지원합니다. 내장된 클라이언트 측 파일 검사기는 외부 서버 전송 없이 브라우저 내에서 안전하게 첫 16바이트를 판독하여 위장된 악성 실행 파일 공격을 차단합니다.",
+      "feature1": "양방향 검색 및 120개 이상의 IANA 규격: 확장자(.json), MIME 문자열 또는 형식 설명으로 직관적인 카테고리별 검색.",
+      "feature2": "바이너리 매직 바이트(16진수 헤더 서명): PNG의 89 50 4E 47 등 공식 바이너리 서명을 정확하게 제시하여 파일 식별 지원.",
+      "feature3": "로컬 파일 검사 및 확장자 위장 탐지: 파일을 드래그 앤 드롭하여 브라우저에서 즉시 실제 바이너리 포맷 확인.",
+      "feature4": "서버 배포 코드 원클릭 생성: Nginx(mime.types), Apache(.htaccess), Express, FastAPI, AWS S3용 코드 스니펫 제공.",
       "step1Title": "확장자 또는 MIME 입력",
       "step1Body": "검색창에 파일 확장자(.webp, .json 등)나 MIME 타입 문자열을 입력합니다.",
       "step2Title": "일치하는 포맷 정보 탐색",
@@ -1234,7 +1234,9 @@
       "faq3Q": "AVIF, WebP, WOFF2 같은 최신 웹 포맷도 포함되어 있나요?",
       "faq3A": "네, 차세대 이미지 규격(image/webp, image/avif)과 최신 웹 폰트(font/woff2), 스트리밍 미디어 포맷이 모두 포함되어 있습니다.",
       "faq4Q": "이 데이터는 IANA 공식 표준을 준수하나요?",
-      "faq4A": "네, 인터넷 할당 번호 기관(IANA) 및 관련 RFC 기술 규격의 최신 등록 표준에 맞춰 정확하게 수록되었습니다."
+      "faq4A": "네, 인터넷 할당 번호 기관(IANA) 및 관련 RFC 기술 규격의 최신 등록 표준에 맞춰 정확하게 수록되었습니다.",
+      "title": "AI MIME 타입 조회 및 파일 검사기 – Content-Type 헤더 & 매직 바이트 검증",
+      "subtitle": "120개 이상의 IANA 표준 미디어 형식을 검색하고, 바이너리 매직 바이트(16진수 서명)를 분석하며, 위장된 파일 확장자 탐지 및 Nginx, Apache, Express, S3용 헤더 설정을 제공합니다."
     },
     "nameCombiner": {
       "title": "AI 이름 조합기 – 커플, 아기 이름(남아/여아) 및 주택 이름(2, 3, 4개 이름 결합)",

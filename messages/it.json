@@ -318,8 +318,8 @@
       "description": "Analizzatore URL gratuito con IA, pulitore UTM ed estrattore di query string online. Analizza componenti, rimuovi traccianti, verifica rischi di sicurezza e copia codice JS, Python, .NET, PHP e Go."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "Ricerca Tipi MIME ed Estensioni Online – Verificatore di Contenuti",
-      "description": "Trova tipi MIME dall'estensione o cerca estensioni secondo le specifiche IANA per oltre 100 tipologie di file."
+      "name": "Ricerca tipi MIME con IA e ispettore file – Verifica Content-Type e Magic Bytes",
+      "description": "Strumento gratuito online con IA per la ricerca di tipi MIME, estensioni e verifica delle firme binarie (magic bytes). Esplora oltre 120 formati IANA, rileva estensioni contraffatte e genera configurazioni per Nginx, Apache e S3."
     },
     "systemd-service-file-generator": {
       "name": "Generatore di File Systemd IA Gratis – Unità Ubuntu e Debian",
@@ -1241,11 +1241,11 @@
       "step3Body": "Fai clic su Copia per impiegare la marcatura ottenuta nelle tue pagine web."
     },
     "mimeTypeLookup": {
-      "aboutText": "Guida interattiva ai tipi MIME IANA e alle estensioni di file con ricerca rapida per intestazione Content-Type, estensione e formato multimediale.",
-      "feature1": "Interrogazione bidirezionale per estensione di file o per identificativo di tipo MIME.",
-      "feature2": "Archivio completo allineato con le direttive del registro IANA e i documenti RFC.",
-      "feature3": "Raggruppamento per categorie multimediali (application, audio, image, video, text, font).",
-      "feature4": "Direttive di configurazione pronte all'uso per web server quali Nginx, Apache e Node.js.",
+      "aboutText": "La ricerca tipi MIME con IA e ispettore di file è una guida essenziale per sviluppatori web e specialisti della sicurezza. Mappa le estensioni con i tipi multimediali IANA ufficiali e le relative firme binarie magic bytes. Include oltre 120 formati tra documenti (PDF, DOCX), immagini (PNG, WebP, AVIF), flussi video/audio (MP4, WebM) e codice (JS, TS, WASM). L'ispettore locale integrato sfrutta le API native del browser per verificare i primi byte dei file senza alcun upload su server remoti, garantendo massima privacy.",
+      "feature1": "Ricerca bidirezionale su oltre 120 formati IANA: Ricerca per estensione (.pdf), stringa MIME o descrizione con filtri per categoria.",
+      "feature2": "Firme binarie e Magic Bytes: Visualizza le sequenze esadecimali canoniche per confermare l'identità autentica dei file.",
+      "feature3": "Ispettore file locale e rilevamento manipolazioni: Trascina qualsiasi file per analizzare i byte di intestazione e verificare discrepanze di formato.",
+      "feature4": "Generatore configurazioni server: Frammenti pronti per la produzione per Nginx, Apache (.htaccess), Node.js Express, FastAPI e AWS S3.",
       "step1": "Digita un'estensione (.webp, .json) oppure il nome di un tipo MIME.",
       "step2": "Visualizza i risultati filtrati con indicazione dei formati e delle categorie relative.",
       "step3": "Copia l'esatta intestazione Content-Type per configurare i tuoi servizi di rete.",
@@ -1262,7 +1262,9 @@
       "step2Title": "Consulta le schede di corrispondenza",
       "step2Body": "Esamina la tabella filtrata con le specifiche di formato, categoria e standard.",
       "step3Title": "Ottieni la direttiva Content-Type",
-      "step3Body": "Fai clic su Copia sulla riga prescelta per configurare il tuo server web."
+      "step3Body": "Fai clic su Copia sulla riga prescelta per configurare il tuo server web.",
+      "title": "Ricerca tipi MIME con IA e ispettore file – Verifica Content-Type e Magic Bytes",
+      "subtitle": "Consulta oltre 120 formati multimediali IANA, ispeziona firme binarie esadecimali (magic bytes), individua estensioni manipolate e ottieni intestazioni Content-Type per Nginx, Apache, Express e S3."
     },
     "nameCombiner": {
       "title": "Combinatore di nomi con IA – Coppie, neonati (maschio/femmina) e case (2, 3 o 4 nomi)",

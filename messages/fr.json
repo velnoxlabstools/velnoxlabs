@@ -318,8 +318,8 @@
       "description": "Analyseur d'URL gratuit par IA, nettoyeur UTM et extracteur de paramètres en ligne. Décomposez les URL, supprimez les traceurs, vérifiez la sécurité et copiez le code JS, Python, .NET, PHP & Go."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "Recherche de Types MIME et Extensions en Ligne – Vérificateur de Médias",
-      "description": "Identifiez les types MIME par extension ou retrouvez les extensions selon la norme IANA parmi plus de 100 types de fichiers."
+      "name": "Recherche de types MIME par IA et inspecteur de fichiers – Vérificateur de Content-Type et Magic Bytes",
+      "description": "Outil en ligne gratuit de recherche de types MIME par IA, d'extensions et vérificateur de signatures binaires (magic bytes). Explorez plus de 120 formats IANA, décelez l'usurpation d'extensions et générez des configurations Nginx, Apache et S3."
     },
     "systemd-service-file-generator": {
       "name": "Générateur de Fichiers Systemd IA Gratuit – Unités Ubuntu & Debian",
@@ -1241,11 +1241,11 @@
       "step3Body": "Cliquez sur \"Copier\" pour insérer les balises directement dans vos projets web."
     },
     "mimeTypeLookup": {
-      "aboutText": "Répertoire de référence des types MIME IANA et des extensions associées, avec recherche par en-tête Content-Type, extension et nature de fichier.",
-      "feature1": "Interrogation bidirectionnelle par extension de fichier ou par dénomination de type MIME.",
-      "feature2": "Données conformes aux publications officielles du registre IANA et des normes RFC.",
-      "feature3": "Classification par catégories (application, image, texte, audio, vidéo, polices).",
-      "feature4": "Recommandations concrètes pour la configuration de serveurs tels que Nginx et Apache.",
+      "aboutText": "L'outil de recherche de types MIME par IA et inspecteur de fichiers est une référence indispensable pour le développement web, l'architecture réseau et la sécurité informatique. Il fait correspondre les extensions aux types de médias IANA officiels et aux signatures binaires (magic bytes). Couvrant plus de 120 formats de fichiers (PDF, DOCX, PNG, WebP, AVIF, MP4, WOFF2, JSON, WASM), son inspecteur local analyse les fichiers glissés-déposés directement dans le navigateur sans transfert réseau, identifiant avec précision les falsifications d'extension.",
+      "feature1": "Recherche bidirectionnelle & plus de 120 formats IANA : Recherchez par extension (.json), chaîne MIME (application/json) ou mot-clé.",
+      "feature2": "Signatures binaires et Magic Bytes : Affiche les séquences hexadécimales authentiques (ex. 25 50 44 46 pour PDF) pour une vérification rigoureuse.",
+      "feature3": "Inspecteur de fichier local et détection d'usurpation : Analysez les premiers octets de vos fichiers en mémoire pour valider leur véritable nature.",
+      "feature4": "Générateur d'en-têtes et de configuration serveur : Extraits de code prêts à l'emploi pour Nginx, Apache (.htaccess), Express, FastAPI et AWS S3.",
       "step1": "Saisissez une extension (.webp, .json) ou un intitulé de type MIME.",
       "step2": "Parcourez la liste filtrée pour visualiser les caractéristiques et formats associés.",
       "step3": "Copiez l'en-tête Content-Type précis pour configurer vos applications et serveurs.",
@@ -1262,7 +1262,9 @@
       "step2Title": "Examinez les correspondances",
       "step2Body": "Parcourez la liste pour consulter les caractéristiques de chaque catégorie.",
       "step3Title": "Copiez l'en-tête Content-Type",
-      "step3Body": "Cliquez sur la ligne voulue pour copier la directive exacte pour votre serveur."
+      "step3Body": "Cliquez sur la ligne voulue pour copier la directive exacte pour votre serveur.",
+      "title": "Recherche de types MIME par IA et inspecteur de fichiers – Vérificateur de Content-Type et Magic Bytes",
+      "subtitle": "Consultez plus de 120 formats IANA, analysez les signatures binaires hexadécimales (magic bytes), détectez les extensions trompeuses et générez les en-têtes Content-Type pour Nginx, Apache, Express et S3."
     },
     "nameCombiner": {
       "title": "Générateur de fusion de prénoms IA – Couples, bébés (garçon/fille) et maisons (2, 3 ou 4 noms)",

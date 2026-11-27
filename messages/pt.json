@@ -318,8 +318,8 @@
       "description": "Analisador de URL gratuito com IA, limpador UTM e extrator de parâmetros online. Inspecione componentes, remova rastreadores, detecte riscos e copie códigos JS, Python, .NET, PHP e Go."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "Busca de Tipos MIME e Extensões Online – Verificador de Mídia",
-      "description": "Pesquise tipos MIME por extensão ou localize extensões com base na especificação IANA para mais de 100 tipos."
+      "name": "Consulta de tipos MIME com IA e inspetor de arquivos – Verificador de Content-Type e Magic Bytes",
+      "description": "Ferramenta gratuita com IA para consulta de tipos MIME, extensões e verificador binário de magic bytes. Consulte mais de 120 formatos IANA, identifique extensões adulteradas e gere configurações para Nginx, Apache e S3."
     },
     "systemd-service-file-generator": {
       "name": "Gerador de Arquivos Systemd IA Grátis – Unidades Ubuntu e Debian",
@@ -1241,11 +1241,11 @@
       "step3Body": "Clique em \"Copiar\" para incorporar a marcação no seu website ou aplicação."
     },
     "mimeTypeLookup": {
-      "aboutText": "Diretório de pesquisa de tipos MIME IANA e extensões de ficheiro com filtragem instantânea por Content-Type, formato e extensão associada.",
-      "feature1": "Pesquisa nos dois sentidos: localize o tipo MIME pela extensão ou descubra extensões pelo cabeçalho.",
-      "feature2": "Base de dados estruturada segundo as normas do IANA e RFCs vigentes.",
-      "feature3": "Classificação detalhada por categorias (application, audio, image, video, text, font).",
-      "feature4": "Exemplos prontos de configuração de cabeçalhos Content-Type para Nginx, Apache e Node.js.",
+      "aboutText": "A consulta de tipos MIME com IA e inspetor de arquivos é uma ferramenta de referência indispensável para desenvolvimento web e cibersegurança. Mapeia extensões de arquivo com tipos de mídia IANA oficiais e assinaturas binárias (magic bytes). Abrange mais de 120 formatos como documentos (PDF, DOCX), imagens (PNG, WebP, AVIF), áudio e vídeo (MP4, WebM), fontes (WOFF2) e dados (JSON, WASM). O inspetor de arquivos local analisa os primeiros bytes do arquivo diretamente no navegador sem enviar dados para servidores externos.",
+      "feature1": "Busca bidirecional e mais de 120 formatos IANA: Pesquise por extensão (.webp), tipo MIME (image/webp) ou palavras-chave descritivas.",
+      "feature2": "Assinaturas binárias e Magic Bytes: Exibe assinaturas hexadecimais autênticas para comprovar a verdadeira natureza do arquivo.",
+      "feature3": "Inspetor local de arquivos e alerta de falsificação: Arraste e solte arquivos para identificar extensões renomeadas indevidamente.",
+      "feature4": "Gerador de configurações para servidores: Obtenha instruções diretas de cabeçalho para Nginx, Apache (.htaccess), Express e AWS S3.",
       "step1": "Escreva uma extensão de ficheiro (.json, .webp) ou um identificador de tipo MIME.",
       "step2": "Examine a lista de resultados com indicações de formatos e categorias associadas.",
       "step3": "Copie a definição correta do Content-Type para os seus ficheiros de configuração.",
@@ -1262,7 +1262,9 @@
       "step2Title": "Explore a lista de formatos coincidentes",
       "step2Body": "Examine a tabela com indicações de extensões, tipos oficiais e categorias associadas.",
       "step3Title": "Copie o cabeçalho Content-Type",
-      "step3Body": "Clique na linha pretendida para copiar a definição exata para o seu servidor."
+      "step3Body": "Clique na linha pretendida para copiar a definição exata para o seu servidor.",
+      "title": "Consulta de tipos MIME com IA e inspetor de arquivos – Verificador de Content-Type e Magic Bytes",
+      "subtitle": "Pesquise mais de 120 formatos IANA, inspecione assinaturas binárias hexadecimais (magic bytes), detecte extensões adulteradas e gere cabeçalhos Content-Type para Nginx, Apache, Express e S3."
     },
     "nameCombiner": {
       "title": "Combinador de nomes com IA – Casais, bebês (menino/menina) e casas (2, 3 ou 4 nomes)",

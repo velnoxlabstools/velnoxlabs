@@ -318,8 +318,8 @@
       "description": "Kostenloser KI URL-Parser, UTM-Bereiniger und Query-String-Extraktor online. Zerlegt URLs, entfernt Tracking-Parameter, prüft Sicherheitsrisiken und liefert JS-, Python-, .NET-, PHP- & Go-Code."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME-Typ-Suche & Dateiendungs-Finder Online – Medientyp-Prüfer",
-      "description": "Finden Sie MIME-Typen nach Dateiendung oder suchen Sie Dateiendungen nach IANA-Typen – über 100 Dateitypen."
+      "name": "KI-MIME-Typ-Suche & Datei-Inspektor – Content-Type- & Magic-Bytes-Prüfer",
+      "description": "Kostenlose Online-KI-MIME-Typ-Suche, Endungs-Finder und clientseitiger Magic-Bytes-Prüfer. Über 120 IANA-Formate prüfen, Dateisignaturen verifizieren, MIME-Spoofing aufdecken und Server-Configs für Nginx, Apache und S3 generieren."
     },
     "systemd-service-file-generator": {
       "name": "KI Systemd-Service-Generator Kostenlos – Ubuntu & Debian Unit-Editor",
@@ -1241,11 +1241,11 @@
       "step3Body": "Klicken Sie auf \"Kopieren\", um den HTML-Code in Ihrem Webprojekt zu verwenden."
     },
     "mimeTypeLookup": {
-      "aboutText": "Nachschlagewerk für IANA-MIME-Typen und Dateiendungen mit schneller Suche nach Content-Type-Headern, Kategorien und Formaten.",
-      "feature1": "Zweiseitige Abfrage: Dateiendung eingeben oder zugehörigen MIME-Typ direkt finden.",
-      "feature2": "Umfassender Datenbestand auf Basis der offiziellen IANA- und RFC-Spezifikationen.",
-      "feature3": "Gliederung nach standardisierten Medienkategorien (application, image, text, audio, video).",
-      "feature4": "Praktische Konfigurationsbeispiele für Webserver wie Nginx, Apache und Node.js.",
+      "aboutText": "Die KI-MIME-Typ-Suche & Datei-Inspektor ist ein unverzichtbares Nachschlagewerk für Webentwicklung, Netzwerke und Cybersicherheit. Sie ordnet Dateiendungen den offiziellen IANA-Medientypen und binären Magic-Bytes-Signaturen zu. Unterstützt über 120 Formate wie Dokumente (PDF, DOCX), Bilder (PNG, WebP, AVIF), Audio/Video (MP4, WebM), Webfonts (WOFF2) und Datenformate (JSON, WASM). Der integrierte lokale Datei-Inspektor analysiert hochgeladene Dateien direkt im Browser ohne Datenübertragung an externe Server und deckt umbenannte Dateiendungen sofort auf.",
+      "feature1": "Bidirektionale Suche & 120+ IANA-Formate: Suche nach Dateiendung (.webp), MIME-Zeichenfolge oder Beschreibung mit Kategoriefiltern.",
+      "feature2": "Binäre Magic Bytes & Dateisignaturen: Zeigt offizielle Hexadezimal-Signaturen (z. B. 89 50 4E 47 für PNG) für exakte Datei-Identifikation.",
+      "feature3": "Lokaler Datei-Inspektor & Spoofing-Erkennung: Dateien per Drag & Drop prüfen, echte Dateitypen ermitteln und Endungstäuschungen entlarven.",
+      "feature4": "Server-Konfigurationsgenerator: Sofort einsatzbereite Konfigurationsbeispiele für Nginx (mime.types), Apache (.htaccess), Express und AWS S3.",
       "step1": "Geben Sie eine Dateiendung (.webp, .json) oder einen MIME-String in das Suchfeld ein.",
       "step2": "Filtern Sie die Trefferliste und prüfen Sie Details und Spezifikationen.",
       "step3": "Kopieren Sie den exakten Content-Type-Header für Ihre Server-Konfiguration.",
@@ -1262,7 +1262,9 @@
       "step2Title": "Passende Formate einsehen",
       "step2Body": "Prüfen Sie die gefilterte Liste mit Dateibeschreibungen, Standards und Medienkategorien.",
       "step3Title": "Content-Type-Header kopieren",
-      "step3Body": "Klicken Sie auf die Zeile, um den exakten Header für Ihre Serverkonfiguration zu kopieren."
+      "step3Body": "Klicken Sie auf die Zeile, um den exakten Header für Ihre Serverkonfiguration zu kopieren.",
+      "title": "KI-MIME-Typ-Suche & Datei-Inspektor – Content-Type- & Magic-Bytes-Prüfer",
+      "subtitle": "Über 120 IANA-Medienformate durchsuchen, binäre Magic Bytes (Hex-Signaturen) analysieren, gefälschte Dateiendungen erkennen und Server-Header für Nginx, Apache, Express und S3 erstellen."
     },
     "nameCombiner": {
       "title": "KI-Namen-Kombinierer – Paare, Babynamen (Junge/Mädchen) & Häuser (2, 3 oder 4 Namen)",

@@ -318,8 +318,8 @@
       "description": "Analizador gratuito de URL con IA, limpiador UTM y extractor de parámetros. Inspeccione componentes, elimine rastreadores, detecte riesgos de seguridad y exporte JSON con código JS, Python, .NET, PHP y Go."
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "Búsqueda de Tipos MIME y Extensiones Online – Verificador de Medios",
-      "description": "Localiza tipos MIME por extensión o halla extensiones de archivo según su tipo IANA en más de 100 variantes."
+      "name": "Búsqueda de tipos MIME con IA e inspector de archivos – Verificador de Content-Type y Magic Bytes",
+      "description": "Búsqueda gratuita con IA de tipos MIME, extensiones y verificador binario de firmas de archivo (magic bytes). Consulte más de 120 formatos IANA, detecte archivos camuflados y genere configuraciones para Nginx, Apache y S3."
     },
     "systemd-service-file-generator": {
       "name": "Generador de Archivos Systemd IA Gratis – Unidades Ubuntu y Debian",
@@ -1241,11 +1241,11 @@
       "step3Body": "Haz clic en \"Copiar\" para utilizar el código generado en tu sitio web o gestor de contenidos."
     },
     "mimeTypeLookup": {
-      "aboutText": "Directorio interactivo de tipos MIME IANA y extensiones de archivo con búsqueda por cabeceras Content-Type, formatos y extensiones comunes.",
-      "feature1": "Búsqueda bidireccional inmediata por extensión de archivo o por cadena de tipo MIME.",
-      "feature2": "Base de datos completa basada en el registro oficial de la IANA y estándares RFC.",
-      "feature3": "Información detallada sobre tipos de medios (application, image, audio, video, text, font).",
-      "feature4": "Recomendaciones de cabeceras HTTP Content-Type para servidores web (Nginx, Apache, Caddy).",
+      "aboutText": "El buscador de tipos MIME con IA e inspector de archivos es una herramienta integral de referencia para desarrollo web y ciberseguridad que vincula extensiones de archivo con tipos de medios oficiales de IANA y firmas binarias hexadecimales. Abarca más de 120 formatos incluyendo documentos (PDF, DOCX), imágenes (PNG, WebP, AVIF), audio y vídeo (MP4, WebM), fuentes web (WOFF2) y código (JS, TS, WASM). Su inspector binario local analiza archivos en el navegador mediante la API nativa FileReader sin enviar datos a servidores externos, alertando sobre extensiones renombradas o camufladas.",
+      "feature1": "Búsqueda bidireccional y más de 120 formatos IANA: Busque por extensión (.json), tipo MIME (application/json) o descripción con filtros por categoría.",
+      "feature2": "Firmas binarias y Magic Bytes: Muestra las secuencias hexadecimales oficiales para la verificación profunda de la autenticidad del archivo.",
+      "feature3": "Inspector de archivos local y detector de suplantación: Arrastre cualquier archivo para comprobar sus primeros 16 bytes y descubrir su formato real.",
+      "feature4": "Generador de configuraciones de servidor: Obtenga fragmentos de código listos para producción en Nginx, Apache (.htaccess), Express, FastAPI y AWS S3.",
       "step1": "Escribe una extensión de archivo (por ejemplo, .webp, .json) o un tipo de medio MIME.",
       "step2": "Explora la lista filtrada de resultados con detalles de compatibilidad y categorías.",
       "step3": "Copia la cabecera Content-Type exacta para configurar tu servidor web o API.",
@@ -1262,7 +1262,9 @@
       "step2Title": "Revisa la lista de formatos compatibles",
       "step2Body": "Examina la tabla filtrada con descripciones de formatos, estándares y categorías.",
       "step3Title": "Copia la cabecera Content-Type",
-      "step3Body": "Haz clic en \"Copiar\" en la fila deseada para configurar tus servidores web y APIs."
+      "step3Body": "Haz clic en \"Copiar\" en la fila deseada para configurar tus servidores web y APIs.",
+      "title": "Búsqueda de tipos MIME con IA e inspector de archivos – Verificador de Content-Type y Magic Bytes",
+      "subtitle": "Consulte más de 120 formatos IANA, inspeccione firmas binarias en hexadecimal (magic bytes), detecte extensiones falsificadas y genere cabeceras Content-Type para Nginx, Apache, Express y S3."
     },
     "nameCombiner": {
       "title": "Combinador de nombres con IA – Parejas, bebés (niño/niña) y casas (2, 3 o 4 nombres)",

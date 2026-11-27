@@ -311,8 +311,8 @@
       "description": "免费在线 AI URL 解析与 UTM 清理工具。一键拆解网址结构、清除追踪参数、检测安全风险、解码嵌套链接/Base64，并提供 JS、Python、.NET、PHP 与 Go 代码示例。"
     },
     "mime-type-lookup-and-extension-finder": {
-      "name": "MIME 类型与文件扩展名在线查询工具 – 快速检索与校验",
-      "description": "快速检索文件扩展名与对应的标准 IANA MIME 媒体类型，覆盖 100 余种主流文件格式。"
+      "name": "AI MIME 类型检索与文件检测器 – Content-Type 标头与文件魔数校验",
+      "description": "免费在线 AI MIME 类型查询、扩展名检索与纯前端二进制魔数（Magic Bytes）检测工具。检索120+ IANA官方媒体格式，校验真实文件格式，防范伪装扩展名攻击，并生成 Nginx、Apache 与 S3 配置代码。"
     },
     "systemd-service-file-generator": {
       "name": "AI 免费 Systemd 服务文件生成器 – Ubuntu 与 Debian 单元配置工具",
@@ -1216,11 +1216,11 @@
       "faq4A": "不会。所有的字符转换均由您本地浏览器的JavaScript直接处理，任何稿件和数据均不会离开您的本地设备。"
     },
     "mimeTypeLookup": {
-      "aboutText": "MIME类型与文件扩展名查询工具是Web网络开发与系统配置人员的专业速查参考表。它建立起了文件后缀扩展名与IANA官方媒体类型（Multipurpose Internet Mail Extensions）之间的双向索引关系。数据库收录了100多项常用格式，全面涵盖办公文档（PDF, DOCX）、压缩归档（ZIP, TAR）、音视频多媒体（MP4, WebM, MP3）、现代图像（PNG, WebP, SVG, AVIF）、Web字体（WOFF2）、代码资产（JS, TS, CSS）及结构化数据（JSON, XML, CSV）。对于配置Nginx、Apache及设置正确的HTTP Content-Type响应标头至关重要。",
-      "feature1": "支持双向模糊查询：既可通过文件后缀（如.webp, .pdf）搜索，也可通过MIME类型名（如image/webp）正向检索",
-      "feature2": "涵盖100+标准IANA媒体格式：囊括从传统办公文档到现代流媒体与字体的8大核心数据类别",
-      "feature3": "支持按格式大类分类筛选：可快速按文档、图像、音频、视频、压缩包、字体、代码及数据进行分类查看",
-      "feature4": "即时HTTP标头参考：提供标准准确的Content-Type配置语法，支持一键将MIME字符串复制至剪贴板",
+      "aboutText": "AI MIME 类型检索与文件检测器是一款专为网络工程、前端开发和网络安全审计打造的综合技术手册。工具将文件扩展名精准映射到 IANA 官方媒体类型和十六进制文件头签名（Magic Bytes）。支持涵盖文档（PDF、DOCX）、图像（PNG、WebP、AVIF）、多媒体（MP4、WebM）、字体（WOFF2）和代码（JS、TS、WASM）在内的120多种格式。内置纯前端文件检测器，零服务器上传，基于浏览器 FileReader 毫秒级分析文件头部字节，及时警示伪装成图片或文档的潜在可执行文件风险。",
+      "feature1": "双向智能检索与120+ IANA标准格式: 支持按文件后缀名、MIME标准标识符或中文格式描述双向速查。",
+      "feature2": "二进制魔数与十六进制文件头: 完整展示规范的 Magic Bytes（如 PNG 的 89 50 4E 47），辅助深度二进制特征比对。",
+      "feature3": "纯前端本地文件嗅探与格式伪装告警: 拖拽任意文件即可秒级检测其底层真实格式，排查改名伪装风险。",
+      "feature4": "一键生成服务器配置片段: 提供面向 Nginx（mime.types）、Apache（.htaccess）、Node.js、FastAPI 和 AWS S3 的配置示例。",
       "step1Title": "输入文件扩展名或 MIME",
       "step1Body": "在检索框中输入文件后缀（如 svg、webp）或媒体类型字符串。",
       "step2Title": "查看匹配的格式信息",
@@ -1234,7 +1234,9 @@
       "faq3Q": "是否收录了AVIF、WebP及WOFF2等现代格式？",
       "faq3A": "是的。数据字典包含最新的下一代图像格式（image/webp、image/avif）、现代网页字体（font/woff2）以及常用音视频封装类型。",
       "faq4Q": "该数据表是否符合官方IANA标准？",
-      "faq4A": "是的。所有MIME媒体类型均严格对照互联网号码分配局（IANA）及对应RFC官方技术文档进行校订。"
+      "faq4A": "是的。所有MIME媒体类型均严格对照互联网号码分配局（IANA）及对应RFC官方技术文档进行校订。",
+      "title": "AI MIME 类型检索与文件检测器 – Content-Type 标头与文件魔数校验",
+      "subtitle": "检索120+ IANA官方标准媒体格式，分析二进制魔数（Hex签名），排查扩展名篡改伪装，并生成 Nginx、Apache、Express 及 S3 生产级配置代码。"
     },
     "nameCombiner": {
       "title": "AI 名字组合器 – 情侣配对、宝宝起名（男孩/女孩）与房屋命名（支持2/3/4个名字）",
