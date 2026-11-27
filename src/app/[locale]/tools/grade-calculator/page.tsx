@@ -59,6 +59,32 @@ const GRADE_SCALE: GradeScaleItem[] = [
   { letter: 'F', minPercent: 0, gpa: 0.0, color: '#f87171' },
 ];
 
+const LETTER_TO_PERCENT: Record<string, number> = {
+  'A+': 98,
+  A: 95,
+  'A-': 91.5,
+  'B+': 88,
+  B: 85,
+  'B-': 81.5,
+  'C+': 78,
+  C: 75,
+  'C-': 71.5,
+  'D+': 68,
+  D: 65,
+  'D-': 61.5,
+  F: 50,
+};
+
+function parseGradeValue(raw: string): number {
+  const trimmed = raw.trim().toUpperCase();
+  if (!trimmed) return 0;
+  if (trimmed in LETTER_TO_PERCENT) {
+    return LETTER_TO_PERCENT[trimmed];
+  }
+  const num = parseFloat(trimmed);
+  return isNaN(num) ? 0 : num;
+}
+
 function getLetterGrade(percentage: number) {
   for (const item of GRADE_SCALE) {
     if (percentage >= item.minPercent) {
@@ -111,7 +137,7 @@ export default function GradeCalculatorPage() {
     let totalW = 0;
 
     assignments.forEach((a) => {
-      const g = parseFloat(a.grade) || 0;
+      const g = parseGradeValue(a.grade);
       const w = parseFloat(a.weight) || 0;
       weightedSum += g * w;
       totalW += w;
@@ -284,7 +310,8 @@ export default function GradeCalculatorPage() {
   // ================= CALCULATIONS: MODE 4 (QUICK TEST GRADER) =================
   const testGraderStats = useMemo(() => {
     const total = Math.max(1, parseInt(testTotal, 10) || 1);
-    const wrong = Math.max(0, Math.min(total, parseInt(testWrong, 10) || 0));
+    const wrongRaw = parseFloat(testWrong);
+    const wrong = Math.max(0, Math.min(total, isNaN(wrongRaw) ? 0 : wrongRaw));
     const correct = total - wrong;
     const scorePercent = (correct / total) * 100;
 
@@ -585,16 +612,47 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '6px',
+                    justifyContent: 'space-between',
+                    gap: '8px',
                     marginBottom: '10px',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: 'var(--text-muted)',
-                    textTransform: 'uppercase',
                   }}
                 >
-                  <Sparkles size={14} color="var(--primary-color)" />
-                  {tUI('quickPresetsTitle')}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      color: 'var(--text-muted)',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    <Sparkles size={14} color="var(--primary-color)" />
+                    {tUI('quickPresetsTitle')}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAssignments([
+                        { id: 1, name: '', grade: '', weight: '' },
+                        { id: 2, name: '', grade: '', weight: '' },
+                      ]);
+                      setDesiredGrade('90');
+                    }}
+                    style={{
+                      backgroundColor: 'transparent',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '6px',
+                      padding: '4px 10px',
+                      fontSize: '0.75rem',
+                      color: 'var(--text-muted)',
+                      cursor: 'pointer',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {tUI('resetBtn')}
+                  </button>
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   <button
@@ -714,6 +772,23 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                   </span>
                 </div>
 
+                {weightedStats.totalWeight > 100 && (
+                  <div
+                    style={{
+                      padding: '10px 14px',
+                      borderRadius: '8px',
+                      backgroundColor: 'rgba(248, 113, 113, 0.14)',
+                      border: '1px solid rgba(248, 113, 113, 0.35)',
+                      color: '#f87171',
+                      fontSize: '0.82rem',
+                      fontWeight: 600,
+                      marginBottom: '14px',
+                    }}
+                  >
+                    ⚠️ {tUI('weightExceededWarning', { weight: weightedStats.totalWeight })}
+                  </div>
+                )}
+
                 {/* Table Header */}
                 <div
                   style={{
@@ -761,10 +836,10 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                       }}
                     />
                     <input
-                      type="number"
+                      type="text"
                       value={a.grade}
                       onChange={(e) => updateAssignment(a.id, 'grade', e.target.value)}
-                      placeholder="90"
+                      placeholder="90 / A-"
                       style={{
                         width: '100%',
                         backgroundColor: 'var(--bg-page)',
@@ -1855,6 +1930,187 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
             {copied ? <Check size={18} /> : <Copy size={18} />}
             {copied ? tUI('copied') : tUI('copySummary')}
           </button>
+
+          {/* Letter Grade & 4.0 GPA Conversion Reference Chart */}
+          <div
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '14px',
+              padding: '24px',
+              marginBottom: '24px',
+              overflowX: 'auto',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '14px',
+              }}
+            >
+              {tUI('gpaScaleTitle')}
+            </h3>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontSize: '0.85rem',
+                textAlign: 'left',
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                  <th style={{ padding: '10px 12px', color: 'var(--text-main)' }}>
+                    {tUI('chartGrade')}
+                  </th>
+                  <th style={{ padding: '10px 12px', color: 'var(--text-main)' }}>
+                    {tUI('colGrade')}
+                  </th>
+                  <th style={{ padding: '10px 12px', color: 'var(--text-main)' }}>4.0 GPA</th>
+                </tr>
+              </thead>
+              <tbody>
+                {GRADE_SCALE.map((item, idx) => {
+                  const prevMin = idx === 0 ? 100 : GRADE_SCALE[idx - 1].minPercent - 1;
+                  const rangeLabel =
+                    item.letter === 'F' ? '< 60%' : `${item.minPercent}% – ${prevMin}%`;
+                  return (
+                    <tr key={item.letter} style={{ borderBottom: '1px solid var(--border-color)' }}>
+                      <td style={{ padding: '9px 12px', fontWeight: 700, color: item.color }}>
+                        {item.letter}
+                      </td>
+                      <td
+                        style={{
+                          padding: '9px 12px',
+                          color: 'var(--text-muted)',
+                          fontFamily: 'monospace',
+                        }}
+                      >
+                        {rangeLabel}
+                      </td>
+                      <td
+                        style={{
+                          padding: '9px 12px',
+                          color: 'var(--text-main)',
+                          fontFamily: 'monospace',
+                          fontWeight: 600,
+                        }}
+                      >
+                        {item.gpa.toFixed(1)}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Clean Comparison Table */}
+          <div
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '14px',
+              padding: '24px',
+              marginBottom: '24px',
+              overflowX: 'auto',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '16px',
+                textAlign: 'center',
+              }}
+            >
+              {tUI('compareTitle')}
+            </h3>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                fontSize: '0.85rem',
+                textAlign: 'left',
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                  <th style={{ padding: '12px', color: 'var(--text-main)', fontWeight: 700 }}>
+                    {tUI('compareColFeature')}
+                  </th>
+                  <th style={{ padding: '12px', color: '#60a5fa', fontWeight: 700 }}>VelnoxLabs</th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    RogerHub
+                  </th>
+                  <th style={{ padding: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    RapidTables / ezGrader
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow1Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow1Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Roger')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow1Rapid')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow2Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow2Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Roger')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow2Rapid')}
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow3Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow3Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Roger')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow3Rapid')}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '12px', fontWeight: 600, color: 'var(--text-main)' }}>
+                    {tUI('compareRow4Feature')}
+                  </td>
+                  <td style={{ padding: '12px', color: '#34d399', fontWeight: 600 }}>
+                    {tUI('compareRow4Velnox')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Roger')}
+                  </td>
+                  <td style={{ padding: '12px', color: 'var(--text-muted)' }}>
+                    {tUI('compareRow4Rapid')}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           {/* TECHNICAL SEO SECTION */}
           <ToolSeoContent
