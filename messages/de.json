@@ -228,8 +228,8 @@
       "description": "Kostenloser KI ULID-Generator, Decoder und Prüfer im Browser. Monotone sortierbare ULIDs erzeugen, Zeitstempel auslesen, ULID in UUID wandeln, ULID vs UUID vergleichen und Java/npm-Snippets nutzen."
     },
     "nanoid-generator": {
-      "name": "NanoID Generator Online – Kollisions-Rechner & Eigene Zeichenauswahl",
-      "description": "Kostenloser NanoID Generator online mit Kollisions-Rechner und Alphabet-Optionen. Schnelle Yuuniworks- und UUID-Alternative für npm, C#, Python und Web-Apps."
+      "name": "KI NanoID Generator Online – Benutzerdefiniertes Alphabet & Kollisions-Rechner",
+      "description": "Kostenloser KI-NanoID-Generator online mit Kollisionsrechner, benutzerdefinierten Alphabeten, Präfixen im Stripe-Stil, Batch-Export (JSON/CSV/TXT) und Code-Beispielen für Node.js, Python, Rust, Go und C#."
     },
     "csp-header-builder-and-validator": {
       "name": "CSP-Richtlinien-Ersteller und Strukturierer – Sicherheitsprüfer für Header",
@@ -1315,8 +1315,8 @@
       "faq4A": "Ja, uneingeschränkt kostenfrei, ohne Anmeldung und ohne Nutzungslimit. Alle Berechnungen erfolgen lokal auf Ihrem Endgerät."
     },
     "nanoidGenerator": {
-      "title": "NanoID Generator Online – Eigene Zeichenauswahl & Kollisions-Rechner",
-      "subtitle": "Kostenloser NanoID Generator online mit Kollisions-Rechner und Alphabet-Optionen. Schnelle Yuuniworks- und UUID-Alternative für npm, C#, Python und Web-Apps.",
+      "title": "KI NanoID Generator Online – Benutzerdefiniertes Alphabet & Kollisions-Rechner",
+      "subtitle": "Kostenloser Online-KI-NanoID-Generator mit Kollisionswahrscheinlichkeitsrechner, benutzerdefinierten Alphabeten, Stripe-Präfixen und Stapel-Export. Schnelle, kompakte UUID-Alternative für npm, Python, Rust, Go und C#.",
       "length": "Länge der Kennung:",
       "lengthPlaceholder": "Länge angeben (Standard 21)",
       "batchCount": "Stapel-Menge:",
@@ -1340,11 +1340,11 @@
       "outputPlaceholder": "Erzeugte NanoIDs erscheinen hier...",
       "comparisonTitle": "Vergleich: NanoID versus UUID v4",
       "codeSnippetsTitle": "Code-Beispiele für Entwickler",
-      "aboutText": "Unser kostenloser NanoID Generator online bietet Softwareentwicklern eine verlässliche Yuuniworks-Alternative zur Erzeugung kryptografisch sicherer Kurz-IDs. Im direkten Vergleich NanoID versus UUID ist NanoID 40% kürzer (21 statt 36 Zeichen) und gewährleistet dank seines 64 Zeichen umfassenden URL-freundlichen Alphabets eine ebenbürtige Kollisionsresistenz. Ein integrierter Rechner ermittelt in Echtzeit die mathematische Kollisionswahrscheinlichkeit nach Zeichenlänge und Alphabetgröße. Ob für JavaScript-Backends via npm-Paket, in C# (.NET) oder Python: Die Stapel-Funktion liefert bis zu 100 Kennungen ohne Serverübertragung.",
-      "feature1": "Kryptografische CSPRNG-Sicherheit: Nutzt die Web Crypto API des Browsers für maximale Hardware-Zufallsentropie.",
-      "feature2": "Echtzeit-Kollisionsberechnung: Ermittelt mathematisch fundiert die Zeitspanne bis zu einem 1%-Risiko bei 1.000 IDs pro Sekunde.",
-      "feature3": "Flexible Alphabete & Stapel-Erstellung: Wähle URL-sichere, Ziffern- oder verwechslungsfreie Sätze für bis zu 100 Kennungen gleichzeitig.",
-      "feature4": "Vollständiger Datenschutz: Alle Abläufe erfolgen lokal im Speicher ohne externe Datenübermittlung.",
+      "aboutText": "Unser kostenloser Online-KI-NanoID-Generator ist ein kryptografisches Hochleistungswerkzeug für moderne Softwareentwickler auf der Suche nach einer flexiblen Alternative zu Yuuniworks und standardmäßigen UUID-Generatoren. Vollständig im Webbrowser ohne Serverinstallationen ausgeführt, erzeugt er sichere und kompakte Bezeichner basierend auf der offiziellen NanoID-Spezifikation von Andrey Sitnik inklusive Bitmask-Rejection-Sampling zur vollständigen Vermeidung von Modulo-Verzerrungen. Gegenüber UUID v4 spart NanoID 40 % Zeichenlänge (21 statt 36 Zeichen) bei identischer Kollisionssicherheit durch das 64-Zeichen URL-sichere Alphabet. Das Werkzeug umfasst einen Echtzeit-Kollisionsrechner mit konfigurierbaren Geschwindigkeiten, einen KI-Datenbank-Längenoptimierer, Stripe-Typ-Präfixe, Stapel-Generierung bis zu 500 IDs, JSON/CSV/TXT-Export sowie einen Shannon-Entropie-Prüfer bei 100 % vertraulicher lokaler Ausführung.",
+      "feature1": "CSPRNG-Kryptosicherheit: Verwendet die native Web Crypto API mit Bitmask-Rejection-Sampling für null Modulo-Verzerrung.",
+      "feature2": "Echtzeit-Kollisionsschätzer: Präzise mathematische Berechnungen bei wählbaren Erzeugungsraten (100/h bis 100K/s) mit KI-Skalierungsempfehlungen.",
+      "feature3": "Alphabet-Voreinstellungen & Stripe-Präfixe: URL-sichere, numerische, gutscheinlesbare und freie Zeichensätze mit typisierten Präfixen (usr_, ord_, txn_).",
+      "feature4": "Stapelverarbeitung & Export: Bis zu 500 NanoIDs gleichzeitig erstellen und direkt als JSON-Array, CSV oder Textdatei herunterladen.",
       "step1Title": "Länge und Stapel-Menge festlegen",
       "step1Body": "Gewünschte Zeichenanzahl wählen (21 Zeichen bieten optimalen Schutz) und Anzahl der Kennungen (1 bis 100) angeben.",
       "step2Title": "Zeichensatz bestimmen",

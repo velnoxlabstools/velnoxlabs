@@ -221,8 +221,8 @@
       "description": "무료 온라인 AI ULID 생성·디코딩·검증 도구. 엄격한 단조 증가 생성, 타임스탬프 추출, ULID ↔ UUID 무손실 변환, ULID vs UUID 비교 및 Java·npm 코드 스니펫을 제공합니다."
     },
     "nanoid-generator": {
-      "name": "NanoID 온라인 생성기 – 충돌 확률 계산기 및 커스텀 문자셋",
-      "description": "충돌 확률 시뮬레이터와 커스텀 알파벳 프리셋을 지원하는 무료 온라인 NanoID 생성 도구. npm, C#, Python을 지원하는 가볍고 빠른 Yuuniworks 및 UUID 대체 솔루션."
+      "name": "AI NanoID 온라인 생성기 – 커스텀 문자셋 및 충돌 확률 계산기",
+      "description": "무료 온라인 AI NanoID 생성기: 실시간 충돌 확률 계산기, 커스텀 알파벳 프리셋, Stripe 스타일 접두사, 대량 내보내기(JSON/CSV/TXT), Node.js, Python, Rust, Go, C# 연동 코드 제공."
     },
     "csp-header-builder-and-validator": {
       "name": "CSP 정책 생성 및 정렬기 – 보안 검증 및 헤더 스캐너",
@@ -1287,8 +1287,8 @@
       "faq4A": "네, 100% 무료이며 횟수 제한이나 회원가입 요구가 없습니다. 모든 연산이 기기 내부에서 신속하고 안전하게 진행됩니다."
     },
     "nanoidGenerator": {
-      "title": "NanoID 온라인 생성기 – 커스텀 문자셋 및 충돌 확률 계산기",
-      "subtitle": "충돌 확률 시뮬레이터와 커스텀 알파벳 프리셋을 지원하는 무료 온라인 NanoID 생성 도구. npm, C#, Python을 지원하는 가볍고 빠른 Yuuniworks 및 UUID 대체 솔루션.",
+      "title": "AI NanoID 온라인 생성기 – 커스텀 문자셋 및 충돌 확률 계산기",
+      "subtitle": "무료 온라인 AI NanoID 생성기: 실시간 충돌 확률 계산기, 커스텀 문자셋, Stripe 스타일 접두사, 대량 내보내기를 지원하며 npm, Python, Rust, Go, C# 개발을 위한 초경량 UUID 대안.",
       "length": "식별자 길이:",
       "lengthPlaceholder": "길이 입력 (기본값 21)",
       "batchCount": "생성 수량:",
@@ -1312,11 +1312,11 @@
       "outputPlaceholder": "생성된 NanoID가 여기에 표시됩니다...",
       "comparisonTitle": "NanoID vs UUID v4 비교 분석",
       "codeSnippetsTitle": "개발 언어별 연동 코드",
-      "aboutText": "무료 온라인 NanoID 생성기는 개발자들을 위한 최신 암호학적 고유 식별자 도구로, 신뢰할 수 있는 Yuuniworks 대안으로 설계되었습니다. NanoID와 UUID를 비교할 때 NanoID는 40% 더 짧은 길이(36자 대신 21자)로도 웹 URL에 안전한 64개 문자셋을 통해 동일 수준의 충돌 방지 능력을 자랑합니다. 지정한 길이와 문자셋 크기에 따라 실시간으로 수학적 충돌 확률을 산출하는 계산기를 내장하고 있습니다. Node.js 생태계의 npm 라이브러리는 물론, .NET 기반의 C#, Python, Go 환경까지 완벽히 대응하며 브라우저 내부에서 최대 100개까지 단번에 안전하게 생성합니다.",
-      "feature1": "CSPRNG 암호학적 보안성: 브라우저 기본 Web Crypto API를 호출하여 하드웨어 기반의 고엔트로피 난수를 추출합니다.",
-      "feature2": "실시간 충돌 확률 계산기: 생일 문제 공식을 토대로 초당 1,000개 생성 기준의 충돌 기간과 엔트로피를 즉각 계산합니다.",
-      "feature3": "다양한 문자셋 및 일괄 생성: URL 안전, 숫자 전용, 혼동 방지 프리셋 또는 사용자 정의 문자로 최대 100개까지 일괄 생성합니다.",
-      "feature4": "완전한 클라이언트 로컬 보안: 모든 식별자는 기기 메모리 내부에서만 처리되며 서버로 전송되거나 기록되지 않습니다.",
+      "aboutText": "무료 온라인 AI NanoID 생성기는 기존 Yuuniworks 및 표준 UUID 생성기를 대체하기 위해 고안된 초고속 브라우저 기반 암호화 유틸리티입니다. 별도의 프로그램 설치 없이 Andrey Sitnik의 공식 NanoID 사양을 준수하며, 비트마스크 거부 샘플링을 적용하여 나머지 연산 편향(Modulo Bias)을 완벽히 제거합니다. UUID v4와 비교했을 때 길이는 40% 더 짧으면서(36자 대신 21자), 64자의 URL 안전 문자셋을 활용해 동등한 충돌 방지 강도를 보장합니다. 생성 속도별 실시간 충돌 확률 계산기, 데이터베이스 규모 기반 AI 권장 길이 계산기, Stripe 형태의 타입 접두사, 최대 500개 대량 생성, JSON/CSV/TXT 파일 내보내기, 샤논 엔트로피 검사 기능을 제공하며 모든 연산은 외부 서버 전송 없이 로컬에서 안전하게 처리됩니다.",
+      "feature1": "CSPRNG 암호학적 난수 생성: 브라우저 기본 Web Crypto API와 비트마스크 거부 샘플링으로 나머지 연산 편향 차단.",
+      "feature2": "실시간 충돌 확률 계산기: 생성 속도별(시간당 100개 ~ 초당 10만 개) 정밀 계산 및 AI 기반 데이터베이스 용량 분석.",
+      "feature3": "다양한 문자셋 및 Stripe 접두사: URL 안전 문자, 숫자, 쿠폰용 혼동 방지 문자셋 및 안전한 엔티티 접두사(usr_, ord_, txn_).",
+      "feature4": "대량 생성 및 파일 내보내기: 최대 500개의 NanoID를 한 번에 생성하고 JSON 배열, CSV, 텍스트 파일로 즉시 다운로드.",
       "step1Title": "식별자 길이 및 수량 설정",
       "step1Body": "원하는 문자 길이(기본 21자가 표준 안전성을 보장)와 필요한 수량(1~100개)을 선택합니다.",
       "step2Title": "문자셋 선택 또는 입력",

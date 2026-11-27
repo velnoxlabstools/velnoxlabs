@@ -228,8 +228,8 @@
       "description": "Strumento gratuito IA online per creare, decodificare e validare ULID. Include generazione monotonica ordinabile, estrazione timestamp, conversione ULID in UUID, confronto ULID vs UUID ed esempi Java/npm."
     },
     "nanoid-generator": {
-      "name": "Generatore di NanoID Online – Calcolo Collisioni e Alfabeto Dedicato",
-      "description": "Generatore gratuito di NanoID online con stima delle collisioni e alfabeti personalizzati. Alternativa scattante a Yuuniworks e UUID per npm, C#, Python e web."
+      "name": "Generatore di NanoID con IA Online – Alfabeto Personalizzato e Calcolo Collisioni",
+      "description": "Generatore gratuito di NanoID con IA online con calcolatore di collisioni, alfabeti personalizzati, prefissi in stile Stripe, esportazione in blocco (JSON/CSV/TXT) ed esempi di codice per Node.js, Python, Rust, Go e C#."
     },
     "csp-header-builder-and-validator": {
       "name": "Costruttore e Normalizzatore CSP – Analizzatore di Intestazioni di Sicurezza",
@@ -1315,8 +1315,8 @@
       "faq4A": "È gratuito al 100%, senza iscrizioni e con utilizzi illimitati. Tutto viene elaborato localmente con la massima rapidità e discrezione."
     },
     "nanoidGenerator": {
-      "title": "Generatore di NanoID Online – Alfabeto Dedicato e Rischio di Collisione",
-      "subtitle": "Generatore gratuito di NanoID online con stima delle collisioni e alfabeti personalizzati. Alternativa scattante a Yuuniworks e UUID per npm, C#, Python e web.",
+      "title": "Generatore di NanoID con IA Online – Alfabeto Personalizzato e Calcolo Collisioni",
+      "subtitle": "Generatore gratuito di NanoID con IA online con calcolo probabilità di collisione, alfabeti personalizzati, prefissi Stripe ed esportazione in blocco. Alternativa compatta a UUID per npm, Python, Rust, Go e C#.",
       "length": "Lunghezza identificatore:",
       "lengthPlaceholder": "Indica la lunghezza (predefinita 21)",
       "batchCount": "Quantità in blocco:",
@@ -1340,11 +1340,11 @@
       "outputPlaceholder": "I NanoID appariranno qui...",
       "comparisonTitle": "Confronto: NanoID e UUID v4",
       "codeSnippetsTitle": "Esempi di codice per l'integrazione",
-      "aboutText": "Il nostro generatore di NanoID online offre agli sviluppatori una valida alternativa a Yuuniworks e ai consueti identificatori UUID. Nel confronto diretto tra NanoID e UUID, NanoID spicca per una lunghezza ridotta del 40% (21 caratteri contro 36) pur garantendo la medesima protezione contro le collisioni grazie al suo alfabeto di 64 caratteri compatibili con i percorsi web. Include una stima matematica del rischio di collisione formulata in base alla lunghezza e all'alfabeto desiderati. Che tu adotti Node.js mediante il pacchetto npm, C# in ambiente .NET oppure Python, l'interfaccia supporta la creazione in lotti fino a 100 elementi senza trasmissione di dati a server remoti.",
-      "feature1": "Protezione crittografica CSPRNG: Si avvale della Web Crypto API del browser per assicurare un'elevata entropia casuale.",
-      "feature2": "Stima in tempo reale delle collisioni: Calcola i tempi necessari per raggiungere l'1% di collisione a un ritmo di 1.000 identificatori al secondo.",
-      "feature3": "Versatilità di alfabeti e lotti: Supporta insiemi numerici, varianti senza caratteri equivoci e alfabeti personalizzati fino a 100 elementi.",
-      "feature4": "Riservatezza locale totale: L'elaborazione si completa nella memoria del dispositivo senza memorizzazione su server.",
+      "aboutText": "Il nostro generatore online di NanoID basato su IA è un'utilità crittografica ad alta velocità progettata per gli sviluppatori alla ricerca di un'alternativa affidabile a Yuuniworks e ai generatori UUID convenzionali. Eseguito interamente nel browser senza installazione, produce identificatori univoci compatti e sicuri utilizzando il campionamento a maschera di bit ufficiale di Andrey Sitnik per annullare qualsiasi distorsione da modulo. Rispetto a UUID v4, NanoID è più corto del 40% (21 caratteri contro 36) con identica resistenza alle collisioni grazie all'alfabeto sicuro per URL a 64 caratteri. L'applicazione integra un calcolatore di collisioni a frequenza regolabile, un ottimizzatore IA per database, prefissi tipizzati in stile Stripe, generazione in blocco fino a 500 ID, esportazione nei formati JSON/CSV/TXT e un analizzatore di entropia di Shannon a riservatezza assoluta.",
+      "feature1": "Sicurezza Crittografica CSPRNG: Web Crypto API nativa con campionamento a maschera di bit privo di distorsione modulo.",
+      "feature2": "Stima Collisioni in Tempo Reale: Calcolo matematico a velocità configurabili (100/ora fino a 100K/sec) con consigli di scalabilità del database via IA.",
+      "feature3": "Alfabeti Multipli e Prefissi Stripe: Insiemi di caratteri sicuri per URL, numerici, coupon senza caratteri ambigui e prefissi tipizzati (usr_, ord_, txn_).",
+      "feature4": "Generazione in Blocco ed Esportazione: Genera fino a 500 NanoID istantaneamente ed esportali in formato JSON, CSV o testo senza ritardi.",
       "step1Title": "Scegli lunghezza e quantità del blocco",
       "step1Body": "Imposta la lunghezza desiderata (21 caratteri assicura protezione perfetta) e indica quante unità richiedi (da 1 a 100).",
       "step2Title": "Stabilisci l'alfabeto di riferimento",

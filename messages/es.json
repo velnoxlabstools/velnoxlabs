@@ -228,8 +228,8 @@
       "description": "Herramienta gratuita de IA en línea para crear, decodificar y validar ULIDs. Soporta generación monótona, extracción de marca temporal, conversión ULID a UUID, comparativa ULID vs UUID y ejemplos Java/npm."
     },
     "nanoid-generator": {
-      "name": "Generador de NanoID Online – Verificador de Colisiones y Alfabeto Propio",
-      "description": "Generador gratuito de NanoID online con estimador de colisiones y variantes de alfabeto. Alternativa veloz a Yuuniworks y UUID para proyectos npm, C#, Python y web."
+      "name": "Generador de NanoID con IA Online – Alfabeto Personalizado y Calculadora de Colisiones",
+      "description": "Generador de NanoID con IA gratuito con calculadora de colisiones, alfabetos personalizados, prefijos tipo Stripe, exportación por lotes (JSON/CSV/TXT) y ejemplos de código para Node.js, Python, Rust, Go y C#."
     },
     "csp-header-builder-and-validator": {
       "name": "Constructor y Normalizador CSP – Inspector y Analizador de Cabeceras",
@@ -1315,8 +1315,8 @@
       "faq4A": "Es 100% gratuito, sin necesidad de registros y sin restricciones de uso. Todo se ejecuta de manera local y confidencial en tu dispositivo."
     },
     "nanoidGenerator": {
-      "title": "Generador de NanoID Online – Alfabeto Propio y Riesgo de Colisión",
-      "subtitle": "Generador gratuito de NanoID online con estimador de colisiones y variantes de alfabeto. Alternativa veloz a Yuuniworks y UUID para proyectos npm, C#, Python y web.",
+      "title": "Generador de NanoID con IA Online – Alfabeto Personalizado y Calculadora de Colisiones",
+      "subtitle": "Generador de NanoID con IA gratuito con calculadora de colisiones, alfabetos personalizados, prefijos tipo Stripe y exportación por lotes. Alternativa rápida y compacta a UUID para npm, Python, Rust, Go y C#.",
       "length": "Longitud del identificador:",
       "lengthPlaceholder": "Indica la longitud (por omisión 21)",
       "batchCount": "Cantidad en lote:",
@@ -1340,11 +1340,11 @@
       "outputPlaceholder": "Los NanoID generados aparecerán aquí...",
       "comparisonTitle": "Comparativa: NanoID frente a UUID v4",
       "codeSnippetsTitle": "Ejemplos de integración para programadores",
-      "aboutText": "Nuestro generador de NanoID online es una solución criptográfica para desarrolladores que buscan una alternativa práctica a Yuuniworks y a los clásicos identificadores UUID. Al comparar NanoID frente a UUID, NanoID ofrece una ventaja evidente: reduce el tamaño un 40% (21 caracteres en lugar de 36) manteniendo una resistencia equivalente frente a colisiones gracias a su juego de 64 caracteres aptos para direcciones web. Incluye un estimador que calcula la probabilidad matemática de colisión según la longitud y el alfabeto elegido. Ya sea que trabajes en Node.js mediante el paquete de npm, en .NET mediante C# o en Python, el entorno ofrece generación en lote de hasta 100 elementos sin transferir datos a servidores.",
-      "feature1": "Seguridad criptográfica CSPRNG: Aprovecha la Web Crypto API nativa del navegador para garantizar aleatoriedad de alta entropía.",
-      "feature2": "Estimador matemático de colisiones: Modela el tiempo necesario para alcanzar un 1% de colisión a una tasa de 1.000 identificadores por segundo.",
-      "feature3": "Variedad de alfabetos y lotes: Posibilidad de elegir entre conjuntos numéricos, legibles sin caracteres ambiguos o alfabetos personalizados hasta 100 unidades.",
-      "feature4": "Privacidad local absoluta: El proceso concluye en la memoria del terminal sin almacenamiento ni telemetría remota.",
+      "aboutText": "Nuestro generador de NanoID con IA en línea es una utilidad criptográfica de alta velocidad diseñada para desarrolladores que buscan una alternativa robusta a Yuuniworks y generadores de identificadores únicos. Ejecutado completamente en el navegador sin instalaciones, genera identificadores compactos y seguros mediante el muestreo por rechazo de máscara de bits oficial de Andrey Sitnik, eliminando por completo el sesgo de módulo. Frente a UUID v4, NanoID es un 40% más corto (21 caracteres frente a 36) manteniendo idéntica resistencia a colisiones con su alfabeto de 64 símbolos seguro para URL. Incluye calculadora de colisiones multivelocidad, optimizador de longitud de base de datos con IA, prefijos tipados estilo Stripe, generación por lotes de hasta 500 identificadores, exportación a JSON/CSV/TXT e inspector de entropía Shannon sin enviar datos a servidores externos.",
+      "feature1": "Seguridad Criptográfica CSPRNG: Muestreo por máscara de bits sin sesgo de módulo mediante la API nativa Web Crypto del navegador.",
+      "feature2": "Estimador de Colisiones en Tiempo Real: Cálculo matemático exacto para ritmos configurables (100/h a 100K/s) y recomendación de escala de base de datos con IA.",
+      "feature3": "Alfabetos Múltiples y Prefijos Estilo Stripe: Alfabetos seguros para URL, numéricos, cupones legibles o personalizados, con prefijos tipados (usr_, ord_, txn_).",
+      "feature4": "Generación Masiva y Descarga: Genera hasta 500 identificadores al instante y expórtalos en JSON, CSV o texto plano con privacidad total.",
       "step1Title": "Elige la longitud y el tamaño del lote",
       "step1Body": "Selecciona la cantidad de caracteres deseada (21 ofrece la máxima seguridad) y cuántos identificadores requieres (de 1 a 100).",
       "step2Title": "Define el alfabeto adecuado",

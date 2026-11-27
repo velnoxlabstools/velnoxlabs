@@ -221,8 +221,8 @@
       "description": "Free AI ULID generator, decoder, and validator online. Generate monotonic sortable ULIDs, convert ULID to timestamp or UUID, compare ULID vs UUID, and copy Java, npm, and Python snippets."
     },
     "nanoid-generator": {
-      "name": "NanoID Generator Online – Collision Calculator & Custom Alphabet",
-      "description": "Free online NanoID Generator with collision calculator and custom alphabet. Fast, lightweight Yuuniworks and UUID alternative with batch generation for npm, C#, Python, and web apps."
+      "name": "AI NanoID Generator Online – Custom Alphabet & Collision Calculator",
+      "description": "Free online AI NanoID Generator with collision calculator, custom alphabet presets, Stripe-style prefixes, batch export (JSON/CSV/TXT), and code snippets for Node.js, Python, Rust, Go & C#."
     },
     "csp-header-builder-and-validator": {
       "name": "CSP Generator & Formatter – CSP Scanner & Header Validator",
@@ -1264,8 +1264,8 @@
       "faq4A": "Yes, our Name combiner free tool is 100% free with unlimited name generations, zero required sign-ups, and no paywalls. All algorithmic portmanteau blending and clipboard functions execute locally in your web browser, ensuring complete confidentiality and instant speed on desktop, tablet, and mobile devices."
     },
     "nanoidGenerator": {
-      "title": "NanoID Generator Online – Custom Alphabet & Collision Calculator",
-      "subtitle": "Free online NanoID Generator with collision probability calculator, custom alphabet presets, and batch generation. Fast Yuuniworks and UUID alternative for npm, C#, and web apps.",
+      "title": "AI NanoID Generator Online – Custom Alphabet & Collision Calculator",
+      "subtitle": "Free online AI NanoID Generator with collision probability calculator, custom alphabet presets, Stripe-style prefixes, and batch export. Fast, lightweight UUID alternative for npm, Python, Rust, Go, and C#.",
       "length": "ID Length:",
       "lengthPlaceholder": "Enter length (default 21)",
       "batchCount": "Batch Quantity:",
@@ -1289,11 +1289,11 @@
       "outputPlaceholder": "Generated NanoIDs will appear here...",
       "comparisonTitle": "NanoID vs UUID v4 Comparison",
       "codeSnippetsTitle": "Developer Integration Snippets",
-      "aboutText": "Our free online NanoID Generator is a high-speed cryptographic utility designed for modern developers searching for a versatile Nanoid generator online and robust Yuuniworks alternative. Built as a lightweight, browser-based Nanoid generator app requiring zero installations, it produces secure, compact unique identifiers utilizing the official Nanoid specification. In the ongoing architectural debate of Nanoid vs UUID, NanoID offers a superior advantage: it is 40% shorter (21 characters vs 36 characters) while achieving comparable collision resistance thanks to its 64-symbol URL-safe alphabet (A-Za-z0-9_-). Our utility features an integrated Nanoid collision calculator that computes real-time mathematical collision risks based on your chosen alphabet size and ID length. Whether you are generating tokens for Node.js using the popular Nanoid - npm package, integrating with .NET backends via Nanoid C#, or scripting in Python and Go, our utility provides batch generation (up to 100 IDs), custom alphabet presets, and zero server transmission for 100% confidential, free cryptographic execution.",
-      "feature1": "CSPRNG Cryptographic Security: Utilizes browser-native Web Crypto API (crypto.getRandomValues) for high-entropy hardware-random token generation.",
-      "feature2": "Real-Time Collision Probability Estimator: Calculates exact mathematical collision timelines (at 1,000 IDs/sec) and entropy bits as an interactive Yuuniworks alternative.",
-      "feature3": "Multi-Alphabet Presets & Batch Generation: Select from URL-safe, numeric, lowercase, no-lookalikes, or custom alphabets and generate up to 100 IDs at once.",
-      "feature4": "100% Client-Side Privacy & Speed: Executes entirely in client memory with zero server logging, zero data tracking, and immediate local clipboard operations.",
+      "aboutText": "Our free online AI NanoID Generator is a high-speed cryptographic utility designed for modern developers searching for a versatile Nanoid generator online and robust Yuuniworks alternative. Built as a lightweight, browser-based Nanoid generator app requiring zero installations, it produces secure, compact unique identifiers utilizing the official Nanoid specification with bitmask rejection sampling to eliminate modulo bias. In the ongoing architectural debate of Nanoid vs UUID, NanoID offers a superior advantage: it is 40% shorter (21 characters vs 36 characters) while achieving comparable collision resistance thanks to its 64-symbol URL-safe alphabet (A-Za-z0-9_-). Our utility features an integrated Nanoid collision calculator that computes real-time mathematical collision risks across multiple generation speeds and an AI Database Length Optimizer to recommend the perfect identifier length for your dataset. Whether you are generating tokens for Node.js using the popular Nanoid npm package, integrating with .NET backends via Nanoid C#, or scripting in Python, Rust, Go, or PHP, our utility provides Stripe-style type prefixes, batch generation up to 500 IDs, CSV/JSON/TXT export, and a built-in entropy validator with zero server transmission for 100% confidential cryptographic execution.",
+      "feature1": "CSPRNG Cryptographic Security: Utilizes browser-native Web Crypto API with Andrey Sitnik bitmask rejection sampling for zero modulo bias.",
+      "feature2": "Real-Time Collision Probability Estimator: Calculates exact mathematical collision timelines at configurable speeds (100/hr to 100K/sec) with AI Database scale recommendations.",
+      "feature3": "Multi-Alphabet & Stripe-Style Prefixes: Select from URL-safe, numeric, voucher-safe, or custom alphabets, plus type-safe prefixes (usr_, ord_, txn_).",
+      "feature4": "Batch Generation & Export: Generate up to 500 NanoIDs instantly and export to JSON array, CSV, or plain text with zero server latency.",
       "step1Title": "Select ID Length & Batch Quantity",
       "step1Body": "Choose your desired identifier length (default 21 characters provides optimal safety) and select how many IDs you need (1 to 100).",
       "step2Title": "Choose or Customize Alphabet",

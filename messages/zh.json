@@ -221,8 +221,8 @@
       "description": "免费在线 AI ULID 生成器、解码器与格式验证器。支持严格单调递增 ULID 生成、提取时间戳、ULID 与 UUID 双向无损互转、ULID vs UUID 对比及 Java / npm 代码示例。"
     },
     "nanoid-generator": {
-      "name": "NanoID 在线生成器 – 碰撞概率计算器与自定义字符集",
-      "description": "免费在线 NanoID 生成器，配备碰撞概率计算器与自定义字母表。轻量级 Yuuniworks 与 UUID 替代方案，支持 npm、C#、Python 批量生成。"
+      "name": "AI NanoID 在线生成器 – 自定义字符集与碰撞概率计算器",
+      "description": "免费在线 AI NanoID 生成器，配备碰撞概率计算器、自定义字符集预设、Stripe 风格前缀、批量导出（JSON/CSV/TXT）以及针对 Node.js、Python、Rust、Go 与 C# 的集成代码。"
     },
     "csp-header-builder-and-validator": {
       "name": "CSP 策略构建与排版器 – CSP 语法检测与分析工具",
@@ -1287,8 +1287,8 @@
       "faq4A": "完全免费。无使用次数限制，无需登录或订阅，所有词汇合成均在您的浏览器本地极速完成。"
     },
     "nanoidGenerator": {
-      "title": "NanoID 在线生成器 – 自定义字符集与碰撞概率计算器",
-      "subtitle": "免费在线 NanoID 生成器，配备碰撞概率计算器与自定义字母表。轻量级 Yuuniworks 与 UUID 替代方案，支持 npm、C#、Python 批量生成。",
+      "title": "AI NanoID 在线生成器 – 自定义字符集与碰撞概率计算器",
+      "subtitle": "免费在线 AI NanoID 生成器，提供碰撞概率计算、自定义字符集、Stripe 风格实体前缀与批量导出，是面向 npm、Python、Rust、Go 及 C# 的超轻量高性能 UUID 替代方案。",
       "length": "标识长度：",
       "lengthPlaceholder": "输入长度（默认 21）",
       "batchCount": "批量数量：",
@@ -1312,11 +1312,11 @@
       "outputPlaceholder": "生成的 NanoID 将显示在此处...",
       "comparisonTitle": "NanoID 与 UUID v4 对比",
       "codeSnippetsTitle": "开发者代码集成范例",
-      "aboutText": "我们的免费在线 NanoID 生成器是一款面向现代开发团队的密码级安全实用工具，作为实用的 Yuuniworks 替代工具而设计。无需下载客户端，它严格遵循官方 NanoID 规范生成紧凑、对 URL 极其友好的唯一标识符。在常见的 NanoID 与 UUID 对比中，NanoID 具有明显优势：长度缩短了 40%（从 36 字符精简至 21 字符），并通过包含 64 个 URL 安全符号的字母表维持了相同级别的抗碰撞强度。内置碰撞评估功能，可依据您所设定的长度与字符集规模实时运算碰撞风险。无论是通过 npm 包在 Node.js 中使用，还是借助 C#、Python 与 Go 语言进行后端开发，本工具均提供批量生成与本地浏览器零延迟运算支持。",
-      "feature1": "CSPRNG 密码级随机安全：采用浏览器底层 Web Crypto API 获取高熵硬件随机数，保障密钥唯一性。",
-      "feature2": "实时碰撞概率测算：基于生日问题数学模型，实时测算每秒 1,000 次生成下的碰撞年限与信息熵。",
-      "feature3": "丰富字符集预设与批量生成：支持默认 URL 安全、纯数字、易读无混淆及自定义字符集，单次可批量生成多达 100 个标识。",
-      "feature4": "纯前端本地隐私保护：所有字符串均在客户端浏览器内存中完成，无服务端数据日志记录。",
+      "aboutText": "本在线 AI NanoID 生成器是一款免安装的高性能纯前端加密实用工具，专为寻找 Yuuniworks 替代工具及更现代化唯一标识符方案的开发者打造。工具严格遵循 Andrey Sitnik 官方 NanoID 算法规范，采用位掩码拒绝采样彻底消除取模偏差（Modulo Bias）。与传统的 UUID v4 相比，NanoID 缩短了 40% 的字符长度（21 字符对比 36 字符），并借助 64 字符的 URL 安全字符集实现了相当的抗碰撞强度。平台还集成了多频次碰撞几率测算器、面向数据库存储优化的 AI 长度推荐器、Stripe 风格类型前缀、最高 500 个标识符批量生成、JSON/CSV/TXT 导出以及香农信息熵分析器，所有计算均在浏览器本地完成，保障 100% 数据私密性。",
+      "feature1": "CSPRNG 加密级安全保障: 结合 Web Crypto API 与位掩码拒绝采样算法，实现真正均匀分布且无取模偏差。",
+      "feature2": "实时碰撞概率推算器: 支持自定义生成频率（100次/小时至10万次/秒），并提供智能 AI 数据库长度估算建议。",
+      "feature3": "多字符集预设与 Stripe 前缀: 支持 URL 安全字符、纯数字、优惠券防混淆字符集及实体前缀（usr_, ord_, txn_）。",
+      "feature4": "批量生成与多格式导出: 一键快速生成多达 500 个 NanoID，直接导出为 JSON 数组、CSV 或纯文本文件。",
       "step1Title": "选择标识长度与批量生成数量",
       "step1Body": "设定所需字符长度（默认 21 位提供优异的抗碰撞性），并选择生成个数（1 至 100）。",
       "step2Title": "选取或自定义字符集",

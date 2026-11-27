@@ -228,8 +228,8 @@
       "description": "Outil IA gratuit en ligne pour créer, décoder et valider des ULID. Génération monotone triable, extraction d'horodatage, conversion ULID vers UUID, comparatif ULID vs UUID et extraits Java/npm."
     },
     "nanoid-generator": {
-      "name": "Générateur de NanoID en Ligne – Estimateur de Collision et Alphabet Dédié",
-      "description": "Générateur de NanoID en ligne gratuit avec estimation des collisions et choix d'alphabet. Alternative rapide à Yuuniworks et UUID pour npm, C#, Python et le web."
+      "name": "Générateur de NanoID IA en Ligne – Alphabet Personnalisé et Calculateur de Collisions",
+      "description": "Générateur de NanoID IA gratuit en ligne avec calculateur de collisions, alphabets personnalisés, préfixes style Stripe, export par lots (JSON/CSV/TXT) et extraits de code pour Node.js, Python, Rust, Go et C#."
     },
     "csp-header-builder-and-validator": {
       "name": "Concepteur et Normalisateur CSP – Analyseur et Vérificateur d'En-têtes",
@@ -1315,8 +1315,8 @@
       "faq4A": "Totalement gratuit et sans inscription. La création des propositions s'effectue instantanément sur votre terminal avec un respect absolu de votre vie privée."
     },
     "nanoidGenerator": {
-      "title": "Générateur de NanoID en Ligne – Alphabet Dédié et Risque de Collision",
-      "subtitle": "Générateur de NanoID en ligne gratuit avec estimation des collisions et choix d'alphabet. Alternative rapide à Yuuniworks et UUID pour npm, C#, Python et le web.",
+      "title": "Générateur de NanoID IA en Ligne – Alphabet Personnalisé et Calculateur de Collisions",
+      "subtitle": "Générateur de NanoID IA gratuit en ligne avec calculateur de probabilité de collision, alphabets personnalisés, préfixes Stripe et export par lots. Alternative compacte et rapide à UUID pour npm, Python, Rust, Go et C#.",
       "length": "Longueur de l'identifiant :",
       "lengthPlaceholder": "Indiquez la longueur (21 par défaut)",
       "batchCount": "Volume par lot :",
@@ -1340,11 +1340,11 @@
       "outputPlaceholder": "Les NanoID générés s'afficheront ici...",
       "comparisonTitle": "Comparatif : NanoID face à UUID v4",
       "codeSnippetsTitle": "Exemples d'intégration pour développeurs",
-      "aboutText": "Notre générateur de NanoID en ligne gratuit fournit aux développeurs une alternative performante à Yuuniworks et aux identifiants UUID v4. Dans la comparaison NanoID face à UUID, NanoID s'avère 40% plus compact (21 caractères contre 36) tout en préservant une résistance équivalente aux collisions grâce à ses 64 caractères parfaitement tolérés dans les adresses web. Il intègre un estimateur mathématique calculant les probabilités de collision selon la longueur et l'alphabet choisis. Compatible avec les projets Node.js via le paquet npm, les applications C# (.NET) et Python, il permet de produire jusqu'à 100 identifiants simultanément en toute confidentialité.",
-      "feature1": "Sécurité cryptographique CSPRNG : Utilise la Web Crypto API native du navigateur pour fournir une entropie matérielle maximale.",
-      "feature2": "Estimateur de collisions en temps réel : Calcule la durée nécessaire pour atteindre 1% de collision à une fréquence de 1 000 identifiants par seconde.",
-      "feature3": "Large choix d'alphabets et lots : Ensembles de chiffres, caractères sans ambiguïté visuelle ou jeux personnalisés jusqu'à 100 éléments.",
-      "feature4": "Confidentialité locale : L'intégralité des opérations s'exécute dans la mémoire du navigateur sans journalisation externe.",
+      "aboutText": "Notre générateur en ligne de NanoID propulsé par IA est un outil cryptographique haute performance conçu pour les développeurs à la recherche d'une alternative polyvalente à Yuuniworks et aux générateurs UUID classiques. S'exécutant intégralement dans le navigateur sans aucune installation, il génère des identifiants compacts et sécurisés grâce à l'échantillonnage par rejet de masque binaire officiel d'Andrey Sitnik, éliminant tout biais de modulo. Comparé à UUID v4, NanoID est 40 % plus compact (21 caractères contre 36) tout en maintenant une résistance aux collisions équivalente grâce à son alphabet URL-safe de 64 symboles. L'outil comprend un calculateur de collisions en temps réel à cadence personnalisable, un optimiseur de longueur de clé de base de données par IA, des préfixes typés à la Stripe, la génération en masse jusqu'à 500 identifiants, l'export en JSON/CSV/TXT et un vérificateur d'entropie Shannon garantissant une confidentialité totale.",
+      "feature1": "Sécurité Cryptographique CSPRNG : Utilisation de l'API Web Crypto native avec rejet de masque binaire sans biais de modulo.",
+      "feature2": "Estimateur de Collisions en Temps Réel : Calculs mathématiques rigoureux à vitesses configurables (100/h à 100K/s) et recommandations d'échelle par IA.",
+      "feature3": "Alphabets Multiples et Préfixes Typés : Préréglages URL-safe, numériques, pour bons d'achat sans confusion, et préfixes façon Stripe (usr_, ord_, txn_).",
+      "feature4": "Génération par Lots & Export : Créez jusqu'à 500 identifiants d'un clic et téléchargez-les au format JSON, CSV ou texte brut.",
       "step1Title": "Déterminez la taille et la quantité",
       "step1Body": "Indiquez le nombre de caractères (21 garantit un compromis idéal) ainsi que le volume d'identifiants souhaité (1 à 100).",
       "step2Title": "Choisissez votre jeu de caractères",
