@@ -40,6 +40,13 @@ function secureRandom(): number {
   return Math.random();
 }
 
+function gaussianRandom(mean: number, stdDev: number): number {
+  const u1 = Math.max(1e-7, secureRandom());
+  const u2 = secureRandom();
+  const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+  return mean + z0 * stdDev;
+}
+
 function secureRandomInt(min: number, max: number): number {
   return Math.floor(secureRandom() * (max - min + 1)) + min;
 }
@@ -265,6 +272,45 @@ export default function RandomNumberGeneratorPage() {
   const [numberError, setNumberError] = useState('');
   const [copiedNumbers, setCopiedNumbers] = useState(false);
 
+  // Distribution Mode (Uniform vs Gaussian)
+  const [distributionMode, setDistributionMode] = useState<'uniform' | 'gaussian'>('uniform');
+  const [gaussianMean, setGaussianMean] = useState('50');
+  const [gaussianStdDev, setGaussianStdDev] = useState('15');
+
+  // Brain Bias Tester
+  const [biasTestInput, setBiasTestInput] = useState('');
+  const [biasTestFeedback, setBiasTestFeedback] = useState<string | null>(null);
+  const [biasTestIsBiased, setBiasTestIsBiased] = useState<boolean | null>(null);
+
+  const handleCheckBrainBias = () => {
+    const val = parseInt(biasTestInput, 10);
+    if (isNaN(val) || val < 1 || val > 100) {
+      setBiasTestFeedback('Please enter a valid number between 1 and 100.');
+      setBiasTestIsBiased(null);
+      return;
+    }
+    const primeBiasList = [7, 17, 27, 37, 42, 47, 57, 67, 73, 77, 87, 97];
+    if (primeBiasList.includes(val)) {
+      setBiasTestIsBiased(true);
+      setBiasTestFeedback(
+        `⚠️ Cognitive Bias Confirmed! Number ${val} falls into the classic "Number 7 / Prime Bias" (chosen by over 73% of humans due to subconscious aversion to even and round numbers).`
+      );
+    } else if (val % 2 === 0) {
+      setBiasTestIsBiased(false);
+      setBiasTestFeedback(
+        `🧠 Low Bias! Only 27% of humans choose even numbers like ${val} when asked for a random number.`
+      );
+    } else {
+      setBiasTestIsBiased(false);
+      setBiasTestFeedback(
+        `✨ Interesting pick! Number ${val} avoids the typical psychological 7-trap.`
+      );
+    }
+  };
+
+  // AI Smart Lottery Balancer
+  const [aiSmartLotto, setAiSmartLotto] = useState(true);
+
   // Confetti state
   const [showConfetti, setShowConfetti] = useState(false);
   const triggerConfetti = useCallback(() => {
@@ -433,6 +479,23 @@ export default function RandomNumberGeneratorPage() {
     const factor = Math.pow(10, decimals);
     const result: number[] = [];
 
+    if (distributionMode === 'gaussian') {
+      const gMean = parseFloat(gaussianMean) || 50;
+      const gStd = parseFloat(gaussianStdDev) || 15;
+      const samples: number[] = [];
+      for (let i = 0; i < countVal; i++) {
+        const raw = gaussianRandom(gMean, gStd);
+        const clamped = Math.max(minVal, Math.min(maxVal, raw));
+        const val = decimals === 0 ? Math.round(clamped) : parseFloat(clamped.toFixed(decimals));
+        samples.push(val);
+      }
+      if (sort === 'asc') samples.sort((a, b) => a - b);
+      else if (sort === 'desc') samples.sort((a, b) => b - a);
+      setNumbers(samples);
+      setDrawHistory((prev) => [samples, ...prev.slice(0, 9)]);
+      return;
+    }
+
     if (unique && decimals === 0) {
       const minInt = Math.ceil(minVal);
       const maxInt = Math.floor(maxVal);
@@ -491,7 +554,19 @@ export default function RandomNumberGeneratorPage() {
     if (result.length > 0) {
       setDrawHistory((prev) => [result, ...prev].slice(0, 6));
     }
-  }, [min, max, count, unique, decimals, sort, excludeInput, tUI]);
+  }, [
+    min,
+    max,
+    count,
+    unique,
+    decimals,
+    sort,
+    excludeInput,
+    tUI,
+    distributionMode,
+    gaussianMean,
+    gaussianStdDev,
+  ]);
 
   useEffect(() => {
     handleGenerateNumbers();
@@ -870,36 +945,69 @@ export default function RandomNumberGeneratorPage() {
     let mainMax = 69;
     let bonusCount = 1;
     let bonusMax = 26;
+    let targetMinSum = 130;
+    let targetMaxSum = 210;
 
     if (lotteryType === 'powerball') {
       mainCount = 5;
       mainMax = 69;
       bonusCount = 1;
       bonusMax = 26;
+      targetMinSum = 130;
+      targetMaxSum = 210;
     } else if (lotteryType === 'megamillions') {
       mainCount = 5;
       mainMax = 70;
       bonusCount = 1;
       bonusMax = 25;
+      targetMinSum = 132;
+      targetMaxSum = 215;
     } else if (lotteryType === 'euromillions') {
       mainCount = 5;
       mainMax = 50;
       bonusCount = 2;
       bonusMax = 12;
+      targetMinSum = 95;
+      targetMaxSum = 160;
     } else if (lotteryType === 'custom649') {
       mainCount = 6;
       mainMax = 49;
       bonusCount = 0;
       bonusMax = 0;
+      targetMinSum = 115;
+      targetMaxSum = 185;
     }
 
-    // Main pool
     const mainPool = Array.from({ length: mainMax }, (_, i) => i + 1);
-    const mainShuffled = secureShuffle(mainPool);
-    const selectedMain = mainShuffled.slice(0, mainCount).sort((a, b) => a - b);
-    setLottoMain(selectedMain);
 
-    // Bonus pool
+    // AI Smart Statistical Balancer (Loop up to 25 times for optimal 3:2 odd/even ratio & sum envelope)
+    let bestMain: number[] = [];
+    let attempts = 0;
+    while (attempts < 30) {
+      attempts++;
+      const shuffled = secureShuffle(mainPool);
+      const candidate = shuffled.slice(0, mainCount).sort((a, b) => a - b);
+
+      if (!aiSmartLotto) {
+        bestMain = candidate;
+        break;
+      }
+
+      const sum = candidate.reduce((a, b) => a + b, 0);
+      const oddCount = candidate.filter((n) => n % 2 !== 0).length;
+      const isOddEvenBalanced =
+        mainCount === 5 ? oddCount === 2 || oddCount === 3 : oddCount >= 2 && oddCount <= 4;
+      const isSumBalanced = sum >= targetMinSum && sum <= targetMaxSum;
+
+      if (isOddEvenBalanced && isSumBalanced) {
+        bestMain = candidate;
+        break;
+      }
+      bestMain = candidate;
+    }
+
+    setLottoMain(bestMain);
+
     if (bonusCount > 0) {
       const bonusPool = Array.from({ length: bonusMax }, (_, i) => i + 1);
       const bonusShuffled = secureShuffle(bonusPool);
@@ -908,7 +1016,7 @@ export default function RandomNumberGeneratorPage() {
     } else {
       setLottoBonus([]);
     }
-  }, [lotteryType]);
+  }, [lotteryType, aiSmartLotto]);
 
   useEffect(() => {
     handleGenerateLottery();
@@ -1460,6 +1568,113 @@ export default function RandomNumberGeneratorPage() {
                   </div>
                 </div>
 
+                {/* Distribution Mode Toggle (Uniform vs Gaussian) */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    marginBottom: '16px',
+                    padding: '10px 14px',
+                    backgroundColor: 'rgba(59, 130, 246, 0.06)',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(59, 130, 246, 0.2)',
+                  }}
+                >
+                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                    Distribution:
+                  </span>
+                  <button
+                    onClick={() => setDistributionMode('uniform')}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      border:
+                        distributionMode === 'uniform'
+                          ? '1px solid #3b82f6'
+                          : '1px solid var(--border-color)',
+                      backgroundColor:
+                        distributionMode === 'uniform'
+                          ? 'rgba(59, 130, 246, 0.2)'
+                          : 'var(--bg-card)',
+                      color: distributionMode === 'uniform' ? '#60a5fa' : 'var(--text-main)',
+                    }}
+                  >
+                    Uniform (Flat Probability)
+                  </button>
+                  <button
+                    onClick={() => setDistributionMode('gaussian')}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      border:
+                        distributionMode === 'gaussian'
+                          ? '1px solid #8b5cf6'
+                          : '1px solid var(--border-color)',
+                      backgroundColor:
+                        distributionMode === 'gaussian'
+                          ? 'rgba(139, 92, 246, 0.2)'
+                          : 'var(--bg-card)',
+                      color: distributionMode === 'gaussian' ? '#a78bfa' : 'var(--text-main)',
+                    }}
+                  >
+                    ⚡ Gaussian / Normal (Bell Curve)
+                  </button>
+
+                  {distributionMode === 'gaussian' && (
+                    <div
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        marginLeft: 'auto',
+                      }}
+                    >
+                      <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                        Mean (μ):
+                      </span>
+                      <input
+                        type="number"
+                        value={gaussianMean}
+                        onChange={(e) => setGaussianMean(e.target.value)}
+                        style={{
+                          width: '50px',
+                          padding: '3px 6px',
+                          borderRadius: '4px',
+                          border: '1px solid var(--border-color)',
+                          backgroundColor: 'var(--bg-card)',
+                          color: 'var(--text-main)',
+                          fontSize: '0.78rem',
+                          fontFamily: 'monospace',
+                        }}
+                      />
+                      <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                        StdDev (σ):
+                      </span>
+                      <input
+                        type="number"
+                        value={gaussianStdDev}
+                        onChange={(e) => setGaussianStdDev(e.target.value)}
+                        style={{
+                          width: '45px',
+                          padding: '3px 6px',
+                          borderRadius: '4px',
+                          border: '1px solid var(--border-color)',
+                          backgroundColor: 'var(--bg-card)',
+                          color: 'var(--text-main)',
+                          fontSize: '0.78rem',
+                          fontFamily: 'monospace',
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
                 {/* Additional Settings (Decimals, Sort, Unique) */}
                 <div
                   style={{
@@ -1988,6 +2203,76 @@ export default function RandomNumberGeneratorPage() {
                     exact uniform mathematical probability.
                   </p>
 
+                  {/* Interactive Brain Bias Tester */}
+                  <div
+                    style={{
+                      marginTop: '14px',
+                      padding: '12px 14px',
+                      backgroundColor: 'var(--bg-card)',
+                      borderRadius: '8px',
+                      border: '1px solid var(--border-color)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: '0.82rem',
+                        fontWeight: 700,
+                        color: 'var(--text-main)',
+                        marginBottom: '8px',
+                      }}
+                    >
+                      🧠 Test Your Mind&apos;s Bias: Pick a Random Number (1–100)
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                      <input
+                        type="number"
+                        min="1"
+                        max="100"
+                        placeholder="e.g. 17"
+                        value={biasTestInput}
+                        onChange={(e) => setBiasTestInput(e.target.value)}
+                        style={{
+                          width: '80px',
+                          padding: '6px 10px',
+                          borderRadius: '6px',
+                          border: '1px solid var(--border-color)',
+                          backgroundColor: 'var(--bg-page)',
+                          color: 'var(--text-main)',
+                          fontSize: '0.86rem',
+                          fontWeight: 700,
+                          fontFamily: 'monospace',
+                        }}
+                      />
+                      <button
+                        onClick={handleCheckBrainBias}
+                        style={{
+                          padding: '6px 14px',
+                          borderRadius: '6px',
+                          background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                          color: '#ffffff',
+                          fontSize: '0.82rem',
+                          fontWeight: 700,
+                          border: 'none',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        Analyze My Bias
+                      </button>
+                    </div>
+                    {biasTestFeedback && (
+                      <div
+                        style={{
+                          marginTop: '10px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          color: biasTestIsBiased ? '#f59e0b' : '#34d399',
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {biasTestFeedback}
+                      </div>
+                    )}
+                  </div>
                   <div
                     style={{
                       display: 'flex',
@@ -2946,85 +3231,6 @@ export default function RandomNumberGeneratorPage() {
                     </div>
                   </div>
                 )}
-
-                {/* AI Cognitive Bias & Provably Fair Cryptographic Verification */}
-                <div
-                  style={{
-                    marginTop: '28px',
-                    padding: '18px 20px',
-                    borderRadius: '12px',
-                    backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                    border: '1px solid rgba(59, 130, 246, 0.2)',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      flexWrap: 'wrap',
-                      gap: '10px',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <ShieldCheck size={18} color="#34d399" />
-                      <span
-                        style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}
-                      >
-                        Provably Fair Hardware CSPRNG & AI Bias Shield
-                      </span>
-                    </div>
-                    <span
-                      style={{
-                        padding: '3px 8px',
-                        borderRadius: '6px',
-                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                        color: '#34d399',
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      ✓ 256-Bit Web Crypto Entropy Active
-                    </span>
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.82rem',
-                      color: 'var(--text-muted)',
-                      lineHeight: 1.5,
-                      marginBottom: '12px',
-                    }}
-                  >
-                    <strong>Why AI & Humans Fail Randomness:</strong> When humans or AI language
-                    models are asked for a random number between 1 and 100, over{' '}
-                    <strong>73% pick odd numbers ending in 7 (7, 17, 37, 77) or 42</strong> due to
-                    psychological pattern aversion. VelnoxLabs completely eliminates cognitive bias
-                    by executing hardware-seeded Web Crypto algorithms (
-                    <code>window.crypto.getRandomValues</code>), guaranteeing every integer has an
-                    exact uniform mathematical probability.
-                  </p>
-
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '8px 12px',
-                      borderRadius: '6px',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      fontSize: '0.72rem',
-                      fontFamily: 'monospace',
-                      color: 'var(--text-muted)',
-                      overflowX: 'auto',
-                    }}
-                  >
-                    <span style={{ color: '#60a5fa', fontWeight: 700 }}>Entropy Seed Hash:</span>
-                    <span>{entropyHex}</span>
-                  </div>
-                </div>
               </div>
             )}
 
@@ -3275,85 +3481,6 @@ export default function RandomNumberGeneratorPage() {
                     )}
                   </div>
                 )}
-
-                {/* AI Cognitive Bias & Provably Fair Cryptographic Verification */}
-                <div
-                  style={{
-                    marginTop: '28px',
-                    padding: '18px 20px',
-                    borderRadius: '12px',
-                    backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                    border: '1px solid rgba(59, 130, 246, 0.2)',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      flexWrap: 'wrap',
-                      gap: '10px',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <ShieldCheck size={18} color="#34d399" />
-                      <span
-                        style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}
-                      >
-                        Provably Fair Hardware CSPRNG & AI Bias Shield
-                      </span>
-                    </div>
-                    <span
-                      style={{
-                        padding: '3px 8px',
-                        borderRadius: '6px',
-                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                        color: '#34d399',
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      ✓ 256-Bit Web Crypto Entropy Active
-                    </span>
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.82rem',
-                      color: 'var(--text-muted)',
-                      lineHeight: 1.5,
-                      marginBottom: '12px',
-                    }}
-                  >
-                    <strong>Why AI & Humans Fail Randomness:</strong> When humans or AI language
-                    models are asked for a random number between 1 and 100, over{' '}
-                    <strong>73% pick odd numbers ending in 7 (7, 17, 37, 77) or 42</strong> due to
-                    psychological pattern aversion. VelnoxLabs completely eliminates cognitive bias
-                    by executing hardware-seeded Web Crypto algorithms (
-                    <code>window.crypto.getRandomValues</code>), guaranteeing every integer has an
-                    exact uniform mathematical probability.
-                  </p>
-
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '8px 12px',
-                      borderRadius: '6px',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      fontSize: '0.72rem',
-                      fontFamily: 'monospace',
-                      color: 'var(--text-muted)',
-                      overflowX: 'auto',
-                    }}
-                  >
-                    <span style={{ color: '#60a5fa', fontWeight: 700 }}>Entropy Seed Hash:</span>
-                    <span>{entropyHex}</span>
-                  </div>
-                </div>
               </div>
             )}
 
@@ -3411,6 +3538,51 @@ export default function RandomNumberGeneratorPage() {
                   })}
                 </div>
 
+                {/* AI Smart Lottery Probability Balancer Toggle */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                    padding: '12px 16px',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(234, 179, 8, 0.08)',
+                    border: '1px solid rgba(234, 179, 8, 0.3)',
+                    marginBottom: '18px',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={16} color="#eab308" />
+                    <div>
+                      <div
+                        style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}
+                      >
+                        AI Smart Statistical Balancer
+                      </div>
+                      <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                        Ensures balanced Odd/Even ratio (3:2 or 2:3) & optimal historical Bell curve
+                        sum envelope
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setAiSmartLotto(!aiSmartLotto)}
+                    style={{
+                      padding: '4px 12px',
+                      borderRadius: '6px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      border: aiSmartLotto ? '1px solid #eab308' : '1px solid var(--border-color)',
+                      backgroundColor: aiSmartLotto ? 'rgba(234, 179, 8, 0.2)' : 'var(--bg-card)',
+                      color: aiSmartLotto ? '#eab308' : 'var(--text-muted)',
+                    }}
+                  >
+                    {aiSmartLotto ? '✓ AI Smart Filter: Active' : 'Off (Flat Random)'}
+                  </button>
+                </div>
                 <button
                   onClick={handleGenerateLottery}
                   style={{
@@ -3563,85 +3735,6 @@ export default function RandomNumberGeneratorPage() {
                     )}
                   </div>
                 )}
-
-                {/* AI Cognitive Bias & Provably Fair Cryptographic Verification */}
-                <div
-                  style={{
-                    marginTop: '28px',
-                    padding: '18px 20px',
-                    borderRadius: '12px',
-                    backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                    border: '1px solid rgba(59, 130, 246, 0.2)',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      flexWrap: 'wrap',
-                      gap: '10px',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <ShieldCheck size={18} color="#34d399" />
-                      <span
-                        style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}
-                      >
-                        Provably Fair Hardware CSPRNG & AI Bias Shield
-                      </span>
-                    </div>
-                    <span
-                      style={{
-                        padding: '3px 8px',
-                        borderRadius: '6px',
-                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                        color: '#34d399',
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      ✓ 256-Bit Web Crypto Entropy Active
-                    </span>
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.82rem',
-                      color: 'var(--text-muted)',
-                      lineHeight: 1.5,
-                      marginBottom: '12px',
-                    }}
-                  >
-                    <strong>Why AI & Humans Fail Randomness:</strong> When humans or AI language
-                    models are asked for a random number between 1 and 100, over{' '}
-                    <strong>73% pick odd numbers ending in 7 (7, 17, 37, 77) or 42</strong> due to
-                    psychological pattern aversion. VelnoxLabs completely eliminates cognitive bias
-                    by executing hardware-seeded Web Crypto algorithms (
-                    <code>window.crypto.getRandomValues</code>), guaranteeing every integer has an
-                    exact uniform mathematical probability.
-                  </p>
-
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '8px 12px',
-                      borderRadius: '6px',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      fontSize: '0.72rem',
-                      fontFamily: 'monospace',
-                      color: 'var(--text-muted)',
-                      overflowX: 'auto',
-                    }}
-                  >
-                    <span style={{ color: '#60a5fa', fontWeight: 700 }}>Entropy Seed Hash:</span>
-                    <span>{entropyHex}</span>
-                  </div>
-                </div>
               </div>
             )}
 
@@ -3856,85 +3949,6 @@ export default function RandomNumberGeneratorPage() {
                     </div>
                   </div>
                 )}
-
-                {/* AI Cognitive Bias & Provably Fair Cryptographic Verification */}
-                <div
-                  style={{
-                    marginTop: '28px',
-                    padding: '18px 20px',
-                    borderRadius: '12px',
-                    backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                    border: '1px solid rgba(59, 130, 246, 0.2)',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      flexWrap: 'wrap',
-                      gap: '10px',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <ShieldCheck size={18} color="#34d399" />
-                      <span
-                        style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)' }}
-                      >
-                        Provably Fair Hardware CSPRNG & AI Bias Shield
-                      </span>
-                    </div>
-                    <span
-                      style={{
-                        padding: '3px 8px',
-                        borderRadius: '6px',
-                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                        color: '#34d399',
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      ✓ 256-Bit Web Crypto Entropy Active
-                    </span>
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.82rem',
-                      color: 'var(--text-muted)',
-                      lineHeight: 1.5,
-                      marginBottom: '12px',
-                    }}
-                  >
-                    <strong>Why AI & Humans Fail Randomness:</strong> When humans or AI language
-                    models are asked for a random number between 1 and 100, over{' '}
-                    <strong>73% pick odd numbers ending in 7 (7, 17, 37, 77) or 42</strong> due to
-                    psychological pattern aversion. VelnoxLabs completely eliminates cognitive bias
-                    by executing hardware-seeded Web Crypto algorithms (
-                    <code>window.crypto.getRandomValues</code>), guaranteeing every integer has an
-                    exact uniform mathematical probability.
-                  </p>
-
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '8px 12px',
-                      borderRadius: '6px',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      fontSize: '0.72rem',
-                      fontFamily: 'monospace',
-                      color: 'var(--text-muted)',
-                      overflowX: 'auto',
-                    }}
-                  >
-                    <span style={{ color: '#60a5fa', fontWeight: 700 }}>Entropy Seed Hash:</span>
-                    <span>{entropyHex}</span>
-                  </div>
-                </div>
               </div>
             )}
           </div>
