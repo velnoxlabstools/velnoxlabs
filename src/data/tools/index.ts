@@ -1228,9 +1228,9 @@ export const tools: Tool[] = [
   {
     id: 'tool-checksum',
     slug: 'checksum-calculator',
-    name: 'AI Checksum Calculator Online (MD5, SHA256, 8-bit, 16-bit, CRC & XOR)',
+    name: 'AI Checksum Calculator Online (MD5, SHA256, 16-bit, CRC32, Modbus & File Verifier)',
     description:
-      'Free AI checksum calculator online for MD5, SHA-256, SHA-512, 8-bit Modulo 256, 16-bit, CRC-32, CRC-16, and XOR checksums. Supports text, hex bytes, binary, file uploads, and instant hash verification.',
+      'Free AI checksum calculator online for MD5, SHA-256, SHA-512, CRC-16 Modbus, CRC-32, Adler-32, 16-bit, and 8-bit checksums. Drag & drop files, verify vendor hashes, export manifests, and detect line-ending mismatches.',
     categoryId: 'cat-security',
     tags: [
       'checksum',
@@ -1239,6 +1239,8 @@ export const tools: Tool[] = [
       'ai checksum calculator online',
       '8-bit checksum calculator',
       '16-bit checksum calculator',
+      'crc16 modbus checksum calculator',
+      'adler32 checksum calculator',
       'checksum calculator online',
       'simple checksum calculator',
       'modulo 256 checksum calculator',
@@ -1249,6 +1251,8 @@ export const tools: Tool[] = [
       'checksum calculator md5',
       'checksum calculator axis bank',
       'checksum calculator sha256',
+      'file checksum verifier online',
+      'online file hash checker',
     ],
     status: 'published',
     featured: false,

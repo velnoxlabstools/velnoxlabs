@@ -1,15 +1,29 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { GlobalContainer } from '@/components/layout';
 import { SectionHeading } from '@/components/ui';
 import { ToolSeoContent } from '@/features/tools/sections/ToolSeoContent';
-import { Sparkles, Copy, Check, Upload, CheckCircle2, XCircle, FileText, Cpu } from 'lucide-react';
+import {
+  Sparkles,
+  Copy,
+  Check,
+  Upload,
+  CheckCircle2,
+  XCircle,
+  FileText,
+  Cpu,
+  Download,
+  Terminal,
+  AlertTriangle,
+  RotateCcw,
+} from 'lucide-react';
 
 type InputMode = 'text' | 'hex' | 'binary';
+type LineEnding = 'preserve' | 'lf' | 'crlf';
 
-// RFC 1321 MD5 implementation for Uint8Array (supports UTF-8 & binary files)
+// RFC 1321 MD5 implementation for Uint8Array (client-side native)
 function computeMd5(bytes: Uint8Array): string {
   const K = new Uint32Array([
     0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee, 0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501,
@@ -112,7 +126,7 @@ function computeCrc32(bytes: Uint8Array): number {
   return (crc ^ 0xffffffff) >>> 0;
 }
 
-// CRC-16 CCITT-FALSE
+// CRC-16 CCITT-FALSE (Polynomial 0x1021, Init 0xFFFF)
 function computeCrc16(bytes: Uint8Array): number {
   let crc = 0xffff;
   for (let i = 0; i < bytes.length; i++) {
@@ -125,13 +139,60 @@ function computeCrc16(bytes: Uint8Array): number {
   return crc;
 }
 
+// CRC-16 Modbus (Polynomial 0x8005 reversed -> 0xA001, Init 0xFFFF)
+function computeCrc16Modbus(bytes: Uint8Array): number {
+  let crc = 0xffff;
+  for (let i = 0; i < bytes.length; i++) {
+    crc ^= bytes[i];
+    for (let j = 0; j < 8; j++) {
+      if ((crc & 1) !== 0) {
+        crc = (crc >>> 1) ^ 0xa001;
+      } else {
+        crc = crc >>> 1;
+      }
+    }
+  }
+  return crc & 0xffff;
+}
+
+// Adler-32 (RFC 1950 / zlib)
+function computeAdler32(bytes: Uint8Array): number {
+  let a = 1;
+  let b = 0;
+  const MOD_ADLER = 65521;
+  for (let i = 0; i < bytes.length; i++) {
+    a = (a + bytes[i]) % MOD_ADLER;
+    b = (b + a) % MOD_ADLER;
+  }
+  return ((b << 16) | a) >>> 0;
+}
+
+// Fletcher-16 (RFC 1146)
+function computeFletcher16(bytes: Uint8Array): number {
+  let sum1 = 0;
+  let sum2 = 0;
+  for (let i = 0; i < bytes.length; i++) {
+    sum1 = (sum1 + bytes[i]) % 255;
+    sum2 = (sum2 + sum1) % 255;
+  }
+  return ((sum2 << 8) | sum1) & 0xffff;
+}
+
+function normalizeLineEndings(str: string, ending: LineEnding): string {
+  if (ending === 'preserve') return str;
+  const unified = str.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  return ending === 'crlf' ? unified.replace(/\n/g, '\r\n') : unified;
+}
+
 function parseInputToBytes(
   input: string,
-  mode: InputMode
+  mode: InputMode,
+  lineEnding: LineEnding
 ): { bytes: Uint8Array; error: string | null } {
   if (!input) return { bytes: new Uint8Array(0), error: null };
   if (mode === 'text') {
-    return { bytes: new TextEncoder().encode(input), error: null };
+    const processed = normalizeLineEndings(input, lineEnding);
+    return { bytes: new TextEncoder().encode(processed), error: null };
   }
   if (mode === 'hex') {
     const cleaned = input.replace(/0x/gi, '').replace(/[^0-9a-fA-F]/g, '');
@@ -155,12 +216,23 @@ function parseInputToBytes(
   return { bytes: arr, error: null };
 }
 
-function detectExpectedHashType(raw: string): string {
-  const clean = raw.trim().replace(/^0x/i, '');
+// Cleans vendor formatted hash strings (e.g., "SHA256: abc...", "abc *file.iso", "0xabc")
+function cleanExpectedHash(raw: string): string {
+  let s = raw.trim();
+  s = s.replace(/^(?:sha(?:256|512|1)|md5|crc(?:32|16)?|modbus|checksum)\s*[:=]\s*/i, '');
+  const match = s.match(/^([0-9a-fA-F]{2,128})\s+[\*]?.*$/);
+  if (match) {
+    s = match[1];
+  }
+  s = s.replace(/['"]/g, '').replace(/^0x/i, '').replace(/\s+/g, '');
+  return s;
+}
+
+function detectExpectedHashType(clean: string): string {
   if (!/^[0-9a-fA-F]+$/.test(clean)) return '';
-  if (clean.length === 2) return '8-bit (Mod 256 / XOR)';
-  if (clean.length === 4) return '16-bit / CRC-16';
-  if (clean.length === 8) return 'CRC-32';
+  if (clean.length === 2) return "8-bit (Mod 256 / XOR / Two's Comp)";
+  if (clean.length === 4) return '16-bit (CRC-16 Modbus / CCITT / Sum16 / Fletcher)';
+  if (clean.length === 8) return '32-bit (CRC-32 / Adler-32)';
   if (clean.length === 32) return 'MD5 (128-bit)';
   if (clean.length === 40) return 'SHA-1 (160-bit)';
   if (clean.length === 64) return 'SHA-256 (256-bit)';
@@ -173,11 +245,14 @@ export default function ChecksumClient() {
 
   const [mode, setMode] = useState<InputMode>('text');
   const [text, setText] = useState('Hello VelnoxLabs!');
+  const [lineEnding, setLineEnding] = useState<LineEnding>('preserve');
   const [fileBytes, setFileBytes] = useState<Uint8Array | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
   const [uppercase, setUppercase] = useState(false);
-  const [expectedHash, setExpectedHash] = useState('');
+  const [rawExpectedHash, setRawExpectedHash] = useState('');
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [cryptoHashes, setCryptoHashes] = useState({
     md5: '',
@@ -188,8 +263,8 @@ export default function ChecksumClient() {
 
   const parsedInput = useMemo(() => {
     if (fileBytes) return { bytes: fileBytes, error: null };
-    return parseInputToBytes(text, mode);
-  }, [fileBytes, text, mode]);
+    return parseInputToBytes(text, mode, lineEnding);
+  }, [fileBytes, text, mode, lineEnding]);
 
   // Synchronous non-crypto checksums
   const simpleChecksums = useMemo(() => {
@@ -207,6 +282,9 @@ export default function ChecksumClient() {
     const twosComp = ((~mod256 + 1) & 0xff) >>> 0;
     const sum16 = sum & 0xffff;
     const crc16 = computeCrc16(b);
+    const crc16Modbus = computeCrc16Modbus(b);
+    const adler32 = computeAdler32(b);
+    const fletcher16 = computeFletcher16(b);
     const crc32 = computeCrc32(b);
 
     return {
@@ -215,12 +293,15 @@ export default function ChecksumClient() {
       xorVal,
       sum16,
       crc16,
+      crc16Modbus,
+      adler32,
+      fletcher16,
       crc32,
       totalSum: sum,
     };
   }, [parsedInput.bytes]);
 
-  // Compute MD5 + Web Crypto SHA hashes whenever bytes change
+  // Compute MD5 + Web Crypto SHA hashes
   useEffect(() => {
     let cancelled = false;
     const b = parsedInput.bytes;
@@ -271,55 +352,123 @@ export default function ChecksumClient() {
 
     return [
       {
+        id: 'sha256',
+        label: 'SHA-256 (256-bit)',
+        hex: fmtHex(cryptoHashes.sha256),
+        badge: 'Secure Hash',
+        extra: 'NIST FIPS 180-4 standard',
+      },
+      {
+        id: 'md5',
+        label: 'MD5 (128-bit)',
+        hex: fmtHex(cryptoHashes.md5),
+        badge: 'File Integrity',
+        extra: 'RFC 1321 legacy digest',
+      },
+      {
+        id: 'crc32',
+        label: 'CRC-32 (IEEE 802.3)',
+        hex: hex32(simpleChecksums.crc32),
+        badge: 'Network / Zip',
+        extra: `Dec: ${simpleChecksums.crc32}`,
+      },
+      {
+        id: 'crc16modbus',
+        label: tUI('algoCrc16Modbus'),
+        hex: hex16(simpleChecksums.crc16Modbus),
+        badge: 'Industrial / PLC',
+        extra: `Poly: 0xA001 · Init: 0xFFFF · Dec: ${simpleChecksums.crc16Modbus}`,
+      },
+      {
+        id: 'crc16',
+        label: 'CRC-16 (CCITT-FALSE)',
+        hex: hex16(simpleChecksums.crc16),
+        badge: 'Telecom / Embedded',
+        extra: `Poly: 0x1021 · Dec: ${simpleChecksums.crc16}`,
+      },
+      {
+        id: 'adler32',
+        label: tUI('algoAdler32'),
+        hex: hex32(simpleChecksums.adler32),
+        badge: 'zlib / RFC 1950',
+        extra: `Base: 65521 · Dec: ${simpleChecksums.adler32}`,
+      },
+      {
+        id: 'fletcher16',
+        label: tUI('algoFletcher16'),
+        hex: hex16(simpleChecksums.fletcher16),
+        badge: 'RFC 1146',
+        extra: `Modulo 255 · Dec: ${simpleChecksums.fletcher16}`,
+      },
+      {
         id: 'mod256',
         label: tUI('algoMod256'),
         hex: hex8(simpleChecksums.mod256),
+        badge: '8-bit Sum',
         extra: `Dec: ${simpleChecksums.mod256} · Bin: ${simpleChecksums.mod256.toString(2).padStart(8, '0')}`,
       },
       {
         id: 'twos',
         label: tUI('algoTwos'),
         hex: hex8(simpleChecksums.twosComp),
+        badge: 'Intel HEX Check',
         extra: `Dec: ${simpleChecksums.twosComp} · Bin: ${simpleChecksums.twosComp.toString(2).padStart(8, '0')}`,
       },
       {
         id: 'xor',
         label: tUI('algoXor'),
         hex: hex8(simpleChecksums.xorVal),
+        badge: 'BCC Parity',
         extra: `Dec: ${simpleChecksums.xorVal} · Bin: ${simpleChecksums.xorVal.toString(2).padStart(8, '0')}`,
       },
       {
         id: 'sum16',
         label: tUI('algo16Bit'),
         hex: hex16(simpleChecksums.sum16),
+        badge: 'TCP / UDP Header',
         extra: `Dec: ${simpleChecksums.sum16}`,
       },
       {
-        id: 'crc16',
-        label: 'CRC-16 (CCITT)',
-        hex: hex16(simpleChecksums.crc16),
-        extra: `Dec: ${simpleChecksums.crc16}`,
+        id: 'sha1',
+        label: 'SHA-1 (160-bit)',
+        hex: fmtHex(cryptoHashes.sha1),
+        badge: 'Git SHA-1',
+        extra: 'Deprecated for crypto signatures',
       },
       {
-        id: 'crc32',
-        label: 'CRC-32 (IEEE 802.3)',
-        hex: hex32(simpleChecksums.crc32),
-        extra: `Dec: ${simpleChecksums.crc32}`,
+        id: 'sha512',
+        label: 'SHA-512 (512-bit)',
+        hex: fmtHex(cryptoHashes.sha512),
+        badge: 'High Security',
+        extra: 'SHA-2 family 64-bit words',
       },
-      { id: 'md5', label: 'MD5 (128-bit)', hex: fmtHex(cryptoHashes.md5), extra: '' },
-      { id: 'sha1', label: 'SHA-1 (160-bit)', hex: fmtHex(cryptoHashes.sha1), extra: '' },
-      { id: 'sha256', label: 'SHA-256 (256-bit)', hex: fmtHex(cryptoHashes.sha256), extra: '' },
-      { id: 'sha512', label: 'SHA-512 (512-bit)', hex: fmtHex(cryptoHashes.sha512), extra: '' },
     ];
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [simpleChecksums, cryptoHashes, uppercase, tUI]);
 
-  const normalizedExpected = expectedHash.trim().replace(/^0x/i, '').toLowerCase();
-  const detectedType = useMemo(() => detectExpectedHashType(expectedHash), [expectedHash]);
+  const cleanExpected = useMemo(() => cleanExpectedHash(rawExpectedHash), [rawExpectedHash]);
+  const detectedType = useMemo(() => detectExpectedHashType(cleanExpected), [cleanExpected]);
+
   const matchedEntry = useMemo(() => {
-    if (!normalizedExpected) return null;
-    return allEntries.find((e) => e.hex.toLowerCase() === normalizedExpected) || null;
-  }, [normalizedExpected, allEntries]);
+    if (!cleanExpected) return null;
+    return allEntries.find((e) => e.hex.toLowerCase() === cleanExpected.toLowerCase()) || null;
+  }, [cleanExpected, allEntries]);
+
+  // AI Diagnostic Hint for Mismatch
+  const aiDiagnostic = useMemo(() => {
+    if (!cleanExpected || matchedEntry) return null;
+    const len = cleanExpected.length;
+    if (len === 64 && mode === 'text' && text.includes('\n')) {
+      return tUI('diagLineEnding', { algo: 'SHA-256' });
+    }
+    if (len === 32 && mode === 'text' && text.includes('\n')) {
+      return tUI('diagLineEnding', { algo: 'MD5' });
+    }
+    if (![2, 4, 8, 32, 40, 64, 128].includes(len)) {
+      return tUI('diagTruncated', { len: String(len) });
+    }
+    return null;
+  }, [cleanExpected, matchedEntry, mode, text, tUI]);
 
   const handleFileUpload = (file: File) => {
     const reader = new FileReader();
@@ -332,12 +481,47 @@ export default function ChecksumClient() {
     reader.readAsArrayBuffer(file);
   };
 
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleFileUpload(file);
+  };
+
   const handleCopy = (id: string, val: string) => {
     if (!val) return;
     navigator.clipboard.writeText(val);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 1800);
   };
+
+  const handleExportManifest = (algo: 'sha256' | 'md5') => {
+    const hash = algo === 'sha256' ? cryptoHashes.sha256 : cryptoHashes.md5;
+    if (!hash) return;
+    const targetName = fileName || 'checksum-input.txt';
+    const content = `${fmtHex(hash)}  *${targetName}\n`;
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${targetName}.${algo}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const activeTargetName = fileName || 'input.txt';
 
   return (
     <GlobalContainer maxWidth="2xl">
@@ -352,23 +536,25 @@ export default function ChecksumClient() {
           style={{
             backgroundColor: 'var(--bg-card)',
             border: '1px solid var(--border-color)',
-            borderRadius: '14px',
+            borderRadius: '16px',
             padding: '24px',
             marginTop: 'var(--space-6)',
             marginBottom: '28px',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
           }}
         >
-          {/* Input Mode Tabs & File Upload */}
+          {/* Top Bar: Input Mode Tabs, Line-Ending Switcher, Uppercase Toggle */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'space-between',
               alignItems: 'center',
-              gap: '10px',
+              gap: '12px',
               marginBottom: '16px',
             }}
           >
+            {/* Input Mode Selector */}
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               {(
                 [
@@ -391,12 +577,13 @@ export default function ChecksumClient() {
                     fontSize: '0.84rem',
                     fontWeight: 600,
                     cursor: 'pointer',
+                    transition: 'all 0.15s ease',
                     border:
                       !fileBytes && mode === m.id
                         ? '1px solid rgba(59, 130, 246, 0.5)'
                         : '1px solid var(--border-color)',
                     backgroundColor:
-                      !fileBytes && mode === m.id ? 'rgba(59, 130, 246, 0.2)' : 'var(--bg-page)',
+                      !fileBytes && mode === m.id ? 'rgba(59, 130, 246, 0.18)' : 'var(--bg-page)',
                     color: !fileBytes && mode === m.id ? '#60a5fa' : 'var(--text-muted)',
                   }}
                 >
@@ -405,41 +592,43 @@ export default function ChecksumClient() {
               ))}
             </div>
 
+            {/* Quick Settings: Line Ending (Text Mode only) & Upper/Lower Hex */}
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <label
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '8px 14px',
-                  borderRadius: '8px',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  backgroundColor: 'rgba(139, 92, 246, 0.14)',
-                  border: '1px solid rgba(139, 92, 246, 0.4)',
-                  color: '#a78bfa',
-                }}
-              >
-                <Upload size={14} />
-                {tUI('uploadFileBtn')}
-                <input
-                  type="file"
-                  style={{ display: 'none' }}
-                  onChange={(e) => {
-                    const f = e.target.files?.[0];
-                    if (f) handleFileUpload(f);
-                  }}
-                />
-              </label>
+              {!fileBytes && mode === 'text' && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span
+                    style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600 }}
+                  >
+                    {tUI('lineEndingsLabel')}:
+                  </span>
+                  <select
+                    value={lineEnding}
+                    onChange={(e) => setLineEnding(e.target.value as LineEnding)}
+                    style={{
+                      backgroundColor: 'var(--bg-page)',
+                      color: 'var(--text-main)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '6px',
+                      padding: '5px 8px',
+                      fontSize: '0.76rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <option value="preserve">{tUI('lineEndingsPreserve')}</option>
+                    <option value="lf">{tUI('lineEndingsLf')}</option>
+                    <option value="crlf">{tUI('lineEndingsCrlf')}</option>
+                  </select>
+                </div>
+              )}
 
               <button
                 type="button"
                 onClick={() => setUppercase((u) => !u)}
                 style={{
-                  padding: '8px 12px',
-                  borderRadius: '8px',
-                  fontSize: '0.78rem',
+                  padding: '6px 12px',
+                  borderRadius: '6px',
+                  fontSize: '0.76rem',
                   fontWeight: 700,
                   cursor: 'pointer',
                   border: '1px solid var(--border-color)',
@@ -452,53 +641,115 @@ export default function ChecksumClient() {
             </div>
           </div>
 
-          {/* File Banner or Textarea */}
+          {/* Drag & Drop File Upload Zone OR Textarea */}
           {fileBytes && fileName ? (
             <div
               style={{
                 backgroundColor: 'var(--bg-page)',
                 border: '1px solid rgba(139, 92, 246, 0.4)',
-                borderRadius: '10px',
-                padding: '16px',
+                borderRadius: '12px',
+                padding: '16px 20px',
                 marginBottom: '18px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
                 gap: '12px',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <FileText size={20} style={{ color: '#a78bfa' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div
+                  style={{
+                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                    padding: '10px',
+                    borderRadius: '10px',
+                    color: '#a78bfa',
+                  }}
+                >
+                  <FileText size={24} />
+                </div>
                 <div>
-                  <div style={{ fontWeight: 700, color: 'var(--text-main)', fontSize: '0.92rem' }}>
+                  <div style={{ fontWeight: 700, color: 'var(--text-main)', fontSize: '0.94rem' }}>
                     {fileName}
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                    {fileBytes.length.toLocaleString()} bytes
+                  <div
+                    style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '2px' }}
+                  >
+                    {tUI('fileSize')}: {(fileBytes.length / 1024).toFixed(1)} KB (
+                    {fileBytes.length.toLocaleString()} bytes)
                   </div>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  setFileBytes(null);
-                  setFileName(null);
-                }}
-                style={{
-                  padding: '6px 12px',
-                  borderRadius: '6px',
-                  border: '1px solid var(--border-color)',
-                  backgroundColor: 'var(--bg-card)',
-                  color: 'var(--text-main)',
-                  fontSize: '0.8rem',
-                  cursor: 'pointer',
-                }}
-              >
-                {tUI('clearFile')}
-              </button>
+
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFileBytes(null);
+                    setFileName(null);
+                  }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    padding: '7px 14px',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                    backgroundColor: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                  }}
+                >
+                  <RotateCcw size={13} />
+                  {tUI('clearFile')}
+                </button>
+              </div>
             </div>
           ) : (
             <div style={{ marginBottom: '18px' }}>
+              <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                onClick={() => fileInputRef.current?.click()}
+                style={{
+                  border: isDragging ? '2px dashed #a78bfa' : '1px dashed var(--border-color)',
+                  borderRadius: '10px',
+                  backgroundColor: isDragging ? 'rgba(139, 92, 246, 0.08)' : 'rgba(0, 0, 0, 0.02)',
+                  padding: '14px',
+                  marginBottom: '10px',
+                  textAlign: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    color: isDragging ? '#a78bfa' : 'var(--text-muted)',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                  }}
+                >
+                  <Upload size={16} />
+                  <span>{isDragging ? tUI('dragDropActive') : tUI('dragDropText')}</span>
+                </div>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  style={{ display: 'none' }}
+                  onChange={(e) => {
+                    const f = e.target.files?.[0];
+                    if (f) handleFileUpload(f);
+                  }}
+                />
+              </div>
+
               <textarea
                 rows={4}
                 placeholder={
@@ -514,7 +765,7 @@ export default function ChecksumClient() {
                   width: '100%',
                   backgroundColor: 'var(--bg-page)',
                   border: parsedInput.error ? '1px solid #ef4444' : '1px solid var(--border-color)',
-                  borderRadius: '8px',
+                  borderRadius: '10px',
                   color: 'var(--text-main)',
                   padding: '14px',
                   fontSize: '0.92rem',
@@ -536,8 +787,8 @@ export default function ChecksumClient() {
             style={{
               backgroundColor: 'rgba(139, 92, 246, 0.07)',
               border: '1px solid rgba(139, 92, 246, 0.25)',
-              borderRadius: '10px',
-              padding: '14px 16px',
+              borderRadius: '12px',
+              padding: '16px',
               marginBottom: '22px',
             }}
           >
@@ -556,91 +807,129 @@ export default function ChecksumClient() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  fontSize: '0.84rem',
+                  fontSize: '0.86rem',
                   fontWeight: 700,
                   color: '#a78bfa',
                 }}
               >
-                <Sparkles size={15} />
+                <Sparkles size={16} />
                 {tUI('verifyTitle')}
               </span>
               {detectedType && (
-                <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                <span
+                  style={{
+                    fontSize: '0.76rem',
+                    color: '#60a5fa',
+                    backgroundColor: 'rgba(59, 130, 246, 0.14)',
+                    padding: '3px 8px',
+                    borderRadius: '6px',
+                    fontWeight: 600,
+                  }}
+                >
                   {tUI('detectedFormat', { format: detectedType })}
                 </span>
               )}
             </div>
+
             <input
               type="text"
-              value={expectedHash}
-              onChange={(e) => setExpectedHash(e.target.value)}
+              value={rawExpectedHash}
+              onChange={(e) => setRawExpectedHash(e.target.value)}
               placeholder={tUI('verifyPlaceholder')}
               style={{
                 width: '100%',
                 backgroundColor: 'var(--bg-page)',
                 border: '1px solid var(--border-color)',
                 borderRadius: '8px',
-                padding: '10px 12px',
+                padding: '10px 14px',
                 color: 'var(--text-main)',
                 fontFamily: 'monospace',
                 fontSize: '0.84rem',
                 outline: 'none',
               }}
             />
-            {normalizedExpected && allEntries.length > 0 && (
-              <div style={{ marginTop: '8px', fontSize: '0.82rem', fontWeight: 700 }}>
+
+            {/* Match or Mismatch Status */}
+            {cleanExpected && allEntries.length > 0 && (
+              <div style={{ marginTop: '10px' }}>
                 {matchedEntry ? (
-                  <span
+                  <div
                     style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
                       color: '#34d399',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
+                      fontSize: '0.86rem',
+                      fontWeight: 700,
                     }}
                   >
-                    <CheckCircle2 size={15} />
-                    {tUI('matchFound', { algo: matchedEntry.label })}
-                  </span>
+                    <CheckCircle2 size={17} />
+                    <span>{tUI('matchFound', { algo: matchedEntry.label })}</span>
+                  </div>
                 ) : (
-                  <span
-                    style={{
-                      color: '#f87171',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                    }}
-                  >
-                    <XCircle size={15} />
-                    {tUI('noMatchFound')}
-                  </span>
+                  <div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        color: '#f87171',
+                        fontSize: '0.84rem',
+                        fontWeight: 700,
+                      }}
+                    >
+                      <XCircle size={17} />
+                      <span>{tUI('noMatchFound')}</span>
+                    </div>
+                    {aiDiagnostic && (
+                      <div
+                        style={{
+                          marginTop: '6px',
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '6px',
+                          color: '#fbbf24',
+                          fontSize: '0.78rem',
+                          backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                          padding: '8px 10px',
+                          borderRadius: '6px',
+                        }}
+                      >
+                        <AlertTriangle size={14} style={{ flexShrink: 0, marginTop: '2px' }} />
+                        <span>{aiDiagnostic}</span>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             )}
           </div>
 
-          {/* All-in-One Checksum Matrix */}
+          {/* All-in-One Checksum Matrix Cards */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: '12px',
             }}
           >
             {allEntries.map((entry) => {
               const isMatched =
-                Boolean(normalizedExpected) && entry.hex.toLowerCase() === normalizedExpected;
+                Boolean(cleanExpected) && entry.hex.toLowerCase() === cleanExpected.toLowerCase();
               return (
                 <div
                   key={entry.id}
                   style={{
                     backgroundColor: 'var(--bg-page)',
-                    border: isMatched ? '1px solid #34d399' : '1px solid var(--border-color)',
-                    borderRadius: '10px',
-                    padding: '12px 14px',
+                    border: isMatched ? '2px solid #10b981' : '1px solid var(--border-color)',
+                    boxShadow: isMatched ? '0 0 14px rgba(16, 185, 129, 0.3)' : 'none',
+                    borderRadius: '12px',
+                    padding: '14px 16px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    gap: '6px',
+                    gap: '8px',
+                    transition: 'all 0.15s ease',
                   }}
                 >
                   <div
@@ -651,9 +940,26 @@ export default function ChecksumClient() {
                       gap: '8px',
                     }}
                   >
-                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#60a5fa' }}>
-                      {entry.label}
-                    </span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ fontSize: '0.84rem', fontWeight: 700, color: '#60a5fa' }}>
+                        {entry.label}
+                      </span>
+                      {entry.badge && (
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                            color: 'var(--text-muted)',
+                            fontWeight: 600,
+                          }}
+                        >
+                          {entry.badge}
+                        </span>
+                      )}
+                    </div>
+
                     <button
                       type="button"
                       onClick={() => handleCopy(entry.id, entry.hex)}
@@ -670,22 +976,26 @@ export default function ChecksumClient() {
                         fontSize: '0.72rem',
                         fontWeight: 600,
                         cursor: 'pointer',
+                        transition: 'background-color 0.15s ease',
                       }}
                     >
                       {copiedId === entry.id ? <Check size={12} /> : <Copy size={12} />}
                       {copiedId === entry.id ? tUI('copied') : tUI('copy')}
                     </button>
                   </div>
+
                   <code
                     style={{
                       fontFamily: 'monospace',
                       fontSize: '0.84rem',
-                      color: '#34d399',
+                      color: isMatched ? '#10b981' : '#34d399',
                       wordBreak: 'break-all',
+                      lineHeight: 1.4,
                     }}
                   >
                     {entry.hex || '—'}
                   </code>
+
                   {entry.extra && (
                     <div
                       style={{
@@ -702,11 +1012,73 @@ export default function ChecksumClient() {
             })}
           </div>
 
-          {/* Byte-by-Byte Educational Math Breakdown */}
-          {simpleChecksums && parsedInput.bytes.length > 0 && (
+          {/* Quick 1-Click Manifest Exports */}
+          {cryptoHashes.sha256 && (
             <div
               style={{
                 marginTop: '20px',
+                paddingTop: '16px',
+                borderTop: '1px solid var(--border-color)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '10px',
+              }}
+            >
+              <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                {tUI('exportTitle') || '1-Click Verification Manifest:'}
+              </span>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button
+                  type="button"
+                  onClick={() => handleExportManifest('sha256')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid rgba(59, 130, 246, 0.4)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    color: '#60a5fa',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                  }}
+                >
+                  <Download size={13} />
+                  {tUI('exportSha256')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleExportManifest('md5')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                    backgroundColor: 'var(--bg-page)',
+                    color: 'var(--text-main)',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                  }}
+                >
+                  <Download size={13} />
+                  {tUI('exportMd5')}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Educational Byte-by-Byte Math Breakdown */}
+          {simpleChecksums && parsedInput.bytes.length > 0 && (
+            <div
+              style={{
+                marginTop: '16px',
                 paddingTop: '16px',
                 borderTop: '1px solid var(--border-color)',
               }}
@@ -737,18 +1109,254 @@ export default function ChecksumClient() {
                   overflowX: 'auto',
                 }}
               >
-                {Array.from(parsedInput.bytes.slice(0, 12))
+                {Array.from(parsedInput.bytes.slice(0, 10))
                   .map((b) => `0x${b.toString(16).padStart(2, '0').toUpperCase()}`)
                   .join(' + ')}
-                {parsedInput.bytes.length > 12 ? ` + ... (${parsedInput.bytes.length} bytes)` : ''}{' '}
+                {parsedInput.bytes.length > 10 ? ` + ... (${parsedInput.bytes.length} bytes)` : ''}{' '}
                 = {simpleChecksums.totalSum} (mod 256 ={' '}
                 <strong style={{ color: '#34d399' }}>
                   0x{simpleChecksums.mod256.toString(16).padStart(2, '0').toUpperCase()}
+                </strong>
+                , Modbus CRC ={' '}
+                <strong style={{ color: '#60a5fa' }}>
+                  0x{simpleChecksums.crc16Modbus.toString(16).padStart(4, '0').toUpperCase()}
                 </strong>
                 )
               </div>
             </div>
           )}
+
+          {/* Quick Terminal CLI Commands Generator */}
+          <div
+            style={{
+              marginTop: '18px',
+              paddingTop: '16px',
+              borderTop: '1px solid var(--border-color)',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                color: 'var(--text-main)',
+                marginBottom: '10px',
+              }}
+            >
+              <Terminal size={15} style={{ color: '#a78bfa' }} />
+              <span>{tUI('cliTitle')}</span>
+            </div>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '8px',
+              }}
+            >
+              {[
+                {
+                  id: 'cmd-ps',
+                  label: 'PowerShell (Windows)',
+                  cmd: `Get-FileHash -Algorithm SHA256 "${activeTargetName}"`,
+                },
+                {
+                  id: 'cmd-bash',
+                  label: 'Linux / macOS Bash',
+                  cmd: `sha256sum "${activeTargetName}"`,
+                },
+                {
+                  id: 'cmd-certutil',
+                  label: 'Windows Command Prompt',
+                  cmd: `certutil -hashfile "${activeTargetName}" SHA256`,
+                },
+              ].map((item) => (
+                <div
+                  key={item.id}
+                  style={{
+                    backgroundColor: 'var(--bg-page)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '8px',
+                    padding: '8px 12px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    gap: '4px',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span
+                      style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)' }}
+                    >
+                      {item.label}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(item.id, item.cmd)}
+                      style={{
+                        padding: '2px 6px',
+                        fontSize: '0.68rem',
+                        fontWeight: 600,
+                        backgroundColor:
+                          copiedId === item.id ? '#10b981' : 'rgba(59, 130, 246, 0.14)',
+                        color: copiedId === item.id ? '#ffffff' : '#60a5fa',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {copiedId === item.id ? tUI('copied') : tUI('copy')}
+                    </button>
+                  </div>
+                  <code
+                    style={{
+                      fontFamily: 'monospace',
+                      fontSize: '0.74rem',
+                      color: 'var(--text-main)',
+                      wordBreak: 'break-all',
+                    }}
+                  >
+                    {item.cmd}
+                  </code>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Algorithm Comparison Table Section for Technical SEO */}
+        <div
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '16px',
+            padding: '24px',
+            marginBottom: '32px',
+            overflowX: 'auto',
+          }}
+        >
+          <h3
+            style={{
+              fontSize: '1.05rem',
+              fontWeight: 700,
+              color: 'var(--text-main)',
+              marginBottom: '16px',
+            }}
+          >
+            {tUI('comparisonTitle')}
+          </h3>
+          <table
+            style={{
+              width: '100%',
+              borderCollapse: 'collapse',
+              fontSize: '0.84rem',
+              textAlign: 'left',
+            }}
+          >
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                <th style={{ padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  {tUI('colAlgorithm')}
+                </th>
+                <th style={{ padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  {tUI('colBits')}
+                </th>
+                <th style={{ padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  {tUI('colType')}
+                </th>
+                <th style={{ padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  {tUI('colUseCase')}
+                </th>
+                <th style={{ padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  {tUI('colSecurity')}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  name: 'SHA-256',
+                  bits: '256 bits',
+                  type: 'Cryptographic Hash',
+                  useCase: 'Software integrity, Bitcoin, TLS certificates',
+                  sec: 'Cryptographically Secure (Zero collisions)',
+                },
+                {
+                  name: 'MD5',
+                  bits: '128 bits',
+                  type: 'Legacy Hash',
+                  useCase: 'Quick file matching, legacy checksum verification',
+                  sec: 'Insecure for auth (Collision vulnerable)',
+                },
+                {
+                  name: 'CRC-32',
+                  bits: '32 bits',
+                  type: 'Cyclic Redundancy Check',
+                  useCase: 'ZIP / PNG compression, Ethernet packets',
+                  sec: 'Non-cryptographic (Accidental errors only)',
+                },
+                {
+                  name: 'CRC-16 Modbus',
+                  bits: '16 bits',
+                  type: 'Industrial Polynomial',
+                  useCase: 'Modbus RTU, PLC telemetry, IoT sensors',
+                  sec: 'Non-cryptographic (Bit-flip detection)',
+                },
+                {
+                  name: 'Adler-32',
+                  bits: '32 bits',
+                  type: 'Dual Rolling Sum',
+                  useCase: 'zlib decompression, rsync rolling checksum',
+                  sec: 'Non-cryptographic (Speed optimized)',
+                },
+                {
+                  name: '8-bit Modulo 256',
+                  bits: '8 bits',
+                  type: 'Arithmetic Sum',
+                  useCase: 'Microcontrollers, Intel HEX, basic byte parity',
+                  sec: 'Non-cryptographic (Basic parity only)',
+                },
+              ].map((row, idx) => (
+                <tr
+                  key={idx}
+                  style={{
+                    borderBottom: '1px solid var(--border-color)',
+                    backgroundColor: idx % 2 === 0 ? 'rgba(0, 0, 0, 0.02)' : 'transparent',
+                  }}
+                >
+                  <td style={{ padding: '10px 12px', fontWeight: 700, color: '#60a5fa' }}>
+                    {row.name}
+                  </td>
+                  <td
+                    style={{
+                      padding: '10px 12px',
+                      color: 'var(--text-main)',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    {row.bits}
+                  </td>
+                  <td style={{ padding: '10px 12px', color: 'var(--text-muted)' }}>{row.type}</td>
+                  <td style={{ padding: '10px 12px', color: 'var(--text-main)' }}>{row.useCase}</td>
+                  <td
+                    style={{
+                      padding: '10px 12px',
+                      color: row.sec.includes('Secure') ? '#34d399' : 'var(--text-muted)',
+                    }}
+                  >
+                    {row.sec}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <ToolSeoContent
