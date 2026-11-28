@@ -291,8 +291,8 @@
       "description": "Преобразование данных JSON в структуры Go с тегами полей и вложенными типами прямо в браузере."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "Генератор Pydantic BaseModel и Dataclass из JSON – model_validate_json",
-      "description": "Онлайн-преобразование JSON в схемы Pydantic и Python dataclass. Создание Pydantic BaseModel из JSON с поддержкой model_validate_json и model_dump."
+      "name": "ИИ Генератор Моделей Pydantic и Классов Данных Python – Pydantic V2, model_validate_json и JsonValue",
+      "description": "Преобразование JSON, словарей Python и объектов JS в модели Pydantic V2 и классы данных Python онлайн с примерами model_validate_json и поддержкой JsonValue."
     },
     "json-to-typescript-interface-generator": {
       "name": "Генератор Интерфейсов JSON в TypeScript Онлайн – Python, Объекты JS и Схемы JSON",
@@ -1044,8 +1044,8 @@
       "faq4A": "Нет. Весь парсинг и сборка кода Go происходят в браузере с помощью JavaScript без отправки на сервер."
     },
     "jsonToPydantic": {
-      "title": "Генератор моделей Pydantic и Dataclass из JSON",
-      "subtitle": "Создавайте современные модели Pydantic V2 и классы Python Dataclass из данных JSON мгновенно.",
+      "title": "ИИ Генератор Моделей Pydantic и Классов Данных Python",
+      "subtitle": "Преобразование JSON, словарей Python или объектов JS в строго типизированные модели Pydantic V2 и стандартные классы данных с поддержкой model_validate_json.",
       "aboutText": "Генератор моделей Pydantic и Dataclass из JSON преобразует произвольные структуры JSON в строго типизированные классы Python. Поддерживая как Pydantic V2 (BaseModel), так и стандартный декоратор @dataclass из Python 3.10+, инструмент распознает скалярные типы, выносит вложенные структуры в отдельные классы, проставляет аннотации Optional и List, а также генерирует Field(alias=\"...\") для ключей с дефисами или служебными словами. Идеален для проектов на FastAPI.",
       "feature1": "Два стиля моделей на выбор: легко переключайтесь между декларативными моделями Pydantic V2 и стандартными @dataclass",
       "feature2": "Соответствие стандарту PEP 8: переводит camelCase в snake_case с сохранением оригинальных названий ключей через alias",
@@ -1064,7 +1064,30 @@
       "faq3Q": "Выносятся ли вложенные объекты в отдельные классы моделей?",
       "faq3A": "Да. Все вложенные объекты рекурсивно объявляются как отдельные классы и размещаются над родительской моделью.",
       "faq4Q": "Сохраняются ли мои структуры JSON на внешних серверах?",
-      "faq4A": "Нет. Весь процесс преобразования происходит локально в оперативной памяти браузера без сетевых запросов."
+      "faq4A": "Нет. Весь процесс преобразования происходит локально в оперативной памяти браузера без сетевых запросов.",
+      "clientSideNotice": "100% Локальная Обработка в Браузере (Без Передачи на Сервер)",
+      "relaxedNotice": "Гибкий Анализатор: Синтаксис Python и JS преобразован автоматически",
+      "presets": "Примеры",
+      "presetUser": "Профиль и Авторизация",
+      "presetOrder": "Заказ в Магазине",
+      "presetPython": "Словарь Python (FastAPI)",
+      "presetDynamic": "Динамические Данные (JsonValue)",
+      "beautify": "Форматировать",
+      "clear": "Очистить",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "Стандартный Класс Данных",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "Имя Корневой Модели",
+      "snakeCaseOption": "Имена строчными буквами с подчеркиванием",
+      "modernTypesOption": "Современные Типы Python 3.10+ (| None)",
+      "smartTypesOption": "Распознавание Типов (Дата, UUID, Почта)",
+      "validationCodeOption": "Добавить Пример с model_validate_json",
+      "jsonInput": "Источник JSON / Словарь Python / Объект JS",
+      "jsonPlaceholder": "Вставьте данные JSON, словарь Python или перетащите файл сюда...",
+      "pyPlaceholder": "Сгенерированный код Python появится здесь...",
+      "copyCode": "Копировать Код",
+      "copied": "Скопировано!",
+      "downloadPy": "Скачать .py"
     },
     "jsonToTypescript": {
       "title": "Генератор Интерфейсов JSON в TypeScript",

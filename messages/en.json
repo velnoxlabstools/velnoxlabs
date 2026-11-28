@@ -291,8 +291,8 @@
       "description": "Free online JSON to Go struct generator with Golang struct tags and nested type inference."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON to Pydantic BaseModel & Dataclass Generator – model_validate_json",
-      "description": "Convert JSON to Pydantic schema and Python dataclasses online. Generate Pydantic BaseModel from JSON with support for model_validate_json, model_dump, and types."
+      "name": "AI JSON to Pydantic & Python Dataclass Generator – Pydantic V2, model_validate_json & JsonValue",
+      "description": "Convert JSON, Python dicts, and JS objects into Pydantic V2 BaseModels and Python dataclasses online. Features model_validate_json snippets, JsonValue, snake_case Field aliases, and PEP 604 type unions."
     },
     "json-to-typescript-interface-generator": {
       "name": "AI JSON to TypeScript Interface Online – Python Dict, JS Object & JSON Schema to TS (VS Code Alternative)",
@@ -1021,8 +1021,8 @@
       "faq4A": "No. All parsing, type inference, and Go code synthesis occur strictly in client-side JavaScript within your browser."
     },
     "jsonToPydantic": {
-      "title": "JSON to Pydantic & Python Dataclass Generator",
-      "subtitle": "Generate modern Pydantic V2 models and standard Python dataclasses from JSON objects instantly.",
+      "title": "AI JSON to Pydantic & Python Dataclass Generator",
+      "subtitle": "Convert JSON, Python dicts, or JS objects into type-safe Pydantic V2 BaseModels and standard Python dataclasses with model_validate_json and JsonValue support.",
       "aboutText": "The JSON to Pydantic & Python Dataclass Generator converts arbitrary JSON data structures into strongly-typed Python schemas. Supporting both Pydantic V2 (BaseModel) and standard Python 3.10+ dataclasses, it automatically infers primitive types (str, int, float, bool), creates nested model classes, handles Optional fields and List typing, and generates Field(alias=\"...\") definitions for non-Pythonic keys. Ideal for building FastAPI endpoints, data pipelines, and SDKs.",
       "feature1": "Dual Schema Generation: Seamlessly toggle between Pydantic V2 BaseModel syntax and native standard-library @dataclass",
       "feature2": "Pythonic Naming & Aliasing: Converts camelCase keys to snake_case attributes with automated Pydantic Field(alias=...) support",
@@ -1041,7 +1041,30 @@
       "faq3Q": "Are nested objects converted into separate models?",
       "faq3A": "Yes. Deeply nested objects are recursively parsed into distinct model classes defined above the parent model to ensure clean Python imports.",
       "faq4Q": "Is my JSON payload kept confidential?",
-      "faq4A": "Yes. The entire code generation logic executes locally in your browser without transmitting any payload data to external servers."
+      "faq4A": "Yes. The entire code generation logic executes locally in your browser without transmitting any payload data to external servers.",
+      "clientSideNotice": "100% Client-Side Engine (Zero Server Logging)",
+      "relaxedNotice": "Relaxed Parser: Python dict / JS object syntax automatically converted",
+      "presets": "Presets",
+      "presetUser": "User & Auth Profile",
+      "presetOrder": "E-Commerce Order",
+      "presetPython": "Python Dict (FastAPI)",
+      "presetDynamic": "Dynamic Analytics (JsonValue)",
+      "beautify": "Beautify",
+      "clear": "Clear",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "Standard @dataclass",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "Root Model Name",
+      "snakeCaseOption": "snake_case Field Aliases",
+      "modernTypesOption": "Python 3.10+ Types (| None)",
+      "smartTypesOption": "Smart Types (Date, UUID, Email)",
+      "validationCodeOption": "Include model_validate_json Code",
+      "jsonInput": "JSON / Python Dict / JS Object Source",
+      "jsonPlaceholder": "Paste JSON payload, Python dict, or drop a file here...",
+      "pyPlaceholder": "Generated Python models will appear here...",
+      "copyCode": "Copy Code",
+      "copied": "Copied!",
+      "downloadPy": "Download .py"
     },
     "jsonToTypescript": {
       "title": "JSON to TypeScript Interface Generator",

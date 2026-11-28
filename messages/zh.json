@@ -291,8 +291,8 @@
       "description": "在线将JSON数据转换为带有json标签和嵌套类型的Golang结构体代码。"
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON 转 Pydantic BaseModel 与 Dataclass 生成器 – model_validate_json",
-      "description": "在线将 JSON 转换为 Pydantic schema 与 Python dataclass。支持从 JSON 生成 Pydantic BaseModel、model_validate_json 解析与 model_dump 序列化。"
+      "name": "AI 在线 JSON 转 Pydantic 模型与 Python 数据类生成器 – 完美支持 Pydantic V2、model_validate_json 与 JsonValue",
+      "description": "在线将 JSON、Python 字典及 JS 对象转换为类型安全的 Pydantic V2 模型与 Python 原生数据类。提供 model_validate_json 示例、JsonValue 及下划线别名映射。"
     },
     "json-to-typescript-interface-generator": {
       "name": "在线 JSON 转 TypeScript 接口生成器 – 支持 Python 字典、JS 对象及 JSON Schema",
@@ -1044,8 +1044,8 @@
       "faq4A": "绝对不会。整个解析和代码生成全部由客户端JavaScript在本地执行，API结构及业务数据零泄露风险。"
     },
     "jsonToPydantic": {
-      "title": "JSON转Pydantic与Python Dataclass生成器",
-      "subtitle": "即时将JSON对象转换为现代Pydantic V2数据模型与标准Python Dataclass类。",
+      "title": "AI 在线 JSON 转 Pydantic 模型与 Python 数据类生成器",
+      "subtitle": "将任意 JSON、Python 字典或 JS 对象快速生成 Pydantic V2 数据模型与标准 Python 数据类，完美支持 model_validate_json 与 JsonValue 动态数据类型。",
       "aboutText": "JSON转Pydantic与Python Dataclass生成器是一款专为现代Python及FastAPI开发者量身定制的强类型代码生成工具。它支持将复杂的JSON数据结构自动转换为Pydantic V2（BaseModel）模型类或Python 3.10+标准库@dataclass类。智能识别标量类型、提取嵌套模型、生成List[T]与Optional[T]类型注解，并针对非Python合法变量名自动配置Field(alias=\"...\")映射。",
       "feature1": "支持Pydantic与Dataclass双模式：一键在Pydantic V2声明式模型与标准库@dataclass类之间灵活切换",
       "feature2": "符合PEP 8命名与别名支持：自动将驼峰命名转换为蛇形命名（snake_case），并为特殊字符添加别名映射",
@@ -1064,7 +1064,30 @@
       "faq3Q": "嵌套对象会被拆分为独立的模型类吗？",
       "faq3A": "是的。所有深层嵌套的对象都会递归生成为独立的模型类，并按正确的依赖顺序排列在主模型上方，方便清晰引用。",
       "faq4Q": "我的JSON数据是否会被上传到外部服务器？",
-      "faq4A": "不会。所有代码生成均在浏览器本地借助JavaScript完成，没有任何网络上传，确保代码与数据绝对安全。"
+      "faq4A": "不会。所有代码生成均在浏览器本地借助JavaScript完成，没有任何网络上传，确保代码与数据绝对安全。",
+      "clientSideNotice": "100% 浏览器本地运算（零服务器留存）",
+      "relaxedNotice": "宽松解析器：已自动兼容 Python 字典及 JS 对象写法",
+      "presets": "预设样例",
+      "presetUser": "用户与认证信息",
+      "presetOrder": "电商订单数据",
+      "presetPython": "Python 字典 (FastAPI)",
+      "presetDynamic": "动态字典 (JsonValue)",
+      "beautify": "美化排版",
+      "clear": "清空内容",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "原生数据类",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "主类名称",
+      "snakeCaseOption": "下划线命名与字段别名",
+      "modernTypesOption": "Python 3.10+ 类型声明 (| None)",
+      "smartTypesOption": "智能类型推断 (日期、UUID、邮箱)",
+      "validationCodeOption": "附带 model_validate_json 调用代码",
+      "jsonInput": "输入源 JSON / Python 字典 / JS 对象",
+      "jsonPlaceholder": "在此粘贴 JSON、Python 字典，或拖放文件至此...",
+      "pyPlaceholder": "生成的 Python 完整模型代码将显示在此处...",
+      "copyCode": "复制代码",
+      "copied": "复制成功！",
+      "downloadPy": "下载 .py 文件"
     },
     "jsonToTypescript": {
       "title": "JSON 转 TypeScript 接口生成器",

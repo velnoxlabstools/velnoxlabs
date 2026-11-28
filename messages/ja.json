@@ -291,8 +291,8 @@
       "description": "JSONデータをjsonタグおよびネスト型付きのGolang構造体定義へブラウザ上で即座に変換。"
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON から Pydantic BaseModel ＆ Dataclass 生成ツール – model_validate_json",
-      "description": "JSON を Pydantic スキーマや Python dataclass にオンラインで変換。JSON からの Pydantic BaseModel 生成、model_validate_json 解析、model_dump をサポート。"
+      "name": "AI対応 JSON・Pydanticモデル & Pythonデータクラス生成ツール – Pydantic V2、model_validate_json、JsonValue対応",
+      "description": "JSON、Python辞書、JSオブジェクトからPydantic V2モデルおよびPythonデータクラスをオンラインで即座に自動生成。model_validate_jsonの記述例やJsonValueに対応。"
     },
     "json-to-typescript-interface-generator": {
       "name": "JSONからTypeScript型定義・インターフェース自動生成オンライン – Python辞書、JSオブジェクト、JSON Schema対応",
@@ -1044,8 +1044,8 @@
       "faq4A": "一切ありません。すべてのコード生成処理はブラウザのJavaScript環境内で完結しており、外部サーバーとの通信は発生しません。"
     },
     "jsonToPydantic": {
-      "title": "JSONからPydantic＆Dataclassへの変換ツール",
-      "subtitle": "JSONオブジェクトをモダンなPydantic V2モデルおよびPython Dataclassクラスへ即座に変換します。",
+      "title": "AI対応 JSON・Pydanticモデル & Pythonデータクラス生成ツール",
+      "subtitle": "JSON、Python辞書、JSオブジェクトを型安全なPydantic V2モデルや標準データクラスへ高精度に変換。model_validate_jsonおよびJsonValueに完全対応。",
       "aboutText": "JSONからPydantic＆Dataclassへの変換ツールは、PythonおよびFastAPI開発者のための型定義生成ツールです。任意のJSONデータ構造を解析し、Pydantic V2（BaseModel）やPython 3.10+標準の@dataclass定義を自動出力。基本型の推論、ネストされたサブモデルの分離、Optional[T]やList[T]のアノテーション付与、Python予約語と競合するキーに対するField(alias=\"...\")の自動補完を備えています。",
       "feature1": "PydanticとDataclassの双方に対応：Pydantic V2モデルと標準ライブラリ@dataclassをワンクリックで切り替え",
       "feature2": "PEP 8準拠の命名規則：camelCaseキーをsnake_case属性名へ自動変換し、元のキー名をaliasで維持",
@@ -1064,7 +1064,30 @@
       "faq3Q": "ネストされた子オブジェクトは個別のモデルとして定義されますか？",
       "faq3A": "はい。階層構造を持つオブジェクトは再帰的に解析され、親モデルの上部に独立したクラスとして順番に配置されます。",
       "faq4Q": "社内APIのJSONデータが外部へ漏洩する恐れはありませんか？",
-      "faq4A": "ありません。本ツールは一切のバックエンド通信を行わず、すべてお使いのブラウザ内でのみ安全に動作します。"
+      "faq4A": "ありません。本ツールは一切のバックエンド通信を行わず、すべてお使いのブラウザ内でのみ安全に動作します。",
+      "clientSideNotice": "ブラウザ内100%ローカル実行（外部サーバー送信なし）",
+      "relaxedNotice": "柔軟な解析機能：Python辞書・JSオブジェクト構文を自動補正",
+      "presets": "プリセット",
+      "presetUser": "利用者情報と認証",
+      "presetOrder": "注文データ",
+      "presetPython": "Python辞書（FastAPI）",
+      "presetDynamic": "動的属性（JsonValue）",
+      "beautify": "整形",
+      "clear": "消去",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "標準データクラス",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "主モデル名",
+      "snakeCaseOption": "小文字アンダースコア変数名",
+      "modernTypesOption": "Python 3.10+ 型構文 (| None)",
+      "smartTypesOption": "高度な型判定 (日時、UUID、電子メール)",
+      "validationCodeOption": "model_validate_json利用例を含める",
+      "jsonInput": "入力元 JSON / Python辞書 / JSオブジェクト",
+      "jsonPlaceholder": "JSON、Python辞書を貼り付けるか、ファイルをドロップしてください...",
+      "pyPlaceholder": "生成されたPythonコードがここに表示されます...",
+      "copyCode": "コードを複製",
+      "copied": "複製完了！",
+      "downloadPy": ".pyを保存"
     },
     "jsonToTypescript": {
       "title": "JSONからTypeScript型定義生成ツール",

@@ -298,8 +298,8 @@
       "description": "Transformez du JSON en structures Go avec balises de champ et types imbriqués directement dans votre navigateur."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "Générateur Pydantic BaseModel et Dataclass depuis JSON – model_validate_json",
-      "description": "Transformez vos structures JSON en schémas Pydantic et dataclasses Python en ligne. Créez des Pydantic BaseModel depuis JSON avec support de model_validate_json et model_dump."
+      "name": "Générateur Pydantic et Classes de Données Python par IA – Pydantic V2, model_validate_json et JsonValue",
+      "description": "Convertissez du code JSON, des dictionnaires Python et des objets JS en modèles Pydantic V2 et classes de données Python en ligne avec support model_validate_json."
     },
     "json-to-typescript-interface-generator": {
       "name": "Générateur d'Interfaces JSON vers TypeScript en Ligne – Python, Objets JS et Schéma JSON",
@@ -1051,8 +1051,8 @@
       "faq4A": "Absolument pas. Tout le traitement syntaxique et la production du code source Go ont lieu sur votre poste via JavaScript."
     },
     "jsonToPydantic": {
-      "title": "Générateur Pydantic et Dataclasses depuis JSON",
-      "subtitle": "Générez des modèles modernes Pydantic V2 et des classes Dataclass Python à partir d'objets JSON immédiatement.",
+      "title": "Générateur Pydantic et Classes de Données Python par IA",
+      "subtitle": "Convertissez des structures JSON, dictionnaires Python ou objets JS en modèles Pydantic V2 typés et classes de données natives avec support de model_validate_json et JsonValue.",
       "aboutText": "Le Générateur Pydantic et Dataclasses depuis JSON convertit des objets JSON arbitraires en schémas Python rigoureusement typés. Prenant en charge Pydantic V2 (BaseModel) ainsi que le décorateur @dataclass de la bibliothèque standard Python 3.10+, il identifie les types primitifs, sépare les sous-modèles imbriqués, applique les annotations Optional et List et configure Field(alias=\"...\") pour les clés non conventionnelles en Python. Idéal pour concevoir des services FastAPI.",
       "feature1": "Génération double de modèles : alternez facilement entre les modèles Pydantic V2 BaseModel et les @dataclass natives de Python",
       "feature2": "Style conforme aux règles PEP 8 : transforme les clés camelCase en attributs snake_case avec prise en charge des alias",
@@ -1071,7 +1071,30 @@
       "faq3Q": "Les objets imbriqués forment-ils des classes distinctes ?",
       "faq3A": "Oui. Chaque objet interne est extrait de manière récursive en tant que classe autonome ordonnée au-dessus du modèle parent.",
       "faq4Q": "Mes données JSON transitent-elles par vos serveurs ?",
-      "faq4A": "Non. Tout s'exécute dans votre navigateur en JavaScript ; aucune donnée n'est envoyée vers des serveurs distants."
+      "faq4A": "Non. Tout s'exécute dans votre navigateur en JavaScript ; aucune donnée n'est envoyée vers des serveurs distants.",
+      "clientSideNotice": "Exécution 100% Locale dans le Navigateur (Aucun Journal Serveur)",
+      "relaxedNotice": "Analyseur Flexible: Syntaxe Python et JS convertie automatiquement",
+      "presets": "Modèles",
+      "presetUser": "Profil Utilisateur & Accès",
+      "presetOrder": "Commande Commerciale",
+      "presetPython": "Dictionnaire Python (FastAPI)",
+      "presetDynamic": "Données Dynamiques (JsonValue)",
+      "beautify": "Mettre en forme",
+      "clear": "Effacer",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "Classe de Données Standard",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "Nom du Modèle Racine",
+      "snakeCaseOption": "Attributs en minuscules avec tiret bas",
+      "modernTypesOption": "Types Modernes Python 3.10+ (| None)",
+      "smartTypesOption": "Détection Intelligente (Date, UUID, Courriel)",
+      "validationCodeOption": "Inclure le Code model_validate_json",
+      "jsonInput": "Source JSON / Dictionnaire Python / Objet JS",
+      "jsonPlaceholder": "Collez votre charge utile JSON, dictionnaire Python ou déposez un fichier...",
+      "pyPlaceholder": "Les modèles Python générés apparaîtront ici...",
+      "copyCode": "Copier le Code",
+      "copied": "Copié !",
+      "downloadPy": "Télécharger .py"
     },
     "jsonToTypescript": {
       "title": "Générateur d'Interfaces JSON vers TypeScript",

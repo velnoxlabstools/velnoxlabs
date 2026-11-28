@@ -298,8 +298,8 @@
       "description": "Transforme dados JSON em estruturas de Go com tags estruturais e tipos aninhados no navegador."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "Gerador de Pydantic BaseModel e Dataclass a partir de JSON – model_validate_json",
-      "description": "Transforme JSON em esquemas Pydantic e dataclasses Python online. Crie Pydantic BaseModel a partir de JSON com suporte a model_validate_json e model_dump."
+      "name": "Gerador de Modelos Pydantic e Classes de Dados Python com IA – Pydantic V2, model_validate_json e JsonValue",
+      "description": "Converta JSON, dicionários Python e objetos JS em modelos Pydantic V2 e classes de dados Python online com suporte a model_validate_json e privacidade no navegador."
     },
     "json-to-typescript-interface-generator": {
       "name": "Gerador de Interfaces JSON para TypeScript Online – Python, Objetos JS e JSON Schema",
@@ -1051,8 +1051,8 @@
       "faq4A": "Não. A análise da estrutura e a síntese do código Go ocorrem exclusivamente no navegador por meio de JavaScript."
     },
     "jsonToPydantic": {
-      "title": "Gerador de Pydantic e Dataclasses a partir de JSON",
-      "subtitle": "Crie modelos modernos Pydantic V2 e classes padrão Dataclass em Python a partir de dados JSON na hora.",
+      "title": "Gerador de Modelos Pydantic e Classes de Dados Python com IA",
+      "subtitle": "Converta JSON, dicionários Python ou objetos JS em modelos seguros Pydantic V2 e classes de dados nativas com suporte para model_validate_json e JsonValue.",
       "aboutText": "O Gerador de Pydantic e Dataclasses a partir de JSON transforma estruturas de dados arbitrárias em classes tipadas para Python. Com suporte tanto ao Pydantic V2 (BaseModel) quanto ao padrão @dataclass do Python 3.10+, o gerador infere tipos primitivos, organiza modelos aninhados, define anotações Optional e List e cria declarações Field(alias=\"...\") para chaves incompatíveis com a sintaxe do Python. Ideal para projetos com FastAPI e rotinas de ingestão de dados.",
       "feature1": "Suporte a dois estilos de modelo: alterne entre o padrão declarativo do Pydantic V2 e as @dataclasses da biblioteca padrão",
       "feature2": "Nomenclatura compatível com a PEP 8: transforma chaves camelCase em atributos snake_case com suporte a aliases",
@@ -1071,7 +1071,30 @@
       "faq3Q": "Objetos aninhados são separados em modelos próprios?",
       "faq3A": "Sim. Todos os objetos internos são extraídos recursivamente como classes autônomas posicionadas acima do modelo principal.",
       "faq4Q": "Meus dados JSON confidenciais são enviados para servidores?",
-      "faq4A": "Não. Todo o processo de conversão acontece localmente na memória do navegador sem envio de pacotes para a rede."
+      "faq4A": "Não. Todo o processo de conversão acontece localmente na memória do navegador sem envio de pacotes para a rede.",
+      "clientSideNotice": "Execução 100% no Navegador (Nenhum Dado Enviado ao Servidor)",
+      "relaxedNotice": "Analisador Flexível: Sintaxe Python e JS convertida automaticamente",
+      "presets": "Exemplos",
+      "presetUser": "Perfil de Usuário & Acesso",
+      "presetOrder": "Pedido de Compra",
+      "presetPython": "Dicionário Python (FastAPI)",
+      "presetDynamic": "Dados Dinâmicos (JsonValue)",
+      "beautify": "Formatar",
+      "clear": "Limpar",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "Classe de Dados Padrão",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "Nome do Modelo Raiz",
+      "snakeCaseOption": "Nomes em minúsculas com sublinhado",
+      "modernTypesOption": "Tipos Modernos do Python 3.10+ (| None)",
+      "smartTypesOption": "Detecção Inteligente (Data, UUID, E-mail)",
+      "validationCodeOption": "Incluir Código model_validate_json",
+      "jsonInput": "Origem JSON / Dicionário Python / Objeto JS",
+      "jsonPlaceholder": "Cole dados JSON, dicionário Python ou solte um arquivo aqui...",
+      "pyPlaceholder": "O código Python gerado aparecerá aqui...",
+      "copyCode": "Copiar Código",
+      "copied": "Copiado!",
+      "downloadPy": "Baixar .py"
     },
     "jsonToTypescript": {
       "title": "Gerador de Interfaces JSON para TypeScript",

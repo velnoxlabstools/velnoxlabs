@@ -291,8 +291,8 @@
       "description": "JSON 데이터를 json 태그와 중첩 타입을 포함한 Golang 구조체 코드로 브라우저에서 즉시 변환."
     },
     "json-to-pydantic-&-python-dataclass-generator": {
-      "name": "JSON to Pydantic BaseModel 및 Dataclass 생성기 – model_validate_json",
-      "description": "JSON을 Pydantic 스키마 및 Python dataclass로 온라인 변환합니다. JSON 기반 Pydantic BaseModel 생성, model_validate_json 파싱 및 model_dump 지원."
+      "name": "AI 온라인 JSON to Pydantic 모델 및 Python 데이터 클래스 생성기 – Pydantic V2, model_validate_json 및 JsonValue 지원",
+      "description": "JSON, Python 딕셔너리, JS 객체를 Pydantic V2 모델 및 표준 Python 데이터 클래스로 즉시 변환합니다. model_validate_json 코드 예시와 JsonValue를 완벽 지원합니다."
     },
     "json-to-typescript-interface-generator": {
       "name": "온라인 JSON to TypeScript 인터페이스 변환기 – Python 딕셔너리, JS 객체, JSON Schema 지원",
@@ -1044,8 +1044,8 @@
       "faq4A": "전혀 없습니다. 모든 코드 변환 로직은 브라우저 클라이언트 JavaScript로 구동되므로 데이터가 네트워크를 통해 외부로 전송되지 않습니다."
     },
     "jsonToPydantic": {
-      "title": "JSON to Pydantic 및 Python Dataclass 변환기",
-      "subtitle": "JSON 객체를 최신 Pydantic V2 데이터 모델 및 표준 Python Dataclass 코드로 즉시 변환합니다.",
+      "title": "AI 온라인 JSON to Pydantic 모델 및 Python 데이터 클래스 생성기",
+      "subtitle": "JSON, Python 딕셔너리, JS 객체를 안전한 Pydantic V2 모델과 표준 데이터 클래스로 변환합니다. model_validate_json 및 JsonValue를 완벽 지원합니다.",
       "aboutText": "JSON to Pydantic 및 Python Dataclass 변환기는 최신 파이썬 및 FastAPI 개발 환경을 위해 설계된 강력한 모델 생성 유틸리티입니다. 복잡한 JSON 데이터 구조를 분석하여 Pydantic V2(BaseModel) 클래스 또는 Python 3.10+ 표준 라이브러리 @dataclass 코드를 자동 도출합니다. 기본 자료형 추론, 하위 서브모델 분리, List[T] 및 Optional[T] 타입 힌트 부여, 파이썬 예약어와 겹치는 키에 대한 Field(alias=\"...\") 자동 매핑을 완벽 지원합니다.",
       "feature1": "Pydantic 및 Dataclass 듀얼 지원: Pydantic V2 선언형 모델과 표준 라이브러리 @dataclass 형식을 자유롭게 전환",
       "feature2": "PEP 8 표준 준수 및 별칭 지원: 카멜케이스 키를 스네이크케이스(snake_case)로 변환하고 특수문자 키는 alias로 보존",
@@ -1064,7 +1064,30 @@
       "faq3Q": "중첩된 객체들도 독립된 클래스로 분리되나요?",
       "faq3A": "네, 계층 구조를 갖는 모든 중첩 객체는 재귀적으로 별도의 모델 클래스로 정의되어 부모 모델 상단에 순서대로 배치됩니다.",
       "faq4Q": "입력한 JSON 데이터가 외부 서버로 전송되나요?",
-      "faq4A": "아닙니다. 모든 변환 과정이 사용자 기기의 브라우저 내부에서만 실행되므로 비즈니스 데이터의 외부 유출 걱정이 없습니다."
+      "faq4A": "아닙니다. 모든 변환 과정이 사용자 기기의 브라우저 내부에서만 실행되므로 비즈니스 데이터의 외부 유출 걱정이 없습니다.",
+      "clientSideNotice": "100% 브라우저 로컬 실행 (서버 전송 없음)",
+      "relaxedNotice": "유연한 구문 분석기: Python 및 JS 문법이 자동으로 처리되었습니다",
+      "presets": "사전 설정",
+      "presetUser": "사용자 및 인증 정보",
+      "presetOrder": "전자상거래 주문 데이터",
+      "presetPython": "Python 딕셔너리 (FastAPI)",
+      "presetDynamic": "동적 속성 (JsonValue)",
+      "beautify": "코드 정렬",
+      "clear": "지우기",
+      "pydanticV2Tab": "Pydantic V2",
+      "dataclassTab": "표준 데이터 클래스",
+      "pydanticV1Tab": "Pydantic V1",
+      "rootModelName": "루트 모델 이름",
+      "snakeCaseOption": "밑줄 표기법 및 필드 별칭 생성",
+      "modernTypesOption": "Python 3.10+ 최신 타입 (| None)",
+      "smartTypesOption": "스마트 타입 감지 (날짜, UUID, 이메일)",
+      "validationCodeOption": "model_validate_json 호출 예제 포함",
+      "jsonInput": "입력 원본 JSON / Python 딕셔너리 / JS 객체",
+      "jsonPlaceholder": "JSON 내용, Python 딕셔너리를 입력하거나 파일을 끌어다 놓으세요...",
+      "pyPlaceholder": "생성된 Python 코드가 여기에 표시됩니다...",
+      "copyCode": "코드 복사",
+      "copied": "복사 완료!",
+      "downloadPy": ".py 다운로드"
     },
     "jsonToTypescript": {
       "title": "JSON to TypeScript 인터페이스 변환기",
