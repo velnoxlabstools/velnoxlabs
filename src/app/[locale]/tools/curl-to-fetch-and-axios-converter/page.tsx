@@ -396,6 +396,12 @@ const PRESETS = [
       'curl -X POST https://api.velnoxlabs.com/users \\\n  -H "Content-Type: application/json" \\\n  -H "Authorization: Bearer my_secret_token_123" \\\n  -d \'{"name": "Rohit", "role": "Developer", "active": true}\'',
   },
   {
+    id: 'axiosGet',
+    label: 'Axios GET + Params',
+    command:
+      'curl -X GET "https://api.velnoxlabs.com/v1/items?category=tools&limit=25" \\\n  -H "Accept: application/json" \\\n  -H "Authorization: Bearer token_live_891"',
+  },
+  {
     id: 'getBearer',
     label: 'GET + Query & Token',
     command:
