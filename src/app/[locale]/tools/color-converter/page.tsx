@@ -135,6 +135,47 @@ function findNearestPantone(r: number, g: number, b: number): string {
   return best;
 }
 
+function rgbToNcs(r: number, g: number, b: number): string {
+  const rn = r / 255;
+  const gn = g / 255;
+  const bn = b / 255;
+  const max = Math.max(rn, gn, bn);
+  const min = Math.min(rn, gn, bn);
+  const sBlackness = Math.round((1 - max) * 100);
+  const d = max - min;
+  const cChroma = Math.round(d * 100);
+
+  let h = 0;
+  if (d !== 0) {
+    if (max === rn) h = ((gn - bn) / d) % 6;
+    else if (max === gn) h = (bn - rn) / d + 2;
+    else h = (rn - gn) / d + 4;
+    h = Math.round(h * 60);
+    if (h < 0) h += 360;
+  }
+
+  let huePart = 'N';
+  if (cChroma > 5) {
+    if (h >= 0 && h < 60) {
+      const p = Math.round((h / 60) * 100);
+      huePart = p === 0 ? 'R' : `Y${100 - p}R`;
+    } else if (h >= 60 && h < 120) {
+      const p = Math.round(((h - 60) / 60) * 100);
+      huePart = p === 0 ? 'Y' : `Y${p}G`;
+    } else if (h >= 120 && h < 240) {
+      const p = Math.round(((h - 120) / 120) * 100);
+      huePart = p === 0 ? 'G' : `B${p}G`;
+    } else {
+      const p = Math.round(((h - 240) / 120) * 100);
+      huePart = p === 0 ? 'B' : `R${p}B`;
+    }
+  }
+
+  const sPad = String(Math.min(99, Math.max(0, Math.round(sBlackness / 10) * 10))).padStart(2, '0');
+  const cPad = String(Math.min(99, Math.max(0, Math.round(cChroma / 10) * 10))).padStart(2, '0');
+  return `S ${sPad}${cPad}-${huePart}`;
+}
+
 function relativeLuminance(r: number, g: number, b: number) {
   const lin = (v: number) => {
     const s = v / 255;
@@ -284,6 +325,7 @@ export default function ColorConverterPage() {
 
   const cmykStr = `cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`;
   const labStr = `lab(${lab.l}% ${lab.a} ${lab.b})`;
+  const ncsStr = rgbToNcs(rgbObj.r, rgbObj.g, rgbObj.b);
 
   return (
     <GlobalContainer maxWidth="2xl">
@@ -476,6 +518,7 @@ export default function ColorConverterPage() {
             {[
               { id: 'cmyk', label: 'CMYK (Print)', val: cmykStr },
               { id: 'lab', label: 'CIE LAB', val: labStr },
+              { id: 'ncs', label: 'NCS (Natural Colour)', val: ncsStr },
               { id: 'pantone', label: tUI('pantoneLabel'), val: pantone },
             ].map((card) => (
               <div
