@@ -78,6 +78,12 @@ const CSP_PRESETS = [
     value:
       "default-src 'self';\nscript-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com;\nstyle-src 'self' 'unsafe-inline' https://fonts.googleapis.com;\nimg-src 'self' data: https:;\nfont-src 'self' https://fonts.gstatic.com data:;\nframe-src https://googleads.g.doubleclick.net;\nobject-src 'none'",
   },
+  {
+    id: 'paragonie',
+    labelKey: 'presetParagonie',
+    value:
+      "default-src 'self';\nscript-src 'self' https:;\nstyle-src 'self' 'unsafe-inline' https:;\nimg-src 'self' data: https:;\nfont-src 'self' https:;\nconnect-src 'self' https:;\nobject-src 'none';\nbase-uri 'self';\nform-action 'self';\nframe-ancestors 'self'",
+  },
 ] as const;
 
 export default function CspHeaderBuilderPage() {
