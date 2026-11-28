@@ -579,8 +579,8 @@
       "formatReference": "Cron-Syntax-Referenz",
       "range": "Bereich: {range}",
       "rangeSunSat": "0-6 (So-Sa)",
-      "title": "KI Cron-Ausdrucks-Generator & Validator Kostenlos – Cron-Formatierer",
-      "subtitle": "Erstelle, validiere und dekodiere AWS-, Spring-, Quartz- und Linux-Cron-Zeitpläne mit KI-Spracheingabe, Zeitzonen-Vorschau und 1-Klick-Export für GitHub Actions und Kubernetes.",
+      "title": "KI-Cron-Ausdruck-Generator & Validator Online Gratis – Cron-Formatierer",
+      "subtitle": "Der beste kostenlose KI-Cron-Ausdruck-Generator & Validator online. Erstelle, prüfe und entschlüssele AWS-, Spring-, Quartz-, Python- und Linux-Zeitpläne mit nativer KI, Zeitzonenvorschau und 1-Klick-Export.",
       "aboutText": "Unser Cron-Ausdruck-Ersteller und Validator ist ein unentbehrliches Werkzeug für DevOps-Spezialisten und Backend-Entwickler zur Modellierung, Prüfung und verständlichen Aufschlüsselung automatisierter Zeitpläne. Als schneller und präziser Validator analysiert er die klassische 5-Felder-Syntax von Linux-crontab ebenso wie moderne Cloud-Strukturen ohne Server-Anfragen. Ganz gleich, ob du Regeln für AWS EventBridge und CloudWatch Events (mit 6 Feldern inklusive Jahresangabe) einrichtest, zeitgesteuerte Methoden für Spring in Java definierst oder komplexe Quartz-Abläufe planst: Unser System übersetzt kryptische Zeichenfolgen in klare, menschenlesbare Sätze. Zudem dient es als zuverlässige Hilfe für Salesforce-Apex-Jobs und fungiert als übersichtlicher Syntax-Strukturierer für Cronjobs. Für Java-Entwickler bietet unsere browserbasierte Lösung sofortige Fehlererkennung, Vorschauen auf nächste Ausführungszeitpunkte und lückenlosen Datenschutz.",
       "feature1": "Visueller Zeitplan-Baukasten: Baue regelmäßige Intervalle über einfache Auswahlmenüs, ohne kryptische Syntax auswendig lernen zu müssen",
       "feature2": "Verständliche Spracherklärung: Übersetzt komplexe Ausdrücke (wie '*/15 0-6 * * 1-5') in leicht lesbare Erläuterungen",
@@ -605,7 +605,7 @@
       "aiGenerateBtn": "Cron erstellen",
       "aiUnrecognizedHint": "Ausdruck nicht erkannt. Versuchen Sie \"Every 5 minutes\" oder nutzen Sie die Felder unten.",
       "dialectLinux": "Linux / Crontab (5 Felder)",
-      "dialectSpring": "Spring / Quartz (6 Felder)",
+      "dialectSpring": "Spring (6 Felder)",
       "dialectAws": "AWS EventBridge",
       "pasteCronPlaceholder": "Cron-Ausdruck zum Prüfen einfügen...",
       "second": "Sekunde",
@@ -616,7 +616,8 @@
       "noUpcomingRuns": "Keine passenden Zeiten im nächsten Jahr gefunden.",
       "timezoneLabel": "Zeitzone",
       "tzLocal": "Ortszeit",
-      "exportConfigTitle": "Konfiguration exportieren:"
+      "exportConfigTitle": "Konfiguration exportieren:",
+      "dialectQuartz": "Quartz (6/7 Felder)"
     },
     "cspHeaderBuilder": {
       "title": "KI CSP-Generator & Formatierer – CSP-Scanner, Evaluator & Header-Prüfer",

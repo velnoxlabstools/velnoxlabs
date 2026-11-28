@@ -580,7 +580,7 @@
       "range": "Intervalo: {range}",
       "rangeSunSat": "0-6 (Dom-Sáb)",
       "title": "Gerador e Validador de Expressões Cron com IA Grátis – Formatador Cron",
-      "subtitle": "Crie, valide e decodifique expressões Cron AWS, Spring, Quartz e Linux com IA em linguagem natural, prévia por fuso horário e exportação em um clique para GitHub Actions e Kubernetes.",
+      "subtitle": "O melhor gerador e validador gratuito de expressões cron com IA online. Crie, valide e decodifique agendamentos para AWS, Spring, Quartz, Python e Linux com IA, prévias de fuso horário e exportação em 1 clique.",
       "aboutText": "Nosso gerador e validador de expressões cron é um utilitário essencial para equipes de DevOps e desenvolvedores backend projetado para criar, revisar e interpretar agendamentos automáticos. Operando como um validador de alta precisão, ele analisa tanto a sintaxe convencional de 5 campos do crontab do Linux quanto padrões de nuvem sem tráfego de rede. Quer você precise configurar gatilhos para AWS EventBridge e CloudWatch (com suporte a 6 campos incluindo o ano), definir agendamentos Spring para microsserviços Java ou estruturar rotinas empresariais no Quartz, nosso sistema traduz combinações cifradas em frases claras e compreensíveis. Também funciona perfeitamente como gerador para rotinas do Salesforce Apex e serve como um prático organizador visual de sintaxe cron que ordena cada fração de tempo. Para programadores Java que procuram um utilitário confiável, nossa ferramenta opera 100% no navegador, fornecendo validação instantânea, estimativa de execuções futuras e total privacidade.",
       "feature1": "Construtor visual de rotinas: crie agendamentos periódicos por meio de seletores intuitivos sem precisar memorizar comandos",
       "feature2": "Tradução para português claro: transforma códigos de cron difíceis (como '*/15 0-6 * * 1-5') em frases inteligíveis",
@@ -605,7 +605,7 @@
       "aiGenerateBtn": "Criar Cron",
       "aiUnrecognizedHint": "Frase não reconhecida. Tente \"Every 5 minutes\" ou use os campos abaixo.",
       "dialectLinux": "Linux / Crontab (5 campos)",
-      "dialectSpring": "Spring / Quartz (6 campos)",
+      "dialectSpring": "Spring (6 campos)",
       "dialectAws": "AWS EventBridge",
       "pasteCronPlaceholder": "Cole a expressão cron para validar...",
       "second": "Segundo",
@@ -616,7 +616,8 @@
       "noUpcomingRuns": "Nenhuma execução encontrada no próximo ano.",
       "timezoneLabel": "Fuso horário",
       "tzLocal": "Hora local",
-      "exportConfigTitle": "Exportar configuração:"
+      "exportConfigTitle": "Exportar configuração:",
+      "dialectQuartz": "Quartz (6/7 campos)"
     },
     "cspHeaderBuilder": {
       "title": "Gerador e Formatador CSP com IA – Scanner CSP, Avaliador e Validador de Cabeçalhos",

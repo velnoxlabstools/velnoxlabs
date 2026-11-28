@@ -580,7 +580,7 @@
       "range": "Range: {range}",
       "rangeSunSat": "0-6 (Sun-Sat)",
       "title": "AI Cron Expression Generator & Validator Online Free – Cron Formatter",
-      "subtitle": "The Best Free AI Cron Expression Generator & Validator Online. Build, validate, and decode AWS, Spring, Quartz, and Linux cron schedules with natural-language AI, timezone run previews, and 1-click GitHub Actions/Kubernetes export.",
+      "subtitle": "The Best Free AI Cron Expression Generator & Validator Online. Build, validate, and decode AWS cron expression, Spring cron expression, Quartz, Python, and Linux schedules with natural-language AI, timezone run previews, and 1-click GitHub Actions/Kubernetes/Python export.",
       "aboutText": "Our Best free cron expression generator & validator and Cron Expression Formatter is an indispensable DevOps and backend developer utility engineered to design, inspect, and decode automated recurring schedules. Operating as a fast, high-precision Cron expression validator, it parses both standard Linux 5-field crontab schedules and modern cloud formats without server round-trips. Whether you are configuring an AWS cron expression for AWS EventBridge and CloudWatch Events (utilizing 6 fields with year support), crafting a Spring cron expression for Java microservices, or relying on a Quartz cron expression generator for enterprise backend jobs, our tool translates complex cron strings into plain-English human-readable schedules. It also functions as a reliable Salesforce cron expression generator for Apex System.schedule jobs and serves as an intuitive Free formatter cron expression tool that organizes schedule components clearly. If you need a Free cron expression generator & validator java developers trust, our 100% client-side tool provides real-time schedule validation, next execution previews, and complete data privacy.",
       "feature1": "Visual Schedule Builder: Build complex recurring schedules using intuitive dropdowns and selectors without memorizing syntax",
       "feature2": "Human-Readable Schedule Translation: Instantly translates cryptic cron strings (like \"*/15 0-6 * * 1-5\") into clear English descriptions",
@@ -605,7 +605,7 @@
       "aiGenerateBtn": "Generate Cron",
       "aiUnrecognizedHint": "Could not match that phrase automatically. Try phrases like \"Every 5 minutes\" or \"Every Monday at 8 AM\", or use the visual builder below.",
       "dialectLinux": "Linux / Crontab (5-field)",
-      "dialectSpring": "Spring / Quartz (6-field)",
+      "dialectSpring": "Spring (6-field)",
       "dialectAws": "AWS EventBridge",
       "pasteCronPlaceholder": "Paste cron expression to validate...",
       "second": "Second",
@@ -616,7 +616,8 @@
       "noUpcomingRuns": "No matching run times found within the next year.",
       "timezoneLabel": "Timezone",
       "tzLocal": "Local Time",
-      "exportConfigTitle": "Export Schedule Config:"
+      "exportConfigTitle": "Export Schedule Config:",
+      "dialectQuartz": "Quartz (6/7-field)"
     },
     "cspHeaderBuilder": {
       "title": "AI CSP Generator & Formatter – CSP Scanner, Evaluator & Header Validator",

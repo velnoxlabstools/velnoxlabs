@@ -581,8 +581,8 @@
       "formatReference": "Riferimento Formato Cron",
       "range": "Intervallo: {range}",
       "rangeSunSat": "0-6 (Dom-Sab)",
-      "title": "Generatore e Validatore di Espressioni Cron IA Gratuito – Formattatore Cron",
-      "subtitle": "Crea, valida e decodifica espressioni Cron AWS, Spring, Quartz e Linux con IA in linguaggio naturale, anteprima fuso orario ed esportazione in un clic per GitHub Actions e Kubernetes.",
+      "title": "Generatore e Validatore di Espressioni Cron con IA Gratis – Formattatore Cron",
+      "subtitle": "Il miglior generatore e validatore gratuito di espressioni cron con IA online. Crea, verifica e decodifica pianificazioni AWS, Spring, Quartz, Python e Linux con IA, anteprime di fuso orario ed esportazione in 1 clic.",
       "aboutText": "Il nostro generatore e validatore di espressioni cron è uno strumento essenziale per sistemisti DevOps e sviluppatori backend ideato per impostare, collaudare e decodificare pianificazioni automatiche. Operando come un validatore rapido e accurato, elabora sia la sintassi standard a 5 campi di Linux crontab sia le notazioni cloud moderne senza comunicazioni verso server esterni. Sia che tu stia impostando eventi per AWS EventBridge e CloudWatch (con 6 campi comprensivi dell'anno), configurando annotazioni Spring per microservizi Java o definendo compiti su larga scala per Quartz, il programma converte stringhe indecifrabili in spiegazioni lineari e comprensibili. Agisce inoltre come un affidabile generatore per procedure Salesforce Apex e funge da comodo decodificatore di sintassi cron per visualizzare ogni frazione oraria con ordine. Per gli sviluppatori Java che necessitano di una verifica sicura, la piattaforma nel browser offre riscontri istantanei, anteprime delle esecuzioni future e piena riservatezza.",
       "feature1": "Pannello visuale per pianificazioni: definisci scadenze periodiche tramite controlli guidati senza dover mandare a memoria la sintassi",
       "feature2": "Descrizione in linguaggio naturale: traduce istruzioni cron complesse (come '*/15 0-6 * * 1-5') in descrizioni limpide e comprensibili",
@@ -607,7 +607,7 @@
       "aiGenerateBtn": "Crea Cron",
       "aiUnrecognizedHint": "Frase non riconosciuta. Prova \"Every 5 minutes\" o usa i campi visivi sotto.",
       "dialectLinux": "Linux / Crontab (5 campi)",
-      "dialectSpring": "Spring / Quartz (6 campi)",
+      "dialectSpring": "Spring (6 campi)",
       "dialectAws": "AWS EventBridge",
       "pasteCronPlaceholder": "Incolla espressione cron da validare...",
       "second": "Secondo",
@@ -618,7 +618,8 @@
       "noUpcomingRuns": "Nessuna esecuzione trovata nel prossimo anno.",
       "timezoneLabel": "Fuso orario",
       "tzLocal": "Ora locale",
-      "exportConfigTitle": "Esporta configurazione:"
+      "exportConfigTitle": "Esporta configurazione:",
+      "dialectQuartz": "Quartz (6/7 campi)"
     },
     "cspHeaderBuilder": {
       "title": "Generatore e Formattatore CSP IA – Scanner CSP, Valutatore e Validatore Intestazioni",

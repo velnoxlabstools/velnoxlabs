@@ -30,7 +30,7 @@ const CRONSTRUE_LOCALE_MAP: Record<string, string> = {
   ko: 'ko',
 };
 
-type CronDialect = 'linux' | 'spring' | 'aws';
+type CronDialect = 'linux' | 'spring' | 'quartz' | 'aws';
 
 // Deterministic AI Natural Language to 5-field Cron Parser
 function parseNaturalLanguageToCron(
@@ -296,15 +296,20 @@ export default function CronExpressionGeneratorPage() {
   const [pasteError, setPasteError] = useState(false);
   const [copied, setCopied] = useState(false);
   const [timezone, setTimezone] = useState<string>('local');
-  const [exportTarget, setExportTarget] = useState<'crontab' | 'github' | 'k8s' | 'vercel'>(
-    'crontab'
-  );
+  const [exportTarget, setExportTarget] = useState<
+    'crontab' | 'github' | 'k8s' | 'vercel' | 'python'
+  >('crontab');
   const [copiedConfig, setCopiedConfig] = useState(false);
 
   // Formatted expression according to dialect
   const cronExpression = useMemo(() => {
     if (dialect === 'spring') {
       return `${second} ${minute} ${hour} ${day} ${month} ${weekday}`;
+    }
+    if (dialect === 'quartz') {
+      const qDom = day === '*' && weekday !== '*' ? '?' : day;
+      const qDow = qDom !== '?' && weekday === '*' ? '?' : weekday;
+      return `${second} ${minute} ${hour} ${qDom} ${month} ${qDow}${year !== '*' ? ` ${year}` : ''}`;
     }
     if (dialect === 'aws') {
       const awsDom = day === '*' && weekday !== '*' ? '?' : day;
@@ -317,13 +322,19 @@ export default function CronExpressionGeneratorPage() {
   // Validation
   const validationErrors = useMemo(() => {
     const errs: string[] = [];
-    if (dialect === 'spring' && !isValidCronField(second, 0, 59)) errs.push(tUI('second'));
+    if ((dialect === 'spring' || dialect === 'quartz') && !isValidCronField(second, 0, 59))
+      errs.push(tUI('second'));
     if (!isValidCronField(minute, 0, 59)) errs.push(tUI('minute'));
     if (!isValidCronField(hour, 0, 23)) errs.push(tUI('hour'));
     if (!isValidCronField(day, 1, 31, dialect !== 'linux')) errs.push(tUI('dayMonth'));
     if (!isValidCronField(month, 1, 12)) errs.push(tUI('month'));
     if (!isValidCronField(weekday, 0, 7, dialect !== 'linux')) errs.push(tUI('weekday'));
-    if (dialect === 'aws' && !isValidCronField(year, 1970, 2099)) errs.push(tUI('yearLabel'));
+    if (
+      (dialect === 'aws' || dialect === 'quartz') &&
+      year !== '*' &&
+      !isValidCronField(year, 1970, 2099)
+    )
+      errs.push(tUI('yearLabel'));
     return errs;
   }, [dialect, second, minute, hour, day, month, weekday, year, tUI]);
 
@@ -407,6 +418,13 @@ export default function CronExpressionGeneratorPage() {
         setMonth(parts[3]);
         setWeekday(parts[4]);
         setYear(parts[5]);
+      } else if (dialect === 'quartz') {
+        setSecond(parts[0]);
+        setMinute(parts[1]);
+        setHour(parts[2]);
+        setDay(parts[3]);
+        setMonth(parts[4]);
+        setWeekday(parts[5]);
       } else {
         setDialect('spring');
         setSecond(parts[0]);
@@ -416,6 +434,15 @@ export default function CronExpressionGeneratorPage() {
         setMonth(parts[4]);
         setWeekday(parts[5]);
       }
+    } else if (parts.length === 7) {
+      setDialect('quartz');
+      setSecond(parts[0]);
+      setMinute(parts[1]);
+      setHour(parts[2]);
+      setDay(parts[3]);
+      setMonth(parts[4]);
+      setWeekday(parts[5]);
+      setYear(parts[6]);
     } else {
       setPasteError(true);
     }
@@ -447,8 +474,11 @@ export default function CronExpressionGeneratorPage() {
     if (exportTarget === 'vercel') {
       return `{\n  "crons": [\n    {\n      "path": "/api/cron",\n      "schedule": "${fiveFieldForExport}"\n    }\n  ]\n}`;
     }
+    if (exportTarget === 'python') {
+      return `from apscheduler.schedulers.blocking import BlockingScheduler\n\nsched = BlockingScheduler()\n\n@sched.scheduled_job('cron', minute='${minute}', hour='${hour}', day='${day === '?' ? '*' : day}', month='${month}', day_of_week='${weekday === '?' ? '*' : weekday}')\ndef scheduled_job():\n    print("Executing scheduled task...")\n\nsched.start()`;
+    }
     return `${fiveFieldForExport} /usr/local/bin/run-job.sh`;
-  }, [exportTarget, fiveFieldForExport]);
+  }, [exportTarget, fiveFieldForExport, minute, hour, day, month, weekday]);
 
   const handleCopyConfig = async () => {
     try {
@@ -620,7 +650,7 @@ export default function CronExpressionGeneratorPage() {
             }}
           >
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              {(['linux', 'spring', 'aws'] as const).map((d) => (
+              {(['linux', 'spring', 'quartz', 'aws'] as const).map((d) => (
                 <button
                   key={d}
                   type="button"
@@ -640,7 +670,9 @@ export default function CronExpressionGeneratorPage() {
                     ? tUI('dialectLinux')
                     : d === 'spring'
                       ? tUI('dialectSpring')
-                      : tUI('dialectAws')}
+                      : d === 'quartz'
+                        ? tUI('dialectQuartz')
+                        : tUI('dialectAws')}
                 </button>
               ))}
             </div>
@@ -684,7 +716,7 @@ export default function CronExpressionGeneratorPage() {
               marginBottom: '20px',
             }}
           >
-            {dialect === 'spring' && (
+            {(dialect === 'spring' || dialect === 'quartz') && (
               <div>
                 <label
                   style={{
@@ -871,7 +903,7 @@ export default function CronExpressionGeneratorPage() {
               />
             </div>
 
-            {dialect === 'aws' && (
+            {(dialect === 'aws' || dialect === 'quartz') && (
               <div>
                 <label
                   style={{
@@ -1179,6 +1211,7 @@ export default function CronExpressionGeneratorPage() {
                       { id: 'github', label: 'GitHub Actions' },
                       { id: 'k8s', label: 'Kubernetes' },
                       { id: 'vercel', label: 'Vercel JSON' },
+                      { id: 'python', label: 'Python (APScheduler)' },
                     ] as const
                   ).map((item) => (
                     <button
