@@ -755,8 +755,8 @@
       "copied": "복사완료!",
       "errNoUrl": "cURL 명령어에서 URL을 찾을 수 없습니다.",
       "errParseFailed": "cURL 명령어 파싱에 실패했습니다",
-      "title": "cURL to Python Requests 변환기 온라인 – cURL to Postman 연동 안내",
-      "subtitle": "무료 cURL to Python Requests 온라인 변환기 및 Postman 연동 참조 도구. 터미널의 cURL 명령어를 표준 Python requests 스크립트로 즉시 변환하세요.",
+      "title": "AI cURL-Python Requests 변환기 온라인 – cURL-Postman 및 Python-cURL",
+      "subtitle": "무료 온라인 AI cURL-Python Requests 변환기입니다. 터미널 cURL 명령어를 간결하고 깔끔한 Python 코드로 즉시 변환하세요.",
       "aboutText": "본 cURL to Python Requests 온라인 변환기는 소프트웨어 엔지니어와 데이터 분석가를 위해 설계된 실시간 웹 도구입니다. 기존의 구형 변환 서비스를 대체하는 현대적이고 안전한 로컬 솔루션으로서, 터미널 명령어를 파이썬 표준 딕셔너리 구조의 깔끔한 requests 코드로 변환해 줍니다. 단순한 파이썬 스크립트 도출을 넘어 복잡한 Bash 셸 명령어를 유지보수하기 쉬운 코드로 정돈하는 변환기 역할도 수행합니다. 개발자들은 cURL to Postman 연동 작업이나 HTTP 프로토콜 규격 및 헤더를 점검할 때 본 도구를 자주 활용합니다. 중첩된 JSON 구조를 지원하여 -d 및 --data 인자를 파이썬 고유 데이터형으로 즉각 매핑하며 완벽한 로컬 보안을 보장합니다.",
       "feature1": "자연스러운 파이썬 코드 생성: 페이로드와 헤더를 네이티브 Python 딕셔너리로 깔끔하게 구조화",
       "feature2": "스마트 인증 및 JSON 감지: -u 플래그를 HTTPBasicAuth로, JSON 데이터를 requests의 json= 파라미터로 자동 연결",
@@ -798,7 +798,10 @@
       "postmanImportTip": "Postman 사용 방법: Postman 열기 -> 좌측 상단 '가져오기' 클릭 -> 다운로드된 .json 파일 끌어다 놓기.",
       "rawHttpLabel": "원시 HTTP 요청:",
       "rawHttpPlaceholder": "원시 HTTP 요청 붙여넣기...",
-      "generatedCurlLabel": "생성된 cURL 명령어:"
+      "generatedCurlLabel": "생성된 cURL 명령어:",
+      "modePythonToCurl": "Python을 cURL로 변환",
+      "pythonCodeLabel": "Python Requests / HTTPX 스크립트",
+      "presetPythonPost": "JSON 및 매개변수가 포함된 POST"
     },
     "discountCalculator": {
       "findSalePrice": "💵 할인가 계산",

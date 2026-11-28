@@ -755,8 +755,8 @@
       "copied": "Copied!",
       "errNoUrl": "Could not find a URL in the cURL command.",
       "errParseFailed": "Failed to parse cURL command",
-      "title": "cURL to Python Requests Converter (Online) – cURL to Postman",
-      "subtitle": "Free cURL to Python Requests Converter (Online) and cURL to Postman reference. Convert terminal cURL commands into clean Python requests scripts instantly.",
+      "title": "AI cURL to Python Requests Converter Online – cURL to Postman & Python to cURL",
+      "subtitle": "Free online AI cURL to Python Requests converter, Postman collection generator, and Python to cURL tool. Convert bash cURL commands into clean Python code instantly.",
       "aboutText": "Our cURL to Python Requests Converter (Online) is a high-speed, browser-based Curl converter built for developers, data engineers, and API integrators. If you need a reliable Curl to python converter online to transform command-line instructions, this tool serves as a modern, private alternative to legacy services like Curl trillworks. It seamlessly translates cURL to Python requests code with idiomatic dictionary formatting. Beyond generating Python scripts, it functions as an essential cURL (bash converter) to translate complex Bash cURL one-liners into maintainable code. Developers frequently use it alongside Curl to Postman workflows and as a direct Curl to HTTP protocol inspector to debug raw headers and query parameters. With dedicated parsing for nested dictionaries, it excels as a specialized Curl to python converter json tool, instantly transforming -d and --data payloads into native Python data structures while guaranteeing 100% client-side privacy.",
       "feature1": "Idiomatic Python Output: Formats payloads as Python dictionaries, preserving types, nested keys, and custom headers",
       "feature2": "Smart Auth & Payload Detection: Automatically maps -u flags to requests.auth.HTTPBasicAuth and JSON payloads to json=",
@@ -798,7 +798,10 @@
       "postmanImportTip": "How to use in Postman: Open Postman -> Click 'Import' (top left) -> Drop the downloaded .json file or paste raw JSON collection.",
       "rawHttpLabel": "Raw HTTP Request:",
       "rawHttpPlaceholder": "Paste raw HTTP request (e.g. POST /v1/items HTTP/1.1\\nHost: api.example.com\\nContent-Type: application/json\\n\\n{\"name\":\"item\"})...",
-      "generatedCurlLabel": "Generated cURL Command:"
+      "generatedCurlLabel": "Generated cURL Command:",
+      "modePythonToCurl": "Python to cURL",
+      "pythonCodeLabel": "Python Requests / HTTPX Script",
+      "presetPythonPost": "POST with JSON & Params"
     },
     "discountCalculator": {
       "findSalePrice": "💵 Find Sale Price",

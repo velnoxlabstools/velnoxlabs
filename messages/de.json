@@ -286,8 +286,8 @@
       "description": "Kostenloser KI CSV zu JSON und JSON zu CSV Konverter. Automatische Erkennung von Zahlen und Wahrheitswerten, Trennzeichen-Automatik und Drag-and-Drop-Dateiupload."
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL-zu-Python-Requests-Konverter Online – cURL zu Postman Referenz",
-      "description": "Kostenloser cURL-zu-Python-Requests-Konverter und cURL-zu-Postman-Leitfaden. Wandle Terminal-cURL-Befehle direkt in saubere Python-Requests-Skripte um."
+      "name": "KI-cURL-zu-Python-Requests-Konverter Online – cURL zu Postman, Python zu cURL & HTTP",
+      "description": "Kostenloser Online-KI-cURL-zu-Python-Requests-Konverter, Postman-Sammlungsgenerator und Python-zu-cURL-Tool. Konvertieren Sie cURL-Befehle in Python (Requests & HTTPX), Postman v2.1 und Java."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL-zu-Fetch-und-Axios-Konverter – cURL in Axios Online Umwandeln",
@@ -622,8 +622,8 @@
       "faq4A": "Ja. Das System liest JSON-Inhalte (--data, -d, --data-raw), Formulardaten, Bearer-Tokens und Basic-Auth (-u Benutzer:Passwort) zuverlässig ein. Da alle Schritte clientseitig im Webbrowser ablaufen, bleiben deine Zugangsdaten vertraulich."
     },
     "curlToPython": {
-      "title": "cURL-zu-Python-Requests-Konverter Online – cURL zu Postman Referenz",
-      "subtitle": "Kostenloser cURL-zu-Python-Requests-Konverter und cURL-zu-Postman-Leitfaden. Wandle Terminal-cURL-Befehle direkt in saubere Python-Requests-Skripte um.",
+      "title": "KI-cURL-zu-Python-Requests-Konverter Online – cURL zu Postman & Python zu cURL",
+      "subtitle": "Kostenloser Online-cURL-zu-Python-Requests-Konverter und Postman-Sammlungsgenerator. Wandeln Sie cURL-Befehle blitzschnell in sauberen Python-Code um.",
       "aboutText": "Unser webbasierter cURL-zu-Python-Requests-Konverter ist ein performantes Hilfsmittel für Softwareentwickler und Datenanalysten. Als zeitgemäße, datenschutzfreundliche Alternative zu älteren Portalen überträgt dieses Werkzeug Befehlszeilenaufrufe in sauberen Python-Requests-Code mit übersichtlichen Wörterbüchern. Neben der Skripterstellung fungiert die Anwendung als praktischer Helfer für Bash-Terminalbefehle, um unübersichtliche Einzeiler in wartungsfreundliche Abläufe zu überführen. Entwickler nutzen das Werkzeug häufig bei der Vorbereitung für Postman oder zur Analyse von HTTP-Headern. Durch die Erkennung von JSON-Strukturen werden -d- und --data-Nutzlasten direkt in native Python-Objekte umgewandelt.",
       "feature1": "Idiomatische Python-Ausgabe: Strukturiert Header und Payloads als native Python-Dictionaries unter Erhalt der Datentypen",
       "feature2": "Automatische Authentifizierung & JSON-Erkennung: Verknüpft -u Flags direkt mit HTTPBasicAuth und JSON-Daten mit dem json=-Parameter",
@@ -642,7 +642,41 @@
       "faq3Q": "Was versteht man unter einem Terminal-Befehlswandler für cURL?",
       "faq3A": "Ein solcher Helfer übersetzt Shell- und Bash-Befehle, die oft Zeilenumbrüche mit Backslashes (\\) und Maskierungszeichen enthalten, in sauberen Quelltext. Parameter wie -H, -X, -d und -u werden automatisch aufgeschlüsselt, was die Skriptmigration zu Python beschleunigt.",
       "faq4Q": "Werden verschachtelte JSON-Datenstrukturen verlässlich erkannt?",
-      "faq4A": "Ja. Das Werkzeug verarbeitet verschachtelte Objekte, Arrays, boolesche Werte (umgewandelt in True und False) sowie Nullwerte (umgewandelt in None). Die Nutzlast wird als valides Python-Dictionary bereitgestellt und an den json=-Parameter übergeben."
+      "faq4A": "Ja. Das Werkzeug verarbeitet verschachtelte Objekte, Arrays, boolesche Werte (umgewandelt in True und False) sowie Nullwerte (umgewandelt in None). Die Nutzlast wird als valides Python-Dictionary bereitgestellt und an den json=-Parameter übergeben.",
+      "curlCommand": "cURL-Befehl:",
+      "curlPlaceholder": "cURL-Befehl hier einfügen...",
+      "pythonCode": "Python Requests-Code:",
+      "pythonPlaceholder": "Generierter Python-Code wird hier angezeigt...",
+      "copyCode": "Code kopieren",
+      "copied": "Kopiert!",
+      "errNoUrl": "Konnte keine URL im cURL-Befehl finden.",
+      "errParseFailed": "Fehler beim Parsen des cURL-Befehls",
+      "modeCurlToCode": "cURL zu Code und Postman",
+      "modeHttpToCurl": "Roh-HTTP / JSON zu cURL",
+      "tabPython": "Python (Requests)",
+      "tabHttpx": "Python (HTTPX)",
+      "tabPostman": "Postman-Sammlung v2.1",
+      "tabHttp": "Roh-HTTP (RFC 7230)",
+      "tabJava": "Java (HttpClient)",
+      "downloadPostman": "Postman herunterladen (.json)",
+      "downloaded": "Heruntergeladen!",
+      "examplePresets": "Beispiele:",
+      "presetPostJson": "POST JSON + Authentifizierung",
+      "presetGetParams": "GET + Abfrage und Token",
+      "presetBasicAuth": "Basis-Authentifizierung",
+      "presetFormUrlencoded": "URL-kodiertes Formular",
+      "presetHttpRaw": "Roh-HTTP POST",
+      "clear": "Löschen",
+      "requestInspector": "Anfrage-Prüfer",
+      "headersCount": "Kopfzeilen ({count})",
+      "queryParamsCount": "Parameter ({count})",
+      "postmanImportTip": "Verwendung in Postman: Öffnen Sie Postman -> Klicken Sie oben links auf 'Importieren' -> Ziehen Sie die heruntergeladene .json-Datei hinein.",
+      "rawHttpLabel": "Roh-HTTP-Anfrage:",
+      "rawHttpPlaceholder": "Fügen Sie die Roh-HTTP-Anfrage ein...",
+      "generatedCurlLabel": "Generierter cURL-Befehl:",
+      "modePythonToCurl": "Python zu cURL",
+      "pythonCodeLabel": "Python-Requests- / HTTPX-Skript",
+      "presetPythonPost": "POST mit JSON & Parametern"
     },
     "discountCalculator": {
       "title": "Rabattrechner mit MwSt. (KI)",

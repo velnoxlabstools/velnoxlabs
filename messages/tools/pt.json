@@ -755,8 +755,8 @@
       "copied": "Copiado!",
       "errNoUrl": "Não foi possível encontrar uma URL no comando cURL.",
       "errParseFailed": "Falha ao analisar o comando cURL",
-      "title": "Conversor de cURL para Python Requests Online – Referência de cURL para Postman",
-      "subtitle": "Utilitário online gratuito de cURL para Python Requests e referência para Postman. Transforme linhas de comando cURL em scripts limpos de Python requests.",
+      "title": "Conversor de cURL para Python Requests com IA – cURL para Postman e Python para cURL",
+      "subtitle": "Conversor gratuito de cURL para Python Requests e gerador de coleções Postman. Converta comandos cURL em código Python limpo instantaneamente.",
       "aboutText": "Nosso conversor online de cURL para Python Requests é uma solução de alto rendimento criada para desenvolvedores e especialistas em dados. Atuando como uma alternativa privativa e moderna a plataformas tradicionais, ele traduz comandos do terminal para código Python requests com dicionários estruturados. Além de criar scripts em Python, funciona como um utilitário essencial para comandos de console Bash, tornando legíveis instruções longas de terminal. É frequentemente adotado em rotinas de cURL para Postman e na conferência de parâmetros do protocolo HTTP. Com tratamento para dados em JSON, ele converte argumentos -d e --data em estruturas nativas de Python com proteção total no navegador.",
       "feature1": "Código Python idiomático: formata cabeçalhos e cargas úteis como dicionários nativos preservando tipos e estruturas",
       "feature2": "Identificação automática de autenticação e JSON: mapeia o sinalizador -u para HTTPBasicAuth e dados JSON para o parâmetro json=",
@@ -798,7 +798,10 @@
       "postmanImportTip": "Como usar no Postman: Abra o Postman -> Clique em 'Importar' (canto superior esquerdo) -> Arraste o arquivo .json baixado.",
       "rawHttpLabel": "Requisição HTTP Bruta:",
       "rawHttpPlaceholder": "Cole a requisição HTTP bruta...",
-      "generatedCurlLabel": "Comando cURL Gerado:"
+      "generatedCurlLabel": "Comando cURL Gerado:",
+      "modePythonToCurl": "Python para cURL",
+      "pythonCodeLabel": "Script do Python Requests / HTTPX",
+      "presetPythonPost": "POST com JSON e Parâmetros"
     },
     "discountCalculator": {
       "findSalePrice": "💵 Calcular Preço Final",

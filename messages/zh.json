@@ -279,8 +279,8 @@
       "description": "免费在线 AI 大文件 CSV 与 JSON 双向转换工具。支持数值布尔类型识别、自动分隔符检测、点号路径多层嵌套及拖拽上传。"
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL 转 Python Requests 代码生成器在线版 – cURL 转 Postman 参考",
-      "description": "免费在线 cURL 转 Python Requests 转换工具与 cURL 转 Postman 参考。一键将终端 cURL 命令行即时转换为规范的 Python requests 脚本。"
+      "name": "AI cURL 转 Python Requests 在线转换器 – cURL 转 Postman、Python 转 cURL 与 HTTP",
+      "description": "免费在线 AI cURL 转 Python Requests 转换器、Postman 集合生成器及 Python 转 cURL 工具。支持将 cURL 终端命令转换至 Python (Requests 与 HTTPX)、Postman v2.1、Java，并支持反向转换。"
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL 转 Fetch 与 Axios 代码生成工具 – 在线 cURL 转换器",
@@ -615,8 +615,8 @@
       "faq4A": "完全支持。本工具能够解析 raw 原始数据负载 (--data、-d、--data-raw)、URL 编码表单、Bearer Token 以及基础认证 (-u 用户名:密码)。所有逻辑均在浏览器本地安全运行，绝不会向远程服务器传输任何密钥信息。"
     },
     "curlToPython": {
-      "title": "cURL 转 Python Requests 代码生成器在线版 – cURL 转 Postman 参考",
-      "subtitle": "免费在线 cURL 转 Python Requests 转换工具与 cURL 转 Postman 参考。一键将终端 cURL 命令行即时转换为规范的 Python requests 脚本。",
+      "title": "AI cURL 转 Python Requests 在线转换器 – cURL 转 Postman 与 Python 转 cURL",
+      "subtitle": "免费在线 AI cURL 转 Python Requests 与 Postman 集合转换器。瞬间将 cURL 终端命令转换至规范易读的 Python 脚本。",
       "aboutText": "我们的 cURL 转 Python Requests 在线转换工具是一款专为开发者、数据工程师与接口联调人员打造的高效转换器。作为替代传统旧式工具的现代化纯前端方案，它能流畅地将 cURL 指令转化为结构清晰的标准 Python requests 代码。除生成 Python 脚本外，它还可充当实用的 Bash 指令转译器，将复杂的 Shell 单行命令梳理为易维护的程序。开发者常在 cURL 转 Postman 联调或排查 HTTP 原始协议时使用本工具，核验标头与查询参数。针对深层嵌套数据，它具备专业的数据归纳能力，能将 -d 和 --data 负载即时重组为 Python 原生字典，并在浏览器本地确保信息隐私安全。",
       "feature1": "地道的Python代码生成：自动将载荷与标头转化为原生Python字典，保留原始数据类型与嵌套结构",
       "feature2": "智能认证与JSON识别：自动将-u凭证转换为HTTPBasicAuth认证，并将JSON参数绑定至json=参数",
@@ -635,7 +635,41 @@
       "faq3Q": "什么是 cURL 终端转译工具，它如何协助研发工作？",
       "faq3A": "cURL 终端转译工具是一种辅助开发人员将包含反斜杠换行符 (\\)、环境变量及复杂转义引号的 Shell 脚本指令转化为编程语言代码的工具。它能自动提取 -H、-X、-d 和 -u 等常用参数，大幅节约从运维脚本向 Python 后端服务迁移接口逻辑的时间。",
       "faq4Q": "本工具是否支持转换包含多层嵌套 JSON 负载的 cURL 指令？",
-      "faq4A": "完全支持。转换模块能准确辨析多层嵌套对象、数组、布尔值 (自动匹配 Python True/False) 以及空值 (自动匹配 Python None)。提取后的数据将规范放入 Python 字典中，并传给 requests 的 json= 参数。"
+      "faq4A": "完全支持。转换模块能准确辨析多层嵌套对象、数组、布尔值 (自动匹配 Python True/False) 以及空值 (自动匹配 Python None)。提取后的数据将规范放入 Python 字典中，并传给 requests 的 json= 参数。",
+      "curlCommand": "cURL 命令：",
+      "curlPlaceholder": "在此粘贴 cURL 命令...",
+      "pythonCode": "Python Requests 代码：",
+      "pythonPlaceholder": "生成的 Python 代码将在此处显示...",
+      "copyCode": "复制代码",
+      "copied": "已复制！",
+      "errNoUrl": "在 cURL 命令中未找到 URL。",
+      "errParseFailed": "解析 cURL 命令失败",
+      "modeCurlToCode": "cURL 转 代码与 Postman",
+      "modeHttpToCurl": "原始 HTTP / JSON 转 cURL",
+      "tabPython": "Python (Requests)",
+      "tabHttpx": "Python (HTTPX)",
+      "tabPostman": "Postman 集合 v2.1",
+      "tabHttp": "原始 HTTP (RFC 7230)",
+      "tabJava": "Java (HttpClient)",
+      "downloadPostman": "下载 Postman (.json)",
+      "downloaded": "已下载！",
+      "examplePresets": "示例预设:",
+      "presetPostJson": "POST JSON + 认证",
+      "presetGetParams": "GET + 查询参数与令牌",
+      "presetBasicAuth": "基本认证",
+      "presetFormUrlencoded": "URL 编码表单",
+      "presetHttpRaw": "原始 HTTP POST",
+      "clear": "清空",
+      "requestInspector": "请求检查器",
+      "headersCount": "请求头 ({count})",
+      "queryParamsCount": "参数 ({count})",
+      "postmanImportTip": "如何在 Postman 中使用：打开 Postman -> 点击左上角“导入” -> 拖入下载的 .json 文件。",
+      "rawHttpLabel": "原始 HTTP 请求:",
+      "rawHttpPlaceholder": "粘贴原始 HTTP 请求...",
+      "generatedCurlLabel": "生成的 cURL 命令:",
+      "modePythonToCurl": "Python 转 cURL",
+      "pythonCodeLabel": "Python Requests / HTTPX 脚本代码",
+      "presetPythonPost": "带 JSON 与参数的 POST 请求"
     },
     "discountCalculator": {
       "title": "智能折扣计算器",

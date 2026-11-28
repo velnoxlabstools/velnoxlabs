@@ -279,8 +279,8 @@
       "description": "Free online AI Large CSV to JSON and JSON to CSV converter. Features smart type inference, auto-delimiter detection, dot-notation nested objects, 2D arrays, NDJSON, and drag-and-drop file upload."
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL to Python Requests Converter (Online) – cURL to Postman",
-      "description": "Free cURL to Python Requests Converter (Online) and cURL to Postman reference. Convert terminal cURL commands into clean Python requests scripts instantly."
+      "name": "AI cURL to Python Requests Converter Online – cURL to Postman, Python to cURL & HTTP",
+      "description": "Free online AI cURL to Python Requests converter, Postman collection generator, and Python to cURL tool. Convert bash cURL commands into Python (Requests & HTTPX), Postman Collection v2.1, Java, and convert Python/Raw HTTP back into cURL."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL to Fetch & Axios Converter – Convert cURL to Axios Online",
@@ -592,8 +592,8 @@
       "faq4A": "Yes. Our cURL converter parses raw JSON payloads (--data, -d, --data-raw), query parameters, URL-encoded forms, Bearer tokens, and Basic Authentication (-u username:password). All parsing runs 100% locally in your browser memory via JavaScript, ensuring sensitive API keys and secrets are never sent to external servers."
     },
     "curlToPython": {
-      "title": "cURL to Python Requests Converter (Online) – cURL to Postman",
-      "subtitle": "Free cURL to Python Requests Converter (Online) and cURL to Postman reference. Convert terminal cURL commands into clean Python requests scripts instantly.",
+      "title": "AI cURL to Python Requests Converter Online – cURL to Postman & Python to cURL",
+      "subtitle": "Free online AI cURL to Python Requests converter, Postman collection generator, and Python to cURL tool. Convert bash cURL commands into clean Python code instantly.",
       "aboutText": "Our cURL to Python Requests Converter (Online) is a high-speed, browser-based Curl converter built for developers, data engineers, and API integrators. If you need a reliable Curl to python converter online to transform command-line instructions, this tool serves as a modern, private alternative to legacy services like Curl trillworks. It seamlessly translates cURL to Python requests code with idiomatic dictionary formatting. Beyond generating Python scripts, it functions as an essential cURL (bash converter) to translate complex Bash cURL one-liners into maintainable code. Developers frequently use it alongside Curl to Postman workflows and as a direct Curl to HTTP protocol inspector to debug raw headers and query parameters. With dedicated parsing for nested dictionaries, it excels as a specialized Curl to python converter json tool, instantly transforming -d and --data payloads into native Python data structures while guaranteeing 100% client-side privacy.",
       "feature1": "Idiomatic Python Output: Formats payloads as Python dictionaries, preserving types, nested keys, and custom headers",
       "feature2": "Smart Auth & Payload Detection: Automatically maps -u flags to requests.auth.HTTPBasicAuth and JSON payloads to json=",
@@ -612,7 +612,41 @@
       "faq3Q": "What is a cURL (bash converter) and how does it help developers?",
       "faq3A": "A cURL (bash converter) is a developer utility that takes shell/Bash terminal cURL commands—often filled with escape slashes (\\), quoted strings, and environment variables—and transforms them into structured programming code. Instead of manually parsing flags like -H, -X, -d, and -u, this tool automates the extraction, saving time when migrating shell automation scripts into robust Python backend services or automation pipelines.",
       "faq4Q": "Does this Curl to python converter json utility handle complex nested payloads?",
-      "faq4A": "Yes. Our Curl to python converter json parser accurately processes deeply nested JSON objects, arrays, booleans (converted to Python True/False), nulls (converted to Python None), and escaped quotes. It automatically formats the data into a native Python dictionary passed cleanly to the json= parameter in requests."
+      "faq4A": "Yes. Our Curl to python converter json parser accurately processes deeply nested JSON objects, arrays, booleans (converted to Python True/False), nulls (converted to Python None), and escaped quotes. It automatically formats the data into a native Python dictionary passed cleanly to the json= parameter in requests.",
+      "curlCommand": "cURL Command:",
+      "curlPlaceholder": "Paste cURL command...",
+      "pythonCode": "Python Requests Code:",
+      "pythonPlaceholder": "Generated Python code will appear here...",
+      "copyCode": "Copy Code",
+      "copied": "Copied!",
+      "errNoUrl": "Could not find a URL in the cURL command.",
+      "errParseFailed": "Failed to parse cURL command",
+      "modeCurlToCode": "cURL to Code & Postman",
+      "modeHttpToCurl": "Raw HTTP / JSON to cURL",
+      "tabPython": "Python (Requests)",
+      "tabHttpx": "Python (HTTPX)",
+      "tabPostman": "Postman Collection v2.1",
+      "tabHttp": "Raw HTTP (RFC 7230)",
+      "tabJava": "Java (HttpClient)",
+      "downloadPostman": "Download Postman (.json)",
+      "downloaded": "Downloaded!",
+      "examplePresets": "Examples:",
+      "presetPostJson": "POST JSON + Auth",
+      "presetGetParams": "GET + Query & Token",
+      "presetBasicAuth": "Basic Auth",
+      "presetFormUrlencoded": "Form URL-Encoded",
+      "presetHttpRaw": "Raw HTTP POST",
+      "clear": "Clear",
+      "requestInspector": "Request Inspector",
+      "headersCount": "Headers ({count})",
+      "queryParamsCount": "Params ({count})",
+      "postmanImportTip": "How to use in Postman: Open Postman -> Click 'Import' (top left) -> Drop the downloaded .json file or paste raw JSON collection.",
+      "rawHttpLabel": "Raw HTTP Request:",
+      "rawHttpPlaceholder": "Paste raw HTTP request (e.g. POST /v1/items HTTP/1.1\\nHost: api.example.com\\nContent-Type: application/json\\n\\n{\"name\":\"item\"})...",
+      "generatedCurlLabel": "Generated cURL Command:",
+      "modePythonToCurl": "Python to cURL",
+      "pythonCodeLabel": "Python Requests / HTTPX Script",
+      "presetPythonPost": "POST with JSON & Params"
     },
     "discountCalculator": {
       "title": "AI Discount Calculator with GST & Tax",

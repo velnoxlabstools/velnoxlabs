@@ -279,8 +279,8 @@
       "description": "無料の AI 大容量 CSV JSON 相互変換ツール。数値や真偽値の自動型推論、区切り文字判定、ドット記法による階層化、ファイル読込に対応。"
     },
     "curl-to-python-requests-converter": {
-      "name": "cURL から Python Requests コード変換オンライン – cURL から Postman への移行",
-      "description": "無料の cURL から Python Requests 変換ツールおよび cURL to Postman 連携ガイド。ターミナルの cURL コマンドを Python requests スクリプトへ即時変換。"
+      "name": "AI cURLからPython Requestsへのオンライン変換ツール – cURLからPostman、PythonからcURLへ",
+      "description": "無料のオンラインAI cURLからPython Requestsへの変換ツール、Postmanコレクション生成ツール、およびPythonからcURLへの変換ツール。cURLコマンドをPython（Requests・HTTPX）、Postman v2.1、Javaに瞬時に変換します。"
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "cURL から Fetch & Axios コード生成ツール – cURL から Axios への変換",
@@ -615,8 +615,8 @@
       "faq4A": "はい、JSONペイロード (--data, -d, --data-raw)、URLエンコードフォーム、Bearer トークン、Basic認証 (-u ユーザー名:パスワード) に完全対応しています。すべての処理はブラウザのメモリ内で安全に完結し、秘密鍵が外部に漏れることはありません。"
     },
     "curlToPython": {
-      "title": "cURL から Python Requests コード変換オンライン – cURL から Postman への移行",
-      "subtitle": "無料の cURL から Python Requests 変換ツールおよび cURL to Postman 連携ガイド。ターミナルの cURL コマンドを Python requests スクリプトへ即時変換。",
+      "title": "AI cURLからPython Requestsへのオンライン変換ツール – cURLからPostman＆PythonからcURLへ",
+      "subtitle": "無料のオンラインAI cURLからPython Requestsへの変換ツール。cURLターミナルコマンドを直ちに明瞭なPythonコードに変換します。",
       "aboutText": "本オンライン cURL から Python Requests 変換ツールは、エンジニアやデータアナリスト向けに開発された高速Webツールです。従来型のレガシーツールに代わる安全なローカル完結型ソリューションとして、ターミナルコマンドを読みやすい辞書形式の Python requests コードへとスムーズに変換します。Pythonスクリプトの出力にとどまらず、Bashの複雑なワンライナーを保守性の高いコードへと整理するシェル変換ツールとしても重宝します。Postmanでのリクエスト作成やHTTPプロトコルの詳細確認、ヘッダー検査などにも幅広く利用されています。ネストしたJSONデータにも対応し、-d や --data の内容をPythonネイティブな辞書型へ安全に変換します。",
       "feature1": "Pythonicなコード出力：ヘッダーやデータをネイティブなPython辞書形式として正確にフォーマット",
       "feature2": "スマートな認証＆JSON判定：-uオプションをHTTPBasicAuthに、JSONデータをjson=引数に自動バインド",
@@ -635,7 +635,41 @@
       "faq3Q": "シェルコマンド用の変換ツールは開発においてどのように役立ちますか？",
       "faq3A": "バックスラッシュ (\\) による改行やエスケープ引用符、環境変数が含まれる複雑なBashコマンドを自動的に読み解き、-H、-X、-d、-u などの主要フラグを抽出します。シェル自動化スクリプトをPythonサービスへ移行する作業を大幅に効率化できます。",
       "faq4Q": "ネストされた複雑な JSON ペイロードも正確に変換されますか？",
-      "faq4A": "はい、階層構造を持つJSONオブジェクト、配列、真偽値 (PythonのTrue/Falseに変換)、null値 (PythonのNoneに変換) を正確に処理します。整形されたデータはPython辞書として requests の json= 引数に渡されます。"
+      "faq4A": "はい、階層構造を持つJSONオブジェクト、配列、真偽値 (PythonのTrue/Falseに変換)、null値 (PythonのNoneに変換) を正確に処理します。整形されたデータはPython辞書として requests の json= 引数に渡されます。",
+      "curlCommand": "cURL コマンド:",
+      "curlPlaceholder": "cURL コマンドを貼り付け...",
+      "pythonCode": "Python Requests コード:",
+      "pythonPlaceholder": "生成された Python コードがここに表示されます...",
+      "copyCode": "コードをコピー",
+      "copied": "コピー完了！",
+      "errNoUrl": "cURL コマンド内に URL が見つかりませんでした。",
+      "errParseFailed": "cURL コマンドの解析に失敗しました",
+      "modeCurlToCode": "cURLからコードおよびPostmanへ",
+      "modeHttpToCurl": "生HTTP / JSONからcURLへ",
+      "tabPython": "Python (Requests)",
+      "tabHttpx": "Python (HTTPX)",
+      "tabPostman": "Postman コレクション v2.1",
+      "tabHttp": "生HTTP (RFC 7230)",
+      "tabJava": "Java (HttpClient)",
+      "downloadPostman": "Postmanをダウンロード (.json)",
+      "downloaded": "ダウンロード完了！",
+      "examplePresets": "サンプル例:",
+      "presetPostJson": "POST JSON + 認証",
+      "presetGetParams": "GET + クエリとトークン",
+      "presetBasicAuth": "基本認証",
+      "presetFormUrlencoded": "URLエンコードされたフォーム",
+      "presetHttpRaw": "生HTTP POST",
+      "clear": "クリア",
+      "requestInspector": "リクエスト検査",
+      "headersCount": "ヘッダー ({count})",
+      "queryParamsCount": "パラメーター ({count})",
+      "postmanImportTip": "Postmanでの使用方法: Postmanを開く -> 左上の「インポート」をクリック -> ダウンロードした.jsonファイルをドロップ。",
+      "rawHttpLabel": "生のHTTPリクエスト:",
+      "rawHttpPlaceholder": "生のHTTPリクエストを貼り付けてください...",
+      "generatedCurlLabel": "生成されたcURLコマンド:",
+      "modePythonToCurl": "PythonからcURLへ",
+      "pythonCodeLabel": "Python Requests / HTTPX スクリプト",
+      "presetPythonPost": "POST（JSONおよびパラメータ付き）"
     },
     "discountCalculator": {
       "title": "割引計算機 (AI)",

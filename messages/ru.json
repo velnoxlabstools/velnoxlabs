@@ -279,8 +279,8 @@
       "description": "Бесплатный онлайн ИИ конвертер больших файлов CSV в JSON и JSON в CSV. Автоопределение чисел и логических значений, разделителя и вложенных объектов."
     },
     "curl-to-python-requests-converter": {
-      "name": "Конвертер cURL в Python Requests онлайн – cURL в Postman справочник",
-      "description": "Бесплатный инструмент cURL в Python Requests онлайн и справочник для Postman. Преобразуйте консольные команды cURL в чистый код Python requests моментально."
+      "name": "Конвертер cURL в Python Requests с ИИ – cURL в Postman, Python в cURL и HTTP",
+      "description": "Бесплатный онлайн-конвертер cURL в Python Requests с ИИ, генератор коллекций Postman и инструмент Python в cURL. Преобразование команд cURL в Python (Requests и HTTPX), Postman v2.1 и Java."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "Конвертер cURL в Fetch и Axios – Преобразование cURL в Axios онлайн",
@@ -615,8 +615,8 @@
       "faq4A": "Да, поддерживаются данные JSON (--data, -d, --data-raw), формы, Bearer-токены и базовая аутентификация (-u логин:пароль). Вся обработка выполняется исключительно локально в браузере, защищая конфиденциальные ключи от передачи в сеть."
     },
     "curlToPython": {
-      "title": "Конвертер cURL в Python Requests онлайн – cURL в Postman справочник",
-      "subtitle": "Бесплатный инструмент cURL в Python Requests онлайн и справочник для Postman. Преобразуйте консольные команды cURL в чистый код Python requests моментально.",
+      "title": "Конвертер cURL в Python Requests с ИИ – cURL в Postman и Python в cURL",
+      "subtitle": "Бесплатный онлайн-конвертер cURL в Python Requests с ИИ и генератор коллекций Postman. Мгновенное преобразование команд cURL в чистый код Python.",
       "aboutText": "Наш онлайн-инструмент cURL в Python Requests — это быстрый браузерный сервис для разработчиков и инженеров данных. Выступая современной альтернативой классическим сетевым утилитам, он переводит консольные команды в понятный код библиотеки Python requests с аккуратными словарями. Помимо подготовки скриптов для Python, сервис служит надежным помощником для разбора сценариев Bash, переводя запутанные терминальные строки в чистый код. Его часто используют при переносе вызовов в Postman и ревизии параметров протокола HTTP. Сервис легко распознает структуры данных JSON из ключей -d и --data, преобразуя их в объекты Python при полной конфиденциальности.",
       "feature1": "Идиоматичный синтаксис Python: структурирует заголовки и данные как стандартные словари Python с сохранением типов",
       "feature2": "Умное распознавание авторизации и JSON: сопоставляет флаг -u с HTTPBasicAuth, а данные JSON привязывает к параметру json=",
@@ -635,7 +635,41 @@
       "faq3Q": "Чем удобен специализированный инструмент для разбора команд Bash cURL?",
       "faq3A": "Он автоматически анализирует команды командной строки с обратными слэшами (\\), экранированными кавычками и переменными окружения, аккуратно извлекая ключи -H, -X, -d и -u. Это существенно экономит время при переносе консольных сценариев в код на Python.",
       "faq4Q": "Поддерживается ли перевод многоуровневых структур JSON из cURL?",
-      "faq4A": "Да. Сервис корректно обрабатывает вложенные объекты, списки, булевы значения (переводятся в True и False) и null (переводится в None). Итоговая структура оформляется в виде словаря Python и передается в аргумент json= функции requests."
+      "faq4A": "Да. Сервис корректно обрабатывает вложенные объекты, списки, булевы значения (переводятся в True и False) и null (переводится в None). Итоговая структура оформляется в виде словаря Python и передается в аргумент json= функции requests.",
+      "curlCommand": "Команда cURL:",
+      "curlPlaceholder": "Вставьте команду cURL сюда...",
+      "pythonCode": "Код Python Requests:",
+      "pythonPlaceholder": "Сгенерированный код Python появится здесь...",
+      "copyCode": "Копировать код",
+      "copied": "Скопировано!",
+      "errNoUrl": "Не удалось найти URL в команде cURL.",
+      "errParseFailed": "Не удалось разобрать команду cURL",
+      "modeCurlToCode": "cURL в Код и Postman",
+      "modeHttpToCurl": "Необработанный HTTP / JSON в cURL",
+      "tabPython": "Python (Requests)",
+      "tabHttpx": "Python (HTTPX)",
+      "tabPostman": "Коллекция Postman v2.1",
+      "tabHttp": "Необработанный HTTP (RFC 7230)",
+      "tabJava": "Java (HttpClient)",
+      "downloadPostman": "Скачать Postman (.json)",
+      "downloaded": "Загружено!",
+      "examplePresets": "Примеры:",
+      "presetPostJson": "POST JSON + Авторизация",
+      "presetGetParams": "GET + Параметры и Токен",
+      "presetBasicAuth": "Базовая авторизация",
+      "presetFormUrlencoded": "URL-кодированная форма",
+      "presetHttpRaw": "Необработанный HTTP POST",
+      "clear": "Очистить",
+      "requestInspector": "Инспектор запроса",
+      "headersCount": "Заголовки ({count})",
+      "queryParamsCount": "Параметры ({count})",
+      "postmanImportTip": "Использование в Postman: Откройте Postman -> Нажмите 'Импорт' (слева вверху) -> Перетащите загруженный файл .json.",
+      "rawHttpLabel": "Необработанный HTTP-запрос:",
+      "rawHttpPlaceholder": "Вставьте необработанный HTTP-запрос...",
+      "generatedCurlLabel": "Сгенерированная команда cURL:",
+      "modePythonToCurl": "Python в cURL",
+      "pythonCodeLabel": "Скрипт Python Requests / HTTPX",
+      "presetPythonPost": "POST с JSON и параметрами"
     },
     "discountCalculator": {
       "title": "Калькулятор Скидок с НДС (ИИ)",

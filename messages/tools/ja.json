@@ -755,8 +755,8 @@
       "copied": "コピー完了！",
       "errNoUrl": "cURL コマンド内に URL が見つかりませんでした。",
       "errParseFailed": "cURL コマンドの解析に失敗しました",
-      "title": "cURL から Python Requests コード変換オンライン – cURL から Postman への移行",
-      "subtitle": "無料の cURL から Python Requests 変換ツールおよび cURL to Postman 連携ガイド。ターミナルの cURL コマンドを Python requests スクリプトへ即時変換。",
+      "title": "AI cURLからPython Requestsへのオンライン変換ツール – cURLからPostman＆PythonからcURLへ",
+      "subtitle": "無料のオンラインAI cURLからPython Requestsへの変換ツール。cURLターミナルコマンドを直ちに明瞭なPythonコードに変換します。",
       "aboutText": "本オンライン cURL から Python Requests 変換ツールは、エンジニアやデータアナリスト向けに開発された高速Webツールです。従来型のレガシーツールに代わる安全なローカル完結型ソリューションとして、ターミナルコマンドを読みやすい辞書形式の Python requests コードへとスムーズに変換します。Pythonスクリプトの出力にとどまらず、Bashの複雑なワンライナーを保守性の高いコードへと整理するシェル変換ツールとしても重宝します。Postmanでのリクエスト作成やHTTPプロトコルの詳細確認、ヘッダー検査などにも幅広く利用されています。ネストしたJSONデータにも対応し、-d や --data の内容をPythonネイティブな辞書型へ安全に変換します。",
       "feature1": "Pythonicなコード出力：ヘッダーやデータをネイティブなPython辞書形式として正確にフォーマット",
       "feature2": "スマートな認証＆JSON判定：-uオプションをHTTPBasicAuthに、JSONデータをjson=引数に自動バインド",
@@ -798,7 +798,10 @@
       "postmanImportTip": "Postmanでの使用方法: Postmanを開く -> 左上の「インポート」をクリック -> ダウンロードした.jsonファイルをドロップ。",
       "rawHttpLabel": "生のHTTPリクエスト:",
       "rawHttpPlaceholder": "生のHTTPリクエストを貼り付けてください...",
-      "generatedCurlLabel": "生成されたcURLコマンド:"
+      "generatedCurlLabel": "生成されたcURLコマンド:",
+      "modePythonToCurl": "PythonからcURLへ",
+      "pythonCodeLabel": "Python Requests / HTTPX スクリプト",
+      "presetPythonPost": "POST（JSONおよびパラメータ付き）"
     },
     "discountCalculator": {
       "findSalePrice": "💵 割引後価格を計算",

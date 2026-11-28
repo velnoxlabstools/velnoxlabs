@@ -286,8 +286,8 @@
       "description": "Convertisseur gratuit CSV en JSON et JSON en CSV avec IA. Typage automatique des nombres et booléens, détection du délimiteur, objets imbriqués et téléversement."
     },
     "curl-to-python-requests-converter": {
-      "name": "Convertisseur cURL vers Python Requests en Ligne – Référence cURL vers Postman",
-      "description": "Outil gratuit de conversion cURL vers Python Requests et référence Postman. Transformez instantanément vos commandes cURL en scripts Python requests."
+      "name": "Convertisseur cURL en Python Requests par IA – cURL vers Postman, Python vers cURL & HTTP",
+      "description": "Convertisseur gratuit de cURL en Python Requests, générateur de collections Postman et outil Python vers cURL en ligne. Convertissez des commandes cURL en Python (Requests et HTTPX), Postman v2.1 et Java."
     },
     "curl-to-fetch-and-axios-converter": {
       "name": "Convertisseur cURL vers Fetch et Axios – Code cURL vers Axios en Ligne",
@@ -622,8 +622,8 @@
       "faq4A": "Oui. Il prend en charge les charges utiles JSON (--data, -d, --data-raw), formulaires encodés, jetons Bearer et l'authentification de base (-u identifiant:motdepasse). L'exécution se déroule entièrement dans le navigateur sans transmission sur le réseau."
     },
     "curlToPython": {
-      "title": "Convertisseur cURL vers Python Requests en Ligne – Référence cURL vers Postman",
-      "subtitle": "Outil gratuit de conversion cURL vers Python Requests et référence Postman. Transformez instantanément vos commandes cURL en scripts Python requests.",
+      "title": "Convertisseur cURL en Python Requests par IA – cURL vers Postman & Python vers cURL",
+      "subtitle": "Convertisseur gratuit en ligne de cURL en Python Requests et générateur de collections Postman. Convertissez vos commandes cURL en code Python propre instantanément.",
       "aboutText": "Notre convertisseur cURL vers Python Requests est un outil en ligne rapide conçu pour les ingénieurs logiciels et spécialistes des données. Véritable alternative moderne et respectueuse de la confidentialité face aux anciens outils, il traduit les commandes de terminal en code Python requests structuré sous forme de dictionnaires lisibles. En complément des scripts Python, il sert d'assistant précieux pour les lignes de commande Bash, simplifiant les commandes complexes en blocs de code pérennes. Les développeurs s'y réfèrent couramment lors d'intégrations avec Postman ou pour examiner des en-têtes HTTP bruts. Il assure également l'intégration des données JSON issues des paramètres -d et --data au sein de structures Python natives.",
       "feature1": "Code Python idiomatique : structure les en-têtes et données sous forme de dictionnaires natifs en préservant les types",
       "feature2": "Gestion intelligente de l'authentification et du JSON : associe -u à HTTPBasicAuth et lie automatiquement les données au paramètre json=",
@@ -642,7 +642,41 @@
       "faq3Q": "Quelle est l'utilité d'un outil de transcription pour commandes Bash cURL ?",
       "faq3A": "Ce type d'outil décode les commandes du terminal souvent alourdies par des barres obliques inverses (\\) et des guillemets d'échappement. Il extrait automatiquement les paramètres -H, -X, -d et -u, facilitant la migration de tâches shell vers des services Python.",
       "faq4Q": "Ce module prend-il en compte les structures JSON imbriquées ?",
-      "faq4A": "Oui. Il interprète fidèlement les objets imbriqués, les tableaux, les booléens (transformés en True et False) et les valeurs nulles (transformées en None). Les données sont agencées dans un dictionnaire Python rattaché à l'attribut json= de requests."
+      "faq4A": "Oui. Il interprète fidèlement les objets imbriqués, les tableaux, les booléens (transformés en True et False) et les valeurs nulles (transformées en None). Les données sont agencées dans un dictionnaire Python rattaché à l'attribut json= de requests.",
+      "curlCommand": "Commande cURL :",
+      "curlPlaceholder": "Collez la commande cURL...",
+      "pythonCode": "Code Python Requests :",
+      "pythonPlaceholder": "Le code Python généré apparaîtra ici...",
+      "copyCode": "Copier le code",
+      "copied": "Copié !",
+      "errNoUrl": "Impossible de trouver une URL dans la commande cURL.",
+      "errParseFailed": "Échec de l'analyse de la commande cURL",
+      "modeCurlToCode": "cURL vers Code et Postman",
+      "modeHttpToCurl": "HTTP Brut / JSON vers cURL",
+      "tabPython": "Python (Requests)",
+      "tabHttpx": "Python (HTTPX)",
+      "tabPostman": "Collection Postman v2.1",
+      "tabHttp": "HTTP Brut (RFC 7230)",
+      "tabJava": "Java (HttpClient)",
+      "downloadPostman": "Télécharger Postman (.json)",
+      "downloaded": "Téléchargé !",
+      "examplePresets": "Exemples :",
+      "presetPostJson": "POST JSON + Authentification",
+      "presetGetParams": "GET + Requête et Jeton",
+      "presetBasicAuth": "Authentification de base",
+      "presetFormUrlencoded": "Formulaire encodé en URL",
+      "presetHttpRaw": "POST HTTP Brut",
+      "clear": "Effacer",
+      "requestInspector": "Inspecteur de Requête",
+      "headersCount": "En-têtes ({count})",
+      "queryParamsCount": "Paramètres ({count})",
+      "postmanImportTip": "Utilisation dans Postman : Ouvrez Postman -> Cliquez sur 'Importer' (en haut à gauche) -> Déposez le fichier .json téléchargé.",
+      "rawHttpLabel": "Requête HTTP Brute :",
+      "rawHttpPlaceholder": "Collez la requête HTTP brute...",
+      "generatedCurlLabel": "Commande cURL Générée :",
+      "modePythonToCurl": "Python vers cURL",
+      "pythonCodeLabel": "Script Python Requests / HTTPX",
+      "presetPythonPost": "POST avec JSON et Paramètres"
     },
     "discountCalculator": {
       "title": "Calculateur de Remise avec TVA (IA)",

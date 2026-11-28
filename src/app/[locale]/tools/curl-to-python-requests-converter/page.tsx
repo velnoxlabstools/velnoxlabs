@@ -17,7 +17,7 @@ import {
   Info,
 } from 'lucide-react';
 
-type Mode = 'curl-to-code' | 'http-to-curl';
+type Mode = 'curl-to-code' | 'http-to-curl' | 'python-to-curl';
 type OutputTab = 'requests' | 'httpx' | 'postman' | 'http' | 'java';
 
 interface ParsedCurl {
@@ -694,6 +694,106 @@ function parseHttpToCurl(rawHttp: string): string {
   return curl;
 }
 
+// Reverse parser: Python requests / HTTPX to executable cURL command
+function parsePythonToCurl(pyCode: string): string {
+  const trimmed = pyCode.trim();
+  if (!trimmed) return '';
+
+  const urlMatch = trimmed.match(/\burl\s*=\s*["']([^"']+)["']/i);
+  let url = urlMatch ? urlMatch[1] : '';
+
+  const methodMatch = trimmed.match(
+    /(?:requests|client|httpx|session)\.(get|post|put|delete|patch|head|options)\s*\(\s*(?:url\s*,|["']([^"']+)["'])?/i
+  );
+  let method = 'GET';
+  if (methodMatch) {
+    method = methodMatch[1].toUpperCase();
+    if (methodMatch[2] && !url) {
+      url = methodMatch[2];
+    }
+  }
+
+  if (!url) {
+    const anyUrlMatch = trimmed.match(/["'](https?:\/\/[^"']+)["']/i);
+    if (anyUrlMatch) {
+      url = anyUrlMatch[1];
+    }
+  }
+
+  const headers: Record<string, string> = {};
+  const headersBlock = trimmed.match(/headers\s*=\s*\{([^}]+)\}/i);
+  if (headersBlock) {
+    const headerPairs = headersBlock[1].matchAll(/["']([^"']+)["']\s*:\s*["']([^"']*)["']/g);
+    for (const match of headerPairs) {
+      headers[match[1]] = match[2];
+    }
+  }
+
+  const params: Record<string, string> = {};
+  const paramsBlock = trimmed.match(/params\s*=\s*\{([^}]+)\}/i);
+  if (paramsBlock) {
+    const paramPairs = paramsBlock[1].matchAll(/["']([^"']+)["']\s*:\s*["']?([^"',}\s]+)["']?/g);
+    for (const match of paramPairs) {
+      params[match[1]] = match[2];
+    }
+  }
+
+  let payload: unknown = null;
+  const jsonBlock = trimmed.match(/(?:json|payload|data)\s*=\s*(\{[^}]+\}|\[[^\]]+\])/i);
+  if (jsonBlock) {
+    const rawJson = jsonBlock[1]
+      .replace(/\bTrue\b/g, 'true')
+      .replace(/\bFalse\b/g, 'false')
+      .replace(/\bNone\b/g, 'null');
+    try {
+      const normalized = rawJson.replace(/'([^']*)'/g, '"$1"');
+      payload = JSON.parse(normalized);
+    } catch {
+      payload = jsonBlock[1].trim();
+    }
+  }
+
+  const authMatch = trimmed.match(/auth\s*=\s*\(\s*["']([^"']+)["']\s*,\s*["']([^"']*)["']\s*\)/i);
+  const auth = authMatch ? `${authMatch[1]}:${authMatch[2]}` : '';
+
+  if (!url) {
+    return '# ⚠️ Could not find a valid target URL in the Python code.';
+  }
+
+  let finalUrl = url;
+  const paramEntries = Object.entries(params);
+  if (paramEntries.length > 0) {
+    const queryStr = paramEntries
+      .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+      .join('&');
+    finalUrl += (finalUrl.includes('?') ? '&' : '?') + queryStr;
+  }
+
+  const cmd: string[] = [`curl -X ${method} "${finalUrl}"`];
+
+  if (auth) {
+    cmd.push(`  -u "${auth}"`);
+  }
+
+  Object.entries(headers).forEach(([k, v]) => {
+    cmd.push(`  -H "${k}: ${v.replace(/"/g, '\\"')}"`);
+  });
+
+  if (payload !== null) {
+    if (typeof payload === 'object') {
+      const hasContentType = Object.keys(headers).some((h) => h.toLowerCase() === 'content-type');
+      if (!hasContentType) {
+        cmd.push('  -H "Content-Type: application/json"');
+      }
+      cmd.push(`  -d '${JSON.stringify(payload)}'`);
+    } else {
+      cmd.push(`  -d '${String(payload)}'`);
+    }
+  }
+
+  return cmd.join(' \\\n');
+}
+
 export default function CurlToPythonPage() {
   const tUI = useTranslations('ToolUI.curlToPython');
 
@@ -708,6 +808,11 @@ export default function CurlToPythonPage() {
   // Mode 2: Raw HTTP Input
   const [rawHttpInput, setRawHttpInput] = useState(
     `POST /v1/analyze?format=summary HTTP/1.1\r\nHost: api.velnoxlabs.com\r\nAuthorization: Bearer velnox_sec_892b1\r\nContent-Type: application/json\r\n\r\n{"query":"data_pipeline","active":true,"limit":10}`
+  );
+
+  // Mode 3: Python requests Input
+  const [pythonInput, setPythonInput] = useState(
+    `import requests\n\nurl = "https://api.velnoxlabs.com/v1/users"\nheaders = {\n    "Authorization": "Bearer secret_123",\n    "Content-Type": "application/json"\n}\nparams = {\n    "page": 2,\n    "active": "true"\n}\npayload = {\n    "name": "Jane Doe",\n    "role": "engineer",\n    "active": True\n}\n\nresponse = requests.post(url, headers=headers, params=params, json=payload)`
   );
 
   const [copied, setCopied] = useState(false);
@@ -729,6 +834,9 @@ export default function CurlToPythonPage() {
     if (mode === 'http-to-curl') {
       return parseHttpToCurl(rawHttpInput);
     }
+    if (mode === 'python-to-curl') {
+      return parsePythonToCurl(pythonInput);
+    }
 
     if (!parsedCurl) return '';
     if (!parsedCurl.rawUrl && !parsedCurl.baseUrl) {
@@ -749,7 +857,7 @@ export default function CurlToPythonPage() {
       default:
         return generatePythonRequests(parsedCurl);
     }
-  }, [mode, rawHttpInput, parsedCurl, activeTab]);
+  }, [mode, rawHttpInput, pythonInput, parsedCurl, activeTab]);
 
   useEffect(() => {
     if (mode === 'curl-to-code') {
@@ -758,14 +866,20 @@ export default function CurlToPythonPage() {
       } else {
         setError('');
       }
-    } else {
+    } else if (mode === 'http-to-curl') {
       if (rawHttpInput.trim() && !outputCode) {
         setError(tUI('errParseFailed'));
       } else {
         setError('');
       }
+    } else {
+      if (pythonInput.trim() && !outputCode) {
+        setError(tUI('errParseFailed'));
+      } else {
+        setError('');
+      }
     }
-  }, [mode, curlInput, parsedCurl, rawHttpInput, outputCode, tUI]);
+  }, [mode, curlInput, parsedCurl, rawHttpInput, pythonInput, outputCode, tUI]);
 
   const handleCopy = () => {
     if (!outputCode) return;
@@ -825,6 +939,19 @@ export default function CurlToPythonPage() {
   const loadHttpPreset2 = () => {
     setRawHttpInput(
       `GET /v1/users?role=admin&limit=25 HTTP/1.1\r\nHost: api.github.com\r\nUser-Agent: VelnoxApp/1.0\r\nAccept: application/vnd.github.v3+json`
+    );
+  };
+
+  // Presets for Mode 3 (Python to cURL)
+  const loadPythonPreset1 = () => {
+    setPythonInput(
+      `import requests\n\nurl = "https://api.velnoxlabs.com/v1/users"\nheaders = {\n    "Authorization": "Bearer secret_123",\n    "Content-Type": "application/json"\n}\nparams = {\n    "page": 2,\n    "active": "true"\n}\npayload = {\n    "name": "Jane Doe",\n    "role": "engineer",\n    "active": True\n}\n\nresponse = requests.post(url, headers=headers, params=params, json=payload)`
+    );
+  };
+
+  const loadPythonPreset2 = () => {
+    setPythonInput(
+      `import requests\n\nurl = "https://api.github.com/user/repos"\nheaders = {\n    "Accept": "application/vnd.github.v3+json",\n    "User-Agent": "VelnoxApp"\n}\nauth = ("developer_user", "ghp_secretToken123")\nparams = {\n    "visibility": "public",\n    "sort": "created"\n}\n\nresponse = requests.get(url, headers=headers, params=params, auth=auth)`
     );
   };
 
@@ -895,6 +1022,30 @@ export default function CurlToPythonPage() {
             >
               <ArrowRightLeft size={16} />
               {tUI('modeHttpToCurl')}
+            </button>
+            <button
+              onClick={() => setMode('python-to-curl')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 18px',
+                borderRadius: '8px',
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
+                backgroundColor:
+                  mode === 'python-to-curl' ? 'var(--primary-color)' : 'var(--bg-card)',
+                color: mode === 'python-to-curl' ? '#ffffff' : 'var(--text-main)',
+                border:
+                  mode === 'python-to-curl'
+                    ? '1px solid var(--primary-color)'
+                    : '1px solid var(--border-color)',
+              }}
+            >
+              <Code2 size={16} />
+              {tUI('modePythonToCurl')}
             </button>
           </div>
 
@@ -1005,7 +1156,7 @@ export default function CurlToPythonPage() {
                   {tUI('clear')}
                 </button>
               </>
-            ) : (
+            ) : mode === 'http-to-curl' ? (
               <>
                 <button
                   onClick={loadHttpPreset1}
@@ -1039,6 +1190,54 @@ export default function CurlToPythonPage() {
                 </button>
                 <button
                   onClick={() => setRawHttpInput('')}
+                  style={{
+                    marginLeft: 'auto',
+                    backgroundColor: 'transparent',
+                    color: 'var(--text-muted)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '6px',
+                    padding: '4px 10px',
+                    fontSize: '0.75rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {tUI('clear')}
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={loadPythonPreset1}
+                  style={{
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    color: '#60a5fa',
+                    border: '1px solid rgba(59, 130, 246, 0.25)',
+                    borderRadius: '6px',
+                    padding: '4px 10px',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                  }}
+                >
+                  ⚡ {tUI('presetPythonPost')}
+                </button>
+                <button
+                  onClick={loadPythonPreset2}
+                  style={{
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    color: '#34d399',
+                    border: '1px solid rgba(16, 185, 129, 0.25)',
+                    borderRadius: '6px',
+                    padding: '4px 10px',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                  }}
+                >
+                  ⚡ GET with Auth & Headers
+                </button>
+                <button
+                  onClick={() => setPythonInput('')}
                   style={{
                     marginLeft: 'auto',
                     backgroundColor: 'transparent',
@@ -1201,20 +1400,36 @@ export default function CurlToPythonPage() {
                   }}
                 >
                   <Terminal size={15} color="var(--primary-color)" />
-                  {mode === 'curl-to-code' ? tUI('curlCommand') : tUI('rawHttpLabel')}
+                  {mode === 'curl-to-code'
+                    ? tUI('curlCommand')
+                    : mode === 'http-to-curl'
+                      ? tUI('rawHttpLabel')
+                      : tUI('pythonCodeLabel')}
                 </label>
                 <textarea
-                  value={mode === 'curl-to-code' ? curlInput : rawHttpInput}
+                  value={
+                    mode === 'curl-to-code'
+                      ? curlInput
+                      : mode === 'http-to-curl'
+                        ? rawHttpInput
+                        : pythonInput
+                  }
                   onChange={(e) => {
                     if (mode === 'curl-to-code') {
                       setCurlInput(e.target.value);
-                    } else {
+                    } else if (mode === 'http-to-curl') {
                       setRawHttpInput(e.target.value);
+                    } else {
+                      setPythonInput(e.target.value);
                     }
                   }}
                   rows={16}
                   placeholder={
-                    mode === 'curl-to-code' ? tUI('curlPlaceholder') : tUI('rawHttpPlaceholder')
+                    mode === 'curl-to-code'
+                      ? tUI('curlPlaceholder')
+                      : mode === 'http-to-curl'
+                        ? tUI('rawHttpPlaceholder')
+                        : tUI('pythonPlaceholder')
                   }
                   style={{
                     width: '100%',
