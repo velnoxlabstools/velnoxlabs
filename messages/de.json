@@ -529,8 +529,8 @@
       "description": "Kostenloser KI-Bild-zu-PDF-Konverter. Wandeln Sie JPG, PNG, WebP und KI-Bilder direkt im Browser in komprimierte 100KB- oder 200KB-PDF-Dokumente um – ohne Upload."
     },
     "fancy-text-generator": {
-      "name": "Schriftarten-Ersteller für WhatsApp – Schöne Schriften und Schriftstile",
-      "description": "Kostenloser Schriftarten-Ersteller für WhatsApp und schöne Schriften. Erstelle geschwungene Schriften, Schriftzeichen und Zierteile für WhatsApp, Instagram und Chats."
+      "name": "KI-Schriftgenerator für WhatsApp – Schöne Schriften, blaue Buchstaben & 21 Schriftstile",
+      "description": "Kostenloser Online-Schriftgenerator für WhatsApp, stilvolle Schriften und Kalligraphie-Schriftarten. Erstellen Sie 21 Schriftstile zum Kopieren und Einfügen, ästhetische Schriftarten, blaue Häkchen (✔️), blaue Schriftarten mit Emojis und Gaming-Namen."
     },
     "emoji-copy": {
       "name": "10000 Emojis zum Kopieren und Einfügen – Niedliche Emojis, über 280 Flaggen & Tastatur",
@@ -2434,8 +2434,8 @@
       "faq4A": "Automatische KI-Zuschnitte schneiden oft wichtige Bildbereiche oder Ränder ungewollt ab. Unser Online-Werkzeug setzt bewusst auf manuelle Präzision: Mit pixelgenauen Anfassern, festen Proportionen und runden Schnittpfaden behalten Sie die volle Kontrolle über den Bildausschnitt und vermeiden unvorhersehbare KI-Fehler."
     },
     "fancyTextGenerator": {
-      "title": "Schriftarten-Ersteller für WhatsApp – Schöne Schriften und Schriftstile",
-      "subtitle": "Kostenloser Schriftarten-Ersteller für WhatsApp und schöne Schriften. Erstelle geschwungene Schriften, Schriftzeichen und Zierteile für WhatsApp, Instagram und Chats.",
+      "title": "KI-Schriftgenerator für WhatsApp – Schöne Schriften & blaue Buchstaben",
+      "subtitle": "Kostenloser Online-Schriftgenerator für WhatsApp und stilvolle Schriften. Erstellen Sie ästhetische Schriftarten, Symbole, blaue Häkchen und Kalligraphietexte mit einem Klick.",
       "inputLabel": "Text eingeben oder einfügen:",
       "inputPlaceholder": "Schreibe hier etwas Stilvolles...",
       "copy": "Kopieren",
@@ -2497,7 +2497,26 @@
       "styleGamingStars": "Gaming Sterne (★彡 彡★)",
       "styleAestheticHearts": "Ästhetische Herzen (♡ ♡)",
       "styleAestheticSparkles": "Ästhetische Funken (✧ ✦)",
-      "styleGlitchZalgo": "Glitch-Schrift (Zalgo)"
+      "styleGlitchZalgo": "Glitch-Schrift (Zalgo)",
+      "categoryPopular21": "Top 21 Beliebte Stile",
+      "categoryCalligraphy": "Kalligrafie",
+      "searchStyles": "Stile oder Schriftarten durchsuchen...",
+      "shareWhatsApp": "Auf WhatsApp teilen",
+      "symbolsTitle": "Klicken zum Einfügen von Symbolen",
+      "symbolGroupStars": "Sterne und Ästhetik",
+      "symbolGroupBlue": "Blau und Bestätigt",
+      "symbolGroupHearts": "Herzen und Niedlich",
+      "symbolGroupGaming": "Spiele und Abzeichen",
+      "symbolGroupBrackets": "Dekorative Klammern",
+      "styleCalligraphySwash": "Kalligrafie mit Schwung",
+      "styleCalligraphyRoyal": "Kalligrafie Königskrone",
+      "styleCalligraphyWings": "Kalligrafie Schmetterlingsflügel",
+      "styleBlueButterfly": "Blauer Schmetterling",
+      "styleBlueOcean": "Blaue Meereswelle",
+      "styleBlueDiamond": "Blauer Diamant",
+      "styleBlueIce": "Blauer Eiskristall",
+      "styleBlueEvilEye": "Blaues Schutzauge",
+      "styleBlueTickSuper": "Bestätigungsabzeichen ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000 Emojis zum Kopieren und Einfügen – Süße Emoji-Tastatur",

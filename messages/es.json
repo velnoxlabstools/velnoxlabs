@@ -529,8 +529,8 @@
       "description": "Convertidor gratuito de imagen a PDF con IA. Convierta imágenes JPG, PNG, WebP e IA en documentos PDF comprimidos de 100KB o 200KB directamente en su navegador sin subir archivos."
     },
     "fancy-text-generator": {
-      "name": "Generador de Letras Bonitas para WhatsApp – Fuentes Elegantes y Estilos",
-      "description": "Generador online gratuito de letras bonitas para WhatsApp y fuentes elegantes. Diseña textos estilizados, signos decorativos y caritas con un clic para Instagram, WhatsApp y redes."
+      "name": "Generador de Texto Elegante para WhatsApp con IA – Fuentes Bonitas, Letras Azules y 21 Estilos",
+      "description": "Generador de texto elegante para WhatsApp y creador de fuentes caligráficas en línea gratis. Genere 21 estilos de fuentes para copiar y pegar, letras estéticas, símbolos de verificación azul (✔️), fuentes azules con emojis y apodos para juegos."
     },
     "emoji-copy": {
       "name": "10000 Emojis para Copiar y Pegar – Teclado de Emojis Lindos y Más de 280 Banderas",
@@ -2434,8 +2434,8 @@
       "faq4A": "Muchos buscan recortadores basados en IA, pero los algoritmos automáticos suelen recortar erróneamente caras, textos o elementos clave. Nuestra plataforma online prioriza la precisión manual: le proporciona tiradores ajustables al píxel, proporciones predefinidas y máscaras circulares para asegurar que el encuadre final sea exactamente el que usted desea sin alteraciones imprevistas."
     },
     "fancyTextGenerator": {
-      "title": "Generador de Letras Bonitas para WhatsApp – Fuentes Elegantes y Estilos",
-      "subtitle": "Generador online gratuito de letras bonitas para WhatsApp y fuentes elegantes. Diseña textos estilizados, signos decorativos y caritas con un clic para Instagram, WhatsApp y redes.",
+      "title": "Generador de Texto Elegante para WhatsApp con IA – Fuentes Bonitas y Letras Azules",
+      "subtitle": "Generador de texto elegante para WhatsApp y creador de fuentes bonitas en línea gratis. Cree fuentes estéticas, símbolos, marcas azules y texto caligráfico con copiar y pegar en un clic.",
       "inputLabel": "Escribe o pega tu texto:",
       "inputPlaceholder": "Escribe algo con estilo aquí...",
       "copy": "Copiar",
@@ -2497,7 +2497,26 @@
       "styleGamingStars": "Estrellas gamer (★彡 彡★)",
       "styleAestheticHearts": "Corazones estéticos (♡ ♡)",
       "styleAestheticSparkles": "Brillos estéticos (✧ ✦)",
-      "styleGlitchZalgo": "Texto distorsionado (Zalgo)"
+      "styleGlitchZalgo": "Texto distorsionado (Zalgo)",
+      "categoryPopular21": "Los 21 Estilos Más Populares",
+      "categoryCalligraphy": "Caligrafía",
+      "searchStyles": "Buscar estilos o fuentes...",
+      "shareWhatsApp": "Compartir en WhatsApp",
+      "symbolsTitle": "Haz clic para insertar símbolos",
+      "symbolGroupStars": "Estrellas y Estética",
+      "symbolGroupBlue": "Azul y Verificación",
+      "symbolGroupHearts": "Corazones y Afecto",
+      "symbolGroupGaming": "Juegos e Insignias",
+      "symbolGroupBrackets": "Paréntesis Decorativos",
+      "styleCalligraphySwash": "Caligrafía con Adornos",
+      "styleCalligraphyRoyal": "Caligrafía Corona Real",
+      "styleCalligraphyWings": "Caligrafía Alas de Mariposa",
+      "styleBlueButterfly": "Mariposa Azul",
+      "styleBlueOcean": "Ola Marina Azul",
+      "styleBlueDiamond": "Diamante Azul Brillante",
+      "styleBlueIce": "Cristal de Hielo Azul",
+      "styleBlueEvilEye": "Ojo Turco Azul Protector",
+      "styleBlueTickSuper": "Insignia de Verificación ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000 Emojis para Copiar y Pegar – Teclado de Emojis Tiernos y Estéticos",

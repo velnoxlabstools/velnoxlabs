@@ -529,8 +529,8 @@
       "description": "Conversor gratuito de imagem para PDF com IA. Converta imagens JPG, PNG, WebP e de IA em documentos PDF compactados de 100KB ou 200KB no navegador sem envios."
     },
     "fancy-text-generator": {
-      "name": "Gerador de Letras Diferentes para WhatsApp – Fontes Bonitas e Estilos",
-      "description": "Gerador online gratuito de letras diferentes para WhatsApp e fontes elegantes. Crie estilos visuais, caracteres decorativos e textos personalizados para Instagram e redes."
+      "name": "Gerador de Letras Personalizadas para WhatsApp com IA – Fontes Bonitas, Letras Azuis e 21 Estilos",
+      "description": "Gerador de texto personalizado para WhatsApp e criador de fontes caligráficas online grátis. Crie 21 estilos de fontes para copiar e colar, fontes estéticas, símbolos de verificado azul (✔️), letras azuis com emojis e nicks de jogos."
     },
     "emoji-copy": {
       "name": "10000 Emojis para Copiar e Colar – Teclado de Emojis Fofos e Mais de 280 Bandeiras",
@@ -2436,8 +2436,8 @@
       "faq4A": "Muitos procuram ferramentas com IA, mas cortes automatizados frequentemente cortam partes importantes ou expressões faciais por engano. Nossa ferramenta online aposta na precisão do ajuste manual: você tem controle total sobre os pontos de seleção, proporções matemáticas e formatos de corte para obter um resultado perfeito e sem distorções."
     },
     "fancyTextGenerator": {
-      "title": "Gerador de Letras Diferentes para WhatsApp – Fontes Bonitas e Estilos",
-      "subtitle": "Gerador online gratuito de letras diferentes para WhatsApp e fontes elegantes. Crie estilos visuais, caracteres decorativos e textos personalizados para Instagram e redes.",
+      "title": "Gerador de Letras Personalizadas para WhatsApp com IA – Fontes Bonitas e Letras Azuis",
+      "subtitle": "Gerador de texto personalizado para WhatsApp e criador de fontes bonitas online grátis. Crie fontes estéticas, símbolos, verificados azuis e textos caligráficos com um clique.",
       "inputLabel": "Digite ou cole o seu texto:",
       "inputPlaceholder": "Digite algo estiloso aqui...",
       "copy": "Copiar",
@@ -2499,7 +2499,26 @@
       "styleGamingStars": "Estrelas gamer (★彡 彡★)",
       "styleAestheticHearts": "Corações estéticos (♡ ♡)",
       "styleAestheticSparkles": "Brilhos estéticos (✧ ✦)",
-      "styleGlitchZalgo": "Texto corrompido (Zalgo)"
+      "styleGlitchZalgo": "Texto corrompido (Zalgo)",
+      "categoryPopular21": "Os 21 Estilos Mais Populares",
+      "categoryCalligraphy": "Caligrafia",
+      "searchStyles": "Pesquisar estilos ou fontes...",
+      "shareWhatsApp": "Compartilhar no WhatsApp",
+      "symbolsTitle": "Clique para inserir símbolos",
+      "symbolGroupStars": "Estrelas e Estética",
+      "symbolGroupBlue": "Azul e Verificado",
+      "symbolGroupHearts": "Corações e Delicados",
+      "symbolGroupGaming": "Jogos e Emblemas",
+      "symbolGroupBrackets": "Colchetes Decorativos",
+      "styleCalligraphySwash": "Caligrafia com Adornos",
+      "styleCalligraphyRoyal": "Caligrafia Coroa Real",
+      "styleCalligraphyWings": "Caligrafia Asas de Borboleta",
+      "styleBlueButterfly": "Borboleta Azul",
+      "styleBlueOcean": "Onda do Oceano Azul",
+      "styleBlueDiamond": "Diamante Azul Brilhante",
+      "styleBlueIce": "Cristal de Gelo Azul",
+      "styleBlueEvilEye": "Olho Grego Azul",
+      "styleBlueTickSuper": "Selo Verificado ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000 Emojis para Copiar e Colar – Teclado de Emojis Fofos e Estéticos",

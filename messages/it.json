@@ -529,8 +529,8 @@
       "description": "Convertitore gratuito di immagini in PDF con IA. Trasforma JPG, PNG, WebP e immagini IA in file PDF compressi da 100KB o 200KB direttamente nel browser senza caricamenti."
     },
     "fancy-text-generator": {
-      "name": "Generatore di Testo Particolare per WhatsApp – Caratteri e Scritte Belle",
-      "description": "Generatore gratuito di testo particolare per WhatsApp e caratteri speciali. Crea scritte eleganti, caratteri decorativi ed emoticon per profili e social media."
+      "name": "Generatore di Testo Elegante per WhatsApp con IA – Caratteri Speciali, Scritte Blu e 21 Stili",
+      "description": "Generatore gratuito online di testo elegante per WhatsApp e caratteri calligrafici. Crea 21 stili di caratteri da copiare e incollare, font estetici, simboli di spunta blu (✔️), caratteri blu con emoji e nickname da gioco."
     },
     "emoji-copy": {
       "name": "10000 Emoji da Copiare e Incollare – Tastiera Emoji Carini e Oltre 280 Bandiere",
@@ -2434,8 +2434,8 @@
       "faq4A": "I ritagli automatici con IA possono sbagliare il soggetto ed eliminare dettagli importanti. Il nostro strumento privilegia la precisione del controllo manuale: hai a disposizione maniglie regolabili al singolo pixel, proporzioni esatte e mascheratura circolare per ottenere un risultato perfetto senza imprevisti."
     },
     "fancyTextGenerator": {
-      "title": "Generatore di Testo Particolare per WhatsApp – Caratteri e Scritte Belle",
-      "subtitle": "Generatore gratuito di testo particolare per WhatsApp e caratteri speciali. Crea scritte eleganti, caratteri decorativi ed emoticon per profili e social media.",
+      "title": "Generatore di Testo Elegante per WhatsApp con IA – Caratteri Speciali e Scritte Blu",
+      "subtitle": "Generatore gratuito online di testo elegante per WhatsApp e caratteri speciali. Crea font estetici, simboli, spunte blu e testi calligrafici con copia e incolla in un clic.",
       "inputLabel": "Scrivi o incolla il tuo testo:",
       "inputPlaceholder": "Scrivi qualcosa di elegante qui...",
       "copy": "Copia",
@@ -2497,7 +2497,26 @@
       "styleGamingStars": "Stelle da gioco (★彡 彡★)",
       "styleAestheticHearts": "Cuori estetici (♡ ♡)",
       "styleAestheticSparkles": "Scintille estetiche (✧ ✦)",
-      "styleGlitchZalgo": "Testo distorto (Zalgo)"
+      "styleGlitchZalgo": "Testo distorto (Zalgo)",
+      "categoryPopular21": "I 21 Stili Più Popolari",
+      "categoryCalligraphy": "Calligrafia",
+      "searchStyles": "Cerca stili o caratteri...",
+      "shareWhatsApp": "Condividi su WhatsApp",
+      "symbolsTitle": "Fai clic per inserire simboli",
+      "symbolGroupStars": "Stelle ed Estetica",
+      "symbolGroupBlue": "Blu e Verificati",
+      "symbolGroupHearts": "Cuori e Graziosi",
+      "symbolGroupGaming": "Giochi e Stemmi",
+      "symbolGroupBrackets": "Parentesi Decorative",
+      "styleCalligraphySwash": "Calligrafia con Ghirigori",
+      "styleCalligraphyRoyal": "Calligrafia Corona Reale",
+      "styleCalligraphyWings": "Calligrafia Ali di Farfalla",
+      "styleBlueButterfly": "Farfalla Blu",
+      "styleBlueOcean": "Onda Oceanica Blu",
+      "styleBlueDiamond": "Diamante Blu Scintillante",
+      "styleBlueIce": "Cristallo di Ghiaccio Blu",
+      "styleBlueEvilEye": "Occhio Portafortuna Blu",
+      "styleBlueTickSuper": "Distintivo Verificato ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000 Emoji da Copiare e Incollare – Tastiera di Emoji Carine ed Estetiche",

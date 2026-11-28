@@ -573,6 +573,20 @@ const STYLES_CONFIG: StyleConfig[] = [
     badge: '🧿 Nazar',
     transform: (t) => `🧿 ${t} 🧿`,
   },
+  {
+    id: 'blueBubble',
+    nameKey: 'styleBlueSquared',
+    category: 'blue',
+    badge: '🫧 Bubble',
+    transform: (t) => `🫧 💙 ${t} 💙 🫧`,
+  },
+  {
+    id: 'blueSparkleEmoji',
+    nameKey: 'styleBlueDiamond',
+    category: 'blue',
+    badge: '🔹 Sparkle',
+    transform: (t) => `🔹✨ ${t} ✨🔹`,
+  },
 
   // Blue Tick & Badges (Addresses 'Fancy text generator blue tick')
   {
@@ -708,29 +722,50 @@ const STYLES_CONFIG: StyleConfig[] = [
     badge: '(◕‿◕✿)',
     transform: (t) => `(◕‿◕✿) ${t}`,
   },
+  {
+    id: 'aestheticBlossom',
+    nameKey: 'styleAestheticHearts',
+    category: 'aesthetic',
+    badge: '🌸 Sakura',
+    transform: (t) => `🌸・゜${t} ゜・🌸`,
+  },
+  {
+    id: 'aestheticCloud',
+    nameKey: 'styleAestheticSparkles',
+    category: 'aesthetic',
+    badge: '☁️ Dream',
+    transform: (t) => `☁️ ⋆⁺₊⋆ ${t} ⋆⁺₊⋆ ☁️`,
+  },
+  {
+    id: 'aestheticMusic',
+    nameKey: 'styleAestheticSparkles',
+    category: 'aesthetic',
+    badge: '♬ Music',
+    transform: (t) => `♬ ♩ ${t} ♩ ♬`,
+  },
 ];
 
 // Interactive Click-to-Insert Symbols Palette
 const SYMBOL_CATEGORIES = [
   {
     titleKey: 'symbolGroupStars',
-    symbols: ['★', '✦', '✧', '✪', '✯', '✰', '✨', '⚡', '👑'],
+    symbols: ['★', '✦', '✧', '✪', '✯', '✰', '✨', '⚡', '👑', '♛', '༊*·˚'],
   },
   {
     titleKey: 'symbolGroupBlue',
-    symbols: ['✔️', '✓', '☑️', '💙', '💎', '🧊', '🧿', '💠', '🦋', 'ᵛᵉʳᶦᶠᶦᵉᵈ'],
+    symbols: ['✔️', '✓', '☑️', '💙', '💎', '🧊', '🧿', '💠', '🦋', '🫧', '🔹', 'ᵛᵉʳᶦᶠᶦᵉᵈ'],
   },
   {
     titleKey: 'symbolGroupHearts',
-    symbols: ['♡', '♥', '❥', '❣', '❦', '❧', '💖', 'ᡣ𐭩', '🌸'],
+    symbols: ['♡', '♥', '❥', '❣', '❦', '❧', '💖', 'ᡣ𐭩', '🌸', '☁️', '♬'],
   },
   {
     titleKey: 'symbolGroupGaming',
-    symbols: ['亗', '☬', '࿐', '༒', '⚔', '✞', '𓆩', '𓆪'],
+    symbols: ['亗', '☬', '࿐', '༒', '⚔', '✞', '𓆩', '𓆪', '彡', '★彡'],
   },
   {
     titleKey: 'symbolGroupBrackets',
-    symbols: ['『 』', '【 】', '〖 〗', '꧁ ꧂', '༺ ༻'],
+    symbols: ['『 』', '【 】', '〖 〗', '꧁ ꧂', '༺ ༻', '« »', '░ ░'],
   },
 ];
 

@@ -3767,8 +3767,8 @@
       "faq4A": "はい。画面下部の開発者コード出力から、選択中の比率や円形設定に合わせたimage_cropper (Flutter) とngx-image-cropper (Angular) のコードをコピーできます。"
     },
     "fancyTextGenerator": {
-      "title": "WhatsApp向けおしゃれ文字フォントジェネレーター – 特殊文字・可愛いフォント作成",
-      "subtitle": "無料のWhatsApp向けおしゃれ文字フォントジェネレーター。Instagramのプロフィール、WhatsApp名、Discord向けに可愛い特殊文字や飾り文字をワンタップで作成。",
+      "title": "AI WhatsApp用おしゃれ文字ジェネレーター – かわいいフォント＆青い文字",
+      "subtitle": "WhatsApp用のおしゃれ文字・かわいいフォントジェネレーター（無料）。1クリックのコピペで美しい装飾テキスト、特殊文字、青いチェックマークを作成できます。",
       "inputLabel": "テキストを入力または貼り付け：",
       "inputPlaceholder": "ここに文字を入力してください...",
       "copy": "コピー",

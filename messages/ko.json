@@ -522,8 +522,8 @@
       "description": "무료 AI 온라인 이미지 PDF 변환기. 서버 업로드 없이 브라우저에서 직접 JPG, PNG, WebP 및 AI 이미지를 100KB 또는 200KB 이하의 압축 PDF 문서로 변환하세요."
     },
     "fancy-text-generator": {
-      "name": "왓츠앱 예쁜 글씨체 폰트 텍스트 생성기 – 인스타 감성 특수문자 변환",
-      "description": "무료 왓츠앱 예쁜 글씨체 폰트 텍스트 생성기. 인스타그램 소개글, 왓츠앱 프로필, 디스코드용 감성 폰트와 특수문자를 원클릭으로 변환하세요."
+      "name": "AI WhatsApp 예쁜 글씨체 생성기 – 특수문자 폰트, 파란 글씨 및 21가지 글꼴 복사",
+      "description": "무료 온라인 WhatsApp 예쁜 글씨체 생성기 및 캘리그래피 폰트 변환기입니다. 클릭 한 번으로 복사 가능한 21가지 인기 폰트 스타일, 감성 텍스트, 파란색 체크 표시(✔️), 이모티콘 파란 글씨 및 게임 닉네임을 생성하세요."
     },
     "emoji-copy": {
       "name": "10000개 이모티콘 복사 및 붙여넣기 – 귀여운 이모지 키보드, 280개 이상 국기 & 특수문자",
@@ -2415,8 +2415,8 @@
       "faq4A": "AI 기반 자동 자르기는 알고리즘이 화면을 임의로 판단하여 얼굴이나 주요 텍스트를 실수로 잘라내는 경우가 많습니다. 당사의 온라인 도구는 수동 제어의 정밀함을 극대화하여, 픽셀 단위 미세 조절과 규격 비율 설정을 통해 사용자가 의도한 완벽한 구도를 왜곡 없이 얻을 수 있도록 돕습니다."
     },
     "fancyTextGenerator": {
-      "title": "왓츠앱 예쁜 글씨체 폰트 텍스트 생성기 – 인스타 감성 특수문자 변환",
-      "subtitle": "무료 왓츠앱 예쁜 글씨체 폰트 텍스트 생성기. 인스타그램 소개글, 왓츠앱 프로필, 디스코드용 감성 폰트와 특수문자를 원클릭으로 변환하세요.",
+      "title": "AI WhatsApp 예쁜 글씨체 생성기 – 특수문자 폰트 및 파란 글씨",
+      "subtitle": "무료 온라인 WhatsApp 예쁜 글씨체 생성기입니다. 클릭 한 번의 복사로 감성 폰트, 특수기호, 파란색 체크마크 및 캘리그래피 텍스트를 손쉽게 만들어보세요.",
       "inputLabel": "텍스트 입력 또는 붙여넣기:",
       "inputPlaceholder": "변환할 텍스트를 여기에 입력하세요...",
       "copy": "복사",
@@ -2478,7 +2478,26 @@
       "styleGamingStars": "게임 별빛 장식 (★彡 彡★)",
       "styleAestheticHearts": "감성 하트 데코 (♡ ♡)",
       "styleAestheticSparkles": "감성 반짝이 (✧ ✦)",
-      "styleGlitchZalgo": "글리치 왜곡 글자 (Zalgo)"
+      "styleGlitchZalgo": "글리치 왜곡 글자 (Zalgo)",
+      "categoryPopular21": "인기 21가지 스타일",
+      "categoryCalligraphy": "캘리그래피",
+      "searchStyles": "스타일 또는 글꼴 검색...",
+      "shareWhatsApp": "WhatsApp으로 공유",
+      "symbolsTitle": "클릭하여 특수문자 삽입",
+      "symbolGroupStars": "별 및 감성 기호",
+      "symbolGroupBlue": "파란색 및 인증 체크",
+      "symbolGroupHearts": "하트 및 귀여운 기호",
+      "symbolGroupGaming": "게임 및 엠블럼",
+      "symbolGroupBrackets": "장식 괄호",
+      "styleCalligraphySwash": "캘리그래피 장식체",
+      "styleCalligraphyRoyal": "캘리그래피 왕관체",
+      "styleCalligraphyWings": "캘리그래피 나비날개체",
+      "styleBlueButterfly": "파란 나비 스타일",
+      "styleBlueOcean": "푸른 파도 스타일",
+      "styleBlueDiamond": "파란 다이아몬드",
+      "styleBlueIce": "푸른 얼음 결정",
+      "styleBlueEvilEye": "파란 수호의 눈",
+      "styleBlueTickSuper": "인증 배지 ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000개 이모지 복사 및 붙여넣기 – 귀여운 이모지 키보드",

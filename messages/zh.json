@@ -522,8 +522,8 @@
       "description": "免费AI在线图片转PDF工具。直接在浏览器本地将JPG、PNG、WebP及AI绘图合并并压缩为100KB或200KB以内的多页PDF文档，零上传、零泄露风险。"
     },
     "fancy-text-generator": {
-      "name": "WhatsApp 花样花式字体生成器 – 个性艺术字与特殊符号排版工具",
-      "description": "免费在线 WhatsApp 花样花式字体生成器与艺术字转换工具。一键转换生成适合微信、Instagram 简介、WhatsApp 昵称及 Discord 的花样字体与特殊字符。"
+      "name": "AI WhatsApp 花样字体生成器 – 艺术字体、蓝色文字与 21 种流行风格复制粘贴",
+      "description": "免费在线 WhatsApp 花样字体与艺术书法生成器。一键生成 21 种流行字体风格复制粘贴、唯美排版字体、蓝色认证对勾标识（✔️）、带表情符号的蓝色文字及游戏专属昵称，支持一键分享。"
     },
     "emoji-copy": {
       "name": "10000个表情符号一键复制粘贴 – 可爱Emoji键盘、280+国家国旗与特殊符号",
@@ -2415,8 +2415,8 @@
       "faq4A": "市面上的 AI 自动裁切往往依靠算法猜测画面焦点，容易意外切除重要文字、边缘背景或主体细节。我们的在线工具专注于高精度的手动掌控：提供像素级精准的拖拽控制点、常用比例预设和圆形裁剪路径，确保您始终能获得完全符合心意的取景构图与高清画质。"
     },
     "fancyTextGenerator": {
-      "title": "WhatsApp 花样花式字体生成器 – 个性艺术字与特殊符号排版工具",
-      "subtitle": "免费在线 WhatsApp 花样花式字体生成器与艺术字转换工具。一键转换生成适合微信、Instagram 简介、WhatsApp 昵称及 Discord 的花样字体与特殊字符。",
+      "title": "AI WhatsApp 花样字体生成器 – 艺术字体与蓝色特殊文字",
+      "subtitle": "免费在线 WhatsApp 花样字体与艺术排版生成器。一键生成唯美艺术字、个性特殊符号、蓝色认证对勾与花体书法文本。",
       "inputLabel": "输入或粘贴文本：",
       "inputPlaceholder": "在此输入需要转换样式的文字...",
       "copy": "复制",
@@ -2478,7 +2478,26 @@
       "styleGamingStars": "游戏星辉装饰 (★彡 彡★)",
       "styleAestheticHearts": "唯美爱心装饰 (♡ ♡)",
       "styleAestheticSparkles": "梦幻闪烁星芒 (✧ ✦)",
-      "styleGlitchZalgo": "故障紊乱字 (Zalgo)"
+      "styleGlitchZalgo": "故障紊乱字 (Zalgo)",
+      "categoryPopular21": "最受欢迎21款风格",
+      "categoryCalligraphy": "艺术花体书法",
+      "searchStyles": "搜索字体或风格...",
+      "shareWhatsApp": "一键分享至WhatsApp",
+      "symbolsTitle": "点击插入特色符号",
+      "symbolGroupStars": "星星与唯美符号",
+      "symbolGroupBlue": "蓝色与认证标记",
+      "symbolGroupHearts": "爱心与萌系符号",
+      "symbolGroupGaming": "游戏战斗符号",
+      "symbolGroupBrackets": "装饰边框括号",
+      "styleCalligraphySwash": "华丽书法卷尾体",
+      "styleCalligraphyRoyal": "皇家皇冠花体",
+      "styleCalligraphyWings": "蝴蝶双翼花体",
+      "styleBlueButterfly": "蓝色蝴蝶风格",
+      "styleBlueOcean": "蓝色海浪风格",
+      "styleBlueDiamond": "蓝色璀璨钻石",
+      "styleBlueIce": "蓝色冰霜水晶",
+      "styleBlueEvilEye": "蓝色守护之眼",
+      "styleBlueTickSuper": "官方认证蓝标 ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000+ 表情符号一键复制与符号键盘 – 可爱风与唯美 Emoji 大全",

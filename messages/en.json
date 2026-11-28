@@ -522,8 +522,8 @@
       "description": "Free AI online image to PDF converter. Convert JPG, PNG, WebP, and AI-generated images into compressed 100KB or 200KB PDF documents directly in your browser with zero uploads."
     },
     "fancy-text-generator": {
-      "name": "Fancy Text Generator for WhatsApp – Fancy Font Generator",
-      "description": "Free online Fancy Text Generator for WhatsApp and Fancy Font Generator. Create stylish fonts, symbols, emojis, and aesthetic text with one-click copy and paste for Instagram bios, WhatsApp names, and Discord."
+      "name": "AI Fancy Text Generator for WhatsApp – Stylish Font Generator, Blue Colour & 21 Font Styles",
+      "description": "Free online Fancy Text Generator for WhatsApp, Stylish Font Generator, and Calligraphy Font Maker. Generate 21 font styles copy-paste, aesthetic fonts, blue tick symbols (✔️), blue colour fonts with emojis, and gaming nicknames with 1-click copy & WhatsApp share."
     },
     "emoji-copy": {
       "name": "10000 Emojis Copy and Paste – Cute Emoji Copy & Keyboard (280+ World Flags)",
@@ -2392,8 +2392,8 @@
       "faq4A": "While many search for an Image cropper AI to automatically guess focal points, automated AI cropping often cuts off essential edges, text, or human subjects incorrectly. Our Image cropper online platform focuses on high-precision manual control: you get pixel-accurate drag handles, preset aspect ratios (1:1, 4:3, 16:9), freeform framing, and circular clipping paths, ensuring you always get the exact framing and resolution you want without unexpected AI distortions."
     },
     "fancyTextGenerator": {
-      "title": "Fancy Text Generator for WhatsApp – Fancy Font Generator",
-      "subtitle": "Free online Fancy Text Generator for WhatsApp and Fancy Font Generator. Create stylish fonts, symbols, emojis, and aesthetic text with one-click copy and paste for Instagram bios, WhatsApp names, and Discord.",
+      "title": "AI Fancy Text Generator for WhatsApp – Stylish Font Generator & Blue Fonts",
+      "subtitle": "Free online Fancy Text Generator for WhatsApp and Stylish Font Generator. Create aesthetic fonts, symbols, blue ticks, and calligraphy text with one-click copy and paste.",
       "inputLabel": "Enter or paste your text:",
       "inputPlaceholder": "Type something stylish here...",
       "copy": "Copy",
@@ -2455,7 +2455,26 @@
       "styleGamingStars": "Gaming Stars (★彡 彡★)",
       "styleAestheticHearts": "Aesthetic Hearts (♡ ♡)",
       "styleAestheticSparkles": "Aesthetic Sparkles (✧ ✦)",
-      "styleGlitchZalgo": "Glitch / Zalgo (Corrupted)"
+      "styleGlitchZalgo": "Glitch / Zalgo (Corrupted)",
+      "categoryPopular21": "Top 21 Popular Styles",
+      "categoryCalligraphy": "Calligraphy",
+      "searchStyles": "Search styles or fonts...",
+      "shareWhatsApp": "Share to WhatsApp",
+      "symbolsTitle": "Click to Insert Symbols",
+      "symbolGroupStars": "Stars & Aesthetic",
+      "symbolGroupBlue": "Blue & Verified Ticks",
+      "symbolGroupHearts": "Hearts & Cute",
+      "symbolGroupGaming": "Gaming & Badges",
+      "symbolGroupBrackets": "Decorative Brackets",
+      "styleCalligraphySwash": "Calligraphy Swash",
+      "styleCalligraphyRoyal": "Calligraphy Royal Crown",
+      "styleCalligraphyWings": "Calligraphy Butterfly Wings",
+      "styleBlueButterfly": "Blue Butterfly",
+      "styleBlueOcean": "Blue Ocean Wave",
+      "styleBlueDiamond": "Blue Diamond Sparkle",
+      "styleBlueIce": "Blue Ice Crystal",
+      "styleBlueEvilEye": "Blue Nazar Evil Eye",
+      "styleBlueTickSuper": "Verified Badge ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000 Emojis Copy and Paste – Cute Emoji Copy & Keyboard",

@@ -529,8 +529,8 @@
       "description": "Convertisseur gratuit d'image en PDF par IA. Convertissez vos images JPG, PNG, WebP et créations IA en fichiers PDF compressés de 100KB ou 200KB localement sans aucun envoi."
     },
     "fancy-text-generator": {
-      "name": "Générateur de Texte Stylé pour WhatsApp – Polices d'Écriture et Styles",
-      "description": "Générateur en ligne de texte stylé pour WhatsApp et polices artistiques. Créez des typographies élégantes, caractères décoratifs et émoticônes pour vos profils."
+      "name": "Générateur de Texte Élégant pour WhatsApp par IA – Polices Stylées, Texte Bleu & 21 Styles",
+      "description": "Générateur gratuit de texte élégant pour WhatsApp et de polices de calligraphie en ligne. Créez 21 styles de polices à copier-coller, polices esthétiques, symboles de coche bleue (✔️), texte bleu avec emojis et pseudos de jeu."
     },
     "emoji-copy": {
       "name": "10000 Emojis à Copier et Coller – Clavier d'Emojis Mignons et Plus de 280 Drapeaux",
@@ -2436,8 +2436,8 @@
       "faq4A": "Les recadrages automatisés par IA ont souvent tendance à couper des éléments clés ou des visages. Notre outil privilégie une précision manuelle rigoureuse : vous disposez de poignées ajustables au pixel près, de ratios stricts et d'un tracé circulaire afin d'obtenir un cadrage parfait sans mauvaises surprises."
     },
     "fancyTextGenerator": {
-      "title": "Générateur de Texte Stylé pour WhatsApp – Polices d'Écriture et Styles",
-      "subtitle": "Générateur en ligne de texte stylé pour WhatsApp et polices artistiques. Créez des typographies élégantes, caractères décoratifs et émoticônes pour vos profils.",
+      "title": "Générateur de Texte Élégant pour WhatsApp par IA – Polices Stylées et Texte Bleu",
+      "subtitle": "Générateur gratuit de texte élégant pour WhatsApp et de polices stylées en ligne. Créez des polices esthétiques, des symboles, des coches bleues et des textes calligraphiques en un clic.",
       "inputLabel": "Saisissez ou collez votre texte :",
       "inputPlaceholder": "Écrivez quelque chose avec style ici...",
       "copy": "Copier",
@@ -2499,7 +2499,26 @@
       "styleGamingStars": "Étoiles gamer (★彡 彡★)",
       "styleAestheticHearts": "Cœurs esthétiques (♡ ♡)",
       "styleAestheticSparkles": "Étincelles esthétiques (✧ ✦)",
-      "styleGlitchZalgo": "Texte corrompu (Zalgo)"
+      "styleGlitchZalgo": "Texte corrompu (Zalgo)",
+      "categoryPopular21": "Top 21 Styles Populaires",
+      "categoryCalligraphy": "Calligraphie",
+      "searchStyles": "Rechercher des styles ou polices...",
+      "shareWhatsApp": "Partager sur WhatsApp",
+      "symbolsTitle": "Cliquer pour insérer des symboles",
+      "symbolGroupStars": "Étoiles et Esthétique",
+      "symbolGroupBlue": "Bleu et Vérification",
+      "symbolGroupHearts": "Cœurs et Mignon",
+      "symbolGroupGaming": "Jeux et Insignes",
+      "symbolGroupBrackets": "Crochets Décoratifs",
+      "styleCalligraphySwash": "Calligraphie à Volutes",
+      "styleCalligraphyRoyal": "Calligraphie Couronne Royale",
+      "styleCalligraphyWings": "Calligraphie Ailes de Papillon",
+      "styleBlueButterfly": "Papillon Bleu",
+      "styleBlueOcean": "Vague Océanique Bleue",
+      "styleBlueDiamond": "Diamant Bleu Étincelant",
+      "styleBlueIce": "Cristal de Glace Bleu",
+      "styleBlueEvilEye": "Œil Protecteur Bleu",
+      "styleBlueTickSuper": "Badge de Vérification ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000 Emojis à Copier et Coller – Clavier d'Emojis Mignons et Esthétiques",

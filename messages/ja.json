@@ -522,8 +522,8 @@
       "description": "無料のAIオンライン画像PDF変換ツール。JPG、PNG、WebP、AI生成画像をサーバー送信なしでブラウザ上で100KBや200KB以下の圧縮PDFへ一括変換。"
     },
     "fancy-text-generator": {
-      "name": "WhatsApp向けおしゃれ文字フォントジェネレーター – 特殊文字・可愛いフォント作成",
-      "description": "無料のWhatsApp向けおしゃれ文字フォントジェネレーター。Instagramのプロフィール、WhatsApp名、Discord向けに可愛い特殊文字や飾り文字をワンタップで作成。"
+      "name": "AI WhatsApp用おしゃれ文字ジェネレーター – かわいいフォント、青い文字＆人気21フォントスタイル",
+      "description": "WhatsApp用のおしゃれ文字・かわいいフォント・カリグラフィー文字ジェネレーター（無料）。コピペできる人気21フォントスタイル、青い文字、青いチェックマーク（✔️）、絵文字付き装飾テキスト、ゲーム用ニックネームを生成できます。"
     },
     "emoji-copy": {
       "name": "10000個の絵文字コピペツール – かわいい絵文字キーボード・280以上の国旗・特殊記号",
@@ -2415,8 +2415,8 @@
       "faq4A": "AI による自動トリミングは、被写体の顔や大事なテキストを誤って切り落としてしまうケースがあります。当ツールはあえて高精度な手動操作にこだわっており、ピクセル単位の細かな調整や比率指定によって、意図した通りの構図で確実に画像を切り抜くことができます。"
     },
     "fancyTextGenerator": {
-      "title": "WhatsApp向けおしゃれ文字フォントジェネレーター – 特殊文字・可愛いフォント作成",
-      "subtitle": "無料のWhatsApp向けおしゃれ文字フォントジェネレーター。Instagramのプロフィール、WhatsApp名、Discord向けに可愛い特殊文字や飾り文字をワンタップで作成。",
+      "title": "AI WhatsApp用おしゃれ文字ジェネレーター – かわいいフォント＆青い文字",
+      "subtitle": "WhatsApp用のおしゃれ文字・かわいいフォントジェネレーター（無料）。1クリックのコピペで美しい装飾テキスト、特殊文字、青いチェックマークを作成できます。",
       "inputLabel": "テキストを入力または貼り付け：",
       "inputPlaceholder": "ここに文字を入力してください...",
       "copy": "コピー",
@@ -2478,7 +2478,26 @@
       "styleGamingStars": "ゲームスター装飾 (★彡 彡★)",
       "styleAestheticHearts": "エステティックハート (♡ ♡)",
       "styleAestheticSparkles": "きらめき装飾 (✧ ✦)",
-      "styleGlitchZalgo": "グリッチ・カオス文字 (Zalgo)"
+      "styleGlitchZalgo": "グリッチ・カオス文字 (Zalgo)",
+      "categoryPopular21": "人気トップ21スタイル",
+      "categoryCalligraphy": "カリグラフィー",
+      "searchStyles": "スタイルやフォントを検索...",
+      "shareWhatsApp": "WhatsAppで共有",
+      "symbolsTitle": "クリックして記号を挿入",
+      "symbolGroupStars": "星と装飾記号",
+      "symbolGroupBlue": "青色と認証マーク",
+      "symbolGroupHearts": "ハートとかわいい記号",
+      "symbolGroupGaming": "ゲーム用記号",
+      "symbolGroupBrackets": "飾り括弧",
+      "styleCalligraphySwash": "筆記体飾り文字",
+      "styleCalligraphyRoyal": "王冠カリグラフィー",
+      "styleCalligraphyWings": "蝶の翼カリグラフィー",
+      "styleBlueButterfly": "青い蝶スタイル",
+      "styleBlueOcean": "青い波スタイル",
+      "styleBlueDiamond": "青い輝くダイヤモンド",
+      "styleBlueIce": "青い氷の結晶",
+      "styleBlueEvilEye": "青い魔除けの目",
+      "styleBlueTickSuper": "公式認証バッジ ᵛᵉʳᶦᶠᶦᵉᵈ"
     },
     "emojiCopy": {
       "title": "10000種類の絵文字コピペツール – かわいい絵文字キーボード",

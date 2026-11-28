@@ -3768,8 +3768,8 @@
       "faq4A": "支持。页面下方的开发者代码导出面板会根据您当前的比例与圆形设置，实时生成 Flutter (image_cropper) 与 Angular (ngx-image-cropper) 代码。"
     },
     "fancyTextGenerator": {
-      "title": "WhatsApp 花样花式字体生成器 – 个性艺术字与特殊符号排版工具",
-      "subtitle": "免费在线 WhatsApp 花样花式字体生成器与艺术字转换工具。一键转换生成适合微信、Instagram 简介、WhatsApp 昵称及 Discord 的花样字体与特殊字符。",
+      "title": "AI WhatsApp 花样字体生成器 – 艺术字体与蓝色特殊文字",
+      "subtitle": "免费在线 WhatsApp 花样字体与艺术排版生成器。一键生成唯美艺术字、个性特殊符号、蓝色认证对勾与花体书法文本。",
       "inputLabel": "输入或粘贴文本：",
       "inputPlaceholder": "在此输入需要转换样式的文字...",
       "copy": "复制",
