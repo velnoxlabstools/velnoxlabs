@@ -303,8 +303,8 @@
       "description": "免费在线将 JSON 转换为 Zod 验证模式，支持智能识别邮箱、网址、UUID、ISO 日期格式及可选字段，浏览器本地离线运行，绝无服务器泄露风险。"
     },
     "json-yaml-converter": {
-      "name": "在线 JSON 转 YAML 互转工具 – 支持 Swagger、Kubernetes 与 Docker 的智能格式化器",
-      "description": "免费在线实现 JSON 与 YAML 双向无缝转换，支持智能识别 OpenAPI、Kubernetes、Docker Compose 模板，提供安全引号保护与文件拖拽，本地运行绝无泄密风险。"
+      "name": "AI 在线 JSON 转 YAML 互转工具 – 免费支持 Swagger、Kubernetes 与 Docker 的智能格式化器",
+      "description": "基于 AI 的免费在线 JSON 与 YAML 双向转换器。支持 Python 字典 (True/False/None)、JS 对象、Kubernetes 多文档 (---) 与 OpenAPI 规范，数据完全在浏览器端安全处理。"
     },
     "url-parser-and-query-string-extractor": {
       "name": "AI URL 解析器与参数提取器 – 清理 UTM 参数、编辑与安全检测",
@@ -1179,8 +1179,8 @@
       "faq3A": "可以。用分隔线隔开的各个独立文档会被整齐地归整为 JSON 数组对象输出。",
       "faq4Q": "我粘贴的商业服务器凭证是否安全？",
       "faq4A": "绝对安全。全部词法解析和生成动作均在您本机浏览器的内存中独立完成，没有任何网络上传行为。",
-      "title": "在线 JSON 转 YAML 互转工具 – 支持 Swagger、Kubernetes 与 Docker Compose 的智能格式化器",
-      "subtitle": "支持 Swagger、Kubernetes 多文档分隔符 (---)、Docker Compose 端口防转义与完全本地安全处理的 JSON 与 YAML 双向转换工具。",
+      "title": "AI 在线 JSON 转 YAML 互转工具 – 免费支持 Swagger、Kubernetes 与 Docker 的智能格式化器",
+      "subtitle": "智能 AI 互转工具，支持 Python 字典 (True/None)、JavaScript 对象、Kubernetes 多文档分隔符 (---)、Swagger 及 Spring YAML 本地极速转换。",
       "clientSideNotice": "100% 浏览器本地运算（绝无服务器日志）",
       "presets": "预设样例",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1209,7 +1209,8 @@
       "presetPythonDict": "Python 字典 / FastAPI",
       "multiDocK8s": "多文档分隔符 (---) Kubernetes 专用",
       "relaxedParser": "宽松解析器 (支持 Python 字典与 JS 对象)",
-      "relaxedNotice": "宽松解析器已生效 (Python / JS)"
+      "relaxedNotice": "宽松解析器已生效 (Python / JS)",
+      "presetSpring": "Spring Boot (Java)"
     },
     "jwtDecoder": {
       "aboutText": "JWT 解码与安全审查器是一款注重隐私的本地化开发者工具，将符合 RFC 7519 规范的令牌解析为清晰易读的 JSON 结构。提供基于 Web Crypto API 的本地加密签名验证、过期倒计时以及自动化安全隐患排查。",

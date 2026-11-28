@@ -310,8 +310,8 @@
       "description": "Converti JSON in schemi di validazione Zod online con inferenza intelligente dei tipi (email, URL, UUID, data ISO, campi opzionali) nel browser senza trasmissione di dati."
     },
     "json-yaml-converter": {
-      "name": "Convertitore da JSON a YAML Online – Formattatore per Swagger, Kubernetes e Docker",
-      "description": "Converti JSON in YAML e YAML in JSON online con rilevamento automatico della struttura (Swagger, Kubernetes, Docker Compose). Spaziatura sicura e download locale senza invio dati."
+      "name": "Convertitore da JSON a YAML con IA Online – Formattatore Gratuito per Swagger, Kubernetes e Docker",
+      "description": "Convertitore gratuito basato su IA da JSON a YAML e da YAML a JSON online. Supporta dizionari Python (True/False/None), oggetti JS, manifesti multipli Kubernetes (---) e schemi OpenAPI."
     },
     "url-parser-and-query-string-extractor": {
       "name": "Analizzatore URL e Estrattore Query String IA – Pulisci UTM e Sicurezza",
@@ -1192,8 +1192,8 @@
       "step2Body": "Scegli il rientro a 2 spazi e attiva la protezione per le stringhe ambigue.",
       "step3Title": "Copia o Scarica",
       "step3Body": "Esamina il risultato e scarica il file pronto per l'impiego operativo.",
-      "title": "Convertitore da JSON a YAML Online – Formattatore per Swagger, Kubernetes e Docker Compose",
-      "subtitle": "Converti tra JSON e YAML con rilevamento intelligente dello schema, supporto multidocumento per Kubernetes (---) e sicurezza locale assoluta.",
+      "title": "Convertitore da JSON a YAML con IA Online – Formattatore Gratuito per Swagger, Kubernetes e Docker",
+      "subtitle": "Convertitore intelligente basato su IA con supporto per dizionari Python (True/None), oggetti JavaScript, Kubernetes multidocumento (---), Swagger e Spring YAML con elaborazione locale.",
       "clientSideNotice": "Motore 100% nel Browser (Nessun Invio a Server)",
       "presets": "Preimpostazioni",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1222,7 +1222,8 @@
       "presetPythonDict": "Dizionario Python / FastAPI",
       "multiDocK8s": "Multidocumento (---) per Kubernetes",
       "relaxedParser": "Analizzatore flessibile (Dizionario Python e oggetto JS)",
-      "relaxedNotice": "Analizzatore flessibile attivo (Python / JS)"
+      "relaxedNotice": "Analizzatore flessibile attivo (Python / JS)",
+      "presetSpring": "Spring Boot (Java)"
     },
     "jwtDecoder": {
       "aboutText": "Il Decodificatore e Ispettore di Sicurezza JWT è uno strumento per sviluppatori che converte token conformi allo standard RFC 7519 in strutture JSON leggibili. Consente verifiche crittografiche nel browser, calcolo del tempo di scadenza e rilevamento automatico di falle di sicurezza.",

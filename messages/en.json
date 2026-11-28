@@ -303,8 +303,8 @@
       "description": "Convert JSON to Zod schema generator online with smart type inference (email, URL, UUID, ISO datetime, auto-optional fields). Derives TypeScript types and modular sub-schemas 100% client-side with zero server exposure."
     },
     "json-yaml-converter": {
-      "name": "JSON to YAML Converter Online – Smart Formatter for Swagger, Kubernetes & Docker Compose",
-      "description": "Convert JSON to YAML and YAML to JSON online with smart schema detection (Swagger/OpenAPI, Kubernetes, Docker Compose). Safe type-quoting, 2/4 space indentation, and file drag-and-drop 100% client-side with zero server transmission."
+      "name": "AI JSON to YAML Converter Online – Free Smart Formatter for Swagger, Kubernetes & Docker Compose",
+      "description": "Free AI JSON to YAML and YAML to JSON converter online. Supports Python dicts (True/False/None), JS objects, Kubernetes multi-document manifests (---), Swagger/OpenAPI schemas, and Docker Compose port quoting 100% client-side."
     },
     "url-parser-and-query-string-extractor": {
       "name": "AI URL Parser & Query String Extractor – Clean UTM, Edit Params & Security Check",
@@ -1156,8 +1156,8 @@
       "faq3A": "Yes. When multiple YAML documents are separated by '---', the converter parses all documents into a clean JSON array representing each resource.",
       "faq4Q": "Is my proprietary cloud infrastructure configuration secure?",
       "faq4A": "Completely secure. All parsing and serialization execute 100% locally in your browser memory without uploading anything to external servers.",
-      "title": "JSON to YAML Converter Online – Smart Formatter for Swagger, Kubernetes & Docker Compose",
-      "subtitle": "Convert between JSON and YAML with smart schema detection, multi-document k8s parsing (---), safe type-quoting, and 100% client-side privacy.",
+      "title": "AI JSON to YAML Converter Online – Free Smart Formatter for Swagger, Kubernetes & Docker Compose",
+      "subtitle": "Smart AI-powered converter supporting Python Dicts (True/None), JavaScript Objects, Kubernetes Multi-Doc (---), Swagger/OpenAPI, and Spring YAML with 100% client-side privacy.",
       "clientSideNotice": "100% Client-Side Engine (Zero Server Logging)",
       "presets": "Presets",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1186,7 +1186,8 @@
       "presetPythonDict": "Python Dict / FastAPI",
       "multiDocK8s": "Multi-Document (---) for Kubernetes",
       "relaxedParser": "Relaxed Parser (Python Dict & JS Object)",
-      "relaxedNotice": "Relaxed Parser: Python dict / JS object syntax automatically converted"
+      "relaxedNotice": "Relaxed Parser: Python dict / JS object syntax automatically converted",
+      "presetSpring": "Spring Boot (Java)"
     },
     "jwtDecoder": {
       "aboutText": "The JWT Decoder & Security Inspector is an offline, privacy-first developer utility that parses RFC 7519 JSON Web Tokens into readable JSON structures (Header, Payload, and Signature). It provides real-time client-side cryptographic verification via Web Crypto API, relative expiration timers, and heuristic security vulnerability scans (detecting alg:none attacks, missing expiry, weak secrets, and sensitive credential leaks).",

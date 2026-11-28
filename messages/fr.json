@@ -310,8 +310,8 @@
       "description": "Convertissez du JSON en schémas de validation Zod en ligne avec inférence intelligente de types (courriel, URL, UUID, date ISO, champs facultatifs) dans le navigateur sans transmission de données."
     },
     "json-yaml-converter": {
-      "name": "Convertisseur JSON en YAML en Ligne – Outil de Formatage pour Swagger, Kubernetes et Docker",
-      "description": "Convertissez JSON en YAML et YAML en JSON en ligne avec détection automatique de schémas (Swagger, Kubernetes, Docker Compose). Retrait sécurisé et téléchargement direct sans transmission serveur."
+      "name": "Convertisseur JSON en YAML par IA en Ligne – Outil Gratuit pour Swagger, Kubernetes et Docker",
+      "description": "Convertisseur gratuit par IA de JSON en YAML et YAML en JSON en ligne. Prise en charge des dictionnaires Python (True/False/None), objets JS, manifestes multiples Kubernetes (---) et schémas OpenAPI."
     },
     "url-parser-and-query-string-extractor": {
       "name": "Analyseur d'URL & Extracteur Query String IA – Nettoyer UTM & Sécurité",
@@ -1192,8 +1192,8 @@
       "step2Body": "Optez pour une indentation à 2 espaces (norme conteneurs) et ajustez les protections de texte.",
       "step3Title": "Copier ou Télécharger",
       "step3Body": "Inspectez le résultat converti et téléchargez directement le fichier obtenu.",
-      "title": "Convertisseur JSON en YAML en Ligne – Outil de Formatage pour Swagger, Kubernetes et Docker Compose",
-      "subtitle": "Convertissez entre JSON et YAML avec détection intelligente de schéma, prise en charge multidocument pour Kubernetes (---) et confidentialité locale absolue.",
+      "title": "Convertisseur JSON en YAML par IA en Ligne – Outil Gratuit pour Swagger, Kubernetes et Docker",
+      "subtitle": "Convertisseur intelligent par IA compatible avec dictionnaires Python (True/None), objets JavaScript, Kubernetes multidocument (---), Swagger et Spring YAML en totale confidentialité.",
       "clientSideNotice": "Moteur 100% dans le Navigateur (Aucun Envoi au Serveur)",
       "presets": "Modèles",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1222,7 +1222,8 @@
       "presetPythonDict": "Dictionnaire Python / FastAPI",
       "multiDocK8s": "Multidocument (---) pour Kubernetes",
       "relaxedParser": "Analyseur flexible (Dictionnaire Python et objet JS)",
-      "relaxedNotice": "Analyseur flexible actif (Python / JS)"
+      "relaxedNotice": "Analyseur flexible actif (Python / JS)",
+      "presetSpring": "Spring Boot (Java)"
     },
     "jwtDecoder": {
       "aboutText": "Le Décodeur et Inspecteur de Sécurité JWT est un outil confidentiel pour développeurs permettant d'analyser les jetons conformes à la norme RFC 7519 en structures JSON lisibles. Il offre une vérification cryptographique instantanée dans le navigateur, un décompte d'expiration et une détection automatique des vulnérabilités.",

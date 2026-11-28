@@ -303,8 +303,8 @@
       "description": "JSON 데이터를 Zod 유효성 검사 스키마로 즉시 변환. 이메일, URL, UUID, ISO 일시 및 선택적 필드 자동 감지 지원, 브라우저에서 안전하게 작동."
     },
     "json-yaml-converter": {
-      "name": "온라인 JSON to YAML 변환기 – Swagger, Kubernetes, Docker 지원 스마트 포매터",
-      "description": "브라우저에서 JSON과 YAML을 안전하게 상호 변환. OpenAPI, Kubernetes, Docker Compose 자동 감지, 안전한 따옴표 처리 및 파일 다운로드를 지원하는 완전 로컬 도구."
+      "name": "AI 온라인 JSON to YAML 변환기 – 무료 Swagger, Kubernetes, Docker 지원 스마트 포매터",
+      "description": "AI 기반 무료 온라인 JSON 및 YAML 양방향 변환기. Python 딕셔너리(True/False/None), JS 객체, Kubernetes 다중 문서(---), OpenAPI 스키마를 브라우저 로컬에서 안전하게 변환합니다."
     },
     "url-parser-and-query-string-extractor": {
       "name": "AI URL 파서 & 쿼리 추출기 – UTM 제거, 파라미터 편집 & 보안 검사",
@@ -1179,8 +1179,8 @@
       "faq3A": "네, 구분선으로 분리된 각각의 문서를 정돈된 JSON 배열의 요소로 나누어 출력합니다.",
       "faq4Q": "입력한 서버 설정 데이터는 안전한가요?",
       "faq4A": "완벽하게 안전합니다. 모든 변환 로직은 사용자의 브라우저 메모리 안에서만 작동하며 외부 통신을 하지 않습니다.",
-      "title": "온라인 JSON to YAML 변환기 – Swagger, Kubernetes, Docker Compose 지원 스마트 포매터",
-      "subtitle": "Swagger, Kubernetes 멀티 문서 구분(---), Docker Compose 포트 자동 처리 및 100% 브라우저 로컬 변환을 지원하는 양방향 변환기입니다.",
+      "title": "AI 온라인 JSON to YAML 변환기 – 무료 Swagger, Kubernetes, Docker 지원 스마트 포매터",
+      "subtitle": "Python 딕셔너리(True/None), JavaScript 객체, Kubernetes 다중 문서 구분(---), Swagger 및 Spring YAML을 지원하는 지능형 AI 변환기입니다.",
       "clientSideNotice": "100% 브라우저 내 안전 연산 (서버 전송 없음)",
       "presets": "예제 프리셋",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1209,7 +1209,8 @@
       "presetPythonDict": "Python 딕셔너리 / FastAPI",
       "multiDocK8s": "다중 문서 구분(---) Kubernetes 전용",
       "relaxedParser": "유연한 구문 분석기 (Python 딕셔너리 및 JS 객체)",
-      "relaxedNotice": "유연한 구문 분석기 활성화됨 (Python / JS)"
+      "relaxedNotice": "유연한 구문 분석기 활성화됨 (Python / JS)",
+      "presetSpring": "Spring Boot (Java)"
     },
     "jwtDecoder": {
       "aboutText": "JWT 디코더 및 보안 검사기는 RFC 7519 표준 토큰을 사람이 읽을 수 있는 JSON 구조로 분석하는 개발자용 도구입니다. 브라우저 내장 Web Crypto API를 통한 서명 검증, 만료 시간 카운트다운, 보안 취약점 자동 점검을 안전하게 제공합니다.",

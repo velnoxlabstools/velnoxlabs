@@ -303,8 +303,8 @@
       "description": "Конвертируйте JSON в схемы валидации Zod онлайн с автоматическим распознаванием типов (email, URL, UUID, даты ISO, необязательные поля) в браузере без отправки данных."
     },
     "json-yaml-converter": {
-      "name": "Конвертер JSON в YAML Онлайн – Форматирование для Swagger, Kubernetes и Docker",
-      "description": "Конвертируйте JSON в YAML и YAML в JSON онлайн с распознаванием форматов (Swagger, Kubernetes, Docker Compose). Безопасные кавычки, отступы и загрузка в браузере без отправки данных."
+      "name": "ИИ Конвертер JSON в YAML Онлайн – Бесплатное форматирование для Swagger, Kubernetes и Docker",
+      "description": "Бесплатный онлайн конвертер JSON в YAML и YAML в JSON на базе ИИ. Поддержка словарей Python (True/False/None), объектов JS, манифестов Kubernetes (---) и схем OpenAPI в браузере."
     },
     "url-parser-and-query-string-extractor": {
       "name": "ИИ-парсер URL и параметров запроса – Очистка UTM и проверка безопасности",
@@ -1185,8 +1185,8 @@
       "step2Body": "Установите отступ в 2 пробела и включите режим безопасных кавычек.",
       "step3Title": "Скопируйте или Скачайте",
       "step3Body": "Проверьте преобразованный файл и сохраните его для использования в проекте.",
-      "title": "Конвертер JSON в YAML Онлайн – Форматирование для Swagger, Kubernetes и Docker Compose",
-      "subtitle": "Преобразование между JSON и YAML с автоматическим определением схем, поддержкой нескольких документов Kubernetes (---) и конфиденциальностью в браузере.",
+      "title": "ИИ Конвертер JSON в YAML Онлайн – Бесплатное форматирование для Swagger, Kubernetes и Docker",
+      "subtitle": "Интеллектуальный ИИ конвертер с поддержкой словарей Python (True/None), объектов JavaScript, нескольких документов Kubernetes (---), Swagger и Spring YAML.",
       "clientSideNotice": "100% Локальное Выполнение в Браузере (Без Передачи на Сервер)",
       "presets": "Шаблоны",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1215,7 +1215,8 @@
       "presetPythonDict": "Словарь Python / FastAPI",
       "multiDocK8s": "Несколько документов (---) для Kubernetes",
       "relaxedParser": "Гибкий синтаксический анализ (Словари Python и объекты JS)",
-      "relaxedNotice": "Гибкий синтаксический анализ активен (Python / JS)"
+      "relaxedNotice": "Гибкий синтаксический анализ активен (Python / JS)",
+      "presetSpring": "Spring Boot (Java)"
     },
     "jwtDecoder": {
       "aboutText": "JWT Декодер и Анализатор Безопасности — это конфиденциальный инструмент разработчика для разбора токенов стандарта RFC 7519 в читаемый формат JSON. Инструмент поддерживает мгновенную проверку подписи в браузере, таймеры истечения срока и автоматический аудит уязвимостей.",

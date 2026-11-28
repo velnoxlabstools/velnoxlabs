@@ -316,6 +316,56 @@ jobs:
     json: `{\n  'status': 'success',\n  'debug_mode': True,\n  'cache_enabled': False,\n  'backup_worker': None,\n  'services': ['auth', 'billing', 'notifications'],\n  'max_retries': 3\n}`,
     yaml: `status: success\ndebug_mode: true\ncache_enabled: false\nbackup_worker: null\nservices:\n  - auth\n  - billing\n  - notifications\nmax_retries: 3`,
   },
+  spring: {
+    label: 'Spring Boot (Java)',
+    mode: 'yaml2json' as Mode,
+    yaml: `server:
+  port: 8080
+spring:
+  application:
+    name: velnox-microservice
+  datasource:
+    url: jdbc:postgresql://localhost:5432/velnox_db
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics`,
+    json: JSON.stringify(
+      {
+        server: { port: 8080 },
+        spring: {
+          application: { name: 'velnox-microservice' },
+          datasource: {
+            url: 'jdbc:postgresql://localhost:5432/velnox_db',
+            username: 'postgres',
+            'driver-class-name': 'org.postgresql.Driver',
+          },
+          jpa: {
+            hibernate: { 'ddl-auto': 'update' },
+            'show-sql': false,
+          },
+        },
+        management: {
+          endpoints: {
+            web: {
+              exposure: {
+                include: 'health,info,metrics',
+              },
+            },
+          },
+        },
+      },
+      null,
+      2
+    ),
+  },
 };
 
 export default function JsonYamlPage() {
@@ -496,6 +546,15 @@ export default function JsonYamlPage() {
         type: 'github',
         label: 'GitHub Actions Workflow',
         badgeColor: '#c084fc',
+      };
+    }
+
+    // 5. Spring Boot (Java)
+    if ('server' in target || 'spring' in target) {
+      return {
+        type: 'generic',
+        label: 'Spring Boot (Java) Configuration',
+        badgeColor: '#10b981',
       };
     }
 
@@ -743,6 +802,22 @@ export default function JsonYamlPage() {
                 }}
               >
                 {tUI('presetPythonDict')}
+              </button>
+              <button
+                type="button"
+                onClick={() => handleLoadPreset('spring')}
+                style={{
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                  color: 'var(--text-main)',
+                  cursor: 'pointer',
+                }}
+              >
+                {tUI('presetSpring')}
               </button>
             </div>
 
