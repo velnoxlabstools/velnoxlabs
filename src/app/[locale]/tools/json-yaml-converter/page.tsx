@@ -99,7 +99,7 @@ paths:
           description: YAML document formatted successfully`,
   },
   k8s: {
-    label: 'Kubernetes Deployment',
+    label: 'Kubernetes Multi-Doc (Deployment + Service)',
     mode: 'yaml2json' as Mode,
     yaml: `apiVersion: apps/v1
 kind: Deployment
@@ -127,37 +127,74 @@ spec:
             - name: NODE_ENV
               value: 'production'
             - name: PORT
-              value: '3000'`,
+              value: '3000'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: velnox-gateway-svc
+  namespace: production
+spec:
+  type: ClusterIP
+  selector:
+    app: velnox-gateway
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP`,
     json: JSON.stringify(
-      {
-        apiVersion: 'apps/v1',
-        kind: 'Deployment',
-        metadata: {
-          name: 'velnox-gateway',
-          namespace: 'production',
-          labels: { app: 'velnox-gateway' },
-        },
-        spec: {
-          replicas: 3,
-          selector: { matchLabels: { app: 'velnox-gateway' } },
-          template: {
-            metadata: { labels: { app: 'velnox-gateway' } },
-            spec: {
-              containers: [
-                {
-                  name: 'web',
-                  image: 'node:20-alpine',
-                  ports: [{ containerPort: 3000 }],
-                  env: [
-                    { name: 'NODE_ENV', value: 'production' },
-                    { name: 'PORT', value: '3000' },
-                  ],
-                },
-              ],
+      [
+        {
+          apiVersion: 'apps/v1',
+          kind: 'Deployment',
+          metadata: {
+            name: 'velnox-gateway',
+            namespace: 'production',
+            labels: { app: 'velnox-gateway' },
+          },
+          spec: {
+            replicas: 3,
+            selector: { matchLabels: { app: 'velnox-gateway' } },
+            template: {
+              metadata: { labels: { app: 'velnox-gateway' } },
+              spec: {
+                containers: [
+                  {
+                    name: 'web',
+                    image: 'node:20-alpine',
+                    ports: [{ containerPort: 3000 }],
+                    env: [
+                      { name: 'NODE_ENV', value: 'production' },
+                      { name: 'PORT', value: '3000' },
+                    ],
+                  },
+                ],
+              },
             },
           },
         },
-      },
+        {
+          apiVersion: 'v1',
+          kind: 'Service',
+          metadata: {
+            name: 'velnox-gateway-svc',
+            namespace: 'production',
+          },
+          spec: {
+            type: 'ClusterIP',
+            selector: {
+              app: 'velnox-gateway',
+            },
+            ports: [
+              {
+                port: 80,
+                targetPort: 3000,
+                protocol: 'TCP',
+              },
+            ],
+          },
+        },
+      ],
       null,
       2
     ),
@@ -191,7 +228,40 @@ services:
       - pgdata:/var/lib/postgresql/data
 volumes:
   pgdata:`,
-    json: '',
+    json: JSON.stringify(
+      {
+        version: '3.8',
+        services: {
+          web: {
+            image: 'nginx:alpine',
+            restart: 'always',
+            ports: ['80:80', '443:443'],
+            depends_on: ['api'],
+          },
+          api: {
+            build: '.',
+            environment: {
+              PORT: 3000,
+              DB_HOST: 'postgres',
+            },
+            ports: ['3000:3000'],
+          },
+          postgres: {
+            image: 'postgres:16-alpine',
+            environment: {
+              POSTGRES_DB: 'velnox_db',
+              POSTGRES_PASSWORD: 'secretpassword',
+            },
+            volumes: ['pgdata:/var/lib/postgresql/data'],
+          },
+        },
+        volumes: {
+          pgdata: null,
+        },
+      },
+      null,
+      2
+    ),
   },
   github: {
     label: 'GitHub Actions CI',
@@ -216,7 +286,35 @@ jobs:
           cache: pnpm
       - run: pnpm install
       - run: pnpm test`,
-    json: '',
+    json: JSON.stringify(
+      {
+        name: 'CI',
+        on: {
+          push: { branches: ['main'] },
+          pull_request: { branches: ['main'] },
+        },
+        jobs: {
+          test: {
+            'runs-on': 'ubuntu-latest',
+            steps: [
+              { uses: 'actions/checkout@v4' },
+              { uses: 'pnpm/action-setup@v3', with: { version: 9 } },
+              { uses: 'actions/setup-node@v4', with: { 'node-version': 20, cache: 'pnpm' } },
+              { run: 'pnpm install' },
+              { run: 'pnpm test' },
+            ],
+          },
+        },
+      },
+      null,
+      2
+    ),
+  },
+  pythonDict: {
+    label: 'Python Dict / FastAPI',
+    mode: 'json2yaml' as Mode,
+    json: `{\n  'status': 'success',\n  'debug_mode': True,\n  'cache_enabled': False,\n  'backup_worker': None,\n  'services': ['auth', 'billing', 'notifications'],\n  'max_retries': 3\n}`,
+    yaml: `status: success\ndebug_mode: true\ncache_enabled: false\nbackup_worker: null\nservices:\n  - auth\n  - billing\n  - notifications\nmax_retries: 3`,
   },
 };
 
@@ -228,6 +326,8 @@ export default function JsonYamlPage() {
   const [input, setInput] = useState<string>(SAMPLE_PRESETS.openapi.json);
   const [indentSize, setIndentSize] = useState<2 | 4>(2);
   const [safeQuoting, setSafeQuoting] = useState<boolean>(true);
+  const [multiDocK8s, setMultiDocK8s] = useState<boolean>(true);
+  const [relaxedParser, setRelaxedParser] = useState<boolean>(true);
   const [minifyJson, setMinifyJson] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -236,26 +336,68 @@ export default function JsonYamlPage() {
   const conversionResult = useMemo(() => {
     const raw = input.trim();
     if (!raw) {
-      return { output: '', error: null, parsedObj: null };
+      return { output: '', error: null, parsedObj: null, usedRelaxed: false };
     }
 
     try {
       if (mode === 'json2yaml') {
-        const parsed = JSON.parse(raw);
+        let parsed: unknown;
+        let usedRelaxed = false;
 
-        // Convert to YAML with robust options
-        const yamlStr = YAML.stringify(parsed, {
+        try {
+          parsed = JSON.parse(raw);
+        } catch (jsonErr) {
+          if (!relaxedParser) throw jsonErr;
+          // 1. Try Python dict normalization (True, False, None)
+          const pythonNormalized = raw
+            .replace(/:\s*True\b/g, ': true')
+            .replace(/:\s*False\b/g, ': false')
+            .replace(/:\s*None\b/g, ': null')
+            .replace(/\[\s*True\b/g, '[true')
+            .replace(/\[\s*False\b/g, '[false')
+            .replace(/\[\s*None\b/g, '[null');
+          try {
+            parsed = JSON.parse(pythonNormalized);
+            usedRelaxed = true;
+          } catch {
+            // 2. Try JS object literal eval in sandbox
+            try {
+              const fn = new Function(`"use strict"; return (${raw});`);
+              parsed = fn();
+              usedRelaxed = true;
+            } catch {
+              throw jsonErr;
+            }
+          }
+        }
+
+        const yamlOptions = {
           indent: indentSize,
           lineWidth: 0,
-          blockQuote: 'literal',
-          defaultKeyType: 'PLAIN',
-          defaultStringType: safeQuoting ? 'QUOTE_DOUBLE' : 'PLAIN',
-        });
+          blockQuote: 'literal' as const,
+          defaultKeyType: 'PLAIN' as const,
+          defaultStringType: safeQuoting ? ('QUOTE_DOUBLE' as const) : ('PLAIN' as const),
+        };
+
+        let yamlStr = '';
+        if (
+          multiDocK8s &&
+          Array.isArray(parsed) &&
+          parsed.length > 1 &&
+          parsed.every((item) => item && typeof item === 'object')
+        ) {
+          yamlStr = parsed
+            .map((docItem) => YAML.stringify(docItem, yamlOptions).trimEnd())
+            .join('\n---\n');
+        } else {
+          yamlStr = YAML.stringify(parsed, yamlOptions).trimEnd();
+        }
 
         return {
-          output: yamlStr.trimEnd(),
+          output: yamlStr,
           error: null,
           parsedObj: parsed,
+          usedRelaxed,
         };
       } else {
         // YAML to JSON (supports multi-document YAML via parseAllDocuments)
@@ -277,6 +419,7 @@ export default function JsonYamlPage() {
           output: jsonStr,
           error: null,
           parsedObj: finalData,
+          usedRelaxed: false,
         };
       }
     } catch (err: unknown) {
@@ -285,15 +428,31 @@ export default function JsonYamlPage() {
         output: '',
         error: msg,
         parsedObj: null,
+        usedRelaxed: false,
       };
     }
-  }, [input, mode, indentSize, safeQuoting, minifyJson]);
+  }, [input, mode, indentSize, safeQuoting, multiDocK8s, relaxedParser, minifyJson]);
 
   // AI & Smart Schema Detector
   const detectedSchema: DetectedSchema = useMemo(() => {
     const obj = conversionResult.parsedObj;
     if (!obj || typeof obj !== 'object') {
       return { type: 'generic', label: 'Generic Configuration', badgeColor: '#64748b' };
+    }
+
+    // Check Multi-Document Kubernetes Array
+    if (
+      Array.isArray(obj) &&
+      obj.length > 1 &&
+      obj.some(
+        (it) => it && typeof it === 'object' && 'apiVersion' in (it as Record<string, unknown>)
+      )
+    ) {
+      return {
+        type: 'k8s',
+        label: `Kubernetes Multi-Document (${obj.length} Manifests)`,
+        badgeColor: '#38bdf8',
+      };
     }
 
     const target = Array.isArray(obj)
@@ -303,7 +462,7 @@ export default function JsonYamlPage() {
       return { type: 'generic', label: 'Generic Configuration', badgeColor: '#64748b' };
     }
 
-    // 1. Kubernetes
+    // 1. Kubernetes Single Resource
     if ('apiVersion' in target && 'kind' in target) {
       return {
         type: 'k8s',
@@ -467,6 +626,26 @@ export default function JsonYamlPage() {
               <Sparkles size={12} />
               {detectedSchema.label}
             </span>
+
+            {conversionResult.usedRelaxed && (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#fbbf24',
+                  backgroundColor: 'rgba(251, 191, 36, 0.12)',
+                  border: '1px solid rgba(251, 191, 36, 0.3)',
+                  borderRadius: '9999px',
+                  padding: '4px 12px',
+                }}
+              >
+                <Sparkles size={12} />
+                {tUI('relaxedNotice')}
+              </span>
+            )}
           </div>
 
           {/* Presets & Controls Bar */}
@@ -548,6 +727,22 @@ export default function JsonYamlPage() {
                 }}
               >
                 {tUI('presetGithub')}
+              </button>
+              <button
+                type="button"
+                onClick={() => handleLoadPreset('pythonDict')}
+                style={{
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                  color: 'var(--text-main)',
+                  cursor: 'pointer',
+                }}
+              >
+                {tUI('presetPythonDict')}
               </button>
             </div>
 
@@ -697,6 +892,50 @@ export default function JsonYamlPage() {
                     style={{ cursor: 'pointer' }}
                   />
                   <span>{tUI('safeQuoting')}</span>
+                </label>
+              )}
+
+              {/* Multi-Document K8s Separator */}
+              {mode === 'json2yaml' && (
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.75rem',
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={multiDocK8s}
+                    onChange={(e) => setMultiDocK8s(e.target.checked)}
+                    style={{ cursor: 'pointer' }}
+                  />
+                  <span>{tUI('multiDocK8s')}</span>
+                </label>
+              )}
+
+              {/* Relaxed Parser (Python / JS) */}
+              {mode === 'json2yaml' && (
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.75rem',
+                    color: 'var(--text-main)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={relaxedParser}
+                    onChange={(e) => setRelaxedParser(e.target.checked)}
+                    style={{ cursor: 'pointer' }}
+                  />
+                  <span>{tUI('relaxedParser')}</span>
                 </label>
               )}
 

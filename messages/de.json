@@ -1192,8 +1192,8 @@
       "step2Body": "Wählen Sie Zwei-Zeichen-Einrückung oder aktivieren Sie die sichere Zeichenkettensetzung.",
       "step3Title": "Kopieren oder Speichern",
       "step3Body": "Prüfen Sie das Ergebnis und laden Sie die Datei direkt für Ihr Projekt herunter.",
-      "title": "JSON zu YAML Konverter",
-      "subtitle": "Bidirektionale Konvertierung zwischen JSON und YAML mit automatischer Schemaerkennung, Mehrfachdokument-Verarbeitung und lokaler Datensicherheit.",
+      "title": "JSON zu YAML Konverter Online – Intelligenter Formatierer für Swagger, Kubernetes & Docker Compose",
+      "subtitle": "Konvertieren Sie zwischen JSON und YAML mit intelligenter Schemaerkennung, Multi-Dokument-Verarbeitung für Kubernetes (---) und vollständiger lokaler Datensicherheit.",
       "clientSideNotice": "100% Lokale Ausführung im Browser (Keine Server-Übertragung)",
       "presets": "Vorlagen",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1218,7 +1218,11 @@
       "copy": "Kopieren",
       "download": "Herunterladen",
       "outputPlaceholder": "Konvertiertes Ergebnis wird hier angezeigt...",
-      "errorTitle": "Syntaxfehler beim Einlesen"
+      "errorTitle": "Syntaxfehler beim Einlesen",
+      "presetPythonDict": "Python-Wörterbuch / FastAPI",
+      "multiDocK8s": "Mehrere Dokumente (---) für Kubernetes",
+      "relaxedParser": "Toleranter Parser (Python-Wörterbuch & JS-Objekt)",
+      "relaxedNotice": "Toleranter Parser aktiv (Python / JS)"
     },
     "jwtDecoder": {
       "aboutText": "Der JWT-Dekodierer und Sicherheitsprüfer ist ein vertrauliches Entwicklungswerkzeug, das RFC 7519 konforme Token in lesbare JSON-Strukturen zerlegt. Er bietet kryptografische Prüfungen im Browser, Ablaufzeit-Messungen und automatisierte Schwachstellenprüfungen.",

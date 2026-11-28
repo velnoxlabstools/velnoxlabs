@@ -1179,8 +1179,8 @@
       "faq3A": "はい、区切り線で分かれた各ドキュメントをJSON配列の要素としてきれいに整理して出力します。",
       "faq4Q": "入力したサーバー設定データの安全性は？",
       "faq4A": "完全に安全です。すべての変換処理はお使いの端末のブラウザ内メモリでのみ動作し、通信は行われません。",
-      "title": "JSON・YAML相互変換ツール",
-      "subtitle": "JSONとYAMLを高精度に相互変換。スキーマ自動検出、複数ドキュメント解析、安全な型保護機能を備えた完全オフライン対応ツール。",
+      "title": "JSON・YAML相互変換オンライン – Swagger、Kubernetes、Docker Compose対応フォーマッター",
+      "subtitle": "Swagger、Kubernetes複数リソース(---)、Docker Composeのスマート判定とブラウザ内高速処理に対応したJSON・YAML相互変換ツールです。",
       "clientSideNotice": "100% ブラウザ内完結の安全処理（サーバー送信なし）",
       "presets": "サンプル設定",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1205,7 +1205,11 @@
       "copy": "コピー",
       "download": "ダウンロード",
       "outputPlaceholder": "変換されたテキストがここに表示されます...",
-      "errorTitle": "構文解析エラー"
+      "errorTitle": "構文解析エラー",
+      "presetPythonDict": "Python辞書 / FastAPI",
+      "multiDocK8s": "複数リソース区切り (---) Kubernetes対応",
+      "relaxedParser": "柔軟な構文解析 (Python辞書 / JSオブジェクト)",
+      "relaxedNotice": "柔軟な構文解析が有効 (Python / JS)"
     },
     "jwtDecoder": {
       "aboutText": "JWTデコーダー＆セキュリティ診断は、RFC 7519準拠のトークンを人間が読み取り可能なJSON構造に分解する開発者向けツールです。ブラウザ標準のWeb Crypto APIを用いた署名検証、有効期限カウントダウン、脆弱性診断を完全ローカルで安全に行えます。",

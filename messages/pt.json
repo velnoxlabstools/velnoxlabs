@@ -1192,8 +1192,8 @@
       "step2Body": "Defina recuo de 2 espaços e ative a inserção protetora de aspas.",
       "step3Title": "Copie ou Baixe",
       "step3Body": "Inspecione os dados produzidos e salve o arquivo para uso na sua infraestrutura.",
-      "title": "Conversor de JSON para YAML",
-      "subtitle": "Converta entre JSON e YAML com detecção inteligente de manifestos, análise de múltiplos documentos e execução confidencial.",
+      "title": "Conversor de JSON para YAML Online – Formatador para Swagger, Kubernetes e Docker Compose",
+      "subtitle": "Converta entre JSON e YAML com detecção inteligente de esquema, suporte a múltiplos documentos para Kubernetes (---) e privacidade total no navegador.",
       "clientSideNotice": "Processamento 100% no Navegador (Sem Envio para Servidores)",
       "presets": "Predefinições",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1218,7 +1218,11 @@
       "copy": "Copiar",
       "download": "Baixar",
       "outputPlaceholder": "O resultado convertido aparecerá aqui...",
-      "errorTitle": "Falha de Interpretação Sintática"
+      "errorTitle": "Falha de Interpretação Sintática",
+      "presetPythonDict": "Dicionário Python / FastAPI",
+      "multiDocK8s": "Múltiplos Documentos (---) para Kubernetes",
+      "relaxedParser": "Analisador flexível (Dicionário Python e objeto JS)",
+      "relaxedNotice": "Analisador flexível ativo (Python / JS)"
     },
     "jwtDecoder": {
       "aboutText": "O Decodificador e Inspetor de Segurança JWT é um utilitário confidencial para desenvolvedores que converte credenciais conformes à RFC 7519 em estruturas JSON compreensíveis. Oferece verificação criptográfica local, temporizadores de expiração e auditoria automatizada de falhas.",

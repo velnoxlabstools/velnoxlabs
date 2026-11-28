@@ -1179,8 +1179,8 @@
       "faq3A": "可以。用分隔线隔开的各个独立文档会被整齐地归整为 JSON 数组对象输出。",
       "faq4Q": "我粘贴的商业服务器凭证是否安全？",
       "faq4A": "绝对安全。全部词法解析和生成动作均在您本机浏览器的内存中独立完成，没有任何网络上传行为。",
-      "title": "JSON 与 YAML 智能转换器",
-      "subtitle": "在 JSON 与 YAML 之间实现双向高保真转换，具备架构自动识别、多文档解析、类型安全引号保护及完全离线隐私保障。",
+      "title": "在线 JSON 转 YAML 互转工具 – 支持 Swagger、Kubernetes 与 Docker Compose 的智能格式化器",
+      "subtitle": "支持 Swagger、Kubernetes 多文档分隔符 (---)、Docker Compose 端口防转义与完全本地安全处理的 JSON 与 YAML 双向转换工具。",
       "clientSideNotice": "100% 浏览器本地运算（绝无服务器日志）",
       "presets": "预设样例",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1205,7 +1205,11 @@
       "copy": "复制",
       "download": "下载文件",
       "outputPlaceholder": "转换后的文档内容将在此处显示...",
-      "errorTitle": "语法解析错误"
+      "errorTitle": "语法解析错误",
+      "presetPythonDict": "Python 字典 / FastAPI",
+      "multiDocK8s": "多文档分隔符 (---) Kubernetes 专用",
+      "relaxedParser": "宽松解析器 (支持 Python 字典与 JS 对象)",
+      "relaxedNotice": "宽松解析器已生效 (Python / JS)"
     },
     "jwtDecoder": {
       "aboutText": "JWT 解码与安全审查器是一款注重隐私的本地化开发者工具，将符合 RFC 7519 规范的令牌解析为清晰易读的 JSON 结构。提供基于 Web Crypto API 的本地加密签名验证、过期倒计时以及自动化安全隐患排查。",

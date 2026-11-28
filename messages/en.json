@@ -1156,8 +1156,8 @@
       "faq3A": "Yes. When multiple YAML documents are separated by '---', the converter parses all documents into a clean JSON array representing each resource.",
       "faq4Q": "Is my proprietary cloud infrastructure configuration secure?",
       "faq4A": "Completely secure. All parsing and serialization execute 100% locally in your browser memory without uploading anything to external servers.",
-      "title": "JSON to YAML Converter",
-      "subtitle": "Convert between JSON and YAML with smart schema detection, multi-document k8s parsing, safe type-quoting, and 100% client-side privacy.",
+      "title": "JSON to YAML Converter Online – Smart Formatter for Swagger, Kubernetes & Docker Compose",
+      "subtitle": "Convert between JSON and YAML with smart schema detection, multi-document k8s parsing (---), safe type-quoting, and 100% client-side privacy.",
       "clientSideNotice": "100% Client-Side Engine (Zero Server Logging)",
       "presets": "Presets",
       "presetOpenApi": "Swagger / OpenAPI 3.0",
@@ -1182,7 +1182,11 @@
       "copy": "Copy",
       "download": "Download",
       "outputPlaceholder": "Converted output will appear here...",
-      "errorTitle": "Syntax Parsing Error"
+      "errorTitle": "Syntax Parsing Error",
+      "presetPythonDict": "Python Dict / FastAPI",
+      "multiDocK8s": "Multi-Document (---) for Kubernetes",
+      "relaxedParser": "Relaxed Parser (Python Dict & JS Object)",
+      "relaxedNotice": "Relaxed Parser: Python dict / JS object syntax automatically converted"
     },
     "jwtDecoder": {
       "aboutText": "The JWT Decoder & Security Inspector is an offline, privacy-first developer utility that parses RFC 7519 JSON Web Tokens into readable JSON structures (Header, Payload, and Signature). It provides real-time client-side cryptographic verification via Web Crypto API, relative expiration timers, and heuristic security vulnerability scans (detecting alg:none attacks, missing expiry, weak secrets, and sensitive credential leaks).",
