@@ -505,8 +505,8 @@
       "description": "Converti stipendio annuale, mensile, quattordicinale e orario con deduzione ferie retribuite, consulente per liberi professionisti con IA e stima del compenso netto."
     },
     "grade-calculator": {
-      "name": "Calcolatore Voto Finale – Simulatore Medie Esami e Rendimento Scolastico",
-      "description": "Calcolatore voto finale e simulatore di obiettivi scolastici gratuito. Calcola medie semestrali, trimestrali, punteggi d'esame e valutazioni ponderate per studenti e docenti."
+      "name": "Calcolatore del Voto Finale con IA – Calcolatore di Ipotesi e Valutatore d'Esame",
+      "description": "Calcolatore gratuito online del voto finale con IA e simulatore di scenari. Calcola la media universitaria ponderata, i voti semestrali delle superiori e i punteggi dei test con matrice interattiva e importazione automatica del programma Canvas."
     },
     "fix-my-speaker": {
       "name": "Pulizia Altoparlante – Espulsione Acqua e Suono Polvere 10000 Hz",
@@ -741,8 +741,8 @@
       "faq4A": "Prendere due prodotti pagandone soltanto uno corrisponde con esattezza a un risparmio del 50%. Ricevere tre articoli al costo di due equivale a uno sconto effettivo del 33,33%."
     },
     "gradeCalculator": {
-      "title": "Calcolatore Voto Finale – Simulatore Medie Esami e Rendimento Scolastico",
-      "subtitle": "Calcolatore voto finale e simulatore di obiettivi scolastici gratuito. Calcola medie semestrali, trimestrali, punteggi d'esame e valutazioni ponderate per studenti e docenti.",
+      "title": "Calcolatore del Voto Finale con IA – Calcolatore di Ipotesi e Valutatore d'Esame",
+      "subtitle": "Calcolatore gratuito online del voto finale con IA e simulatore di scenari. Calcola la media universitaria ponderata, i voti semestrali e i punteggi dei test con matrice interattiva.",
       "aboutText": "Il nostro calcolatore di voto finale e simulatore di rendimento accademico è uno strumento versatile ideato per studenti delle scuole superiori, universitari, insegnanti e famiglie. Sia che serva ai docenti per valutare compiti ed elaborati o agli studenti per stimare l'esito delle prove d'esame, questa soluzione semplifica la gestione del percorso didattico. Consente di monitorare agevolmente i risultati di interi semestri o singoli trimestri. Si rivela un alleato fidato per chi affronta le scuole secondarie e per corsi strutturati su cumulo di punteggi o percentuali ponderate. Tramite il simulatore di previsione, evidenzia con esattezza il punteggio necessario nella prova finale per centrare il traguardo desiderato.",
       "feature1": "Pesi didattici configurabili: aggiungi compiti ed esami impostando la percentuale di peso specifica di ogni prova",
       "feature2": "Proiezione per l'esame finale: calcola in modo automatico il voto necessario per ottenere una A o la media desiderata",
@@ -761,7 +761,17 @@
       "faq3Q": "Gli insegnanti possono utilizzarlo per definire i voti trimestrali o semestrali?",
       "faq3A": "Certamente! Molti docenti adoperano questa risorsa per determinare le valutazioni di fine trimestre o semestre. Possono organizzare i diversi criteri di giudizio, accertarsi che la somma dei pesi corrisponda al 100% ed estrarre riepiloghi dettagliati per le schede di valutazione.",
       "faq4Q": "Supporta sia le categorie con peso percentuale sia i sistemi a punteggio totale?",
-      "faq4A": "Sì! Per i corsi a valutazione ponderata, scrivi direttamente i valori percentuali (ad esempio : Verifiche 40%, Prova finale 60%). Nei sistemi a punti totali, converti i punteggi parziali in percentuali relative oppure assegna pesi proporzionali al valore complessivo di ciascun compito."
+      "faq4A": "Sì! Per i corsi a valutazione ponderata, scrivi direttamente i valori percentuali (ad esempio : Verifiche 40%, Prova finale 60%). Nei sistemi a punti totali, converti i punteggi parziali in percentuali relative oppure assegna pesi proporzionali al valore complessivo di ciascun compito.",
+      "aiImportBtn": "✨ Importazione Intelligente di Programma / Canvas",
+      "aiImportModalTitle": "Incolla la ripartizione del programma o il riepilogo voti di Canvas",
+      "aiImportSubtitle": "Incolla il testo non formattato da ChatGPT, dal tuo programma o dai voti dei corsi Canvas. Rileveremo automaticamente compiti, voti e ponderazioni percentuali.",
+      "aiImportPlaceholder": "ad es.\nCompiti: 90% (peso 20%)\nEsame Intermedio: 85 (30%)\nLaboratori e Progetto: 88 (25%)\nEsame Finale: 25%",
+      "aiImportApply": "Importa Valutazioni del Corso",
+      "aiImportCancel": "Annulla",
+      "aiImportSuccess": "Compiti analizzati e caricati con successo!",
+      "dropLowestLabel": "Escludi il Voto Più Basso",
+      "droppedBadge": "ESCLUSO",
+      "testQuickPreset": "Preimpostazioni Rapide delle Domande"
     },
     "hashGenerator": {
       "title": "Generatore di Hash IA Online (MD5, SHA256, Bcrypt e File)",

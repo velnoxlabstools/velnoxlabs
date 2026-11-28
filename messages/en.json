@@ -498,8 +498,8 @@
       "description": "Free AI Salary to Hourly & Hourly to Salary Calculator for India & US. Convert annual CTC (LPA), monthly, bi-weekly, weekly, and hourly pay with PTO deduction, AI freelance rate advisor, after-tax take-home estimates, and 1.5x overtime."
     },
     "grade-calculator": {
-      "name": "Final Grade Calculator – What If Grade Calculator & Test Grader",
-      "description": "Free online Final Grade Calculator and What If Grade Calculator. Calculate semester grades, quarter grades, test scores, high school GPAs, and weighted points."
+      "name": "AI Final Grade Calculator – What If Grade Calculator & Test Grader",
+      "description": "Free online AI Final Grade Calculator & What If Grade Calculator. Calculate weighted college GPA, high school semester grades, test scores with interactive target matrix, and paste Canvas/syllabus text for instant auto-calculation."
     },
     "fix-my-speaker": {
       "name": "Speaker Cleaner – Fix My Speaker (Water Eject & 10000 Hz Dust Sound)",
@@ -711,8 +711,8 @@
       "faq4A": "A standard Buy 1 Get 1 Free deal across two equally priced items equals exactly 50% off the total order. A Buy 2 Get 1 Free promotion across three equally priced items yields an effective 33.33% total discount. Use our 1-click Quick Deals buttons to apply these scenarios automatically."
     },
     "gradeCalculator": {
-      "title": "Final Grade Calculator – What If Grade Calculator & Test Grader",
-      "subtitle": "Free online Final Grade Calculator and What If Grade Calculator. Calculate semester grades, quarter grades, test scores, high school GPAs, and weighted points.",
+      "title": "AI Final Grade Calculator – What If Grade Calculator & Test Grader",
+      "subtitle": "Free online AI Final Grade Calculator and What If Grade Calculator. Calculate weighted college GPA, high school semester grades, test scores with interactive target matrix, and paste Canvas/syllabus text for instant auto-calculation.",
       "aboutText": "Our Final grade calculator and What if grade calculator is an all-in-one academic tool designed for high school and college students, educators, and parents. Whether you need a versatile teacher grade calculator to grade assignments or a precise test grade calculator for exams, this platform simplifies academic tracking. Students can use this tool as a grade calculator semester tracker or quarter grade calculator to monitor cumulative performance across every grading term. It functions seamlessly as a grade calculator high school students rely on for GPA calculations, as well as a flexible grade calculator points tool for syllabi structured around total points or weighted percentages. Built with an interactive what-if grade projection engine, it empowers you to calculate exact test scores required on upcoming finals to lock in your desired target letter grade.",
       "feature1": "Flexible Weighted Categories: Add unlimited assignments, homework, labs, and exams with individual percentage weights",
       "feature2": "What-If Final Exam Projection: Automatically calculates the exact exam grade required to earn an A, B, or custom target percentage",
@@ -731,7 +731,17 @@
       "faq3Q": "Can teachers use this as a teacher grade calculator for semester or quarter grades?",
       "faq3A": "Yes! Educators frequently use this platform as a teacher grade calculator to calculate semester and quarter grades for classes and individual students. Teachers can input assignment categories for each grading period, verify whether overall syllabus weights total 100%, and generate clear grade summaries for report cards and parent conferences.",
       "faq4Q": "Does this grade calculator support both weighted categories and total points?",
-      "faq4A": "Yes! You can use this tool as a grade calculator points system or a weighted percentage model. For weighted courses, enter syllabus percentages directly (e.g., Homework 20%, Exams 50%). For total points grading, convert earned points into percentage scores (e.g., 90/100 = 90%) or assign category weights proportional to each assignment's point value."
+      "faq4A": "Yes! You can use this tool as a grade calculator points system or a weighted percentage model. For weighted courses, enter syllabus percentages directly (e.g., Homework 20%, Exams 50%). For total points grading, convert earned points into percentage scores (e.g., 90/100 = 90%) or assign category weights proportional to each assignment's point value.",
+      "aiImportBtn": "✨ Smart AI Syllabus / Canvas Import",
+      "aiImportModalTitle": "Paste Syllabus Breakdown or Canvas Grade Summary",
+      "aiImportSubtitle": "Paste raw text from ChatGPT, your syllabus, or Canvas course grades. We will automatically detect assignments, grades, and percentage weights.",
+      "aiImportPlaceholder": "e.g.\nHomework: 90% (20% weight)\nMidterm Exam: 85 (30%)\nLabs & Term Project: 88 (25%)\nFinal Exam: 25%",
+      "aiImportApply": "Import Coursework",
+      "aiImportCancel": "Cancel",
+      "aiImportSuccess": "Successfully parsed and loaded assignments!",
+      "dropLowestLabel": "Drop Lowest Score",
+      "droppedBadge": "DROPPED",
+      "testQuickPreset": "Quick Question Presets"
     },
     "hashGenerator": {
       "title": "AI Hash Generator Online (MD5, SHA256, Bcrypt & File)",

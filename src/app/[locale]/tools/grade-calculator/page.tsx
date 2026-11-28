@@ -130,13 +130,37 @@ export default function GradeCalculatorPage() {
 
   // Shared state
   const [copied, setCopied] = useState(false);
+  const [dropLowestWeighted, setDropLowestWeighted] = useState(false);
+  const [dropLowestPoints, setDropLowestPoints] = useState(false);
+
+  // Smart AI Syllabus & Canvas Import state
+  const [showAiImport, setShowAiImport] = useState(false);
+  const [aiImportText, setAiImportText] = useState('');
+  const [aiImportSuccess, setAiImportSuccess] = useState('');
 
   // ================= CALCULATIONS: MODE 1 (WEIGHTED) =================
   const weightedStats = useMemo(() => {
     let weightedSum = 0;
     let totalW = 0;
+    let droppedId: number | null = null;
+
+    const validAssignments = assignments.filter(
+      (a) => a.grade.trim() !== '' && parseFloat(a.weight) > 0
+    );
+
+    if (dropLowestWeighted && validAssignments.length > 1) {
+      let lowestGrade = Infinity;
+      for (const a of validAssignments) {
+        const g = parseGradeValue(a.grade);
+        if (g < lowestGrade) {
+          lowestGrade = g;
+          droppedId = a.id;
+        }
+      }
+    }
 
     assignments.forEach((a) => {
+      if (dropLowestWeighted && a.id === droppedId) return;
       const g = parseGradeValue(a.grade);
       const w = parseFloat(a.weight) || 0;
       weightedSum += g * w;
@@ -181,8 +205,9 @@ export default function GradeCalculatorPage() {
       neededOnFinal,
       targetMatrix,
       gradeInfo: getLetterGrade(currentGrade),
+      droppedId,
     };
-  }, [assignments, desiredGrade]);
+  }, [assignments, desiredGrade, dropLowestWeighted]);
 
   // Mode 1 Presets
   const applyPreset = (presetType: 'stem' | 'highschool' | 'humanities' | 'balanced') => {
@@ -265,12 +290,113 @@ export default function GradeCalculatorPage() {
     };
   }, [sem1Grade, sem2Grade, finalWeight, semDesired]);
 
+  // ================= SMART AI SYLLABUS / CANVAS TEXT PARSER =================
+  const handleParseAiSyllabus = () => {
+    if (!aiImportText.trim()) return;
+    const lines = aiImportText.split('\n');
+    const parsed: Assignment[] = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      let name = '';
+      let grade = '';
+      let weight = '';
+
+      if (line.includes('\t')) {
+        const parts = line
+          .split('\t')
+          .map((p) => p.trim())
+          .filter(Boolean);
+        if (parts.length >= 2) {
+          name = parts[0];
+          grade = parts[1];
+          if (parts.length >= 3) {
+            weight = parts[2];
+          }
+        }
+      } else {
+        const sepMatch = line.match(/^([^:\-]+)[:\-](.*)$/);
+        if (sepMatch) {
+          name = sepMatch[1].trim();
+          const rest = sepMatch[2].trim();
+
+          const fracMatch = rest.match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+          const percentMatches = Array.from(rest.matchAll(/(\d+(?:\.\d+)?)\s*%/g));
+
+          if (fracMatch) {
+            const earned = parseFloat(fracMatch[1]);
+            const possible = parseFloat(fracMatch[2]);
+            if (possible > 0) {
+              grade = ((earned / possible) * 100).toFixed(1);
+            }
+            const wtMatch = rest.match(/(?:weight|wt|\()?\s*(\d+(?:\.\d+)?)\s*%/i);
+            if (wtMatch) {
+              weight = wtMatch[1];
+            }
+          } else if (percentMatches.length >= 2) {
+            grade = percentMatches[0][1];
+            weight = percentMatches[1][1];
+          } else if (percentMatches.length === 1) {
+            if (/weight|wt/i.test(rest)) {
+              weight = percentMatches[0][1];
+            } else {
+              grade = percentMatches[0][1];
+            }
+          }
+        }
+      }
+
+      if (name) {
+        grade = grade.replace('%', '').trim();
+        weight = weight.replace('%', '').trim();
+        if (grade.includes('/')) {
+          const [num, den] = grade.split('/').map((s) => parseFloat(s.trim()));
+          if (!isNaN(num) && !isNaN(den) && den > 0) {
+            grade = ((num / den) * 100).toFixed(1);
+          }
+        }
+        parsed.push({
+          id: Date.now() + i,
+          name: name.replace(/^[-*•\d.)\s]+/, '').trim(),
+          grade: grade || '90',
+          weight: weight || '',
+        });
+      }
+    }
+
+    if (parsed.length > 0) {
+      setAssignments(parsed);
+      setShowAiImport(false);
+      setAiImportSuccess(tUI('aiImportSuccess', { count: parsed.length }));
+      setTimeout(() => setAiImportSuccess(''), 5000);
+    }
+  };
+
   // ================= CALCULATIONS: MODE 3 (POINTS BASED) =================
   const pointsStats = useMemo(() => {
     let totalEarned = 0;
     let totalPossible = 0;
+    let droppedPointId: number | null = null;
+
+    const validPoints = pointsList.filter(
+      (p) => parseFloat(p.possible) > 0 && parseFloat(p.earned) >= 0
+    );
+
+    if (dropLowestPoints && validPoints.length > 1) {
+      let lowestPct = Infinity;
+      for (const p of validPoints) {
+        const pct = (parseFloat(p.earned) / parseFloat(p.possible)) * 100;
+        if (pct < lowestPct) {
+          lowestPct = pct;
+          droppedPointId = p.id;
+        }
+      }
+    }
 
     pointsList.forEach((p) => {
+      if (dropLowestPoints && p.id === droppedPointId) return;
       totalEarned += parseFloat(p.earned) || 0;
       totalPossible += parseFloat(p.possible) || 0;
     });
@@ -292,8 +418,9 @@ export default function GradeCalculatorPage() {
       pointsNeededOnFinal,
       percentNeededOnFinal,
       gradeInfo: getLetterGrade(currentPercentage),
+      droppedPointId,
     };
-  }, [pointsList, finalPossiblePoints, pointsDesiredPercent]);
+  }, [pointsList, finalPossiblePoints, pointsDesiredPercent, dropLowestPoints]);
 
   const addPointItem = () => {
     setPointsList((prev) => [...prev, { id: Date.now(), name: '', earned: '', possible: '' }]);
@@ -719,7 +846,148 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                   >
                     ⚖️ {tUI('presetBalanced')}
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowAiImport(!showAiImport)}
+                    style={{
+                      backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                      border: '1px solid rgba(59, 130, 246, 0.35)',
+                      borderRadius: '8px',
+                      padding: '6px 12px',
+                      fontSize: '0.8rem',
+                      color: '#60a5fa',
+                      cursor: 'pointer',
+                      fontWeight: 600,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                    }}
+                  >
+                    <Sparkles size={13} />
+                    {tUI('aiImportBtn')}
+                  </button>
                 </div>
+
+                {/* Collapsible AI Syllabus / Canvas Text Import Modal/Card */}
+                {showAiImport && (
+                  <div
+                    style={{
+                      marginTop: '12px',
+                      backgroundColor: 'var(--bg-page)',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '8px',
+                      padding: '14px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px',
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: '0.85rem',
+                          fontWeight: 700,
+                          color: 'var(--text-main)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                        }}
+                      >
+                        <Sparkles size={14} style={{ color: '#60a5fa' }} />
+                        {tUI('aiImportModalTitle')}
+                      </span>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                        {tUI('aiImportSubtitle')}
+                      </span>
+                    </div>
+
+                    <textarea
+                      value={aiImportText}
+                      onChange={(e) => setAiImportText(e.target.value)}
+                      rows={4}
+                      placeholder={tUI('aiImportPlaceholder')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-card)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '6px',
+                        color: 'var(--text-main)',
+                        padding: '10px',
+                        fontFamily: 'monospace',
+                        fontSize: '0.8rem',
+                        outline: 'none',
+                        resize: 'vertical',
+                      }}
+                    />
+
+                    <div
+                      style={{
+                        display: 'flex',
+                        gap: '8px',
+                        marginTop: '8px',
+                        justifyContent: 'flex-end',
+                      }}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setShowAiImport(false)}
+                        style={{
+                          padding: '4px 10px',
+                          fontSize: '0.75rem',
+                          backgroundColor: 'transparent',
+                          border: '1px solid var(--border-color)',
+                          borderRadius: '6px',
+                          color: 'var(--text-muted)',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {tUI('aiImportCancel')}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleParseAiSyllabus}
+                        style={{
+                          padding: '5px 14px',
+                          fontSize: '0.75rem',
+                          fontWeight: 600,
+                          backgroundColor: '#2563eb',
+                          border: 'none',
+                          borderRadius: '6px',
+                          color: '#fff',
+                          cursor: 'pointer',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                        }}
+                      >
+                        <Sparkles size={12} />
+                        {tUI('aiImportApply')}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* AI Import Success Banner */}
+                {aiImportSuccess && (
+                  <div
+                    style={{
+                      marginTop: '10px',
+                      padding: '8px 12px',
+                      borderRadius: '6px',
+                      backgroundColor: 'rgba(52, 211, 153, 0.15)',
+                      border: '1px solid rgba(52, 211, 153, 0.35)',
+                      color: '#34d399',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                    }}
+                  >
+                    ✓ {aiImportSuccess}
+                  </div>
+                )}
               </div>
 
               {/* Assignments Table */}
@@ -739,7 +1007,7 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                     alignItems: 'center',
                     marginBottom: '16px',
                     flexWrap: 'wrap',
-                    gap: '8px',
+                    gap: '12px',
                   }}
                 >
                   <h3
@@ -756,20 +1024,42 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                     <BookOpen size={16} color="var(--primary-color)" />
                     {tUI('assignments')}
                   </h3>
-                  <span
-                    style={{
-                      color:
-                        weightedStats.totalWeight > 100
-                          ? '#f87171'
-                          : weightedStats.totalWeight === 100
-                            ? '#34d399'
-                            : 'var(--text-muted)',
-                      fontSize: '0.825rem',
-                      fontWeight: 600,
-                    }}
-                  >
-                    {tUI('totalWeight', { weight: weightedStats.totalWeight })}
-                  </span>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                    <label
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        fontSize: '0.8rem',
+                        cursor: 'pointer',
+                        color: 'var(--text-main)',
+                        fontWeight: 600,
+                      }}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={dropLowestWeighted}
+                        onChange={(e) => setDropLowestWeighted(e.target.checked)}
+                      />
+                      <span>{tUI('dropLowestLabel')}</span>
+                    </label>
+
+                    <span
+                      style={{
+                        color:
+                          weightedStats.totalWeight > 100
+                            ? '#f87171'
+                            : weightedStats.totalWeight === 100
+                              ? '#34d399'
+                              : 'var(--text-muted)',
+                        fontSize: '0.825rem',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {tUI('totalWeight', { weight: weightedStats.totalWeight })}
+                    </span>
+                  </div>
                 </div>
 
                 {weightedStats.totalWeight > 100 && (
@@ -809,89 +1099,126 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                 </div>
 
                 {/* Assignment Rows */}
-                {assignments.map((a) => (
-                  <div
-                    key={a.id}
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr 100px 100px 40px',
-                      gap: '8px',
-                      marginBottom: '8px',
-                    }}
-                  >
-                    <input
-                      type="text"
-                      value={a.name}
-                      onChange={(e) => updateAssignment(a.id, 'name', e.target.value)}
-                      placeholder={tUI('assignmentPlaceholder')}
+                {assignments.map((a) => {
+                  const isDropped = dropLowestWeighted && a.id === weightedStats.droppedId;
+                  return (
+                    <div
+                      key={a.id}
                       style={{
-                        width: '100%',
-                        backgroundColor: 'var(--bg-page)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '6px',
-                        color: 'var(--text-main)',
-                        padding: '10px',
-                        fontSize: '0.85rem',
-                        outline: 'none',
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 100px 100px 40px',
+                        gap: '8px',
+                        marginBottom: '8px',
+                        opacity: isDropped ? 0.75 : 1,
                       }}
-                    />
-                    <input
-                      type="text"
-                      value={a.grade}
-                      onChange={(e) => updateAssignment(a.id, 'grade', e.target.value)}
-                      placeholder="90 / A-"
-                      style={{
-                        width: '100%',
-                        backgroundColor: 'var(--bg-page)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '6px',
-                        color: '#34d399',
-                        padding: '10px',
-                        fontSize: '0.85rem',
-                        fontFamily: 'monospace',
-                        textAlign: 'center',
-                        outline: 'none',
-                      }}
-                    />
-                    <input
-                      type="number"
-                      value={a.weight}
-                      onChange={(e) => updateAssignment(a.id, 'weight', e.target.value)}
-                      placeholder="20"
-                      style={{
-                        width: '100%',
-                        backgroundColor: 'var(--bg-page)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '6px',
-                        color: '#60a5fa',
-                        padding: '10px',
-                        fontSize: '0.85rem',
-                        fontFamily: 'monospace',
-                        textAlign: 'center',
-                        outline: 'none',
-                      }}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => removeAssignment(a.id)}
-                      style={{
-                        backgroundColor: 'rgba(248, 113, 113, 0.15)',
-                        color: '#f87171',
-                        border: '1px solid rgba(248, 113, 113, 0.3)',
-                        borderRadius: '6px',
-                        padding: '8px',
-                        cursor: 'pointer',
-                        fontSize: '0.9rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                      title="Remove"
                     >
-                      <Trash2 size={14} />
-                    </button>
-                  </div>
-                ))}
+                      <div style={{ position: 'relative' }}>
+                        <input
+                          type="text"
+                          value={a.name}
+                          onChange={(e) => updateAssignment(a.id, 'name', e.target.value)}
+                          placeholder={tUI('assignmentPlaceholder')}
+                          style={{
+                            width: '100%',
+                            backgroundColor: isDropped
+                              ? 'rgba(251, 191, 36, 0.08)'
+                              : 'var(--bg-page)',
+                            border: isDropped
+                              ? '1px dashed #fbbf24'
+                              : '1px solid var(--border-color)',
+                            borderRadius: '6px',
+                            color: isDropped ? '#fbbf24' : 'var(--text-main)',
+                            padding: isDropped ? '10px 80px 10px 10px' : '10px',
+                            fontSize: '0.85rem',
+                            outline: 'none',
+                            textDecoration: isDropped ? 'line-through' : 'none',
+                          }}
+                        />
+                        {isDropped && (
+                          <span
+                            style={{
+                              position: 'absolute',
+                              right: '8px',
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              fontSize: '0.68rem',
+                              fontWeight: 700,
+                              color: '#fbbf24',
+                              backgroundColor: 'rgba(251, 191, 36, 0.18)',
+                              border: '1px solid rgba(251, 191, 36, 0.4)',
+                              padding: '2px 6px',
+                              borderRadius: '4px',
+                              pointerEvents: 'none',
+                            }}
+                          >
+                            {tUI('droppedBadge')}
+                          </span>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={a.grade}
+                        onChange={(e) => updateAssignment(a.id, 'grade', e.target.value)}
+                        placeholder="90 / A-"
+                        style={{
+                          width: '100%',
+                          backgroundColor: 'var(--bg-page)',
+                          border: isDropped
+                            ? '1px dashed #fbbf24'
+                            : '1px solid var(--border-color)',
+                          borderRadius: '6px',
+                          color: isDropped ? '#fbbf24' : '#34d399',
+                          padding: '10px',
+                          fontSize: '0.85rem',
+                          fontFamily: 'monospace',
+                          textAlign: 'center',
+                          outline: 'none',
+                          textDecoration: isDropped ? 'line-through' : 'none',
+                        }}
+                      />
+                      <input
+                        type="number"
+                        value={a.weight}
+                        onChange={(e) => updateAssignment(a.id, 'weight', e.target.value)}
+                        placeholder="20"
+                        style={{
+                          width: '100%',
+                          backgroundColor: 'var(--bg-page)',
+                          border: isDropped
+                            ? '1px dashed #fbbf24'
+                            : '1px solid var(--border-color)',
+                          borderRadius: '6px',
+                          color: isDropped ? '#fbbf24' : '#60a5fa',
+                          padding: '10px',
+                          fontSize: '0.85rem',
+                          fontFamily: 'monospace',
+                          textAlign: 'center',
+                          outline: 'none',
+                          textDecoration: isDropped ? 'line-through' : 'none',
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeAssignment(a.id)}
+                        style={{
+                          backgroundColor: 'rgba(248, 113, 113, 0.15)',
+                          color: '#f87171',
+                          border: '1px solid rgba(248, 113, 113, 0.3)',
+                          borderRadius: '6px',
+                          padding: '8px',
+                          cursor: 'pointer',
+                          fontSize: '0.9rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                        title="Remove"
+                      >
+                        <Trash2 size={14} />
+                      </button>
+                    </div>
+                  );
+                })}
 
                 <button
                   type="button"
@@ -1477,10 +1804,32 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                   <FileSpreadsheet size={18} color="var(--primary-color)" />
                   {tUI('pointsCalcTitle')}
                 </h3>
-                <span style={{ color: '#34d399', fontSize: '0.85rem', fontWeight: 700 }}>
-                  {pointsStats.totalEarned} / {pointsStats.totalPossible} pts (
-                  {pointsStats.currentPercentage.toFixed(1)}%)
-                </span>
+                <div
+                  style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}
+                >
+                  <label
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '0.8rem',
+                      cursor: 'pointer',
+                      color: 'var(--text-main)',
+                      fontWeight: 600,
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={dropLowestPoints}
+                      onChange={(e) => setDropLowestPoints(e.target.checked)}
+                    />
+                    <span>{tUI('dropLowestLabel')}</span>
+                  </label>
+                  <span style={{ color: '#34d399', fontSize: '0.85rem', fontWeight: 700 }}>
+                    {pointsStats.totalEarned} / {pointsStats.totalPossible} pts (
+                    {pointsStats.currentPercentage.toFixed(1)}%)
+                  </span>
+                </div>
               </div>
 
               {/* Table Header */}
@@ -1503,87 +1852,120 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
               </div>
 
               {/* Points Rows */}
-              {pointsList.map((p) => (
-                <div
-                  key={p.id}
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 100px 100px 40px',
-                    gap: '8px',
-                    marginBottom: '8px',
-                  }}
-                >
-                  <input
-                    type="text"
-                    value={p.name}
-                    onChange={(e) => updatePointItem(p.id, 'name', e.target.value)}
-                    placeholder={tUI('assignmentPlaceholder')}
+              {pointsList.map((p) => {
+                const isDropped = dropLowestPoints && p.id === pointsStats.droppedPointId;
+                return (
+                  <div
+                    key={p.id}
                     style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '6px',
-                      color: 'var(--text-main)',
-                      padding: '10px',
-                      fontSize: '0.85rem',
-                      outline: 'none',
-                    }}
-                  />
-                  <input
-                    type="number"
-                    value={p.earned}
-                    onChange={(e) => updatePointItem(p.id, 'earned', e.target.value)}
-                    placeholder="45"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '6px',
-                      color: '#34d399',
-                      padding: '10px',
-                      fontSize: '0.85rem',
-                      fontFamily: 'monospace',
-                      textAlign: 'center',
-                      outline: 'none',
-                    }}
-                  />
-                  <input
-                    type="number"
-                    value={p.possible}
-                    onChange={(e) => updatePointItem(p.id, 'possible', e.target.value)}
-                    placeholder="50"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'var(--bg-page)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '6px',
-                      color: '#60a5fa',
-                      padding: '10px',
-                      fontSize: '0.85rem',
-                      fontFamily: 'monospace',
-                      textAlign: 'center',
-                      outline: 'none',
-                    }}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removePointItem(p.id)}
-                    style={{
-                      backgroundColor: 'rgba(248, 113, 113, 0.15)',
-                      color: '#f87171',
-                      border: '1px solid rgba(248, 113, 113, 0.3)',
-                      borderRadius: '6px',
-                      padding: '8px',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 100px 100px 40px',
+                      gap: '8px',
+                      marginBottom: '8px',
+                      opacity: isDropped ? 0.75 : 1,
                     }}
                   >
-                    <Trash2 size={14} />
-                  </button>
-                </div>
-              ))}
+                    <div style={{ position: 'relative' }}>
+                      <input
+                        type="text"
+                        value={p.name}
+                        onChange={(e) => updatePointItem(p.id, 'name', e.target.value)}
+                        placeholder={tUI('assignmentPlaceholder')}
+                        style={{
+                          width: '100%',
+                          backgroundColor: isDropped
+                            ? 'rgba(251, 191, 36, 0.08)'
+                            : 'var(--bg-page)',
+                          border: isDropped
+                            ? '1px dashed #fbbf24'
+                            : '1px solid var(--border-color)',
+                          borderRadius: '6px',
+                          color: isDropped ? '#fbbf24' : 'var(--text-main)',
+                          padding: isDropped ? '10px 80px 10px 10px' : '10px',
+                          fontSize: '0.85rem',
+                          outline: 'none',
+                          textDecoration: isDropped ? 'line-through' : 'none',
+                        }}
+                      />
+                      {isDropped && (
+                        <span
+                          style={{
+                            position: 'absolute',
+                            right: '8px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            fontSize: '0.68rem',
+                            fontWeight: 700,
+                            color: '#fbbf24',
+                            backgroundColor: 'rgba(251, 191, 36, 0.18)',
+                            border: '1px solid rgba(251, 191, 36, 0.4)',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            pointerEvents: 'none',
+                          }}
+                        >
+                          {tUI('droppedBadge')}
+                        </span>
+                      )}
+                    </div>
+                    <input
+                      type="number"
+                      value={p.earned}
+                      onChange={(e) => updatePointItem(p.id, 'earned', e.target.value)}
+                      placeholder="45"
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: isDropped ? '1px dashed #fbbf24' : '1px solid var(--border-color)',
+                        borderRadius: '6px',
+                        color: isDropped ? '#fbbf24' : '#34d399',
+                        padding: '10px',
+                        fontSize: '0.85rem',
+                        fontFamily: 'monospace',
+                        textAlign: 'center',
+                        outline: 'none',
+                        textDecoration: isDropped ? 'line-through' : 'none',
+                      }}
+                    />
+                    <input
+                      type="number"
+                      value={p.possible}
+                      onChange={(e) => updatePointItem(p.id, 'possible', e.target.value)}
+                      placeholder="50"
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'var(--bg-page)',
+                        border: isDropped ? '1px dashed #fbbf24' : '1px solid var(--border-color)',
+                        borderRadius: '6px',
+                        color: isDropped ? '#fbbf24' : '#60a5fa',
+                        padding: '10px',
+                        fontSize: '0.85rem',
+                        fontFamily: 'monospace',
+                        textAlign: 'center',
+                        outline: 'none',
+                        textDecoration: isDropped ? 'line-through' : 'none',
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removePointItem(p.id)}
+                      style={{
+                        backgroundColor: 'rgba(248, 113, 113, 0.15)',
+                        color: '#f87171',
+                        border: '1px solid rgba(248, 113, 113, 0.3)',
+                        borderRadius: '6px',
+                        padding: '8px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Trash2 size={14} />
+                    </button>
+                  </div>
+                );
+              })}
 
               <button
                 type="button"
@@ -1760,6 +2142,46 @@ Correct: ${testGraderStats.correct} | Score: ${testGraderStats.scorePercent.toFi
                 <BarChart3 size={18} color="var(--primary-color)" />
                 {tUI('testGraderTitle')}
               </h3>
+
+              {/* Quick Question Count Presets */}
+              <div style={{ marginBottom: '16px' }}>
+                <span
+                  style={{
+                    color: 'var(--text-muted)',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    display: 'block',
+                    marginBottom: '8px',
+                  }}
+                >
+                  ⚡ {tUI('testQuickPreset')}:
+                </span>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                  {[10, 20, 25, 30, 40, 50, 100].map((num) => (
+                    <button
+                      key={num}
+                      type="button"
+                      onClick={() => setTestTotal(String(num))}
+                      style={{
+                        padding: '4px 10px',
+                        borderRadius: '6px',
+                        fontSize: '0.75rem',
+                        fontWeight: testTotal === String(num) ? 700 : 500,
+                        backgroundColor:
+                          testTotal === String(num) ? 'var(--primary-color)' : 'var(--bg-page)',
+                        color: testTotal === String(num) ? '#ffffff' : 'var(--text-muted)',
+                        border: `1px solid ${
+                          testTotal === String(num) ? 'var(--primary-color)' : 'var(--border-color)'
+                        }`,
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease',
+                      }}
+                    >
+                      {num} Qs
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               <div
                 style={{

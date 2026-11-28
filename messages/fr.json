@@ -505,8 +505,8 @@
       "description": "Convertissez rémunération annuelle, mensuelle, bimensuelle et horaire avec déduction des congés payés, conseiller de tarif pour indépendants par IA et calcul du salaire net."
     },
     "grade-calculator": {
-      "name": "Calculateur de Note Finale – Simulateur d'Examens et Moyennes Scolaires",
-      "description": "Calculateur de note finale et simulateur d'objectifs académiques gratuit. Calculez vos moyennes de semestre, trimestres, examens scolaires et barèmes pondérés."
+      "name": "Calculateur de Note Finale par IA – Simulateur de Note et Évaluateur d'Examen",
+      "description": "Calculateur de note finale par IA et simulateur d'hypothèses en ligne gratuit. Calculez votre moyenne universitaire pondérée, les notes semestrielles du secondaire et les résultats d'examens avec une matrice d'objectifs interactive et l'analyse de syllabus Canvas."
     },
     "fix-my-speaker": {
       "name": "Nettoyeur de Haut-Parleur – Éjection d'Eau et Son Poussière 10000 Hz",
@@ -741,8 +741,8 @@
       "faq4A": "Obtenir deux articles identiques pour le prix d’un seul équivaut strictement à une remise globale de 50%. Obtenir trois articles pour le prix de deux correspond à une réduction effective de 33,33%."
     },
     "gradeCalculator": {
-      "title": "Calculateur de Note Finale – Simulateur d'Examens et Moyennes Scolaires",
-      "subtitle": "Calculateur de note finale et simulateur d'objectifs académiques gratuit. Calculez vos moyennes de semestre, trimestres, examens scolaires et barèmes pondérés.",
+      "title": "Calculateur de Note Finale par IA – Simulateur de Note et Évaluateur d'Examen",
+      "subtitle": "Calculateur de note finale par IA et simulateur d'hypothèses en ligne gratuit. Calculez votre moyenne universitaire pondérée, les notes semestrielles et les résultats d'examens.",
       "aboutText": "Notre calculateur de note finale et simulateur d'examens est un instrument pédagogique complet pensé pour les lycéens, étudiants universitaires, enseignants et parents. Que vous cherchiez une solution pratique pour évaluer les travaux de classe ou un outil d'estimation précise pour vos épreuves, cette plateforme simplifie le suivi scolaire. Les apprenants peuvent analyser leurs résultats semestriels ou trimestriels pour mesurer leur progression. L'outil s'adapte aussi bien aux exigences du lycée qu'aux barèmes universitaires basés sur l'accumulation de points ou sur des coefficients pondérés. Grâce à son simulateur de projection, il détermine le score exact requis lors de l'examen final pour décrocher la moyenne visée.",
       "feature1": "Pondérations personnalisables : ajoutez autant d'épreuves que nécessaire en configurant le pourcentage de chaque tâche",
       "feature2": "Objectif pour l'examen final : détermine automatiquement la note indispensable pour obtenir une mention ou une moyenne cible",
@@ -761,7 +761,17 @@
       "faq3Q": "Les enseignants peuvent-ils évaluer des trimestres ou semestres entiers avec cet outil ?",
       "faq3A": "Tout à fait ! De nombreux professeurs s'appuient sur cette page pour clore les bulletins trimestriels ou semestriels de leurs élèves. Il est aisé de définir les catégories de travaux, de contrôler que le total des coefficients fait bien 100 % et d'imprimer une synthèse claire.",
       "faq4Q": "L'application prend-elle en compte les coefficients et les barèmes en points cumulés ?",
-      "faq4A": "Oui ! Pour les cours à coefficients, renseignez directement les parts relatives (par exemple : Devoirs 30 %, Examen 70 %). Si le cours utilise un barème par cumul de points, transposez les points obtenus en pourcentages ou attribuez des pondérations proportionnelles à l'importance de chaque épreuve."
+      "faq4A": "Oui ! Pour les cours à coefficients, renseignez directement les parts relatives (par exemple : Devoirs 30 %, Examen 70 %). Si le cours utilise un barème par cumul de points, transposez les points obtenus en pourcentages ou attribuez des pondérations proportionnelles à l'importance de chaque épreuve.",
+      "aiImportBtn": "✨ Importation Intelligente de Syllabus / Canvas",
+      "aiImportModalTitle": "Coller la répartition du syllabus ou le relevé de notes Canvas",
+      "aiImportSubtitle": "Collez du texte brut provenant de ChatGPT, de votre syllabus ou des notes de cours Canvas. Nous détecterons automatiquement les devoirs, les notes et les coefficients de pourcentage.",
+      "aiImportPlaceholder": "par ex.\nDevoirs: 90% (coefficient 20%)\nExamen Partiel: 85 (30%)\nLaboratoires et Projet: 88 (25%)\nExamen Final: 25%",
+      "aiImportApply": "Importer les Évaluations du Cours",
+      "aiImportCancel": "Annuler",
+      "aiImportSuccess": "Devoirs analysés et chargés avec succès !",
+      "dropLowestLabel": "Exclure la Note la Plus Basse",
+      "droppedBadge": "EXCLU",
+      "testQuickPreset": "Présélections Rapides de Questions"
     },
     "hashGenerator": {
       "title": "Générateur de Hash IA en Ligne (MD5, SHA256, Bcrypt et Fichiers)",

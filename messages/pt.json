@@ -505,8 +505,8 @@
       "description": "Converta remuneração anual, mensal, quinzenal e horária com dedução de férias remuneradas, consultor de tarifas autônomas com IA e estimativa de salário líquido."
     },
     "grade-calculator": {
-      "name": "Calculadora de Nota Final – Simulador de Médias e Desempenho Escolar",
-      "description": "Calculadora de nota final e simulador de metas gratuita. Calcule médias de semestre, notas bimestrais, pontuações de provas e GPA para ensino médio e superior."
+      "name": "Calculadora de Nota Final com IA – Simulador de Notas e Avaliador de Testes",
+      "description": "Calculadora gratuita de nota final com IA e simulador de notas online. Calcule a média universitária ponderada, notas semestrais do ensino médio e pontuações de provas com matriz interativa e importação de programas do Canvas."
     },
     "fix-my-speaker": {
       "name": "Limpador de Alto-Falante – Ejetar Água e Som de Poeira 10000 Hz",
@@ -741,8 +741,8 @@
       "faq4A": "Receber dois produtos iguais custeando somente um deles corresponde a 50% de economia direta. Obter três itens pelo custo de dois equivale a um desconto real de 33,33%."
     },
     "gradeCalculator": {
-      "title": "Calculadora de Nota Final – Simulador de Médias e Desempenho Escolar",
-      "subtitle": "Calculadora de nota final e simulador de metas gratuita. Calcule médias de semestre, notas bimestrais, pontuações de provas e GPA para ensino médio e superior.",
+      "title": "Calculadora de Nota Final com IA – Simulador de Notas e Avaliador de Testes",
+      "subtitle": "Calculadora gratuita de nota final com IA e simulador de notas online. Calcule a média universitária ponderada, notas semestrais e pontuações de provas com matriz interativa.",
       "aboutText": "Nossa calculadora de nota final e simulador de médias acadêmicas é uma solução completa desenvolvida para estudantes do ensino médio, universitários, professores e responsáveis. Seja para auxiliar educadores na apuração de notas de atividades ou para servir como aferidor preciso de avaliações, a plataforma simplifica a gestão do boletim escolar. Alunos podem acompanhar o progresso de semestres inteiros ou bimestres individuais. O utilitário atende com facilidade às demandas de cálculo de notas no ensino secundário e a sistemas baseados em soma de pontos ou porcentagens ponderadas. Equipado com um simulador preditivo, calcula com precisão a pontuação necessária no exame final para garantir a média desejada.",
       "feature1": "Categorias de avaliação flexíveis: adicione trabalhos e provas sem limites, definindo o peso percentual de cada item",
       "feature2": "Simulação de meta para a prova final: descobre a pontuação necessária para atingir uma nota A, B ou média desejada",
@@ -761,7 +761,17 @@
       "faq3Q": "Professores podem usar o sistema para fechar médias semestrais ou bimestrais?",
       "faq3A": "Com certeza! Vários educadores utilizam esta página para consolidar notas de turmas em períodos bimestrais e semestrais. É possível organizar critérios de avaliação, conferir se a soma dos pesos atinge 100% e obter um relatório claro para conselhos de classe.",
       "faq4Q": "A ferramenta aceita tanto pesos ponderados quanto contagem por pontos totais?",
-      "faq4A": "Sim! Em cursos com média ponderada, digite as porcentagens de cada critério diretamente (ex: Trabalhos 30%, Provas 70%). Se o curso adota pontuação cumulativa, converta os pontos obtidos em valores percentuais equivalentes ou distribua os pesos proporcionalmente."
+      "faq4A": "Sim! Em cursos com média ponderada, digite as porcentagens de cada critério diretamente (ex: Trabalhos 30%, Provas 70%). Se o curso adota pontuação cumulativa, converta os pontos obtidos em valores percentuais equivalentes ou distribua os pesos proporcionalmente.",
+      "aiImportBtn": "✨ Importação Inteligente de Programa de Estudos / Canvas",
+      "aiImportModalTitle": "Cole a distribuição do programa de estudos ou o resumo de notas do Canvas",
+      "aiImportSubtitle": "Cole o texto não formatado do ChatGPT, do seu plano de curso ou das notas de disciplinas do Canvas. Detectaremos automaticamente as tarefas, notas e pesos percentuais.",
+      "aiImportPlaceholder": "ex.\nTarefas: 90% (peso 20%)\nProva Semestral: 85 (30%)\nLaboratórios e Projeto: 88 (25%)\nExame Final: 25%",
+      "aiImportApply": "Importar Trabalhos do Curso",
+      "aiImportCancel": "Cancelar",
+      "aiImportSuccess": "Tarefas analisadas e carregadas com sucesso!",
+      "dropLowestLabel": "Descartar a Menor Nota",
+      "droppedBadge": "DESCARTADO",
+      "testQuickPreset": "Predefinições Rápidas de Questões"
     },
     "hashGenerator": {
       "title": "Gerador de Hash com IA Online (MD5, SHA256, Bcrypt e Arquivos)",

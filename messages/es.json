@@ -505,8 +505,8 @@
       "description": "Convierta salario anual, mensual, quincenal y por hora con deducción de vacaciones, asesor de tarifas independientes con IA y cálculo neto tras deducciones fiscales."
     },
     "grade-calculator": {
-      "name": "Calculadora de Calificación Final – Simulador de Notas y Promedios",
-      "description": "Calculadora de calificación final y simulador de metas académicas gratuita. Calcula notas de semestre, evaluaciones trimestrales, puntajes y promedios GPA escolares."
+      "name": "Calculadora de Calificación Final con IA – Calculadora Qué Pasaría Si y Evaluador de Exámenes",
+      "description": "Calculadora de calificación final con IA y simulador de notas en línea gratuita. Calcule el promedio universitario ponderado, calificaciones semestrales de secundaria, notas de exámenes con matriz interactiva e importe programas de estudio de Canvas al instante."
     },
     "fix-my-speaker": {
       "name": "Limpiador de Altavoces – Expulsar Agua y Sonido de Polvo 10000 Hz",
@@ -741,8 +741,8 @@
       "faq4A": "Llevarse dos unidades abonando únicamente una de ellas equivale a un 50% de reducción sobre el total. Comprar tres productos pagando dos supone una rebaja efectiva del 33,33%."
     },
     "gradeCalculator": {
-      "title": "Calculadora de Calificación Final – Simulador de Notas y Promedios",
-      "subtitle": "Calculadora de calificación final y simulador de metas académicas gratuita. Calcula notas de semestre, evaluaciones trimestrales, puntajes y promedios GPA escolares.",
+      "title": "Calculadora de Calificación Final con IA – Calculadora Qué Pasaría Si y Evaluador de Exámenes",
+      "subtitle": "Calculadora de calificación final con IA y simulador de notas en línea gratuita. Calcule el promedio universitario ponderado, calificaciones semestrales de secundaria y notas de exámenes con matriz interactiva.",
       "aboutText": "Nuestra calculadora de calificación final y simulador de notas es un recurso integral concebido para estudiantes de secundaria, universitarios, docentes y tutores. Ya sea que busques una herramienta para que los profesores evalúen tareas cotidianas o precises un calculador exacto para pruebas y exámenes, esta solución simplifica el seguimiento del rendimiento escolar. Los estudiantes pueden emplearla para registrar el progreso de semestres completos o trimestres independientes. Se adapta tanto al cálculo de promedios para bachillerato como a sistemas basados en acumulación de puntos o porcentajes ponderados. Su simulador dinámico de objetivos determina con exactitud qué calificación necesitas en los exámenes finales restantes para alcanzar la nota deseada.",
       "feature1": "Categorías ponderadas configurables: añada tareas, talleres y exámenes con porcentajes de ponderación individuales",
       "feature2": "Proyección para el examen final: calcula automáticamente la puntuación exacta requerida para obtener una A o un porcentaje específico",
@@ -761,7 +761,17 @@
       "faq3Q": "¿Pueden los docentes emplear este recurso para notas trimestrales o semestrales?",
       "faq3A": "¡Por supuesto! Muchos profesores utilizan esta plataforma para calcular los promedios de períodos semestrales y trimestrales de sus alumnos. Permite estructurar diversas categorías de evaluación, verificar que la suma de ponderaciones alcance el 100% y obtener un resumen claro para boletines de calificaciones.",
       "faq4Q": "¿Es compatible tanto con categorías ponderadas como con sistemas de puntos totales?",
-      "faq4A": "Sí. Para asignaturas ponderadas, introduce directamente los porcentajes del programa escolar (por ejemplo, Tareas 20%, Examen 50%). Si tu curso utiliza un sistema de puntos totales, convierte los puntajes obtenidos a porcentajes relativos o asigna pesos proporcionales al valor de cada entrega."
+      "faq4A": "Sí. Para asignaturas ponderadas, introduce directamente los porcentajes del programa escolar (por ejemplo, Tareas 20%, Examen 50%). Si tu curso utiliza un sistema de puntos totales, convierte los puntajes obtenidos a porcentajes relativos o asigna pesos proporcionales al valor de cada entrega.",
+      "aiImportBtn": "✨ Importación Inteligente de Programa / Canvas",
+      "aiImportModalTitle": "Pegar desglose del programa o resumen de calificaciones de Canvas",
+      "aiImportSubtitle": "Pegue texto de ChatGPT, de su programa de estudios o calificaciones de Canvas. Detectaremos automáticamente las tareas, calificaciones y ponderaciones porcentuales.",
+      "aiImportPlaceholder": "p. ej.\nDeberes: 90% (ponderación 20%)\nExamen Parcial: 85 (30%)\nLaboratorios y Proyecto: 88 (25%)\nExamen Final: 25%",
+      "aiImportApply": "Importar Trabajos del Curso",
+      "aiImportCancel": "Cancelar",
+      "aiImportSuccess": "¡Tareas analizadas y cargadas con éxito!",
+      "dropLowestLabel": "Descartar la Calificación Más Baja",
+      "droppedBadge": "DESCARTADO",
+      "testQuickPreset": "Preajustes Rápidos de Preguntas"
     },
     "hashGenerator": {
       "title": "Generador de Hash con IA en Línea (MD5, SHA256, Bcrypt y Archivos)",
